@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import ResumeForm from './Component/ResumeForm/ResumeForm';
+import ChooseTemplates from './Page/ChooseTemplates/ChooseTemplates';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/ResumeForm",
     element: <ResumeForm/>,
+  },
+  {
+    path: "/ChooseTemplates",
+    element: <ChooseTemplates/>,
   },
 ]);
 root.render(

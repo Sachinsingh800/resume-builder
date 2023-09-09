@@ -10,7 +10,7 @@ function Home() {
             <div className={style.heading}>
             <h1><span style={{color:"red"}}>Unlock </span>Your Potential, One Resume at a Time</h1>
              <h4>Create Your Resume For Free</h4>
-            <Link to={"/ResumeForm"}><button>Create Resume</button></Link> 
+            <Link to={"/ChooseTemplates"}><button>Create Resume</button></Link> 
             </div>
 
     
