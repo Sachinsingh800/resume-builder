@@ -1,46 +1,12 @@
 import React, { useState } from 'react';
 import styles from './ResumeTemplates.module.css'; // Import the CSS module
-import dp from "../Images/dp.png"
+import { Name } from '../../Recoil';
+import { useRecoilState } from 'recoil';
 
 function ResumeTemplates() {
     const [color,setColor] = useState("red")
+    const [resumeData, setName] = useRecoilState(Name);
 
-    const resumeData = {
-        profilePicture: dp,
-        jobTitle: 'Web Developer',
-        firstName: 'John',
-        lastName: 'Doe',
-        phone: '123-456-7890',
-        email: 'johndoe@example.com',
-        address: '123 Main Street',
-        city: 'Sample City',
-        postCode: '12345',
-        state: 'Sample State',
-        country: 'Sample Country',
-        bio:"Creating a fully functional resume template in React.js is a complex task that involves designing the user interface, handling user input, and possibly integrating with a database or backend service to store and retrieve resume data. I'll provide you with a simplified example of a basic resume template in React.js to get you started. This example won't include all possible features but will serve as a starting point.",
-        workExperience: [
-          {
-            positionTitle: 'Software Engineer',
-            companyName: 'ABC Inc.',
-            startDate: 'January 2019',
-            endDate: 'Present',
-            workSummary: 'Worked on various web development projects.',
-          },
-        ],
-        education: [
-          {
-            schoolName: 'University of XYZ',
-            schoolLocation: 'Sample Location',
-            startDate: 'August 2015',
-            endDate: 'May 2019',
-            degree: 'Bachelor of Science',
-            fieldOfStudy: 'Computer Science',
-            description: 'Graduated with honors.',
-          },
-        ],
-        skillSummary: ["JavaScript", "React", "HTML", "CSS", "Node.js"],
-      };
-      
 
   return (
    
@@ -77,7 +43,7 @@ function ResumeTemplates() {
 
 <div className={styles.skills}> {/* Use the CSS class from the module */}
   <h2 style={{color:color}}>Skills</h2>
-  {resumeData.skillSummary.map((item)=>
+  {resumeData?.skillSummary?.map((item)=>
   <ul>
     <li>{item}</li>
   </ul>

@@ -10,6 +10,7 @@ import {
 import ResumeForm from './Component/ResumeForm/ResumeForm';
 import ChooseTemplates from './Page/ChooseTemplates/ChooseTemplates';
 import CreateResume from './Page/CreateResume/CreateResume';
+import {RecoilRoot} from  "recoil"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -31,9 +32,10 @@ const router = createBrowserRouter([
   },
 ]);
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+
+    <RecoilRoot>
+       <RouterProvider router={router} />
+  </RecoilRoot>
 );
 
 // If you want to start measuring performance in your app, pass a function

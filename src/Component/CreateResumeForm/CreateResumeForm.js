@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import style from "./CreateResumeForm.module.css"
+import { Name } from '../../Recoil';
+import { useRecoilState } from 'recoil';
 
 function CreateResumeForm() {
     const [section,setSection] =useState(1)
-    console.log(section)
+    const [resumeData, setName] = useRecoilState(Name);
+
+
   const [formData, setFormData] = useState({
     profilePicture: '',
     bio:"",
@@ -27,8 +31,45 @@ function CreateResumeForm() {
     educationEndDate: '',
     degree: '',
     fieldOfStudy: '',
-    skillSummary: '',
+    skillSummary: ["JavaScript", "React", "HTML", "CSS", "Node.js"],
   });
+
+let newData= {
+    profilePicture: formData.profilePicture,
+    jobTitle: formData.jobTitle,
+    firstName: formData.firstName,
+    lastName: formData.lastName,
+    phone: formData.phone,
+    email: formData.email,
+    address: formData.address,
+    city: formData.city,
+    postCode: formData.postCode,
+    state: formData.state,
+    country: formData.country,
+    bio:formData.bio,
+    workExperience: [
+      {
+        positionTitle: formData.positionTitle,
+        companyName: formData.companyName,
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        workSummary: formData.workSummary,
+      },
+    ],
+    education: [
+      {
+        schoolName: formData.schoolName,
+        schoolLocation: formData.schoolLocation,
+        startDate: formData.startDate,
+        endDate: formData.endDate,
+        degree: formData.degree,
+        fieldOfStudy: formData.fieldOfStudy,
+        description: formData.description,
+      },
+    ],
+    skillSummary: ["JavaScript", "React", "HTML", "CSS", "Node.js"],
+  }
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -38,6 +79,7 @@ function CreateResumeForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData,"aa agaya")
+    setName(newData)
   };
 
   const handleSection = (direction) => {
@@ -172,7 +214,7 @@ function CreateResumeForm() {
         <h2>Skills</h2>
         <div>
           <label>Skills Summary:</label>
-          <textarea name="skillSummary" value={formData.skillSummary} onChange={handleInputChange} />
+          {/* <textarea name="skillSummary" value={formData.skillSummary} onChange={handleInputChange} /> */}
         </div>
         <button type="submit">Submit</button>
       </section>
