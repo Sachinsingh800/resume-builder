@@ -8,3 +8,9 @@
     grid-template-columns: 1fr 1fr;
     padding: 6rem 2rem;
 }
+.left_box{
+    padding: 1rem;
+}
+.right_box{
+    padding: 1rem;
+}

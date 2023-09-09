@@ -9,10 +9,10 @@ function CreateResume() {
     <div className={style.main}>
         <NavBar/>
         <div className={style.container}>
-              <div>
+              <div className={style.left_box} >
                 <CreateResumeForm/>
               </div>
-              <div>
+              <div className={style.right_box} >
                 <ResumeTemplates/>
               </div>
         </div>

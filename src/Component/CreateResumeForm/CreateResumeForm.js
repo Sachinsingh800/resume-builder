@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import style from "./CreateResumeForm.module.css"
 
-function CreateResumeForm({ onSubmit }) {
+function CreateResumeForm() {
     const [section,setSection] =useState(1)
+    console.log(section)
   const [formData, setFormData] = useState({
     profilePicture: '',
+    bio:"",
     jobTitle: '',
     firstName: '',
     lastName: '',
@@ -34,19 +37,36 @@ function CreateResumeForm({ onSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(formData);
+    console.log(formData,"aa agaya")
   };
+
+  const handleSection = (direction) => {
+    // Increment or decrement the section based on the direction parameter
+    if (direction === 'next' && section < 4) {
+      setSection(section + 1);
+    } else if (direction === 'prev' && section > 1) {
+      setSection(section - 1);
+    }
+  };
+  
+
+
 
   return (
     <div className="resume-form">
       <h1>Create Your Resume</h1>
-      <form onSubmit={handleSubmit}>
+      <br/>
+      <form className={style.form} onSubmit={handleSubmit}>
         {section ===1 &&  
          <section>
          <h2>Personal Information</h2>
          <div>
            <label>Profile Picture:</label>
            <input type="file" name="profilePicture" onChange={handleInputChange} />
+         </div>
+         <div>
+           <label>Bio:</label>
+           <textarea type="text" name="bio" value={formData.bio} onChange={handleInputChange} />
          </div>
          <div>
            <label>Job Title:</label>
@@ -154,14 +174,21 @@ function CreateResumeForm({ onSubmit }) {
           <label>Skills Summary:</label>
           <textarea name="skillSummary" value={formData.skillSummary} onChange={handleInputChange} />
         </div>
+        <button type="submit">Submit</button>
       </section>
     }
 
     
 
-        <button type="submit">Submit</button>
+        
       </form>
-      <button onClick={()=>setSection(section+1)}>Next</button>
+      <br/>
+      <div className={style.btn_box}>
+      <button onClick={() => handleSection('prev')}>Previous</button>
+      <button onClick={() => handleSection('next')}>Next</button>
+      </div>
+
+
     </div>
   );
 }
