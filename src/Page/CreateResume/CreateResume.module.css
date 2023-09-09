@@ -1,0 +1,10 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 6rem 2rem;
+}
