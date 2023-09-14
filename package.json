@@ -6,10 +6,16 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "docxtemplater": "^3.39.1",
+    "file-saver": "^2.0.5",
+    "html-to-docx": "^1.8.0",
+    "loader-utils": "^3.2.1",
+    "mammoth": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
+    "react-to-pdf": "^1.0.1",
     "recoil": "^0.7.7",
     "web-vitals": "^2.1.4"
   },
@@ -17,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "url": "false"
   },
   "eslintConfig": {
     "extends": [

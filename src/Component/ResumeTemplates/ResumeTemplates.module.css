@@ -1,8 +1,7 @@
 .resume {
     font-family: Arial, sans-serif;
    height: max-content;
-   width: 45rem;
-   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+   width: 50rem;
   }
   
   .header {
@@ -54,23 +53,4 @@
     flex-direction: column;
     gap: 1rem;
   }
-  .colorplates_box{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-
-  }
-  .colorplates_box ul{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  .colorplates_box ul li{
-    height: 1rem;
-    width: 1rem;
-    border-radius: 50%;
-    list-style: none;
-    cursor: pointer;
-  }
+  

@@ -42,3 +42,8 @@ export const Name = atom({
     skillSummary: ["JavaScript", "React", "HTML", "CSS", "Node.js"],
   },
 });
+
+export const ChooseColor = atom({
+  key: 'ChooseColor',
+  default:"red"
+});
