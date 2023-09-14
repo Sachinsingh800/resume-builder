@@ -4,11 +4,12 @@
     box-sizing: border-box;
 }
 .main{
-    background-color: aliceblue;
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100vh;
     padding-top: 5rem;
+    background-image: url(../../Component/Images/bg.jpg);
+    background-size: cover;
 }
 
 .heading{

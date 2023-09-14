@@ -1,6 +1,6 @@
 import React from 'react'
 import style from "./Home.module.css"
-import resume  from "../../Component/Images/resume.png"
+import resume  from "../../Component/Images/navy-resume.png"
 import { Link } from 'react-router-dom'
 
 function Home() {
