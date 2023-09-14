@@ -39,7 +39,10 @@ a{
     border-radius: 50%;
     list-style: none;
     cursor: pointer;
-  
+    transition: transform ease-in-out .5s;
+  }
+  .colorplates_box ul li:hover{
+    transform: scale(1.2)
   }
   .template_box{
     display: grid;
