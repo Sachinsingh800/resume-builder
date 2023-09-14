@@ -21,7 +21,7 @@ function ChooseTemplates() {
         <NavBar/>
      
       <div className={style.container}>
-      <h1>What do you want your resume to lookn like ?</h1>
+      <h1>What do you want your resume to look like ?</h1>
       <p>View all resume template and select a specific style to customize</p>
       <div className={style.colorplates_box}>
         <h2>colors</h2>
