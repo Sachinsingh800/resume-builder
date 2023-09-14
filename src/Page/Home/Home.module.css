@@ -32,15 +32,15 @@
     height: 2rem;
     border-radius: 15px;
     border: none;
-    background-color: aqua;
+    background-color:  rgb(20, 255, 20);
     font-weight: 700;
     font-size: 1rem;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
 }
 .heading button:hover{
-    background-color: red;
-    color: white;
+    background-color:   white;
+ 
 }
 .img_box{
     height: 30rem;
@@ -73,3 +73,10 @@
     0% {opacity: 0;}
     100% {opacity: 1;}
     } 
+    .span{
+        /* background: rgb(17,7,7);
+background: linear-gradient(0deg, rgba(17,7,7,1) 0%, rgba(154,8,8,1) 100%, rgba(255,255,255,0.11808473389355745) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; */
+        color: rgb(20, 255, 20);
+    }
