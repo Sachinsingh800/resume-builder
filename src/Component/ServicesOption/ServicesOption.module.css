@@ -1,4 +1,56 @@
-
-
+.main{
+  display: flex;
+  height: 100%;
+   padding: 1rem;
+}
   
+.main ul{
+list-style: none;
+display: flex;
+flex-direction: column;
+width: 20rem;
+}
  
+.main ul li{
+  padding: 1rem;
+}
+
+.active{
+  background-color: aliceblue;
+}
+.notActive{
+  background-color: white;
+}
+.servicesDiv{
+  position: absolute;
+  left: 28%;
+  background-color: aliceblue;
+  z-index: 99;
+  border-radius: 5px;
+  top: 5%;
+}
+.arrow{
+  position: absolute;
+  margin-left: -1.5rem;
+  font-size: 3rem;
+  z-index: -1;
+  color: aliceblue;
+  margin-top: -.5rem;
+}
+.servicesDiv ul li{
+  padding: 1rem;
+  background-color: white;
+  width: 18rem;
+  border-radius: 5px;
+}
+.servicesDiv ul {
+  list-style: none;
+ width: max-content;
+ display: grid;
+ grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+.servicesDiv ul li:hover{
+  background-color: aqua;
+}

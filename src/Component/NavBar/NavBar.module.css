@@ -59,12 +59,12 @@
     position: absolute;
     display: flex;
     background-color:white;
-    margin-top: 24rem!important;
+    margin-top: 28rem!important;
     left: 2%;
     border-radius: 10px;
     width: 95%;
     color: black;
-    height: 20rem;
+    height: max-content;
     z-index: 99;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
