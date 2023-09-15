@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import style from './Slider.module.css';
+import Card from './Card';
 
 
 export default function Slider() {
@@ -27,42 +28,42 @@ export default function Slider() {
     },
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (carouselRef.current) {
-        const nextSlide = (activeSlide + 4) % carouselRef.current.state.totalItems;
-        carouselRef.current.goToSlide(nextSlide, false);
-        setActiveSlide(nextSlide);
-      }
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     if (carouselRef.current) {
+  //       const nextSlide = (activeSlide + 4) % carouselRef.current.state.totalItems;
+  //       carouselRef.current.goToSlide(nextSlide, false);
+  //       setActiveSlide(nextSlide);
+  //     }
+  //   }, 5000);
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [activeSlide]);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [activeSlide]);
 
   return (
     <div className={style.main}>
       <Carousel ref={carouselRef} responsive={responsive}>
         <div>
-          <img className={style.item} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS2RCLUPq1JgEPmHByabXOF8kuno6klS2moQ&usqp=CAU" alt="img 1" />
+         <Card/>
         </div>
         <div>
-          <img className={style.item} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS2RCLUPq1JgEPmHByabXOF8kuno6klS2moQ&usqp=CAU" alt="img 1" />
+         <Card/>
         </div>
         <div>
-          <img className={style.item} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS2RCLUPq1JgEPmHByabXOF8kuno6klS2moQ&usqp=CAU" alt="img 1" />
+         <Card/>
         </div>
         <div>
-          <img className={style.item} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS2RCLUPq1JgEPmHByabXOF8kuno6klS2moQ&usqp=CAU" alt="img 1" />
+         <Card/>
         </div>
         <div>
-          <img className={style.item} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS2RCLUPq1JgEPmHByabXOF8kuno6klS2moQ&usqp=CAU" alt="img 1" />
+         <Card/>
         </div>
         <div>
-          <img className={style.item} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS2RCLUPq1JgEPmHByabXOF8kuno6klS2moQ&usqp=CAU" alt="img 1" />
+         <Card/>
         </div>
-      
+
       </Carousel>
     </div>
   );

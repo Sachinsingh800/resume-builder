@@ -6,6 +6,7 @@
     padding: 2rem;
     gap: 6rem;
     justify-content: center;
+    background-color: aliceblue;
 }
 .heading{
     display: flex;
