@@ -3,6 +3,7 @@ import style from './NavBar.module.css';
 // import logo from '../../images/logo.png';
 // import SignUp from '../SignUp/SignUp';
 import ServicesOption from '../ServicesOption/ServicesOption';
+import { Link } from 'react-router-dom';
 // import SignIn from '../SignIn/SignIn';
 // import HamburgerBtn from '../HamburgerBtn/HamburgerBtn';
 
@@ -29,7 +30,7 @@ function NavBar() {
   return (
     <div className={style.main} >
       {/* <img className={style.img} src={logo} alt='logo' /> */}
-      <h5>logo</h5>
+    <Link to={"/"}><h5>logo</h5></Link>  
       <div className={style.HamburgerBtn}>
       {/* <HamburgerBtn/>  */}
       </div>

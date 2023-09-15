@@ -66,8 +66,10 @@
     z-index: 9;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
+
 .active{
     color:gray ;
+
 }
 .notActive{
    color: black;
@@ -83,3 +85,19 @@
         display: unset;
     }
 }
+
+/* Define the keyframes for the slideDown animation */
+@keyframes slideDown {
+    0% {
+      transform: translateY(-10%); /* Start off the screen above */
+    }
+    100% {
+      transform: translateY(1%); /* End at its normal position */
+    }
+  }
+  
+  /* Apply the slideDown animation to the element you want to animate */
+  .servicesDiv{
+    animation: slideDown 1s ease forwards; /* 1s duration, ease-in-out timing function */
+  }
+  
