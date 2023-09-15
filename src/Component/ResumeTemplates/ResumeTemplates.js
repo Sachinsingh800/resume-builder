@@ -26,7 +26,10 @@ function ResumeTemplates() {
       {/* Use the ref to reference the content to be included in the PDF */}
       <div className={styles.resume} id="content" ref={targetRef}>
         <div className={styles.header} style={{ backgroundColor: color }}>
+          <div className={styles.img_box}>
           <img src={resumeData.profilePicture} alt="Profile" />
+          </div>
+          
           <h1>
             {resumeData.firstName} {resumeData.lastName}
           </h1>
