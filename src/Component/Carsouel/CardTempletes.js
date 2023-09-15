@@ -6,7 +6,10 @@ function CardTempletes() {
   return (
     <div className={style.main}>
         <div className={style.template_card}>
-        <ResumeTemplates/>
+          <div >
+          <ResumeTemplates/>
+          </div>
+
         </div>
    
     </div>
