@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import style from './NavBar.module.css';
-// import logo from '../../images/logo.png';
-// import SignUp from '../SignUp/SignUp';
+import logo from '../Images/logo.png';
 import ServicesOption from '../ServicesOption/ServicesOption';
 import { Link } from 'react-router-dom';
-// import SignIn from '../SignIn/SignIn';
-// import HamburgerBtn from '../HamburgerBtn/HamburgerBtn';
+
+
 
 
 function NavBar() {
@@ -29,8 +28,8 @@ function NavBar() {
 
   return (
     <div className={style.main} >
-      {/* <img className={style.img} src={logo} alt='logo' /> */}
-    <Link to={"/"}><h5>logo</h5></Link>  
+     
+    <Link to={"/"}> <img className={style.img} src={logo} alt='logo' /></Link>  
       <div className={style.HamburgerBtn}>
       {/* <HamburgerBtn/>  */}
       </div>

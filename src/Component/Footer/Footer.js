@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Footer.module.css";
-// import logo from "../../Image/logo.png";
+import logo from "../Images/logo.png";
 import { Link } from "react-router-dom";
 import { BsInstagram } from "react-icons/bs";
 // import { BsFacebook } from "react-icons/bs";
@@ -24,8 +24,7 @@ function Footer() {
       <div className={style.main}>
         <div className={style.logobox}>
           <Link to={"/"} onClick={scrollToTop}>
-            {/* <img className={style.img} src={logo} alt="logo" /> */}
-            <h5 style={{color:"white"}}>logo</h5>
+            <img className={style.img} src={logo} alt="logo" />
           </Link>
           <p className={style.paragraph}>
             Easyryt Software Solutions offers the tools you require to
