@@ -1,9 +1,10 @@
 import React from 'react'
-import style from "./FirstSection.module.css"
+import style from "./SecondSection.module.css"
 import Carsouel from '../../Component/Carsouel/Carsouel'
+import Slider from '../../Component/Slider/Slider'
 
 
-function FirstSection() {
+function SecondSection() {
   return (
     <div className={style.main}>
         <div className={style.heading}>
@@ -14,10 +15,10 @@ function FirstSection() {
         </div>
 
       <div className={style.Carsouel}>
-         <Carsouel/>
+         <Slider/>
       </div>
     </div>
   )
 }
 
-export default FirstSection
+export default SecondSection

@@ -1,0 +1,10 @@
+.main{
+  width: 100%;
+  margin: 0;
+  padding: 1rem;
+}
+
+.item{
+  height: 30rem;
+  width: 20rem;
+}
