@@ -22,6 +22,7 @@ function ResumeTemplates() {
            {/* <button onClick={() => generatePDF(targetRef, pdfOptions)}>
           Download PDF
         </button> */}
+      
 
       {/* Use the ref to reference the content to be included in the PDF */}
       <div className={styles.resume} id="content" ref={targetRef}>

@@ -5,6 +5,7 @@ import ResumeTemplates from '../../Component/ResumeTemplates/ResumeTemplates'
 import { Link } from 'react-router-dom'
 import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
 import { ChooseColor } from '../../Recoil'
+import Footer from '../../Component/Footer/Footer'
 
 function ChooseTemplates() {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -47,12 +48,13 @@ function ChooseTemplates() {
 <div  className={style.template_box}>
     {template.map((item)=>
     <div className={style.template_card}>
-      <Link to={"/ResumeForm"}><div > {item}</div> </Link>   
+      <Link to={"/ResumeForm"}><div className={style._card}> {item}</div> </Link>   
     </div>
     )}
 </div>
             
       </div >
+      <Footer/>
     </div>
   )
 }

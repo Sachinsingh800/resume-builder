@@ -62,7 +62,7 @@ a{
     font-size: .5rem;
 
   }
-   .template_card div:hover {
+  ._card:hover {
     -webkit-animation-name: pulse;
     animation-name: pulse;
     -webkit-animation-duration: 1s;
