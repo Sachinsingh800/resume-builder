@@ -44,9 +44,10 @@ function NavBar() {
         >
           Resume
         </h4>
-
+     
         {isServicesHovered && (
           <div onMouseLeave={handleServicesLeave} className={style.servicesDiv}>
+                <span className={style.arrow}>▲</span>
             <ServicesOption />
     
           </div>
