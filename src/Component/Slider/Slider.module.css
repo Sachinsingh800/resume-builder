@@ -4,10 +4,12 @@
   padding: 1rem;
   height: max-content;
   background-color: white;
+
 }
 
 .item{
   height: max-content;
-  width: 10rem;
+  width: max-content;
   background-color: white;
+
 }
