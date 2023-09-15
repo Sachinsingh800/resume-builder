@@ -14,7 +14,7 @@ function NavBar() {
   };
 
   const handleResumeLeave = () => {
-    setIsResumeHovered(false);
+    setIsResumeHovered(true);
   };
 
   const handleCoverLetterHover = () => {

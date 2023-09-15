@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./ServicesOption.module.css";
 
-function ServicesOption({ title, options }) {
+function ServicesOption({ title, options, arrow }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleHover = () => {
@@ -18,10 +18,10 @@ function ServicesOption({ title, options }) {
       onMouseEnter={handleHover}
       onMouseLeave={handleLeave}
     >
-     {title}
+      {arrow} {title}
       {isHovered && (
         <div className={style.servicesDiv} onMouseLeave={handleLeave}>
-          <span className={style.arrow}>◀</span>
+          {/* <span className={style.arrow}>{arrow}</span> */}
           <ul>
             {options.map((option, index) => (
               <li key={index}>{option}</li>
@@ -41,20 +41,18 @@ export default function ServicesOptionList() {
         "Option 1",
         "Option 2",
         "Option 3",
-        "Option 4",
-        "Option 5",
-        "Option 6",
-        "Option 7",
-        "Option 8",
-        "Option 9",
-        "Option 10",
-        "Option 11",
-        "Option 12",
-        "Option 13",
-        "Option 14",
-        "Option 15",
+        "Option 1",
+        "Option 2",
+        "Option 3",
+        "Option 1",
+        "Option 2",
+        "Option 3",
+        "Option 1",
+        "Option 2",
+        "Option 3",
         // Add more options here
       ],
+      arrow: "▶",
     },
     {
       title: "Software Developer 2",
@@ -64,6 +62,7 @@ export default function ServicesOptionList() {
         "Option 3",
         // Add more options here
       ],
+      arrow: "▶",
     },
     {
       title: "Software Developer 3",
@@ -73,6 +72,7 @@ export default function ServicesOptionList() {
         "Option 3",
         // Add more options here
       ],
+      arrow: "▶",
     },
     {
       title: "Software Developer 4",
@@ -82,6 +82,7 @@ export default function ServicesOptionList() {
         "Option 3",
         // Add more options here
       ],
+      arrow: "▶",
     },
     {
       title: "Software Developer 5",
@@ -91,6 +92,7 @@ export default function ServicesOptionList() {
         "Option 3",
         // Add more options here
       ],
+      arrow: "▶",
     },
     {
       title: "Software Developer 6",
@@ -100,6 +102,7 @@ export default function ServicesOptionList() {
         "Option 3",
         // Add more options here
       ],
+      arrow: "▶",
     },
     {
       title: "Software Developer 7",
@@ -109,6 +112,7 @@ export default function ServicesOptionList() {
         "Option 3",
         // Add more options here
       ],
+      arrow: "▶",
     },
     // Add more items here
   ];
@@ -121,6 +125,7 @@ export default function ServicesOptionList() {
             key={index}
             title={item.title}
             options={item.options}
+            arrow={item.arrow}
           />
         ))}
       </ul>

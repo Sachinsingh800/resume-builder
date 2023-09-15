@@ -39,7 +39,6 @@ width: 20rem;
 }
 .servicesDiv ul li{
   padding: 1rem;
-  background-color: white;
   width: 18rem;
   border-radius: 5px;
 }
@@ -52,5 +51,5 @@ width: 20rem;
   padding: 1rem;
 }
 .servicesDiv ul li:hover{
-  background-color: aqua;
+  background-color:white;
 }

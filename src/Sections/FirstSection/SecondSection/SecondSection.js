@@ -1,7 +1,7 @@
 import React from 'react'
 import style from "./SecondSection.module.css"
-import Carsouel from '../../Component/Carsouel/Carsouel'
-import Slider from '../../Component/Slider/Slider'
+import Carsouel from '../../../Component/Carsouel/Carsouel'
+import Slider from '../../../Component/Slider/Slider'
 
 
 function SecondSection() {
