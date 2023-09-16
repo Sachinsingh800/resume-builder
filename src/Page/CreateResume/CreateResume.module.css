@@ -5,7 +5,7 @@
 }
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     padding: 6rem 2rem;
 }
 .left_box{
@@ -13,4 +13,18 @@
 }
 .right_box{
     padding: 1rem;
+    overflow: hidden;
+}
+.right_box div{
+height: 70%;
+width: 100%;
+font-size: .6rem;
+}
+.right_box div img{
+    height: 4rem;
+    width: 4rem;
+}
+.Card{
+    border: 1px red solid;
+    height: 35rem!important;
 }

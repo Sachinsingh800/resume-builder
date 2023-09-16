@@ -47,3 +47,9 @@ export const ChooseColor = atom({
   key: 'ChooseColor',
   default:"red"
 });
+
+
+export const croppedImageState = atom({
+  key: 'croppedImageState',
+  default: null, // Initial value is null
+});

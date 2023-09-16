@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import style from "./CreateResumeForm.module.css"
 import { Name } from '../../Recoil';
 import { useRecoilState } from 'recoil';
+import dp_icon from "../Images/dp_icon.gif"
+import CropImage from '../CropImage/CropImage';
+import ImageModal from '../ImageModal/ImageModal';
+import { useRecoilValue } from 'recoil';
+import { croppedImageState } from '../../Recoil';
 
 function CreateResumeForm() {
     const [section,setSection] =useState(1)
     const [resumeData, setName] = useRecoilState(Name);
+    const image = useRecoilValue(croppedImageState);
 
-    const [image, setImage] = useState(null);
-    const onImageChange = (event) => {
-      if (event.target.files[0]) {
-        setImage(URL.createObjectURL(event.target.files[0]));
-      }
-    };
 
 
   const [formData, setFormData] = useState({
@@ -109,9 +109,16 @@ let newData= {
         {section ===1 &&  
          <section>
          <h2>Personal Information</h2>
-         <div>
-           <label>Profile Picture:</label>
-           <input type="file" onChange={onImageChange} className="filetype" />
+         <div className={style.img_container}>
+          <div className={style.img_box}>
+            {image ? <img src={image} alt='dp' /> :
+            <img src={dp_icon} alt='dp' />
+            }
+          
+          </div>
+          
+          <ImageModal/>
+             
          </div>
          <div>
            <label>Bio:</label>

@@ -4,11 +4,14 @@ import { Name } from "../../Recoil";
 import { useRecoilState } from "recoil";
 import generatePDF from "react-to-pdf";
 import { ChooseColor } from '../../Recoil'
+import { useRecoilValue } from 'recoil';
+import { croppedImageState } from "../../Recoil";
 
 function ResumeTemplates() {
  
   const [color, setColor] = useRecoilState(ChooseColor);
   const [resumeData, setName] = useRecoilState(Name);
+  const image = useRecoilValue(croppedImageState);
   const targetRef = useRef();
 
   const pdfOptions = {
@@ -28,7 +31,8 @@ function ResumeTemplates() {
       <div className={styles.resume} id="content" ref={targetRef}>
         <div className={styles.header} style={{ backgroundColor: color }}>
           <div className={styles.img_box}>
-          <img src={resumeData.profilePicture} alt="Profile" />
+            {    image ?  <img src={image} alt="Profile" />:<img src={resumeData.profilePicture} alt="Profile" />}
+          
           </div>
           
           <h1>

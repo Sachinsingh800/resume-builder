@@ -13,7 +13,11 @@ function CreateResume() {
                 <CreateResumeForm/>
               </div>
               <div className={style.right_box} >
+                <div className={style.Card}>
+                <div >
                 <ResumeTemplates/>
+                </div>
+                </div>
               </div>
         </div>
       
