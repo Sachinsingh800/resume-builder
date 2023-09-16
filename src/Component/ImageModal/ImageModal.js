@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from "./ImageModal.module.css"
 import CropImage from '../CropImage/CropImage';
+import ResumeTemplates from '../ResumeTemplates/ResumeTemplates';
 
 const style = {
   position: 'absolute',
@@ -13,7 +14,8 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 800,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  border: 'none',
+  borderRadius:"10px",
   boxShadow: 24,
   p: 4,
 };
@@ -34,14 +36,18 @@ export default function ImageModal() {
       >
         <Box sx={style}>
             <div className={styles.img_container}>
+                <button onClick={() => handleClose()} className={styles.Close_btn}>X</button>
             <div className={styles.left_box}>
+            <button onClick={() =>  handleClose()} className={styles.save_button}>Save  </button>
                <CropImage/>
+           
                </div>
                <div className={styles.right_box}>
-                <h3>jdkjsjdkskjdkjsgjdjsgjd</h3>
-                <h3>jdkjsjdkskjdkjsgjdjsgjd</h3>
-                <h3>jdkjsjdkskjdkjsgjdjsgjd</h3>
-                <h3>jdkjsjdkskjdkjsgjdjsgjd</h3>
+               <div className={style.Card}>
+                <div >
+                <ResumeTemplates/>
+                </div>
+                </div>
                </div>
             </div>
         

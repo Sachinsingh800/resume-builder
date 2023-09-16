@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import style from "./CreateResumeForm.module.css"
-import { Name } from '../../Recoil';
+import style from './CreateResumeForm.module.css';
 import { useRecoilState } from 'recoil';
-import dp_icon from "../Images/dp_icon.gif"
+import dp_icon from '../Images/dp_icon.gif';
 import CropImage from '../CropImage/CropImage';
 import ImageModal from '../ImageModal/ImageModal';
 import { useRecoilValue } from 'recoil';
 import { croppedImageState } from '../../Recoil';
+import { formatResumeData } from './utils'; // Import the formatting function
+// import { Name } from '../../Recoil';
 
-function CreateResumeForm() {
-    const [section,setSection] =useState(1)
-    const [resumeData, setName] = useRecoilState(Name);
-    const image = useRecoilValue(croppedImageState);
-
-
+export default function CreateResumeForm() {
+  const [section, setSection] = useState(1);
+  // const [resumeData, setName] = useRecoilState(Name);
+  const image = useRecoilValue(croppedImageState);
 
   const [formData, setFormData] = useState({
     profilePicture: '',
@@ -41,43 +40,6 @@ function CreateResumeForm() {
     skillSummary: ["JavaScript", "React", "HTML", "CSS", "Node.js"],
   });
 
-let newData= {
-    profilePicture: image,
-    jobTitle: formData.jobTitle,
-    firstName: formData.firstName,
-    lastName: formData.lastName,
-    phone: formData.phone,
-    email: formData.email,
-    address: formData.address,
-    city: formData.city,
-    postCode: formData.postCode,
-    state: formData.state,
-    country: formData.country,
-    bio:formData.bio,
-    workExperience: [
-      {
-        positionTitle: formData.positionTitle,
-        companyName: formData.companyName,
-        startDate: formData.startDate,
-        endDate: formData.endDate,
-        workSummary: formData.workSummary,
-      },
-    ],
-    education: [
-      {
-        schoolName: formData.schoolName,
-        schoolLocation: formData.schoolLocation,
-        startDate: formData.startDate,
-        endDate: formData.endDate,
-        degree: formData.degree,
-        fieldOfStudy: formData.fieldOfStudy,
-        description: formData.description,
-      },
-    ],
-    skillSummary: ["JavaScript", "React", "HTML", "CSS", "Node.js"],
-  }
-
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -85,10 +47,12 @@ let newData= {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData,"aa agaya")
-    setName(newData)
+    const newData = formatResumeData(formData, image);
+    // setName(newData);
+    console.log(newData,"new data")
   };
 
+  // ... Rest of your component code remains the same
   const handleSection = (direction) => {
     // Increment or decrement the section based on the direction parameter
     if (direction === 'next' && section < 4) {
@@ -105,7 +69,7 @@ let newData= {
     <div className="resume-form">
       <h1>Create Your Resume</h1>
       <br/>
-      <form className={style.form} onSubmit={handleSubmit}>
+      <div className={style.form} >
         {section ===1 &&  
          <section>
          <h2>Personal Information</h2>
@@ -116,8 +80,10 @@ let newData= {
             }
           
           </div>
-          
+          <div>
           <ImageModal/>
+          </div>
+  
              
          </div>
          <div>
@@ -230,14 +196,14 @@ let newData= {
           <label>Skills Summary:</label>
           {/* <textarea name="skillSummary" value={formData.skillSummary} onChange={handleInputChange} /> */}
         </div>
-        <button type="submit">Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
       </section>
     }
 
     
 
         
-      </form>
+      </div>
       <br/>
       <div className={style.btn_box}>
       <button onClick={() => handleSection('prev')}>Previous</button>
@@ -248,5 +214,3 @@ let newData= {
     </div>
   );
 }
-
-export default CreateResumeForm;

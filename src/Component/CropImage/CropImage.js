@@ -122,16 +122,10 @@ export default function CropImage(){
               }}
               className="zoom-range"
             />
-            <br/>
-            <button onClick={handleSaveImage} className="save-button">
-              Save 
-            </button>
+       
+       
           </div>
-          {croppedImage && (
-            <div className="cropped-image-container">
-              {/* <img src={croppedImage} alt="Cropped" className="cropped-image" /> */}
-            </div>
-          )}
+  
         </>
       )}
     </div>
