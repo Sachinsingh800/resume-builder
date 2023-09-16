@@ -3,8 +3,8 @@ import './App.css';
 import NavBar from './Component/NavBar/NavBar';
 import Home from './Page/Home/Home';
 import FirstSection from './Sections/FirstSection/FirstSection';
-import SecondSection from './Sections/FirstSection/SecondSection/SecondSection';
 import Footer from './Component/Footer/Footer';
+import SecondSection from './Sections/SecondSection/SecondSection';
 
 function App() {
   return (

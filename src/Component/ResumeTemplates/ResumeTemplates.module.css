@@ -64,4 +64,7 @@
     justify-content: center;
     background: transparent!important;
   }
+  .img_box img{
+    height: 6rem;
+  }
   
