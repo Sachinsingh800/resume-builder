@@ -45,7 +45,7 @@ export const Name = atom({
 
 export const ChooseColor = atom({
   key: 'ChooseColor',
-  default:"red"
+  default:"#113f67"
 });
 
 

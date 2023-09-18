@@ -14,17 +14,20 @@
 .right_box{
     padding: 1rem;
     overflow: hidden;
+    padding-top: 8rem;
 }
 .right_box div{
 height: 70%;
 width: 100%;
 font-size: .6rem;
+
 }
 .right_box div img{
     height: 4rem;
     width: 4rem;
 }
 .Card{
-    border: 1px red solid;
+    border: 1px rgb(161, 159, 159) solid;
     height: 35rem!important;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }

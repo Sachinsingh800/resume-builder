@@ -28,8 +28,8 @@ function ChooseTemplates() {
         <h2>colors</h2>
       <ul >
           <li
-            style={{ backgroundColor: "red" }}
-            onClick={() => setColor("red")}
+            style={{ backgroundColor: "#113f67" }}
+            onClick={() => setColor("#113f67")}
           ></li>
           <li
             style={{ backgroundColor: "orange" }}

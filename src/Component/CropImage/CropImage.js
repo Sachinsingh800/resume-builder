@@ -100,7 +100,7 @@ export default function CropImage(){
               image={image.src}
               crop={crop}
               zoom={zoom}
-              aspect={4 / 3}
+              aspect={3 / 3}
               onCropChange={setCrop}
               onCropComplete={onCropComplete}
               onZoomChange={setZoom}

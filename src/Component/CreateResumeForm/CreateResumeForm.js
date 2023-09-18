@@ -38,6 +38,8 @@ export default function CreateResumeForm() {
     newLink: '',
   });
 
+  console.log(formData.bio,"bio")
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
