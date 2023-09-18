@@ -33,7 +33,7 @@ export function formatResumeData(formData, image) {
           description: formData.description,
         },
       ],
-      skillSummary: ["JavaScript", "React", "HTML", "CSS", "Node.js"],
+      skillSummary: formData.skillSummary,
     };
   }
   
