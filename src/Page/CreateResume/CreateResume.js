@@ -4,6 +4,7 @@ import NavBar from '../../Component/NavBar/NavBar'
 import CreateResumeForm from '../../Component/CreateResumeForm/CreateResumeForm'
 import ResumeTemplates from '../../Component/ResumeTemplates/ResumeTemplates'
 import ResumeModal from '../../Component/ResumeModal/ResumeModal'
+import ColorPlate from '../../Component/ColorPlate/ColorPlate'
 
 function CreateResume() {
   return (
@@ -14,6 +15,10 @@ function CreateResume() {
                 <CreateResumeForm/>
               </div>
               <div className={style.right_box} >
+                <div className={style.color_plate}>
+                <ColorPlate/>
+                </div>
+                
             <ResumeModal/>
               </div>
         </div>

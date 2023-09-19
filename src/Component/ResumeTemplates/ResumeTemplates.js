@@ -12,23 +12,15 @@ function ResumeTemplates() {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [resumeData, setName] = useRecoilState(Name);
   const image = useRecoilValue(croppedImageState);
-  const targetRef = useRef();
 
-  const pdfOptions = {
-    unit: "mm",
-    format: "a4",
-    orientation: "portrait", // or 'landscape'
-  };
 
   return (
     <div>
-           {/* <button onClick={() => generatePDF(targetRef, pdfOptions)}>
-          Download PDF
-        </button> */}
+     
       
 
       {/* Use the ref to reference the content to be included in the PDF */}
-      <div className={styles.resume} id="content" ref={targetRef}>
+      <div className={styles.resume} id="content" >
         <div className={styles.header} style={{ backgroundColor: color }}>
           <div className={styles.img_box}>
             {    image ?  <img src={image} alt="Profile" />:<img src={resumeData.profilePicture} alt="Profile" />}

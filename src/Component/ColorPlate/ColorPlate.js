@@ -8,7 +8,7 @@ function ColorPlate() {
   return (
   
          <div className={style.colorplates_box}>
-        <h2>colors</h2>
+        <h2>Choose color</h2>
       <ul >
           <li
             style={{ backgroundColor: "#113f67" }}

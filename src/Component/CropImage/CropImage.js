@@ -100,7 +100,7 @@ export default function CropImage(){
               image={image.src}
               crop={crop}
               zoom={zoom}
-              aspect={3 / 3}
+              aspect={2 / 2}
               onCropChange={setCrop}
               onCropComplete={onCropComplete}
               onZoomChange={setZoom}
@@ -114,7 +114,7 @@ export default function CropImage(){
               type="range"
               value={zoom}
               min={1}
-              max={3}
+              max={2}
               step={0.1}
               aria-labelledby="Zoom"
               onChange={(e) => {

@@ -53,3 +53,16 @@ export const croppedImageState = atom({
   key: 'croppedImageState',
   default: null, // Initial value is null
 });
+
+
+
+
+export const targetRefState = atom({
+  key: 'targetRefState',
+  default: null, // Set an appropriate default value
+});
+
+export const pdfOptionsState = atom({
+  key: 'pdfOptionsState',
+  default: {}, // Set appropriate default PDF options
+});
