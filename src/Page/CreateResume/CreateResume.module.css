@@ -20,28 +20,8 @@
 height: 70%;
 width: 100%;
 font-size: .6rem;
-
 }
 .right_box div img{
     height: 4rem;
     width: 4rem;
-}
-.Card{
-    border: 1px rgb(161, 159, 159) solid;
-    height: 35rem!important;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-}
-.Card:hover .preview_btn{
-    position: absolute;
-   color: white;
-    display: flex;
-    width: 25rem;
-    height: 35rem;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: brightness(30%);   
-    font-size: 1.2rem;
-}
-.preview_btn{
-   display: none;
 }

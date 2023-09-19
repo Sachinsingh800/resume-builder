@@ -3,6 +3,7 @@ import style from "./CreateResume.module.css"
 import NavBar from '../../Component/NavBar/NavBar'
 import CreateResumeForm from '../../Component/CreateResumeForm/CreateResumeForm'
 import ResumeTemplates from '../../Component/ResumeTemplates/ResumeTemplates'
+import ResumeModal from '../../Component/ResumeModal/ResumeModal'
 
 function CreateResume() {
   return (
@@ -13,14 +14,7 @@ function CreateResume() {
                 <CreateResumeForm/>
               </div>
               <div className={style.right_box} >
-                <div className={style.Card}>
-                  <div className={style.preview_btn}>
-                    <h1 className={style.preview}>Preview</h1>
-                  </div>
-                <div >
-                <ResumeTemplates/>
-                </div>
-                </div>
+            <ResumeModal/>
               </div>
         </div>
       
