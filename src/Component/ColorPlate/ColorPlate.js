@@ -5,6 +5,11 @@ import style from "./ColorPlate.module.css"
 
 function ColorPlate() {
     const [color, setColor] = useRecoilState(ChooseColor);
+
+
+    const handleColorChange = (event) => {
+      setColor(event.target.value);
+    };
   return (
   
          <div className={style.colorplates_box}>
@@ -26,6 +31,14 @@ function ColorPlate() {
             style={{ backgroundColor: "green" }}
             onClick={() => setColor("green")}
           ></li>
+          <li >
+          <input
+          className={style.customColor_btn}
+            type="color"
+            value={color}
+            onChange={handleColorChange}
+          />
+          </li>
         </ul>
         </div>
   
