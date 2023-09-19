@@ -3,12 +3,11 @@ import style from "./ChooseTemplates.module.css"
 import NavBar from '../../Component/NavBar/NavBar'
 import ResumeTemplates from '../../Component/ResumeTemplates/ResumeTemplates'
 import { Link } from 'react-router-dom'
-import { useRecoilValue, useRecoilState, useSetRecoilState } from 'recoil';
-import { ChooseColor } from '../../Recoil'
 import Footer from '../../Component/Footer/Footer'
+import ColorPlate from '../../Component/ColorPlate/ColorPlate'
 
 function ChooseTemplates() {
-  const [color, setColor] = useRecoilState(ChooseColor);
+
   const [template,setTempletes] = useState([
     <ResumeTemplates/>,
     <ResumeTemplates/>,
@@ -24,27 +23,7 @@ function ChooseTemplates() {
       <div className={style.container}>
       <h1>What do you want your resume to look like ?</h1>
       <p>View all resume template and select a specific style to customize</p>
-      <div className={style.colorplates_box}>
-        <h2>colors</h2>
-      <ul >
-          <li
-            style={{ backgroundColor: "#113f67" }}
-            onClick={() => setColor("#113f67")}
-          ></li>
-          <li
-            style={{ backgroundColor: "orange" }}
-            onClick={() => setColor("orange")}
-          ></li>
-          <li
-            style={{ backgroundColor: "blue" }}
-            onClick={() => setColor("blue")}
-          ></li>
-          <li
-            style={{ backgroundColor: "green" }}
-            onClick={() => setColor("green")}
-          ></li>
-        </ul>
-        </div>
+   <ColorPlate/>
 <div  className={style.template_box}>
     {template.map((item)=>
     <div className={style.template_card}>

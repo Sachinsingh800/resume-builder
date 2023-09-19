@@ -67,3 +67,30 @@
        gap: 1rem;
     
 }
+.skill_btn{
+    width: 8rem;
+    border-radius: 15px;
+    border: none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.skill{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.delete_btn{
+    width: 4rem;
+    background-color: transparent;
+    border-radius: 15px;
+    border: none;
+    font-size: larger;
+    height: 2rem;
+    margin-top: .5rem;
+}
+.submit_btn{
+    width:20rem;
+    height: 2rem;
+    border-radius: 15px;
+    border: none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}

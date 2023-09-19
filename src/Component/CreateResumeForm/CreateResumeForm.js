@@ -6,6 +6,7 @@ import ImageModal from '../ImageModal/ImageModal';
 import { useRecoilValue } from 'recoil';
 import { croppedImageState } from '../../Recoil';
 import { formatResumeData } from './utils';
+import { AiFillDelete } from 'react-icons/ai';
 
 export default function CreateResumeForm() {
   const [section, setSection] = useState(1);
@@ -78,9 +79,7 @@ export default function CreateResumeForm() {
     });
   };
 
-  const handleSubmitLink = () => {
-    console.log('Social Links:', formData.skillSummary);
-  };
+ 
 
   return (
     <div className="resume-form">
@@ -334,17 +333,17 @@ export default function CreateResumeForm() {
                   value={formData.newLink}
                   onChange={handleInputChange}
                 />
-                <button onClick={addLink}>Add Link</button>
+                <button onClick={addLink} className={style.skill_btn}>+ Add Skill</button>
               </div>
             </div>
             {formData.skillSummary.map((link, index) => (
-              <div key={index}>
+              <div key={index} className={style.skill}>
                 <input type="text" value={link} readOnly />
-                <button onClick={() => deleteLink(index)}>Delete</button>
+                <button onClick={() => deleteLink(index)} className={style.delete_btn}><AiFillDelete/></button>
               </div>
             ))}
-            <button onClick={handleSubmitLink}>Submit</button>
-            <button onClick={handleSubmit}>Form submit</button>
+            <br/>
+            <button onClick={handleSubmit}  className={style.submit_btn}>Submit</button>
           </section>
         )}
       </div>

@@ -14,6 +14,9 @@ function CreateResume() {
               </div>
               <div className={style.right_box} >
                 <div className={style.Card}>
+                  <div className={style.preview_btn}>
+                    <h1 className={style.preview}>Preview</h1>
+                  </div>
                 <div >
                 <ResumeTemplates/>
                 </div>
