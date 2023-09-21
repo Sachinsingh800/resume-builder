@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import React from "react"
 import { Link } from "react-router-dom";
 import Carroussel from "./Carroussel";
-import CardTempletes from "./CardTempletes";
+import {CardTempletes, CardTempletes1} from "./CardTempletes";
 
 export default function Carsouel() {
   let cards = [
@@ -12,7 +12,7 @@ export default function Carsouel() {
     },
     {
       key: uuidv4(),
-      content: <CardTempletes/>
+      content:  <CardTempletes/>
     },
     {
       key: uuidv4(),

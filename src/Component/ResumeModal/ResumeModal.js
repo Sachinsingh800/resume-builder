@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from "./ResumeModal.module.css"
 import CropImage from '../CropImage/CropImage';
-import ResumeTemplates from '../ResumeTemplates/ResumeTemplates';
+import {ResumeTemplates} from '../ResumeTemplates/ResumeTemplates';
 import generatePDF from "react-to-pdf";
 import { useRef,useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';

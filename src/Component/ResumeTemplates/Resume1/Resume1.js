@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
-import styles from "./ResumeTemplates.module.css";
-import { Name } from "../../Recoil";
+import styles from "./Resume1.module.css";
+import { Name } from "../../../Recoil";
 import { useRecoilState } from "recoil";
 import generatePDF from "react-to-pdf";
-import { ChooseColor } from '../../Recoil'
+import { ChooseColor } from '../../../Recoil'
 import { useRecoilValue } from 'recoil';
-import { croppedImageState } from "../../Recoil";
+import { croppedImageState } from "../../../Recoil";
 
-export function ResumeTemplates() {
+export default function Resume1() {
  
   const [color, setColor] = useRecoilState(ChooseColor);
   const [resumeData, setName] = useRecoilState(Name);
@@ -26,16 +26,14 @@ export function ResumeTemplates() {
             {    image ?  <img src={image} alt="Profile" />:<img src={resumeData.profilePicture} alt="Profile" />}
           
           </div>
-          
+          <div className={styles.job_titile}>
           <h1>
             {resumeData.firstName} {resumeData.lastName}
           </h1>
           <h2>{resumeData.jobTitle}</h2>
-        </div>
-
-        <div className={styles.person_info}>
-          <div className={styles.left_box}>
-            <div className={styles.contact}>
+          </div>
+          <div>
+          <div className={styles.contact}>
               {" "}
               {/* Use the CSS class from the module */}
               <p>Phone: {resumeData.phone}</p>
@@ -48,17 +46,13 @@ export function ResumeTemplates() {
                 State: {resumeData.state}, Country: {resumeData.country}
               </p>
             </div>
+          </div>
+        </div>
 
-            <div className={styles.skills}>
-              {" "}
-              {/* Use the CSS class from the module */}
-              <h2 style={{ color: color }}>Skills</h2>
-              {resumeData?.skillSummary?.map((item) => (
-                <ul>
-                  <li>{item}</li>
-                </ul>
-              ))}
-            </div>
+        <div className={styles.person_info}>
+          <div className={styles.left_box}>
+      
+
           </div>
 
           <div className={styles.right_box}>
@@ -102,6 +96,17 @@ export function ResumeTemplates() {
                   </p>
                   <p>{edu.description}</p>
                 </div>
+              ))}
+            </div>
+            
+            <div className={styles.skills}>
+              {" "}
+              {/* Use the CSS class from the module */}
+              <h2 style={{ color: color }}>Skills</h2>
+              {resumeData?.skillSummary?.map((item) => (
+                <ul>
+                  <li>{item}</li>
+                </ul>
               ))}
             </div>
           </div>

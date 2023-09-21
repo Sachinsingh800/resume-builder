@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import style from "./ChooseTemplates.module.css"
 import NavBar from '../../Component/NavBar/NavBar'
-import ResumeTemplates from '../../Component/ResumeTemplates/ResumeTemplates'
+import {ResumeTemplates} from '../../Component/ResumeTemplates/ResumeTemplates'
 import { Link } from 'react-router-dom'
 import Footer from '../../Component/Footer/Footer'
 import ColorPlate from '../../Component/ColorPlate/ColorPlate'

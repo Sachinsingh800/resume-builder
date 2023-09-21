@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from "./ImageModal.module.css"
 import CropImage from '../CropImage/CropImage';
-import ResumeTemplates from '../ResumeTemplates/ResumeTemplates';
+import {ResumeTemplates} from '../ResumeTemplates/ResumeTemplates';
 
 const style = {
   position: 'absolute',

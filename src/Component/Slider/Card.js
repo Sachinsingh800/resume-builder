@@ -1,8 +1,10 @@
 import React from 'react'
 import style from "./Card.module.css"
-import ResumeTemplates from '../ResumeTemplates/ResumeTemplates'
+import {ResumeTemplates} from '../ResumeTemplates/ResumeTemplates'
+import Resume1 from '../ResumeTemplates/Resume1/Resume1'
 
-function Card() {
+
+export function Card() {
   return (
     <div className={style.main}>
         <div className={style.template_card}>
@@ -15,5 +17,17 @@ function Card() {
     </div>
   )
 }
+export function Card1() {
+  return (
+    <div className={style.main}>
+        <div className={style.template_card}>
+          <div >
+          <Resume1/>
+          </div>
 
-export default Card
+        </div>
+   
+    </div>
+  )
+}
+

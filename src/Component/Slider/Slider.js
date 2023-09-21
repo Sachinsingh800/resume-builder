@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import style from './Slider.module.css';
-import Card from './Card';
+import {Card, Card1} from './Card';
 
 
 export default function Slider() {

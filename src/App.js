@@ -6,6 +6,7 @@ import FirstSection from './Sections/FirstSection/FirstSection';
 import Footer from './Component/Footer/Footer';
 import SecondSection from './Sections/SecondSection/SecondSection';
 
+
 function App() {
   return (
     <div className="App">
