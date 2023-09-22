@@ -66,3 +66,12 @@ export const pdfOptionsState = atom({
   key: 'pdfOptionsState',
   default: {}, // Set appropriate default PDF options
 });
+
+
+
+
+
+export const resumeType = atom({
+  key: 'resumeType',
+  default: "", // Set an appropriate default value
+});

@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import style from './CreateResumeForm.module.css';
+import style from './CreateResumeFormForFresher.module.css';
 import dp_icon from '../Images/dp_icon.gif';
 import CropImage from '../CropImage/CropImage';
 import ImageModal from '../ImageModal/ImageModal';
 import { useRecoilValue } from 'recoil';
 import { croppedImageState } from '../../Recoil';
-import { formatResumeData } from './utils';
 import { AiFillDelete } from 'react-icons/ai';
+import { formatResumeData } from './Utils';
 
-export default function CreateResumeForm() {
+export default function CreateResumeFormForFresher() {
   const [section, setSection] = useState(1);
   const image = useRecoilValue(croppedImageState);
 
   const [formData, setFormData] = useState({
     profilePicture: '',
     bio: '',
-    jobTitle: '',
     firstName: '',
     lastName: '',
     phone: '',
@@ -25,10 +24,6 @@ export default function CreateResumeForm() {
     postCode: '',
     state: '',
     country: '',
-    positionTitle: '',
-    companyName: '',
-    endDate: '',
-    workSummary: '',
     schoolName: '',
     schoolLocation: '',
     startDate: '',
@@ -38,8 +33,6 @@ export default function CreateResumeForm() {
     skillSummary: [],
     newLink: '',
   });
-
-  console.log(formData.bio,"bio")
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -53,7 +46,7 @@ export default function CreateResumeForm() {
   };
 
   const handleSection = (direction) => {
-    if (direction === 'next' && section < 4) {
+    if (direction === 'next' && section < 3) {
       setSection(section + 1);
     } else if (direction === 'prev' && section > 1) {
       setSection(section - 1);
@@ -79,11 +72,9 @@ export default function CreateResumeForm() {
     });
   };
 
- 
-
   return (
     <div className="resume-form">
-      <h1>Create Your Resume Professional</h1>
+      <h1>Create Your Resume Fresher</h1>
       <br />
       <div className={style.form}>
         {section === 1 && (
@@ -112,16 +103,6 @@ export default function CreateResumeForm() {
             </div>
 
             <div className={style.second_Section}>
-              <div>
-                <label>Job Title:</label>
-                <input
-                  type="text"
-                  name="jobTitle"
-                  value={formData.jobTitle}
-                  onChange={handleInputChange}
-                />
-              </div>
-
               <div>
                 <label>First Name:</label>
                 <input
@@ -217,51 +198,6 @@ export default function CreateResumeForm() {
 
         {section === 2 && (
           <section>
-            <h2>Work Experience</h2>
-
-            <div className={style.second_Section}>
-              <div>
-                <label>Position Title:</label>
-                <input
-                  type="text"
-                  name="positionTitle"
-                  value={formData.positionTitle}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div>
-                <label>Company Name:</label>
-                <input
-                  type="text"
-                  name="companyName"
-                  value={formData.companyName}
-                  onChange={handleInputChange}
-                />
-              </div>
-              <div>
-                <label>End Date:</label>
-                <input
-                  type="date"
-                  name="endDate"
-                  value={formData.endDate}
-                  onChange={handleInputChange}
-                />
-              </div>
-            </div>
-
-            <div>
-              <label>Work Summary:</label>
-              <textarea
-                name="workSummary"
-                value={formData.workSummary}
-                onChange={handleInputChange}
-              />
-            </div>
-          </section>
-        )}
-
-        {section === 3 && (
-          <section>
             <h2>Education</h2>
             <div className={style.second_Section}>
               <div>
@@ -322,7 +258,7 @@ export default function CreateResumeForm() {
           </section>
         )}
 
-        {section === 4 && (
+        {section === 3 && (
           <section>
             <h2>Skills</h2>
             <div>
