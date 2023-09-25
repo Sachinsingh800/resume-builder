@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 import styles from "./Resume1.module.css";
-import { Name } from "../../../Recoil";
+import { resume } from "../../../Recoil";
 import { useRecoilState } from "recoil";
-import generatePDF from "react-to-pdf";
 import { ChooseColor } from '../../../Recoil'
 import { useRecoilValue } from 'recoil';
 import { croppedImageState } from "../../../Recoil";
@@ -10,7 +9,7 @@ import { croppedImageState } from "../../../Recoil";
 export default function Resume1() {
  
   const [color, setColor] = useRecoilState(ChooseColor);
-  const [resumeData, setName] = useRecoilState(Name);
+  const [resumeData, setResume] = useRecoilState(resume);
   const image = useRecoilValue(croppedImageState);
 
 

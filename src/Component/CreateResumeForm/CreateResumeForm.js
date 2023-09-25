@@ -7,37 +7,14 @@ import { useRecoilValue } from 'recoil';
 import { croppedImageState } from '../../Recoil';
 import { formatResumeData } from './utils';
 import { AiFillDelete } from 'react-icons/ai';
+import { resume } from "../../Recoil";
+import { useRecoilState } from 'recoil';
 
 export default function CreateResumeForm() {
   const [section, setSection] = useState(1);
   const image = useRecoilValue(croppedImageState);
+  const [formData,   setFormData] = useRecoilState(resume);
 
-  const [formData, setFormData] = useState({
-    profilePicture: '',
-    bio: '',
-    jobTitle: '',
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    address: '',
-    city: '',
-    postCode: '',
-    state: '',
-    country: '',
-    positionTitle: '',
-    companyName: '',
-    endDate: '',
-    workSummary: '',
-    schoolName: '',
-    schoolLocation: '',
-    startDate: '',
-    educationEndDate: '',
-    degree: '',
-    fieldOfStudy: '',
-    skillSummary: [],
-    newLink: '',
-  });
 
   console.log(formData.bio,"bio")
 
@@ -108,6 +85,7 @@ export default function CreateResumeForm() {
                 name="bio"
                 value={formData.bio}
                 onChange={handleInputChange}
+                placeholder='demo'
               />
             </div>
 

@@ -7,42 +7,55 @@ import { useRecoilValue } from 'recoil';
 import { croppedImageState } from '../../Recoil';
 import { AiFillDelete } from 'react-icons/ai';
 import { formatResumeData } from './Utils';
+import { resume } from "../../Recoil";
+import { useRecoilState } from 'recoil';
 
 export default function CreateResumeFormForFresher() {
   const [section, setSection] = useState(1);
   const image = useRecoilValue(croppedImageState);
+  const [resumeData, setResumeData] = useRecoilState(resume);
 
-  const [formData, setFormData] = useState({
-    profilePicture: '',
-    bio: '',
-    firstName: '',
-    lastName: '',
-    phone: '',
-    email: '',
-    address: '',
-    city: '',
-    postCode: '',
-    state: '',
-    country: '',
-    schoolName: '',
-    schoolLocation: '',
-    startDate: '',
-    educationEndDate: '',
-    degree: '',
-    fieldOfStudy: '',
-    skillSummary: [],
-    newLink: '',
-  });
+  const [formData, setFormData] = useState(
+    {
+      profilePicture: image,
+      jobTitle: formData.jobTitle,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      phone: formData.phone,
+      email: formData.email,
+      address: formData.address,
+      city: formData.city,
+      postCode: formData.postCode,
+      state: formData.state,
+      country: formData.country,
+      bio: formData.bio,
+ 
+      education: [
+        {
+          schoolName: formData.schoolName,
+          schoolLocation: formData.schoolLocation,
+          startDate: formData.startDate,
+          endDate: formData.educationEndDate,
+          degree: formData.degree,
+          fieldOfStudy: formData.fieldOfStudy,
+          description: formData.description,
+        },
+      ],
+      skillSummary: formData.skillSummary,
+    }
+  );
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+    setResumeData({ ...formData, [name]: value });
+    console.log(formData,"ye wala")
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const newData = formatResumeData(formData, image);
-    console.log(newData, "new data");
+    console.log();
   };
 
   const handleSection = (direction) => {

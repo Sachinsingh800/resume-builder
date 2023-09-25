@@ -3,8 +3,8 @@ import { atom } from 'recoil';
 // Define a placeholder value for 'dp'
 import dp from "./Component/Images/dp.png"
 
-export const Name = atom({
-  key: 'name',
+export const resume = atom({
+  key: 'resume',
   default: {
     profilePicture: dp,
     jobTitle: 'Web Developer',
