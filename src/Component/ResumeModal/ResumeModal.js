@@ -43,6 +43,27 @@ export default function ResumeModal() {
     orientation: "portrait", // or 'landscape'
     fileName: "Easyryt.pdf",
   };
+
+  const exportHTML = () => {
+    const header =
+      "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+      "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+      "xmlns='http://www.w3.org/TR/REC-html40'>" +
+      "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
+    const footer = '</body></html>';
+
+    const sourceHTML =
+      header + document.getElementById('content').innerHTML + footer;
+
+    const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+    const fileDownload = document.createElement('a');
+    document.body.appendChild(fileDownload);
+    fileDownload.href = source;
+    fileDownload.download = 'document.doc';
+    fileDownload.click();
+    document.body.removeChild(fileDownload);
+  };
+
   const [template,setTempletes] = useState([
     <ResumeTemplates/>,
     <ResumeTemplates/>,
@@ -76,11 +97,12 @@ export default function ResumeModal() {
         <button className={styles.download_btn} onClick={() => generatePDF(targetRef, pdfOptions)}>
           Download 
         </button>
+        <button className={styles.download_btn2}  onClick={exportHTML}>Export to DOC</button>
             <div className={styles.resume_container}>
     
             <button onClick={() => handleClose()} className={styles.Close_btn}>X</button>
             <div className={styles.resume}>
-                <div ref={targetRef}>
+                <div ref={targetRef} id='content'>
                 <ResumeTemplates/>
                 </div>
                 </div>

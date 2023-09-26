@@ -19,10 +19,13 @@
     height: 100%;
     width: 100%;
     background-color: white;
+
 }
 
-
-.Card:hover .preview_btn{
+.preview_btn {
+    display: none;
+ }
+.Card:hover .preview_btn {
     position: absolute;
    color: white;
     display: flex;
@@ -33,9 +36,7 @@
     backdrop-filter: brightness(30%);   
     font-size: 1.2rem;
 }
-.preview_btn{
-   display: none;
-}
+
 .Close_btn{
     position: absolute;
     right: 0;
@@ -69,6 +70,22 @@
 
 }
 .download_btn:hover{
+    background-color:aqua ;
+}
+.download_btn2{
+    margin-top: .5rem;
+    position: absolute;
+    right: 13%;
+    width: 6rem;
+    border-radius: 5px;
+    border: none;
+    padding: .2rem;
+   
+    background-color: blue;
+    color: white;
+
+}
+.download_btn2:hover{
     background-color:aqua ;
 }
 .tools_box{

@@ -16,7 +16,7 @@ export default function CreateResumeForm() {
   const [formData,   setFormData] = useRecoilState(resume);
 
 
-  console.log(formData.bio,"bio")
+ 
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

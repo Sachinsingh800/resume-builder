@@ -6,8 +6,11 @@
 
 }
 .main div{
-    height: 80%;
+    height: 100%;
     width:100%;
-    font-size: .5rem;
+    font-size: .4rem;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

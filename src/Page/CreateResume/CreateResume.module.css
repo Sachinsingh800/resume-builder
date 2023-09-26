@@ -17,9 +17,12 @@
     padding-top: 8rem;
 }
 .right_box div{
-height: 70%;
-width: 100%;
-font-size: .6rem;
+    height: 100%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: .5rem;
 }
 .right_box div img{
     height: 4rem;
