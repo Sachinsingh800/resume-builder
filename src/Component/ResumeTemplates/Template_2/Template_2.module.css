@@ -1,0 +1,95 @@
+.main{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 874px;
+    height: 1240px;
+    margin: 0 auto;
+    background-Color: white;
+    box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.Left_container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+  
+.name_container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #c2c3c4;
+    height: 13rem;
+}
+  .container {
+    padding: 13px 0 0 0;
+  }
+  
+  .name {
+    color: #68768f;
+  }
+  
+  .hr {
+    margin-left: 8px;
+    margin-right: 70px;
+    color: #A2A2A2;
+  }
+  
+  .iconContainer {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon {
+    color: black;
+  }
+  
+  .email {
+    color: #68768f;
+  }
+  
+  .phoneIcon {
+    font-size: 12px;
+  }
+
+  
+  .contactInfo {
+    display: flex;
+    gap: .5rem;
+
+  }
+  .skillsHeader {
+    padding: 1.5rem;
+  }
+
+
+  .skillsHeader ul{
+   margin-left: .2rem;
+   list-style: none;
+
+  }
+
+
+  .info_box{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  
+  .educationHeader{
+    padding: 1.5rem;
+  }
+  .objectiveHeader{
+    padding: 1rem;
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
