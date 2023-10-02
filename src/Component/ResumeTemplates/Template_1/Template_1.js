@@ -27,7 +27,7 @@ function Template_1() {
         </div>
         <br />
         <hr />
-        <div>
+        <div className={style.education}>
           <h2>Education</h2>
           <p>Sadsghghdgsada</p>
         </div>

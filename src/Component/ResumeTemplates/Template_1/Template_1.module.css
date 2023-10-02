@@ -27,6 +27,7 @@
     padding: 3rem 1rem;
     gap: 1rem;
     text-align: left;
+    width: 17rem;
 }
 
 .info_box{
@@ -34,7 +35,14 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem 0rem;
+    padding: 1rem 1rem;
+}
+.education{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1rem;
 }
 .img_container{
     display: flex;
@@ -44,7 +52,7 @@
 .right_section{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: .5rem;
    width: 40rem;
 
    
@@ -77,6 +85,12 @@
 }
 .skills{
     padding: 1rem;
+
+}
+.skills ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 .professional_summary{
     padding: 1rem;
