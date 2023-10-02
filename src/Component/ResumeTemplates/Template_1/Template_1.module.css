@@ -63,6 +63,7 @@
     flex-direction: column;
     text-align: left;
     list-style: none;
+   
 }
 .right_section ul li{
     margin-left:1.5rem ;
@@ -82,9 +83,15 @@
 }
 .certifications{
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
 .skills{
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 
 }
 .skills ul{
@@ -94,9 +101,15 @@
 }
 .professional_summary{
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 .work{
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 hr{
     margin-left: 1rem;
