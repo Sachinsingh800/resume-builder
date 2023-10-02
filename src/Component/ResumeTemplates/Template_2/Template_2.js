@@ -78,29 +78,31 @@ const Template_2= () => {
       <div>
         <div className={style.objectiveHeader} style={{ backgroundColor: '#E5E5E5' }}>
 
-            <h3 >CAREER OBJECTIVE</h3>
+            <h2 >CAREER OBJECTIVE</h2>
             <p className={style.objectiveText}>
               Motivated server with an engaging personality and flexible approach. Upbeat, friendly and anticipating customer needs to facilitate enjoyable dining experiences. Looking to obtain employment to enhance my customer service relations and skills as a sales associate with the potential for career growth
             </p>
          
         </div>
-        <div>
-          <h2 className={style.workHeader}>WORK HISTORY</h2>
+        <div className={style.workHeader}>
+          <h2 >WORK HISTORY</h2>
           <p className={style.position}>Biaggi's - Server</p>
           <p className={style.employmentInfo}>Fort Wayne, IN - 06/2020 - Current</p>
           <p className={style.position}>Fresh Thyme Farmers Market - Cashier</p>
           <p className={style.employmentInfo}>Fort Wayne, IN - 06/2020 - 01/2021</p>
         </div>
-        <div>
-          <h2 className={style.skillsHeader2}>RELEVANT SKILLS</h2>
+
+        <div className={style.skillsHeader2}>
+          <h2 >RELEVANT SKILLS</h2>
           <ul>
           <li className={style.skill2}>- Successful at building relationships with customers to increase likelihood of repeat business</li>
           <li className={style.skill2}>- Proven history of excellent customer service and conflict resolution skills.</li>
           <li className={style.skill2}>- Skilled at increasing sales of specials and beverages with excellent salesmanship.</li>
           </ul>
         </div>
-        <div>
-          <h2 className={style.professionalSkillsHeader}>PROFESSIONAL SKILLS</h2>
+
+        <div className={style.professionalSkillsHeader}>
+          <h2 >PROFESSIONAL SKILLS</h2>
           <h3 className={style.customerService}>Customer Service</h3>
           <p className={style.professionalSkillsText}>
             - Greeted new customers, discussed specials, took drink orders and built immediate positive connections with guests

@@ -93,3 +93,21 @@
     flex-direction: column;
     justify-content: center;
   }
+  .workHeader{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .skillsHeader2{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .professionalSkillsHeader{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
