@@ -95,42 +95,52 @@ const Template_2= () => {
         <div className={style.skillsHeader2}>
           <h2 >RELEVANT SKILLS</h2>
           <ul>
-          <li className={style.skill2}>- Successful at building relationships with customers to increase likelihood of repeat business</li>
-          <li className={style.skill2}>- Proven history of excellent customer service and conflict resolution skills.</li>
-          <li className={style.skill2}>- Skilled at increasing sales of specials and beverages with excellent salesmanship.</li>
+          <li >Successful at building relationships with customers to increase likelihood of repeat business</li>
+          <li >Proven history of excellent customer service and conflict resolution skills.</li>
+          <li >-Skilled at increasing sales of specials and beverages with excellent salesmanship.</li>
           </ul>
         </div>
 
         <div className={style.professionalSkillsHeader}>
           <h2 >PROFESSIONAL SKILLS</h2>
           <h3 className={style.customerService}>Customer Service</h3>
-          <p className={style.professionalSkillsText}>
-            - Greeted new customers, discussed specials, took drink orders and built immediate positive connections with guests
-          </p>
-          <p className={style.professionalSkillsText}>
-            - Resolved guests and employee complaints to maintain complete customer satisfaction and workforce effectiveness.
-          </p>
-          <p className={style.professionalSkillsText}>
-            - Shared knowledge of menu items and flavors, enabling customers to make personal decisions based on taste and interest.
-          </p>
+          <ul>
+          <li className={style.professionalSkillsText}>
+            Greeted new customers, discussed specials, took drink orders and built immediate positive connections with guests
+          </li>
+          <li className={style.professionalSkillsText}>
+            Resolved guests and employee complaints to maintain complete customer satisfaction and workforce effectiveness.
+          </li>
+          <li className={style.professionalSkillsText}>
+             Shared knowledge of menu items and flavors, enabling customers to make personal decisions based on taste and interest.
+          </li>
+          </ul>
+        
           <h3 className={style.sales}>Sales</h3>
-          <p className={style.professionalSkillsText}>
-            - Memorized restaurant wine stock and appropriate entree pairings, driving daily wine sales averaging $1500.
-          </p>
-          <p className={style.professionalSkillsText}>
-            - Upsold high-profit items such as appetizers and mixed drinks to enhance sales numbers.
-          </p>
-          <p className={style.professionalSkillsText}>- Educated customers on promotions to enhance sales.</p>
+          <ul>
+          <li className={style.professionalSkillsText}>
+             Memorized restaurant wine stock and appropriate entree pairings, driving daily wine sales averaging $1500.
+          </li>
+          <li className={style.professionalSkillsText}>
+            Upsold high-profit items such as appetizers and mixed drinks to enhance sales numbers.
+          </li>
+          <li className={style.professionalSkillsText}> Educated customers on promotions to enhance sales.</li>
+         
+          </ul>
+      
           <h3 className={style.moneyHandling}>Money Handling</h3>
-          <p className={style.professionalSkillsText}>
-            - Collected credit card, cash, and gift certificate payments from customers and made good changes to cash transactions.
-          </p>
-          <p className={style.professionalSkillsText}>
-            - Operated a cash register for cash, check, and credit card transactions with 100% accuracy.
-          </p>
-          <p className={style.professionalSkillsText}>
-            - Reconciled cash drawer at the start and end of each shift, accounting for errors and resolving discrepancies.
-          </p>
+          <ul>
+          <li className={style.professionalSkillsText}>
+            Collected credit card, cash, and gift certificate payments from customers and made good changes to cash transactions.
+          </li>
+          <li className={style.professionalSkillsText}>
+            Operated a cash register for cash, check, and credit card transactions with 100% accuracy.
+          </li>
+          <li className={style.professionalSkillsText}>
+            Reconciled cash drawer at the start and end of each shift, accounting for errors and resolving discrepancies.
+          </li>
+          </ul>
+         
         </div>
       </div>
     </div>
