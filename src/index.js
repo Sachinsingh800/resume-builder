@@ -11,6 +11,8 @@ import ResumeForm from './Component/ResumeForm/ResumeForm';
 import ChooseTemplates from './Page/ChooseTemplates/ChooseTemplates';
 import CreateResume from './Page/CreateResume/CreateResume';
 import {RecoilRoot} from  "recoil"
+import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
+import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
   {
     path: "/CreateResume",
     element: <CreateResume/>,
+  },
+  {
+    path: "/Template_2",
+    element: <Template_2/>,
+  },
+  {
+    path: "/Template_1",
+    element: <Template_1/>,
   },
 ]);
 root.render(
