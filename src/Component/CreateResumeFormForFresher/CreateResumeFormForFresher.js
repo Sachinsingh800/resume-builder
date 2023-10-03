@@ -195,11 +195,11 @@ export default function CreateResumeFormForFresher() {
 
         {section === 2 && (
           <section>
-            <h2>Work Experience</h2>
+            <h2>Acadmic details</h2>
 
             <div className={style.second_Section}>
               <div>
-                <label>Position Title:</label>
+                <label>education:</label>
                 <input
                   type="text"
                   name="positionTitle"
@@ -208,7 +208,7 @@ export default function CreateResumeFormForFresher() {
                 />
               </div>
               <div>
-                <label>Company Name:</label>
+                <label>Education:</label>
                 <input
                   type="text"
                   name="companyName"
@@ -228,7 +228,7 @@ export default function CreateResumeFormForFresher() {
             </div>
 
             <div>
-              <label>Work Summary:</label>
+              <label>Education Summary:</label>
               <textarea
                 name="workSummary"
                 value={formData.workSummary}
