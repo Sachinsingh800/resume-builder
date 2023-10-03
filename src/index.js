@@ -13,6 +13,7 @@ import CreateResume from './Page/CreateResume/CreateResume';
 import {RecoilRoot} from  "recoil"
 import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
 import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
+import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: "/Template_1",
     element: <Template_1/>,
+  },
+  {
+    path: "/Template_3",
+    element: <Template_3/>,
   },
 ]);
 root.render(
