@@ -170,12 +170,12 @@
   font-size: 3rem;
 }
 .person_name span{
-  color: blue;
+  color: #2e89ba;
 }
 .company_name{
   display: flex;
   justify-content: space-between;
-  color: blue;
+  color: #2e89ba;
 }
 .work_des{
   display: flex;
