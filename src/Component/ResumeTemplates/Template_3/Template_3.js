@@ -19,12 +19,12 @@ const Template_3= () => {
           <br/>
  
   <div className={style.info_box}>
-  <h3>CONTACT</h3>
+          <h3>CONTACT</h3>
           <br/>
           <hr className={style.hr} />
   <div className={style.contactInfo}>
             <div className={style.iconContainer}>
-              <p className="material-icons icon" style={{ color: 'black' }}>
+              <p  style={{ color: 'black' }}>
                <AiOutlineMail/>
               </p>
             </div>
@@ -34,7 +34,7 @@ const Template_3= () => {
           </div>
           <div className={style.contactInfo}>
             <div className={style.iconContainer}>
-              <p className="material-icons phoneIcon icon" style={{ color: 'black' }}>
+              <p  style={{ color: 'black' }}>
          <AiOutlinePhone/>
               </p>
             </div>
@@ -45,7 +45,7 @@ const Template_3= () => {
           
           <div className={style.contactInfo}>
             <div className={style.iconContainer}>
-              <p className="material-icons addressIcon icon" style={{ color: 'black' }}>
+              <p  style={{ color: 'black' }}>
                <CiLocationOn/>
               </p>
             </div>
@@ -64,7 +64,6 @@ const Template_3= () => {
           <h3 >PROFESSIONAL SKILLS</h3>
           <br/>
           <hr className={style.hr} />
-          <br/>
            <ul>
          <li><span>React js </span>  <ProgressBar bgcolor="aqua" progress="10" height={5} /></li>      
          <li><span>Express </span>  <ProgressBar bgcolor="aqua" progress="20" height={5} /></li>      
@@ -79,7 +78,6 @@ const Template_3= () => {
           <h3 >PERSONAL SKILLS</h3>
           <br/>
           <hr className={style.hr} />
-          <br/>
            <ul>
          <li><span>React js </span>  <ProgressBar bgcolor="aqua" progress="10" height={5} /></li>      
          <li><span>Express </span>  <ProgressBar bgcolor="aqua" progress="20" height={5} /></li>      
@@ -94,7 +92,6 @@ const Template_3= () => {
           <h3 >LAGNUAGES</h3>
           <br/>
           <hr className={style.hr} />
-          <br/>
            <ul>
          <li><span>ENGLISH </span>  <ProgressBar bgcolor="aqua" progress="10" height={5} /></li>      
          <li><span>HINDI </span>  <ProgressBar bgcolor="aqua" progress="20" height={5} /></li>      
@@ -108,7 +105,7 @@ const Template_3= () => {
   
       </div>
       <div>
-        <div className={style.objectiveHeader} style={{ backgroundColor: '#E5E5E5' }}>
+        <div className={style.objectiveHeader} >
 
             <h2 >CAREER OBJECTIVE</h2>
             <p className={style.objectiveText}>
