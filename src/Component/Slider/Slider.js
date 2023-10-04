@@ -2,16 +2,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import style from './Slider.module.css';
+import { Link } from 'react-router-dom';
+import resume_1 from "../Images/Template_1.png";
+import resume_2 from "../Images/Template_2.png";
+import resume_3 from "../Images/Template_3.png";
+import { useRecoilState } from "recoil";
+import { chooseTemplates } from '../../Recoil'; 
 
-import resume_1 from "../Images/Template_1.png"
-import resume_2 from "../Images/Template_2.png"
-import resume_3 from "../Images/Template_3.png"
 
+const imagePaths = [resume_1, resume_2, resume_3];
 
 export default function Slider() {
   const carouselRef = useRef(null);
-  const [activeSlide, setActiveSlide] = useState(0);
 
+  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+    
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -31,44 +36,15 @@ export default function Slider() {
     },
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (carouselRef.current) {
-  //       const nextSlide = (activeSlide + 4) % carouselRef.current.state.totalItems;
-  //       carouselRef.current.goToSlide(nextSlide, false);
-  //       setActiveSlide(nextSlide);
-  //     }
-  //   }, 5000);
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [activeSlide]);
-
   return (
     <div className={style.main}>
       <Carousel ref={carouselRef} responsive={responsive}>
-        <div>
-        <img src={resume_1} alt='resume' />
-        </div>
-        <div>
-        <img src={resume_2} alt='resume' />
-        </div>
-        <div>
-        <img src={resume_3} alt='resume' />
-        </div>
-       
-        <div>
-        <img src={resume_1} alt='resume' />
-        </div>
-        <div>
-        <img src={resume_2} alt='resume' />
-        </div>
-        <div>
-        <img src={resume_3} alt='resume' />
-        </div>
-       
-
+        {imagePaths.map((path, index) => (
+        <Link to={"/ResumeForm"}>  <div key={index} onClick={()=>setTemplateNo(index)}>
+            <img src={path} alt={`resume ${index + 1}`} />
+          </div>
+          </Link>
+        ))}
       </Carousel>
     </div>
   );

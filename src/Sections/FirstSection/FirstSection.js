@@ -13,7 +13,8 @@ function FirstSection() {
       <br/>
       <input className={style.search_input} placeholder='🔍 Search here...'    />
         </div>
-  
+       
+      <Link to={"/ResumeForm"}><button className={style.btn} >Choose Templetes</button></Link>
 
       <div className={style.Carsouel}>
          <Carsouel/>
