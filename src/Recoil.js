@@ -1,4 +1,7 @@
 import { atom } from 'recoil';
+import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
+import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
+import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
 
 // Define a placeholder value for 'dp'
 import dp from "./Component/Images/dp.png"
@@ -176,6 +179,18 @@ export const pdfOptionsState = atom({
   default: {}, // Set appropriate default PDF options
 });
 
+export const resumeTemplates = atom({
+  key: 'resumeTemplates', // Unique ID (with respect to other atoms/selectors)
+  default: [
+   <Template_1/>,
+   <Template_2/>,
+   <Template_3/>,
+  ], // Set the default value to an empty array
+});
+export const chooseTemplates = atom({
+  key: 'chooseTemplates',
+  default:0
+});
 
 
 

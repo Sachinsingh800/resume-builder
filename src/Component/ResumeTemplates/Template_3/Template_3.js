@@ -8,12 +8,14 @@ import { MdOutlineWorkHistory } from "react-icons/md";
 import dp from "../../Images/dp.png";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
-import { ChooseColor } from "../../../Recoil";
+import { ChooseColor,chooseTemplates } from "../../../Recoil";
 
 const Template_3 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
+  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  
   return (
-    <div className={style.main}>
+    <div onClick={()=>setTemplateNo(2)} className={style.main}>
       <div
         className={style.Left_container}
         style={{ backgroundColor: color, color: "white" }}

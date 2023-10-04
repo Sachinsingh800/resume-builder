@@ -4,20 +4,22 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { CiLocationOn } from 'react-icons/ci';
 import { useRecoilState } from "recoil";
-import { ChooseColor } from "../../../Recoil";
+import { ChooseColor,chooseTemplates } from "../../../Recoil";
 
 const Template_2= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
+  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  
   return (
-    <div className={style.main}>
+    <div onClick={()=>setTemplateNo(1)} className={style.main}>
       <div className={style.Left_container} style={{ backgroundColor: color }}>
-     <div className={style.name_container}>
-     <h1 className={style.name}>
+     <div className={style.name_container} style={{ backgroundColor: color }}>
+     <h1 className={style.name} >
             YOUR NAME
           </h1>
           <br/>
           <hr className={style.hr} />
-  <div className={style.info_box}>
+  <div className={style.info_box} >
   <div className={style.contactInfo}>
             <div className={style.iconContainer}>
               <p className="material-icons icon" style={{ color: 'black' }}>

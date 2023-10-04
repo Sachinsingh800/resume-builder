@@ -9,6 +9,8 @@ import {ResumeTemplates} from '../ResumeTemplates/ResumeTemplates';
 import generatePDF from "react-to-pdf";
 import { useRef,useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';
+import { useRecoilValue,useRecoilState } from 'recoil';
+import { resumeTemplates,chooseTemplates } from '../../Recoil';
 
 
 const style = {
@@ -34,7 +36,8 @@ export default function ResumeModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const templates = useRecoilValue(resumeTemplates)
+  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const targetRef = useRef();
 
   const pdfOptions = {
@@ -82,7 +85,7 @@ export default function ResumeModal() {
                     <h1 className={styles.preview}>Preview</h1>
                   </div>
                 <div  >
-                <ResumeTemplates/>
+               {templates[templateNo]}
                 </div>
                 </div>
                 </div>
@@ -103,7 +106,7 @@ export default function ResumeModal() {
             <button onClick={() => handleClose()} className={styles.Close_btn}>X</button>
             <div className={styles.resume}>
                 <div ref={targetRef} id='content'>
-                <ResumeTemplates/>
+                {templates[templateNo]}
                 </div>
                 </div>
 

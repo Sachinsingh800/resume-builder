@@ -6,11 +6,14 @@ import ResumeTemplates from '../../Component/ResumeTemplates/ResumeTemplates'
 import ResumeModal from '../../Component/ResumeModal/ResumeModal'
 import ColorPlate from '../../Component/ColorPlate/ColorPlate'
 import CreateResumeFormForFresher from '../../Component/CreateResumeFormForFresher/CreateResumeFormForFresher'
-import { resumeType } from '../../Recoil'
+import { resumeType,resumeTemplates } from '../../Recoil'
 import { useRecoilValue } from 'recoil'
+
 
 function CreateResume() {
   const type = useRecoilValue(resumeType)
+
+  
   return (
     <div className={style.main}>
         <NavBar/>
