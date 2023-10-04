@@ -1,0 +1,39 @@
+.template_box {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    width: 100vw;
+    overflow: hidden;
+    gap: 1rem;
+  }
+  
+  /* .template_card {
+    height: 30rem;
+    width: 25rem;
+    overflow: hidden;
+  }
+  
+  .template_card div {
+    height: 100%;
+    width: 100%;
+
+  } */
+  .template_box div{
+    height: 30rem;
+    width: 25rem;
+    overflow: hidden;
+  }
+  .template_box div div{
+    height: 100%;
+    width: 100%;
+    font-size: .3rem;
+    display: grid;
+
+  }
+  .template_box div div img{
+    height: 2rem;
+    width: 2rem;
+  }
+  .template_box div div hr{
+    display: none;
+  }

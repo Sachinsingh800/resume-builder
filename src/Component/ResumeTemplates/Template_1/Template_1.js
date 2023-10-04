@@ -125,10 +125,7 @@ function Template_1() {
                   <li>
                   It includes hospitals, clinics, nursing homes, and other healthcare facilities that provide treatment and care to patients.
                   </li>
-                  <li>
-                  The sector involves various medical professionals like doctors, nurses, pharmacists, and therapists, each contributing to patient well-being.
-                  </li>
-                </ul>
+                       </ul>
               </p>
             </li>
       

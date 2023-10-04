@@ -13,6 +13,8 @@ export function ResumeTemplates() {
   const image = useRecoilValue(croppedImageState);
   const type = useRecoilValue(resumeType);
 
+
+  console.log(resumeData,'resumedata')
   const divToExportRef = useRef(null);
 
   const imageDataUrl = image;
@@ -114,14 +116,14 @@ export function ResumeTemplates() {
       )}
       <div className="education" style={{padding:"20px"}}>
         <h2  style={{color:color}}>Education</h2>
-        {resumeData.education.map((edu, index) => (
+        {/* {resumeData.education.map((edu, index) => (
           <div key={index} className="education-item">
             <h3>{edu.schoolName} - {edu.schoolLocation}</h3>
             <p>{edu.startDate} - {edu.endDate}</p>
             <p>Degree: {edu.degree} in {edu.fieldOfStudy}</p>
             <p>{edu.description}</p>
           </div>
-        ))}
+        ))} */}
       </div>
     </td>
   </tr>

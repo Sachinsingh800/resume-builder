@@ -2,7 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import style from './Slider.module.css';
-import {Card, Card1} from './Card';
+
+import resume_1 from "../Images/Template_1.png"
+import resume_2 from "../Images/Template_2.png"
+import resume_3 from "../Images/Template_3.png"
 
 
 export default function Slider() {
@@ -46,23 +49,25 @@ export default function Slider() {
     <div className={style.main}>
       <Carousel ref={carouselRef} responsive={responsive}>
         <div>
-         <Card/>
+        <img src={resume_1} alt='resume' />
         </div>
         <div>
-         <Card/>
+        <img src={resume_2} alt='resume' />
         </div>
         <div>
-         <Card/>
+        <img src={resume_3} alt='resume' />
+        </div>
+       
+        <div>
+        <img src={resume_1} alt='resume' />
         </div>
         <div>
-         <Card/>
+        <img src={resume_2} alt='resume' />
         </div>
         <div>
-         <Card/>
+        <img src={resume_3} alt='resume' />
         </div>
-        <div>
-         <Card/>
-        </div>
+       
 
       </Carousel>
     </div>

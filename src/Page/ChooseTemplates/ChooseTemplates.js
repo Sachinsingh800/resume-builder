@@ -5,16 +5,21 @@ import {ResumeTemplates} from '../../Component/ResumeTemplates/ResumeTemplates'
 import { Link } from 'react-router-dom'
 import Footer from '../../Component/Footer/Footer'
 import ColorPlate from '../../Component/ColorPlate/ColorPlate'
+import Template_1 from '../../Component/ResumeTemplates/Template_1/Template_1'
+import Template_2 from '../../Component/ResumeTemplates/Template_2/Template_2'
+import Template_3 from '../../Component/ResumeTemplates/Template_3/Template_3'
+import SmallSizeTemplates from '../../Component/SmallSizeTemplates/SmallSizeTemplates'
+
+
 
 function ChooseTemplates() {
 
   const [template,setTempletes] = useState([
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
+    <Template_1/>,
+    <Template_2/>,
+    <Template_3/>,
+
+
   ])
   return (
     <div className={style.main}>
@@ -24,13 +29,7 @@ function ChooseTemplates() {
       <h1>What do you want your resume to look like ?</h1>
       <p>View all resume template and select a specific style to customize</p>
    <ColorPlate/>
-<div  className={style.template_box}>
-    {template.map((item)=>
-    <div className={style.template_card}>
-      <Link to={"/ResumeForm"}><div className={style._card}> {item}</div> </Link>   
-    </div>
-    )}
-</div>
+        <SmallSizeTemplates/>
             
       </div >
       <Footer/>
