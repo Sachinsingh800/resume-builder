@@ -7,13 +7,16 @@ import { CgProfile } from "react-icons/cg";
 import { MdOutlineWorkHistory } from "react-icons/md";
 import dp from "../../Images/dp.png";
 import ProgressBar from "../../ProgressBar/ProgressBar";
+import { useRecoilState } from "recoil";
+import { ChooseColor } from "../../../Recoil";
 
 const Template_3 = () => {
+  const [color, setColor] = useRecoilState(ChooseColor);
   return (
     <div className={style.main}>
       <div
         className={style.Left_container}
-        style={{ backgroundColor: "#233142", color: "white" }}
+        style={{ backgroundColor: color, color: "white" }}
       >
         <div className={style.img_container}>
           <div className={style.img_box}>

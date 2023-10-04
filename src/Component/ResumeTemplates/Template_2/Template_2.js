@@ -3,11 +3,14 @@ import style from "./Template_2.module.css"
 import { AiOutlineMail } from 'react-icons/ai';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { CiLocationOn } from 'react-icons/ci';
+import { useRecoilState } from "recoil";
+import { ChooseColor } from "../../../Recoil";
 
 const Template_2= () => {
+  const [color, setColor] = useRecoilState(ChooseColor);
   return (
     <div className={style.main}>
-      <div className={style.Left_container} style={{ backgroundColor: '#E5E5E5' }}>
+      <div className={style.Left_container} style={{ backgroundColor: color }}>
      <div className={style.name_container}>
      <h1 className={style.name}>
             YOUR NAME

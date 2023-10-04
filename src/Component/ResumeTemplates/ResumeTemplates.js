@@ -7,6 +7,7 @@ import { useRecoilValue } from "recoil";
 import { croppedImageState } from "../../Recoil";
 import { resumeType } from "../../Recoil";
 
+
 export function ResumeTemplates() {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [resumeData, setResumeData] = useRecoilState(resume);
