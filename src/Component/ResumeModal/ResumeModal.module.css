@@ -2,6 +2,17 @@
     border: 1px rgb(161, 159, 159) solid;
     height: 35rem!important;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+}
+.template{
+    display: grid;
+    height: 35rem!important;
+  
+}
+.template div{
+    height: 100%;
+    width: 100%;
+    display: grid;
 }
 .resume_container{
     display: flex;
@@ -23,16 +34,19 @@
 }
 
 .preview_btn {
-    display: none;
+    display: none!important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
  }
 .Card:hover .preview_btn {
     position: absolute;
    color: white;
-    display: flex;
+    display: unset!important;
     width: 25rem;
     height: 35rem;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+
     backdrop-filter: brightness(30%);   
     font-size: 1.2rem;
 }

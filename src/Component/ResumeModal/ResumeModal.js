@@ -84,8 +84,10 @@ export default function ResumeModal() {
                   <div className={styles.preview_btn}>
                     <h1 className={styles.preview}>Preview</h1>
                   </div>
-                <div  >
+                <div  className={styles.template} >
+                  <div>
                {templates[templateNo]}
+               </div>
                 </div>
                 </div>
                 </div>
