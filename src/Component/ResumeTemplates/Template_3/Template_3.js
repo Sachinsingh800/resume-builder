@@ -8,10 +8,11 @@ import { MdOutlineWorkHistory } from "react-icons/md";
 import dp from "../../Images/dp.png";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates } from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond } from "../../../Recoil";
 
 const Template_3 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
+  const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   
   return (
@@ -131,7 +132,7 @@ const Template_3 = () => {
       <div>
         <div className={style.objectiveHeader}>
           <h1 className={style.person_name}>
-            SMITH <span>MATTHEW</span>
+            SMITH <span style={{color:color2}}>MATTHEW</span>
           </h1>
           <p className={style.objectiveText}>CREATIVE DIRECTOR</p>
         </div>

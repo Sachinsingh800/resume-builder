@@ -5,10 +5,11 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { CiLocationOn } from 'react-icons/ci';
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates } from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond } from "../../../Recoil";
 
 function Template_1() {
   const [color, setColor] = useRecoilState(ChooseColor);
+  const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   
 
@@ -40,7 +41,7 @@ function Template_1() {
       </div>
 
       <div className={style.right_section}>
-        <div className={style.heading}>
+        <div className={style.heading} style={{ backgroundColor: color2}}>
           <h1>Your Name</h1>
         </div>
 

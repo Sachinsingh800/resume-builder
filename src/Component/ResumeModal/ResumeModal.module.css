@@ -13,6 +13,7 @@
     height: 100%;
     width: 100%;
     display: grid;
+    text-align: left;
 }
 .resume_container{
     display: flex;
@@ -20,7 +21,7 @@
     align-items: center;
     height: 35rem;
     width: 50rem;
-    overflow-y: scroll;
+    overflow: scroll;
     border: 1px rgb(146, 145, 145) solid;
 }
 .resume_container::-webkit-scrollbar{
@@ -30,8 +31,12 @@
     height: 100%;
     width: 100%;
     background-color: white;
-
+    border: 1px red solid;
+    /* overflow: scroll; */
+    padding: 1rem;
 }
+
+
 
 .preview_btn {
     display: none!important;
