@@ -37,3 +37,6 @@ export function formatResumeData(formData, image) {
     };
   }
   
+
+
+  

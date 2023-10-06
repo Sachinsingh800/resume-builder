@@ -5,13 +5,15 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { CiLocationOn } from 'react-icons/ci';
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates,ChooseColorSecond } from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond,resume } from "../../../Recoil";
 
 function Template_1() {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const [resumeData, setResumeData] = useRecoilState(resume);
   
+  console.log(resumeData.resume,"resume data")
 
   return (
     <div onClick={()=>setTemplateNo(0)} className={style.main}>
@@ -22,34 +24,48 @@ function Template_1() {
         <div>
           <div className={style.img_container}>
             <div className={style.img_box}>
-              <img src={dp} alt="img" />
+              <img src={resumeData?.resume?.profilePicture?.url} alt="img" />
             </div>
           </div>
 
           <div className={style.info_box}>
-            <p><AiOutlineMail/> sachin@gmail.com</p>
-            <p><AiOutlinePhone/> 7254801625</p>
-            <p><CiLocationOn/> Dhanbad,pin *281163</p>
+            <p><AiOutlineMail/>{resumeData?.resume?.contact?.email}</p>
+            <p><AiOutlinePhone/>{resumeData?.resume?.contact?.phone}</p>
+            <p><CiLocationOn/>{resumeData?.resume?.address?.address},{resumeData?.resume?.address?.postalCode}</p>
           </div>
         </div>
         <br />
         <hr />
         <div className={style.education}>
+     
           <h2>Education</h2>
-          <p>Sadsghghdgsada</p>
+          {resumeData?.resume?.education.map((item,id)=>
+          <div key={id}>
+           <h3>{item?.collegeName}</h3>
+           <p>{item?.degree}</p>
+           <p>{item?.startYear} - {item?.endYear}</p>
+           </div>
+          )}
+         
         </div>
       </div>
 
       <div className={style.right_section}>
         <div className={style.heading} style={{ backgroundColor: color2}}>
-          <h1>Your Name</h1>
+          <h1>{resumeData?.resume?.name}</h1>
         </div>
 
         <div className={style.certifications}>
           <h2>CERTIFICATIONS</h2>
           <ul>
-            <li>dugsugdgsdusgdgsu</li>
-            <li>dugsugdgsdusgdgsu</li>
+          {resumeData?.resume?.certifications.map((item,id)=>
+           <li  key={id}>
+            <h5>{item?.title}</h5>
+            <p>Organization: {item?.issuingOrganization}</p>
+           </li>
+          )}
+           
+       
           </ul>
         </div>
         <br />
@@ -58,12 +74,9 @@ function Template_1() {
         <div className={style.skills}>
           <h2>SKILLS</h2>
           <ul>
-            <li>dugsugdgsdusgdgsu</li>
-            <li>dugsugdgsdusgdgsu</li>
-            <li>dugsugdgsdusgdgsu</li>
-            <li>dugsugdgsdusgdgsu</li>
-            <li>dugsugdgsdusgdgsu</li>
-            <li>dugsugdgsdusgdgsu</li>
+          {resumeData?.resume?.skillsAndLevel.map((item,id)=>
+           <li  key={id}>{item.skills}</li>
+          )}
           </ul>
         </div>
         <br />
@@ -72,13 +85,7 @@ function Template_1() {
         <div className={style.professional_summary}>
           <h2>PROFESSIONAL SUMMARY</h2>
           <p>
-            A Professional Summary is a brief, carefully crafted statement that
-            highlights your key qualifications and career objectives. It serves
-            as a snapshot of your professional background, summarizing your
-            relevant skills, experiences, and career aspirations. A well-written
-            Professional Summary can capture the attention of potential
-            employers and offer them insight into what you can bring to their
-            organization."
+          {resumeData?.resume?.summary}
           </p>
         </div>
         <br />
@@ -87,55 +94,15 @@ function Template_1() {
         <div className={style.work}>
           <h2>WORK HISTORY</h2>
           <ul className={style.work_history}>
-            <li>
-              <p>dugsugdgsdusgdgsu</p>
-              <p>
-                <h5>HealthCare -</h5>
-                <ul>
-                  <li>
-                  The healthcare sector encompasses a wide range of services and professions dedicated to medical care, wellness, and public health.
-                  </li>
-                  <li>
-                  It includes hospitals, clinics, nursing homes, and other healthcare facilities that provide treatment and care to patients.
-                  </li>
-                  <li>
-                  The sector involves various medical professionals like doctors, nurses, pharmacists, and therapists, each contributing to patient well-being.
-                  </li>
-                </ul>
-              </p>
+   
+          {resumeData?.resume?.work.map((item,id)=>
+           <li  key={id}>
+            <h3>{item?.title}</h3>
+            <p>{item?.company} , {item?.location}</p>
+            <p>{item?.description}</p>
+        
             </li>
-            <li>
-              <p>dugsugdgsdusgdgsu</p>
-              <p>
-                <h5>HealthCare -</h5>
-                <ul>
-                  <li>
-                  The healthcare sector encompasses a wide range of services and professions dedicated to medical care, wellness, and public health.
-                  </li>
-                  <li>
-                  It includes hospitals, clinics, nursing homes, and other healthcare facilities that provide treatment and care to patients.
-                  </li>
-                  <li>
-                  The sector involves various medical professionals like doctors, nurses, pharmacists, and therapists, each contributing to patient well-being.
-                  </li>
-                </ul>
-              </p>
-            </li>
-            <li>
-              <p>dugsugdgsdusgdgsu</p>
-              <p>
-                <h5>HealthCare -</h5>
-                <ul>
-                  <li>
-                  The healthcare sector encompasses a wide range of services and professions dedicated to medical care, wellness, and public health.
-                  </li>
-                  <li>
-                  It includes hospitals, clinics, nursing homes, and other healthcare facilities that provide treatment and care to patients.
-                  </li>
-                       </ul>
-              </p>
-            </li>
-      
+          )}
          
           </ul>
         </div>

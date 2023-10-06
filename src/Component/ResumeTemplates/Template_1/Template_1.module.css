@@ -1,8 +1,8 @@
 .main{
     display: grid;
     grid-template-columns: 1fr 2fr;
-    width: 50rem; /* 874px / 16px = 54.625rem */
-    height: 70.5rem;  /* 1240px / 16px = 77.5rem */
+    width: 52rem; /* 874px / 16px = 54.625rem */
+    height: 73.3rem;  /* 1240px / 16px = 77.5rem */
     margin: 0 auto;
     background-Color: white;
     box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,6 @@
     padding: 3rem 1rem;
     gap: 1rem;
     text-align: left;
-    width: 17rem;
 }
 
 .info_box{
@@ -53,9 +52,6 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
-   width: 40rem;
-
-   
 }
 .right_section p{
     width: 95%!important;
@@ -118,4 +114,9 @@ hr{
     display: flex;
     gap: .5rem;
     align-items: center;
+}
+.certifications ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }

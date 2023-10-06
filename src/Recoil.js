@@ -15,7 +15,7 @@ export const resume = atom({
       userId: "65105c16ac774d90e09123fb",
       jobTitle: "NodeJs Developer",
       name: "John Doe",
-      summary: "Experienced software engineer with a passion for coding.",
+      summary: "A professional summary, also known as a career summary or executive summary, is a brief statement that provides a snapshot of your qualifications, skills, and career goals. It typically appears at the top of your resume or CV and is meant to grab the reader's attention quickly. Here's a short description of a professional summary:.",
       contact: {
         email: "john.doe@example.com",
         phone: "+1 (123) 456-7890",
@@ -43,8 +43,34 @@ export const resume = atom({
           endYear: "2007",
           _id: "651d0603587cea4128a820f5",
         },
+        {
+          degree: "Bachelor of Science",
+          collegeName: "ABC University",
+          stream: "Computer Science",
+          startYear: "2003",
+          endYear: "2007",
+          _id: "651d0603587cea4128a820f5",
+        },
       ],
       work: [
+        {
+          title: "Senior Software Engineer",
+          company: "XYZ Tech",
+          startDate: "2007-06-15",
+          endDate: "2021-12-31",
+          location: "Techville",
+          description: "Led development teams and delivered high-quality software solutions.Led development teams and delivered high-quality software solutions.",
+          _id: "651d0603587cea4128a820f6",
+        },
+        {
+          title: "Senior Software Engineer",
+          company: "XYZ Tech",
+          startDate: "2007-06-15",
+          endDate: "2021-12-31",
+          location: "Techville",
+          description: "Led development teams and delivered high-quality software solutions.",
+          _id: "651d0603587cea4128a820f6",
+        },
         {
           title: "Senior Software Engineer",
           company: "XYZ Tech",
@@ -56,6 +82,31 @@ export const resume = atom({
         },
       ],
       skillsAndLevel: [
+        {
+          skills: "JavaScript",
+          level: "Advanced",
+          _id: "651d0603587cea4128a820f7",
+        },
+        {
+          skills: "JavaScript",
+          level: "Advanced",
+          _id: "651d0603587cea4128a820f7",
+        },
+        {
+          skills: "JavaScript",
+          level: "Advanced",
+          _id: "651d0603587cea4128a820f7",
+        },
+        {
+          skills: "JavaScript",
+          level: "Advanced",
+          _id: "651d0603587cea4128a820f7",
+        },
+        {
+          skills: "JavaScript",
+          level: "Advanced",
+          _id: "651d0603587cea4128a820f7",
+        },
         {
           skills: "JavaScript",
           level: "Advanced",
@@ -98,6 +149,24 @@ export const resume = atom({
         },
       ],
       certifications: [
+        {
+          title: "Certified AWS Developer",
+          issuingOrganization: "AWS",
+          date: "2020-03-15",
+          _id: "651d0603587cea4128a820fc",
+        },
+        {
+          title: "Certified AWS Developer",
+          issuingOrganization: "AWS",
+          date: "2020-03-15",
+          _id: "651d0603587cea4128a820fc",
+        },
+        {
+          title: "Certified AWS Developer",
+          issuingOrganization: "AWS",
+          date: "2020-03-15",
+          _id: "651d0603587cea4128a820fc",
+        },
         {
           title: "Certified AWS Developer",
           issuingOrganization: "AWS",
