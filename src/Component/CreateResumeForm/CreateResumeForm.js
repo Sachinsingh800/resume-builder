@@ -515,116 +515,218 @@ const ResumeForm = () => {
 
 
 {section === 4 && (
-<section>
-   {/* Skills and Level */}
-   {resume.skillsAndLevel.map((skill, index) => (
-          <div key={index}>
-            <h2>Skills and Level {index + 1}</h2>
-            <div className={style.section_4}>
-            <div>
-              <label htmlFor={`skills-${index}`}>Skills:</label>
-              <input
-                type="text"
-                id={`skills-${index}`}
-                name={`skills-${index}`}
-                value={skill.skills}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`level-${index}`}>Level:</label>
-              <input
-                type="text"
-                id={`level-${index}`}
-                name={`level-${index}`}
-                value={skill.level}
-                onChange={handleChange}
-              />
-            </div>
-            </div>
-   
+  <section>
+    {/* Skills and Level */}
+    {resume.skillsAndLevel.map((skill, index) => (
+      <div key={index}>
+        <h2>Skills and Level {index + 1}</h2>
+        <div className={style.section_4}>
+          <div>
+            <label htmlFor={`skills-${index}`}>Skills:</label>
+            <input
+              type="text"
+              id={`skills-${index}`}
+              name={`skills-${index}`}
+              value={skill.skills}
+              onChange={(e) => {
+                const updatedSkills = [...resume.skillsAndLevel];
+                updatedSkills[index] = {
+                  ...updatedSkills[index],
+                  skills: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    skillsAndLevel: updatedSkills,
+                  },
+                });
+              }}
+            />
           </div>
-        ))}
-
-</section>
+          <div>
+            <label htmlFor={`level-${index}`}>Level:</label>
+            <input
+              type="text"
+              id={`level-${index}`}
+              name={`level-${index}`}
+              value={skill.level}
+              onChange={(e) => {
+                const updatedSkills = [...resume.skillsAndLevel];
+                updatedSkills[index] = {
+                  ...updatedSkills[index],
+                  level: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    skillsAndLevel: updatedSkills,
+                  },
+                });
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
 )}
+
        
 
 
-
-       {section === 5 && (
-        <section>
-   {/* Internships */}
-   {resume.internShips.map((internship, index) => (
-          <div key={index}>
-            <h2>Internship {index + 1}</h2>
-            <div className={style.section_5}>
-            <div>
-              <label htmlFor={`title-${index}`}>Title:</label>
-              <input
-                type="text"
-                id={`title-${index}`}
-                name={`title-${index}`}
-                value={internship.title}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`company-${index}`}>Company:</label>
-              <input
-                type="text"
-                id={`company-${index}`}
-                name={`company-${index}`}
-                value={internship.company}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`startDate-${index}`}>Start Date:</label>
-              <input
-                type="date"
-                id={`startDate-${index}`}
-                name={`startDate-${index}`}
-                value={internship.startDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`endDate-${index}`}>End Date:</label>
-              <input
-                type="date"
-                id={`endDate-${index}`}
-                name={`endDate-${index}`}
-                value={internship.endDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`location-${index}`}>Location:</label>
-              <input
-                type="text"
-                id={`location-${index}`}
-                name={`location-${index}`}
-                value={internship.location}
-                onChange={handleChange}
-              />
-            </div>
-      
-            </div>
-            <br/>
-            <div>
-              <label htmlFor={`description-${index}`}>Description:</label>
-              <textarea
-                id={`description-${index}`}
-                name={`description-${index}`}
-                value={internship.description}
-                onChange={handleChange}
-              />
-            </div>
+{section === 5 && (
+  <section>
+    {/* Internships */}
+    {resume.internShips.map((internship, index) => (
+      <div key={index}>
+        <h2>Internship {index + 1}</h2>
+        <div className={style.section_5}>
+          <div>
+            <label htmlFor={`title-${index}`}>Title:</label>
+            <input
+              type="text"
+              id={`title-${index}`}
+              name={`title-${index}`}
+              value={internship.title}
+              onChange={(e) => {
+                const updatedInternships = [...resume.internShips];
+                updatedInternships[index] = {
+                  ...updatedInternships[index],
+                  title: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    internShips: updatedInternships,
+                  },
+                });
+              }}
+            />
           </div>
-        ))}
-        </section>
-       )}
+          <div>
+            <label htmlFor={`company-${index}`}>Company:</label>
+            <input
+              type="text"
+              id={`company-${index}`}
+              name={`company-${index}`}
+              value={internship.company}
+              onChange={(e) => {
+                const updatedInternships = [...resume.internShips];
+                updatedInternships[index] = {
+                  ...updatedInternships[index],
+                  company: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    internShips: updatedInternships,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`startDate-${index}`}>Start Date:</label>
+            <input
+              type="date"
+              id={`startDate-${index}`}
+              name={`startDate-${index}`}
+              value={internship.startDate}
+              onChange={(e) => {
+                const updatedInternships = [...resume.internShips];
+                updatedInternships[index] = {
+                  ...updatedInternships[index],
+                  startDate: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    internShips: updatedInternships,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`endDate-${index}`}>End Date:</label>
+            <input
+              type="date"
+              id={`endDate-${index}`}
+              name={`endDate-${index}`}
+              value={internship.endDate}
+              onChange={(e) => {
+                const updatedInternships = [...resume.internShips];
+                updatedInternships[index] = {
+                  ...updatedInternships[index],
+                  endDate: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    internShips: updatedInternships,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`location-${index}`}>Location:</label>
+            <input
+              type="text"
+              id={`location-${index}`}
+              name={`location-${index}`}
+              value={internship.location}
+              onChange={(e) => {
+                const updatedInternships = [...resume.internShips];
+                updatedInternships[index] = {
+                  ...updatedInternships[index],
+                  location: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    internShips: updatedInternships,
+                  },
+                });
+              }}
+            />
+          </div>
+        </div>
+        <br />
+        <div>
+          <label htmlFor={`description-${index}`}>Description:</label>
+          <textarea
+            id={`description-${index}`}
+            name={`description-${index}`}
+            value={internship.description}
+            onChange={(e) => {
+              const updatedInternships = [...resume.internShips];
+              updatedInternships[index] = {
+                ...updatedInternships[index],
+                description: e.target.value,
+              };
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  internShips: updatedInternships,
+                },
+              });
+            }}
+          />
+        </div>
+      </div>
+    ))}
+  </section>
+)}
+
 
      
 
@@ -634,371 +736,736 @@ const ResumeForm = () => {
 
 {section === 6 && (
   <section>
-  {/* Projects */}
-  {resume.projects.map((project, index) => (
-          <div key={index}>
-            <h2>Project {index + 1}</h2>
-           
-            <div>
-              <label htmlFor={`title-${index}`}>Title:</label>
-              <input
-                type="text"
-                id={`title-${index}`}
-                name={`title-${index}`}
-                value={project.title}
-                onChange={handleChange}
-              />
-            </div>
-            <br/>
-            <div>
-              <label htmlFor={`description-${index}`}>Description:</label>
-              <textarea
-                id={`description-${index}`}
-                name={`description-${index}`}
-                value={project.description}
-                onChange={handleChange}
-              />
-            </div>
-            <br/>
-            <div className={style.section_6}>
-            <div>
-              <label htmlFor={`year-${index}`}>Year:</label>
-              <input
-                type="text"
-                id={`year-${index}`}
-                name={`year-${index}`}
-                value={project.year}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`link-${index}`}>Link:</label>
-              <input
-                type="text"
-                id={`link-${index}`}
-                name={`link-${index}`}
-                value={project.link}
-                onChange={handleChange}
-              />
-            </div>
-            </div>
-           
-   
-         
+    {/* Projects */}
+    {resume.projects.map((project, index) => (
+      <div key={index}>
+        <h2>Project {index + 1}</h2>
+        <div>
+          <label htmlFor={`title-${index}`}>Title:</label>
+          <input
+            type="text"
+            id={`title-${index}`}
+            name={`title-${index}`}
+            value={project.title}
+            onChange={(e) => {
+              const updatedProjects = [...resume.projects];
+              updatedProjects[index] = {
+                ...updatedProjects[index],
+                title: e.target.value,
+              };
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  projects: updatedProjects,
+                },
+              });
+            }}
+          />
+        </div>
+        <br />
+        <div>
+          <label htmlFor={`description-${index}`}>Description:</label>
+          <textarea
+            id={`description-${index}`}
+            name={`description-${index}`}
+            value={project.description}
+            onChange={(e) => {
+              const updatedProjects = [...resume.projects];
+              updatedProjects[index] = {
+                ...updatedProjects[index],
+                description: e.target.value,
+              };
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  projects: updatedProjects,
+                },
+              });
+            }}
+          />
+        </div>
+        <br />
+        <div className={style.section_6}>
+          <div>
+            <label htmlFor={`year-${index}`}>Year:</label>
+            <input
+              type="text"
+              id={`year-${index}`}
+              name={`year-${index}`}
+              value={project.year}
+              onChange={(e) => {
+                const updatedProjects = [...resume.projects];
+                updatedProjects[index] = {
+                  ...updatedProjects[index],
+                  year: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    projects: updatedProjects,
+                  },
+                });
+              }}
+            />
           </div>
-        ))}
-
+          <div>
+            <label htmlFor={`link-${index}`}>Link:</label>
+            <input
+              type="text"
+              id={`link-${index}`}
+              name={`link-${index}`}
+              value={project.link}
+              onChange={(e) => {
+                const updatedProjects = [...resume.projects];
+                updatedProjects[index] = {
+                  ...updatedProjects[index],
+                  link: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    projects: updatedProjects,
+                  },
+                });
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    ))}
   </section>
 )}
 
+
       
+
+
+
 
 
 {section === 7 && (
   <section>
-  {/* Social Links */}
-  <div>
-    <h2>Social Links</h2>
-          <label htmlFor="linkedin">LinkedIn Profile:</label>
-          <input
-            type="url"
-            id="linkedin"
-            name="linkedin"
-            value={resume.socialLinks.linkedin}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="github">GitHub Profile:</label>
-          <input
-            type="url"
-            id="github"
-            name="github"
-            value={resume.socialLinks.github}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="portfolio">Portfolio:</label>
-          <input
-            type="url"
-            id="portfolio"
-            name="portfolio"
-            value={resume.socialLinks.portfolio}
-            onChange={handleChange}
-          />
-        </div>
+    {/* Social Links */}
+    <div>
+      <h2>Social Links</h2>
+      <div>
+        <label htmlFor="linkedin">LinkedIn Profile:</label>
+        <input
+          type="url"
+          id="linkedin"
+          name="linkedin"
+          value={resume.socialLinks.linkedin}
+          onChange={(e) => {
+            setFormData({
+              ...formData,
+              resume: {
+                ...resume,
+                socialLinks: {
+                  ...resume.socialLinks,
+                  linkedin: e.target.value,
+                },
+              },
+            });
+          }}
+        />
+      </div>
+      <div>
+        <label htmlFor="github">GitHub Profile:</label>
+        <input
+          type="url"
+          id="github"
+          name="github"
+          value={resume.socialLinks.github}
+          onChange={(e) => {
+            setFormData({
+              ...formData,
+              resume: {
+                ...resume,
+                socialLinks: {
+                  ...resume.socialLinks,
+                  github: e.target.value,
+                },
+              },
+            });
+          }}
+        />
+      </div>
+      <div>
+        <label htmlFor="portfolio">Portfolio:</label>
+        <input
+          type="url"
+          id="portfolio"
+          name="portfolio"
+          value={resume.socialLinks.portfolio}
+          onChange={(e) => {
+            setFormData({
+              ...formData,
+              resume: {
+                ...resume,
+                socialLinks: {
+                  ...resume.socialLinks,
+                  portfolio: e.target.value,
+                },
+              },
+            });
+          }}
+        />
+      </div>
+    </div>
   </section>
 )}
+
       
 
 
-      {section === 8 && (
-<section className={style.section_8}>
-  {/* Known Languages */}
-  {resume.knownLanguages.map((language, index) => (
-          <div key={index}>
-            <h2>Known Languages {index + 1}</h2>
-            <label htmlFor={`language-${index}`}>Language:</label>
+
+
+
+{section === 8 && (
+  <section className={style.section_8}>
+    {/* Known Languages */}
+    {resume.knownLanguages.map((language, index) => (
+      <div key={index}>
+        <h2>Known Languages {index + 1}</h2>
+        <label htmlFor={`language-${index}`}>Language:</label>
+        <input
+          type="text"
+          id={`language-${index}`}
+          name={`language-${index}`}
+          value={language.lang}
+          onChange={(e) => {
+            const updatedKnownLanguages = [...resume.knownLanguages];
+            updatedKnownLanguages[index] = {
+              ...updatedKnownLanguages[index],
+              lang: e.target.value,
+            };
+
+            setFormData({
+              ...formData,
+              resume: {
+                ...resume,
+                knownLanguages: updatedKnownLanguages,
+              },
+            });
+          }}
+        />
+      </div>
+    ))}
+  </section>
+)}
+
+
+
+
+
+
+
+
+
+{section === 9 && (
+  <section className={style.section_9}>
+    {/* Certifications */}
+    {resume.certifications.map((certification, index) => (
+      <div key={index}>
+        <h2>Certification {index + 1}</h2>
+        <div>
+          <label htmlFor={`title-${index}`}>Title:</label>
+          <input
+            type="text"
+            id={`title-${index}`}
+            name={`title-${index}`}
+            value={certification.title}
+            onChange={(e) => {
+              const updatedCertifications = [...resume.certifications];
+              updatedCertifications[index] = {
+                ...updatedCertifications[index],
+                title: e.target.value,
+              };
+
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  certifications: updatedCertifications,
+                },
+              });
+            }}
+          />
+        </div>
+        <div>
+          <label htmlFor={`issuingOrganization-${index}`}>Issuing Organization:</label>
+          <input
+            type="text"
+            id={`issuingOrganization-${index}`}
+            name={`issuingOrganization-${index}`}
+            value={certification.issuingOrganization}
+            onChange={(e) => {
+              const updatedCertifications = [...resume.certifications];
+              updatedCertifications[index] = {
+                ...updatedCertifications[index],
+                issuingOrganization: e.target.value,
+              };
+
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  certifications: updatedCertifications,
+                },
+              });
+            }}
+          />
+        </div>
+        <div>
+          <label htmlFor={`date-${index}`}>Date:</label>
+          <input
+            type="date"
+            id={`date-${index}`}
+            name={`date-${index}`}
+            value={certification.date}
+            onChange={(e) => {
+              const updatedCertifications = [...resume.certifications];
+              updatedCertifications[index] = {
+                ...updatedCertifications[index],
+                date: e.target.value,
+              };
+
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  certifications: updatedCertifications,
+                },
+              });
+            }}
+          />
+        </div>
+      </div>
+    ))}
+  </section>
+)}
+
+
+
+
+
+
+
+
+{section === 10 && (
+  <section className={style.section_9}>
+    {/* Awards */}
+    {resume.awards.map((award, index) => (
+      <div key={index}>
+        <h2>Award {index + 1}</h2>
+        <div>
+          <label htmlFor={`awardTitle-${index}`}>Award Title:</label>
+          <input
+            type="text"
+            id={`awardTitle-${index}`}
+            name={`awardTitle-${index}`}
+            value={award.title}
+            onChange={(e) => {
+              const updatedAwards = [...resume.awards];
+              updatedAwards[index] = {
+                ...updatedAwards[index],
+                title: e.target.value,
+              };
+
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  awards: updatedAwards,
+                },
+              });
+            }}
+          />
+        </div>
+        <div>
+          <label htmlFor={`awardOrganization-${index}`}>Award Organization:</label>
+          <input
+            type="text"
+            id={`awardOrganization-${index}`}
+            name={`awardOrganization-${index}`}
+            value={award.issuingOrganization}
+            onChange={(e) => {
+              const updatedAwards = [...resume.awards];
+              updatedAwards[index] = {
+                ...updatedAwards[index],
+                issuingOrganization: e.target.value,
+              };
+
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  awards: updatedAwards,
+                },
+              });
+            }}
+          />
+        </div>
+        <div>
+          <label htmlFor={`awardDate-${index}`}>Award Date:</label>
+          <input
+            type="date"
+            id={`awardDate-${index}`}
+            name={`awardDate-${index}`}
+            value={award.date}
+            onChange={(e) => {
+              const updatedAwards = [...resume.awards];
+              updatedAwards[index] = {
+                ...updatedAwards[index],
+                date: e.target.value,
+              };
+
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  awards: updatedAwards,
+                },
+              });
+            }}
+          />
+        </div>
+      </div>
+    ))}
+  </section>
+)}
+
+
+
+       
+
+{section === 11 && (
+  <section>
+    {/* Volunteer Experience */}
+    {resume.volunteerExperience.map((volunteer, index) => (
+      <div key={index}>
+        <h2>Volunteer Experience {index + 1}</h2>
+        <div className={style.section_11}>
+          <div>
+            <label htmlFor={`volunteerTitle-${index}`}>Title:</label>
             <input
               type="text"
-              id={`language-${index}`}
-              name={`language-${index}`}
-              value={language.lang}
-              onChange={handleChange}
+              id={`volunteerTitle-${index}`}
+              name={`volunteerTitle-${index}`}
+              value={volunteer.title}
+              onChange={(e) => {
+                const updatedVolunteerExperience = [...resume.volunteerExperience];
+                updatedVolunteerExperience[index] = {
+                  ...updatedVolunteerExperience[index],
+                  title: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    volunteerExperience: updatedVolunteerExperience,
+                  },
+                });
+              }}
             />
           </div>
-        ))}
-</section>
-      )}
-      
-
-      {section === 9 && (
-      <section className={style.section_9}>
- {/* Certifications */}
- {resume.certifications.map((certification, index) => (
-          <div key={index}>
-            <h2>Certification {index + 1}</h2>
-            <div>
-              <label htmlFor={`title-${index}`}>Title:</label>
-              <input
-                type="text"
-                id={`title-${index}`}
-                name={`title-${index}`}
-                value={certification.title}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`issuingOrganization-${index}`}>Issuing Organization:</label>
-              <input
-                type="text"
-                id={`issuingOrganization-${index}`}
-                name={`issuingOrganization-${index}`}
-                value={certification.issuingOrganization}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`date-${index}`}>Date:</label>
-              <input
-                type="date"
-                id={`date-${index}`}
-                name={`date-${index}`}
-                value={certification.date}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-        ))}
-
-      </section>
-      )}
-       
-
-
-
-
-       {section === 10 && (
-        <section className={style.section_9}>
- {/* Awards */}
- {resume.awards.map((award, index) => (
-          <div key={index}>
-            <h2>Award {index + 1}</h2>
-            <div>
-              <label htmlFor={`awardTitle-${index}`}>Award Title:</label>
-              <input
-                type="text"
-                id={`awardTitle-${index}`}
-                name={`awardTitle-${index}`}
-                value={award.title}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`awardOrganization-${index}`}>Award Organization:</label>
-              <input
-                type="text"
-                id={`awardOrganization-${index}`}
-                name={`awardOrganization-${index}`}
-                value={award.issuingOrganization}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`awardDate-${index}`}>Award Date:</label>
-              <input
-                type="date"
-                id={`awardDate-${index}`}
-                name={`awardDate-${index}`}
-                value={award.date}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-        ))}
-        </section>
-       )}
-       
-
-       {section === 11 && (
-        <section>
-           {/* Volunteer Experience */}
-        {resume.volunteerExperience.map((volunteer, index) => (
-          <div key={index}>
-            <h2>Volunteer Experience {index + 1}</h2>
-            <div className={style.section_11}>
-            <div>
-              <label htmlFor={`volunteerTitle-${index}`}>Title:</label>
-              <input
-                type="text"
-                id={`volunteerTitle-${index}`}
-                name={`volunteerTitle-${index}`}
-                value={volunteer.title}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`volunteerCompany-${index}`}>Company:</label>
-              <input
-                type="text"
-                id={`volunteerCompany-${index}`}
-                name={`volunteerCompany-${index}`}
-                value={volunteer.company}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`volunteerStartDate-${index}`}>Start Date:</label>
-              <input
-                type="date"
-                id={`volunteerStartDate-${index}`}
-                name={`volunteerStartDate-${index}`}
-                value={volunteer.startDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`volunteerEndDate-${index}`}>End Date:</label>
-              <input
-                type="date"
-                id={`volunteerEndDate-${index}`}
-                name={`volunteerEndDate-${index}`}
-                value={volunteer.endDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`volunteerLocation-${index}`}>Location:</label>
-              <input
-                type="text"
-                id={`volunteerLocation-${index}`}
-                name={`volunteerLocation-${index}`}
-                value={volunteer.location}
-                onChange={handleChange}
-              />
-            </div>
-            </div>
-           <br/>
-            <div>
-              <label htmlFor={`volunteerDescription-${index}`}>Description:</label>
-              <textarea
-                id={`volunteerDescription-${index}`}
-                name={`volunteerDescription-${index}`}
-                value={volunteer.description}
-                onChange={handleChange}
-              />
-            </div>
-          </div>
-        ))}
-        </section>
-       )}
-       
-       {section === 12 && (
-        <section className={style.section_12}>
-          {/* Areas of Interest */}
-        {resume.areaOfInterest.map((interest, index) => (
-          <div key={index}>
-            <h2>Areas of Interest {index + 1}</h2>
-            <label htmlFor={`interest-${index}`}>Area of Interest:</label>
+          <div>
+            <label htmlFor={`volunteerCompany-${index}`}>Company:</label>
             <input
               type="text"
-              id={`interest-${index}`}
-              name={`interest-${index}`}
-              value={interest.interest}
-              onChange={handleChange}
+              id={`volunteerCompany-${index}`}
+              name={`volunteerCompany-${index}`}
+              value={volunteer.company}
+              onChange={(e) => {
+                const updatedVolunteerExperience = [...resume.volunteerExperience];
+                updatedVolunteerExperience[index] = {
+                  ...updatedVolunteerExperience[index],
+                  company: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    volunteerExperience: updatedVolunteerExperience,
+                  },
+                });
+              }}
             />
           </div>
-        ))}
+          <div>
+            <label htmlFor={`volunteerStartDate-${index}`}>Start Date:</label>
+            <input
+              type="date"
+              id={`volunteerStartDate-${index}`}
+              name={`volunteerStartDate-${index}`}
+              value={volunteer.startDate}
+              onChange={(e) => {
+                const updatedVolunteerExperience = [...resume.volunteerExperience];
+                updatedVolunteerExperience[index] = {
+                  ...updatedVolunteerExperience[index],
+                  startDate: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    volunteerExperience: updatedVolunteerExperience,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`volunteerEndDate-${index}`}>End Date:</label>
+            <input
+              type="date"
+              id={`volunteerEndDate-${index}`}
+              name={`volunteerEndDate-${index}`}
+              value={volunteer.endDate}
+              onChange={(e) => {
+                const updatedVolunteerExperience = [...resume.volunteerExperience];
+                updatedVolunteerExperience[index] = {
+                  ...updatedVolunteerExperience[index],
+                  endDate: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    volunteerExperience: updatedVolunteerExperience,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`volunteerLocation-${index}`}>Location:</label>
+            <input
+              type="text"
+              id={`volunteerLocation-${index}`}
+              name={`volunteerLocation-${index}`}
+              value={volunteer.location}
+              onChange={(e) => {
+                const updatedVolunteerExperience = [...resume.volunteerExperience];
+                updatedVolunteerExperience[index] = {
+                  ...updatedVolunteerExperience[index],
+                  location: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    volunteerExperience: updatedVolunteerExperience,
+                  },
+                });
+              }}
+            />
+          </div>
+        </div>
+        <br />
+        <div>
+          <label htmlFor={`volunteerDescription-${index}`}>Description:</label>
+          <textarea
+            id={`volunteerDescription-${index}`}
+            name={`volunteerDescription-${index}`}
+            value={volunteer.description}
+            onChange={(e) => {
+              const updatedVolunteerExperience = [...resume.volunteerExperience];
+              updatedVolunteerExperience[index] = {
+                ...updatedVolunteerExperience[index],
+                description: e.target.value,
+              };
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  volunteerExperience: updatedVolunteerExperience,
+                },
+              });
+            }}
+          />
+        </div>
+      </div>
+    ))}
+  </section>
+)}
 
-        </section>
-       )}
+       
+
+
+
+
+{section === 12 && (
+  <section className={style.section_12}>
+    {/* Areas of Interest */}
+    {resume.areaOfInterest.map((interest, index) => (
+      <div key={index}>
+        <h2>Areas of Interest {index + 1}</h2>
+        <label htmlFor={`interest-${index}`}>Area of Interest:</label>
+        <input
+          type="text"
+          id={`interest-${index}`}
+          name={`interest-${index}`}
+          value={interest.interest}
+          onChange={(e) => {
+            const updatedAreaOfInterest = [...resume.areaOfInterest];
+            updatedAreaOfInterest[index] = {
+              ...updatedAreaOfInterest[index],
+              interest: e.target.value,
+            };
+            setFormData({
+              ...formData,
+              resume: {
+                ...resume,
+                areaOfInterest: updatedAreaOfInterest,
+              },
+            });
+          }}
+        />
+      </div>
+    ))}
+  </section>
+)}
+
         
 
-        {section === 13 && (
-         <section>
-             {/* References */}
-        {resume.references.map((reference, index) => (
-          <div key={index}>
-            <h2>Reference {index + 1}</h2>
-            <div className={style.section_13}>
-            <div>
-              <label htmlFor={`referenceName-${index}`}>Name:</label>
-              <input
-                type="text"
-                id={`referenceName-${index}`}
-                name={`referenceName-${index}`}
-                value={reference.name}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`referenceCompany-${index}`}>Company:</label>
-              <input
-                type="text"
-                id={`referenceCompany-${index}`}
-                name={`referenceCompany-${index}`}
-                value={reference.company}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`referencePosition-${index}`}>Position:</label>
-              <input
-                type="text"
-                id={`referencePosition-${index}`}
-                name={`referencePosition-${index}`}
-                value={reference.position}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`referenceEmail-${index}`}>Email:</label>
-              <input
-                type="email"
-                id={`referenceEmail-${index}`}
-                name={`referenceEmail-${index}`}
-                value={reference.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`referencePhone-${index}`}>Phone:</label>
-              <input
-                type="tel"
-                id={`referencePhone-${index}`}
-                name={`referencePhone-${index}`}
-                value={reference.phone}
-                onChange={handleChange}
-              />
-            </div>
-            </div>
-           
+
+
+
+
+{section === 13 && (
+  <section>
+    {/* References */}
+    {resume.references.map((reference, index) => (
+      <div key={index}>
+        <h2>Reference {index + 1}</h2>
+        <div className={style.section_13}>
+          <div>
+            <label htmlFor={`referenceName-${index}`}>Name:</label>
+            <input
+              type="text"
+              id={`referenceName-${index}`}
+              name={`referenceName-${index}`}
+              value={reference.name}
+              onChange={(e) => {
+                const updatedReferences = [...resume.references];
+                updatedReferences[index] = {
+                  ...updatedReferences[index],
+                  name: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    references: updatedReferences,
+                  },
+                });
+              }}
+            />
           </div>
-        ))}
-             <button type="submit">Submit</button>
-         </section>
-        )}
+          <div>
+            <label htmlFor={`referenceCompany-${index}`}>Company:</label>
+            <input
+              type="text"
+              id={`referenceCompany-${index}`}
+              name={`referenceCompany-${index}`}
+              value={reference.company}
+              onChange={(e) => {
+                const updatedReferences = [...resume.references];
+                updatedReferences[index] = {
+                  ...updatedReferences[index],
+                  company: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    references: updatedReferences,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`referencePosition-${index}`}>Position:</label>
+            <input
+              type="text"
+              id={`referencePosition-${index}`}
+              name={`referencePosition-${index}`}
+              value={reference.position}
+              onChange={(e) => {
+                const updatedReferences = [...resume.references];
+                updatedReferences[index] = {
+                  ...updatedReferences[index],
+                  position: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    references: updatedReferences,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`referenceEmail-${index}`}>Email:</label>
+            <input
+              type="email"
+              id={`referenceEmail-${index}`}
+              name={`referenceEmail-${index}`}
+              value={reference.email}
+              onChange={(e) => {
+                const updatedReferences = [...resume.references];
+                updatedReferences[index] = {
+                  ...updatedReferences[index],
+                  email: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    references: updatedReferences,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`referencePhone-${index}`}>Phone:</label>
+            <input
+              type="tel"
+              id={`referencePhone-${index}`}
+              name={`referencePhone-${index}`}
+              value={reference.phone}
+              onChange={(e) => {
+                const updatedReferences = [...resume.references];
+                updatedReferences[index] = {
+                  ...updatedReferences[index],
+                  phone: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    references: updatedReferences,
+                  },
+                });
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    ))}
+    <button className={style.submit_btn} type="submit">Submit</button>
+  </section>
+)}
+
       
       </form>
       <br />
