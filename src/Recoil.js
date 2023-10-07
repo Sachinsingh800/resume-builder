@@ -20,8 +20,6 @@ export const resumeData = atom({
         email: "john.doe@example.com",
         phone: "+1 (123) 456-7890",
       },
-      dob: "1985-05-15",
-      gender: "Male",
       address: {
         address: "new Address",
         city: "Anytown",
@@ -29,6 +27,9 @@ export const resumeData = atom({
         postalCode: "12345",
         country: "USA",
       },
+      dob: "1985-05-15",
+      gender: "Male",
+
       profilePicture: {
         url:
           "https://res.cloudinary.com/decjoyrmj/image/upload/v1696400898/course_profilePictures/puhwvmekanurjar8l4dk.png",

@@ -106,28 +106,51 @@ const ResumeForm = () => {
 
 
       <div className={style.info_box}>
-          {/* Contact */}
-          <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={resume.contact.email}
-            onChange={handleChange}
-          />
-        </div>
+       {/* Contact */}
+<div>
+  <label htmlFor="email">Email:</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    value={resume.contact.email}
+    onChange={(e) => {
+      setFormData({
+        ...formData,
+        resume: {
+          ...resume,
+          contact: {
+            ...resume.contact,
+            email: e.target.value,
+          },
+        },
+      });
+    }}
+  />
+</div>
 
-        <div>
-          <label htmlFor="phone">Phone:</label>
-          <input
-            type="text"
-            id="phone"
-            name="phone"
-            value={resume.contact.phone}
-            onChange={handleChange}
-          />
-        </div>
+<div>
+  <label htmlFor="phone">Phone:</label>
+  <input
+    type="text"
+    id="phone"
+    name="phone"
+    value={resume.contact.phone}
+    onChange={(e) => {
+      setFormData({
+        ...formData,
+        resume: {
+          ...resume,
+          contact: {
+            ...resume.contact,
+            phone: e.target.value,
+          },
+        },
+      });
+    }}
+  />
+</div>
+
 
         {/* Date of Birth */}
         <div>
