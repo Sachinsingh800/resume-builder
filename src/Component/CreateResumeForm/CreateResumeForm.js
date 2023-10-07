@@ -11,6 +11,7 @@ const ResumeForm = () => {
   const [formData,   setFormData] = useRecoilState(resumeData);
   const [section, setSection] = useState(1);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
+  
 
   const { resume } = formData;
 
@@ -120,7 +121,7 @@ const ResumeForm = () => {
         <div>
           <label htmlFor="phone">Phone:</label>
           <input
-            type="tel"
+            type="text"
             id="phone"
             name="phone"
             value={resume.contact.phone}
@@ -221,71 +222,137 @@ const ResumeForm = () => {
 
 
 
+  
   {section === 2 && (
-<section>
-   {/* Education */}
-   {resume.education.map((education, index) => (
-          <div key={index}>
-            <h2>Education {index + 1}</h2>
-
-            <div className={style.section_2}>
-            <div>
-              <label htmlFor={`degree-${index}`}>Degree:</label>
-              <input
-                type="text"
-                id={`degree-${index}`}
-                name={`degree-${index}`}
-                value={education.degree}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`collegeName-${index}`}>College Name:</label>
-              <input
-                type="text"
-                id={`collegeName-${index}`}
-                name={`collegeName-${index}`}
-                value={education.collegeName}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`stream-${index}`}>Stream:</label>
-              <input
-                type="text"
-                id={`stream-${index}`}
-                name={`stream-${index}`}
-                value={education.stream}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`startYear-${index}`}>Start Year:</label>
-              <input
-                type="text"
-                id={`startYear-${index}`}
-                name={`startYear-${index}`}
-                value={education.startYear}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`endYear-${index}`}>End Year:</label>
-              <input
-                type="text"
-                id={`endYear-${index}`}
-                name={`endYear-${index}`}
-                value={education.endYear}
-                onChange={handleChange}
-              />
-            </div>
-            </div>
-          
+  <section>
+    {/* Education */}
+    {resume.education.map((education, index) => (
+      <div key={index}>
+        <h2>Education {index + 1}</h2>
+        <div className={style.section_2}>
+          <div>
+            <label htmlFor={`degree-${index}`}>Degree:</label>
+            <input
+              type="text"
+              id={`degree-${index}`}
+              name={`degree-${index}`}
+              value={education.degree}
+              onChange={(e) => {
+                const updatedEducation = [...resume.education];
+                updatedEducation[index] = {
+                  ...updatedEducation[index],
+                  degree: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    education: updatedEducation,
+                  },
+                });
+              }}
+            />
           </div>
-        ))}
+          <div>
+            <label htmlFor={`collegeName-${index}`}>College Name:</label>
+            <input
+              type="text"
+              id={`collegeName-${index}`}
+              name={`collegeName-${index}`}
+              value={education.collegeName}
+              onChange={(e) => {
+                const updatedEducation = [...resume.education];
+                updatedEducation[index] = {
+                  ...updatedEducation[index],
+                  collegeName: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    education: updatedEducation,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`stream-${index}`}>Stream:</label>
+            <input
+              type="text"
+              id={`stream-${index}`}
+              name={`stream-${index}`}
+              value={education.stream}
+              onChange={(e) => {
+                const updatedEducation = [...resume.education];
+                updatedEducation[index] = {
+                  ...updatedEducation[index],
+                  stream: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    education: updatedEducation,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`startYear-${index}`}>Start Year:</label>
+            <input
+              type="text"
+              id={`startYear-${index}`}
+              name={`startYear-${index}`}
+              value={education.startYear}
+              onChange={(e) => {
+                const updatedEducation = [...resume.education];
+                updatedEducation[index] = {
+                  ...updatedEducation[index],
+                  startYear: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    education: updatedEducation,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`endYear-${index}`}>End Year:</label>
+            <input
+              type="text"
+              id={`endYear-${index}`}
+              name={`endYear-${index}`}
+              value={education.endYear}
+              onChange={(e) => {
+                const updatedEducation = [...resume.education];
+                updatedEducation[index] = {
+                  ...updatedEducation[index],
+                  endYear: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    education: updatedEducation,
+                  },
+                });
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+)}
 
-</section>
-  )}
+
+
 
 
 
