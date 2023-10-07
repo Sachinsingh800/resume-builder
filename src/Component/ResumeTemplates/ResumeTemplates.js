@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styles from "./ResumeTemplates.module.css";
-import { resume } from "../../Recoil";
+import { resumeData } from "../../Recoil";
 import { useRecoilState } from "recoil";
 import { ChooseColor } from "../../Recoil";
 import { useRecoilValue } from "recoil";
@@ -10,7 +10,7 @@ import { resumeType } from "../../Recoil";
 
 export function ResumeTemplates() {
   const [color, setColor] = useRecoilState(ChooseColor);
-  const [resumeData, setResumeData] = useRecoilState(resume);
+  const [resumeData, setResumeData] = useRecoilState(resumeData);
   const image = useRecoilValue(croppedImageState);
   const type = useRecoilValue(resumeType);
 

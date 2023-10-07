@@ -1,132 +1,11 @@
 import React, { useState } from 'react';
 import style from "./CreateResumeForm.module.css"
+import { useRecoilState } from 'recoil';
+import { resumeData } from '../../Recoil'; 
 
 const ResumeForm = () => {
-  const [formData, setFormData] = useState({
-    resume: {
-      userId: '65105c16ac774d90e09123fb',
-      jobTitle: 'NodeJs Developer',
-      name: 'John Doe',
-      summary:
-        'A professional summary, also known as a career summary or executive summary, is a brief statement that provides a snapshot of your qualifications, skills, and career goals. It typically appears at the top of your resume or CV and is meant to grab the reader\'s attention quickly. Here\'s a short description of a professional summary:.',
-      contact: {
-        email: 'john.doe@example.com',
-        phone: '+1 (123) 456-7890',
-      },
-      dob: '1985-05-15',
-      gender: 'Male',
-      address: {
-        address: 'new Address',
-        city: 'Anytown',
-        state: 'CA',
-        postalCode: '12345',
-        country: 'USA',
-      },
-      profilePicture: {
-        url:
-          'https://res.cloudinary.com/decjoyrmj/image/upload/v1696400898/course_profilePictures/puhwvmekanurjar8l4dk.png',
-        public_Id: 'course_profilePictures/puhwvmekanurjar8l4dk',
-      },
-      education: [
-        {
-          degree: 'Bachelor of Science',
-          collegeName: 'ABC University',
-          stream: 'Computer Science',
-          startYear: '2003',
-          endYear: '2007',
-        },
-      ],
-      work: [
-        {
-          title: 'Senior Software Engineer',
-          company: 'XYZ Tech',
-          startDate: '2007-06-15',
-          endDate: '2021-12-31',
-          location: 'Techville',
-          description:
-            'Led development teams and delivered high-quality software solutions.Led development teams and delivered high-quality software solutions.',
-        },
-      ],
-      skillsAndLevel: [
-        {
-          skills: 'JavaScript',
-          level: 'Advanced',
-        },
-      ],
-      internShips: [
-        {
-          title: 'Software Development Intern',
-          company: 'Internship Corp',
-          startDate: '2006-05-01',
-          endDate: '2006-08-31',
-          location: 'Intern City',
-          description: 'Gained experience in web development during the summer internship.',
-        },
-      ],
-      projects: [
-        {
-          title: 'E-commerce Website',
-          description: 'Built a fully functional e-commerce website using React and Node.js.',
-          year: '2019',
-          link: 'https://example.com/ecommerce',
-        },
-      ],
-      socialLinks: {
-        linkedin: 'https://www.linkedin.com/in/johndoe',
-        github: 'https://github.com/johndoe',
-        portfolio: 'https://johndoe.dev',
-      },
-      knownLanguages: [
-        {
-          lang: 'English',
-        },
-        {
-          lang: 'Spanish',
-        },
-      ],
-      certifications: [
-        {
-          title: 'Certified AWS Developer',
-          issuingOrganization: 'AWS',
-          date: '2020-03-15',
-        },
-      ],
-      awards: [
-        {
-          title: 'Employee of the Month',
-          issuingOrganization: 'XYZ Tech',
-          date: '2018-11-01',
-        },
-      ],
-      volunteerExperience: [
-        {
-          title: 'Volunteer Tutor',
-          company: 'Local Community Center',
-          startDate: '2015-09-01',
-          endDate: '2016-05-31',
-          location: 'Community City',
-          description: 'Provided tutoring services to local students.',
-        },
-      ],
-      areaOfInterest: [
-        {
-          interest: 'Machine Learning',
-        },
-        {
-          interest: 'Web Development',
-        },
-      ],
-      references: [
-        {
-          name: 'Jane Smith',
-          company: 'ABC Inc.',
-          position: 'Manager',
-          email: 'jane.smith@example.com',
-          phone: '+1 (987) 654-3210',
-        },
-      ],
-    },
-  });
+  const [formData,   setFormData] = useRecoilState(resumeData);
+  const [section, setSection] = useState(1);
 
   const { resume } = formData;
 
@@ -147,12 +26,25 @@ const ResumeForm = () => {
     console.log('Submitted Resume Data:', resume);
   };
 
+
+  const handleSection = (direction) => {
+    if (direction === 'next' && section < 13) {
+      setSection(section + 1);
+    } else if (direction === 'prev' && section > 1) {
+      setSection(section - 1);
+    }
+  };
+
   return (
     <div>
       <h1>Resume Form</h1>
+      <br />
       <form onSubmit={handleSubmit} className={style.form}>
         {/* Job Title */}
-        <div>
+        {section === 1 && (
+          <section>
+              <div>
+        <h2>Personal Information</h2>
           <label htmlFor="jobTitle">Job Title:</label>
           <input
             type="text"
@@ -301,8 +193,18 @@ const ResumeForm = () => {
           />
         </div>
 
-        {/* Education */}
-        {resume.education.map((education, index) => (
+          </section>
+    
+        )}
+  
+
+
+
+
+  {section === 2 && (
+<section>
+   {/* Education */}
+   {resume.education.map((education, index) => (
           <div key={index}>
             <h2>Education {index + 1}</h2>
             <div>
@@ -358,8 +260,19 @@ const ResumeForm = () => {
           </div>
         ))}
 
-        {/* Work Experience */}
-        {resume.work.map((work, index) => (
+</section>
+  )}
+
+
+
+
+
+
+
+{section === 3 && (
+   <section>
+       {/* Work Experience */}
+       {resume.work.map((work, index) => (
           <div key={index}>
             <h2>Work Experience {index + 1}</h2>
             <div>
@@ -424,8 +337,17 @@ const ResumeForm = () => {
           </div>
         ))}
 
-        {/* Skills and Level */}
-        {resume.skillsAndLevel.map((skill, index) => (
+   </section>
+)}
+
+
+
+
+
+{section === 4 && (
+<section>
+   {/* Skills and Level */}
+   {resume.skillsAndLevel.map((skill, index) => (
           <div key={index}>
             <h2>Skills and Level {index + 1}</h2>
             <div>
@@ -451,8 +373,16 @@ const ResumeForm = () => {
           </div>
         ))}
 
-        {/* Internships */}
-        {resume.internShips.map((internship, index) => (
+</section>
+)}
+       
+
+
+
+       {section === 5 && (
+        <section>
+   {/* Internships */}
+   {resume.internShips.map((internship, index) => (
           <div key={index}>
             <h2>Internship {index + 1}</h2>
             <div>
@@ -516,9 +446,19 @@ const ResumeForm = () => {
             </div>
           </div>
         ))}
+        </section>
+       )}
 
-        {/* Projects */}
-        {resume.projects.map((project, index) => (
+     
+
+
+
+
+
+{section === 6 && (
+  <section>
+  {/* Projects */}
+  {resume.projects.map((project, index) => (
           <div key={index}>
             <h2>Project {index + 1}</h2>
             <div>
@@ -563,8 +503,16 @@ const ResumeForm = () => {
           </div>
         ))}
 
-        {/* Social Links */}
-        <div>
+  </section>
+)}
+
+      
+
+
+{section === 7 && (
+  <section>
+  {/* Social Links */}
+  <div>
           <label htmlFor="linkedin">LinkedIn Profile:</label>
           <input
             type="url"
@@ -594,9 +542,15 @@ const ResumeForm = () => {
             onChange={handleChange}
           />
         </div>
+  </section>
+)}
+      
 
-        {/* Known Languages */}
-        {resume.knownLanguages.map((language, index) => (
+
+      {section === 8 && (
+<section>
+  {/* Known Languages */}
+  {resume.knownLanguages.map((language, index) => (
           <div key={index}>
             <label htmlFor={`language-${index}`}>Language:</label>
             <input
@@ -608,9 +562,14 @@ const ResumeForm = () => {
             />
           </div>
         ))}
+</section>
+      )}
+      
 
-        {/* Certifications */}
-        {resume.certifications.map((certification, index) => (
+      {section === 9 && (
+      <section>
+ {/* Certifications */}
+ {resume.certifications.map((certification, index) => (
           <div key={index}>
             <h2>Certification {index + 1}</h2>
             <div>
@@ -646,8 +605,17 @@ const ResumeForm = () => {
           </div>
         ))}
 
-        {/* Awards */}
-        {resume.awards.map((award, index) => (
+      </section>
+      )}
+       
+
+
+
+
+       {section === 10 && (
+        <section>
+ {/* Awards */}
+ {resume.awards.map((award, index) => (
           <div key={index}>
             <h2>Award {index + 1}</h2>
             <div>
@@ -682,8 +650,13 @@ const ResumeForm = () => {
             </div>
           </div>
         ))}
+        </section>
+       )}
+       
 
-        {/* Volunteer Experience */}
+       {section === 11 && (
+        <section>
+           {/* Volunteer Experience */}
         {resume.volunteerExperience.map((volunteer, index) => (
           <div key={index}>
             <h2>Volunteer Experience {index + 1}</h2>
@@ -748,8 +721,12 @@ const ResumeForm = () => {
             </div>
           </div>
         ))}
-
-        {/* Areas of Interest */}
+        </section>
+       )}
+       
+       {section === 12 && (
+        <section>
+          {/* Areas of Interest */}
         {resume.areaOfInterest.map((interest, index) => (
           <div key={index}>
             <label htmlFor={`interest-${index}`}>Area of Interest:</label>
@@ -763,7 +740,13 @@ const ResumeForm = () => {
           </div>
         ))}
 
-        {/* References */}
+        </section>
+       )}
+        
+
+        {section === 13 && (
+         <section>
+             {/* References */}
         {resume.references.map((reference, index) => (
           <div key={index}>
             <h2>Reference {index + 1}</h2>
@@ -819,9 +802,16 @@ const ResumeForm = () => {
             </div>
           </div>
         ))}
-
-        <button type="submit">Submit</button>
+             <button type="submit">Submit</button>
+         </section>
+        )}
+      
       </form>
+      <br />
+      <div className={style.btn_box}>
+        <button onClick={() => handleSection('prev')}>Previous</button>
+        <button onClick={() => handleSection('next')}>Next</button>
+        </div>
     </div>
   );
 };

@@ -5,15 +5,15 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { CiLocationOn } from 'react-icons/ci';
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates,ChooseColorSecond,resume } from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond,resumeData } from "../../../Recoil";
 
 function Template_1() {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
-  const [resumeData, setResumeData] = useRecoilState(resume);
+  const [formData, setFormData] = useRecoilState(resumeData);
   
-  console.log(resumeData.resume,"resume data")
+  console.log(formData.resume,"resume data")
 
   return (
     <div onClick={()=>setTemplateNo(0)} className={style.main}>
@@ -24,14 +24,14 @@ function Template_1() {
         <div>
           <div className={style.img_container}>
             <div className={style.img_box}>
-              <img src={resumeData?.resume?.profilePicture?.url} alt="img" />
+              <img src={formData?.resume?.profilePicture?.url} alt="img" />
             </div>
           </div>
 
           <div className={style.info_box}>
-            <p><AiOutlineMail/>{resumeData?.resume?.contact?.email}</p>
-            <p><AiOutlinePhone/>{resumeData?.resume?.contact?.phone}</p>
-            <p><CiLocationOn/>{resumeData?.resume?.address?.address},{resumeData?.resume?.address?.postalCode}</p>
+            <p><AiOutlineMail/>{formData?.resume?.contact?.email}</p>
+            <p><AiOutlinePhone/>{formData?.resume?.contact?.phone}</p>
+            <p><CiLocationOn/>{formData?.resume?.address?.address},{formData?.resume?.address?.postalCode}</p>
           </div>
         </div>
         <br />
@@ -39,7 +39,7 @@ function Template_1() {
         <div className={style.education}>
      
           <h2>Education</h2>
-          {resumeData?.resume?.education.map((item,id)=>
+          {formData?.resume?.education.map((item,id)=>
           <div key={id}>
            <h3>{item?.collegeName}</h3>
            <p>{item?.degree}</p>
@@ -52,13 +52,13 @@ function Template_1() {
 
       <div className={style.right_section}>
         <div className={style.heading} style={{ backgroundColor: color2}}>
-          <h1>{resumeData?.resume?.name}</h1>
+          <h1>{formData?.resume?.name}</h1>
         </div>
 
         <div className={style.certifications}>
           <h2>CERTIFICATIONS</h2>
           <ul>
-          {resumeData?.resume?.certifications.map((item,id)=>
+          {formData?.resume?.certifications.map((item,id)=>
            <li  key={id}>
             <h5>{item?.title}</h5>
             <p>Organization: {item?.issuingOrganization}</p>
@@ -74,7 +74,7 @@ function Template_1() {
         <div className={style.skills}>
           <h2>SKILLS</h2>
           <ul>
-          {resumeData?.resume?.skillsAndLevel.map((item,id)=>
+          {formData?.resume?.skillsAndLevel.map((item,id)=>
            <li  key={id}>{item.skills}</li>
           )}
           </ul>
@@ -85,7 +85,7 @@ function Template_1() {
         <div className={style.professional_summary}>
           <h2>PROFESSIONAL SUMMARY</h2>
           <p>
-          {resumeData?.resume?.summary}
+          {formData?.resume?.summary}
           </p>
         </div>
         <br />
@@ -95,7 +95,7 @@ function Template_1() {
           <h2>WORK HISTORY</h2>
           <ul className={style.work_history}>
    
-          {resumeData?.resume?.work.map((item,id)=>
+          {formData?.resume?.work.map((item,id)=>
            <li  key={id}>
             <h3>{item?.title}</h3>
             <p>{item?.company} , {item?.location}</p>

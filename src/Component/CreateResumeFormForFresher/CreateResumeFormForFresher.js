@@ -7,13 +7,13 @@ import { useRecoilValue } from 'recoil';
 import { croppedImageState } from '../../Recoil';
 import { formatResumeData } from './Utils';
 import { AiFillDelete } from 'react-icons/ai';
-import { resume } from "../../Recoil";
+import { resumeData } from "../../Recoil";
 import { useRecoilState } from 'recoil';
 
 export default function CreateResumeFormForFresher() {
   const [section, setSection] = useState(1);
   const image = useRecoilValue(croppedImageState);
-  const [formData,   setFormData] = useRecoilState(resume);
+  const [formData,   setFormData] = useRecoilState(resumeData);
 
 
  

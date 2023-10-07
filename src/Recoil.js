@@ -6,8 +6,8 @@ import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
 // Define a placeholder value for 'dp'
 import dp from "./Component/Images/dp.png"
 
-export const resume = atom({
-  key: 'resume',
+export const resumeData = atom({
+  key: 'resumeData',
   default: {
     status: true,
     message: "Resume created successfully",
