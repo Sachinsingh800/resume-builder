@@ -513,6 +513,7 @@ const ResumeForm = () => {
   <section>
   {/* Social Links */}
   <div>
+    <h2>Social Links</h2>
           <label htmlFor="linkedin">LinkedIn Profile:</label>
           <input
             type="url"
@@ -552,6 +553,7 @@ const ResumeForm = () => {
   {/* Known Languages */}
   {resume.knownLanguages.map((language, index) => (
           <div key={index}>
+            <h2>Known Languages</h2>
             <label htmlFor={`language-${index}`}>Language:</label>
             <input
               type="text"
@@ -729,6 +731,7 @@ const ResumeForm = () => {
           {/* Areas of Interest */}
         {resume.areaOfInterest.map((interest, index) => (
           <div key={index}>
+            <h2>Areas of Interest</h2>
             <label htmlFor={`interest-${index}`}>Area of Interest:</label>
             <input
               type="text"
