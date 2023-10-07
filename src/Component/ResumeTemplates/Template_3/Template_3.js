@@ -28,7 +28,7 @@ const Template_3 = () => {
                      <img src={croppedImage} alt="dp" />
                 ) : (
               
-                  <img src={formData?.resume?.profilePicture?.url} alt="dp" />
+                  <img src={croppedImage} alt="dp" />
                 )}
           </div>
         </div>

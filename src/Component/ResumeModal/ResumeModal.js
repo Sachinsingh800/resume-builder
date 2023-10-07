@@ -11,6 +11,7 @@ import { useRef,useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue,useRecoilState } from 'recoil';
 import { resumeTemplates,chooseTemplates } from '../../Recoil';
+import Template_1 from '../ResumeTemplates/Template_1/Template_1';
 
 
 const style = {
@@ -67,14 +68,7 @@ export default function ResumeModal() {
     document.body.removeChild(fileDownload);
   };
 
-  const [template,setTempletes] = useState([
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-    <ResumeTemplates/>,
-  ])
+
   
   return (
     <div>
@@ -124,7 +118,7 @@ export default function ResumeModal() {
                 
                   </div>
                   <div  className={styles.template_box}>
-    {template.map((item)=>
+    {templates.map((item)=>
     <div className={styles.template_card}>
       <div className={styles._card}> {item}</div> 
     </div>

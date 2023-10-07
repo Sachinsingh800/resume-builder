@@ -44,7 +44,7 @@ export default function ImageModal() {
            
                </div>
                <div className={styles.right_box}>
-               <div className={style.Card}>
+               <div className={styles.Card}>
                 <div >
                 <Template_1/>
                 </div>
