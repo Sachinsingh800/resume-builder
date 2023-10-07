@@ -26,8 +26,10 @@ function CreateResume() {
                 <div className={style.color_plate}>
                 <ColorPlate/>
                 </div>
-                
-            <ResumeModal/>
+                <div>
+                <ResumeModal/>
+                </div>
+   
               </div>
         </div>
       

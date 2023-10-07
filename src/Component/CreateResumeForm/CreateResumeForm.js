@@ -63,6 +63,8 @@ const ResumeForm = () => {
             </div>
               <div>
         <h2>Personal Information</h2>
+        <div className={style.personal_info}>
+          <div>
           <label htmlFor="jobTitle">Job Title:</label>
           <input
             type="text"
@@ -71,9 +73,8 @@ const ResumeForm = () => {
             value={resume.jobTitle}
             onChange={handleChange}
           />
-        </div>
-
-        {/* Name */}
+          </div>
+               {/* Name */}
         <div>
           <label htmlFor="name">Name:</label>
           <input
@@ -84,6 +85,12 @@ const ResumeForm = () => {
             onChange={handleChange}
           />
         </div>
+    
+        </div>
+   
+        </div>
+
+   
 
         {/* Summary */}
         <div>
@@ -201,17 +208,8 @@ const ResumeForm = () => {
           />
         </div>
 
-        {/* Profile Picture */}
-        <div>
-          <label htmlFor="profilePicture">Profile Picture URL:</label>
-          <input
-            type="text"
-            id="profilePicture"
-            name="profilePicture"
-            value={resume.profilePicture.url}
-            onChange={handleChange}
-          />
-        </div>
+
+   
       </div>
       
 
@@ -229,6 +227,8 @@ const ResumeForm = () => {
    {resume.education.map((education, index) => (
           <div key={index}>
             <h2>Education {index + 1}</h2>
+
+            <div className={style.section_2}>
             <div>
               <label htmlFor={`degree-${index}`}>Degree:</label>
               <input
@@ -279,6 +279,8 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+            </div>
+          
           </div>
         ))}
 
@@ -296,7 +298,9 @@ const ResumeForm = () => {
        {/* Work Experience */}
        {resume.work.map((work, index) => (
           <div key={index}>
+       
             <h2>Work Experience {index + 1}</h2>
+            <div className={style.section_3}>
             <div>
               <label htmlFor={`title-${index}`}>Title:</label>
               <input
@@ -347,6 +351,9 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+       
+            </div>
+            <br/>
             <div>
               <label htmlFor={`description-${index}`}>Description:</label>
               <textarea
@@ -372,6 +379,7 @@ const ResumeForm = () => {
    {resume.skillsAndLevel.map((skill, index) => (
           <div key={index}>
             <h2>Skills and Level {index + 1}</h2>
+            <div className={style.section_4}>
             <div>
               <label htmlFor={`skills-${index}`}>Skills:</label>
               <input
@@ -392,6 +400,8 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+            </div>
+   
           </div>
         ))}
 
@@ -407,6 +417,7 @@ const ResumeForm = () => {
    {resume.internShips.map((internship, index) => (
           <div key={index}>
             <h2>Internship {index + 1}</h2>
+            <div className={style.section_5}>
             <div>
               <label htmlFor={`title-${index}`}>Title:</label>
               <input
@@ -457,6 +468,9 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+      
+            </div>
+            <br/>
             <div>
               <label htmlFor={`description-${index}`}>Description:</label>
               <textarea
@@ -483,6 +497,7 @@ const ResumeForm = () => {
   {resume.projects.map((project, index) => (
           <div key={index}>
             <h2>Project {index + 1}</h2>
+           
             <div>
               <label htmlFor={`title-${index}`}>Title:</label>
               <input
@@ -493,6 +508,7 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+            <br/>
             <div>
               <label htmlFor={`description-${index}`}>Description:</label>
               <textarea
@@ -502,6 +518,8 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+            <br/>
+            <div className={style.section_6}>
             <div>
               <label htmlFor={`year-${index}`}>Year:</label>
               <input
@@ -522,6 +540,10 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+            </div>
+           
+   
+         
           </div>
         ))}
 
@@ -571,11 +593,11 @@ const ResumeForm = () => {
 
 
       {section === 8 && (
-<section>
+<section className={style.section_8}>
   {/* Known Languages */}
   {resume.knownLanguages.map((language, index) => (
           <div key={index}>
-            <h2>Known Languages</h2>
+            <h2>Known Languages {index + 1}</h2>
             <label htmlFor={`language-${index}`}>Language:</label>
             <input
               type="text"
@@ -591,7 +613,7 @@ const ResumeForm = () => {
       
 
       {section === 9 && (
-      <section>
+      <section className={style.section_9}>
  {/* Certifications */}
  {resume.certifications.map((certification, index) => (
           <div key={index}>
@@ -637,7 +659,7 @@ const ResumeForm = () => {
 
 
        {section === 10 && (
-        <section>
+        <section className={style.section_9}>
  {/* Awards */}
  {resume.awards.map((award, index) => (
           <div key={index}>
@@ -684,6 +706,7 @@ const ResumeForm = () => {
         {resume.volunteerExperience.map((volunteer, index) => (
           <div key={index}>
             <h2>Volunteer Experience {index + 1}</h2>
+            <div className={style.section_11}>
             <div>
               <label htmlFor={`volunteerTitle-${index}`}>Title:</label>
               <input
@@ -734,6 +757,8 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+            </div>
+           <br/>
             <div>
               <label htmlFor={`volunteerDescription-${index}`}>Description:</label>
               <textarea
@@ -749,11 +774,11 @@ const ResumeForm = () => {
        )}
        
        {section === 12 && (
-        <section>
+        <section className={style.section_12}>
           {/* Areas of Interest */}
         {resume.areaOfInterest.map((interest, index) => (
           <div key={index}>
-            <h2>Areas of Interest</h2>
+            <h2>Areas of Interest {index + 1}</h2>
             <label htmlFor={`interest-${index}`}>Area of Interest:</label>
             <input
               type="text"
@@ -775,6 +800,7 @@ const ResumeForm = () => {
         {resume.references.map((reference, index) => (
           <div key={index}>
             <h2>Reference {index + 1}</h2>
+            <div className={style.section_13}>
             <div>
               <label htmlFor={`referenceName-${index}`}>Name:</label>
               <input
@@ -825,6 +851,8 @@ const ResumeForm = () => {
                 onChange={handleChange}
               />
             </div>
+            </div>
+           
           </div>
         ))}
              <button type="submit">Submit</button>

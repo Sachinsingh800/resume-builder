@@ -67,6 +67,67 @@
        gap: 1rem;
     
 }
+.personal_info{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_2{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_3{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_4{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_5{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_6{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_8{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_9{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_10{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_11{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_12{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.section_13{
+    display: grid!important;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
 .skill_btn{
     width: 8rem;
     border-radius: 15px;
