@@ -175,62 +175,119 @@ const ResumeForm = () => {
             onChange={handleChange}
           />
         </div>
+{/* Address */}
+<div>
+  <label htmlFor="address">Address:</label>
+  <input
+    type="text"
+    id="address"
+    name="address"
+    value={resume.address.address}
+    onChange={(e) => {
+      setFormData({
+        ...formData,
+        resume: {
+          ...resume,
+          address: {
+            ...resume.address,
+            address: e.target.value,
+          },
+        },
+      });
+    }}
+  />
+</div>
 
-        {/* Address */}
-        <div>
-          <label htmlFor="address">Address:</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            value={resume.address.address}
-            onChange={handleChange}
-          />
-        </div>
+<div>
+  <label htmlFor="city">City:</label>
+  <input
+    type="text"
+    id="city"
+    name="city"
+    value={resume.address.city}
+    onChange={(e) => {
+      setFormData({
+        ...formData,
+        resume: {
+          ...resume,
+          address: {
+            ...resume.address,
+            city: e.target.value,
+          },
+        },
+      });
+    }}
+  />
+</div>
 
-        <div>
-          <label htmlFor="city">City:</label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={resume.address.city}
-            onChange={handleChange}
-          />
-        </div>
+<div>
+  <label htmlFor="state">State:</label>
+  <input
+    type="text"
+    id="state"
+    name="state"
+    value={resume.address.state}
+    onChange={(e) => {
+      setFormData({
+        ...formData,
+        resume: {
+          ...resume,
+          address: {
+            ...resume.address,
+            state: e.target.value,
+          },
+        },
+      });
+    }}
+  />
+</div>
 
-        <div>
-          <label htmlFor="state">State:</label>
-          <input
-            type="text"
-            id="state"
-            name="state"
-            value={resume.address.state}
-            onChange={handleChange}
-          />
-        </div>
+<div>
+  <label htmlFor="postalCode">Postal Code:</label>
+  <input
+    type="text"
+    id="postalCode"
+    name="postalCode"
+    value={resume.address.postalCode}
+    onChange={(e) => {
+      setFormData({
+        ...formData,
+        resume: {
+          ...resume,
+          address: {
+            ...resume.address,
+            postalCode: e.target.value,
+          },
+        },
+      });
+    }}
+  />
+</div>
 
-        <div>
-          <label htmlFor="postalCode">Postal Code:</label>
-          <input
-            type="text"
-            id="postalCode"
-            name="postalCode"
-            value={resume.address.postalCode}
-            onChange={handleChange}
-          />
-        </div>
+<div>
+  <label htmlFor="country">Country:</label>
+  <input
+    type="text"
+    id="country"
+    name="country"
+    value={resume.address.country}
+    onChange={(e) => {
+      setFormData({
+        ...formData,
+        resume: {
+          ...resume,
+          address: {
+            ...resume.address,
+            country: e.target.value,
+          },
+        },
+      });
+    }}
+  />
+</div>
 
-        <div>
-          <label htmlFor="country">Country:</label>
-          <input
-            type="text"
-            id="country"
-            name="country"
-            value={resume.address.country}
-            onChange={handleChange}
-          />
-        </div>
+
+
 
 
    
