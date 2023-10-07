@@ -8,13 +8,16 @@ import { MdOutlineWorkHistory } from "react-icons/md";
 import dp from "../../Images/dp.png";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates,ChooseColorSecond,croppedImageState } from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond,croppedImageState ,resumeData} from "../../../Recoil";
 
 const Template_3 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
+  const [formData, setFormData] = useRecoilState(resumeData);
+
+  console.log(formData.resume,"resume data")
   
   return (
     <div onClick={()=>setTemplateNo(2)} className={style.main}>

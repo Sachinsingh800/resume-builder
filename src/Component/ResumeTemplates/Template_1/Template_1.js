@@ -14,7 +14,7 @@ function Template_1() {
   const [formData, setFormData] = useRecoilState(resumeData);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   
-  console.log(formData.resume,"resume data")
+ 
 
   return (
     <div onClick={()=>setTemplateNo(0)} className={style.main}>
