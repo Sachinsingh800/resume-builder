@@ -359,81 +359,155 @@ const ResumeForm = () => {
 
 
 
-
 {section === 3 && (
-   <section>
-       {/* Work Experience */}
-       {resume.work.map((work, index) => (
-          <div key={index}>
-       
-            <h2>Work Experience {index + 1}</h2>
-            <div className={style.section_3}>
-            <div>
-              <label htmlFor={`title-${index}`}>Title:</label>
-              <input
-                type="text"
-                id={`title-${index}`}
-                name={`title-${index}`}
-                value={work.title}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`company-${index}`}>Company:</label>
-              <input
-                type="text"
-                id={`company-${index}`}
-                name={`company-${index}`}
-                value={work.company}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`startDate-${index}`}>Start Date:</label>
-              <input
-                type="date"
-                id={`startDate-${index}`}
-                name={`startDate-${index}`}
-                value={work.startDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`endDate-${index}`}>End Date:</label>
-              <input
-                type="date"
-                id={`endDate-${index}`}
-                name={`endDate-${index}`}
-                value={work.endDate}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor={`location-${index}`}>Location:</label>
-              <input
-                type="text"
-                id={`location-${index}`}
-                name={`location-${index}`}
-                value={work.location}
-                onChange={handleChange}
-              />
-            </div>
-       
-            </div>
-            <br/>
-            <div>
-              <label htmlFor={`description-${index}`}>Description:</label>
-              <textarea
-                id={`description-${index}`}
-                name={`description-${index}`}
-                value={work.description}
-                onChange={handleChange}
-              />
-            </div>
+  <section>
+    {/* Work Experience */}
+    {resume.work.map((work, index) => (
+      <div key={index}>
+        <h2>Work Experience {index + 1}</h2>
+        <div className={style.section_3}>
+          <div>
+            <label htmlFor={`title-${index}`}>Title:</label>
+            <input
+              type="text"
+              id={`title-${index}`}
+              name={`title-${index}`}
+              value={work.title}
+              onChange={(e) => {
+                const updatedWork = [...resume.work];
+                updatedWork[index] = {
+                  ...updatedWork[index],
+                  title: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    work: updatedWork,
+                  },
+                });
+              }}
+            />
           </div>
-        ))}
-
-   </section>
+          <div>
+            <label htmlFor={`company-${index}`}>Company:</label>
+            <input
+              type="text"
+              id={`company-${index}`}
+              name={`company-${index}`}
+              value={work.company}
+              onChange={(e) => {
+                const updatedWork = [...resume.work];
+                updatedWork[index] = {
+                  ...updatedWork[index],
+                  company: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    work: updatedWork,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`startDate-${index}`}>Start Date:</label>
+            <input
+              type="date"
+              id={`startDate-${index}`}
+              name={`startDate-${index}`}
+              value={work.startDate}
+              onChange={(e) => {
+                const updatedWork = [...resume.work];
+                updatedWork[index] = {
+                  ...updatedWork[index],
+                  startDate: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    work: updatedWork,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`endDate-${index}`}>End Date:</label>
+            <input
+              type="date"
+              id={`endDate-${index}`}
+              name={`endDate-${index}`}
+              value={work.endDate}
+              onChange={(e) => {
+                const updatedWork = [...resume.work];
+                updatedWork[index] = {
+                  ...updatedWork[index],
+                  endDate: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    work: updatedWork,
+                  },
+                });
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor={`location-${index}`}>Location:</label>
+            <input
+              type="text"
+              id={`location-${index}`}
+              name={`location-${index}`}
+              value={work.location}
+              onChange={(e) => {
+                const updatedWork = [...resume.work];
+                updatedWork[index] = {
+                  ...updatedWork[index],
+                  location: e.target.value,
+                };
+                setFormData({
+                  ...formData,
+                  resume: {
+                    ...resume,
+                    work: updatedWork,
+                  },
+                });
+              }}
+            />
+          </div>
+        </div>
+        <br />
+        <div>
+          <label htmlFor={`description-${index}`}>Description:</label>
+          <textarea
+            id={`description-${index}`}
+            name={`description-${index}`}
+            value={work.description}
+            onChange={(e) => {
+              const updatedWork = [...resume.work];
+              updatedWork[index] = {
+                ...updatedWork[index],
+                description: e.target.value,
+              };
+              setFormData({
+                ...formData,
+                resume: {
+                  ...resume,
+                  work: updatedWork,
+                },
+              });
+            }}
+          />
+        </div>
+      </div>
+    ))}
+  </section>
 )}
 
 
