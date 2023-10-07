@@ -4,12 +4,13 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { CiLocationOn } from 'react-icons/ci';
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates,ChooseColorSecond } from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond,croppedImageState } from "../../../Recoil";
 
 const Template_2= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+
   
   return (
     <div onClick={()=>setTemplateNo(1)} className={style.main}>

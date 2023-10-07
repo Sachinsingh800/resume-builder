@@ -61,7 +61,7 @@
     gap:.5rem ;
 }
 
-.second_Section{
+.info_box{
        display: grid!important;
        grid-template-columns: 1fr 1fr;
        gap: 1rem;

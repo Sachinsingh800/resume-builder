@@ -5,13 +5,14 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { CiLocationOn } from 'react-icons/ci';
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates,ChooseColorSecond,resumeData } from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond,resumeData,croppedImageState } from "../../../Recoil";
 
 function Template_1() {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [formData, setFormData] = useRecoilState(resumeData);
+  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   
   console.log(formData.resume,"resume data")
 
@@ -24,7 +25,12 @@ function Template_1() {
         <div>
           <div className={style.img_container}>
             <div className={style.img_box}>
-              <img src={formData?.resume?.profilePicture?.url} alt="img" />
+            {croppedImage ? (
+                     <img src={croppedImage} alt="dp" />
+                ) : (
+              
+                  <img src={formData?.resume?.profilePicture?.url} alt="dp" />
+                )}
             </div>
           </div>
 

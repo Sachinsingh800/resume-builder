@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import styles from "./ImageModal.module.css"
 import CropImage from '../CropImage/CropImage';
 import {ResumeTemplates} from '../ResumeTemplates/ResumeTemplates';
+import Template_1 from '../ResumeTemplates/Template_1/Template_1';
 
 const style = {
   position: 'absolute',
@@ -45,7 +46,7 @@ export default function ImageModal() {
                <div className={styles.right_box}>
                <div className={style.Card}>
                 <div >
-                <ResumeTemplates/>
+                <Template_1/>
                 </div>
                 </div>
                </div>

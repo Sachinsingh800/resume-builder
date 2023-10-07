@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import style from "./CreateResumeForm.module.css"
 import { useRecoilState } from 'recoil';
 import { resumeData } from '../../Recoil'; 
+import dp_icon from '../Images/dp_icon.gif';
+import ImageModal from '../ImageModal/ImageModal';
+import { croppedImageState } from '../../Recoil';
+
 
 const ResumeForm = () => {
   const [formData,   setFormData] = useRecoilState(resumeData);
   const [section, setSection] = useState(1);
+  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
 
   const { resume } = formData;
 
@@ -43,6 +48,19 @@ const ResumeForm = () => {
         {/* Job Title */}
         {section === 1 && (
           <section>
+                <div className={style.img_container}>
+              <div className={style.img_box}>
+                {croppedImage ? (
+                     <img src={croppedImage} alt="dp" />
+                ) : (
+              
+                  <img src={resume.profilePicture.url} alt="dp" />
+                )}
+              </div>
+              <div>
+                <ImageModal />
+              </div>
+            </div>
               <div>
         <h2>Personal Information</h2>
           <label htmlFor="jobTitle">Job Title:</label>
@@ -78,8 +96,10 @@ const ResumeForm = () => {
           />
         </div>
 
-        {/* Contact */}
-        <div>
+
+      <div className={style.info_box}>
+          {/* Contact */}
+          <div>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -192,6 +212,8 @@ const ResumeForm = () => {
             onChange={handleChange}
           />
         </div>
+      </div>
+      
 
           </section>
     
