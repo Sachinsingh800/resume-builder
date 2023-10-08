@@ -7,7 +7,7 @@
     gap: 1rem;
   }
   
-  /* .template_card {
+  .template_card {
     height: 30rem;
     width: 25rem;
     overflow: hidden;
@@ -17,7 +17,17 @@
     height: 100%;
     width: 100%;
 
-  } */
+  }
+._card{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  justify-content: start;
+}
+._card h1{
+  font-size: .5rem;
+}
   .template_box div{
     height: 20rem;
     width: 15rem;

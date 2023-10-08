@@ -12,6 +12,9 @@ import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue,useRecoilState } from 'recoil';
 import { resumeTemplates,chooseTemplates } from '../../Recoil';
 import Template_1 from '../ResumeTemplates/Template_1/Template_1';
+import resume_1 from "../Images/Template_1.png"
+import resume_2 from "../Images/Template_2.png"
+import resume_3 from "../Images/Template_3.png"
 
 
 const style = {
@@ -31,6 +34,11 @@ const style = {
   p: 4,
 };
 
+const resume_templates=[
+  resume_1,
+  resume_2,
+  resume_3,
+]
 
 
 export default function ResumeModal() {
@@ -68,7 +76,9 @@ export default function ResumeModal() {
     document.body.removeChild(fileDownload);
   };
 
-
+const handleFilterTemplates=(index)=>{
+  setTemplateNo(index)
+}
   
   return (
     <div>
@@ -79,9 +89,11 @@ export default function ResumeModal() {
                     <h1 className={styles.preview}>Preview</h1>
                   </div>
                 <div  className={styles.template} >
-                  <div>
-               {templates[templateNo]}
-               </div>
+           
+            <div className={styles.card}>
+            {templates[templateNo]}
+              </div>  
+         
                 </div>
                 </div>
                 </div>
@@ -118,9 +130,9 @@ export default function ResumeModal() {
                 
                   </div>
                   <div  className={styles.template_box}>
-    {templates.map((item)=>
-    <div className={styles.template_card}>
-      <div className={styles._card}> {item}</div> 
+    {resume_templates.map((item,index)=>
+    <div className={styles.template_card} key={index} onClick={()=>handleFilterTemplates(index)}>
+      <img className={styles._card} src={item}/>
     </div>
     )}
 </div>

@@ -4,16 +4,42 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
 }
-.template{
-    display: grid;
-    height: 35rem!important;
+
   
-}
-.template div{
-    height: 100%;
+.template_card {
+    height: 35rem;
+    width: 25rem;
+    overflow: hidden;
+  }
+  .template_card:hover{
+    border: 1px orange solid;
+  }
+  
+  .template_card img {
+    height: 100%!important;
     width: 100%;
     display: grid;
-    text-align: left;
+
+  }
+
+  .template{
+    height: 35rem;
+    width: 25rem;
+    overflow: hidden;
+
+  }
+  .template div{
+    display: grid;
+    width: 100%;
+    position: relative;
+  
+  }
+
+.card hr{
+    height: .1rem;
+}
+.card h1{
+  font-size: .5rem;
 }
 .resume_container{
     display: flex;

@@ -21,8 +21,10 @@ function SmallSizeTemplates() {
    
     {template.map((item)=>
     <div className={style.template_card}>
-
-      <Link to={"/ResumeForm"}><div className={style._card}> {item}</div> </Link>   
+  
+      <Link to={"/ResumeForm"}>
+        <div className={style._card}> {item}</div>
+         </Link>   
 
     </div>
     )}
