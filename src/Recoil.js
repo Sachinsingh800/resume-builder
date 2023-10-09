@@ -229,9 +229,14 @@ export const ChooseColor = atom({
   key: 'ChooseColor',
   default:"#113f67"
 });
+
 export const ChooseColorSecond = atom({
   key: 'ChooseColorSecond',
   default:"grey"
+});
+export const ChooseColorThird= atom({
+  key: 'ChooseColorThird',
+  default:"blue"
 });
 
 

@@ -8,17 +8,25 @@ import { MdOutlineWorkHistory } from "react-icons/md";
 import dp from "../../Images/dp.png";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates,ChooseColorSecond,croppedImageState ,resumeData} from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond,croppedImageState ,resumeData, ChooseColorThird} from "../../../Recoil";
 
 const Template_3 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
+  const [color3, setColor3] = useRecoilState(ChooseColorThird);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [formData, setFormData] = useRecoilState(resumeData);
 
   console.log(formData.resume,"resume data")
+
+  const handleDate = (data) => {
+    console.log(data,"data")
+
+    const startYear = new Date(data).getFullYear();
   
+    return startYear
+  };
   return (
     <div onClick={()=>setTemplateNo(2)} className={style.main}>
       <div
@@ -31,119 +39,89 @@ const Template_3 = () => {
                      <img src={croppedImage} alt="dp" />
                 ) : (
               
-                  <img src={croppedImage} alt="dp" />
+                  <img src={formData?.resume?.profilePicture?.url} alt="dp" />
                 )}
           </div>
         </div>
         <br />
 
         <div className={style.info_box}>
-          <h3>CONTACT</h3>
+          <h3 style={{ color: color3}}>CONTACT</h3>
           <br />
-          <hr className={style.hr} />
+          <hr className={style.hr} style={{ color: color3}} />
           <div className={style.contactInfo}>
-            <div className={style.iconContainer}>
-              <p style={{ color: "black" }}>
+            <div className={style.iconContainer} style={{ color: color3 }}>
+              <p >
                 <AiOutlineMail />
               </p>
             </div>
-            <p className={style.email}>randfe@gmail.com</p>
+            <p className={style.email} style={{ color: color3}}>{formData?.resume?.contact?.email}</p>
           </div>
           <div className={style.contactInfo}>
-            <div className={style.iconContainer}>
-              <p style={{ color: "black" }}>
+            <div className={style.iconContainer} style={{ color: color3 }}>
+              <p >
                 <AiOutlinePhone />
               </p>
             </div>
-            <p className={style.email}>+91 2842 59630</p>
+            <p style={{ color: color3}} className={style.email}>{formData?.resume?.contact?.phone}</p>
           </div>
 
           <div className={style.contactInfo}>
-            <div className={style.iconContainer}>
-              <p style={{ color: "black" }}>
+            <div className={style.iconContainer} style={{ color: color3}}>
+              <p >
                 <CiLocationOn />
               </p>
             </div>
-            <p className={style.email}>New Delhi, India 110034</p>
+            <p className={style.email} style={{ color: color3}}>{formData?.resume?.address?.address},{formData?.resume?.address?.postalCode}</p>
           </div>
         </div>
 
         <div className={style.skillsHeader}>
-          <h3>PROFESSIONAL SKILLS</h3>
+          <h3 style={{ color: color3}}>Education</h3>
           <br />
-          <hr className={style.hr} />
+          <hr className={style.hr} style={{ color: color3}} />
           <ul>
-            <li>
-              <span>React js </span>{" "}
-              <ProgressBar bgcolor="orange" progress="10" height={5} />
-            </li>
-            <li>
-              <span>Express </span>{" "}
-              <ProgressBar bgcolor="orange" progress="20" height={5} />
-            </li>
-            <li>
-              <span>Node js </span>{" "}
-              <ProgressBar bgcolor="orange" progress="70" height={5} />
-            </li>
-            <li>
-              <span>Python </span>{" "}
-              <ProgressBar bgcolor="orange" progress="90" height={5} />
-            </li>
-            <li>
-              <span>Flutter </span>{" "}
-              <ProgressBar bgcolor="orange" progress="40" height={5} />
-            </li>
+          {formData?.resume?.education.map((item,id)=>
+           <li  key={id} style={{ color: color3}}>
+          <span>{item.degree} <span>{item?.startYear}  - {item.endYear}</span></span>  
+          <span>{item.collegeName}</span>  
+             </li>
+          )}
           </ul>
         </div>
         <div className={style.skillsHeader}>
-          <h3>PERSONAL SKILLS</h3>
+          <h3 style={{ color: color3}}>PERSONAL SKILLS</h3>
           <br />
-          <hr className={style.hr} />
+          <hr className={style.hr}  style={{ color: color3}}/>
           <ul>
-            <li>
-              <span>React js </span>{" "}
-              <ProgressBar bgcolor="orange" progress="10" height={5} />
-            </li>
-            <li>
-              <span>Express </span>{" "}
-              <ProgressBar bgcolor="orange" progress="20" height={5} />
-            </li>
-            <li>
-              <span>Node js </span>{" "}
-              <ProgressBar bgcolor="orange" progress="70" height={5} />
-            </li>
-            <li>
-              <span>Python </span>{" "}
-              <ProgressBar bgcolor="orange" progress="90" height={5} />
-            </li>
-            <li>
-              <span>Flutter </span>{" "}
-              <ProgressBar bgcolor="orange" progress="40" height={5} />
-            </li>
+          {formData?.resume?.skillsAndLevel.map((item,id)=>
+           <li  key={id} style={{ color: color3}}>
+          <span>{item.skills}</span>  
+          <ProgressBar bgcolor="orange" progress="40" height={5} />
+             </li>
+          )}
           </ul>
         </div>
         <div className={style.skillsHeader}>
-          <h3>LAGNUAGES</h3>
+          <h3 style={{ color: color3}}>LAGNUAGES</h3>
           <br />
-          <hr className={style.hr} />
+          <hr className={style.hr}  style={{ color: color3}}/>
           <ul>
-            <li>
-              <span>ENGLISH </span>{" "}
-              <ProgressBar bgcolor="orange" progress="10" height={5} />
-            </li>
-            <li>
-              <span>HINDI </span>{" "}
-              <ProgressBar bgcolor="orange" progress="20" height={5} />
-            </li>
+          {formData?.resume?.knownLanguages.map((item,id)=>
+           <li  key={id} style={{ color: color3}}>
+          <span>{item.lang}</span>  
+          <ProgressBar bgcolor="orange" progress="40" height={5} />
+             </li>
+          )}
           </ul>
         </div>
       </div>
       <div>
         <div className={style.objectiveHeader}>
-          <h1 className={style.person_name}>
-            SMITH <span style={{color:color2}}>MATTHEW</span>
+          <h1 className={style.person_name}  style={{color:color2}}>
+          {formData?.resume?.name}
           </h1>
-          <p className={style.objectiveText}>CREATIVE DIRECTOR</p>
+          <p className={style.objectiveText}> {formData?.resume?.jobTitle}</p>
         </div>
 
         <div className={style.skillsHeader2}>
@@ -152,15 +130,9 @@ const Template_3 = () => {
             PROFILE
           </h2>
           <br/>
-          <hr className={style.hr} />
+          <hr className={style.hr} style={{ color: color3}} />
           <p>
-            A Professional Summary is a brief, carefully crafted statement that
-            highlights your key qualifications and career objectives. It serves
-            as a snapshot of your professional background, summarizing your
-            relevant skills, experiences, and career aspirations. A well-written
-            Professional Summary can capture the attention of potential
-            employers and offer them insight into what you can bring to their
-            organization.
+          {formData?.resume?.summary}
           </p>
         </div>
 
@@ -169,54 +141,27 @@ const Template_3 = () => {
           <h2><MdOutlineWorkHistory/>WORKING EXPERIENCE</h2>
           <br/>
           <br/>
-          <hr className={style.hr} />
+          <hr className={style.hr} style={{ color: color3}} />
           </div>
   
     
-
+          <ul>
+          {formData?.resume?.work.map((item,id)=>
+          <li>
           <div className={style.work_des}>
-          <h3 className={style.customerService}>WRITE YOUR JOB TITLE HERE</h3>
-          <h5 className={style.company_name}><span>Company Name - Location</span> <span>2020-2023</span></h5>
-            <p>
-            A Professional Summary is a brief, carefully crafted statement that
-            highlights your key qualifications and career objectives. It serves
-            as a snapshot of your professional background, summarizing your
-            relevant skills, experiences, and career aspirations. 
-            </p>
-             <ul>
-              <li>It serves as a snapshot of your professional background</li>
-              <li>It serves as a snapshot of your professional background</li>
-             </ul>
-            </div>
-          <div className={style.work_des}>
-          <h3 className={style.customerService}>WRITE YOUR JOB TITLE HERE</h3>
-          <h5 className={style.company_name}><span>Company Name - Location</span> <span>2020-2023</span></h5>
-            <p>
-            A Professional Summary is a brief, carefully crafted statement that
-            highlights your key qualifications and career objectives. It serves
-            as a snapshot of your professional background, summarizing your
-            relevant skills, experiences, and career aspirations. 
-            </p>
-             <ul>
-              <li>It serves as a snapshot of your professional background</li>
-              <li>It serves as a snapshot of your professional background</li>
-             </ul>
-            </div>
-          <div className={style.work_des}>
-          <h3 className={style.customerService}>WRITE YOUR JOB TITLE HERE</h3>
-          <h5 className={style.company_name}><span>Company Name - Location</span> <span>2020-2023</span></h5>
-            <p>
-            A Professional Summary is a brief, carefully crafted statement that
-            highlights your key qualifications and career objectives. It serves
-            as a snapshot of your professional background, summarizing your
-            relevant skills, experiences, and career aspirations. 
-            </p>
-             <ul>
-              <li>It serves as a snapshot of your professional background</li>
-              <li>It serves as a snapshot of your professional background</li>
-             </ul>
-            </div>
-        
+        <h3 className={style.customerService}>{item?.title}</h3>
+        <h5 className={style.company_name}><span>{item?.company} - {item?.location}</span> <span>{handleDate(item?.startDate)} - {handleDate(item?.endDate)}</span></h5>
+          <p>
+              {item?.description}
+          </p>
+     
+          </div>
+          </li>
+          )}
+            
+          </ul>
+       
+         
           
 
         </div>
