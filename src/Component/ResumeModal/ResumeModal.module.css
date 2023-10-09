@@ -1,46 +1,48 @@
-.Card{
-    border: 1px rgb(161, 159, 159) solid;
-    height: 35rem!important;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+.preview_box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 15rem!important ;
+  width: 10rem!important;
+
 
 }
+.preview_template{
+  height: 100%!important ;
+  width: 100%!important;
 
-  
-.template_card {
-    height: 35rem;
-    width: 25rem;
-    overflow: hidden;
-  }
+}
+.preview_template img{
+  height: 100%!important;
+  width: 100%!important;
+}
+
+.preview_btn {
+  position: absolute;
+  display: none!important;
+  height: 15rem!important ;
+  width: 10rem!important;
+ }
+ .preview_box:hover .preview_btn {
+    position: absolute;
+   color: white;
+    display: unset!important;
+    align-items: center!important;
+    justify-content: center!important;
+    backdrop-filter: brightness(30%);   
+    font-size: .9rem;
+    text-align: center;
+}
+.preview{
+  margin-top: 5rem;
+}
+
   .template_card:hover{
     border: 1px orange solid;
   }
   
-  .template_card img {
-    height: 100%!important;
-    width: 100%;
-    display: grid;
-
-  }
-
-  .template{
-    height: 35rem;
-    width: 25rem;
-    overflow: hidden;
-
-  }
-  .template div{
-    display: grid;
-    width: 100%;
-    position: relative;
-  
-  }
-
-.card hr{
-    height: .1rem;
-}
-.card h1{
-  font-size: .5rem;
-}
 .resume_container{
     display: flex;
     justify-content: center;
@@ -61,24 +63,6 @@
 }
 
 
-
-.preview_btn {
-    display: none!important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
- }
-.Card:hover .preview_btn {
-    position: absolute;
-   color: white;
-    display: unset!important;
-    width: 25rem;
-    height: 35rem;
-    text-align: center;
-
-    backdrop-filter: brightness(30%);   
-    font-size: 1.2rem;
-}
 
 .Close_btn{
     position: absolute;
@@ -163,12 +147,9 @@
     overflow: hidden;
      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   }
-  .template_card div{
-    height: 70%;
+  .template_card img{
+    height: 100%;
     width:100%;
-    font-size: .3rem;
-
-
   }
   .template_card div img{
     height: 1rem;

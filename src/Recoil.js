@@ -1,7 +1,11 @@
 import { atom } from 'recoil';
+import resume_1 from "./Component/Images/Template_1.png"
+import resume_2 from "./Component/Images/Template_2.png"
+import resume_3 from "./Component/Images/Template_3.png"
 import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
 import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
 import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
+
 
 // Define a placeholder value for 'dp'
 import dp from "./Component/Images/dp.png"
@@ -266,6 +270,16 @@ export const resumeTemplates = atom({
    <Template_3/>,
   ], // Set the default value to an empty array
 });
+export const imageresumeTemplates = atom({
+  key: 'imageresumeTemplates', // Unique ID (with respect to other atoms/selectors)
+  default: [
+  resume_1,
+  resume_2,
+  resume_3,
+  ], // Set the default value to an empty array
+});
+
+
 export const chooseTemplates = atom({
   key: 'chooseTemplates',
   default:0

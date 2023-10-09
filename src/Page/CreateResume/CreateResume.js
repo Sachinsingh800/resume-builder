@@ -19,14 +19,17 @@ function CreateResume() {
         <NavBar/>
         <div className={style.container}>
               <div className={style.left_box} >
+               
                 {type === "Fresher" ? <CreateResumeFormForFresher/> : <CreateResumeForm/>}
+            
+              
                 
               </div>
               <div className={style.right_box} >
-                <div className={style.color_plate}>
+                {/* <div className={style.color_plate}>
                 <ColorPlate/>
-                </div>
-                <div>
+                </div> */}
+                <div className={style.preview_template}>
                 <ResumeModal/>
                 </div>
    

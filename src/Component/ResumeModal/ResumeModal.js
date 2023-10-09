@@ -10,7 +10,7 @@ import generatePDF from "react-to-pdf";
 import { useRef,useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue,useRecoilState } from 'recoil';
-import { resumeTemplates,chooseTemplates } from '../../Recoil';
+import { resumeTemplates,chooseTemplates,imageresumeTemplates } from '../../Recoil';
 import Template_1 from '../ResumeTemplates/Template_1/Template_1';
 import resume_1 from "../Images/Template_1.png"
 import resume_2 from "../Images/Template_2.png"
@@ -47,6 +47,7 @@ export default function ResumeModal() {
   const handleClose = () => setOpen(false);
   const templates = useRecoilValue(resumeTemplates)
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const [imgtemplateNo, setImgTemplateNo] = useRecoilState(imageresumeTemplates);
   const targetRef = useRef();
 
   const pdfOptions = {
@@ -83,20 +84,22 @@ const handleFilterTemplates=(index)=>{
   return (
     <div>
       
-      <div className={style.Card} onClick={handleOpen}>
-      <div className={styles.Card}>
+  
+      <div className={styles.preview_box} onClick={handleOpen}>
+
+
                   <div className={styles.preview_btn}>
                     <h1 className={styles.preview}>Preview</h1>
                   </div>
-                <div  className={styles.template} >
-           
-            <div className={styles.card}>
-            {templates[templateNo]}
-              </div>  
-         
+
+                <div  className={styles.preview_template} >
+                     <img src={imgtemplateNo[templateNo]} />
                 </div>
+
+
+
                 </div>
-                </div>
+          
     
       <Modal
         open={open}
