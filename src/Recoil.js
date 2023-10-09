@@ -270,6 +270,7 @@ export const resumeTemplates = atom({
    <Template_3/>,
   ], // Set the default value to an empty array
 });
+
 export const imageresumeTemplates = atom({
   key: 'imageresumeTemplates', // Unique ID (with respect to other atoms/selectors)
   default: [
@@ -277,6 +278,19 @@ export const imageresumeTemplates = atom({
   resume_2,
   resume_3,
   ], // Set the default value to an empty array
+});
+
+
+
+export const fontState = atom({
+  key: 'fontState',
+  default:  "Arial"
+
+});
+export const fontSizeState = atom({
+  key: 'fontSizeState',
+  default:  "12px"
+
 });
 
 

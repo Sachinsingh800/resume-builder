@@ -15,6 +15,9 @@ import Template_1 from '../ResumeTemplates/Template_1/Template_1';
 import resume_1 from "../Images/Template_1.png"
 import resume_2 from "../Images/Template_2.png"
 import resume_3 from "../Images/Template_3.png"
+import FontPicker from '../FontPicker/FontPicker';
+import FontSizePicker from '../FontSizePicker/FontSizePicker';
+import Fonts from '../Fonts/Fonts';
 
 
 const style = {
@@ -131,6 +134,9 @@ const handleFilterTemplates=(index)=>{
                     <ColorPlate/>
                     </div>
                 
+                  </div>
+                  <div>
+                  <Fonts/>
                   </div>
                   <div  className={styles.template_box}>
     {resume_templates.map((item,index)=>

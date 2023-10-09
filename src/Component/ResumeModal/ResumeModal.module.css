@@ -36,7 +36,7 @@
     text-align: center;
 }
 .preview{
-  margin-top: 5rem;
+  margin-top: 6rem;
 }
 
   .template_card:hover{
@@ -138,8 +138,9 @@
     gap: 1rem;
      padding: 2rem;
      width: 28rem;
-     height: 30rem;
+     height: 20rem;
      overflow: scroll;
+     margin-top: 1rem;
   }
   .template_card{
     height: 15rem;
