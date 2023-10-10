@@ -317,3 +317,86 @@ export const resumeType = atom({
   key: 'resumeType',
   default: "", // Set an appropriate default value
 });
+
+
+export const summarySuggestion = atom({
+  key: 'summarySuggestion', // Unique ID (with respect to other atoms/selectors)
+  default:[
+    {
+        _id: "652514d32dbc5c3b5ae906a8",
+        summary: "I am a passionate and experienced Node.js developer with a strong background in building scalable and efficient web applications. With over 5 years of hands-on experience, I have a proven track record of delivering high-quality code and solutions for a variety of projects. My expertise includes server-side development, API design, and database management.",
+        __v: 0
+    },
+    {
+        _id: "652514d32dbc5c3b5ae906a8",
+        summary: "I am a passionate and experienced Node.js developer with a strong background in building scalable and efficient web applications. With over 5 years of hands-on experience, I have a proven track record of delivering high-quality code and solutions for a variety of projects. My expertise includes server-side development, API design, and database management.",
+        __v: 0
+    },
+    {
+        _id: "652514d32dbc5c3b5ae906a8",
+        summary: "I am a passionate and experienced Node.js developer with a strong background in building scalable and efficient web applications. With over 5 years of hands-on experience, I have a proven track record of delivering high-quality code and solutions for a variety of projects. My expertise includes server-side development, API design, and database management.",
+        __v: 0
+    },
+
+]
+});
+
+export const skillSuggestion = atom({
+  key: 'skillSuggestion', // Unique ID (with respect to other atoms/selectors)
+  default:[
+    {
+        _id: "64e60a8ca6a8e0ceeee7669e",
+        skills: "React",
+        __v: 0
+    },
+    {
+        _id: "64e60a8ca6a8e0ceeee7669e",
+        skills: "Node js",
+        __v: 0
+    },
+    {
+        _id: "64e60a8ca6a8e0ceeee7669e",
+        skills: "Java",
+        __v: 0
+    },
+  
+]
+});
+
+export const languageSuggestion = atom({
+  key: 'languageSuggestion', // Unique ID (with respect to other atoms/selectors)
+  default:[
+    {
+        _id: "65251392e78d5e9186945c4b",
+        languageName: "Hindi",
+        __v: 0
+    },
+    {
+        _id: "65251392e78d5e9186945c4b",
+        languageName: "Urdu",
+        __v: 0
+    },
+]
+});
+
+export const interestSuggestion = atom({
+  key: 'interestSuggestion', // Unique ID (with respect to other atoms/selectors)
+  default:[
+    {
+        _id: "65251abeaa674dea8d444096",
+        interestName: "Machine Learning",
+        __v: 0
+    },
+    {
+        _id: "65251abeaa674dea8d444096",
+        interestName: "Python Learning",
+        __v: 0
+    },
+ 
+]
+});
+
+export const suggestionData= atom({
+  key: 'suggestionData',
+  default:1
+});

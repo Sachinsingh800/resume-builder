@@ -166,7 +166,7 @@
 }
 .add_btn{
     width: 8rem;
-    position: fixed;
+    position: absolute;
     right: 40%;
     top: 30%;
 

@@ -4,11 +4,12 @@ import { useRecoilState } from 'recoil';
 import { resumeData } from '../../Recoil'; 
 import dp_icon from '../Images/dp_icon.gif';
 import ImageModal from '../ImageModal/ImageModal';
-import { croppedImageState } from '../../Recoil';
+import { croppedImageState,suggestionData} from '../../Recoil';
 
 
 const ResumeForm = () => {
   const [formData,   setFormData] = useRecoilState(resumeData);
+  const [handleSuggestion,   setHandleSuggestion] = useRecoilState(suggestionData);
   const [section, setSection] = useState(1);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   
@@ -36,8 +37,10 @@ const ResumeForm = () => {
   const handleSection = (direction) => {
     if (direction === 'next' && section < 13) {
       setSection(section + 1);
+      setHandleSuggestion(section +1)
     } else if (direction === 'prev' && section > 1) {
       setSection(section - 1);
+      setHandleSuggestion(section - 1)
     }
   };
   const handleAddLanguage = () => {
@@ -118,6 +121,224 @@ const ResumeForm = () => {
     });
   };
   
+  const handleAddSkills = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.skillsAndLevel = [
+        ...updatedResume.skillsAndLevel,
+        {
+          skills: '',
+          level: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+  const handleDeleteSkills = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.skillsAndLevel = [
+        ...updatedResume.skillsAndLevel.slice(0, index),
+        ...updatedResume.skillsAndLevel.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+
+  const handleAddInternship = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.internShips = [
+        ...updatedResume.internShips,
+        {
+          title: '',
+          company: '',
+          startDate: '',
+          endDate: '',
+          location: '',
+          description: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+
+  const handleDeleteInternship = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.internShips = [
+        ...updatedResume.internShips.slice(0, index),
+        ...updatedResume.internShips.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+  const handleAddProject = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.projects = [
+        ...updatedResume.projects,
+        {
+          title: '',
+          description: '',
+          year: '',
+          link: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+  const handleDeleteProject = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.projects = [
+        ...updatedResume.projects.slice(0, index),
+        ...updatedResume.projects.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+  const handleAddCertification = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.certifications = [
+        ...updatedResume.certifications,
+        {
+          title: '',
+          issuingOrganization: '',
+          date: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+  const handleDeleteCertification = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.certifications = [
+        ...updatedResume.certifications.slice(0, index),
+        ...updatedResume.certifications.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+
+  const handleAddAward = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.awards = [
+        ...updatedResume.awards,
+        {
+          title: '',
+          issuingOrganization: '',
+          date: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+  
+  const handleDeleteAward = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.awards = [
+        ...updatedResume.awards.slice(0, index),
+        ...updatedResume.awards.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+
+  const handleAddVolunteer = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.volunteerExperience = [
+        ...updatedResume.volunteerExperience,
+        {
+          title: '',
+          company: '',
+          startDate: '',
+          endDate: '',
+          location: '',
+          description: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+  
+  const handleDeleteVolunteer = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.volunteerExperience = [
+        ...updatedResume.volunteerExperience.slice(0, index),
+        ...updatedResume.volunteerExperience.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+
+  const handleAddInterest = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.areaOfInterest = [
+        ...updatedResume.areaOfInterest,
+        { interest: '' },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+  
+  const handleDeleteInterest = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.areaOfInterest = [
+        ...updatedResume.areaOfInterest.slice(0, index),
+        ...updatedResume.areaOfInterest.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+
+  const handleAddReference = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.references = [
+        ...updatedResume.references,
+        {
+          name: '',
+          company: '',
+          position: '',
+          email: '',
+          phone: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+  
+  // Function to delete a reference at the specified index
+  const handleDeleteReference = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.references = [
+        ...updatedResume.references.slice(0, index),
+        ...updatedResume.references.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
 
   return (
     <div>
@@ -747,8 +968,20 @@ const ResumeForm = () => {
                 });
               }}
             />
+            <div className={style.dele_btn}>
+            {resume.skillsAndLevel.length > 1 && (
+        <button onClick={() => handleDeleteSkills(index)}>Delete</button>
+      )}
+            </div>
           </div>
         </div>
+        <div className={style.add_btn}>
+        {index === resume.skillsAndLevel.length - 1 && (
+        <button onClick={handleAddSkills}>Add</button>
+      )}
+        </div>
+    
+
       </div>
     ))}
   </section>
@@ -902,6 +1135,16 @@ const ResumeForm = () => {
               });
             }}
           />
+              <div className={style.dele_btn}>
+            {resume.internShips.length > 1 && (
+        <button onClick={() => handleDeleteInternship(index)}>Delete</button>
+      )}
+            </div>
+        </div>
+        <div className={style.add_btn}>
+        {index === resume.internShips.length - 1 && (
+        <button onClick={handleAddInternship}>Add</button>
+      )}
         </div>
       </div>
     ))}
@@ -1014,8 +1257,21 @@ const ResumeForm = () => {
                 });
               }}
             />
+            <div className={style.dele_btn}>
+            {resume.projects.length > 1 && (
+        <button onClick={() => handleDeleteProject(index)}>Delete</button>
+      )}
+            </div>
+     
           </div>
         </div>
+        <div className={style.add_btn}>
+        {index === resume.projects.length - 1 && (
+        <button onClick={handleAddProject}>Add</button>
+      )}
+   
+        </div>
+    
       </div>
     ))}
   </section>
@@ -1244,7 +1500,20 @@ const ResumeForm = () => {
               });
             }}
           />
+              <div className={style.dele_btn}>
+              {resume.certifications.length > 1 && (
+        <button onClick={() => handleDeleteCertification(index)}>Delete</button>
+      )}
+   
         </div>
+        </div>
+       <div className={style.add_btn}>
+       {index === resume.certifications.length - 1 && (
+        <button onClick={handleAddCertification}>Add</button>
+      )}
+       </div>
+   
+    
       </div>
     ))}
   </section>
@@ -1334,7 +1603,20 @@ const ResumeForm = () => {
               });
             }}
           />
+               <div className={style.dele_btn}>
+      {resume.awards.length > 1 && (
+        <button onClick={() => handleDeleteAward(index)}>Delete</button>
+      )}
+      </div>
         </div>
+        <div className={style.add_btn}>
+        {index === resume.awards.length - 1 && (
+        <button onClick={handleAddAward}>Add</button>
+      )}
+        </div>
+ 
+ 
+   
       </div>
     ))}
   </section>
@@ -1489,7 +1771,19 @@ const ResumeForm = () => {
               });
             }}
           />
+          <div className={style.dele_btn}>
+          {resume.volunteerExperience.length > 1 && (
+        <button onClick={() => handleDeleteVolunteer(index)}>Delete</button>
+      )} 
+          </div>
         </div>
+        <div className={style.add_btn}>
+        {index === resume.volunteerExperience.length - 1 && (
+        <button onClick={handleAddVolunteer}>Add</button>
+      )}
+        </div>
+ 
+  
       </div>
     ))}
   </section>
@@ -1527,7 +1821,20 @@ const ResumeForm = () => {
             });
           }}
         />
+     
+        <div className={style.dele_btn}>
+        {resume.areaOfInterest.length > 1 && (
+        <button onClick={() => handleDeleteInterest(index)}>Delete</button>
+      )}
+        </div>
+   
+        <div className={style.add_btn}>
+        {index === resume.areaOfInterest.length - 1 && (
+        <button onClick={handleAddInterest}>Add</button>
+      )}
+        </div>
       </div>
+
     ))}
   </section>
 )}
@@ -1661,13 +1968,23 @@ const ResumeForm = () => {
             />
           </div>
         </div>
+        <div className={style.dele_btn}>
+        {resume.references.length > 1 && (
+        <button onClick={() => handleDeleteReference(index)}>Delete</button>
+      )}
+        </div>
+   
+        <div className={style.add_btn}>
+        {index === resume.references.length - 1 && (
+        <button onClick={handleAddReference}>Add</button>
+      )}
+        </div>
       </div>
     ))}
     <button className={style.submit_btn} type="submit">Submit</button>
   </section>
 )}
 
-      
       </form>
       <br />
       <div className={style.btn_box}>
