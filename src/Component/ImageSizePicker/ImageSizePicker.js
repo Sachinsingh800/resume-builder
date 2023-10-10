@@ -8,7 +8,7 @@ function ImageSizePicker() {
 
 
 
-  const fontSizeOptions = [12, 14, 16, 18, 20, 24, 28];
+  const fontSizeOptions = [40,45,50,60,65,70,100,120,130,150,160,170,180,200];
 
   return (
     <div className={style.Img_box}>

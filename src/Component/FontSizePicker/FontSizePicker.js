@@ -8,7 +8,7 @@ function FontSizePicker() {
 
   console.log(selectedFontSize);
 
-  const fontSizeOptions = [12, 14, 16, 18, 20, 24, 28];
+  const fontSizeOptions = [ 18, 20, 24, 28,30,35,40,70];
 
   return (
     <div className={style.font_box}>

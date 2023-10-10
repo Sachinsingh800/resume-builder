@@ -240,7 +240,7 @@ export const ChooseColorSecond = atom({
 });
 export const ChooseColorThird= atom({
   key: 'ChooseColorThird',
-  default:"blue"
+  default:"black"
 });
 
 
@@ -300,7 +300,7 @@ export const fontSizeState = atom({
 });
 export const imageSizeState = atom({
   key: 'imageSizeState ',
-  default:  "12px"
+  default:  "20px"
 
 });
 

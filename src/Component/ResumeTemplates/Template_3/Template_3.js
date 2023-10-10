@@ -8,12 +8,25 @@ import { MdOutlineWorkHistory } from "react-icons/md";
 import dp from "../../Images/dp.png";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates,ChooseColorSecond,croppedImageState ,resumeData, ChooseColorThird} from "../../../Recoil";
+import { 
+  ChooseColor,
+  chooseTemplates,
+  ChooseColorSecond,
+  croppedImageState ,
+  resumeData, 
+  ChooseColorThird,
+  fontState,
+  fontSizeState,
+  imageSizeState
+} from "../../../Recoil";
 
 const Template_3 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
+  const [fontStyle, setFontStyle] = useRecoilState(fontState);
+  const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+  const [imgSize, setImgSize] = useRecoilState(imageSizeState);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [formData, setFormData] = useRecoilState(resumeData);
@@ -34,7 +47,7 @@ const Template_3 = () => {
         style={{ backgroundColor: color, color: "white" }}
       >
         <div className={style.img_container}>
-          <div className={style.img_box}>
+          <div className={style.img_box} style={{height:imgSize,width:imgSize}}>
           {croppedImage ? (
                      <img src={croppedImage} alt="dp" />
                 ) : (
@@ -118,7 +131,7 @@ const Template_3 = () => {
       </div>
       <div>
         <div className={style.objectiveHeader}>
-          <h1 className={style.person_name}  style={{color:color2}}>
+          <h1 className={style.person_name}  style={{color:color2,fontFamily:fontStyle,fontSize:fontSize}}>
           {formData?.resume?.name}
           </h1>
           <p className={style.objectiveText}> {formData?.resume?.jobTitle}</p>
