@@ -61,6 +61,63 @@ const ResumeForm = () => {
     });
   };
   
+  const handleAddEducation = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.education = [
+        ...updatedResume.education,
+        {
+          degree: '',
+          collegeName: '',
+          stream: '',
+          startYear: '',
+          endYear: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+  const handleDeleteEducation = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.education = [
+        ...updatedResume.education.slice(0, index),
+        ...updatedResume.education.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+  
+  const handleAddWork = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.work = [
+        ...updatedResume.work,
+        {
+          title: '',
+          company: '',
+          startDate: '',
+          endDate: '',
+          location: '',
+          description: '',
+        },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+
+  const handleDeleteWork = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.work = [
+        ...updatedResume.work.slice(0, index),
+        ...updatedResume.work.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+  
 
   return (
     <div>
@@ -445,8 +502,21 @@ const ResumeForm = () => {
                 });
               }}
             />
+ 
+          </div>
+          <div>
+          {resume.education.length > 1 && (
+        <button onClick={() => handleDeleteEducation(index)}>Delete</button>
+      )}
           </div>
         </div>
+        <div className={style.add_btn}>
+        {index === resume.education.length - 1 && (
+        <button onClick={handleAddEducation}>Add</button>
+      )}
+        </div>
+     
+ 
       </div>
     ))}
   </section>
@@ -605,7 +675,17 @@ const ResumeForm = () => {
               });
             }}
           />
+               <div>
+          {resume.work.length > 1 && (
+        <button onClick={() => handleDeleteWork(index)}>Delete</button>
+      )}
+          </div>
         </div>
+        <div className={style.add_btn}>
+        {index === resume.work.length - 1 && (
+        <button onClick={handleAddWork}>Add</button>
+      )}
+      </div>
       </div>
     ))}
   </section>
