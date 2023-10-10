@@ -102,6 +102,15 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
+.section_8 input{
+    width: 19rem;
+}
+
+.input_box{
+    display: grid!important;
+    grid-template-columns: 2fr 1fr;
+    place-items: center;
+}
 .section_9{
     display: grid!important;
     grid-template-columns: 1fr 1fr;
@@ -154,4 +163,11 @@
     border-radius: 15px;
     border: none;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.add_btn{
+    width: 8rem;
+    position: fixed;
+    right: 40%;
+    top: 30%;
+
 }

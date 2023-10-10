@@ -40,6 +40,27 @@ const ResumeForm = () => {
       setSection(section - 1);
     }
   };
+  const handleAddLanguage = () => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.knownLanguages = [
+        ...updatedResume.knownLanguages,
+        { lang: '' },
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+  const handleDeleteLanguage = (index) => {
+    setFormData((prevFormData) => {
+      const updatedResume = { ...prevFormData.resume };
+      updatedResume.knownLanguages = [
+        ...updatedResume.knownLanguages.slice(0, index),
+        ...updatedResume.knownLanguages.slice(index + 1),
+      ];
+      return { ...prevFormData, resume: updatedResume };
+    });
+  };
+  
 
   return (
     <div>
@@ -1006,12 +1027,16 @@ const ResumeForm = () => {
 
 
 {section === 8 && (
-  <section className={style.section_8}>
+  <section >
     {/* Known Languages */}
+    <h2>Known Languages </h2>
+    <div className={style.section_8}>
     {resume.knownLanguages.map((language, index) => (
       <div key={index}>
-        <h2>Known Languages {index + 1}</h2>
-        <label htmlFor={`language-${index}`}>Language:</label>
+   
+       <label htmlFor={`language-${index}`}>Language:</label>
+
+       <div className={style.input_box}>
         <input
           type="text"
           id={`language-${index}`}
@@ -1033,8 +1058,24 @@ const ResumeForm = () => {
             });
           }}
         />
+        <div>
+        {resume.knownLanguages.length > 1 && (
+      <button onClick={() => handleDeleteLanguage(index)}>Delete</button>
+    )}
+        </div>
+   
+       </div>
+    
+       <div className={style.add_btn}>
+      {index === resume.knownLanguages.length - 1 && (
+      <button onClick={handleAddLanguage}>Add</button>
+    )}
       </div>
+ 
+      </div>
+       
     ))}
+    </div>
   </section>
 )}
 
