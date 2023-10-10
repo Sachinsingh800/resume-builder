@@ -123,9 +123,9 @@ const handleFilterTemplates=(index)=>{
                   <h3>Customized Your Resume</h3>
       
                   <div className={styles.ColorPlate}>
-                    <div>
+               
                     <ColorPlate/>
-                    </div>
+                
                 
                   </div>
                   <div>

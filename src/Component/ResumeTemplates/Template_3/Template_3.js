@@ -50,7 +50,7 @@ const Template_3 = () => {
           <br />
           <hr className={style.hr} style={{ color: color3}} />
           <div className={style.contactInfo}>
-            <div className={style.iconContainer} style={{ color: color3 }}>
+            <div className={style.iconContainer} style={{ color: "black" }}>
               <p >
                 <AiOutlineMail />
               </p>
@@ -58,7 +58,7 @@ const Template_3 = () => {
             <p className={style.email} style={{ color: color3}}>{formData?.resume?.contact?.email}</p>
           </div>
           <div className={style.contactInfo}>
-            <div className={style.iconContainer} style={{ color: color3 }}>
+            <div className={style.iconContainer} style={{color: "black" }}>
               <p >
                 <AiOutlinePhone />
               </p>
@@ -67,7 +67,7 @@ const Template_3 = () => {
           </div>
 
           <div className={style.contactInfo}>
-            <div className={style.iconContainer} style={{ color: color3}}>
+            <div className={style.iconContainer} style={{ color: "black" }}>
               <p >
                 <CiLocationOn />
               </p>

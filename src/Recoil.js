@@ -298,6 +298,11 @@ export const fontSizeState = atom({
   default:  "12px"
 
 });
+export const imageSizeState = atom({
+  key: 'imageSizeState ',
+  default:  "12px"
+
+});
 
 
 export const chooseTemplates = atom({
