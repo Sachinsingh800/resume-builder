@@ -20,7 +20,6 @@ function ChooseTemplates() {
       <div className={style.container}>
       <h1>What do you want your resume to look like ?</h1>
       <p>View all resume template and select a specific style to customize</p>
-   {/* <ColorPlate/> */}
    <div  className={style.template_box}>
    
    {template.map((item)=>
