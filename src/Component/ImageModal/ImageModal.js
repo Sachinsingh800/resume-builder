@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from "./ImageModal.module.css"
 import CropImage from '../CropImage/CropImage';
-import {ResumeTemplates} from '../ResumeTemplates/ResumeTemplates';
-import Template_1 from '../ResumeTemplates/Template_1/Template_1';
+import upload from "../../Component/Images/upload.webp"
+
 
 const style = {
   position: 'absolute',
@@ -45,9 +45,24 @@ export default function ImageModal() {
                </div>
                <div className={styles.right_box}>
                <div className={styles.Card}>
-                <div >
-                <Template_1/>
-                </div>
+                <div  className={styles.img_box}>
+                  <img src={upload} alt='img' />
+                  </div>
+
+
+                  <div>
+                  <h2>Make sure to check the application requirements before adding a photo. Some employers won’t consider resume with photos.</h2> 
+               <h3>Want to add a photo?</h3>
+               <ul>
+                <li>Choose a recent color photo in a JPEG, PNG, or GIF format, that’s less than 10MB.</li>
+                <li>Crop your photo so it only shows your head and shoulders.</li>
+                <li>If you already uploaded a photo, uploading another will replace it.</li>
+               </ul>
+                  </div>
+              
+
+
+     
                 </div>
                </div>
             </div>

@@ -1,22 +1,15 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import styles from "./ResumeModal.module.css"
-import CropImage from '../CropImage/CropImage';
-import {ResumeTemplates} from '../ResumeTemplates/ResumeTemplates';
 import generatePDF from "react-to-pdf";
 import { useRef,useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue,useRecoilState } from 'recoil';
 import { resumeTemplates,chooseTemplates,imageresumeTemplates } from '../../Recoil';
-import Template_1 from '../ResumeTemplates/Template_1/Template_1';
 import resume_1 from "../Images/Template_1.png"
 import resume_2 from "../Images/Template_2.png"
 import resume_3 from "../Images/Template_3.png"
-import FontPicker from '../FontPicker/FontPicker';
-import FontSizePicker from '../FontSizePicker/FontSizePicker';
 import Fonts from '../Fonts/Fonts';
 
 

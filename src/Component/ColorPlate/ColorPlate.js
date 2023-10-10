@@ -8,49 +8,46 @@ function ColorPlate() {
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
 
-  const handleColorChange = (e) => {
+  const handleColorChange1 = (e) => {
     const newColor = e.target.value;
     setColor1(newColor);
-
-    // Calculate complementary color
-    const red = parseInt(newColor.slice(1, 3), 16);
-    const green = parseInt(newColor.slice(3, 5), 16);
-    const blue = parseInt(newColor.slice(5, 7), 16);
-    const complementaryColor = `#${(255 - red).toString(16)}${(255 - green).toString(16)}${(255 - blue).toString(16)}`;
-    setColor2(complementaryColor);
-
-    // You can also set a third color here if you want
-    // For example, you can invert the red and blue components of the new color
-    const thirdColor = `#${(255 - blue).toString(16)}${(255 - green).toString(16)}${(255 - red).toString(16)}`;
-    setColor3(thirdColor);
+  };
+  const handleColorChange2 = (e) => {
+    const newColor = e.target.value;
+    setColor2(newColor);
+  };
+  const handleColorChange3 = (e) => {
+    const newColor = e.target.value;
+    setColor3(newColor);
   };
 
   return (
     <div className={style.colorplates_box}>
       <h2 >Choose color</h2>
       <ul>
-        <li
-          style={{ backgroundColor: '#113f67' }}
-          onClick={() => setColor1('#113f67')}
-        ></li>
-        <li
-          style={{ backgroundColor: 'orange' }}
-          onClick={() => setColor1('orange')}
-        ></li>
-        <li
-          style={{ backgroundColor: 'blue' }}
-          onClick={() => setColor1('blue')}
-        ></li>
-        <li
-          style={{ backgroundColor: 'green' }}
-          onClick={() => setColor1('green')}
-        ></li>
+
         <li>
           <input
             className={style.customColor_btn}
             type="color"
             value={color1}
-            onChange={handleColorChange}
+            onChange={handleColorChange1}
+          />
+        </li>
+        <li>
+          <input
+            className={style.customColor_btn}
+            type="color"
+            value={color2}
+            onChange={handleColorChange2}
+          />
+        </li>
+        <li>
+          <input
+            className={style.customColor_btn}
+            type="color"
+            value={color3}
+            onChange={handleColorChange3}
           />
         </li>
       </ul>
