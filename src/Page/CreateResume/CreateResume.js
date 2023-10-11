@@ -13,6 +13,7 @@ import {
   languageSuggestion,
   suggestionData,
   educationSuggestion,
+  selectedValue1,
 } from "../../Recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
 
@@ -26,7 +27,9 @@ function CreateResume() {
   const [edu,setEdu] = useRecoilState(educationSuggestion)
   const [showMore, setShowMore] = useState(false);
   const [showMore1, setShowMore1] = useState(false);
+  const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
 
+console.log(selectedValue,"selected value")
 
     const toggleShowMore = () => {
       setShowMore(!showMore);
@@ -34,6 +37,10 @@ function CreateResume() {
 
     const toggleShowMore1 = () => {
       setShowMore1(!showMore1);
+    };
+
+    const handleLiClick = (value) => {
+      setSelectedValue(value);
     };
   
   return (
@@ -59,7 +66,7 @@ function CreateResume() {
             <br />
                 <ul>
                 {summary.slice(0, showMore1 ? summary.length : 2).map((suggestion, index) => (
-                    <li key={index}>{suggestion.summary}</li>
+                    <li key={index} onClick={() => handleLiClick(suggestion.summary)}>{suggestion.summary}</li>
                   ))}
                 </ul>
                 <br/>

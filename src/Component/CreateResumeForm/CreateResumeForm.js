@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { resumeData } from '../../Recoil'; 
 import dp_icon from '../Images/dp_icon.gif';
 import ImageModal from '../ImageModal/ImageModal';
-import { croppedImageState,suggestionData} from '../../Recoil';
+import { croppedImageState,suggestionData,selectedValue1} from '../../Recoil';
 
 
 const ResumeForm = () => {
@@ -12,6 +12,7 @@ const ResumeForm = () => {
   const [handleSuggestion,   setHandleSuggestion] = useRecoilState(suggestionData);
   const [section, setSection] = useState(1);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
+  const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
   
 
   const { resume } = formData;
@@ -398,7 +399,7 @@ const ResumeForm = () => {
           <textarea
             id="summary"
             name="summary"
-            value={resume.summary}
+            value={selectedValue  ?  selectedValue : resume.summary }
             onChange={handleChange}
           />
         </div>

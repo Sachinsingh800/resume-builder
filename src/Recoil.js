@@ -329,7 +329,7 @@ export const summarySuggestion = atom({
     },
     {
         _id: "652514d32dbc5c3b5ae906a8",
-        summary: "I am a passionate and experienced Node.js developer with a strong background in building scalable and efficient web applications. With over 5 years of hands-on experience, I have a proven track record of delivering high-quality code and solutions for a variety of projects. My expertise includes server-side development, API design, and database management.",
+        summary: "a passionate frontend developer with a creative flair and a strong love for crafting interactive and user-friendly web experiences. With a keen eye for design and a knack for turning ideas into beautiful, functional websites, I bring to life the digital visions of businesses and individuals. Proficient in HTML, CSS, and JavaScript, I'm dedicated to staying up-to-date with the latest frontend technologies and best practices to ensure that every project I work on is not only visually appealing but also highly performant and accessible. ",
         __v: 0
     },
     {
@@ -471,4 +471,8 @@ export const educationSuggestion = atom({
 export const suggestionData= atom({
   key: 'suggestionData',
   default:1
+});
+export const selectedValue1= atom({
+  key: 'selectedValue1',
+  default:""
 });
