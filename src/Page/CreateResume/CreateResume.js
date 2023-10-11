@@ -25,10 +25,15 @@ function CreateResume() {
   const [interest, setInterest] = useRecoilState(interestSuggestion);
   const [edu,setEdu] = useRecoilState(educationSuggestion)
   const [showMore, setShowMore] = useState(false);
+  const [showMore1, setShowMore1] = useState(false);
 
 
     const toggleShowMore = () => {
       setShowMore(!showMore);
+    };
+
+    const toggleShowMore1 = () => {
+      setShowMore1(!showMore1);
     };
   
   return (
@@ -53,10 +58,14 @@ function CreateResume() {
           <h1>Recommanded Suggestions for your summary:</h1>
             <br />
                 <ul>
-                  {summary.map((suggestion, index) => (
+                {summary.slice(0, showMore1 ? summary.length : 2).map((suggestion, index) => (
                     <li key={index}>{suggestion.summary}</li>
                   ))}
                 </ul>
+                <br/>
+          <button onClick={toggleShowMore1}>
+        {showMore1 ? 'Show Less' : 'Show More'}
+      </button>
               </section>
             )}
             {sectionNo === 2 && (
