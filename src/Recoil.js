@@ -396,6 +396,78 @@ export const interestSuggestion = atom({
 ]
 });
 
+export const educationSuggestion = atom({
+  key: 'educationSuggestion', // Unique ID (with respect to other atoms/selectors)
+  default:[
+    {
+      title: "Order of Education",
+      content: "List your educational history in reverse chronological order, starting with your most recent or highest level of education and working backward."
+    },
+    {
+      title: "Include the following information for each educational institution you attended:",
+      subpoints: [
+        {
+          letter: "a.",
+          content: "Degree Earned: Specify the type of degree you earned (e.g., Bachelor of Science, Master of Education)."
+        },
+        {
+          letter: "b.",
+          content: "Major or Field of Study: Mention your major or concentration, especially if it's relevant to the job you're applying for."
+        },
+        {
+          letter: "c.",
+          content: "Institution Name: Provide the full name of the educational institution you attended."
+        },
+        {
+          letter: "d.",
+          content: "Location: Include the city and state or country where the institution is located."
+        },
+        {
+          letter: "e.",
+          content: "Graduation Date: State the month and year when you graduated or expect to graduate."
+        },
+        {
+          letter: "f.",
+          content: "Honors and Awards: If you received any academic honors, scholarships, or awards, mention them."
+        },
+
+      ]
+    },
+        {
+          title: "Relevant Coursework:",
+          content: " Consider including relevant coursework or specific projects if they are directly related to the job you're applying for. This can help show your expertise in a particular area."
+        },
+        {
+          title: "GPA (Optional): ",
+          content: "Include your GPA if it's impressive (typically 3.0 or higher) or if the employer requests it. If your GPA is lower, you may choose to omit it."
+        },
+        {
+          title: "Thesis or Research: ",
+          content: "If you completed a thesis, dissertation, or significant research project, briefly mention the topic and any notable findings or outcomes."
+        },
+        {
+          title: "Professional Certifications:",
+          content: " Include any relevant certifications or licenses you obtained during or after your education, such as teaching certifications or professional development certificates."
+        },
+        {
+          title: "Continuing Education:",
+          content: " If you've pursued further education or professional development after your degree, list relevant courses or certifications in this section."
+        },
+        {
+          title: "High School Information (Optional): ",
+          content: "Generally, you don't need to include high school details on your resume unless you're a recent high school graduate or if the employer specifically requests it."
+        },
+        {
+          title: "Relevance to the Job:",
+          content: " Tailor your education details to align with the requirements of the job you're applying for. Emphasize coursework, degrees, or certifications that are most relevant."
+        },
+        {
+          title: "Be Truthful:",
+          content: " Ensure that all the information you provide is accurate and truthful."
+        }
+      ]
+});
+
 export const suggestionData= atom({
   key: 'suggestionData',
   default:1

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import style from "./CreateResume.module.css";
 import NavBar from "../../Component/NavBar/NavBar";
 import CreateResumeForm from "../../Component/CreateResumeForm/CreateResumeForm";
@@ -12,6 +12,7 @@ import {
   interestSuggestion,
   languageSuggestion,
   suggestionData,
+  educationSuggestion,
 } from "../../Recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
 
@@ -22,8 +23,14 @@ function CreateResume() {
   const [skill, setSkill] = useRecoilState(skillSuggestion);
   const [lang, setLang] = useRecoilState(languageSuggestion);
   const [interest, setInterest] = useRecoilState(interestSuggestion);
-  console.log(sectionNo, "sdsdsdsdnooooosd");
+  const [edu,setEdu] = useRecoilState(educationSuggestion)
+  const [showMore, setShowMore] = useState(false);
 
+
+    const toggleShowMore = () => {
+      setShowMore(!showMore);
+    };
+  
   return (
     <div className={style.main}>
       <NavBar />
@@ -50,6 +57,32 @@ function CreateResume() {
                     <li key={index}>{suggestion.summary}</li>
                   ))}
                 </ul>
+              </section>
+            )}
+            {sectionNo === 2 && (
+              <section className={style.section_1}>
+          <h1>Recommanded Suggestions for your Education :</h1>
+            <br />
+            <ul>
+        {edu.slice(0, showMore ? edu.length : 2).map((item, index) => (
+          <li key={index}>
+            <strong>{item.title}</strong> {item.content}
+            {item.subpoints && (
+              <ul>
+                {item.subpoints.map((subitem, subindex) => (
+                  <li key={subindex}>
+                    <strong>{subitem.letter}</strong> {subitem.content}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+      <br/>
+      <button onClick={toggleShowMore}>
+        {showMore ? 'Show Less' : 'Show More'}
+      </button>
               </section>
             )}
 

@@ -53,6 +53,10 @@
     padding: 1rem;
     background-color: aliceblue;
 }
+.section_1 ul li:hover{
+    background-color:black ;
+    color: white;
+}
 .section_1 ul li{
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
