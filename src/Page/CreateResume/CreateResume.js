@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import style from "./CreateResume.module.css";
 import NavBar from "../../Component/NavBar/NavBar";
 import CreateResumeForm from "../../Component/CreateResumeForm/CreateResumeForm";
@@ -13,7 +13,7 @@ import {
   languageSuggestion,
   suggestionData,
   educationSuggestion,
-  workSuggestion ,
+  workSuggestion,
   selectedValue1,
   selectedValue2,
   resumeData,
@@ -26,7 +26,8 @@ import {
   referenceSuggestion,
 } from "../../Recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
-import bulb from "../../Component/Images/bulb.gif"
+import bulb from "../../Component/Images/bulb.gif";
+import cat from "../../Component/Images/cat.gif"
 
 function CreateResume() {
   const type = useRecoilValue(resumeType);
@@ -36,93 +37,94 @@ function CreateResume() {
   const [lang, setLang] = useRecoilState(languageSuggestion);
   const [interest, setInterest] = useRecoilState(interestSuggestion);
   const [data, setData] = useRecoilState(resumeData);
-  const [edu,setEdu] = useRecoilState(educationSuggestion)
-  const [work,setWork] = useRecoilState(workSuggestion)
-  const [internship,setInternShip] = useRecoilState(intershipSuggestion)
-  const [project,setProject] = useRecoilState(projectSuggestion)
-  const [certification,setCertification] = useRecoilState(certificationSuggestion)
-  const [socialLink,setSocialLinks] = useRecoilState(socialLinksSuggestion)
-  const [award,setAward] = useRecoilState(awardSuggestion)
-  const [volunteer,setVolunteer] = useRecoilState(volunteerExperienceSuggestion)
-  const [reference,setReference] = useRecoilState(referenceSuggestion)
+  const [edu, setEdu] = useRecoilState(educationSuggestion);
+  const [work, setWork] = useRecoilState(workSuggestion);
+  const [internship, setInternShip] = useRecoilState(intershipSuggestion);
+  const [project, setProject] = useRecoilState(projectSuggestion);
+  const [certification, setCertification] = useRecoilState(
+    certificationSuggestion
+  );
+  const [socialLink, setSocialLinks] = useRecoilState(socialLinksSuggestion);
+  const [award, setAward] = useRecoilState(awardSuggestion);
+  const [volunteer, setVolunteer] = useRecoilState(
+    volunteerExperienceSuggestion
+  );
+  const [reference, setReference] = useRecoilState(referenceSuggestion);
   const [showMore, setShowMore] = useState(false);
   const [showMore1, setShowMore1] = useState(false);
   const [showMore2, setShowMore2] = useState(false);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
-  const [selectedValueForSkill, setSelectedValueForSkill] = useRecoilState(selectedValue2);
+  const [selectedValueForSkill, setSelectedValueForSkill] =
+    useRecoilState(selectedValue2);
 
-console.log(data.resume.skillsAndLevel  ,"selected value")
+  console.log(data.resume.skillsAndLevel, "selected value");
 
-    const toggleShowMore = () => {
-      setShowMore(!showMore);
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
+  const toggleShowMore1 = () => {
+    setShowMore1(!showMore1);
+  };
+  const toggleShowMore2 = () => {
+    setShowMore2(!showMore2);
+  };
+
+  const handleLiClick = (value) => {
+    setSelectedValue(value);
+  };
+
+  const addSkill = (value) => {
+    // Create a new skill object
+    const newSkill = {
+      skills: value,
+      level: "Beginner",
+      _id: "uniqueId", // Provide a unique ID for the new skill
     };
 
-    const toggleShowMore1 = () => {
-      setShowMore1(!showMore1);
-    };
-    const toggleShowMore2 = () => {
-      setShowMore2(!showMore2);
-    };
+    // Update the state with the new skill
+    setData({
+      ...data,
+      resume: {
+        ...data.resume,
+        skillsAndLevel: [...data.resume.skillsAndLevel, newSkill],
+      },
+    });
+  };
 
-    const handleLiClick = (value) => {
-      setSelectedValue(value);
-    };
-
-  
-    const addSkill = (value) => {
-      // Create a new skill object
-      const newSkill = {
-        skills: value,
-        level: 'Beginner',
-        _id: 'uniqueId', // Provide a unique ID for the new skill
-      };
-  
-      // Update the state with the new skill
-      setData({
-        ...data,
-        resume: {
-          ...data.resume,
-          skillsAndLevel: [...data.resume.skillsAndLevel, newSkill],
-        },
-      });
+  const addLang = (value) => {
+    // Create a new skill object
+    const newLang = {
+      lang: value,
+      _id: "651d0603587cea4128a820fa",
     };
 
+    // Update the state with the new skill
+    setData({
+      ...data,
+      resume: {
+        ...data.resume,
+        knownLanguages: [...data.resume.knownLanguages, newLang],
+      },
+    });
+  };
 
-    const addLang = (value) => {
-      // Create a new skill object
-      const newLang = {
-          lang:value,
-          _id: "651d0603587cea4128a820fa",
-      };
-  
-      // Update the state with the new skill
-      setData({
-        ...data,
-        resume: {
-          ...data.resume,
-          knownLanguages: [...data.resume.knownLanguages, newLang],
-        },
-      });
+  const addIntrest = (value) => {
+    // Create a new skill object
+    const newLang = {
+      interest: value,
+      _id: "651d0603587cea4128a820ff",
     };
 
-
-    const addIntrest = (value) => {
-      // Create a new skill object
-      const newLang = {
-          interest: value,
-          _id: "651d0603587cea4128a820ff",
-        
-      };
-  
-      // Update the state with the new skill
-      setData({
-        ...data,
-        resume: {
-          ...data.resume,
-          areaOfInterest: [...data.resume.areaOfInterest, newLang],
-        },
-      });
-    };
+    // Update the state with the new skill
+    setData({
+      ...data,
+      resume: {
+        ...data.resume,
+        areaOfInterest: [...data.resume.areaOfInterest, newLang],
+      },
+    });
+  };
   return (
     <div className={style.main}>
       <NavBar />
@@ -135,203 +137,224 @@ console.log(data.resume.skillsAndLevel  ,"selected value")
           )}
         </div>
         <div className={style.right_box}>
-          <div className={style.preview_template}>
-            <ResumeModal />
+          <div className={style.animation_box}>
+          <div className={style.cat}>
+              <img src={cat} alt="cat" />
+            </div>
+            <div className={style.preview_template}>
+         
+         <ResumeModal />
+       </div>
           </div>
+         
           <div className={style.suggestion_box}>
-       
             {sectionNo === 1 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your summary:
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
+                <h1>
+                  Recommanded Suggestions for your summary:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
-                {summary.slice(0, showMore1 ? summary.length : 2).map((suggestion, index) => (
-                    <li key={index} onClick={() => handleLiClick(suggestion.summary)}>{suggestion.summary}</li>
-                  ))}
+                  {summary
+                    .slice(0, showMore1 ? summary.length : 2)
+                    .map((suggestion, index) => (
+                      <li
+                        key={index}
+                        onClick={() => handleLiClick(suggestion.summary)}
+                      >
+                        {suggestion.summary}
+                      </li>
+                    ))}
                 </ul>
-                <br/>
-          <button onClick={toggleShowMore1}>
-        {showMore1 ? 'Show Less' : 'Show More'}
-      </button>
+                <br />
+                <button className={style.showmore_btn}  onClick={toggleShowMore1}>
+                  {showMore1 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
-
-
-
 
             {sectionNo === 2 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your Education : 
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
-            <ul>
-        {edu.slice(0, showMore ? edu.length : 2).map((item, index) => (
-          <li key={index}>
-            <strong>{item.title}</strong> {item.content}
-            {item.subpoints && (
-              <ul>
-                {item.subpoints.map((subitem, subindex) => (
-                  <li key={subindex}>
-                    <strong>{subitem.letter}</strong> {subitem.content}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-      <br/>
-      <button onClick={toggleShowMore}>
-        {showMore ? 'Show Less' : 'Show More'}
-      </button>
+                <h1>
+                  Recommanded Suggestions for your Education :
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
+                <ul>
+                  {edu
+                    .slice(0, showMore ? edu.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
+                        {item.subpoints && (
+                          <ul>
+                            {item.subpoints.map((subitem, subindex) => (
+                              <li key={subindex}>
+                                <strong>{subitem.letter}</strong>{" "}
+                                {subitem.content}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                </ul>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore}>
+                  {showMore ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
-
-
-
 
             {sectionNo === 3 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your Work :
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
-            <ul>
-        {work.slice(0, showMore2 ? work.length : 2).map((item, index) => (
-          <li key={index}>
-            <strong>{item.title}</strong> {item.content}
-            {item.subpoints && (
-              <ul>
-                {item.subpoints.map((subitem, subindex) => (
-                  <li key={subindex}>
-                    <strong>{subitem.letter}</strong> {subitem.content}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-      <br/>
-      <button onClick={toggleShowMore2}>
-        {showMore2 ? 'Show Less' : 'Show More'}
-      </button>
+                <h1>
+                  Recommanded Suggestions for your Work :
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
+                <ul>
+                  {work
+                    .slice(0, showMore2 ? work.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
+                        {item.subpoints && (
+                          <ul>
+                            {item.subpoints.map((subitem, subindex) => (
+                              <li key={subindex}>
+                                <strong>{subitem.letter}</strong>{" "}
+                                {subitem.content}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    ))}
+                </ul>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore2}>
+                  {showMore2 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
-
-
-
-
 
             {sectionNo === 4 && (
               <section className={style.section_1}>
-               <h1>Recommanded Suggestions for your Skills:
-               <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-               </h1>
-                   <br />
+                <h1>
+                  Recommanded Suggestions for your Skills:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
                   {skill.map((suggestion, index) => (
-                    <li key={index} onClick={()=>addSkill(suggestion.skills)}>{suggestion.skills}</li>
+                    <li key={index} onClick={() => addSkill(suggestion.skills)}>
+                      {suggestion.skills}
+                    </li>
                   ))}
                 </ul>
               </section>
             )}
 
-
-{sectionNo === 5 && (
+            {sectionNo === 5 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your Intership:
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
+                <h1>
+                  Recommanded Suggestions for your Intership:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
-                {internship.slice(0, showMore1 ? internship.length : 2).map((item, index) => (
-                    <li key={index} >
-                         <strong>{item.title}</strong> {item.content}
+                  {internship
+                    .slice(0, showMore1 ? internship.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
                       </li>
-                  ))}
+                    ))}
                 </ul>
-                <br/>
-          <button onClick={toggleShowMore1}>
-        {showMore1 ? 'Show Less' : 'Show More'}
-      </button>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                  {showMore1 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
 
-
-{sectionNo === 6 && (
+            {sectionNo === 6 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your Project:
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
+                <h1>
+                  Recommanded Suggestions for your Project:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
-                {project.slice(0, showMore1 ? project.length : 2).map((item, index) => (
-                    <li key={index} >
-                         <strong>{item.title}</strong> {item.content}
+                  {project
+                    .slice(0, showMore1 ? project.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
                       </li>
-                  ))}
+                    ))}
                 </ul>
-                <br/>
-          <button onClick={toggleShowMore1}>
-        {showMore1 ? 'Show Less' : 'Show More'}
-      </button>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                  {showMore1 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
 
-            
-{sectionNo === 7 && (
+            {sectionNo === 7 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your Social Link:
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
+                <h1>
+                  Recommanded Suggestions for your Social Link:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
-                {socialLink.slice(0, showMore1 ? socialLink.length : 2).map((item, index) => (
-                    <li key={index} >
-                         <strong>{item.title}</strong> {item.content}
+                  {socialLink
+                    .slice(0, showMore1 ? socialLink.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
                       </li>
-                  ))}
+                    ))}
                 </ul>
-                <br/>
-          <button onClick={toggleShowMore1}>
-        {showMore1 ? 'Show Less' : 'Show More'}
-      </button>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                  {showMore1 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
-
-
 
             {sectionNo === 8 && (
               <section className={style.section_1}>
-               <h1>Recommanded Suggestions for your Language:
-               <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-               </h1>
-                   <br />
+                <h1>
+                  Recommanded Suggestions for your Language:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
                   {lang.map((suggestion, index) => (
-                    <li key={index}
-                    onClick={()=>addLang(suggestion.languageName)}
-                    > 
+                    <li
+                      key={index}
+                      onClick={() => addLang(suggestion.languageName)}
+                    >
                       {suggestion.languageName}
                     </li>
                   ))}
@@ -339,121 +362,125 @@ console.log(data.resume.skillsAndLevel  ,"selected value")
               </section>
             )}
 
-
-
-
-
-
-{sectionNo === 9 && (
+            {sectionNo === 9 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your Certifications:
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
+                <h1>
+                  Recommanded Suggestions for your Certifications:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
-                {certification.slice(0, showMore1 ? certification.length : 2).map((item, index) => (
-                    <li key={index} >
-                         <strong>{item.title}</strong> {item.content}
+                  {certification
+                    .slice(0, showMore1 ? certification.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
                       </li>
-                  ))}
+                    ))}
                 </ul>
-                <br/>
-          <button onClick={toggleShowMore1}>
-        {showMore1 ? 'Show Less' : 'Show More'}
-      </button>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                  {showMore1 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
 
-{sectionNo === 10 && (
+            {sectionNo === 10 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your Awards:
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
+                <h1>
+                  Recommanded Suggestions for your Awards:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
-                {award.slice(0, showMore1 ? award.length : 2).map((item, index) => (
-                    <li key={index} >
-                         <strong>{item.title}</strong> {item.content}
+                  {award
+                    .slice(0, showMore1 ? award.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
                       </li>
-                  ))}
+                    ))}
                 </ul>
-                <br/>
-          <button onClick={toggleShowMore1}>
-        {showMore1 ? 'Show Less' : 'Show More'}
-      </button>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                  {showMore1 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
 
-
-
-
-{sectionNo === 11 && (
+            {sectionNo === 11 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your Volunteer Experience:
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
+                <h1>
+                  Recommanded Suggestions for your Volunteer Experience:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
-                {volunteer.slice(0, showMore1 ? volunteer.length : 2).map((item, index) => (
-                    <li key={index} >
-                         <strong>{item.title}</strong> {item.content}
+                  {volunteer
+                    .slice(0, showMore1 ? volunteer.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
                       </li>
-                  ))}
+                    ))}
                 </ul>
-                <br/>
-          <button onClick={toggleShowMore1}>
-        {showMore1 ? 'Show Less' : 'Show More'}
-      </button>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                  {showMore1 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
-
-
-
-
 
             {sectionNo === 12 && (
               <section className={style.section_1}>
-            <h1>Recommanded Suggestions for your Interested Field:
-            <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-            </h1>
-                   <br />
+                <h1>
+                  Recommanded Suggestions for your Interested Field:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
                   {interest.map((suggestion, index) => (
-                    <li key={index} onClick={()=>addIntrest(suggestion.interestName)}>{suggestion.interestName}</li>
+                    <li
+                      key={index}
+                      onClick={() => addIntrest(suggestion.interestName)}
+                    >
+                      {suggestion.interestName}
+                    </li>
                   ))}
                 </ul>
               </section>
             )}
 
-
-            
-      {sectionNo === 13 && (
+            {sectionNo === 13 && (
               <section className={style.section_1}>
-          <h1>Recommanded Suggestions for your References:
-          <div className={style.img_bulb}>
-            <img src={bulb} alt="bulb" />
-           </div>
-          </h1>
-            <br />
+                <h1>
+                  Recommanded Suggestions for your References:
+                  <div className={style.img_bulb}>
+                    <img src={bulb} alt="bulb" />
+                  </div>
+                </h1>
+                <br />
                 <ul>
-                {reference.slice(0, showMore1 ? reference.length : 2).map((item, index) => (
-                    <li key={index} >
-                         <strong>{item.title}</strong> {item.content}
+                  {reference
+                    .slice(0, showMore1 ? reference.length : 2)
+                    .map((item, index) => (
+                      <li key={index}>
+                        <strong>{item.title}</strong> {item.content}
                       </li>
-                  ))}
+                    ))}
                 </ul>
-                <br/>
-          <button onClick={toggleShowMore1}>
-        {showMore1 ? 'Show Less' : 'Show More'}
-      </button>
+                <br />
+                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                  {showMore1 ? "Show Less" : "Show More"}
+                </button>
               </section>
             )}
           </div>

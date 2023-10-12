@@ -85,6 +85,7 @@ const handleFilterTemplates=(index)=>{
 
 
                   <div className={styles.preview_btn}>
+                    
                     <h1 className={styles.preview}>Preview</h1>
                   </div>
 
