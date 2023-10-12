@@ -17,6 +17,13 @@ import {
   selectedValue1,
   selectedValue2,
   resumeData,
+  intershipSuggestion,
+  projectSuggestion,
+  socialLinksSuggestion,
+  certificationSuggestion,
+  awardSuggestion,
+  volunteerExperienceSuggestion,
+  referenceSuggestion,
 } from "../../Recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
 import bulb from "../../Component/Images/bulb.gif"
@@ -31,6 +38,13 @@ function CreateResume() {
   const [data, setData] = useRecoilState(resumeData);
   const [edu,setEdu] = useRecoilState(educationSuggestion)
   const [work,setWork] = useRecoilState(workSuggestion)
+  const [internship,setInternShip] = useRecoilState(intershipSuggestion)
+  const [project,setProject] = useRecoilState(projectSuggestion)
+  const [certification,setCertification] = useRecoilState(certificationSuggestion)
+  const [socialLink,setSocialLinks] = useRecoilState(socialLinksSuggestion)
+  const [award,setAward] = useRecoilState(awardSuggestion)
+  const [volunteer,setVolunteer] = useRecoilState(volunteerExperienceSuggestion)
+  const [reference,setReference] = useRecoilState(referenceSuggestion)
   const [showMore, setShowMore] = useState(false);
   const [showMore1, setShowMore1] = useState(false);
   const [showMore2, setShowMore2] = useState(false);
@@ -69,6 +83,43 @@ console.log(data.resume.skillsAndLevel  ,"selected value")
         resume: {
           ...data.resume,
           skillsAndLevel: [...data.resume.skillsAndLevel, newSkill],
+        },
+      });
+    };
+
+
+    const addLang = (value) => {
+      // Create a new skill object
+      const newLang = {
+          lang:value,
+          _id: "651d0603587cea4128a820fa",
+      };
+  
+      // Update the state with the new skill
+      setData({
+        ...data,
+        resume: {
+          ...data.resume,
+          knownLanguages: [...data.resume.knownLanguages, newLang],
+        },
+      });
+    };
+
+
+    const addIntrest = (value) => {
+      // Create a new skill object
+      const newLang = {
+          interest: value,
+          _id: "651d0603587cea4128a820ff",
+        
+      };
+  
+      // Update the state with the new skill
+      setData({
+        ...data,
+        resume: {
+          ...data.resume,
+          areaOfInterest: [...data.resume.areaOfInterest, newLang],
         },
       });
     };
@@ -197,6 +248,77 @@ console.log(data.resume.skillsAndLevel  ,"selected value")
               </section>
             )}
 
+
+{sectionNo === 5 && (
+              <section className={style.section_1}>
+          <h1>Recommanded Suggestions for your Intership:
+          <div className={style.img_bulb}>
+            <img src={bulb} alt="bulb" />
+           </div>
+          </h1>
+            <br />
+                <ul>
+                {internship.slice(0, showMore1 ? internship.length : 2).map((item, index) => (
+                    <li key={index} >
+                         <strong>{item.title}</strong> {item.content}
+                      </li>
+                  ))}
+                </ul>
+                <br/>
+          <button onClick={toggleShowMore1}>
+        {showMore1 ? 'Show Less' : 'Show More'}
+      </button>
+              </section>
+            )}
+
+
+{sectionNo === 6 && (
+              <section className={style.section_1}>
+          <h1>Recommanded Suggestions for your Project:
+          <div className={style.img_bulb}>
+            <img src={bulb} alt="bulb" />
+           </div>
+          </h1>
+            <br />
+                <ul>
+                {project.slice(0, showMore1 ? project.length : 2).map((item, index) => (
+                    <li key={index} >
+                         <strong>{item.title}</strong> {item.content}
+                      </li>
+                  ))}
+                </ul>
+                <br/>
+          <button onClick={toggleShowMore1}>
+        {showMore1 ? 'Show Less' : 'Show More'}
+      </button>
+              </section>
+            )}
+
+            
+{sectionNo === 7 && (
+              <section className={style.section_1}>
+          <h1>Recommanded Suggestions for your Social Link:
+          <div className={style.img_bulb}>
+            <img src={bulb} alt="bulb" />
+           </div>
+          </h1>
+            <br />
+                <ul>
+                {socialLink.slice(0, showMore1 ? socialLink.length : 2).map((item, index) => (
+                    <li key={index} >
+                         <strong>{item.title}</strong> {item.content}
+                      </li>
+                  ))}
+                </ul>
+                <br/>
+          <button onClick={toggleShowMore1}>
+        {showMore1 ? 'Show Less' : 'Show More'}
+      </button>
+              </section>
+            )}
+
+
+
             {sectionNo === 8 && (
               <section className={style.section_1}>
                <h1>Recommanded Suggestions for your Language:
@@ -207,11 +329,94 @@ console.log(data.resume.skillsAndLevel  ,"selected value")
                    <br />
                 <ul>
                   {lang.map((suggestion, index) => (
-                    <li key={index}>{suggestion.languageName}</li>
+                    <li key={index}
+                    onClick={()=>addLang(suggestion.languageName)}
+                    > 
+                      {suggestion.languageName}
+                    </li>
                   ))}
                 </ul>
               </section>
             )}
+
+
+
+
+
+
+{sectionNo === 9 && (
+              <section className={style.section_1}>
+          <h1>Recommanded Suggestions for your Certifications:
+          <div className={style.img_bulb}>
+            <img src={bulb} alt="bulb" />
+           </div>
+          </h1>
+            <br />
+                <ul>
+                {certification.slice(0, showMore1 ? certification.length : 2).map((item, index) => (
+                    <li key={index} >
+                         <strong>{item.title}</strong> {item.content}
+                      </li>
+                  ))}
+                </ul>
+                <br/>
+          <button onClick={toggleShowMore1}>
+        {showMore1 ? 'Show Less' : 'Show More'}
+      </button>
+              </section>
+            )}
+
+{sectionNo === 10 && (
+              <section className={style.section_1}>
+          <h1>Recommanded Suggestions for your Awards:
+          <div className={style.img_bulb}>
+            <img src={bulb} alt="bulb" />
+           </div>
+          </h1>
+            <br />
+                <ul>
+                {award.slice(0, showMore1 ? award.length : 2).map((item, index) => (
+                    <li key={index} >
+                         <strong>{item.title}</strong> {item.content}
+                      </li>
+                  ))}
+                </ul>
+                <br/>
+          <button onClick={toggleShowMore1}>
+        {showMore1 ? 'Show Less' : 'Show More'}
+      </button>
+              </section>
+            )}
+
+
+
+
+{sectionNo === 11 && (
+              <section className={style.section_1}>
+          <h1>Recommanded Suggestions for your Volunteer Experience:
+          <div className={style.img_bulb}>
+            <img src={bulb} alt="bulb" />
+           </div>
+          </h1>
+            <br />
+                <ul>
+                {volunteer.slice(0, showMore1 ? volunteer.length : 2).map((item, index) => (
+                    <li key={index} >
+                         <strong>{item.title}</strong> {item.content}
+                      </li>
+                  ))}
+                </ul>
+                <br/>
+          <button onClick={toggleShowMore1}>
+        {showMore1 ? 'Show Less' : 'Show More'}
+      </button>
+              </section>
+            )}
+
+
+
+
+
             {sectionNo === 12 && (
               <section className={style.section_1}>
             <h1>Recommanded Suggestions for your Interested Field:
@@ -222,9 +427,33 @@ console.log(data.resume.skillsAndLevel  ,"selected value")
                    <br />
                 <ul>
                   {interest.map((suggestion, index) => (
-                    <li key={index}>{suggestion.interestName}</li>
+                    <li key={index} onClick={()=>addIntrest(suggestion.interestName)}>{suggestion.interestName}</li>
                   ))}
                 </ul>
+              </section>
+            )}
+
+
+            
+      {sectionNo === 13 && (
+              <section className={style.section_1}>
+          <h1>Recommanded Suggestions for your References:
+          <div className={style.img_bulb}>
+            <img src={bulb} alt="bulb" />
+           </div>
+          </h1>
+            <br />
+                <ul>
+                {reference.slice(0, showMore1 ? reference.length : 2).map((item, index) => (
+                    <li key={index} >
+                         <strong>{item.title}</strong> {item.content}
+                      </li>
+                  ))}
+                </ul>
+                <br/>
+          <button onClick={toggleShowMore1}>
+        {showMore1 ? 'Show Less' : 'Show More'}
+      </button>
               </section>
             )}
           </div>

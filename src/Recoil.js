@@ -467,6 +467,451 @@ export const educationSuggestion = atom({
         }
       ]
 });
+
+
+
+
+
+
+export const  intershipSuggestion = atom({
+  key: 'intershipSuggestion', // Unique ID (with respect to other atoms/selectors)
+  default: [
+    {
+      title: "Internship Title:",
+      content: "Mention the title of your internship role. This should give a clear idea of your responsibilities and the focus of your internship."
+    },
+    {
+      title: "Company/Organization Name:",
+      content: "Include the name of the company or organization where you completed your internship."
+    },
+    {
+      title: "Start and End Dates:",
+      content: "Specify the dates when you started and finished the internship. This helps the employer understand the duration of your experience."
+    },
+    {
+      title: "Location:",
+      content: "Mention the location (city or region) of the internship. This can be important, especially if you're applying for a job in a specific area."
+    },
+    {
+      title: "Key Responsibilities:",
+      content: "Describe your main duties and responsibilities during the internship. Be specific and highlight tasks that are relevant to the job you're applying for."
+    },
+    {
+      title: "Achievements and Accomplishments:",
+      content: "Highlight any significant achievements or projects you completed during the internship. Did you contribute to a successful project, implement improvements, or receive recognition? Mention it here."
+    },
+    {
+      title: "Skills Developed:",
+      content: "Explain the skills you developed or enhanced during the internship. This might include technical skills, soft skills, or industry-specific knowledge."
+    },
+    {
+      title: "Tools and Technologies:",
+      content: "Mention any software, tools, or technologies you used during the internship. This can be especially important if you gained experience with industry-specific software."
+    },
+    {
+      title: "Team Collaboration:",
+      content: "Describe how you collaborated with colleagues, teams, or supervisors. Effective teamwork and communication skills are often highly valued by employers."
+    },
+    {
+      title: "Challenges Faced:",
+      content: "If you encountered and overcame challenges during your internship, it can demonstrate your problem-solving and adaptability skills."
+    },
+    {
+      title: "Learnings and Takeaways:",
+      content: "Reflect on what you learned during the internship and how it contributed to your professional growth."
+    },
+    {
+      title: "Quantify Achievements:",
+      content: "Where possible, use quantifiable data to showcase the impact of your work. For example, 'increased website traffic by 20%' or 'completed 10 projects ahead of schedule.'"
+    },
+    {
+      title: "Relevant Projects:",
+      content: "If you worked on specific projects during your internship, detail them separately, including project names, your role, and outcomes."
+    },
+    {
+      title: "References:",
+      content: "If appropriate, provide references or contacts from the internship organization who can vouch for your work."
+    },
+    {
+      title: "Honesty and Accuracy:",
+      content: "Ensure that all information you provide is accurate and truthful. Exaggerating or fabricating details on your resume can be detrimental to your job search."
+    },
+    {
+      title: "Tailor to the Job:",
+      content: "Customize the internship details based on the specific job you're applying for. Emphasize experiences and skills that are most relevant to the position."
+    },
+    {
+      title: "Formatting:",
+      content: "Organize the information in a clear and concise format. Use bullet points, headings, and a consistent structure to make it easy for the reader to scan your internship details."
+    }
+  ]
+});
+
+
+
+
+
+export  const projectSuggestion = atom({
+  key: 'projectSuggestion',
+  default: [
+    {
+      title: "Project Title:",
+      content: "Mention the title of the project. The title should provide an immediate understanding of the project's nature."
+    },
+    {
+      title: "Project Duration:",
+      content: "Specify the start and end dates of the project. This helps employers understand the timeline of your work."
+    },
+    {
+      title: "Project Description:",
+      content: "Provide a brief overview of the project, including its purpose, goals, and any challenges it aimed to address."
+    },
+    {
+      title: "Your Role:",
+      content: "Explain your specific role and responsibilities within the project. Highlight your contributions and leadership if applicable."
+    },
+    {
+      title: "Key Achievements:",
+      content: "Describe the major accomplishments or results of the project. Use quantifiable metrics when possible, such as increased revenue, improved efficiency, or reduced costs."
+    },
+    {
+      title: "Tools and Technologies:",
+      content: "Mention the software, tools, programming languages, and technologies you used to complete the project. This is especially important for technical roles."
+    },
+    {
+      title: "Team Collaboration:",
+      content: "Highlight how you collaborated with team members, including your communication and problem-solving skills."
+    },
+    {
+      title: "Challenges Faced:",
+      content: "Describe any challenges, obstacles, or issues that arose during the project and how you addressed them."
+    },
+    {
+      title: "Lessons Learned:",
+      content: "Reflect on what you learned from the project, including new skills, knowledge, or personal growth."
+    },
+    {
+      title: "Relevance to Job:",
+      content: "Emphasize how the project is relevant to the job you're applying for. Connect the skills and experiences gained from the project to the job's requirements."
+    },
+    {
+      title: "Use Action Verbs:",
+      content: "Use strong action verbs to start your bullet points, such as 'implemented,' 'developed,' 'led,' 'designed,' and 'optimized.' This makes your achievements more impactful."
+    },
+    {
+      title: "Consistency:",
+      content: "Maintain a consistent format for presenting project details throughout your resume. This makes it easier for the reader to understand your experiences."
+    },
+    {
+      title: "Tailor to the Job:",
+      content: "Customize the project details based on the specific job you're applying for. Highlight experiences and skills that align with the position's requirements."
+    },
+    {
+      title: "Prioritize Relevant Projects:",
+      content: "If you have worked on multiple projects, prioritize and include the most relevant ones, especially if space is limited on your resume."
+    },
+    {
+      title: "Formatting:",
+      content: "Organize the information in a clear and concise format, using bullet points, headings, and a consistent structure."
+    }
+  ]
+});
+
+
+export const referenceSuggestion = atom({
+  key: 'referenceSuggestion',
+  default: [
+    {
+      title: "Include Professional References:",
+      content: "Typically, include references who can speak to your professional qualifications and work experience. This could be former supervisors, colleagues, or clients."
+    },
+    {
+      title: "Ask for Permission:",
+      content: "Always ask for permission before including someone as a reference. Not only is this common courtesy, but it also ensures that they are prepared to vouch for you."
+    },
+    {
+      title: "Provide Contact Information:",
+      content: "Include the reference's full name, title, company or organization, phone number, and email address. Make it easy for potential employers to contact them."
+    },
+    {
+      title: "Specify Your Relationship:",
+      content: "Briefly explain your professional relationship with the reference. For example, 'Supervisor at XYZ Company.'"
+    },
+    {
+      title: "Highlight Their Expertise:",
+      content: "Mention what expertise or skills the reference can speak to. For example, 'Can speak to my project management skills and leadership abilities.'"
+    },
+    {
+      title: "Tailor to the Job:",
+      content: "If possible, tailor your choice of references to the job you're applying for. For instance, if the job requires a specific skill, choose a reference who can speak to your proficiency in that area."
+    },
+    {
+      title: "Keep It Current:",
+      content: "Ensure that your reference's information is up-to-date. If they have changed jobs or contact details, make sure your resume reflects this."
+    },
+    {
+      title: "Number of References:",
+      content: "It's common to provide 2-3 references. You can include more if requested, but don't overwhelm the employer with a long list of references."
+    },
+    {
+      title: "Separate Page or Upon Request:",
+      content: "It's common to create a separate 'References' page in your resume, or you can state 'References available upon request.' This is especially useful if you want to save space on your resume."
+    },
+    {
+      title: "Notify Your References:",
+      content: "If you're actively job hunting and expect potential employers to contact your references, it's a good practice to notify your references. This allows them to anticipate the calls and be prepared to provide a positive recommendation."
+    },
+    {
+      title: "Follow Up with Your References:",
+      content: "After providing your references, it's a good practice to follow up with them and inform them about the job applications you've submitted. This gives them context and allows them to provide relevant information."
+    },
+    {
+      title: "Maintain Professional Relationships:",
+      content: "Keep in touch with your references even when you're not actively job hunting. Building and maintaining professional relationships can make it easier to secure strong references when needed."
+    },
+  ]
+});
+
+
+export const socialLinksSuggestion = atom({
+  key: 'socialLinksSuggestion',
+  default: [
+    {
+      title: "LinkedIn Profile:",
+      content: "Include a link to your LinkedIn profile. Make sure your LinkedIn profile is complete, up-to-date, and professional. This is a critical platform for networking and showcasing your professional background."
+    },
+    {
+      title: "GitHub or Portfolio:",
+      content: "If you're in a technical field, providing a link to your GitHub profile or an online portfolio of your work can be highly valuable. It allows employers to review your coding projects or creative work."
+    },
+    {
+      title: "Personal Website:",
+      content: "If you have a personal website or blog that's relevant to your field, consider sharing a link. Your website can showcase your expertise, projects, and personal brand."
+    },
+  ]
+});
+
+
+
+
+export const certificationSuggestion = atom({
+  key: 'certificationSuggestion',
+  default: [
+    {
+      title: "Certification Title:",
+      content: "Include the title of the certification you earned. Make it clear and concise so that the employer immediately understands your qualification."
+    },
+    {
+      title: "Issuing Organization:",
+      content: "Mention the organization or institution that issued the certification. This provides credibility and context for your qualification."
+    },
+    {
+      title: "Date of Certification:",
+      content: "Specify the date when you received the certification. This information helps employers gauge the recency of your knowledge and skills."
+    },
+    {
+      title: "Relevance:",
+      content: "Highlight certifications that are directly related to the job you're applying for. Emphasize how the certification is beneficial for the specific role."
+    },
+    {
+      title: "Certification Number (if applicable):",
+      content: "If your certification comes with a unique identifier or certification number, consider including it. This can be important for verification."
+    },
+    {
+      title: "Duration or Expiration:",
+      content: "If the certification has an expiration date or duration of validity, mention it. Some certifications require periodic renewal, and employers may want to know the status."
+    },
+    {
+      title: "Skills and Knowledge:",
+      content: "In the bullet points or descriptions, briefly outline the key skills and knowledge you gained through the certification. Explain how these skills are applicable to the job."
+    },
+    {
+      title: "Certification Achievements:",
+      content: "If you achieved any notable distinctions during the certification process (e.g., highest scorer, completion of advanced modules), mention them."
+    },
+    {
+      title: "Coursework or Curriculum:",
+      content: "For longer certification programs, briefly describe the coursework or curriculum you completed. This provides insight into the depth of your training."
+    },
+    {
+      title: "Use Action Verbs:",
+      content: "Start your bullet points with strong action verbs to convey the impact of your certification. For example, use words like 'achieved,' 'earned,' 'mastered,' or 'specialized.'"
+    },
+    {
+      title: "Formatting:",
+      content: "Organize your certifications in a consistent and clear format. Use bullet points, headings, and a logical structure to make it easy for the reader to scan."
+    },
+    {
+      title: "Prioritize Relevant Certifications:",
+      content: "If you have multiple certifications, prioritize and include the most relevant ones. Tailor your list based on the job requirements."
+    },
+    {
+      title: "Honesty and Accuracy:",
+      content: "Ensure that all information regarding your certifications is accurate and truthful. Misrepresenting your qualifications can be detrimental to your job search."
+    },
+    {
+      title: "Additional Details:",
+      content: "Some certifications may require additional details, such as the number of training hours, specific modules completed, or specific skills acquired. Include such information when relevant."
+    },
+    {
+      title: "Professional Designations:",
+      content: "If you hold professional designations (e.g., CPA, PMP), be sure to include them in the certification section. These designations carry significant weight in certain industries."
+    },
+    {
+      title: "Certification Logos (optional):",
+      content: "If the certification provider offers official logos or badges, consider including them. These visual elements can add credibility to your qualifications."
+    },
+    {
+      title: "Online Verification:",
+      content: "Mention if the certification can be verified online through the issuing organization's website. This can reassure employers of the authenticity of your certification."
+    },
+    {
+      title: "Tailor to the Job:",
+      content: "Customize your certification details based on the specific job you're applying for. Highlight certifications that align with the role's requirements and responsibilities."
+    },
+  ]
+});
+
+
+
+
+
+export  const awardSuggestion = atom({
+  key: 'awardSuggestion',
+  default: [
+    {
+      title: "Award Title:",
+      content: "Include the title of the award. The title should be clear and concise, giving the reader an immediate understanding of the recognition."
+    },
+    {
+      title: "Issuing Organization:",
+      content: "Mention the organization, company, or institution that issued the award. This provides context and credibility to the recognition."
+    },
+    {
+      title: "Date of Award:",
+      content: "Specify the date when you received the award. This helps employers gauge the recency of your achievements."
+    },
+    {
+      title: "Significance:",
+      content: "Describe why the award is significant. Explain the criteria or achievements that led to your recognition. Highlight any competition or selection process, if applicable."
+    },
+    {
+      title: "Key Achievements:",
+      content: "Detail the specific accomplishments that led to the award. Use quantifiable metrics when possible to showcase the impact of your work. For example, mention specific results, percentages, or improvements."
+    },
+    {
+      title: "Relevance to Job:",
+      content: "Emphasize how the award is relevant to the job you're applying for. Connect the recognition to the skills and qualities required for the position."
+    },
+    {
+      title: "Use Action Verbs:",
+      content: "Start your bullet points or descriptions with strong action verbs to convey the impact of your award. For example, use words like 'achieved,' 'won,' 'earned,' or 'received.'"
+    },
+    {
+      title: "Formatting:",
+      content: "Organize your awards in a consistent and clear format. Use bullet points, headings, and a logical structure to make it easy for the reader to scan."
+    },
+    {
+      title: "Prioritize Relevant Awards:",
+      content: "If you have received multiple awards, prioritize and include the most relevant ones. Tailor your list based on the job requirements."
+    },
+    {
+      title: "Honesty and Accuracy:",
+      content: "Ensure that all information regarding your awards is accurate and truthful. Misrepresenting your achievements can be detrimental to your job search."
+    },
+    {
+      title: "Professional Associations:",
+      content: "Mention if the award is associated with a specific professional organization or association. This can carry weight in certain industries."
+    },
+    {
+      title: "Award Logos (optional):",
+      content: "If the award provider offers official logos or badges, consider including them. These visual elements can add credibility to your achievements."
+    },
+    {
+      title: "Publications or Media Coverage (if applicable):",
+      content: "If your award resulted in publications, media coverage, or recognition in industry journals, mention it. This provides additional context and credibility."
+    },
+    {
+      title: "Tailor to the Job:",
+      content: "Customize the award details based on the specific job you're applying for. Highlight awards that align with the role's requirements and responsibilities."
+    },
+    {
+      title: "Additional Details:",
+      content: "Some awards may require additional details, such as the names of judges or committees, the award ceremony location, or the award's history. Include such information when relevant."
+    },
+  ]
+});
+
+
+
+export const volunteerExperienceSuggestion = atom({
+  key: 'volunteerExperienceSuggestion',
+  default: [
+    {
+      title: "Volunteer Position:",
+      content: "Include the position or role you held as a volunteer. Make the title descriptive and relevant to the work you performed."
+    },
+    {
+      title: "Organization:",
+      content: "Mention the name of the organization or charity where you volunteered. This provides context and helps employers understand the nature of your volunteer work."
+    },
+    {
+      title: "Dates of Volunteering:",
+      content: "Specify the start and end dates of your volunteer work. This helps employers gauge the duration of your commitment."
+    },
+    {
+      title: "Location:",
+      content: "Include the location (city or region) where you volunteered. This can be important, especially if you're applying for a job in a specific area."
+    },
+    {
+      title: "Key Responsibilities:",
+      content: "Describe your main duties and responsibilities as a volunteer. Be specific and highlight tasks that are relevant to the job you're applying for. Use action verbs to start your bullet points, such as 'organized,' 'coordinated,' or 'managed.'"
+    },
+    {
+      title: "Achievements:",
+      content: "Highlight any significant achievements or projects you completed during your volunteer work. Did you contribute to a successful campaign, reach fundraising goals, or lead a team of volunteers? Mention it here."
+    },
+    {
+      title: "Skills Developed:",
+      content: "Explain the skills you developed or enhanced through your volunteer experience. This might include leadership skills, teamwork, communication, problem-solving, or industry-specific knowledge."
+    },
+    {
+      title: "Impact:",
+      content: "Describe the impact of your volunteer work on the organization or cause. Use quantifiable data, if possible, to showcase the results of your contributions. For example, 'increased volunteer participation by 30%.'"
+    },
+    {
+      title: "Challenges Faced:",
+      content: "If you encountered and overcame challenges during your volunteer work, it can demonstrate your problem-solving and adaptability skills."
+    },
+    {
+      title: "Learnings and Takeaways:",
+      content: "Reflect on what you learned from your volunteer experience and how it contributed to your personal and professional growth."
+    },
+    {
+      title: "Relevance to Job:",
+      content: "Emphasize how your volunteer experience is relevant to the job you're applying for. Connect the skills and qualities gained from volunteering to the job's requirements."
+    },
+    {
+      title: "Tailor to the Job:",
+      content: "Customize the volunteer experience details based on the specific job you're applying for. Highlight experiences and skills that align with the position's requirements."
+    },
+    {
+      title: "Formatting:",
+      content: "Organize the information in a clear and concise format, using bullet points, headings, and a consistent structure to make it easy for the reader to scan your volunteer experiences."
+    },
+    {
+      title: "Honesty and Accuracy:",
+      content: "Ensure that all information regarding your volunteer experiences is accurate and truthful. Exaggerating or fabricating details on your resume can be detrimental to your job search."
+    },
+    {
+      title: "References:",
+      content: "If appropriate, provide references or contacts from the volunteer organization who can vouch for your work and character."
+    },
+  ]
+});
+
+
+
 export const workSuggestion = atom({
   key: 'workSuggestion', // Unique ID (with respect to other atoms/selectors)
   default:[
