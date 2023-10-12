@@ -132,8 +132,6 @@
         flex-direction: column;
        justify-content: end;
        overflow: hidden;
-   
-
     }
     .cat img{
         bottom: -10px;
@@ -145,5 +143,6 @@
     .animation_box{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        height: 16rem!important;
+
     }
