@@ -42,6 +42,11 @@
 .suggestion_box{
     padding: 1rem;
 }
+.suggestion_box h1{
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
 .section_1 ul{
     display: flex;
     flex-direction: column;
@@ -89,3 +94,15 @@
     transform: none;
     }
     } 
+    .img_bulb{
+        height: 2rem!important;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    
+    }
+    .img_bulb img{
+        height: 100%;
+        width: 100%;
+        filter: drop-shadow(3px 1px 3px #000000);
+    }

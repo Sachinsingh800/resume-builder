@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil';
 import { resumeData } from '../../Recoil'; 
 import dp_icon from '../Images/dp_icon.gif';
 import ImageModal from '../ImageModal/ImageModal';
-import { croppedImageState,suggestionData,selectedValue1} from '../../Recoil';
+import { croppedImageState,suggestionData,selectedValue1,selectedValue2} from '../../Recoil';
 
 
 const ResumeForm = () => {
@@ -13,6 +13,7 @@ const ResumeForm = () => {
   const [section, setSection] = useState(1);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
+  const [selectedValueForSkill, setSelectedValue2] = useRecoilState(selectedValue2);
   
 
   const { resume } = formData;

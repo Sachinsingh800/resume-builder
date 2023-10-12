@@ -300,7 +300,7 @@ export const fontSizeState = atom({
 });
 export const imageSizeState = atom({
   key: 'imageSizeState ',
-  default:  "20px"
+  default:  "150px"
 
 });
 
@@ -467,6 +467,78 @@ export const educationSuggestion = atom({
         }
       ]
 });
+export const workSuggestion = atom({
+  key: 'workSuggestion', // Unique ID (with respect to other atoms/selectors)
+  default:[
+    {
+      title: "Start with Your Contact Information:",
+      content: "At the top of your resume, include your name, phone number, email address, and possibly your LinkedIn profile (if applicable)."
+    },
+    {
+      title: "Resume Title or Objective (Optional):",
+      content: "A brief one- or two-line summary of your career objective or the type of position you are seeking."
+    },
+    {
+      title: "List Your Work Experience:",
+      subpoints: [
+        {
+          letter: "a.",
+          content: "Job Title: Your position in the company."
+        },
+        {
+          letter: "b.",
+          content: "Company Name: The name of the company or organization."
+        },
+        {
+          letter: "c.",
+          content: "Location: The location (city, state) of the company."
+        },
+        {
+          letter: "d.",
+          content: "Dates Employed: The period you worked in that position (e.g., month/year - month/year)."
+        },
+        {
+          letter: "e.",
+          content: "Job Description: A description of your roles and responsibilities."
+        },
+     
+
+      ]
+    },
+        {
+          title: "Use Bulleted Lists:",
+          content: "Describe your job responsibilities and accomplishments using bullet points for clarity and readability."
+        },
+        {
+          title: "Quantify Achievements: ",
+          content: "Whenever possible, use specific numbers and metrics to highlight your achievements and contributions (e.g., increased sales by 20%, managed a team of 10, completed projects under budget by 15% )."
+        },
+        {
+          title: "Highlight Achievements and Skills:",
+          content: "Emphasize your most relevant and impressive achievements and skills for each position.."
+        },
+        {
+          title: "Use Action Verbs:",
+          content: "Begin each bullet point with a strong action verb (e.g., managed, implemented, designed, improved)."
+        },
+        {
+          title: "Tailor Your Content:",
+          content: "Customize the content to match the job description and requirements of the position you're applying for."
+        },
+        {
+          title: "Show Career Progression: ",
+          content: "If applicable, demonstrate how your roles have advanced in terms of responsibilities and impact."
+        },
+        {
+          title: "Include Relevant Experience:",
+          content: "Prioritize work experiences that are most relevant to the job you're applying for. You may not need to include every job you've ever had."
+        },
+        {
+          title: "Address Employment Gaps (if any):",
+          content: "If you have employment gaps, provide brief explanations, if necessary."
+        }
+      ]
+});
 
 export const suggestionData= atom({
   key: 'suggestionData',
@@ -474,5 +546,9 @@ export const suggestionData= atom({
 });
 export const selectedValue1= atom({
   key: 'selectedValue1',
+  default:""
+});
+export const selectedValue2= atom({
+  key: 'selectedValue2',
   default:""
 });
