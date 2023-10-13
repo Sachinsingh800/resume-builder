@@ -180,3 +180,9 @@
   gap:.5rem ;
   padding: 0rem 1rem;
 }
+.img_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+}
