@@ -30,11 +30,7 @@ const style = {
   p: 4,
 };
 
-const resume_templates=[
-  resume_1,
-  resume_2,
-  resume_3,
-]
+
 
 
 export default function ResumeModal() {
@@ -133,7 +129,7 @@ const handleFilterTemplates=(index)=>{
                   <Fonts/>
                   </div>
                   <div  className={styles.template_box}>
-    {resume_templates.map((item,index)=>
+    {imgtemplateNo.map((item,index)=>
     <div className={styles.template_card} key={index} onClick={()=>handleFilterTemplates(index)}>
       <img className={styles._card} src={item}/>
     </div>

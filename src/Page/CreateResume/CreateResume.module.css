@@ -26,6 +26,7 @@
     /* width: 10rem!important; */
     display: grid!important;
     grid-template-columns: 1fr 1fr!important;
+    gap: 1rem;
 }
 .animation{
     display: flex;
@@ -136,9 +137,9 @@
     }
     .cat{
         position: absolute;
-        height:6rem!important;
-        bottom: 41.9%;
-        width: 3rem!important;
+        height:7rem!important;
+        bottom: 37%;
+        width: 3.7rem!important;
         display: flex;
         flex-direction: column;
        justify-content: end;
@@ -148,7 +149,7 @@
         bottom: -10px;
         height: 9rem!important;
         width: 9rem!important;
-        margin-bottom: -2.6rem;
+        margin-bottom: -2.5rem;
         margin-left: -3rem;
     }
     .animation_box{
@@ -156,3 +157,4 @@
         flex-direction: column;
         height: 16rem!important;
     }
+ 

@@ -277,12 +277,7 @@ export const imageresumeTemplates = atom({
   resume_1,
   resume_2,
   resume_3,
-  resume_1,
-  resume_2,
-  resume_3,
-  resume_1,
-  resume_2,
-  resume_3,
+
   ], // Set the default value to an empty array
 });
 

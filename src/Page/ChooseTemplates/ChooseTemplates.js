@@ -5,14 +5,19 @@ import { Link } from 'react-router-dom'
 import Footer from '../../Component/Footer/Footer'
 import ColorPlate from '../../Component/ColorPlate/ColorPlate'
 
-import { imageresumeTemplates } from '../../Recoil'
+import { imageresumeTemplates ,chooseTemplates} from '../../Recoil'
 import { useRecoilState } from 'recoil'
+
 
 
 
 function ChooseTemplates() {
 
   const [template,setTempletes] = useRecoilState(imageresumeTemplates)
+  const [temNo,setTemNo] = useRecoilState(chooseTemplates)
+  const handtemp=(id)=>{
+    setTemNo(id)
+  }
   return (
     <div className={style.main}>
         <NavBar/>
@@ -22,10 +27,10 @@ function ChooseTemplates() {
       <p>View all resume template and select a specific style to customize</p>
    <div  className={style.template_box}>
    
-   {template.map((item)=>
-   <div className={style.template_card}>
+   {template.map((item,id)=>
+   <div className={style.template_card} key={id}>
  
-     <Link to={"/ResumeForm"}>
+     <Link to={"/ResumeForm"} onClick={()=>handtemp(id)}>
        <img   src={item} className={style._card} />
         </Link>   
 
