@@ -23,9 +23,20 @@
 }
 .preview_template{
     height:15rem!important;
-    width: 10rem!important;
+    /* width: 10rem!important; */
+    display: grid!important;
+    grid-template-columns: 1fr 1fr!important;
 }
-
+.animation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.animation img{
+    width: 100%!important;
+    height: 100%!important;
+}
 
 
 .right_box div{
@@ -144,5 +155,4 @@
         display: flex;
         flex-direction: column;
         height: 16rem!important;
-
     }

@@ -1,9 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState ,useEffect } from "react";
 import style from "./CreateResume.module.css";
-import NavBar from "../../Component/NavBar/NavBar";
-import CreateResumeForm from "../../Component/CreateResumeForm/CreateResumeForm";
-import ResumeModal from "../../Component/ResumeModal/ResumeModal";
-import CreateResumeFormForFresher from "../../Component/CreateResumeFormForFresher/CreateResumeFormForFresher";
+import NavBar from "../NavBar/NavBar";
+import CreateResumeForm from "../CreateResumeForm/CreateResumeForm";
+import ResumeModal from "../ResumeModal/ResumeModal";
+import CreateResumeFormForFresher from "../CreateResumeFormForFresher/CreateResumeFormForFresher";
 import {
   resumeType,
   resumeTemplates,
@@ -31,8 +31,8 @@ import cat from "../../Component/Images/cat.gif"
 import panda from "../../Component/Images/panda.gif"
 import panda2 from "../../Component/Images/panda2.gif"
 import rabbit from "../../Component/Images/rabbit.gif"
-import resume_img from "../../Component/Images/resume_img.gif"
-import resume_img2 from "../../Component/Images/resume_img2.gif"
+import resume1 from "../../Component/Images/resume_img.gif"
+import resume2 from "../../Component/Images/resume_img2.gif"
 
 function CreateResume() {
   const type = useRecoilValue(resumeType);
@@ -46,65 +46,59 @@ function CreateResume() {
   const [work, setWork] = useRecoilState(workSuggestion);
   const [internship, setInternShip] = useRecoilState(intershipSuggestion);
   const [project, setProject] = useRecoilState(projectSuggestion);
-  const [certification, setCertification] = useRecoilState(
-    certificationSuggestion
-  );
+  const [certification, setCertification] = useRecoilState( certificationSuggestion );
   const [socialLink, setSocialLinks] = useRecoilState(socialLinksSuggestion);
   const [award, setAward] = useRecoilState(awardSuggestion);
-  const [volunteer, setVolunteer] = useRecoilState(
-    volunteerExperienceSuggestion
-  );
+  const [volunteer, setVolunteer] = useRecoilState(volunteerExperienceSuggestion);
   const [reference, setReference] = useRecoilState(referenceSuggestion);
   const [showMore, setShowMore] = useState(false);
   const [showMore1, setShowMore1] = useState(false);
   const [showMore2, setShowMore2] = useState(false);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
-  const [selectedValueForSkill, setSelectedValueForSkill] =
-    useRecoilState(selectedValue2);
+  const [selectedValueForSkill, setSelectedValueForSkill] =useRecoilState(selectedValue2);
+
+const animation_img=[
+  {
+anim:panda,
+des:"panda",
+bg:"grey"
+  },
+  {
+anim:panda2,
+des:"panda2",
+bg:"white"
+  },
+  {
+anim:rabbit,
+des:"rabbit",
+bg:"black"
+  },
+  {
+anim:resume1,
+des:"rabbit",
+bg:"black"
+  },
+  {
+anim:resume2,
+des:"rabbit",
+bg:"black"
+  },
+
+]
+const [counter, setCounter] = useState(0);
+const interval = 9000; // 3 seconds
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setCounter((prevCounter) => (prevCounter + 1) % animation_img.length);
+  }, interval);
+
+  return () => {
+    clearInterval(timer); // Clean up the interval on unmount
+  };
+}, [interval]);
 
   console.log(data.resume.skillsAndLevel, "selected value");
-
-
-  const animation_img=[
-    {
-  anim:panda,
-  des:"panda",
-  bg:"grey"
-    },
-    {
-  anim:panda2,
-  des:"panda2",
-  bg:"white"
-    },
-    {
-  anim:rabbit,
-  des:"rabbit",
-  bg:"black"
-    },
-    {
-  anim:resume_img ,
-  des:"rabbit",
-  bg:"black"
-    },
-    {
-  anim:resume_img2,
-  des:"rabbit",
-  bg:"black"
-    },
-  
-  ]
-  const [counter, setCounter] = useState(0);
-  const interval = 9000; // 3 seconds
-  
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCounter((prevCounter) => (prevCounter + 1) % animation_img.length);
-    }, interval);
-  
-    return () => {
-      clearInterval(timer); // Clean up the interval on unmount
-    };
-  }, [interval]);
 
   const toggleShowMore = () => {
     setShowMore(!showMore);
@@ -189,13 +183,14 @@ function CreateResume() {
               <img src={cat} alt="cat" />
             </div>
             <div className={style.preview_template}>
-         <div>
-         <ResumeModal />
-         </div>
-   
+              <div>
+              <ResumeModal />
+              </div>
+           
          <div className={style.animation} style={{backgroundColor:animation_img[counter].bg}}>
-      <img src={animation_img[counter].anim} alt="img" />
-    </div>
+             <img src={animation_img[counter].anim} alt="img" />
+         </div>
+      
        </div>
           </div>
          
