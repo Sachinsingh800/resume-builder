@@ -4,6 +4,7 @@ import { useRecoilState } from 'recoil';
 import { resumeData } from '../../Recoil'; 
 import dp_icon from '../Images/dp_icon.gif';
 import ImageModal from '../ImageModal/ImageModal';
+import { AiFillDelete } from 'react-icons/ai';
 import { croppedImageState,suggestionData,selectedValue1,selectedValue2} from '../../Recoil';
 
 
@@ -729,7 +730,7 @@ const ResumeForm = () => {
           </div>
           <div className={style.dele_btn}>
           {resume.education.length > 1 && (
-        <button  onClick={() => handleDeleteEducation(index)}>Delete</button>
+        <button  onClick={() => handleDeleteEducation(index)}><AiFillDelete/></button>
       )}
           </div>
         </div>
@@ -758,13 +759,18 @@ const ResumeForm = () => {
     {/* Work Experience */}
     {resume.work.map((work, index) => (
       <div key={index}>
-                 <div className={style.dele_btn1}>
+         
+    
+        <h2 className={style.section_3_h2}>
+          <div>  Work Experience {index + 1}</div>
+        
+          <div className={style.dele_btn3}>
           {resume.work.length > 1 && (
-        <button onClick={() => handleDeleteWork(index)}>Delete</button>
+        <button onClick={() => handleDeleteWork(index)}><AiFillDelete/></button>
       )}
           </div>
-    
-        <h2>Work Experience {index + 1}</h2>
+        
+        </h2>
         <div className={style.section_3}>
           <div>
             <label htmlFor={`title-${index}`}>Title:</label>
@@ -974,7 +980,7 @@ const ResumeForm = () => {
             />
             <div className={style.dele_btn}>
             {resume.skillsAndLevel.length > 1 && (
-        <button onClick={() => handleDeleteSkills(index)}>Delete</button>
+        <button onClick={() => handleDeleteSkills(index)}><AiFillDelete/></button>
       )}
             </div>
           </div>
@@ -1002,7 +1008,7 @@ const ResumeForm = () => {
         <h2>Internship {index + 1}</h2>
         <div className={style.dele_btn5}>
             {resume.internShips.length > 1 && (
-        <button onClick={() => handleDeleteInternship(index)}>Delete</button>
+        <button onClick={() => handleDeleteInternship(index)}><AiFillDelete/></button>
       )}
             </div>
         <div className={style.section_5}>
@@ -1172,7 +1178,7 @@ const ResumeForm = () => {
         <h2>Project {index + 1}</h2>
         <div className={style.dele_btn6}>
             {resume.projects.length > 1 && (
-        <button onClick={() => handleDeleteProject(index)}>Delete</button>
+        <button onClick={() => handleDeleteProject(index)}><AiFillDelete/></button>
       )}
             </div>
         <div>
@@ -1401,9 +1407,9 @@ const ResumeForm = () => {
             });
           }}
         />
-        <div>
+        <div className={style.dele_btn8}>
         {resume.knownLanguages.length > 1 && (
-      <button onClick={() => handleDeleteLanguage(index)}>Delete</button>
+      <button onClick={() => handleDeleteLanguage(index)}><AiFillDelete/></button>
     )}
         </div>
    
@@ -1439,7 +1445,7 @@ const ResumeForm = () => {
         <h2><div>Certification {index + 1}</div>
         <div className={style.dele_btn9}>
               {resume.certifications.length > 1 && (
-        <button onClick={() => handleDeleteCertification(index)}>Delete</button>
+        <button onClick={() => handleDeleteCertification(index)}><AiFillDelete/></button>
       )}
         </div>
         </h2>
@@ -1546,7 +1552,7 @@ const ResumeForm = () => {
         <div>    Award {index + 1}</div>
         <div className={style.dele_btn10}>
       {resume.awards.length > 1 && (
-        <button onClick={() => handleDeleteAward(index)}>Delete</button>
+        <button onClick={() => handleDeleteAward(index)}><AiFillDelete/></button>
       )}
       </div>
           </h2>
@@ -1651,7 +1657,7 @@ const ResumeForm = () => {
       
           <div className={style.dele_btn11}>
           {resume.volunteerExperience.length > 1 && (
-        <button onClick={() => handleDeleteVolunteer(index)}>Delete</button>
+        <button onClick={() => handleDeleteVolunteer(index)}><AiFillDelete/></button>
       )} 
           </div>
           </h2>
@@ -1823,7 +1829,7 @@ const ResumeForm = () => {
         <div>Areas of Interest {index + 1}</div>
         <div className={style.dele_btn12}>
         {resume.areaOfInterest.length > 1 && (
-        <button onClick={() => handleDeleteInterest(index)}>Delete</button>
+        <button onClick={() => handleDeleteInterest(index)}><AiFillDelete/></button>
       )}
         </div>
         </h2>
@@ -1880,7 +1886,7 @@ const ResumeForm = () => {
  
           <div className={style.dele_btn13}>
         {resume.references.length > 1 && (
-        <button onClick={() => handleDeleteReference(index)}>Delete</button>
+        <button onClick={() => handleDeleteReference(index)}><AiFillDelete/></button>
       )}
         </div>
           </h2>

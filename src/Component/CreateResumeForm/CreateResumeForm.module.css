@@ -179,11 +179,21 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .add_btn{
-    width: 8rem;
+    width: 5rem;
     position: absolute;
     right: 40%;
     top: 22%;
+ 
+  
 
+}
+.add_btn button{
+    background-color: rgb(88, 183, 255);
+    color: white;
+    padding: .5rem;
+    border: none;
+    border-radius: 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .dele_btn{
@@ -191,6 +201,15 @@
     right: -85%;
     top: -290%;
     width: 3rem;
+}
+.dele_btn button{
+    background-color: rgb(88, 183, 255);
+    color: white;
+    padding: .2rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 .dele_btn1{
     position: relative;
@@ -241,4 +260,28 @@
     display: flex!important;
     justify-content: space-between;
     align-items: center;
+}
+.dele_btn1,
+.dele_btn2,
+.dele_btn4,
+.dele_btn7,
+button{
+    background-color: rgb(88, 183, 255);
+    color: white;
+    padding: .2rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+.section_3_h2{
+    display: flex;
+    justify-content: space-between;
+}
+.dele_btn3 button{
+    width: 3rem;
+}
+
+.dele_btn8{
+    width: 3rem;
 }
