@@ -36,16 +36,25 @@ const ResumeForm = () => {
     console.log('Submitted Resume Data:', resume);
   };
 
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Adds a smooth scrolling animation
+    });
+  }
+
 
   const handleSection = (direction) => {
     if (direction === 'next' && section < 13) {
       setSection(section + 1);
       setHandleSuggestion(section +1)
       setProgress(progress + 7.69)
+      scrollToTop()
     } else if (direction === 'prev' && section > 1) {
       setSection(section - 1);
       setHandleSuggestion(section - 1)
       setProgress(progress - 7.69)
+      scrollToTop()
     }
   };
   const handleAddLanguage = () => {
