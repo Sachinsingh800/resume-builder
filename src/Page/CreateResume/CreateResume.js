@@ -60,9 +60,9 @@ function CreateResume() {
   const [showMore1, setShowMore1] = useState(false);
   const [showMore2, setShowMore2] = useState(false);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
-  const [selectedValueForSkill, setSelectedValueForSkill] =
-    useRecoilState(selectedValue2);
-
+  const [selectedValueForSkill, setSelectedValueForSkill] =useRecoilState(selectedValue2);
+    const [progress, setProgress] = useState(1);
+    const [counter, setCounter] = useState(0);
   console.log(data.resume.skillsAndLevel, "selected value");
 
 
@@ -94,8 +94,27 @@ function CreateResume() {
     },
   
   ]
-  const [counter, setCounter] = useState(0);
+
+  const resumeParts = [
+    { title: 'Personal Information', completed: false },
+    { title: 'Education', completed: false },
+    { title: 'Work Experience', completed: false },
+    { title: 'Skills', completed: false },
+    // Add more parts as needed
+  ];
+
+  const calculateProgress = () => {
+    const completedParts = resumeParts.filter((part) => part.completed);
+    const percentage = (completedParts.length / resumeParts.length) * 100;
+    setProgress(percentage);
+  };
+
+
+
+
   const interval = 9000; // 3 seconds
+
+
   
   useEffect(() => {
     const timer = setInterval(() => {
@@ -176,7 +195,9 @@ function CreateResume() {
   return (
     <div className={style.main}>
       <NavBar />
+
       <div className={style.container}>
+   
         <div className={style.left_box}>
           {type === "Fresher" ? (
             <CreateResumeFormForFresher />

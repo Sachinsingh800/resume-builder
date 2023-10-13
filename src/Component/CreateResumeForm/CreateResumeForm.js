@@ -15,7 +15,7 @@ const ResumeForm = () => {
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
   const [selectedValueForSkill, setSelectedValue2] = useRecoilState(selectedValue2);
-  
+  const [progress, setProgress] = useState(0);
 
   const { resume } = formData;
 
@@ -41,9 +41,11 @@ const ResumeForm = () => {
     if (direction === 'next' && section < 13) {
       setSection(section + 1);
       setHandleSuggestion(section +1)
+      setProgress(progress + 7.69)
     } else if (direction === 'prev' && section > 1) {
       setSection(section - 1);
       setHandleSuggestion(section - 1)
+      setProgress(progress - 7.69)
     }
   };
   const handleAddLanguage = () => {
@@ -344,8 +346,29 @@ const ResumeForm = () => {
   };
 
   return (
-    <div>
+    <div className={style.main}>
+         <div className={style['progress-bar']}>
+         <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+          <li>10</li>
+          <li>11</li>
+          <li>12</li>
+          <li>13</li>
+        </ul>
+        <div className={style.progress} style={{ width: `${progress}%` }}></div>
+   
+      </div>
+      <br/>
       <h1>Resume Form</h1>
+
       <br />
       <form onSubmit={handleSubmit} className={style.form}>
         {/* Job Title */}
