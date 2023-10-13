@@ -605,10 +605,10 @@ const ResumeForm = () => {
 
   
   {section === 2 && (
-  <section>
+  <section  >
     {/* Education */}
     {resume.education.map((education, index) => (
-      <div key={index}>
+      <div key={index} >
         <h2>Education {index + 1}</h2>
         <div className={style.section_2}>
           <div>
@@ -727,9 +727,9 @@ const ResumeForm = () => {
             />
  
           </div>
-          <div>
+          <div className={style.dele_btn}>
           {resume.education.length > 1 && (
-        <button onClick={() => handleDeleteEducation(index)}>Delete</button>
+        <button  onClick={() => handleDeleteEducation(index)}>Delete</button>
       )}
           </div>
         </div>
@@ -758,6 +758,12 @@ const ResumeForm = () => {
     {/* Work Experience */}
     {resume.work.map((work, index) => (
       <div key={index}>
+                 <div className={style.dele_btn1}>
+          {resume.work.length > 1 && (
+        <button onClick={() => handleDeleteWork(index)}>Delete</button>
+      )}
+          </div>
+    
         <h2>Work Experience {index + 1}</h2>
         <div className={style.section_3}>
           <div>
@@ -898,11 +904,7 @@ const ResumeForm = () => {
               });
             }}
           />
-               <div>
-          {resume.work.length > 1 && (
-        <button onClick={() => handleDeleteWork(index)}>Delete</button>
-      )}
-          </div>
+      
         </div>
         <div className={style.add_btn}>
         {index === resume.work.length - 1 && (
@@ -998,7 +1000,13 @@ const ResumeForm = () => {
     {resume.internShips.map((internship, index) => (
       <div key={index}>
         <h2>Internship {index + 1}</h2>
+        <div className={style.dele_btn5}>
+            {resume.internShips.length > 1 && (
+        <button onClick={() => handleDeleteInternship(index)}>Delete</button>
+      )}
+            </div>
         <div className={style.section_5}>
+          
           <div>
             <label htmlFor={`title-${index}`}>Title:</label>
             <input
@@ -1137,11 +1145,7 @@ const ResumeForm = () => {
               });
             }}
           />
-              <div className={style.dele_btn}>
-            {resume.internShips.length > 1 && (
-        <button onClick={() => handleDeleteInternship(index)}>Delete</button>
-      )}
-            </div>
+    
         </div>
         <div className={style.add_btn}>
         {index === resume.internShips.length - 1 && (
@@ -1166,6 +1170,11 @@ const ResumeForm = () => {
     {resume.projects.map((project, index) => (
       <div key={index}>
         <h2>Project {index + 1}</h2>
+        <div className={style.dele_btn6}>
+            {resume.projects.length > 1 && (
+        <button onClick={() => handleDeleteProject(index)}>Delete</button>
+      )}
+            </div>
         <div>
           <label htmlFor={`title-${index}`}>Title:</label>
           <input
@@ -1259,11 +1268,7 @@ const ResumeForm = () => {
                 });
               }}
             />
-            <div className={style.dele_btn}>
-            {resume.projects.length > 1 && (
-        <button onClick={() => handleDeleteProject(index)}>Delete</button>
-      )}
-            </div>
+  
      
           </div>
         </div>
@@ -1430,7 +1435,15 @@ const ResumeForm = () => {
     {/* Certifications */}
     {resume.certifications.map((certification, index) => (
       <div key={index}>
-        <h2>Certification {index + 1}</h2>
+ 
+        <h2><div>Certification {index + 1}</div>
+        <div className={style.dele_btn9}>
+              {resume.certifications.length > 1 && (
+        <button onClick={() => handleDeleteCertification(index)}>Delete</button>
+      )}
+        </div>
+        </h2>
+   
         <div>
           <label htmlFor={`title-${index}`}>Title:</label>
           <input
@@ -1502,12 +1515,7 @@ const ResumeForm = () => {
               });
             }}
           />
-              <div className={style.dele_btn}>
-              {resume.certifications.length > 1 && (
-        <button onClick={() => handleDeleteCertification(index)}>Delete</button>
-      )}
-   
-        </div>
+     
         </div>
        <div className={style.add_btn}>
        {index === resume.certifications.length - 1 && (
@@ -1533,7 +1541,16 @@ const ResumeForm = () => {
     {/* Awards */}
     {resume.awards.map((award, index) => (
       <div key={index}>
-        <h2>Award {index + 1}</h2>
+
+        <h2>
+        <div>    Award {index + 1}</div>
+        <div className={style.dele_btn10}>
+      {resume.awards.length > 1 && (
+        <button onClick={() => handleDeleteAward(index)}>Delete</button>
+      )}
+      </div>
+          </h2>
+ 
         <div>
           <label htmlFor={`awardTitle-${index}`}>Award Title:</label>
           <input
@@ -1605,11 +1622,7 @@ const ResumeForm = () => {
               });
             }}
           />
-               <div className={style.dele_btn}>
-      {resume.awards.length > 1 && (
-        <button onClick={() => handleDeleteAward(index)}>Delete</button>
-      )}
-      </div>
+  
         </div>
         <div className={style.add_btn}>
         {index === resume.awards.length - 1 && (
@@ -1633,7 +1646,15 @@ const ResumeForm = () => {
     {/* Volunteer Experience */}
     {resume.volunteerExperience.map((volunteer, index) => (
       <div key={index}>
-        <h2>Volunteer Experience {index + 1}</h2>
+        <h2 className={style.section_11_h2}>
+          <div>Volunteer Experience {index + 1}</div>
+      
+          <div className={style.dele_btn11}>
+          {resume.volunteerExperience.length > 1 && (
+        <button onClick={() => handleDeleteVolunteer(index)}>Delete</button>
+      )} 
+          </div>
+          </h2>
         <div className={style.section_11}>
           <div>
             <label htmlFor={`volunteerTitle-${index}`}>Title:</label>
@@ -1773,11 +1794,7 @@ const ResumeForm = () => {
               });
             }}
           />
-          <div className={style.dele_btn}>
-          {resume.volunteerExperience.length > 1 && (
-        <button onClick={() => handleDeleteVolunteer(index)}>Delete</button>
-      )} 
-          </div>
+
         </div>
         <div className={style.add_btn}>
         {index === resume.volunteerExperience.length - 1 && (
@@ -1801,7 +1818,15 @@ const ResumeForm = () => {
     {/* Areas of Interest */}
     {resume.areaOfInterest.map((interest, index) => (
       <div key={index}>
-        <h2>Areas of Interest {index + 1}</h2>
+        
+        <h2 className={style.section_12_h2}>
+        <div>Areas of Interest {index + 1}</div>
+        <div className={style.dele_btn12}>
+        {resume.areaOfInterest.length > 1 && (
+        <button onClick={() => handleDeleteInterest(index)}>Delete</button>
+      )}
+        </div>
+        </h2>
         <label htmlFor={`interest-${index}`}>Area of Interest:</label>
         <input
           type="text"
@@ -1824,11 +1849,7 @@ const ResumeForm = () => {
           }}
         />
      
-        <div className={style.dele_btn}>
-        {resume.areaOfInterest.length > 1 && (
-        <button onClick={() => handleDeleteInterest(index)}>Delete</button>
-      )}
-        </div>
+    
    
         <div className={style.add_btn}>
         {index === resume.areaOfInterest.length - 1 && (
@@ -1852,7 +1873,17 @@ const ResumeForm = () => {
     {/* References */}
     {resume.references.map((reference, index) => (
       <div key={index}>
-        <h2>Reference {index + 1}</h2>
+        <h2 className={style.section_13_h2}>
+          <div>
+          Reference {index + 1}
+          </div>
+ 
+          <div className={style.dele_btn13}>
+        {resume.references.length > 1 && (
+        <button onClick={() => handleDeleteReference(index)}>Delete</button>
+      )}
+        </div>
+          </h2>
         <div className={style.section_13}>
           <div>
             <label htmlFor={`referenceName-${index}`}>Name:</label>
@@ -1970,11 +2001,7 @@ const ResumeForm = () => {
             />
           </div>
         </div>
-        <div className={style.dele_btn}>
-        {resume.references.length > 1 && (
-        <button onClick={() => handleDeleteReference(index)}>Delete</button>
-      )}
-        </div>
+  
    
         <div className={style.add_btn}>
         {index === resume.references.length - 1 && (
