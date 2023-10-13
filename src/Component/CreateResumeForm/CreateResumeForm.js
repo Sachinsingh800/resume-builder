@@ -5,12 +5,13 @@ import { resumeData } from '../../Recoil';
 import dp_icon from '../Images/dp_icon.gif';
 import ImageModal from '../ImageModal/ImageModal';
 import { AiFillDelete } from 'react-icons/ai';
-import { croppedImageState,suggestionData,selectedValue1,selectedValue2} from '../../Recoil';
+import { croppedImageState,suggestionData,selectedValue1,selectedValue2,modalValue} from '../../Recoil';
 
 
 const ResumeForm = () => {
   const [formData,   setFormData] = useRecoilState(resumeData);
   const [handleSuggestion,   setHandleSuggestion] = useRecoilState(suggestionData);
+  const [modal,   setModal] = useRecoilState(modalValue);
   const [section, setSection] = useState(1);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
@@ -33,7 +34,9 @@ const ResumeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission (e.g., send data to the server)
+    setProgress(100)
     console.log('Submitted Resume Data:', resume);
+    setModal(true)
   };
 
   function scrollToTop() {

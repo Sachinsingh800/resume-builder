@@ -283,6 +283,11 @@ export const imageresumeTemplates = atom({
 
 
 
+export const modalValue = atom({
+  key: "modalValue",
+  default:  false
+
+});
 export const fontState = atom({
   key: 'fontState',
   default:  "Arial"

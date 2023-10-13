@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import styles from "./ResumeModal.module.css"
@@ -6,7 +7,7 @@ import generatePDF from "react-to-pdf";
 import { useRef,useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue,useRecoilState } from 'recoil';
-import { resumeTemplates,chooseTemplates,imageresumeTemplates } from '../../Recoil';
+import { resumeTemplates,chooseTemplates,imageresumeTemplates,modalValue } from '../../Recoil';
 import resume_1 from "../Images/Template_1.png"
 import resume_2 from "../Images/Template_2.png"
 import resume_3 from "../Images/Template_3.png"
@@ -34,13 +35,29 @@ const style = {
 
 
 export default function ResumeModal() {
+  const [modal, setModal] = useRecoilState(modalValue);
+ 
+
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () =>
+  {
+    setOpen(false)
+    setModal(false)
+  }
+ 
+   ;
   const templates = useRecoilValue(resumeTemplates)
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [imgtemplateNo, setImgTemplateNo] = useRecoilState(imageresumeTemplates);
   const targetRef = useRef();
+
+  useEffect(() => {
+    if (modal === true) {
+      handleOpen() // Call your function when `modal` becomes true
+    }
+  }, [modal]);
 
   const pdfOptions = {
     unit: "mm",
