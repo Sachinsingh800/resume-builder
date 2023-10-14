@@ -33,10 +33,11 @@ const ResumeForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+ 
     // Handle form submission (e.g., send data to the server)
-    setProgress(100)
+    // setProgress(100)
     console.log('Submitted Resume Data:', resume);
-    setModal(true)
+    // setModal(true)
   };
 
   function scrollToTop() {
@@ -60,6 +61,7 @@ const ResumeForm = () => {
       scrollToTop()
     }
   };
+
   const handleAddLanguage = () => {
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };

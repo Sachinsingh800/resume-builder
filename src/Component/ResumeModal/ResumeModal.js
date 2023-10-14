@@ -8,10 +8,8 @@ import { useRef,useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue,useRecoilState } from 'recoil';
 import { resumeTemplates,chooseTemplates,imageresumeTemplates,modalValue } from '../../Recoil';
-import resume_1 from "../Images/Template_1.png"
-import resume_2 from "../Images/Template_2.png"
-import resume_3 from "../Images/Template_3.png"
 import Fonts from '../Fonts/Fonts';
+
 
 
 const style = {
@@ -137,10 +135,7 @@ const handleFilterTemplates=(index)=>{
                   <h3>Customized Your Resume</h3>
       
                   <div className={styles.ColorPlate}>
-               
                     <ColorPlate/>
-                
-                
                   </div>
                   <div>
                   <Fonts/>

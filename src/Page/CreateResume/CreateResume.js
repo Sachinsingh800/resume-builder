@@ -199,11 +199,9 @@ function CreateResume() {
       <div className={style.container}>
    
         <div className={style.left_box}>
-          {type === "Fresher" ? (
-            <CreateResumeFormForFresher />
-          ) : (
+     
             <CreateResumeForm />
-          )}
+  
         </div>
         <div className={style.right_box}>
           <div className={style.animation_box}>

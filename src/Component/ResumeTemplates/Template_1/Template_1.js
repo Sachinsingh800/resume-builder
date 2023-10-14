@@ -5,11 +5,15 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { AiOutlinePhone } from 'react-icons/ai';
 import { CiLocationOn } from 'react-icons/ci';
 import { useRecoilState } from "recoil";
-import { ChooseColor,chooseTemplates,ChooseColorSecond,resumeData,croppedImageState } from "../../../Recoil";
+import { ChooseColor,chooseTemplates,ChooseColorSecond,resumeData,croppedImageState, ChooseColorThird, fontState, fontSizeState, imageSizeState } from "../../../Recoil";
 
 function Template_1() {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
+  const [color3, setColor3] = useRecoilState(ChooseColorThird);
+  const [fontStyle, setFontStyle] = useRecoilState(fontState);
+  const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+  const [imgSize, setImgSize] = useRecoilState(imageSizeState);
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [formData, setFormData] = useRecoilState(resumeData);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
@@ -24,7 +28,7 @@ function Template_1() {
       >
         <div>
           <div className={style.img_container}>
-            <div className={style.img_box}>
+            <div className={style.img_box} style={{height:imgSize,width:imgSize}}>
             {croppedImage ? (
                      <img src={croppedImage} alt="dp" />
                 ) : (
@@ -58,7 +62,9 @@ function Template_1() {
 
       <div className={style.right_section}>
         <div className={style.heading} style={{ backgroundColor: color2}}>
-          <h1>{formData?.resume?.name}</h1>
+          <h1  style={{color:color3,fontFamily:fontStyle,fontSize:fontSize}}>
+            {formData?.resume?.name}
+            </h1>
         </div>
 
         <div className={style.certifications}>

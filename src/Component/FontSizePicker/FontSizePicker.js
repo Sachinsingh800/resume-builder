@@ -2,6 +2,7 @@ import React from 'react';
 import { fontSizeState } from '../../Recoil';
 import style from './FontSizePicker.module.css';
 import { useRecoilState } from 'recoil';
+import Slider from '@mui/material/Slider';
 
 function FontSizePicker() {
   const [selectedFontSize, setSelectedFontSize] = useRecoilState(fontSizeState);
@@ -13,12 +14,13 @@ function FontSizePicker() {
   return (
     <div className={style.font_box}>
       <h5>Choose font size</h5>
-      <input
-        type="range"
+          <Slider
+        defaultValue={selectedFontSize}
         min={Math.min(...fontSizeOptions)}
         max={Math.max(...fontSizeOptions)}
-        value={selectedFontSize}
+        aria-label="Default"
         onChange={(e) => setSelectedFontSize(parseInt(e.target.value))}
+        valueLabelDisplay="auto"
       />
     </div>
   );

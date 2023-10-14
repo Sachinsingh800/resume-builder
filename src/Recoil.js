@@ -295,7 +295,7 @@ export const fontState = atom({
 });
 export const fontSizeState = atom({
   key: 'fontSizeState',
-  default:  "12px"
+  default:  "50px"
 
 });
 export const imageSizeState = atom({

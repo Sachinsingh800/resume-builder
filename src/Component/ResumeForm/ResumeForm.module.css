@@ -34,5 +34,10 @@
     border-radius: 15px;
     border: none;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    background-color: aqua;
+    background-color: rgb(88, 183, 255);
+    color: white;
+}
+.container div button:hover{
+    background-color: white;
+    color: black;
 }

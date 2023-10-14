@@ -7,7 +7,6 @@ import styles from "./ImageModal.module.css"
 import CropImage from '../CropImage/CropImage';
 import upload from "../../Component/Images/upload.webp"
 
-
 const style = {
   position: 'absolute',
   top: '50%',
@@ -16,7 +15,7 @@ const style = {
   width: 800,
   bgcolor: 'background.paper',
   border: 'none',
-  borderRadius:"10px",
+  borderRadius: "10px",
   boxShadow: 24,
   p: 4,
 };
@@ -26,9 +25,13 @@ export default function ImageModal() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleButtonClicked = (e) => {
+    e.stopPropagation();
+    handleOpen();
+  }
   return (
     <div>
-      <button className={styles.btn} onClick={handleOpen}>Upload Image</button>
+      <button className={styles.btn} onClick={handleButtonClicked}>Upload Image</button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -36,37 +39,29 @@ export default function ImageModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-            <div className={styles.img_container}>
-                <button onClick={() => handleClose()} className={styles.Close_btn}>X</button>
+          <div className={styles.img_container}>
+            <button onClick={handleClose} className={styles.Close_btn}>X</button>
             <div className={styles.left_box}>
-            <button onClick={() =>  handleClose()} className={styles.save_button}>Save  </button>
-               <CropImage/>
-           
-               </div>
-               <div className={styles.right_box}>
-               <div className={styles.Card}>
-                <div  className={styles.img_box}>
-                  <img src={upload} alt='img' />
-                  </div>
-
-
-                  <div>
-                  <h2>Make sure to check the application requirements before adding a photo. Some employers won’t consider resume with photos.</h2> 
-               <h3>Want to add a photo?</h3>
-               <ul>
-                <li>Choose a recent color photo in a JPEG, PNG, or GIF format, that’s less than 10MB.</li>
-                <li>Crop your photo so it only shows your head and shoulders.</li>
-                <li>If you already uploaded a photo, uploading another will replace it.</li>
-               </ul>
-                  </div>
-              
-
-
-     
-                </div>
-               </div>
+              <button onClick={handleClose} className={styles.save_button}>Save</button>
+              <CropImage />
             </div>
-        
+            <div className={styles.right_box}>
+              <div className={styles.Card}>
+                <div className={styles.img_box}>
+                  <img src={upload} alt='img' />
+                </div>
+                <div>
+                  <h2>Make sure to check the application requirements before adding a photo. Some employers won’t consider a resume with photos.</h2>
+                  <h3>Want to add a photo?</h3>
+                  <ul>
+                    <li>Choose a recent color photo in a JPEG, PNG, or GIF format, that’s less than 10MB.</li>
+                    <li>Crop your photo so it only shows your head and shoulders.</li>
+                    <li>If you already uploaded a photo, uploading another will replace it.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </Box>
       </Modal>
     </div>
