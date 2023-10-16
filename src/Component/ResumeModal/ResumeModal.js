@@ -87,6 +87,15 @@ export default function ResumeModal() {
 const handleFilterTemplates=(index)=>{
   setTemplateNo(index)
 }
+
+const handleExportClick = () => {
+  const jsxCode = targetRef.current.textContent;
+  const element = document.createElement('a');
+  const file = new Blob([jsxCode], { type: 'text/plain' });
+  element.href = URL.createObjectURL(file);
+  element.download = 'exported-jsx.txt';
+  element.click();
+};
   
   return (
     <div>
@@ -116,10 +125,14 @@ const handleFilterTemplates=(index)=>{
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+     
         <button className={styles.download_btn} onClick={() => generatePDF(targetRef, pdfOptions)}>
-          Download 
+          Export to Pdf
         </button>
         <button className={styles.download_btn2}  onClick={exportHTML}>Export to DOC</button>
+        <button className={styles.download_btn3}  onClick={handleExportClick}>Export to txt</button>
+            
+            
             <div className={styles.resume_container}>
     
             <button onClick={() => handleClose()} className={styles.Close_btn}>X</button>

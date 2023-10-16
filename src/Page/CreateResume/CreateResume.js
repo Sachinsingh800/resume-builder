@@ -103,11 +103,6 @@ function CreateResume() {
     // Add more parts as needed
   ];
 
-  const calculateProgress = () => {
-    const completedParts = resumeParts.filter((part) => part.completed);
-    const percentage = (completedParts.length / resumeParts.length) * 100;
-    setProgress(percentage);
-  };
 
 
 

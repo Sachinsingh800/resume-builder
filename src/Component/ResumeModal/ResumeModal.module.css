@@ -90,7 +90,7 @@
     border: none;
     padding: .2rem;
     height: 1.5rem;
-   
+    font-size: .8rem;
     background-color: rgb(88, 183, 255);
      color: white;
 
@@ -113,7 +113,25 @@
     color: white;
 
 }
+.download_btn3{
+    margin-top: .5rem;
+    position: absolute;
+    right: 21%;
+    width: 6rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    padding: .2rem;
+    font-size: .8rem;
+    background-color: rgb(88, 183, 255);
+    color: white;
+
+}
 .download_btn2:hover{
+    background-color: white;
+    color: black;
+}
+.download_btn3:hover{
     background-color: white;
     color: black;
 }

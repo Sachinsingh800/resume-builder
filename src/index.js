@@ -14,6 +14,8 @@ import {RecoilRoot} from  "recoil"
 import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
 import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
 import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
+import Template_4 from './Component/ResumeTemplates/Template_4/Template_4';
+import Template_5 from './Component/ResumeTemplates/Template_5/Template_5';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
   {
     path: "/Template_3",
     element: <Template_3/>,
+  },
+  {
+    path: "/Template_4",
+    element: <Template_4/>,
+  },
+  {
+    path: "/Template_5",
+    element: <Template_5/>,
   },
 ]);
 root.render(
