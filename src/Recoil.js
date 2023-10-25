@@ -9,6 +9,10 @@ import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
 
 // Define a placeholder value for 'dp'
 import dp from "./Component/Images/dp.png"
+const resume = JSON.parse(localStorage.getItem("resume"))
+
+
+
 
 export const resumeData = atom({
   key: 'resumeData',
@@ -16,208 +20,27 @@ export const resumeData = atom({
     status: true,
     message: "Resume created successfully",
     resume: {
-      userId: "65105c16ac774d90e09123fb",
-      jobTitle: "NodeJs Developer",
-      name: "John Doe",
-      summary: "A professional summary, also known as a career summary or executive summary, is a brief statement that provides a snapshot of your qualifications, skills, and career goals. It typically appears at the top of your resume or CV and is meant to grab the reader's attention quickly. Here's a short description of a professional summary:.",
-      contact: {
-        email: "john.doe@example.com",
-        phone: "+1 (123) 456-7890",
-      },
-      address: {
-        address: "new Address",
-        city: "Anytown",
-        state: "CA",
-        postalCode: "12345",
-        country: "USA",
-      },
-      dob: "1985-05-15",
-      gender: "Male",
-
-      profilePicture: {
-        url:
-          "https://res.cloudinary.com/decjoyrmj/image/upload/v1696400898/course_profilePictures/puhwvmekanurjar8l4dk.png",
-        public_Id: "course_profilePictures/puhwvmekanurjar8l4dk",
-      },
-      education: [
-        {
-          degree: "Bachelor of Science",
-          collegeName: "ABC University",
-          stream: "Computer Science",
-          startYear: "2003",
-          endYear: "2007",
-          _id: "651d0603587cea4128a820f5",
-        },
-        {
-          degree: "Bachelor of Science",
-          collegeName: "ABC University",
-          stream: "Computer Science",
-          startYear: "2003",
-          endYear: "2007",
-          _id: "651d0603587cea4128a820f5",
-        },
-      ],
-      work: [
-        {
-          title: "Senior Software Engineer",
-          company: "XYZ Tech",
-          startDate: "2007-06-15",
-          endDate: "2021-12-31",
-          location: "Techville",
-          description: "Led development teams and delivered high-quality software solutions.Led development teams and delivered high-quality software solutions.",
-          _id: "651d0603587cea4128a820f6",
-        },
-        {
-          title: "Senior Software Engineer",
-          company: "XYZ Tech",
-          startDate: "2007-06-15",
-          endDate: "2021-12-31",
-          location: "Techville",
-          description: "Led development teams and delivered high-quality software solutions.",
-          _id: "651d0603587cea4128a820f6",
-        },
-        {
-          title: "Senior Software Engineer",
-          company: "XYZ Tech",
-          startDate: "2007-06-15",
-          endDate: "2021-12-31",
-          location: "Techville",
-          description: "Led development teams and delivered high-quality software solutions.",
-          _id: "651d0603587cea4128a820f6",
-        },
-      ],
-      skillsAndLevel: [
-        {
-          skills: "JavaScript",
-          level: "Advanced",
-          _id: "651d0603587cea4128a820f7",
-        },
-        {
-          skills: "JavaScript",
-          level: "Advanced",
-          _id: "651d0603587cea4128a820f7",
-        },
-        {
-          skills: "JavaScript",
-          level: "Advanced",
-          _id: "651d0603587cea4128a820f7",
-        },
-        {
-          skills: "JavaScript",
-          level: "Advanced",
-          _id: "651d0603587cea4128a820f7",
-        },
-        {
-          skills: "JavaScript",
-          level: "Advanced",
-          _id: "651d0603587cea4128a820f7",
-        },
-        {
-          skills: "JavaScript",
-          level: "Advanced",
-          _id: "651d0603587cea4128a820f7",
-        },
-      ],
-      internShips: [
-        {
-          title: "Software Development Intern",
-          company: "Internship Corp",
-          startDate: "2006-05-01",
-          endDate: "2006-08-31",
-          location: "Intern City",
-          description: "Gained experience in web development during the summer internship.",
-          _id: "651d0603587cea4128a820f8",
-        },
-      ],
-      projects: [
-        {
-          title: "E-commerce Website",
-          description: "Built a fully functional e-commerce website using React and Node.js.",
-          year: "2019",
-          link: "https://example.com/ecommerce",
-          _id: "651d0603587cea4128a820f9",
-        },
-      ],
-      socialLinks: {
-        linkedin: "https://www.linkedin.com/in/johndoe",
-        github: "https://github.com/johndoe",
-        portfolio: "https://johndoe.dev",
-      },
-      knownLanguages: [
-        {
-          lang: "English",
-          _id: "651d0603587cea4128a820fa",
-        },
-        {
-          lang: "Spanish",
-          _id: "651d0603587cea4128a820fb",
-        },
-      ],
-      certifications: [
-        {
-          title: "Certified AWS Developer",
-          issuingOrganization: "AWS",
-          date: "2020-03-15",
-          _id: "651d0603587cea4128a820fc",
-        },
-        {
-          title: "Certified AWS Developer",
-          issuingOrganization: "AWS",
-          date: "2020-03-15",
-          _id: "651d0603587cea4128a820fc",
-        },
-        {
-          title: "Certified AWS Developer",
-          issuingOrganization: "AWS",
-          date: "2020-03-15",
-          _id: "651d0603587cea4128a820fc",
-        },
-        {
-          title: "Certified AWS Developer",
-          issuingOrganization: "AWS",
-          date: "2020-03-15",
-          _id: "651d0603587cea4128a820fc",
-        },
-      ],
-      awards: [
-        {
-          title: "Employee of the Month",
-          issuingOrganization: "XYZ Tech",
-          date: "2018-11-01",
-          _id: "651d0603587cea4128a820fd",
-        },
-      ],
-      volunteerExperience: [
-        {
-          title: "Volunteer Tutor",
-          company: "Local Community Center",
-          startDate: "2015-09-01",
-          endDate: "2016-05-31",
-          location: "Community City",
-          description: "Provided tutoring services to local students.",
-          _id: "651d0603587cea4128a820fe",
-        },
-      ],
-      areaOfInterest: [
-        {
-          interest: "Machine Learning",
-          _id: "651d0603587cea4128a820ff",
-        },
-        {
-          interest: "Web Development",
-          _id: "651d0603587cea4128a82100",
-        },
-      ],
-      references: [
-        {
-          name: "Jane Smith",
-          company: "ABC Inc.",
-          position: "Manager",
-          email: "jane.smith@example.com",
-          phone: "+1 (987) 654-3210",
-          _id: "651d0603587cea4128a82101",
-        },
-      ],
+      userId: resume._id,
+      jobTitle:resume.category,
+      name: resume.name,
+      summary: resume.summary,
+      contact: resume.contact,
+      address: resume.address,
+      dob: resume.dob,
+      gender: resume.gender,
+      profilePicture:resume?.profilePicture ,
+      education: resume.education,
+      work: resume.work,
+      skillsAndLevel: resume.skillsAndLevel ,
+      internShips: resume.internShips,
+      projects: resume.projects,
+      socialLinks: resume.socialLinks,
+      knownLanguages: resume.knownLanguages,
+      certifications:resume.certifications,
+      awards: resume.awards,
+      volunteerExperience: resume.volunteerExperience,
+      areaOfInterest: resume.areaOfInterest,
+      references:resume.references,
       interestedIn: "job",
       _id: "651d0603587cea4128a820f4",
       createdAt: "2023-10-04T06:28:19.546Z",

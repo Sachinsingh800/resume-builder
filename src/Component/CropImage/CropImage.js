@@ -1,27 +1,26 @@
 import React, { useState, useRef } from 'react';
 import Cropper from 'react-easy-crop';
-import style from "./CropImage.module.css"
-import { croppedImageState } from '../../Recoil'; 
+import style from "./CropImage.module.css";
 import { useRecoilState } from 'recoil';
+import { croppedImageState } from '../../Recoil';
 
+const CropImage = () => {
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [image, setImage] = useState(null);
 
+  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
 
-export default function CropImage(){
-    const [crop, setCrop] = useState({ x: 0, y: 0 });
-    const [zoom, setZoom] = useState(1);
-    const [image, setImage] = useState(null);
-    const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState); // Use the Recoil state
-  
-    const cropperRef = useRef(null);
-  
-    const onCropComplete = async (croppedArea, croppedAreaPixels) => {
-      try {
-        const croppedImageBlob = await getCroppedImageBlob(croppedAreaPixels);
-        setCroppedImage(URL.createObjectURL(croppedImageBlob));
-      } catch (e) {
-        console.error('Error cropping image:', e);
-      }
-    };
+  const cropperRef = useRef(null);
+
+  const onCropComplete = async (croppedArea, croppedAreaPixels) => {
+    try {
+      const croppedImageBlob = await getCroppedImageBlob(croppedAreaPixels);
+      setCroppedImage(URL.createObjectURL(croppedImageBlob));
+    } catch (e) {
+      console.error('Error cropping image:', e);
+    }
+  };
 
   const getCroppedImageBlob = async (croppedAreaPixels) => {
     if (!image) return null;
@@ -73,7 +72,6 @@ export default function CropImage(){
       reader.readAsDataURL(file);
     }
   };
-  
 
   const handleSaveImage = () => {
     // You can send the 'croppedImage' blob to your server for saving or perform further actions here.
@@ -91,11 +89,9 @@ export default function CropImage(){
           className="image-upload-input"
         />
       </div>
-     
       {image && (
         <>
           <div className={style.crop_container}>
-            <div >
             <Cropper
               image={image.src}
               crop={crop}
@@ -106,8 +102,6 @@ export default function CropImage(){
               onZoomChange={setZoom}
               ref={cropperRef}
             />
-            </div>
-         
           </div>
           <div className={style.control}>
             <input
@@ -122,14 +116,17 @@ export default function CropImage(){
               }}
               className="zoom-range"
             />
-       
-       
           </div>
-  
         </>
+      )}
+      {croppedImage && (
+        <div>
+          <img src={croppedImage} alt="Cropped Image" />
+          <button onClick={handleSaveImage}>Save Cropped Image</button>
+        </div>
       )}
     </div>
   );
 };
 
-
+export default CropImage;

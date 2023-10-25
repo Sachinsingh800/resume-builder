@@ -56,6 +56,7 @@ function CreateResume() {
     volunteerExperienceSuggestion
   );
   const [reference, setReference] = useRecoilState(referenceSuggestion);
+  const [formData, setFormdata] = useRecoilState(resumeData);
   const [showMore, setShowMore] = useState(false);
   const [showMore1, setShowMore1] = useState(false);
   const [showMore2, setShowMore2] = useState(false);
@@ -63,7 +64,7 @@ function CreateResume() {
   const [selectedValueForSkill, setSelectedValueForSkill] =useRecoilState(selectedValue2);
     const [progress, setProgress] = useState(1);
     const [counter, setCounter] = useState(0);
-  console.log(data.resume.skillsAndLevel, "selected value");
+ 
 
 
   const animation_img=[

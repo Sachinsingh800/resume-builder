@@ -6,6 +6,7 @@ import dp_icon from '../Images/dp_icon.gif';
 import ImageModal from '../ImageModal/ImageModal';
 import { AiFillDelete } from 'react-icons/ai';
 import { croppedImageState,suggestionData,selectedValue1,selectedValue2,modalValue} from '../../Recoil';
+import { addResume } from '../../Api/Api';
 
 
 const ResumeForm = () => {
@@ -16,6 +17,7 @@ const ResumeForm = () => {
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
   const [selectedValueForSkill, setSelectedValue2] = useRecoilState(selectedValue2);
+  const [resumeImg, setResumeImg] = useState([]);
   const [progress, setProgress] = useState(0);
 
   const { resume } = formData;
@@ -31,14 +33,56 @@ const ResumeForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
- 
-    // Handle form submission (e.g., send data to the server)
-    // setProgress(100)
-    console.log('Submitted Resume Data:', resume);
-    // setModal(true)
+
+    const formData = new FormData();
+  
+    // Personal Information
+    formData.append('name', JSON.stringify(resume.name));
+    formData.append('summary', JSON.stringify(resume.summary));
+    formData.append('contact', JSON.stringify(resume.contact));
+    formData.append('dob', JSON.stringify(resume.dob));
+    formData.append('gender', resume.gender);
+    formData.append('address', JSON.stringify(resume.address));
+    formData.append('education', JSON.stringify(resume.education));
+    formData.append('work', JSON.stringify(resume.work));
+    formData.append('skillsAndLevel', JSON.stringify(resume.skillsAndLevel));
+    formData.append('internShips', JSON.stringify(resume.internShips));
+    formData.append('projects', JSON.stringify(resume.projects));
+    formData.append('socialLinks', JSON.stringify(resume.socialLinks));
+    formData.append('knownLanguages', JSON.stringify(resume.knownLanguages));
+    formData.append('certifications', JSON.stringify(resume.certifications));
+    formData.append('awards', JSON.stringify(resume.awards));
+    formData.append('volunteerExperience', JSON.stringify(resume.volunteerExperience));
+    formData.append('areaOfInterest', JSON.stringify(resume.areaOfInterest));
+    formData.append('references', JSON.stringify(resume.references));
+    formData.append('jobTitle', JSON.stringify(resume.jobTitle));
+    formData.append('interestedIn', (resume.interestedIn));
+    formData.append('tempId', JSON.stringify(2));
+  
+    // Append the cropped image URL (not an array)
+    formData.append('profilePicture', croppedImage);
+  
+    try {
+      // Replace 'addResume' with your actual API request function
+      const response = await addResume(formData);
+      const { status, message } = response.data;
+  
+      if (status) {
+        console.log(message);
+        alert('Updated successfully');
+      } else {
+        console.error(message);
+        // Handle update error
+      }
+    } catch (error) {
+      console.error('Error updating product:', error.message);
+      // Handle update error
+    }
   };
+  
+  
 
   function scrollToTop() {
     window.scrollTo({
@@ -394,7 +438,7 @@ const ResumeForm = () => {
                      <img src={croppedImage} alt="dp" />
                 ) : (
               
-                  <img src={resume.profilePicture.url} alt="dp" />
+                  <img src={resume?.profilePicture?.url} alt="dp" />
                 )}
               </div>
               <div>
@@ -2062,6 +2106,7 @@ const ResumeForm = () => {
       <div className={style.btn_box}>
         <button onClick={() => handleSection('prev')}>Previous</button>
         <button onClick={() => handleSection('next')}>Next</button>
+        <button onClick={() => handleSection('next')}>Skip</button>
         </div>
     </div>
   );
