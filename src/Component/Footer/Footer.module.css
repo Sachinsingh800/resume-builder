@@ -57,7 +57,10 @@
   
   .img{
     height: 4rem;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
 }
+
 .address{
    margin-top: -2rem;
    width: 13rem!important;

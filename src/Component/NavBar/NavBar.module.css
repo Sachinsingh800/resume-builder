@@ -20,8 +20,8 @@
 }
 .img{
     height: 3rem;
-    filter: invert(100%);
-    -webkit-filter: invert(100%);
+
+  
 }
 .rightsection{
     display: flex;
