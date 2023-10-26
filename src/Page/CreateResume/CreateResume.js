@@ -96,13 +96,7 @@ function CreateResume() {
   
   ]
 
-  const resumeParts = [
-    { title: 'Personal Information', completed: false },
-    { title: 'Education', completed: false },
-    { title: 'Work Experience', completed: false },
-    { title: 'Skills', completed: false },
-    // Add more parts as needed
-  ];
+
 
 
 

@@ -14,11 +14,11 @@ function ResumeForm() {
         <div className={style.container}>
             <div>
                 <h2>Create Resume for Fresher</h2>
-               <Link to={"/CreateResume"}><button>Get start</button></Link> 
+               <a href="/CreateResume"><button>Get start</button></a> 
             </div>
             <div>
                 <h2>Create Resume for Professional</h2>
-                <Link to={"/CreateResume"}><button >Get start</button></Link> 
+                <a href="/CreateResume"><button >Get start</button></a> 
             </div>
         </div>
        
