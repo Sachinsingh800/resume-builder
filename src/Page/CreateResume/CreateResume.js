@@ -34,14 +34,15 @@ import panda2 from "../../Component/Images/panda2.gif"
 import rabbit from "../../Component/Images/rabbit.gif"
 import resume_img from "../../Component/Images/resume_img.gif"
 import resume_img2 from "../../Component/Images/resume_img2.gif"
+import { getAllAreaofInterest, getAllLanguages, getAllSkills, getAllSummary } from "../../Api/Api";
 
 function CreateResume() {
   const type = useRecoilValue(resumeType);
   const sectionNo = useRecoilValue(suggestionData);
-  const [summary, setSummary] = useRecoilState(summarySuggestion);
-  const [skill, setSkill] = useRecoilState(skillSuggestion);
-  const [lang, setLang] = useRecoilState(languageSuggestion);
-  const [interest, setInterest] = useRecoilState(interestSuggestion);
+  const [summary, setSummary] = useState([]);
+  const [skill, setSkill] = useState([]);
+  const [lang, setLang] = useState([]);
+  const [interest, setInterest] = useState([]);
   const [data, setData] = useRecoilState(resumeData);
   const [edu, setEdu] = useRecoilState(educationSuggestion);
   const [work, setWork] = useRecoilState(workSuggestion);
@@ -98,7 +99,68 @@ function CreateResume() {
 
 
 
+  useEffect(() => {
+    handleAllSummary();
+    handleAllSkills()
+    handleAllLanguage()
+    handleAllAreaofIntrest()
+  }, []);
 
+  const handleAllSummary = async () => {
+    try {
+      const response = await getAllSummary();
+
+      if (response.status === true) {
+        setSummary(response.data)
+      } else {
+        console.error('Error fetching categories:', response.data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching categories:', error.message);
+    }
+  };
+
+  const handleAllSkills = async () => {
+    try {
+      const response = await getAllSkills();
+
+      if (response.status === true) {
+        setSkill(response.data)
+      } else {
+        console.error('Error fetching categories:', response.data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching categories:', error.message);
+    }
+  };
+
+  const handleAllLanguage = async () => {
+    try {
+      const response = await getAllLanguages();
+
+      if (response.status === true) {
+        setLang(response.data)
+      } else {
+        console.error('Error fetching categories:', response.data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching categories:', error.message);
+    }
+  };
+
+  const handleAllAreaofIntrest = async () => {
+    try {
+      const response = await getAllAreaofInterest();
+
+      if (response.status === true) {
+        setInterest(response.data)
+      } else {
+        console.error('Error fetching categories:', response.data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching categories:', error.message);
+    }
+  };
 
 
 
@@ -319,8 +381,8 @@ function CreateResume() {
                 <br />
                 <ul>
                   {skill.map((suggestion, index) => (
-                    <li key={index} onClick={() => addSkill(suggestion.skills)}>
-                      {suggestion.skills}
+                    <li key={index} onClick={() => addSkill(suggestion.skillName )}>
+                      {suggestion.skillName}
                     </li>
                   ))}
                 </ul>

@@ -7,8 +7,6 @@ import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
 import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
 
 
-// Define a placeholder value for 'dp'
-import dp from "./Component/Images/dp.png"
 const resume = JSON.parse(localStorage.getItem("resume"))
 
 

@@ -74,68 +74,16 @@ export const getResume = async (selectedCategory) => {
 
 
 
-export const deleteCategory = async (id) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/admin/deleteCategoy/${id}`);
-    const { status, message, data } = response.data;
-    return { status, message, data };
-  } catch (error) {
-    console.error('Error deleting product:', error.message);
-    throw new Error('Failed to delete product');
-  }
-};
-
-
-export const deleteSummary = async (id) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/admin/deleteSummary/${id}`);
-    const { status, message, data } = response.data;
-    return { status, message, data };
-  } catch (error) {
-    console.error('Error deleting product:', error.message);
-    throw new Error('Failed to delete product');
-  }
-};
-
-
-
-export const deleteSkills = async (id) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/admin/deleteSkill/${id}`);
-    const { status, message, data } = response.data;
-    return { status, message, data };
-  } catch (error) {
-    console.error('Error deleting product:', error.message);
-    throw new Error('Failed to delete product');
-  }
-};
-
-
-
-export const deleteAreaOfInterest = async (id) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/admin/areaOfInterest/${id}`);
-    const { status, message, data } = response.data;
-    return { status, message, data };
-  } catch (error) {
-    console.error('Error deleting product:', error.message);
-    throw new Error('Failed to delete product');
-  }
-};
 
 
 
 
-export const deleteLanguages = async (id) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/admin/deleteLanguages/${id}`);
-    const { status, message, data } = response.data;
-    return { status, message, data };
-  } catch (error) {
-    console.error('Error deleting product:', error.message);
-    throw new Error('Failed to delete product');
-  }
-};
+
+
+
+
+
+
 
 
 
