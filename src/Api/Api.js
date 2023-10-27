@@ -8,7 +8,16 @@ const BASE_URL = 'https://lizmyresume.onrender.com';
 
 
 
+export const registration = async (formData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/user/register`, formData );
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error creating resume:', error.message);
 
+  }
+};
 
 
 
