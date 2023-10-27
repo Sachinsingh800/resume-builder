@@ -62,8 +62,9 @@ function NavBar() {
           </div>
         )}
 
-        <h4>Sign in</h4>
-        <h4>Sign up</h4>
+<Link to={"/SignIn"}><h4>Sign In</h4></Link>
+<Link to={"/SignUp"}><h4>Sign Up</h4></Link>
+      
       </div>
     </div>
   );

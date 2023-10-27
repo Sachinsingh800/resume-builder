@@ -17,6 +17,7 @@ import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
 import Template_4 from './Component/ResumeTemplates/Template_4/Template_4';
 import Template_5 from './Component/ResumeTemplates/Template_5/Template_5';
 import SignUp from './Component/SignUp/SignUp';
+import SignIn from './Component/SignIn/SignIn';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
   {
     path: "/SignUp",
     element: <SignUp/>
+  },
+  {
+    path: "/SignIn",
+    element: <SignIn/>
   },
 ]);
 root.render(

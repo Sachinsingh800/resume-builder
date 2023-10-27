@@ -7,6 +7,8 @@ import ImageModal from '../ImageModal/ImageModal';
 import { AiFillDelete } from 'react-icons/ai';
 import { croppedImageState,suggestionData,selectedValue1,selectedValue2,modalValue} from '../../Recoil';
 import { addResume } from '../../Api/Api';
+import Swal from "sweetalert2";
+import { useNavigate } from 'react-router-dom';
 
 
 const ResumeForm = () => {
@@ -19,6 +21,7 @@ const ResumeForm = () => {
   const [selectedValueForSkill, setSelectedValue2] = useRecoilState(selectedValue2);
   const [resumeImg, setResumeImg] = useState([]);
   const [progress, setProgress] = useState(0);
+  const navigate= useNavigate()
 
   const { resume } = formData;
 
@@ -71,13 +74,15 @@ const ResumeForm = () => {
   
       if (status) {
         console.log(message);
-        alert('Updated successfully');
+        Swal.fire("Good job!", "Resume Created", "success");
       } else {
         console.error(message);
+        Swal.fire("Oops!", "Something went wrong", "error");
         // Handle update error
       }
     } catch (error) {
-      console.error('Error updating product:', error.message);
+      Swal.fire("Oops!", "You have to Login First", "error");
+      navigate("/SignIn");
       // Handle update error
     }
   };

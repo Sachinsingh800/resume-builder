@@ -20,6 +20,18 @@ export const registration = async (formData) => {
 };
 
 
+export const signInuser = async (formData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/user/logIn`, formData );
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error creating resume:', error.message);
+
+  }
+};
+
+
 
 
 
@@ -156,7 +168,7 @@ export const getAllLanguages = async () => {
 
 
 //addResume
-const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTEwNWMxNmFjNzc0ZDkwZTA5MTIzZmIiLCJyb2xlIjoiam9iLXNlZWtlciIsImlhdCI6MTY5NTU3MTAzN30.or65-WGU5htf2knlYp0DRGZD4D8rxFWpGBblKvAWDOA';
+const authToken = JSON.parse(localStorage.getItem("token"))
 
 export const addResume = async (formData) => {
   const headers = {

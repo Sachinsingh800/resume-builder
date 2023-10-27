@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import style from "./SignUp.module.css";
-import { registration } from '../../Api/Api';
+import { registration } from "../../Api/Api";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import logo from "../Images/logo.png";
 
 function SignUp() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
+    name: "",
+    email: "",
+    password: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -27,9 +29,7 @@ function SignUp() {
       const response = await registration(formData); // Assuming registration function accepts an object
       const { status, message } = response.data;
 
-      
-        Swal.fire("Good job!", "SignUp", "success");
-
+      Swal.fire("Good job!", "SignUp", "success");
     } catch (error) {
       Swal.fire("Oops!", "Email already exists", "error");
       // Handle signup error
@@ -40,6 +40,12 @@ function SignUp() {
 
   return (
     <div className={style.main}>
+      <div className={style.img}>
+        <Link to={"/"}>
+          {" "}
+          <img src={logo} alt="logo" />
+        </Link>
+      </div>
       <form className={style.form} onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
         <br />
@@ -82,6 +88,7 @@ function SignUp() {
         ) : (
           <button type="submit">Sign Up</button>
         )}
+        <Link to={"/SignIn"}>SignIn</Link>
       </form>
     </div>
   );
