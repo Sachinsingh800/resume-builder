@@ -67,7 +67,7 @@ export const ChooseColorThird= atom({
 
 export const croppedImageState = atom({
   key: 'croppedImageState',
-  default: null, // Initial value is null
+  default: [] // Initial value is null
 });
 
 

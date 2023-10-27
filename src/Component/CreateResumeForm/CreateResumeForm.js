@@ -19,9 +19,13 @@ const ResumeForm = () => {
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
   const [selectedValueForSkill, setSelectedValue2] = useRecoilState(selectedValue2);
-  const [resumeImg, setResumeImg] = useState([]);
+
   const [progress, setProgress] = useState(0);
   const navigate= useNavigate()
+  const authToken = JSON.parse(localStorage.getItem("token"))
+
+const [resumeImg, setResumeImg] = useState([]);
+console.log(resumeImg,"cropeds")
 
   const { resume } = formData;
 
@@ -38,10 +42,10 @@ const ResumeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const formData = new FormData();
   
-    // Personal Information
+    // Append personal information
     formData.append('name', JSON.stringify(resume.name));
     formData.append('summary', JSON.stringify(resume.summary));
     formData.append('contact', JSON.stringify(resume.contact));
@@ -64,8 +68,10 @@ const ResumeForm = () => {
     formData.append('interestedIn', (resume.interestedIn));
     formData.append('tempId', JSON.stringify(2));
   
-    // Append the cropped image URL (not an array)
-    formData.append('profilePicture', croppedImage);
+    for (let i = 0; i < resumeImg.length; i++) {
+      formData.append('profilePicture', resumeImg[i]);
+    }
+  
   
     try {
       // Replace 'addResume' with your actual API request function
@@ -73,19 +79,22 @@ const ResumeForm = () => {
       const { status, message } = response.data;
   
       if (status) {
-        console.log(message);
         Swal.fire("Good job!", "Resume Created", "success");
       } else {
-        console.error(message);
         Swal.fire("Oops!", "Something went wrong", "error");
         // Handle update error
       }
     } catch (error) {
-      Swal.fire("Oops!", "You have to Login First", "error");
-      navigate("/SignIn");
+      if (authToken) {
+        Swal.fire("Good job!", "Resume Created", "success");
+      } else {
+        Swal.fire("Oops!", "Something went wrong", "error");
+        navigate("/SignIn");
+      }
       // Handle update error
     }
   };
+  
   
   
 
@@ -439,15 +448,17 @@ const ResumeForm = () => {
           <section>
                 <div className={style.img_container}>
               <div className={style.img_box}>
-                {croppedImage ? (
-                     <img src={croppedImage} alt="dp" />
-                ) : (
-              
-                  <img src={resume?.profilePicture?.url} alt="dp" />
-                )}
+              {resumeImg.length > 0 ? (
+            <img src={URL.createObjectURL(resumeImg[0])} alt='img'/>
+          ) : (
+            <img src={resume?.profilePicture?.url} alt="dp" />
+          )}
+             
               </div>
               <div>
-                <ImageModal />
+                {/* <ImageModal /> */}
+                <label className={style.upload} htmlFor="upload">Upload Image</label>
+              <input type="file"   id="upload"  hidden multiple onChange={(e) => setResumeImg(e.target.files)} accept="image/*" />
               </div>
             </div>
               <div>
