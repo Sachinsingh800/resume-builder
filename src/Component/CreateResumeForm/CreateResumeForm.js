@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import style from "./CreateResumeForm.module.css"
 import { useRecoilState } from 'recoil';
-import { resumeData } from '../../Recoil'; 
+import { resumeData, uploadImage } from '../../Recoil'; 
 import dp_icon from '../Images/dp_icon.gif';
 import ImageModal from '../ImageModal/ImageModal';
 import { AiFillDelete } from 'react-icons/ai';
@@ -17,6 +17,7 @@ const ResumeForm = () => {
   const [modal,   setModal] = useRecoilState(modalValue);
   const [section, setSection] = useState(1);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
+  const [uploadImg, setUploadImg] = useRecoilState(uploadImage);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
   const [selectedValueForSkill, setSelectedValue2] = useRecoilState(selectedValue2);
 
@@ -27,7 +28,7 @@ const ResumeForm = () => {
 
 const [resumeImg, setResumeImg] = useState([]);
 
-
+console.log(resumeImg,"resumeImg")
   const { resume } = formData;
 
   const handleChange = (e) => {
@@ -43,7 +44,7 @@ const [resumeImg, setResumeImg] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    e.stopPropagation();
     const formData = new FormData();
   
     // Append personal information
@@ -69,9 +70,9 @@ const [resumeImg, setResumeImg] = useState([]);
     formData.append('interestedIn', (resume.interestedIn));
     formData.append('tempId', JSON.stringify(2));
   
-    for (let i = 0; i < resumeImg.length; i++) {
-      formData.append('profilePicture', resumeImg[i]);
-    }
+
+      formData.append('profilePicture', croppedImage);
+
   
   
     try {
@@ -458,8 +459,6 @@ const [resumeImg, setResumeImg] = useState([]);
               </div>
               <div>
                 <ImageModal />
-                <label className={style.upload} htmlFor="upload">Upload Image</label>
-              <input type="file"   id="upload"  hidden multiple onChange={(e) => setResumeImg(e.target.files)} accept="image/*" />
               </div>
             </div>
               <div>

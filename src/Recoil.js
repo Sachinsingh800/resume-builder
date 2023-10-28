@@ -69,6 +69,10 @@ export const croppedImageState = atom({
   key: 'croppedImageState',
   default: null, // The default value is null, as no cropped image is selected initially.
 });
+export const uploadImage = atom({
+  key: 'uploadImage',
+  default: [], // The default value is null, as no cropped image is selected initially.
+});
 
 
 

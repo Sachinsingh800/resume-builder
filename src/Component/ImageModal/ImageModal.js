@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import styles from "./ImageModal.module.css"
 import CropImage from '../CropImage/CropImage';
 import upload from "../../Component/Images/upload.webp"
+import { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -21,11 +22,12 @@ const style = {
 };
 
 export default function ImageModal() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleButtonClicked = (e) => {
+    e.preventDefault()
     e.stopPropagation();
     handleOpen();
   }

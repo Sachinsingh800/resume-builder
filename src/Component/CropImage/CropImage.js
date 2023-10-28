@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Cropper from 'react-easy-crop';
 import style from "./CropImage.module.css";
-import { croppedImageState } from '../../Recoil';
+import { croppedImageState, uploadImage } from '../../Recoil';
 import { useRecoilState } from 'recoil';
 
 const CropImage = () => {
@@ -9,6 +9,7 @@ const CropImage = () => {
   const [zoom, setZoom] = useState(1);
   const [images, setImages] = useState([]); // Store multiple images
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);// Store the cropped image
+
 
   const cropperRef = useRef(null);
 
@@ -48,8 +49,10 @@ const CropImage = () => {
   };
 
   const handleImageUpload = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     const files = e.target.files;
-
+    
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
 
