@@ -24,6 +24,8 @@ import {
   awardSuggestion,
   volunteerExperienceSuggestion,
   referenceSuggestion,
+  selectedJobCate,
+ 
   
 } from "../../Recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -37,6 +39,8 @@ import resume_img2 from "../../Component/Images/resume_img2.gif"
 import { getAllAreaofInterest, getAllLanguages, getAllSkills, getAllSummary } from "../../Api/Api";
 
 function CreateResume() {
+  
+
   const type = useRecoilValue(resumeType);
   const sectionNo = useRecoilValue(suggestionData);
   const [summary, setSummary] = useState([]);
@@ -107,8 +111,9 @@ function CreateResume() {
   }, []);
 
   const handleAllSummary = async () => {
+    const selectedCategory= JSON.parse(localStorage.getItem("category"))
     try {
-      const response = await getAllSummary();
+      const response = await getAllSummary(selectedCategory);
 
       if (response.status === true) {
         setSummary(response.data)
@@ -121,8 +126,9 @@ function CreateResume() {
   };
 
   const handleAllSkills = async () => {
+    const selectedCategory= JSON.parse(localStorage.getItem("category"))
     try {
-      const response = await getAllSkills();
+      const response = await getAllSkills(selectedCategory);
 
       if (response.status === true) {
         setSkill(response.data)
@@ -149,8 +155,9 @@ function CreateResume() {
   };
 
   const handleAllAreaofIntrest = async () => {
+    const selectedCategory= JSON.parse(localStorage.getItem("category"))
     try {
-      const response = await getAllAreaofInterest();
+      const response = await getAllAreaofInterest(selectedCategory);
 
       if (response.status === true) {
         setInterest(response.data)

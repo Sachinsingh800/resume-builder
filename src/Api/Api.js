@@ -108,10 +108,10 @@ export const getResume = async (selectedCategory) => {
 
 
 
-export const getAllSummary = async () => {
-  
+export const getAllSummary = async (selectedCategory) => {
+  console.log(selectedCategory,"seleted codadasds")
   try {
-    const response = await axios.get(`${BASE_URL}/admin/getSummary`, {
+    const response = await axios.get(`${BASE_URL}/admin/getSummary?category=${selectedCategory}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -124,10 +124,10 @@ export const getAllSummary = async () => {
 
 
 
-export const getAllSkills = async () => {
+export const getAllSkills = async (selectedCategory) => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/admin/getSkills`, {
+    const response = await axios.get(`${BASE_URL}/admin/getSkills?category=${selectedCategory}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -139,10 +139,10 @@ export const getAllSkills = async () => {
 
 
 
-export const getAllAreaofInterest = async () => {
+export const getAllAreaofInterest = async (selectedCategory) => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/admin/areaOfInterest`, {
+    const response = await axios.get(`${BASE_URL}/admin/areaOfInterest?category=${selectedCategory}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };

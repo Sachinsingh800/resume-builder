@@ -4,14 +4,16 @@ import Carsouel from '../../Component/Carsouel/Carsouel';
 import { useNavigate } from 'react-router-dom';
 import { getAllCategoy, getResume } from '../../Api/Api';
 import { useRecoilState } from 'recoil';
-import { resumeData ,resumeDataApi  } from '../../Recoil';
+import { resumeData ,resumeDataApi, selectedJobCate  } from '../../Recoil';
 
 function FirstSection() {
-  const [formData, setFormData] = useRecoilState(resumeData);
+  
   const [selectedCategory, setSelectedCategory] = useState('');
   const [allCategory, setAllCategory] = useState([]);
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
+
+
 
   useEffect(() => {
     handleAllCategory();
@@ -33,7 +35,7 @@ function FirstSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+localStorage.setItem("category",JSON.stringify(selectedCategory))
     try {
       const response = await getResume(selectedCategory);
 
@@ -74,6 +76,7 @@ function FirstSection() {
                   onClick={() => {
                     setSearch(item.category); // Update the search state
                     setSelectedCategory(item.category);
+                  
                   }}
                 >
                   {item.category}

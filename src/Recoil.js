@@ -47,6 +47,11 @@ export const resumeData = atom({
 
 
 
+export const selectedJobCate = atom({
+  key: 'selectedJobCate',
+  default:""
+});
+
 export const ChooseColor = atom({
   key: 'ChooseColor',
   default:"#113f67"
