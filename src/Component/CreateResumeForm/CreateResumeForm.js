@@ -58,7 +58,7 @@ const [resumeImg,setResumeImg] = useState([])
   },[croppedImage])
   
  
-  
+
   const { resume } = formData;
 
   const handleChange = (e) => {
@@ -481,11 +481,12 @@ const [resumeImg,setResumeImg] = useState([])
           <section>
                 <div className={style.img_container}>
               <div className={style.img_box}>
-              {resumeImg.length !==0  ? (
-            <img src={URL.createObjectURL(resumeImg[0])} alt='img'/>
+              {croppedImage === null  ? (
+               <img src={resume?.profilePicture?.url} alt='img2'/>
+           
           ) : (
      
-            <img src={resume?.profilePicture?.url} alt='img'/>
+            <img src={URL.createObjectURL(resumeImg[0])} alt='img'/>
  
           )}
              
