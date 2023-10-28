@@ -19,7 +19,7 @@ export const resumeData = atom({
     message: "Resume created successfully",
     resume: {
       userId: resume?._id,
-      jobTitle:resume?.category,
+      jobTitle:resume?.category ,
       name: resume?.name,
       summary: resume?.summary,
       contact: resume?.contact,
@@ -40,10 +40,7 @@ export const resumeData = atom({
       areaOfInterest: resume?.areaOfInterest,
       references:resume?.references,
       interestedIn: "job",
-      _id: "651d0603587cea4128a820f4",
-      createdAt: "2023-10-04T06:28:19.546Z",
-      updatedAt: "2023-10-04T06:28:19.546Z",
-      __v: 0,
+
     },
   },
 });

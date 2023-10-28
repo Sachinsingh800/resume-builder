@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import style from "./CreateResumeForm.module.css"
 import { useRecoilState } from 'recoil';
 import { resumeData, uploadImage } from '../../Recoil'; 
-import dp_icon from '../Images/dp_icon.gif';
 import ImageModal from '../ImageModal/ImageModal';
 import { AiFillDelete } from 'react-icons/ai';
 import { croppedImageState,suggestionData,selectedValue1,selectedValue2,modalValue} from '../../Recoil';
@@ -60,10 +59,6 @@ const [resumeImg,setResumeImg] = useState([])
   
  
   
-
-
-
-
   const { resume } = formData;
 
   const handleChange = (e) => {
@@ -281,7 +276,6 @@ const [resumeImg,setResumeImg] = useState([])
     });
   };
 
-
   const handleDeleteInternship = (index) => {
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
@@ -487,10 +481,12 @@ const [resumeImg,setResumeImg] = useState([])
           <section>
                 <div className={style.img_container}>
               <div className={style.img_box}>
-              {resumeImg.length > 0 ? (
+              {resumeImg.length !==0  ? (
             <img src={URL.createObjectURL(resumeImg[0])} alt='img'/>
           ) : (
-            <img src={resume?.profilePicture?.url} alt="dp" />
+     
+            <img src={resume?.profilePicture?.url} alt='img'/>
+ 
           )}
              
               </div>
