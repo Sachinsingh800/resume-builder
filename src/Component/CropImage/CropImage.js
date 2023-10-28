@@ -1,73 +1,73 @@
 import React, { useState, useRef } from 'react';
 import Cropper from 'react-easy-crop';
 import style from "./CropImage.module.css";
-import { useRecoilState } from 'recoil';
 import { croppedImageState } from '../../Recoil';
+import { useRecoilState } from 'recoil';
 
 const CropImage = () => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [images, setImages] = useState([]); // Store multiple images
-  const [croppedImages, setCroppedImages] = useState([]); // Store multiple cropped images
-
-  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
+  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);// Store the cropped image
 
   const cropperRef = useRef(null);
 
   const onCropComplete = async (croppedArea, croppedAreaPixels) => {
-    try {
-      const croppedImageBlob = await getCroppedImageBlob(croppedAreaPixels);
-      setCroppedImage(URL.createObjectURL(croppedImageBlob));
-    } catch (e) {
-      console.error('Error cropping image:', e);
-    }
+    const croppedImageBase64 = await getCroppedImageBase64(croppedAreaPixels);
+    setCroppedImage(croppedImageBase64);
   };
 
-  const getCroppedImageBlob = async (croppedAreaPixels) => {
-    // Implementation remains the same
+  const getCroppedImageBase64 = async (croppedAreaPixels) => {
+    if (images.length === 0) {
+      return null;
+    }
+
+    const image = images[0];
+    const scaleX = image.naturalWidth / image.width;
+    const scaleY = image.naturalHeight / image.height;
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = croppedAreaPixels.width;
+    canvas.height = croppedAreaPixels.height;
+
+    ctx.drawImage(
+      image,
+      croppedAreaPixels.x * scaleX,
+      croppedAreaPixels.y * scaleY,
+      croppedAreaPixels.width * scaleX,
+      croppedAreaPixels.height * scaleY,
+      0,
+      0,
+      croppedAreaPixels.width,
+      croppedAreaPixels.height
+    );
+
+    return canvas.toDataURL('image/jpeg');
   };
 
   const handleImageUpload = (e) => {
     const files = e.target.files;
-    const imagePromises = [];
 
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-    
+
       if (file) {
         const reader = new FileReader();
         reader.onload = (event) => {
           const newImage = new window.Image();
           newImage.src = event.target.result;
           newImage.onload = () => {
-            setImages((prevImages) => [...prevImages, newImage]);
+            setImages([newImage]);
             setZoom(1);
             setCrop({ x: 0, y: 0 });
-            setCroppedImages([]); // Clear previous cropped images
-        
+            setCroppedImage(null); // Clear previous cropped image
           };
         };
         reader.readAsDataURL(file);
       }
     }
-  };
-
-  const handleSaveImages = async () => {
-    const croppedImagePromises = images.map((image, index) => {
-      return new Promise(async (resolve) => {
-        const croppedAreaPixels = await cropperRef.current.getCroppedAreaPixels();
-        const croppedImageBlob = await getCroppedImageBlob(croppedAreaPixels);
-        resolve({ index, blob: croppedImageBlob });
-      });
-    });
-
-    const croppedImagesData = await Promise.all(croppedImagePromises);
-    const sortedCroppedImages = croppedImagesData
-      .sort((a, b) => a.index - b.index)
-      .map((item) => URL.createObjectURL(item.blob));
-
-    setCroppedImages(sortedCroppedImages);
-    setCroppedImage(sortedCroppedImages)
   };
 
   return (
@@ -112,16 +112,7 @@ const CropImage = () => {
           </div>
         </>
       )}
-      {croppedImages.length > 0 && (
-        <div>
-          {croppedImages.map((image, index) => (
-            <div key={index}>
-              <img src={image} alt={`Cropped Image ${index}`} />
-            </div>
-          ))}
-          <button onClick={handleSaveImages}>Save Cropped Images</button>
-        </div>
-      )}
+
     </div>
   );
 };

@@ -24,8 +24,9 @@ const ResumeForm = () => {
   const navigate= useNavigate()
   const authToken = JSON.parse(localStorage.getItem("token"))
 
+
 const [resumeImg, setResumeImg] = useState([]);
-console.log(resumeImg,"cropeds")
+
 
   const { resume } = formData;
 
@@ -448,15 +449,15 @@ console.log(resumeImg,"cropeds")
           <section>
                 <div className={style.img_container}>
               <div className={style.img_box}>
-              {resumeImg.length > 0 ? (
-            <img src={URL.createObjectURL(resumeImg[0])} alt='img'/>
+              {croppedImage  ? (
+            <img src={croppedImage} alt='img'/>
           ) : (
             <img src={resume?.profilePicture?.url} alt="dp" />
           )}
              
               </div>
               <div>
-                {/* <ImageModal /> */}
+                <ImageModal />
                 <label className={style.upload} htmlFor="upload">Upload Image</label>
               <input type="file"   id="upload"  hidden multiple onChange={(e) => setResumeImg(e.target.files)} accept="image/*" />
               </div>

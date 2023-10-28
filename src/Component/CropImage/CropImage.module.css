@@ -35,3 +35,7 @@
     height: 100%;
     width: 1005;
 } */
+.save{
+    position: absolute;
+    color: red;
+}
