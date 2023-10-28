@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from "./CreateResumeForm.module.css"
 import { useRecoilState } from 'recoil';
 import { resumeData, uploadImage } from '../../Recoil'; 
@@ -14,21 +14,56 @@ import { useNavigate } from 'react-router-dom';
 const ResumeForm = () => {
   const [formData,   setFormData] = useRecoilState(resumeData);
   const [handleSuggestion,   setHandleSuggestion] = useRecoilState(suggestionData);
-  const [modal,   setModal] = useRecoilState(modalValue);
   const [section, setSection] = useState(1);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
-  const [uploadImg, setUploadImg] = useRecoilState(uploadImage);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
-  const [selectedValueForSkill, setSelectedValue2] = useRecoilState(selectedValue2);
+const [resumeImg,setResumeImg] = useState([])
+
+
 
   const [progress, setProgress] = useState(0);
   const navigate= useNavigate()
   const authToken = JSON.parse(localStorage.getItem("token"))
 
+  async function createFileFromImageUrl(imageUrl, fileName) {
+    const response = await fetch(imageUrl);
+    const blob = await response.blob();
+  
+    // Create a File object from the Blob
+    const file = new File([blob], fileName, { type: blob.type });
+  
+    // Create a FileList containing the File
+    const fileList = {
+      0: file,
+      length: 1,
+      item: (index) => (index === 0 ? file : null),
+    };
+  
+    return fileList;
+  }
+  
+  // Usage example
+  const imageUrl = croppedImage
+  const fileName = 'image.jpg'; // Specify the desired file name
 
-const [resumeImg, setResumeImg] = useState([]);
+  useEffect(()=>{
+    createFileFromImageUrl(imageUrl, fileName)
+    .then((fileList) => {
 
-console.log(resumeImg,"resumeImg")
+      setResumeImg(fileList)
+     
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  },[croppedImage])
+  
+ 
+  
+
+
+
+
   const { resume } = formData;
 
   const handleChange = (e) => {
@@ -71,7 +106,9 @@ console.log(resumeImg,"resumeImg")
     formData.append('tempId', JSON.stringify(2));
   
 
-      formData.append('profilePicture', croppedImage);
+    for (let i = 0; i < resumeImg.length; i++) {
+      formData.append('profilePicture', resumeImg[i]);
+    }
 
   
   
@@ -450,8 +487,8 @@ console.log(resumeImg,"resumeImg")
           <section>
                 <div className={style.img_container}>
               <div className={style.img_box}>
-              {croppedImage  ? (
-            <img src={croppedImage} alt='img'/>
+              {resumeImg.length > 0 ? (
+            <img src={URL.createObjectURL(resumeImg[0])} alt='img'/>
           ) : (
             <img src={resume?.profilePicture?.url} alt="dp" />
           )}
