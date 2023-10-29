@@ -449,6 +449,7 @@ const [resumeImg,setResumeImg] = useState([])
       return { ...prevFormData, resume: updatedResume };
     });
   };
+  
 
   return (
     <div className={style.main}>
@@ -526,16 +527,25 @@ const [resumeImg,setResumeImg] = useState([])
 
    
 
-        {/* Summary */}
-        <div>
-          <label htmlFor="summary">Summary:</label>
-          <textarea
-            id="summary"
-            name="summary"
-            value={selectedValue  ?  selectedValue : resume.summary }
-            onChange={handleChange}
-          />
-        </div>
+    {/* Summary */}
+<div>
+  <label htmlFor="summary">Summary:</label>
+  <textarea
+    id="summary"
+    name="summary"
+    value={selectedValue ? selectedValue : resume.summary}
+    onChange={(e) => {
+      const newValue = e.target.value;
+      if (selectedValue) {
+        setSelectedValue(newValue); // Update the selectedValue if it exists
+      } else {
+        // Update the resume's summary if there is no selectedValue
+        handleChange(e);
+      }
+    }}
+  />
+</div>
+
 
 
       <div className={style.info_box}>
