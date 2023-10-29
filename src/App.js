@@ -8,6 +8,7 @@ import SecondSection from './Sections/SecondSection/SecondSection';
 
 
 function App() {
+
   return (
     <div className="App">
       <NavBar/>

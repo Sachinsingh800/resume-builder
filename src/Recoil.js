@@ -47,6 +47,8 @@ export const resumeData = atom({
 
 
 
+
+
 export const selectedJobCate = atom({
   key: 'selectedJobCate',
   default:""

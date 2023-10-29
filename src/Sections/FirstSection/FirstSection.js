@@ -8,7 +8,7 @@ import { resumeData ,resumeDataApi, selectedJobCate  } from '../../Recoil';
 
 function FirstSection() {
   
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('Graphic Designer');
   const [allCategory, setAllCategory] = useState([]);
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
@@ -17,6 +17,7 @@ function FirstSection() {
 
   useEffect(() => {
     handleAllCategory();
+    handleDemoData()
   }, []);
 
   const handleAllCategory = async () => {
@@ -42,6 +43,21 @@ localStorage.setItem("category",JSON.stringify(selectedCategory))
       if (response.status === true) {
         localStorage.setItem('resume', JSON.stringify(response.data[0]));
         navigate('/ResumeForm');
+      } else {
+        console.error('Error fetching resume:', response.data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching resume:', error.message);
+    }
+  };
+  const handleDemoData = async (e) => {
+
+localStorage.setItem("category",JSON.stringify(selectedCategory))
+    try {
+      const response = await getResume(selectedCategory);
+
+      if (response.status === true) {
+        localStorage.setItem('resume', JSON.stringify(response.data[0]));
       } else {
         console.error('Error fetching resume:', response.data.message);
       }

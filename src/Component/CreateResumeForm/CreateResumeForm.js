@@ -556,7 +556,7 @@ const [resumeImg,setResumeImg] = useState([])
     type="email"
     id="email"
     name="email"
-    value={resume.contact.email}
+    value={resume?.contact?.email}
     onChange={(e) => {
       setFormData({
         ...formData,
@@ -578,7 +578,7 @@ const [resumeImg,setResumeImg] = useState([])
     type="text"
     id="phone"
     name="phone"
-    value={resume.contact.phone}
+    value={resume?.contact?.phone}
     onChange={(e) => {
       setFormData({
         ...formData,
@@ -625,7 +625,7 @@ const [resumeImg,setResumeImg] = useState([])
     type="text"
     id="address"
     name="address"
-    value={resume.address.address}
+    value={resume?.address?.address}
     onChange={(e) => {
       setFormData({
         ...formData,
@@ -647,7 +647,7 @@ const [resumeImg,setResumeImg] = useState([])
     type="text"
     id="city"
     name="city"
-    value={resume.address.city}
+    value={resume?.address?.city}
     onChange={(e) => {
       setFormData({
         ...formData,
@@ -669,7 +669,7 @@ const [resumeImg,setResumeImg] = useState([])
     type="text"
     id="state"
     name="state"
-    value={resume.address.state}
+    value={resume?.address?.state}
     onChange={(e) => {
       setFormData({
         ...formData,
@@ -691,7 +691,7 @@ const [resumeImg,setResumeImg] = useState([])
     type="text"
     id="postalCode"
     name="postalCode"
-    value={resume.address.postalCode}
+    value={resume?.address?.postalCode}
     onChange={(e) => {
       setFormData({
         ...formData,
@@ -713,7 +713,7 @@ const [resumeImg,setResumeImg] = useState([])
     type="text"
     id="country"
     name="country"
-    value={resume.address.country}
+    value={resume?.address?.country}
     onChange={(e) => {
       setFormData({
         ...formData,
