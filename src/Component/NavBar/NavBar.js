@@ -12,6 +12,8 @@ function NavBar() {
   const authToken = JSON.parse(localStorage.getItem("token"))
   const [user, setUser] = useState([])
 
+  localStorage.setItem("user",JSON.stringify(user))
+
   useEffect(() => {
     handleuserProfile();
   }, []);
@@ -105,6 +107,7 @@ function NavBar() {
             {isUserHovered && (
               <div className={style.logout_box} onMouseLeave={handleUserLeave}>
                 <p onClick={handleLogOut}>Log Out</p>
+                <Link to={"/Profile"}><p >Profile</p></Link>
               </div>
             )}
           </>

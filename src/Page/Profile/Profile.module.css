@@ -1,0 +1,14 @@
+
+.container{
+    padding-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.left_box{
+    border: 1px red solid;
+    height: 100vh;
+}
+.right_box{
+    border: 1px red solid;
+    height: 100vh;
+}
