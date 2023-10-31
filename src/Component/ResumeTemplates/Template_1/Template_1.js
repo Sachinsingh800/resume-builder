@@ -48,7 +48,7 @@ function Template_1() {
         <div className={style.education}>
      
           <h2>Education</h2>
-          {formData?.resume?.education.map((item,id)=>
+          {formData?.resume?.education?.map((item,id)=>
           <div key={id}>
            <h3>{item?.collegeName}</h3>
            <p>{item?.degree}</p>
@@ -69,7 +69,7 @@ function Template_1() {
         <div className={style.certifications}>
           <h2>CERTIFICATIONS</h2>
           <ul>
-          {formData?.resume?.certifications.map((item,id)=>
+          {formData?.resume?.certifications?.map((item,id)=>
            <li  key={id}>
             <h5>{item?.title}</h5>
             <p>Organization: {item?.issuingOrganization}</p>
@@ -85,8 +85,8 @@ function Template_1() {
         <div className={style.skills}>
           <h2>SKILLS</h2>
           <ul>
-          {formData?.resume?.skillsAndLevel.map((item,id)=>
-           <li  key={id}>{item.skills}</li>
+          {formData?.resume?.skillsAndLevel?.map((item,id)=>
+           <li  key={id}>{item?.skills}</li>
           )}
           </ul>
         </div>
@@ -106,7 +106,7 @@ function Template_1() {
           <h2>WORK HISTORY</h2>
           <ul className={style.work_history}>
    
-          {formData?.resume?.work.map((item,id)=>
+          {formData?.resume?.work?.map((item,id)=>
            <li  key={id}>
             <h3>{item?.title}</h3>
             <p>{item?.company} , {item?.location}</p>
