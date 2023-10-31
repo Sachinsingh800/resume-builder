@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import style from "./CreateResumeForm.module.css"
 import { useRecoilState } from 'recoil';
-import { resumeData, uploadImage } from '../../Recoil'; 
+import { resumeData, updateButton, uploadImage } from '../../Recoil'; 
 import ImageModal from '../ImageModal/ImageModal';
 import { AiFillDelete } from 'react-icons/ai';
 import { croppedImageState,suggestionData,selectedValue1,selectedValue2,modalValue} from '../../Recoil';
-import { addResume } from '../../Api/Api';
+import { addResume, updateResume } from '../../Api/Api';
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const ResumeForm = () => {
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
 const [resumeImg,setResumeImg] = useState([])
-
+const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
 
 
   const [progress, setProgress] = useState(0);
@@ -75,6 +75,7 @@ const [resumeImg,setResumeImg] = useState([])
   const handleSubmit = async (e) => {
     e.preventDefault();
     e.stopPropagation();
+
     const formData = new FormData();
   
     // Append personal information
@@ -114,6 +115,66 @@ const [resumeImg,setResumeImg] = useState([])
   
       if (status) {
         Swal.fire("Good job!", "Resume Created", "success");
+      } else {
+        Swal.fire("Oops!", "Something went wrong", "error");
+        // Handle update error
+      }
+    } catch (error) {
+      if (authToken) {
+        Swal.fire("Good job!", "Resume Created", "success");
+      } else {
+        Swal.fire("Oops!", "Something went wrong", "error");
+        navigate("/SignIn");
+      }
+      // Handle update error
+    }
+  };
+
+
+
+  const handleUpdateResume = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  const id=resume._id
+    const formData = new FormData();
+  
+    // Append personal information
+    formData.append('name', JSON.stringify(resume.name));
+    formData.append('summary', JSON.stringify(resume.summary));
+    formData.append('contact', JSON.stringify(resume.contact));
+    formData.append('dob', JSON.stringify(resume.dob));
+    formData.append('gender', resume.gender);
+    formData.append('address', JSON.stringify(resume.address));
+    formData.append('education', JSON.stringify(resume.education));
+    formData.append('work', JSON.stringify(resume.work));
+    formData.append('skillsAndLevel', JSON.stringify(resume.skillsAndLevel));
+    formData.append('internShips', JSON.stringify(resume.internShips));
+    formData.append('projects', JSON.stringify(resume.projects));
+    formData.append('socialLinks', JSON.stringify(resume.socialLinks));
+    formData.append('knownLanguages', JSON.stringify(resume.knownLanguages));
+    formData.append('certifications', JSON.stringify(resume.certifications));
+    formData.append('awards', JSON.stringify(resume.awards));
+    formData.append('volunteerExperience', JSON.stringify(resume.volunteerExperience));
+    formData.append('areaOfInterest', JSON.stringify(resume.areaOfInterest));
+    formData.append('references', JSON.stringify(resume.references));
+    formData.append('jobTitle', JSON.stringify(resume.jobTitle));
+    formData.append('interestedIn', (resume.interestedIn));
+    formData.append('tempId', JSON.stringify(2));
+  
+
+    for (let i = 0; i < resumeImg.length; i++) {
+      formData.append('profilePicture', resumeImg[i]);
+    }
+
+  
+  
+    try {
+      // Replace 'addResume' with your actual API request function
+      const response = await updateResume( id,formData);
+      const { status, message } = response.data;
+  
+      if (status) {
+        Swal.fire("Good job!", "update successfully", "success");
       } else {
         Swal.fire("Oops!", "Something went wrong", "error");
         // Handle update error
@@ -2157,7 +2218,12 @@ const [resumeImg,setResumeImg] = useState([])
         </div>
       </div>
     ))}
+
+   {
+    updateBtn  ? <button className={style.submit_btn} onClick={handleUpdateResume}>Update</button> :
     <button className={style.submit_btn} type="submit">Submit</button>
+   } 
+   
   </section>
 )}
 

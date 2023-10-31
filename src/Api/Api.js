@@ -108,7 +108,7 @@ export const getResume = async (selectedCategory) => {
 
 
 
-// updateProduct
+// updateProfile
 
 export const updateProfile = async (updatedData) => {
   const headers = {
@@ -117,6 +117,22 @@ export const updateProfile = async (updatedData) => {
   };
   try {
     const response = await axios.put(`${BASE_URL}/user/updateProfile`, updatedData,{headers});
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error updating blog:', error.message);
+    throw new Error('Failed to update blog');
+  }
+};
+// updateProfile
+
+export const updateResume = async (id,formData) => {
+  const headers = {
+    'x-auth-token': authToken,
+    'Content-Type': 'multipart/form-data', // Set the content type for file uploads
+  };
+  try {
+    const response = await axios.put(`${BASE_URL}/user/updateResumeUser/${id}`, formData,{headers});
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {

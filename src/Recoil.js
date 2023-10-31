@@ -50,6 +50,11 @@ export const resumeData = atom({
 
 
 
+export const updateButton = atom({
+  key: 'updateButton',
+  default:false
+});
+
 export const selectedJobCate = atom({
   key: 'selectedJobCate',
   default:""
