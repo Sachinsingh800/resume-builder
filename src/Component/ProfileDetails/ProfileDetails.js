@@ -3,6 +3,8 @@ import { getUserProfile, updateProfile } from "../../Api/Api";
 import Swal from "sweetalert2";
 import style from "./ProfileDetails.module.css";
 import dp  from "../Images/dp_icon.gif"
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 function ProfileDetails() {
   const [userProfileData, setUserProfileData] = useState([]);
@@ -61,7 +63,7 @@ function ProfileDetails() {
         <form className={style.form}  onSubmit={handleEditSubmit}>
           <div className={style.head}>
             <h1>Edit Profile</h1>
-            <button className={style.head_btn} onClick={() => setIsEditMode(false)}>cancle</button>
+            <button className={style.head_btn} onClick={() => setIsEditMode(false)}><CancelIcon/></button>
           </div>
 
           <div>
@@ -100,7 +102,7 @@ function ProfileDetails() {
           <div className={style.head}>
             <h1>Profile</h1>
             <button className={style.head_btn} onClick={handleEditClick}>
-              Edit
+              <EditNoteIcon />
             </button>
           </div>
           <div className={style.img_box}>
