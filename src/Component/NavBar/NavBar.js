@@ -1,12 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './NavBar.module.css';
 import logo from '../Images/logo.png'
 import ServicesOption from '../ServicesOption/ServicesOption';
 import { Link } from 'react-router-dom';
+import { getUserProfile } from '../../Api/Api';
 
 function NavBar() {
   const [isResumeHovered, setIsResumeHovered] = useState(false);
   const [isCoverLetterHovered, setIsCoverLetterHovered] = useState(false);
+const authToken=JSON.parse(localStorage.getItem("token"))
+const [user,setUser] = useState([])
+
+
+useEffect(() => {
+  handleuserProfile();
+}, []);
+
+const  handleuserProfile= async () => {
+  try {
+    const response = await getUserProfile();
+
+    if (response.status === true) {
+      setUser(response.data)
+    } else {
+      console.error('Error fetching categories:', response.data.message);
+    }
+  } catch (error) {
+    console.error('Error fetching categories:', error.message);
+  }
+};
+
+const handleLogOut=()=>{
+  localStorage.clear()
+}
+
+
 
   const handleResumeHover = () => {
     setIsResumeHovered(true);
@@ -61,8 +89,16 @@ function NavBar() {
             <ServicesOption />
           </div>
         )}
+{
+  authToken ? 
+  <>
+  {user?.name}
+  <button onClick={handleLogOut}>Log Out</button>
+  </> 
+   :
+    <Link to={"/SignIn"}><h4>Sign In</h4></Link>
+}
 
-<Link to={"/SignIn"}><h4>Sign In</h4></Link>
 <Link to={"/SignUp"}><h4>Sign Up</h4></Link>
       
       </div>

@@ -539,7 +539,7 @@ const [resumeImg,setResumeImg] = useState([])
       if (selectedValue) {
         setSelectedValue(newValue); // Update the selectedValue if it exists
       } else {
-        // Update the resume's summary if there is no selectedValue
+      
         handleChange(e);
       }
     }}

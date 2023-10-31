@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const BASE_URL = 'https://lizmyresume.onrender.com';
 
-
+const authToken = JSON.parse(localStorage.getItem("token"))
 
 
 export const registration = async (formData) => {
@@ -34,6 +34,24 @@ export const signInuser = async (formData) => {
 
 
 
+
+
+
+
+export const getUserProfile = async () => {
+  const headers = {
+    'x-auth-token': authToken,
+    'Content-Type': 'multipart/form-data', // Set the content type for file uploads
+  };
+  try {
+    const response = await axios.get(`${BASE_URL}/user/profile`, {headers});
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error getting services:', error.message);
+    throw new Error('Failed to get services');
+  }
+};
 
 
 
@@ -168,7 +186,7 @@ export const getAllLanguages = async () => {
 
 
 //addResume
-const authToken = JSON.parse(localStorage.getItem("token"))
+
 
 export const addResume = async (formData) => {
   const headers = {
