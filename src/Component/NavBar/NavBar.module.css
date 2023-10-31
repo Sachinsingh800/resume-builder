@@ -119,3 +119,15 @@ color: blue;
     margin-top: -2rem;
     color: white;
   }
+
+  .logout_box{
+   position: absolute;
+   background-color: rgb(255, 255, 255);
+   color: black;
+   top: 80%;
+   right: 8%;
+   padding: 1rem;
+   animation: slideDown 1s ease forwards; 
+   border-radius: 5px ;
+   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  }
