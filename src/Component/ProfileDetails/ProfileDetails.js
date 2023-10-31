@@ -34,6 +34,7 @@ function ProfileDetails() {
     }
   };
 
+  
   const handleEditSubmit = async (e) => {
     e.preventDefault();
 

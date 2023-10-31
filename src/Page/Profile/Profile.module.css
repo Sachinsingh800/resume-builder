@@ -2,13 +2,14 @@
 .container{
     padding-top: 4rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
 }
 .left_box{
-    border: 1px red solid;
+   background-color: aliceblue;
     height: 100vh;
 }
 .right_box{
-    border: 1px red solid;
     height: 100vh;
+    width: 100%;
+
 }
