@@ -47,7 +47,7 @@ function Blog() {
             <SecondSection/>
         </div>
        <div className={style.des_box}>
-       <div dangerouslySetInnerHTML={{ __html: blog[2].description}} />
+       <div dangerouslySetInnerHTML={{ __html: blog[2]?.description}} />
        </div>
        <Footer/>
     </div>
