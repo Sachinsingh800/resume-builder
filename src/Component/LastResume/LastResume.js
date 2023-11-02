@@ -18,10 +18,16 @@ function LastResume() {
     message: 'Resume created successfully',
     resume: data,
   };
+console.log(formData,"obj",obj)
 
   useEffect(() => {
     handleLastResume();
+    getResumedata()
   }, []);
+
+const getResumedata=()=>{
+  setFormData(obj)
+}
 
 
   const handleLastResume = async () => {

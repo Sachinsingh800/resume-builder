@@ -83,6 +83,18 @@ export const getAllCategoy = async () => {
     throw new Error('Failed to get services');
   }
 };
+export const getAllBlog = async () => {
+  
+  try {
+    const response = await axios.get(`${BASE_URL}/admin/getAllBlog`, {
+    });
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error getting services:', error.message);
+    throw new Error('Failed to get services');
+  }
+};
 
 
 

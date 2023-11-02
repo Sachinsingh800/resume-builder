@@ -64,7 +64,9 @@
     border-radius: 10px;
     width: 95%;
     color: black;
-    height: max-content;
+    height:30rem;
+    
+    overflow: scroll;
     z-index: 99;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }

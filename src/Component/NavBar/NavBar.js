@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from './NavBar.module.css';
-import logo from '../Images/logo.png'
+import logo from '../Images/logo.png';
 import ServicesOption from '../ServicesOption/ServicesOption';
 import { Link } from 'react-router-dom';
 import { getUserProfile } from '../../Api/Api';
@@ -9,10 +9,8 @@ function NavBar() {
   const [isResumeHovered, setIsResumeHovered] = useState(false);
   const [isCoverLetterHovered, setIsCoverLetterHovered] = useState(false);
   const [isUserHovered, setIsUserHovered] = useState(false);
-  const authToken = JSON.parse(localStorage.getItem("token"))
-  const [user, setUser] = useState([])
-
-  localStorage.setItem("user",JSON.stringify(user))
+  const authToken = JSON.parse(localStorage.getItem('token'));
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     handleuserProfile();
@@ -23,7 +21,8 @@ function NavBar() {
       const response = await getUserProfile();
 
       if (response.status === true) {
-        setUser(response.data)
+        setUser(response.data);
+        localStorage.setItem('user', JSON.stringify(response.data)); // Move this line here
       } else {
         console.error('Error fetching user profile:', response.data.message);
       }
@@ -33,50 +32,47 @@ function NavBar() {
   };
 
   const handleLogOut = () => {
-    localStorage.clear()
-  }
+    localStorage.clear();
+  };
 
   const handleResumeHover = () => {
     setIsResumeHovered(true);
-    setIsCoverLetterHovered(false); // Close the Cover Letter dropdown
-    setIsUserHovered(false); 
+    setIsCoverLetterHovered(false);
+    setIsUserHovered(false);
   };
 
   const handleResumeLeave = () => {
-    setIsResumeHovered(false);
+    setIsResumeHovered(false); // Set to false when leaving the Resume dropdown
   };
 
   const handleCoverLetterHover = () => {
     setIsCoverLetterHovered(true);
-    setIsResumeHovered(false); // Close the Resume dropdown
-    setIsUserHovered(false); 
+    setIsResumeHovered(false);
+    setIsUserHovered(false);
   };
 
   const handleCoverLetterLeave = () => {
-    setIsCoverLetterHovered(false);
+    setIsCoverLetterHovered(false); // Set to false when leaving the Cover Letter dropdown
   };
 
   const handleUserHover = () => {
     setIsUserHovered(true);
-    setIsCoverLetterHovered(false); 
+    setIsCoverLetterHovered(false);
     setIsResumeHovered(false);
   };
 
   const handleUserLeave = () => {
-    setIsUserHovered(false); // Close the user dropdown
+    setIsUserHovered(false); // Set to false when leaving the user dropdown
   };
 
   return (
     <div className={style.main}>
-      <Link to={"/"}>
+      <Link to={'/'}>
         <img className={style.img} src={logo} alt='logo' />
       </Link>
 
       <div className={style.rightsection}>
-        <h4
-          className={isResumeHovered ? style.active : style.notActive}
-          onMouseEnter={handleResumeHover}
-        >
+        <h4 className={isResumeHovered ? style.active : style.notActive} onMouseEnter={handleResumeHover}>
           Resume
         </h4>
 
@@ -86,10 +82,7 @@ function NavBar() {
             <ServicesOption />
           </div>
         )}
-        <h4
-          className={isCoverLetterHovered ? style.active : style.notActive}
-          onMouseEnter={handleCoverLetterHover}
-        >
+        <h4 className={isCoverLetterHovered ? style.active : style.notActive} onMouseEnter={handleCoverLetterHover}>
           Cover Letter
         </h4>
 
@@ -107,24 +100,25 @@ function NavBar() {
             {isUserHovered && (
               <div className={style.logout_box} onMouseLeave={handleUserLeave}>
                 <p onClick={handleLogOut}>Log Out</p>
-                <Link to={"/Profile"}><p >Profile</p></Link>
+                <Link to={'/Profile'}>
+                  <p>Profile</p>
+                </Link>
               </div>
             )}
           </>
         ) : (
           <>
-          <Link to={"/SignIn"}>
-            <h4>Sign In</h4>
-          </Link>
-                <Link to={"/SignUp"}>
-                <h4>Sign Up</h4>
-              </Link>
-              </>
+            <Link to={'/SignIn'}>
+              <h4>Sign In</h4>
+            </Link>
+            <Link to={'/SignUp'}>
+              <h4>Sign Up</h4>
+            </Link>
+          </>
         )}
-    <Link to={"/SignUp"}>
-                <h4>Blog</h4>
-              </Link>
-  
+        <Link to={'/Blog'}>
+          <h4>Blog</h4>
+        </Link>
       </div>
     </div>
   );

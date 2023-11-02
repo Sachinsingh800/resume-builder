@@ -8,7 +8,7 @@ import { resumeData ,resumeDataApi, selectedJobCate  } from '../../Recoil';
 
 function FirstSection() {
   
-  const [selectedCategory, setSelectedCategory] = useState('Graphic Designer');
+  const [selectedCategory, setSelectedCategory] = useState('');
   const [allCategory, setAllCategory] = useState([]);
   const navigate = useNavigate();
   const [search, setSearch] = useState('');

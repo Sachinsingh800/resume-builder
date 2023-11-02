@@ -16,13 +16,12 @@ function ServicesOption({ title, options, arrow }) {
     <li
       className={isHovered ? style.active : style.notActive}
       onMouseEnter={handleHover}
-      onMouseLeave={handleLeave}
+    
     >
       {arrow} {title}
       {isHovered && (
-        <div className={style.servicesDiv} onMouseLeave={handleLeave}>
-          {/* <span className={style.arrow}>{arrow}</span> */}
-          <ul>
+        <div className={style.servicesDiv} >
+          <ul   onMouseLeave={handleLeave}>
             {options.map((option, index) => (
               <li key={index}>{option}</li>
             ))}
@@ -36,9 +35,9 @@ function ServicesOption({ title, options, arrow }) {
 export default function ServicesOptionList() {
   const serviceOptions = [
     {
-      title: "Software Developer 1",
+      title: "Construction",
       options: [
-        "Option 1",
+        "sachin",
         "Option 2",
         "Option 3",
         "Option 1",
@@ -55,7 +54,7 @@ export default function ServicesOptionList() {
       arrow: "▶",
     },
     {
-      title: "Software Developer 2",
+      title: "Creative & Cultural Fields ",
       options: [
         "Option 1",
         "Option 2",
@@ -65,7 +64,7 @@ export default function ServicesOptionList() {
       arrow: "▶",
     },
     {
-      title: "Software Developer 3",
+      title: "Education",
       options: [
         "Option 1",
         "Option 2",
@@ -75,7 +74,7 @@ export default function ServicesOptionList() {
       arrow: "▶",
     },
     {
-      title: "Software Developer 4",
+      title: "Engineering & Scientific",
       options: [
         "Option 1",
         "Option 2",
@@ -85,7 +84,7 @@ export default function ServicesOptionList() {
       arrow: "▶",
     },
     {
-      title: "Software Developer 5",
+      title: "Food Service",
       options: [
         "Option 1",
         "Option 2",
@@ -95,7 +94,7 @@ export default function ServicesOptionList() {
       arrow: "▶",
     },
     {
-      title: "Software Developer 6",
+      title: "Hospitality Travel & Transportation",
       options: [
         "Option 1",
         "Option 2",
@@ -105,7 +104,28 @@ export default function ServicesOptionList() {
       arrow: "▶",
     },
     {
-      title: "Software Developer 7",
+      title: "Information Technology (IT) ",
+      options: [
+        "Option 1",
+        "Option 2",
+        "Option 3",
+        // Add more options here
+      ],
+      arrow: "▶",
+    },
+    {
+      title: "Law Enforcement & Emergency Services",
+      options: [
+        "Option 1",
+        "Option 2",
+        "Option 3",
+        // Add more options here
+      ],
+      arrow: "▶",
+    },
+    // Add more items here
+    {
+      title: "Law Enforcement & Emergency Services",
       options: [
         "Option 1",
         "Option 2",
