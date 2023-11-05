@@ -14,6 +14,7 @@ function SecondSection() {
   const [allCategory, setAllCategory] = useState([]);
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
+  const [showOptions, setShowOptions] = useState(false);
 
   useEffect(() => {
     handleAllCategory();
@@ -51,18 +52,23 @@ function SecondSection() {
   };
   return (
     <div className={style.main}>
-        <div className={style.heading}>
+   <div className={style.heading}>
         <h2>Resume Template For Every Kind Of Job Seeker</h2>
-      <p>Find the best resume designs for your industry, job title, or experience level. Choose by style, color, or format. No matter your experience, there's a resume template for you.</p>
-      <br/>
-      <input
-          onChange={(e) => setSearch(e.target.value)}
+        <p>
+          Find the best resume designs for your industry, job title, or experience level. Choose by style, color, or format. No matter your experience, there's a resume template for you.
+        </p>
+        <br />
+        <input
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setShowOptions(true); // Show the options list when typing in the input field
+          }}
           className={style.search_input}
           placeholder="🔍 Search here..."
           value={search}
         />
 
-        {search.length > 0 && (
+        {showOptions && ( // Show options only when showOptions is true
           <div className={style.optionList}>
             {allCategory
               .filter((item) => item.category.toLowerCase().includes(search.toLowerCase()))
@@ -70,10 +76,10 @@ function SecondSection() {
                 <div
                   className={style.list}
                   key={item._id}
-                  onClick={(e) => {
-                    setSearch(item.category); // Update the search state
+                  onClick={() => {
+                    setSearch(item.category);
                     setSelectedCategory(item.category);
-                    handleSubmit(e)
+                    setShowOptions(false); // Close the options list when an option is selected
                   }}
                 >
                   {item.category}
@@ -81,7 +87,7 @@ function SecondSection() {
               ))}
           </div>
         )}
-        </div>
+      </div>
 
       <div className={style.Carsouel}>
          <Slider/>

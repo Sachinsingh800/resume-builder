@@ -4,20 +4,18 @@ import Carsouel from '../../Component/Carsouel/Carsouel';
 import { useNavigate } from 'react-router-dom';
 import { getAllCategoy, getResume } from '../../Api/Api';
 import { useRecoilState } from 'recoil';
-import { resumeData ,resumeDataApi, selectedJobCate  } from '../../Recoil';
+import { resumeData, resumeDataApi, selectedJobCate } from '../../Recoil';
 
 function FirstSection() {
-  
   const [selectedCategory, setSelectedCategory] = useState('');
   const [allCategory, setAllCategory] = useState([]);
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
-
-
+  const [showOptions, setShowOptions] = useState(false);
 
   useEffect(() => {
     handleAllCategory();
-    handleDemoData()
+    handleDemoData();
   }, []);
 
   const handleAllCategory = async () => {
@@ -36,7 +34,7 @@ function FirstSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-localStorage.setItem("category",JSON.stringify(selectedCategory))
+    localStorage.setItem('category', JSON.stringify(selectedCategory));
     try {
       const response = await getResume(selectedCategory);
 
@@ -50,9 +48,9 @@ localStorage.setItem("category",JSON.stringify(selectedCategory))
       console.error('Error fetching resume:', error.message);
     }
   };
-  const handleDemoData = async (e) => {
 
-localStorage.setItem("category",JSON.stringify(selectedCategory))
+  const handleDemoData = async (e) => {
+    localStorage.setItem('category', JSON.stringify(selectedCategory));
     try {
       const response = await getResume(selectedCategory);
 
@@ -75,13 +73,16 @@ localStorage.setItem("category",JSON.stringify(selectedCategory))
         </p>
         <br />
         <input
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setShowOptions(true); // Show the options list when typing in the input field
+          }}
           className={style.search_input}
           placeholder="🔍 Search here..."
           value={search}
         />
 
-        {search.length > 0 && (
+        {showOptions && ( // Show options only when showOptions is true
           <div className={style.optionList}>
             {allCategory
               .filter((item) => item.category.toLowerCase().includes(search.toLowerCase()))
@@ -90,9 +91,9 @@ localStorage.setItem("category",JSON.stringify(selectedCategory))
                   className={style.list}
                   key={item._id}
                   onClick={() => {
-                    setSearch(item.category); // Update the search state
+                    setSearch(item.category);
                     setSelectedCategory(item.category);
-                  
+                    setShowOptions(false); // Close the options list when an option is selected
                   }}
                 >
                   {item.category}
