@@ -37,10 +37,12 @@ import rabbit from "../../Component/Images/rabbit.gif"
 import resume_img from "../../Component/Images/resume_img.gif"
 import resume_img2 from "../../Component/Images/resume_img2.gif"
 import { getAllAreaofInterest, getAllLanguages, getAllSkills, getAllSummary } from "../../Api/Api";
+import { useSound } from 'use-sound';
+import clickSound from "../../Sounds/Click.mp3"
 
 function CreateResume() {
   
-
+  const [play] = useSound(clickSound);
   const type = useRecoilValue(resumeType);
   const sectionNo = useRecoilValue(suggestionData);
   const [summary, setSummary] = useState([]);
@@ -101,6 +103,9 @@ function CreateResume() {
   
   ]
 
+  const handleClick = () => {
+    play();
+  };
 
 
   useEffect(() => {
@@ -190,10 +195,12 @@ function CreateResume() {
   };
 
   const toggleShowMore1 = () => {
+    handleClick()
     setShowMore1(!showMore1);
   };
   const toggleShowMore2 = () => {
     setShowMore2(!showMore2);
+    handleClick()
   };
 
   const handleLiClick = (value) => {

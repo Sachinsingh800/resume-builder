@@ -4,6 +4,8 @@ import NavBar from '../../Component/NavBar/NavBar'
 import { Link } from 'react-router-dom'
 import Footer from '../../Component/Footer/Footer'
 import ColorPlate from '../../Component/ColorPlate/ColorPlate'
+import { useSound } from 'use-sound';
+import clickSound from "../../Sounds/Click.mp3"
 
 import { imageresumeTemplates ,chooseTemplates} from '../../Recoil'
 import { useRecoilState } from 'recoil'
@@ -12,12 +14,21 @@ import { useRecoilState } from 'recoil'
 
 
 function ChooseTemplates() {
+  const [play] = useSound(clickSound);
 
   const [template,setTempletes] = useRecoilState(imageresumeTemplates)
   const [temNo,setTemNo] = useRecoilState(chooseTemplates)
+  
+  const handleClick = () => {
+    play();
+  };
+
+
   const handtemp=(id)=>{
+    handleClick()
     setTemNo(id)
   }
+
   return (
     <div className={style.main}>
         <NavBar/>

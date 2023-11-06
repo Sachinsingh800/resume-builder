@@ -6,6 +6,8 @@ import { getAllCategoy, getResume } from '../../Api/Api';
 import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { resumeData } from '../../Recoil';
+import { useSound } from 'use-sound';
+import clickSound from "../../Sounds/Click.mp3"
 
 
 function SecondSection() {
@@ -15,6 +17,10 @@ function SecondSection() {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [showOptions, setShowOptions] = useState(false);
+  const [play] = useSound(clickSound);
+  const handleClick = () => {
+    play();
+  };
 
   useEffect(() => {
     handleAllCategory();
@@ -92,7 +98,7 @@ function SecondSection() {
         )}
       </div>
 
-      <div className={style.Carsouel}>
+      <div className={style.Carsouel} onClick={handleClick}>
          <Slider/>
       </div>
     </div>
