@@ -8,6 +8,8 @@ import { croppedImageState,suggestionData,selectedValue1,selectedValue2,modalVal
 import { addResume, updateResume } from '../../Api/Api';
 import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
+import { useSound } from 'use-sound';
+import clickSound from "../../Sounds/Click.mp3"
 
 
 const ResumeForm = () => {
@@ -23,6 +25,10 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
   const [progress, setProgress] = useState(0);
   const navigate= useNavigate()
   const authToken = JSON.parse(localStorage.getItem("token"))
+  const [play] = useSound(clickSound);
+
+
+
 
   async function createFileFromImageUrl(imageUrl, fileName) {
     const response = await fetch(imageUrl);
@@ -202,6 +208,7 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
 
 
   const handleSection = (direction) => {
+    play();
     if (direction === 'next' && section < 13) {
       setSection(section + 1);
       setHandleSuggestion(section +1)
