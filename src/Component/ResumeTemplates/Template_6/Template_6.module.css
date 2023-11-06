@@ -15,7 +15,6 @@
   
   .container {
     padding: 13px 0 0 0;
-
   }
   
   .name {
@@ -28,9 +27,20 @@
     color:white;
   }
   
-
+  .iconContainer {
+    width: 1.5625rem ; /* 1.5625rem */
+    height: 1.5625rem ; /* 1.5625rem */
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   
-
+  .icon {
+    color: black;
+  }
+  
   .email {
     color: white;
   }
@@ -45,42 +55,36 @@
     gap: 1rem;
     padding: .5rem;
 
-
   }
   .skillsHeader {
-    
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: .5rem;
   }
 
   .skillsHeader h3{
-   padding: 0rem 1rem;
-    background-color: aliceblue;
+    margin-left: .5rem;
   }
 
   .skillsHeader ul{
    list-style: none;
-  padding: 0rem 2rem 0rem 1rem;
+  padding: 0rem 2rem 0rem 0rem;
 
   }
   .skillsHeader ul li{
-display: flex;
-flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0rem 1rem;
 
   }
   .skillsHeader2{
-      padding: 0!important;
-  }
-  .skillsHeader2 p{
-    margin: 1rem;
+    padding: 1.5rem;
   }
   .skillsHeader2 h2{
     display: flex;
     align-items: center;
     gap: .5rem;
-    padding: .5rem 2rem;
-    font-weight: 400;
   }
   .skillsHeader2 ul{
     margin-left: 1.5rem;
@@ -104,12 +108,11 @@ flex-direction: column;
   }
   .objectiveHeader{
     padding: 1rem;
-    height: 10rem;
+    height: 13rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: .5rem;
-    margin: 2rem 0rem;
   }
   .workHeader{
     padding: 1rem;
@@ -126,6 +129,7 @@ flex-direction: column;
     gap: .5rem;
   }
   .professionalSkillsHeader{
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,8 +139,7 @@ flex-direction: column;
     display: flex;
     align-items: center;
     gap: .5rem;
-    padding: .5rem 2rem;
-    font-weight: 400;
+
   }
   .img_container{
   padding: .4rem;
@@ -152,7 +155,7 @@ flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: orange;
+    background-color: white;
     padding: .3rem;
 }
 .img_box img{
@@ -182,18 +185,4 @@ flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 10rem;
-}
-.skillsAndLevel{
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
-  gap: .5rem;
-  padding: 1rem;
-}
-.skillsAndLevel li{
-
-  overflow: hidden;
-}
-
-.skillsAndLevel li span{
-  margin-left: 1rem;
 }

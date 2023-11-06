@@ -61,7 +61,10 @@ function SecondSection() {
         <input
           onChange={(e) => {
             setSearch(e.target.value);
-            setShowOptions(true); // Show the options list when typing in the input field
+            setShowOptions(true);
+            if (e.target.value.length === 0) {
+              setShowOptions(false);
+            }
           }}
           className={style.search_input}
           placeholder="🔍 Search here..."

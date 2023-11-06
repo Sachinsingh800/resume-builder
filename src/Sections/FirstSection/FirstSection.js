@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { getAllCategoy, getResume } from '../../Api/Api';
 import { useRecoilState } from 'recoil';
 import { resumeData, resumeDataApi, selectedJobCate } from '../../Recoil';
+import { useSound } from 'use-sound';
+import clickSound from "../../Sounds/Click.mp3"
 
 function FirstSection() {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -12,6 +14,10 @@ function FirstSection() {
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
   const [showOptions, setShowOptions] = useState(false);
+  const [play] = useSound(clickSound);
+  const handleClick = () => {
+    play();
+  };
 
   useEffect(() => {
     handleAllCategory();
@@ -33,6 +39,7 @@ function FirstSection() {
   };
 
   const handleSubmit = async (e) => {
+    handleClick()
     e.preventDefault();
     localStorage.setItem('category', JSON.stringify(selectedCategory));
     try {
@@ -75,7 +82,10 @@ function FirstSection() {
         <input
           onChange={(e) => {
             setSearch(e.target.value);
-            setShowOptions(true); // Show the options list when typing in the input field
+            setShowOptions(true);
+            if (e.target.value.length === 0) {
+              setShowOptions(false);
+            }
           }}
           className={style.search_input}
           placeholder="🔍 Search here..."
