@@ -1,0 +1,100 @@
+.main{
+    display: flex;
+       flex-direction: column;
+        width: 52rem; /* 874px / 16px = 54.625rem */
+        height: 73.3rem;  /* 1240px / 16px = 77.5rem */
+        background-Color: white;
+        box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        gap: 1rem;
+    
+    }
+    .heading{
+        display: flex;
+        justify-content: space-between;
+        width: 52rem; 
+        padding: 1rem ;
+    }
+    .heading div{
+        width: 50%;
+        overflow: hidden;
+    }
+    .summary h2{
+        border-top: 1px  rgb(112, 111, 111) solid;
+        border-bottom: 1px rgb(112, 111, 111) solid;
+        width: 90%;
+    }
+    .para{
+        width: 96%;
+    }
+    .summary {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .Experience{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .Experience h2{
+        border-top: 1px  rgb(112, 111, 111) solid;
+        border-bottom: 1px rgb(112, 111, 111) solid;
+        width: 96%;
+        text-align: center;
+    }
+    .Experience ul{
+        width: 90%;
+    }
+    .Skills h2{
+        border-top: 1px  rgb(112, 111, 111) solid;
+        border-bottom: 1px rgb(112, 111, 111) solid;
+        width: 96%;
+        text-align: center;
+    }
+    .Skills {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .Skills ul{
+        width: 90%;
+        display: inline-table;
+        grid-template-columns: auto;
+    }
+    .Skills ul li{
+       width: max-content;
+        display: inline-table;
+        padding: .5rem;
+        margin: 1rem;
+        border-radius: 5px;
+        color: white!important;
+        background-color: rgb(31, 106, 177);
+    }
+
+    .Eucation{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .Eucation h2{
+        border-top: 1px  rgb(112, 111, 111) solid;
+        border-bottom: 1px rgb(112, 111, 111) solid;
+        width: 96%;
+        text-align: center;
+    }
+    .Eucation ul{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .Eucation ul li{
+        display: flex;
+        flex-direction: column;
+    }
+    .contact_info{
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+    }

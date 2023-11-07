@@ -2236,11 +2236,14 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
 
       </form>
       <br />
-      <div className={style.btn_box}>
-        <button onClick={() => handleSection('prev')}>Previous</button>
-        <button onClick={() => handleSection('next')}>Next</button>
-        <button onClick={() => handleSection('next')}>Skip</button>
-        </div>
+      {section === 13 ? <button onClick={() => handleSection('prev')}>Previous</button>:
+            <div className={style.btn_box}>
+            <button onClick={() => handleSection('prev')}>Previous</button>
+            <button onClick={() => handleSection('next')}>Next</button>
+            <button onClick={() => handleSection('next')}>Skip</button>
+            </div>
+       }
+
     </div>
   );
 };
