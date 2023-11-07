@@ -57,9 +57,22 @@ const Template_6 = () => {
           </div>
         </div>
         <br />
+        <div className={style.skillsHeader2}>
+          <h2>
+            <CgProfile />
+            PROFILE
+          </h2>
+          <br/>
+          <hr className={style.hr} style={{ color: color3}} />
+          <p>
+          {formData?.resume?.summary}
+          </p>
+        </div>
+        <br/>
 
         <div className={style.info_box}>
-          <h3 style={{ color: color3}}>CONTACT</h3>
+          <h3 style={{ color: color3}}>CONTACT ME
+          </h3>
           <br />
           <hr className={style.hr} style={{ color: color3}} />
           <div className={style.contactInfo}>
@@ -89,19 +102,6 @@ const Template_6 = () => {
           </div>
         </div>
 
-        <div className={style.skillsHeader}>
-          <h3 style={{ color: color3}}>Education</h3>
-          <br />
-          <hr className={style.hr} style={{ color: color3}} />
-          <ul>
-          {formData?.resume?.education.map((item,id)=>
-           <li  key={id} style={{ color: color3}}>
-          <span>{item.degree} <span>{item?.startYear}  - {item.endYear}</span></span>  
-          <span>{item.collegeName}</span>  
-             </li>
-          )}
-          </ul>
-        </div>
         <div className={style.skillsHeader}>
           <h3 style={{ color: color3}}>PERSONAL SKILLS</h3>
           <br />
@@ -137,21 +137,24 @@ const Template_6 = () => {
           <p className={style.objectiveText}> {formData?.resume?.jobTitle}</p>
         </div>
 
-        <div className={style.skillsHeader2}>
-          <h2>
-            <CgProfile />
-            PROFILE
-          </h2>
-          <br/>
+        <div className={style.skillsHeader}>
+          <h2 style={{ color: color3}}>Education</h2>
+          <br />
           <hr className={style.hr} style={{ color: color3}} />
-          <p>
-          {formData?.resume?.summary}
-          </p>
+          <ul>
+          {formData?.resume?.education.map((item,id)=>
+           <li  key={id} style={{ color: color3}}>
+          <span>{item.degree} <span>{item?.startYear}  - {item.endYear}</span></span>  
+          <span>{item.collegeName}</span>  
+             </li>
+          )}
+          </ul>
         </div>
+   
 
         <div className={style.professionalSkillsHeader}>
           <div>
-          <h2><MdOutlineWorkHistory/>WORKING EXPERIENCE</h2>
+          <h2> EXPERIENCE</h2>
           <br/>
           <br/>
           <hr className={style.hr} style={{ color: color3}} />
