@@ -22,6 +22,7 @@ import Profile from './Page/Profile/Profile';
 import Blog from './Page/Blog/Blog';
 import Template_6 from './Component/ResumeTemplates/Template_6/Template_6';
 import Template_7 from './Component/ResumeTemplates/Template_7/Template_7';
+import Template_8 from './Component/ResumeTemplates/Template_8/Template_8';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: "/Template_7",
     element: <Template_7/>,
+  },
+  {
+    path: "/Template_8",
+    element: <Template_8/>,
   },
   {
     path: "/SignUp",
