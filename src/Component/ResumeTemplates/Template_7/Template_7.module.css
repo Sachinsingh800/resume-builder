@@ -6,7 +6,6 @@ display: flex;
     background-Color: white;
     box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    border: 1px red solid;
     gap: 1rem;
 
 }
