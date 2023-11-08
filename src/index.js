@@ -24,6 +24,7 @@ import Template_6 from './Component/ResumeTemplates/Template_6/Template_6';
 import Template_7 from './Component/ResumeTemplates/Template_7/Template_7';
 import Template_8 from './Component/ResumeTemplates/Template_8/Template_8';
 import Template_9 from './Component/ResumeTemplates/Template_9/Template_9';
+import Form from './Component/Form/Form';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
   {
     path: "/Blog",
     element: <Blog/>
+  },
+  {
+    path: "/Form",
+    element: <Form/>
   },
 ]);
 root.render(
