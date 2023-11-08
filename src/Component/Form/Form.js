@@ -5,6 +5,8 @@ import "./styles.css";
 import style from "./Form.module.css";
 import { registration, signInuser } from "../../Api/Api";
 import Swal from "sweetalert2";
+import NavBar from "../NavBar/NavBar";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const [signIn, toggle] = useState(true);
@@ -14,6 +16,8 @@ export default function Form() {
     password: "",
   });
 
+  const navigate = useNavigate()
+
   const handleSignIn = async (e) => {
     e.preventDefault();
 
@@ -21,6 +25,7 @@ export default function Form() {
       const response = await signInuser(formData); // Assuming signIn function accepts an object
       localStorage.setItem("token", JSON.stringify(response.data));
       Swal.fire("Welcome back!", "Sign in successful", "success");
+      navigate("/")
     } catch (error) {
       Swal.fire("Oops!", "Sign in failed", "error");
     }
@@ -52,6 +57,10 @@ export default function Form() {
 
   return (
     <div className={style.main}>
+        <div className={style.nav_Bar}>
+        <NavBar/>
+        </div>
+     
       <Components.Container>
         <Components.SignUpContainer signingIn={signIn}>
           <Components.Form>
