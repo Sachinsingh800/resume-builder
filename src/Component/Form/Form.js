@@ -9,6 +9,7 @@ import NavBar from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 
 
+
 export default function Form() {
   const [signIn, toggle] = useState(true);
   const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ export default function Form() {
         <div className={style.nav_Bar}>
         <NavBar/>
         </div>
-    
+        
       <Components.Container>
         <Components.SignUpContainer signingIn={signIn}>
           <Components.Form>
