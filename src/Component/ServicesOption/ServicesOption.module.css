@@ -2,6 +2,7 @@
   display: flex;
   height: 100%;
    padding: 1rem;
+
 }
   
 .category{
@@ -51,4 +52,9 @@ overflow-y: scroll;
 }
 .option_box::-webkit-scrollbar{
   display: none;
+}
+.Loader{
+  position: absolute;
+  left: 45%;
+  top:50%;
 }

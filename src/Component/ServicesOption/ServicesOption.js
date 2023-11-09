@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./ServicesOption.module.css";
 import { getAllArticleCategoy, getAllSubArticleCategoy } from "../../Api/Api";
 import { useEffect } from "react";
+import Loader from "../Loader/Loader";
 
 export default function ServicesOptionList() {
   const [allCategory, setAllCategory] = useState([]);
@@ -37,6 +38,10 @@ export default function ServicesOptionList() {
 
   return (
     <div className={style.main}>
+      <div  className={style.Loader}>
+      {allCategory.length === 0 ? <Loader /> : null}
+      </div>
+    
       <ul className={style.category}>
         {allCategory.map((item, index) => (
           <li
@@ -53,9 +58,7 @@ export default function ServicesOptionList() {
       <div className={style.option_box}>
         <ul className={style.option_list}>
           {allSubCategory.map((item, index) => (
-            <li key={item._id}>
-              {item.subCategory}
-            </li>
+            <li key={item._id}>{item.subCategory}</li>
           ))}
         </ul>
       </div>
