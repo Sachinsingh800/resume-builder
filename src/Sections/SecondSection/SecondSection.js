@@ -18,6 +18,7 @@ function SecondSection() {
   const [search, setSearch] = useState('');
   const [showOptions, setShowOptions] = useState(false);
   const [play] = useSound(clickSound);
+  
   const handleClick = () => {
     play();
   };
