@@ -16,8 +16,6 @@ import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
 import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
 import Template_4 from './Component/ResumeTemplates/Template_4/Template_4';
 import Template_5 from './Component/ResumeTemplates/Template_5/Template_5';
-import SignUp from './Component/SignUp/SignUp';
-import SignIn from './Component/SignIn/SignIn';
 import Profile from './Page/Profile/Profile';
 import Blog from './Page/Blog/Blog';
 import Template_6 from './Component/ResumeTemplates/Template_6/Template_6';
@@ -25,6 +23,7 @@ import Template_7 from './Component/ResumeTemplates/Template_7/Template_7';
 import Template_8 from './Component/ResumeTemplates/Template_8/Template_8';
 import Template_9 from './Component/ResumeTemplates/Template_9/Template_9';
 import Form from './Component/Form/Form';
+import Template_10 from './Component/ResumeTemplates/Template_10/Template_10';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -81,13 +80,10 @@ const router = createBrowserRouter([
     element: <Template_9/>,
   },
   {
-    path: "/SignUp",
-    element: <SignUp/>
+    path: "/Template_10",
+    element: <Template_10/>,
   },
-  {
-    path: "/SignIn",
-    element: <SignIn/>
-  },
+
   {
     path: "/Profile",
     element: <Profile/>
