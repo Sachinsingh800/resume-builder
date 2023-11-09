@@ -4,6 +4,7 @@ import logo from '../Images/logo.png';
 import ServicesOption from '../ServicesOption/ServicesOption';
 import { Link } from 'react-router-dom';
 import { getUserProfile } from '../../Api/Api';
+import ServicesOptionList from '../ServicesOption/ServicesOption';
 
 function NavBar() {
   const [isResumeHovered, setIsResumeHovered] = useState(false);
@@ -78,8 +79,8 @@ function NavBar() {
 
         {isResumeHovered && (
           <div className={style.servicesDiv} onMouseLeave={handleResumeLeave}>
-            <span className={style.arrow}>▲</span>
-            <ServicesOption />
+      
+            <ServicesOptionList/>
           </div>
         )}
         <h4 className={isCoverLetterHovered ? style.active : style.notActive} onMouseEnter={handleCoverLetterHover}>
@@ -88,8 +89,7 @@ function NavBar() {
 
         {isCoverLetterHovered && (
           <div className={style.servicesDiv} onMouseLeave={handleCoverLetterLeave}>
-            <span className={style.arrow1}>▲</span>
-            <ServicesOption />
+            <ServicesOptionList />
           </div>
         )}
         {authToken ? (

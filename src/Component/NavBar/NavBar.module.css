@@ -65,8 +65,7 @@
     width: 95%;
     color: black;
     height:30rem;
-    
-    overflow: scroll;
+    overflow: hidden;
     z-index: 99;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
@@ -95,10 +94,10 @@ color: blue;
 /* Define the keyframes for the slideDown animation */
 @keyframes slideDown {
     10% {
-      transform: translateY(-1%); /* Start off the screen above */
+      transform: translateY(4%); /* Start off the screen above */
     }
     100% {
-      transform: translateY(3%); /* End at its normal position */
+      transform: translateY(8%); /* End at its normal position */
     }
   }
   

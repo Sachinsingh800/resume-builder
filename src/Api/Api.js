@@ -69,7 +69,30 @@ export const getlastResume = async () => {
 };
 
 
-
+export const getAllArticleCategoy = async () => {
+  
+  try {
+    const response = await axios.get(`${BASE_URL}/adminContent/getAllResumeCateEx`, {
+    });
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error getting services:', error.message);
+    throw new Error('Failed to get services');
+  }
+};
+export const getAllSubArticleCategoy = async (selectedid) => {
+  
+  try {
+    const response = await axios.get(`${BASE_URL}/adminContent/getAllResumeSubCateEx/${selectedid}`, {
+    });
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error getting services:', error.message);
+    throw new Error('Failed to get services');
+  }
+};
 
 export const getAllCategoy = async () => {
   
