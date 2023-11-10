@@ -44,7 +44,7 @@ export const getUserProfile = async () => {
     'Content-Type': 'multipart/form-data', // Set the content type for file uploads
   };
   try {
-    const response = await axios.get(`${BASE_URL}/user/profile`, {headers});
+    const response = await axios.get(`${BASE_URL}/user/auth/profile`, {headers});
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {
@@ -72,7 +72,7 @@ export const getlastResume = async () => {
 export const getAllArticleCategoy = async () => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/adminContent/getAllResumeCateEx`, {
+    const response = await axios.get(`${BASE_URL}/user/public/getAllResumeCateEx`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -84,7 +84,7 @@ export const getAllArticleCategoy = async () => {
 export const getAllSubArticleCategoy = async (selectedid) => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/adminContent/getAllResumeSubCateEx/${selectedid}`, {
+    const response = await axios.get(`${BASE_URL}/user/public/getAllResumeSubCateEx/${selectedid}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -97,7 +97,7 @@ export const getAllSubArticleCategoy = async (selectedid) => {
 export const getAllCategoy = async () => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/admin/getAllCategoy`, {
+    const response = await axios.get(`${BASE_URL}/user/public/getAllCategoy`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -127,7 +127,7 @@ export const getAllBlog = async () => {
 export const getResume = async (selectedCategory) => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/adminDummy/getFilteredDummyResume?category=${selectedCategory}`, {
+    const response = await axios.get(`${BASE_URL}/user/public//getFilteredDummyResume?category=${selectedCategory}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -197,9 +197,9 @@ export const updateResume = async (id,formData) => {
 
 
 export const getAllSummary = async (selectedCategory) => {
-  console.log(selectedCategory,"seleted codadasds")
+
   try {
-    const response = await axios.get(`${BASE_URL}/admin/getSummary?category=${selectedCategory}`, {
+    const response = await axios.get(`${BASE_URL}/user/public/getSummary?category=${selectedCategory}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -215,7 +215,7 @@ export const getAllSummary = async (selectedCategory) => {
 export const getAllSkills = async (selectedCategory) => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/admin/getSkills?category=${selectedCategory}`, {
+    const response = await axios.get(`${BASE_URL}/user/public/getSkills?category=${selectedCategory}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -230,7 +230,7 @@ export const getAllSkills = async (selectedCategory) => {
 export const getAllAreaofInterest = async (selectedCategory) => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/admin/areaOfInterest?category=${selectedCategory}`, {
+    const response = await axios.get(`${BASE_URL}/user/public/areaOfInterest?category=${selectedCategory}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -244,7 +244,7 @@ export const getAllAreaofInterest = async (selectedCategory) => {
 export const getAllLanguages = async () => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/admin/getLanguages`, {
+    const response = await axios.get(`${BASE_URL}/user/public/getLanguages`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
