@@ -10,7 +10,7 @@ const authToken = JSON.parse(localStorage.getItem("token"))
 
 export const registration = async (formData) => {
   try {
-    const response = await axios.post(`${BASE_URL}/user/register`, formData );
+    const response = await axios.post(`${BASE_URL}/user/auth/register`, formData );
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {
@@ -22,7 +22,7 @@ export const registration = async (formData) => {
 
 export const signInuser = async (formData) => {
   try {
-    const response = await axios.post(`${BASE_URL}/user/logIn`, formData );
+    const response = await axios.post(`${BASE_URL}/user/auth/logIn`, formData );
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {
