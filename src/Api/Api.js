@@ -59,7 +59,7 @@ export const getlastResume = async () => {
     'Content-Type': 'multipart/form-data', // Set the content type for file uploads
   };
   try {
-    const response = await axios.get(`${BASE_URL}/user/getLatestResume`, {headers});
+    const response = await axios.get(`${BASE_URL}/user/resume/getLatestResume`, {headers});
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {
@@ -127,7 +127,7 @@ export const getAllBlog = async () => {
 export const getResume = async (selectedCategory) => {
   
   try {
-    const response = await axios.get(`${BASE_URL}/user/public//getFilteredDummyResume?category=${selectedCategory}`, {
+    const response = await axios.get(`${BASE_URL}/user/public/getFilteredDummyResume?category=${selectedCategory}`, {
     });
     const { status, message, data } = response.data;
     return { status, message, data };
@@ -167,7 +167,7 @@ export const updateResume = async (id,formData) => {
     'Content-Type': 'multipart/form-data', // Set the content type for file uploads
   };
   try {
-    const response = await axios.put(`${BASE_URL}/user/updateResumeUser/${id}`, formData,{headers});
+    const response = await axios.put(`${BASE_URL}/user/resume/updateResumeUser/${id}`, formData,{headers});
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {

@@ -18,7 +18,7 @@ function LastResume() {
     message: 'Resume created successfully',
     resume: data,
   };
-console.log(formData,"obj",obj)
+console.log(formData,"obj")
 
   useEffect(() => {
     handleLastResume();
@@ -36,6 +36,7 @@ const getResumedata=()=>{
 
       if (response.status === true) {
         setData(response?.data);
+        console.log(response,"response")
       } else {
         console.error('Error fetching user profile:', response.data.message);
       }
