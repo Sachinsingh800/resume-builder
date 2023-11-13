@@ -30,11 +30,11 @@ const CoverLetterForm = () => {
 
     if (direction === 'next' && section < 4) {
       setSection(section + 1);
-      setProgress(progress + 18)
+      setProgress(progress + 35)
       scrollToTop()
     } else if (direction === 'prev' && section > 1) {
       setSection(section - 1);
-      setProgress(progress - 18)
+      setProgress(progress - 35)
       scrollToTop()
     }
   };
@@ -48,18 +48,21 @@ const CoverLetterForm = () => {
   
    
 <div className={style.container}>
-<h2>Create Your Cover Letter</h2>
+    <div className={style.header_bar}>
+    <h2>Create Your Cover Letter</h2>
+<br/>
       <div className={style['progress-bar']}>
          <ul>
           <li>1</li>
           <li>2</li>
           <li>3</li>
-          <li>4</li>
- 
         </ul>
         <div className={style.progress} style={{ width: `${progress}%` }}></div>
    
       </div >
+    </div>
+
+      <br/>
 <form className={style.form}>
 
       {section ===1 && 
@@ -334,7 +337,7 @@ const CoverLetterForm = () => {
 
     
 {section === 4 &&
-    <section>  
+    <section className={style.section_4}>  
     {/* Additional Details */}
 <label>
  Availability:
@@ -345,7 +348,7 @@ const CoverLetterForm = () => {
    onChange={handleChange}
  />
 </label>
-<br />
+
 <label>
  Confidentiality:
  <input
@@ -355,7 +358,7 @@ const CoverLetterForm = () => {
    onChange={handleChange}
  />
 </label>
-<br />
+
 <label>
  Gaps in Employment:
  <input
@@ -365,7 +368,7 @@ const CoverLetterForm = () => {
    onChange={handleChange}
  />
 </label>
-<br />
+
 <label>
  Relocation:
  <input
@@ -375,7 +378,7 @@ const CoverLetterForm = () => {
    onChange={handleChange}
  />
 </label>
-<br />
+
 <label>
  Salary Requirements:
  <input
@@ -391,11 +394,13 @@ const CoverLetterForm = () => {
 
       </form>
      
-<div className={style.btn_box}>
+      {section === 4 ? <button onClick={() => handleSection('prev')}>Previous</button>:
+            <div className={style.btn_box}>
             <button onClick={() => handleSection('prev')}>Previous</button>
             <button onClick={() => handleSection('next')}>Next</button>
             <button onClick={() => handleSection('next')}>Skip</button>
             </div>
+       }
 
 </div>
 <div className={style.coverLetter_box}>
