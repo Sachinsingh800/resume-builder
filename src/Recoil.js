@@ -831,3 +831,47 @@ export const selectedValue2= atom({
   key: 'selectedValue2',
   default:""
 });
+
+
+
+
+
+
+export const jobApplicationState = atom({
+  key: 'jobApplicationState',
+  default: {
+    nameAndContact: {
+      firstName: "John",
+      lastName: "Doe",
+      profession: "Software Engineer",
+      city: "New York",
+      state: "NY",
+      zip: "12345",
+      phoneNumber: "1234567890",
+      email: "johndoe@example.com"
+    },
+    date: "2023-07-13",
+    recipient: {
+      firstName: "Jane",
+      lastName: "Smith",
+      companyName: "ABC Company",
+      city: "San Francisco",
+      state: "CA",
+      zip: "54321",
+      phoneNumber: "9876543210",
+      email: "janesmith@example.com"
+    },
+    subject: "Regarding Job Application",
+    greeting: "Dear Hiring Manager",
+    opening: "I am writing to express my interest in the software engineer position at ABC Company.",
+    letterBody: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+    callToAction: "I would welcome the opportunity to discuss my qualifications further...",
+    closing: "Thank you for considering my application.",
+    signature: "John Doe",
+    availability: "I am available for an interview...",
+    confidentiality: "I understand the importance of maintaining...",
+    gaps: "During my previous employment...",
+    relocation: "I am willing to relocate...",
+    salaryRequirements: "My salary requirements are flexible..."
+  },
+});
