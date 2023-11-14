@@ -1,87 +1,72 @@
 import React from "react";
 import { useRecoilValue } from 'recoil';
 import { jobApplicationState } from "../../../Recoil"; 
+import style from "./CoverLetter1.module.css"
 
 const CoverLetter1 = () => {
   const formData = useRecoilValue(jobApplicationState);
 
   return (
-    <div>
-      <h2>Job Application Form</h2>
+    <div className={style.main}>
+  
+<div className={style.heading}>
+<div>
+  <h1>{formData.nameAndContact.firstName}   {formData.nameAndContact.lastName}</h1>
+  <p>{formData.nameAndContact.profession}</p>
+</div>
+<div>
+  <p><strong>Phone:</strong> {formData.nameAndContact.phoneNumber}</p>
+  <p><strong>Email:</strong>   {formData.nameAndContact.email}</p>
+</div>
+</div>
 
-      {/* Personal Information */}
-      <h3>Personal Information</h3>
-      <p>
-        <strong>Name:</strong> {formData.nameAndContact.firstName}{" "}
-        {formData.nameAndContact.lastName}
-      </p>
-      <p>
-        <strong>Profession:</strong> {formData.nameAndContact.profession}
-      </p>
-      <p>
-        <strong>Contact:</strong> {formData.nameAndContact.phoneNumber},{" "}
-        {formData.nameAndContact.email}
-      </p>
 
-      {/* Date */}
-      <h3>Date</h3>
-      <p>{formData.date}</p>
+<div className={style.section_1}>
+        
+<p>{formData.date}</p>
+<br/>
+<p>
+  {formData.recipient.firstName}
+  {formData.recipient.lastName}
+</p>
+<p>
+ {formData.recipient.companyName}
+</p>
+<p>
+ {formData.recipient.phoneNumber},
+  {formData.recipient.email}
 
-      {/* Recipient Information */}
-      <h3>Recipient Information</h3>
-      <p>
-        <strong>Recipient:</strong> {formData.recipient.firstName}{" "}
-        {formData.recipient.lastName}
-      </p>
-      <p>
-        <strong>Company:</strong> {formData.recipient.companyName}
-      </p>
-      <p>
-        <strong>Contact:</strong> {formData.recipient.phoneNumber},{" "}
-        {formData.recipient.email}
-      </p>
+</p>
+<p>   {formData.subject}</p>
+</div>
 
-      {/* Cover Letter */}
-      <h3>Cover Letter</h3>
-      <p>
-        <strong>Subject:</strong> {formData.subject}
+ 
+      
+<section className={style.section_2}>
+<p>
+        {formData.greeting}
       </p>
       <p>
-        <strong>Greeting:</strong> {formData.greeting}
+   {formData.opening}
       </p>
       <p>
-        <strong>Opening:</strong> {formData.opening}
+     {formData.letterBody}
       </p>
       <p>
-        <strong>Letter Body:</strong> {formData.letterBody}
+     {formData.callToAction}
       </p>
       <p>
-        <strong>Call to Action:</strong> {formData.callToAction}
+    {formData.closing}
       </p>
-      <p>
-        <strong>Closing:</strong> {formData.closing}
+</section>
+  <section className={style.section_3}>
+  <p>
+     {formData.signature}
       </p>
-      <p>
-        <strong>Signature:</strong> {formData.signature}
-      </p>
+  </section>
+ 
 
-      {/* Additional Details */}
-      <h3>Additional Details</h3>
-      <p>
-        <strong>Availability:</strong> {formData.availability}
-      </p>
-      <p>
-        <strong>Confidentiality:</strong> {formData.confidentiality}
-      </p>
-      <p>
-        <strong>Gaps in Employment:</strong> {formData.gaps}
-      </p>
-      <p>
-        <strong>Relocation:</strong> {formData.relocation}
-      </p>
-      <p>
-        <strong>Salary Requirements:</strong> {formData.salaryRequirements}
-      </p>
+
     </div>
   );
 };

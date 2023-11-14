@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { jobApplicationState } from '../../Recoil'; 
 import style from "./CoverLetterForm.module.css"
 import NavBar from '../NavBar/NavBar';
+import CoverLetter1 from '../CoverLetterTemplate/CoverLetter1/CoverLetter1';
 
 const CoverLetterForm = () => {
   const [formData, setFormData] = useRecoilState(jobApplicationState);
@@ -11,12 +12,29 @@ const CoverLetterForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  
+    // Check if the field is nested
+    if (name.includes('.')) {
+      const [nestedField, subField] = name.split('.');
+      setFormData((prevData) => ({
+        ...prevData,
+        [nestedField]: {
+          ...prevData[nestedField],
+          [subField]: value,
+        },
+      }));
+    } else {
+      // If not nested, update the field directly
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
+  
+  
+  
+  
 
   function scrollToTop() {
     window.scrollTo({
@@ -38,6 +56,11 @@ const CoverLetterForm = () => {
       scrollToTop()
     }
   };
+  const handleSubmit = () => {
+    // Log the form data to the console
+    console.log("Form Data Submitted:", formData);
+    // You can also perform additional actions here, such as sending the data to a server
+  };
 
   return (
     <div className={style.main}>
@@ -48,18 +71,11 @@ const CoverLetterForm = () => {
   
    
 <div className={style.container}>
+
     <div className={style.header_bar}>
     <h2>Create Your Cover Letter</h2>
 <br/>
-      <div className={style['progress-bar']}>
-         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </ul>
-        <div className={style.progress} style={{ width: `${progress}%` }}></div>
-   
-      </div >
+
     </div>
 
       <br/>
@@ -341,47 +357,47 @@ const CoverLetterForm = () => {
     {/* Additional Details */}
 <label>
  Availability:
- <input
+ <textarea
    type="text"
    name="availability"
    value={formData.availability}
    onChange={handleChange}
  />
 </label>
-
+<br/>
 <label>
  Confidentiality:
- <input
+ <textarea
    type="text"
    name="confidentiality"
    value={formData.confidentiality}
    onChange={handleChange}
  />
 </label>
-
+<br/>
 <label>
  Gaps in Employment:
- <input
+ <textarea
    type="text"
    name="gaps"
    value={formData.gaps}
    onChange={handleChange}
  />
 </label>
-
+<br/>
 <label>
  Relocation:
- <input
+ <textarea
    type="text"
    name="relocation"
    value={formData.relocation}
    onChange={handleChange}
  />
 </label>
-
+<br/>
 <label>
  Salary Requirements:
- <input
+ <textarea
    type="text"
    name="salaryRequirements"
    value={formData.salaryRequirements}
@@ -394,7 +410,13 @@ const CoverLetterForm = () => {
 
       </form>
      
-      {section === 4 ? <button onClick={() => handleSection('prev')}>Previous</button>:
+      {section === 4 ? 
+             <div className={style.btn_box}>
+                  <button onClick={handleSubmit}>Submit</button>
+                  <button onClick={() => handleSection('prev')}>Previous</button>
+             </div>
+  
+      :
             <div className={style.btn_box}>
             <button onClick={() => handleSection('prev')}>Previous</button>
             <button onClick={() => handleSection('next')}>Next</button>
@@ -404,7 +426,12 @@ const CoverLetterForm = () => {
 
 </div>
 <div className={style.coverLetter_box}>
+<div className={style.coverletter_container}>
+  <div>
+  <CoverLetter1/>
+  </div>
 
+</div>
 </div>
     </div>
   );

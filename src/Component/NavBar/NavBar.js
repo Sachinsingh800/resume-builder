@@ -89,7 +89,7 @@ function NavBar() {
 
         {isCoverLetterHovered && (
           <div className={style.servicesDiv} onMouseLeave={handleCoverLetterLeave}>
-            <ServicesOptionList />
+            <Link to={"/CoverLetterForm"}> <h1>Create Cover Letter</h1></Link>
           </div>
         )}
         {authToken ? (
