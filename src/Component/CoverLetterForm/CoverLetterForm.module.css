@@ -1,7 +1,7 @@
 .container{
     padding: 4rem 0rem 1rem 0rem;
    height: 100vh;
-   overflow: scroll;
+   overflow-y: scroll;
 
 }
 .form{
@@ -15,6 +15,7 @@
     padding: 0rem 1rem;
     margin-top: .5rem;
     width: 16rem;
+    font-family: Arial, Helvetica, sans-serif;
     
 }
 .header_bar{
@@ -74,6 +75,7 @@
     border: 1px rgb(178, 178, 178) solid;
     border-radius: 5px;
     outline: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .section_4 textarea{
     padding: .5rem;
@@ -81,6 +83,7 @@
     border: 1px rgb(178, 178, 178) solid;
     border-radius: 5px;
     outline: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .progress-bar {
     background-color: #f0f0f0;

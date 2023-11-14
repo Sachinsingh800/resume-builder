@@ -274,6 +274,31 @@ export const addResume = async (formData) => {
 };
 
 
+//addCoverLetter
+
+export const addCoverLetter = async (formData) => {
+  const headers = {
+    'x-auth-token': authToken,
+    'Content-Type': 'application/json', // Set the content type for JSON data
+  };
+
+  try {
+    const response = await axios.post(
+      `${BASE_URL}/user/coverletter/createCoverLetter`,
+      formData,
+      { headers }
+    );
+
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error creating cover letter:', error.message);
+    // Handle the error as needed
+  }
+};
+
+
+
 //addCategory
 
 export const addCategory= async ( formData) => {

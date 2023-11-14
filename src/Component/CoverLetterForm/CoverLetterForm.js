@@ -4,6 +4,8 @@ import { jobApplicationState } from '../../Recoil';
 import style from "./CoverLetterForm.module.css"
 import NavBar from '../NavBar/NavBar';
 import CoverLetter1 from '../CoverLetterTemplate/CoverLetter1/CoverLetter1';
+import { addCoverLetter } from '../../Api/Api';
+import Swal from "sweetalert2";
 
 const CoverLetterForm = () => {
   const [formData, setFormData] = useRecoilState(jobApplicationState);
@@ -56,10 +58,22 @@ const CoverLetterForm = () => {
       scrollToTop()
     }
   };
-  const handleSubmit = () => {
-    // Log the form data to the console
-    console.log("Form Data Submitted:", formData);
-    // You can also perform additional actions here, such as sending the data to a server
+
+
+  const  handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await addCoverLetter(formData); // Assuming registration function accepts an object
+     
+      console.log(response,"coverletter")
+      Swal.fire("Good job!", "SignUp", "success");
+    } catch (error) {
+      Swal.fire("Oops!", "Email already exists", "error");
+      // Handle signup error
+    } finally {
+      console.log("loading");
+    }
   };
 
   return (
