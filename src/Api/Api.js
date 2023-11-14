@@ -8,6 +8,21 @@ const BASE_URL = 'https://lizmyresume.onrender.com';
 const authToken = JSON.parse(localStorage.getItem("token"))
 
 
+
+export const getArticle = async (selectedSubid) => {
+  
+  try {
+    const response = await axios.get(`${BASE_URL}/admin/resumeexampleartical/getResumeExampleArtical/${selectedSubid}`, {
+    });
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error getting services:', error.message);
+    throw new Error('Failed to get services');
+  }
+};
+
+
 export const registration = async (formData) => {
   try {
     const response = await axios.post(`${BASE_URL}/user/auth/register`, formData );

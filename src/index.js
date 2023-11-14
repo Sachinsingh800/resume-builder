@@ -29,6 +29,8 @@ import Template_12 from './Component/ResumeTemplates/Template_12/Template_12';
 import CoverLetterForm from './Component/CoverLetterForm/CoverLetterForm';
 import CoverLetter1 from './Component/CoverLetterTemplate/CoverLetter1/CoverLetter1';
 import ChooseCoverLetter from './Page/ChooseCoverLetter/ChooseCoverLetter';
+import { Article } from '@mui/icons-material';
+import SubArticle from './Page/SubArticle/SubArticle';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -120,6 +122,10 @@ const router = createBrowserRouter([
   {
     path: "/ChooseCoverLetter",
     element: <ChooseCoverLetter />
+  },
+  {
+    path: "/SubArticle",
+    element: <SubArticle />
   },
 ]);
 root.render(

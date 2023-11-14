@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import style from "./ServicesOption.module.css";
-import { getAllArticleCategoy, getAllSubArticleCategoy } from "../../Api/Api";
+import { getAllArticleCategoy, getAllSubArticleCategoy, getArticle } from "../../Api/Api";
 import { useEffect } from "react";
 import Loader from "../Loader/Loader";
+import { useNavigate } from "react-router-dom";
 
 export default function ServicesOptionList() {
   const [allCategory, setAllCategory] = useState([]);
   const [allSubCategory, setSubCategory] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const navigate=useNavigate()
 
   useEffect(() => {
     handleAllCategory();
@@ -35,6 +37,15 @@ export default function ServicesOptionList() {
       console.error('Error fetching subcategories:', error.message);
     }
   };
+  const handleArticle = async (id) => {
+    try {
+      const response = await getArticle(id);
+      localStorage.setItem("article",JSON.stringify(response.data))
+      navigate("/SubArticle")
+    } catch (error) {
+      console.error('Error fetching subcategories:', error.message);
+    }
+  };
 
   return (
     <div className={style.main}>
@@ -58,7 +69,7 @@ export default function ServicesOptionList() {
       <div className={style.option_box}>
         <ul className={style.option_list}>
           {allSubCategory.map((item, index) => (
-            <li key={item._id}>{item.subCategory}</li>
+            <li key={item._id} onClick={()=>handleArticle(item._id)}>{item.subCategory}</li>
           ))}
         </ul>
       </div>
