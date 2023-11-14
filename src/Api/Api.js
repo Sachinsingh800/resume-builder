@@ -69,6 +69,22 @@ export const getlastResume = async () => {
 };
 
 
+export const getUserCoverLetter = async (selectedId) => {
+  const headers = {
+    'x-auth-token': authToken,
+    'Content-Type': 'multipart/form-data', // Set the content type for file uploads
+  };
+  try {
+    const response = await axios.get(`${BASE_URL}/user/coverletter/getParticularCoverLetter/${selectedId}`, {headers});
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error getting services:', error.message);
+    throw new Error('Failed to get services');
+  }
+};
+
+
 export const getAllArticleCategoy = async () => {
   
   try {

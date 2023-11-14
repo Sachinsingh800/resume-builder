@@ -2,6 +2,33 @@ import { atom } from 'recoil';
 import resume_1 from "./Component/Images/Template_1.png"
 import resume_2 from "./Component/Images/Template_2.png"
 import resume_3 from "./Component/Images/Template_3.png"
+import resume_4 from "./Component/TemplateImages/1.jpg"
+import resume_5 from "./Component/TemplateImages/2.jpg"
+import resume_6 from "./Component/TemplateImages/3.jpg"
+import resume_7 from "./Component/TemplateImages/4.jpg"
+import resume_8 from "./Component/TemplateImages/5.jpg"
+import resume_9 from "./Component/TemplateImages/6.jpg"
+import resume_10 from "./Component/TemplateImages/7.jpg"
+import resume_11 from "./Component/TemplateImages/8.jpg"
+import resume_12 from "./Component/TemplateImages/9.jpg"
+import resume_13 from "./Component/TemplateImages/10.jpg"
+import resume_14 from "./Component/TemplateImages/11.jpg"
+import resume_15 from "./Component/TemplateImages/12.jpg"
+import resume_16 from "./Component/TemplateImages/13.jpg"
+import resume_17 from "./Component/TemplateImages/14.jpg"
+import resume_18 from "./Component/TemplateImages/15.jpg"
+import resume_19 from "./Component/TemplateImages/16.jpg"
+import resume_20 from "./Component/TemplateImages/17.jpg"
+import resume_21 from "./Component/TemplateImages/18.jpg"
+import resume_22 from "./Component/TemplateImages/19.jpg"
+import resume_23 from "./Component/TemplateImages/20.jpg"
+import resume_24 from "./Component/TemplateImages/21.jpg"
+import resume_25 from "./Component/TemplateImages/22.jpg"
+import resume_26 from "./Component/TemplateImages/23.jpg"
+import resume_27 from "./Component/TemplateImages/24.jpg"
+import resume_28 from "./Component/TemplateImages/25.jpg"
+import resume_29 from "./Component/TemplateImages/26.jpg"
+import resume_30 from "./Component/TemplateImages/27.jpg"
 import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
 import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
 import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
@@ -111,6 +138,33 @@ export const imageresumeTemplates = atom({
   resume_1,
   resume_2,
   resume_3,
+  resume_4,
+  resume_5,
+  resume_6,
+  resume_7,
+  resume_8,
+  resume_9,
+  resume_10,
+  resume_11,
+  resume_12,
+  resume_13,
+  resume_14,
+  resume_15,
+  resume_16,
+  resume_17,
+  resume_18,
+  resume_19,
+  resume_20,
+  resume_21,
+  resume_22,
+  resume_23,
+  resume_24,
+  resume_25,
+  resume_26,
+  resume_27,
+  resume_28,
+  resume_29,
+  resume_30,
 
   ], // Set the default value to an empty array
 });
