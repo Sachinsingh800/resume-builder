@@ -28,6 +28,7 @@ import Template_11 from './Component/ResumeTemplates/Template_11/Template_11';
 import Template_12 from './Component/ResumeTemplates/Template_12/Template_12';
 import CoverLetterForm from './Component/CoverLetterForm/CoverLetterForm';
 import CoverLetter1 from './Component/CoverLetterTemplate/CoverLetter1/CoverLetter1';
+import ChooseCoverLetter from './Page/ChooseCoverLetter/ChooseCoverLetter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -115,6 +116,10 @@ const router = createBrowserRouter([
   {
     path: "/CoverLetter1",
     element: <CoverLetter1 />
+  },
+  {
+    path: "/ChooseCoverLetter",
+    element: <ChooseCoverLetter />
   },
 ]);
 root.render(

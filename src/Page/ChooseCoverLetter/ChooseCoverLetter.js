@@ -7,7 +7,7 @@ import ColorPlate from '../../Component/ColorPlate/ColorPlate'
 import { useSound } from 'use-sound';
 import clickSound from "../../Sounds/Click.mp3"
 
-import { imageresumeTemplates ,chooseTemplates} from '../../Recoil'
+import { imageCoverLetter ,chooseTemplates} from '../../Recoil'
 import { useRecoilState } from 'recoil'
 
 
@@ -16,7 +16,7 @@ import { useRecoilState } from 'recoil'
 function ChooseCoverLetter() {
   const [play] = useSound(clickSound);
 
-  const [template,setTempletes] = useRecoilState(imageresumeTemplates)
+  const [template,setTempletes] = useRecoilState(imageCoverLetter)
   const [temNo,setTemNo] = useRecoilState(chooseTemplates)
   
   const handleClick = () => {

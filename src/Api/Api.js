@@ -69,13 +69,13 @@ export const getlastResume = async () => {
 };
 
 
-export const getUserCoverLetter = async (selectedId) => {
+export const getUserCoverLetter = async () => {
   const headers = {
     'x-auth-token': authToken,
     'Content-Type': 'multipart/form-data', // Set the content type for file uploads
   };
   try {
-    const response = await axios.get(`${BASE_URL}/user/coverletter/getParticularCoverLetter/${selectedId}`, {headers});
+    const response = await axios.get(`${BASE_URL}/user/coverletter/getYourCoverLetter`, {headers});
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {

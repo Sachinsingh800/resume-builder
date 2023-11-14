@@ -32,6 +32,16 @@ import resume_30 from "./Component/TemplateImages/27.jpg"
 import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
 import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
 import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
+import coverLetter1 from  "./Component/CoverLetterImages/CL 1.png"
+import coverLetter2 from  "./Component/CoverLetterImages/CL 2.png"
+import coverLetter3 from  "./Component/CoverLetterImages/CL 3.png"
+import coverLetter4 from  "./Component/CoverLetterImages/CL 4.png"
+import coverLetter5 from  "./Component/CoverLetterImages/CL 5.png"
+import coverLetter6 from  "./Component/CoverLetterImages/CL 6.png"
+import coverLetter7 from  "./Component/CoverLetterImages/CL 7.png"
+import coverLetter8 from  "./Component/CoverLetterImages/CL 8.png"
+import coverLetter9 from  "./Component/CoverLetterImages/CL 9.png"
+import coverLetter10 from  "./Component/CoverLetterImages/CL 10.png"
 
 
 const resume = JSON.parse(localStorage.getItem("resume"))
@@ -165,6 +175,22 @@ export const imageresumeTemplates = atom({
   resume_28,
   resume_29,
   resume_30,
+
+  ], // Set the default value to an empty array
+});
+export const imageCoverLetter = atom({
+  key: 'imageCoverLetter', // Unique ID (with respect to other atoms/selectors)
+  default: [
+    coverLetter1,
+    coverLetter2,
+    coverLetter3,
+    coverLetter4,
+    coverLetter5,
+    coverLetter6,
+    coverLetter7,
+    coverLetter8,
+    coverLetter9,
+    coverLetter10,
 
   ], // Set the default value to an empty array
 });

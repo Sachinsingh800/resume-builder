@@ -83,15 +83,9 @@ function NavBar() {
             <ServicesOptionList/>
           </div>
         )}
-        <h4 className={isCoverLetterHovered ? style.active : style.notActive} onMouseEnter={handleCoverLetterHover}>
-          Cover Letter
-        </h4>
-
-        {isCoverLetterHovered && (
-          <div className={style.servicesDiv} onMouseLeave={handleCoverLetterLeave}>
-            <Link to={"/CoverLetterForm"}> <h1>Create Cover Letter</h1></Link>
-          </div>
-        )}
+         <Link to={'/ChooseCoverLetter'}>
+              <h4>Cover Letter</h4>
+            </Link>
         {authToken ? (
           <>
             <h3 className={style.user} onMouseEnter={handleUserHover}>
@@ -111,6 +105,7 @@ function NavBar() {
             <Link to={'/Form'}>
               <h4>Create & Login </h4>
             </Link>
+       
        
           </>
         )}

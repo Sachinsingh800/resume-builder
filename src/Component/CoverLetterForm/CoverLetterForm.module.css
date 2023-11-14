@@ -125,10 +125,11 @@
     height: 100vh;
   }
   .coverLetter_box{
-    padding-top: 4rem;
+    padding: 5rem .5rem .5rem .5rem;
     overflow: scroll;
     width: 43rem;
     height: 100vh;
+
   }
   .coverletter_container div{
    
