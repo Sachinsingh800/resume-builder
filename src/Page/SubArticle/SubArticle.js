@@ -9,7 +9,7 @@ import Footer from '../../Component/Footer/Footer';
 function SubArticle() {
 const article=JSON.parse(localStorage.getItem("article"))
 
-    console.log(article,"blog")
+   
 
     
       
