@@ -1,30 +1,37 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { jobApplicationState } from "../../../Recoil";
-import style from "./CoverLetter2.module.css";
+import style from "./CoverLetter4.module.css";
 
-const CoverLetter2 = () => {
+const CoverLetter4 = () => {
   const formData = useRecoilValue(jobApplicationState);
   console.log(formData);
   return (
     <div className={style.main}>
       <div className={style.heading}>
         <div>
-          <h1>
-            {" "}
+          <h1 className={style.name}>
+    
             {formData.nameAndContact.firstName}{" "}
             {formData.nameAndContact.lastName}
           </h1>
           <p> {formData.nameAndContact.profession}</p>
         </div>
-        <div>
+        <div className={style.contact_box}>
+       
+          <p> {formData.nameAndContact.email}</p>
+          <p> {formData.nameAndContact.phoneNumber}</p>
           <p>
             {formData.nameAndContact.city},{formData.nameAndContact.state},
             {formData.nameAndContact.zip}
           </p>
-          <p> {formData.nameAndContact.email}</p>
-          <p> {formData.nameAndContact.phoneNumber}</p>
         </div>
+      </div>
+
+      <div className={style.line_box}>
+      <div className={style.Line}>
+
+</div>
       </div>
 
       <div className={style.section_1}>
@@ -60,4 +67,4 @@ const CoverLetter2 = () => {
   );
 };
 
-export default CoverLetter2;
+export default CoverLetter4;

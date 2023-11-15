@@ -1,9 +1,9 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { jobApplicationState } from "../../../Recoil";
-import style from "./CoverLetter2.module.css";
+import style from "./CoverLetter3.module.css";
 
-const CoverLetter2 = () => {
+const CoverLetter3 = () => {
   const formData = useRecoilValue(jobApplicationState);
   console.log(formData);
   return (
@@ -18,13 +18,21 @@ const CoverLetter2 = () => {
           <p> {formData.nameAndContact.profession}</p>
         </div>
         <div>
+    
+          <p> {formData.nameAndContact.email}</p>
+          <p> {formData.nameAndContact.phoneNumber}</p>
           <p>
             {formData.nameAndContact.city},{formData.nameAndContact.state},
             {formData.nameAndContact.zip}
           </p>
-          <p> {formData.nameAndContact.email}</p>
-          <p> {formData.nameAndContact.phoneNumber}</p>
         </div>
+      </div>
+      <div className={style.line_box}>
+      <div className={style.Line}>
+    <hr/>
+    <span className={style.hr}>
+        </span>
+</div>
       </div>
 
       <div className={style.section_1}>
@@ -60,4 +68,4 @@ const CoverLetter2 = () => {
   );
 };
 
-export default CoverLetter2;
+export default CoverLetter3;

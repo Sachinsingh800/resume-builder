@@ -32,6 +32,8 @@ import ChooseCoverLetter from './Page/ChooseCoverLetter/ChooseCoverLetter';
 import { Article } from '@mui/icons-material';
 import SubArticle from './Page/SubArticle/SubArticle';
 import CoverLetter2 from './Component/CoverLetterTemplate/CoverLetter2/CoverLetter2';
+import CoverLetter3 from './Component/CoverLetterTemplate/CoverLetter3/CoverLetter3';
+import CoverLetter4 from './Component/CoverLetterTemplate/CoverLetter4/CoverLetter4';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -123,6 +125,14 @@ const router = createBrowserRouter([
   {
     path: "/CoverLetter2",
     element: <CoverLetter2 />
+  },
+  {
+    path: "/CoverLetter3",
+    element: <CoverLetter3  />
+  },
+  {
+    path: "/CoverLetter4",
+    element: <CoverLetter4  />
   },
   {
     path: "/ChooseCoverLetter",
