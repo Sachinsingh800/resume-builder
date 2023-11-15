@@ -14,7 +14,7 @@ const CoverLetter6 = () => {
             {formData.nameAndContact.firstName}{" "}
             {formData.nameAndContact.lastName}
           </h1>
-          <p> {formData.nameAndContact.profession}</p>
+
         </div>
       </div>
 

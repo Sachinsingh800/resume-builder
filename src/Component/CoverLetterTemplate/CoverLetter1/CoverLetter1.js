@@ -9,9 +9,12 @@ const CoverLetter1 = () => {
   return (
     <div className={style.main}>
       <div className={style.section_1}>
-        <p>
+        <div>
+        <h1>
           {formData.nameAndContact.firstName} {formData.nameAndContact.lastName}{" "}
-        </p>
+        </h1>
+        <p> {formData.nameAndContact.profession}</p>
+        </div>
 
         <p>
           {formData.nameAndContact.city},{formData.nameAndContact.state},
@@ -50,6 +53,7 @@ const CoverLetter1 = () => {
       <section className={style.section_3}>
         <p>{formData.signature}</p>
       </section>
+
     </div>
   );
 };
