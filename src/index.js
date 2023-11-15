@@ -34,6 +34,7 @@ import SubArticle from './Page/SubArticle/SubArticle';
 import CoverLetter2 from './Component/CoverLetterTemplate/CoverLetter2/CoverLetter2';
 import CoverLetter3 from './Component/CoverLetterTemplate/CoverLetter3/CoverLetter3';
 import CoverLetter4 from './Component/CoverLetterTemplate/CoverLetter4/CoverLetter4';
+import CoverLetter5 from './Component/CoverLetterTemplate/CoverLetter5/CoverLetter5';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -133,6 +134,10 @@ const router = createBrowserRouter([
   {
     path: "/CoverLetter4",
     element: <CoverLetter4  />
+  },
+  {
+    path: "/CoverLetter5",
+    element: <CoverLetter5  />
   },
   {
     path: "/ChooseCoverLetter",
