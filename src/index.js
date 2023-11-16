@@ -41,6 +41,7 @@ import CoverLetter8 from './Component/CoverLetterTemplate/CoverLetter8/CoverLett
 import CoverLetter9 from './Component/CoverLetterTemplate/CoverLetter9/CoverLetter9';
 import CoverLetter10 from './Component/CoverLetterTemplate/CoverLetter10/CoverLetter10';
 import Template_13 from './Component/ResumeTemplates/Template_13/Template_13';
+import Template_14 from './Component/ResumeTemplates/Template_14/Template_14';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -111,6 +112,10 @@ const router = createBrowserRouter([
   {
     path: "/Template_13",
     element: <Template_13 />,
+  },
+  {
+    path: "/Template_14",
+    element: <Template_14 />,
   },
 
   {

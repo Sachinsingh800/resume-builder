@@ -83,10 +83,7 @@ const Template_13 = () => {
           <h2 className="section-title">CONTACTS</h2>
           <Divider className="divider" />
           <div className={style.contact_info}>
-            <div className={style.contact_value}>
-              <span className={style.contact_label}><PlaceIcon sx={{fontSize:"20px"}} /></span>
-              <p className="contact-value">Enter Your Address here</p>
-            </div>
+     
             <div className={style.contact_value}>
               <span className={style.contact_label}>< LocalPhoneIcon  sx={{fontSize:"20px"}} /></span>
               <p className="contact-value">+91 9503942697</p>
@@ -99,6 +96,10 @@ const Template_13 = () => {
             <div className={style.contact_value}>
             <span className={style.contact_label}>< LinkedInIcon sx={{fontSize:"20px"}} /></span>
               <p className="contact-value">linkedin.com/en/5hubzzz</p>
+            </div>
+            <div className={style.contact_value}>
+              <span className={style.contact_label}><PlaceIcon sx={{fontSize:"20px"}} /></span>
+              <p className="contact-value">Enter Your Address here</p>
             </div>
           </div>
 
