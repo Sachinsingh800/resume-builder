@@ -159,6 +159,40 @@ const Template_16 = () => {
               </li>
             </ul>
           </div>
+          <div className={style.section}>
+            <h2 className={style.section_title}>PROJECTS</h2>
+            <Divider className="divider" />
+            <ul>
+              <li>
+                <div className={style.work_entry}>
+                  <p className="date">2019.08 - Present</p>
+
+                  <div className={style.inner_div}>
+                    <h3 className="position">Software Engineer</h3>
+                    <p className="company">ABC Company</p>
+                    <p className={style.description}>
+                      Lorem Ipsum is simply dummy text of Lorem Ipsum passages,
+                      and Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className={style.work_entry}>
+                  <p className="date">2019.08 - Present</p>
+
+                  <div className={style.inner_div}>
+                    <h3 className="position">Software Engineer</h3>
+                    <p className="company">ABC Company</p>
+                    <p className={style.description}>
+                      Lorem Ipsum is simply dummy text of Lorem Ipsum passages,
+                      and Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
