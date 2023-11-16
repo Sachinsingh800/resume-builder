@@ -1,6 +1,6 @@
 import React from "react";
 import { Divider } from "@mui/material";
-import style from "./Template_15.module.css";
+import style from "./Template_16.module.css";
 import dp from "../../Images/dp.png";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
@@ -9,25 +9,31 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-const Template_15 = () => {
+const Template_16 = () => {
   return (
     <div className={style.main}>
       <div className={style.header}>
+      <div className={style.name_box}>
+        <div className={style.Design_box}></div>
+        <div>
+        <h1 className={style.name} style={{fontWeight:"100"}}>JESSICA </h1>
+        <h1 className={style.name}>CLAIRE</h1>
+          <h5 className={style.name}>frontend Developer</h5>
+        </div>
+
+        </div>
         <div>
           <div className={style.img_box}>
             <img src={dp} alt="dp" />
           </div>
         </div>
-        <div className={style.name_box}>
-          <h1 className={style.name}>JESSICA CLAIRE</h1>
-          <h5 className={style.name}>frontend Developer</h5>
-        </div>
+
       </div>
       <div className={style.container}>
         <div className={style.right_section}>
           <br />
           <h2 className="section-title">CONTACTS</h2>
-
+          <Divider className="divider" />
           <div className={style.contact_info}>
             <div className={style.contact_value}>
               <span className={style.contact_label}>
@@ -57,10 +63,12 @@ const Template_15 = () => {
           </div>
 
           <br />
-          <div className={style.section}>
+          <div >
             <h2 className={style.section_title}>EDUCATION</h2>
-
-            <div className={style.work_entry}>
+            <Divider className="divider" />
+            <ul className={style.skills_list} >
+                <li style={{listStyle:"none",marginLeft:"-1px"}}>
+                <div className={style.work_entry}>
               <p className="date">2019.08 - 2023.09</p>
 
               <div>
@@ -68,12 +76,15 @@ const Template_15 = () => {
                 <p className="university">ABC College</p>
               </div>
             </div>
+                </li>
+            </ul>
+      
           </div>
           <br />
 
           <div className="section">
             <h2 className="section-title">SKILLS</h2>
-
+            <Divider className="divider" />
             <ul className={style.skills_list}>
               <li>javascript </li>
               <li>javascript </li>
@@ -86,7 +97,7 @@ const Template_15 = () => {
           <br />
           <div className="section">
             <h2 className="section-title">LANGUAGE</h2>
-
+            <Divider className="divider" />
             <ul className={style.skills_list}>
               <li>Hindi</li>
               <li>English</li>
@@ -96,6 +107,7 @@ const Template_15 = () => {
           <br />
           <div className="section">
             <h2 className="section-title">AWARDS</h2>
+            <Divider className="divider" />
             <ul className={style.skills_list}>
               <li>Hindi</li>
               <li>English</li>
@@ -153,4 +165,4 @@ const Template_15 = () => {
   );
 };
 
-export default Template_15;
+export default Template_16;

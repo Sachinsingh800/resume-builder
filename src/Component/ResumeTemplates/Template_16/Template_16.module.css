@@ -20,6 +20,7 @@
    align-items: center;
    justify-content: center;
    border-radius: 50%;
+   margin-right:2rem ;
 }
 .img_box img{
    height: 100%;
@@ -135,21 +136,30 @@ hr{
  align-items: center;
    justify-content: space-between;
    padding: 0rem 1rem;
-   background-color: rgb(201, 198, 198);
    overflow: hidden;
 }
 .img_box{
     border-radius: 50%;
-    margin-left: -2.5rem;
-    background-color: white;
-    padding: 3rem;
-    height: 13rem;
-    width: 13rem;
+   
+}
+.Design_box{
+    background-color: rgb(255, 179, 0);
+    width: 1rem;
+    height: 7rem;
+     margin-left: -3rem;
+}
+.contact_label{
+    background-color: rgb(255, 179, 0);
+    padding: .1rem;
+    border-radius: 5px;
+    color: white;
 }
 .name_box{
     width: 70%;
     height: 100%;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    display: flex;
+    gap: .4rem;
 }
 .section{
    display: flex;
