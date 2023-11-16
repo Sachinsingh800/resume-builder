@@ -162,13 +162,21 @@ hr{
 }
 .work_entry{
    display: grid;
-   grid-template-columns: 1fr 5fr;
+   grid-template-columns: 1fr 3fr;
+
+}
+.edu_entry{
+  margin-left: 1rem;
+  padding-top:.5rem ;
+}
+.ul{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 .section_title{
-    display: flex;
-    align-items: center;
-    gap: 2.7rem;
-
+   margin-left: -1rem;
+ 
 }
 .description{
     width: 25rem;
