@@ -38,19 +38,18 @@
         flex-direction: column;
     }
     .Experience h2{
-        border-top: 1px  rgb(112, 111, 111) solid;
+
         border-bottom: 1px rgb(112, 111, 111) solid;
         width: 96%;
-        text-align: center;
     }
     .Experience ul{
         width: 90%;
     }
     .Skills h2{
-        border-top: 1px  rgb(112, 111, 111) solid;
+
         border-bottom: 1px rgb(112, 111, 111) solid;
         width: 96%;
-        text-align: center;
+      
     }
     .Skills {
         display: flex;
@@ -61,15 +60,16 @@
         width: 90%;
         display: inline-table;
         grid-template-columns: auto;
+       margin-left: -4rem;
     }
     .Skills ul li{
        width: max-content;
         display: inline-table;
         padding: .5rem;
-        margin: 1rem;
+        margin: .5rem;
         border-radius: 5px;
         color: white!important;
-        background-color: rgb(31, 106, 177);
+        background-color: rgb(215, 168, 57);
     }
 
     .Eucation{
@@ -79,10 +79,8 @@
     }
 
     .Eucation h2{
-        border-top: 1px  rgb(112, 111, 111) solid;
         border-bottom: 1px rgb(112, 111, 111) solid;
         width: 96%;
-        text-align: center;
     }
     .Eucation ul{
         width: 90%;

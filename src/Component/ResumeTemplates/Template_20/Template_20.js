@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Template_9.module.css";
+import style from "./Template_20.module.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { AiOutlinePhone } from "react-icons/ai";
 import { CiLocationOn } from "react-icons/ci";
@@ -20,7 +20,7 @@ import {
   imageSizeState
 } from "../../../Recoil";
 
-const Template_9 = () => {
+const Template_20 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -62,8 +62,7 @@ const Template_9 = () => {
         <p>{formData.resume.summary}</p>
 </div>
      <div className={style.Skills}>
-          <h2>Skills</h2>
-          <br/>
+          <h2>RELEVANT SKILLS</h2>
           <ul>
           {formData?.resume?.skillsAndLevel.map((item,id)=>
            <li  key={id} style={{ color: color3}}>
@@ -73,7 +72,7 @@ const Template_9 = () => {
           </ul>
      </div>
      <div className={style.Experience}>
-          <h2>Work History</h2>
+          <h2>PROFESSIONAL EXPERIENCE</h2>
           <br/>
           <ul>
           {formData?.resume?.work.map((item,id)=>
@@ -97,7 +96,7 @@ const Template_9 = () => {
           </ul>
      </div>
      <div className={style.Eucation}>
-          <h2>Eucation</h2>
+          <h2>EDUCATION</h2>
           <br/>
           <ul>
           {formData?.resume?.education.map((item,id)=>
@@ -114,4 +113,4 @@ const Template_9 = () => {
   );
 };
 
-export default Template_9;
+export default Template_20;
