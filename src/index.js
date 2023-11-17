@@ -46,6 +46,7 @@ import Template_15 from './Component/ResumeTemplates/Template_15/Template_15';
 import Template_16 from './Component/ResumeTemplates/Template_16/Template_16';
 import Template_17 from './Component/ResumeTemplates/Template_17/Template_17';
 import Template_18 from './Component/ResumeTemplates/Template_18/Template_18';
+import Template_19 from './Component/ResumeTemplates/Template_19/Template_19';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -136,6 +137,10 @@ const router = createBrowserRouter([
   {
     path: "/Template_18",
     element: <Template_18 />,
+  },
+  {
+    path: "/Template_19",
+    element: <Template_19 />,
   },
 
   {
