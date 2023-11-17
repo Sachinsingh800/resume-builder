@@ -107,6 +107,7 @@
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: 1rem;
+
 }
 .professional_summary{
    padding: 1rem;
@@ -204,7 +205,6 @@ grid-template-columns: 1fr ;
 gap: .5rem;
 list-style: none;
 padding-top: 1rem;
-margin-left: -1rem;
 }
 .skills_list li{
     display: flex;

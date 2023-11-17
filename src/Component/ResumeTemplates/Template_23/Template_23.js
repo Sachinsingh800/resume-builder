@@ -30,6 +30,7 @@ const Template_23 = () => {
 
         <div className={style.contact_info}>
         <h2 className={style.section_title}>Contact</h2>
+        <Divider className="divider" />
           <div className={style.contact_value}>
             <span className={style.contact_label}>
               <LocalPhoneIcon sx={{ fontSize: "20px" }} />
@@ -58,7 +59,7 @@ const Template_23 = () => {
         </div>
           <div className="section">
             <h2 className={style.section_title}>SKILLS</h2>
-
+            <Divider className="divider" />
             <ul className={style.skills_list}>
               <li> javascript</li>
               <li> javascript</li>
@@ -73,7 +74,7 @@ const Template_23 = () => {
           <br />
           <div className="section">
             <h2 className={style.section_title}>LANGUAGE</h2>
-
+            <Divider className="divider" />
             <ul className={style.skills_list}>
               <li>Hindi</li>
               <li>English</li>
@@ -83,6 +84,7 @@ const Template_23 = () => {
           <br />
           <div className="section">
             <h2 className={style.section_title}>INTREST</h2>
+            <Divider className="divider" />
             <ul className={style.skills_list}>
               <li>Hindi</li>
               <li>English</li>
