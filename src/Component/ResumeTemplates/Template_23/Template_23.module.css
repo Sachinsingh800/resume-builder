@@ -57,8 +57,13 @@
    display: flex;
    flex-direction: column;
    gap: .5rem;
+   width: 15rem;
   padding: 2rem 1rem;
-  height: 65.3rem;  /* 1240px / 16px = 77.5rem */
+  height: 71.3rem;  /* 1240px / 16px = 77.5rem */
+  margin-left:1rem ;
+  margin-top: -13rem;
+  background-color: rgb(178, 176, 181);
+  
 }
 .right_section p{
    width: 95%!important;
@@ -130,21 +135,33 @@ hr{
 }
 .header{
 
-   height: 8rem;
+   height: 15rem;
    display: flex;
  align-items: center;
-
-   justify-content: space-between;
+ justify-content: end;
+  
    padding: 0rem 1rem;
+   background-color: grey;
+  
 }
 .img_box{
-    border-radius: 50%;
-    margin-right: 4rem;
+    border-radius: 0;
+    width: 12.5rem;
+    height: 12rem;
+    margin-top: -1rem;
+    background-color: rgb(31, 0, 110);
+    overflow: hidden;
+    background-color: white;
+}
+.img_box img{
+    height: 100%;
+    width: 100%;
 }
 .section{
    display: flex;
    flex-direction: column;
    gap: .5rem;
+
 }
 .work_entry{
    display: grid;
@@ -160,6 +177,7 @@ hr{
     display: flex;
     align-items: center;
     gap: 2.7rem;
+    color: black!important;
 
 }
 .description{
@@ -199,9 +217,19 @@ margin-left: -1rem;
     list-style: none;
 }
 .section_title{
-    background-color: rgb(0, 208, 255);
     padding: 0rem 1rem;
     color: white;
     display: flex;
     gap: .5rem;
+}
+.name{
+    font-size: 4rem;
+}
+.name_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    color: white;
+    
 }
