@@ -103,13 +103,13 @@ flex-direction: column;
     padding: 1.5rem;
   }
   .objectiveHeader{
-    padding: 1rem;
+    padding: 1.5rem;
     height: 10rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: .5rem;
-    margin: 2rem 0rem;
+   margin-bottom: 1rem;
   }
   .workHeader{
     padding: 1rem;
@@ -196,4 +196,32 @@ flex-direction: column;
 
 .skillsAndLevel li span{
   margin-left: 1rem;
+}
+.design{
+background-color: orange;
+  width: 1rem;
+  height: 100%;
+}
+.design2{
+background-color: orange;
+  width: 1rem;
+  height: 2rem;
+}
+.design3{
+background-color: orange;
+  width: 1rem;
+  height: 10rem;
+  position: absolute;
+  margin-left: -1.5rem;
+}
+.title_box{
+  display: flex;
+  width: 100%;
+  background-color: white;
+}
+.title_box2{
+  display: flex;
+  width: 100%;
+ align-items:center ;
+ gap: .5rem;
 }

@@ -60,7 +60,10 @@ const Template_5 = () => {
         </div>
         <br />
         <div className={style.skillsHeader}>
-          <h3 style={{ color: color3 }}>EDUCATION</h3>
+          <div className={style.title_box}>
+            <span className={style.design}> </span>
+            <h3 style={{ color: color3 }}>EDUCATION</h3>
+          </div>
 
           <ul>
             {formData?.resume?.education.map((item, id) => (
@@ -78,7 +81,11 @@ const Template_5 = () => {
         </div>
         <br />
         <div className={style.skillsHeader}>
-          <h3 style={{ color: color3 }}>CONTACT</h3>
+          <div className={style.title_box}>
+            <span className={style.design}> </span>
+            <h3 style={{ color: color3 }}>CONTACT</h3>
+          </div>
+
           <div className={style.contactInfo}>
             <p className={style.email} style={{ color: color3 }}>
               {formData?.resume?.contact?.email}
@@ -101,7 +108,10 @@ const Template_5 = () => {
         <br />
 
         <div className={style.skillsHeader}>
-          <h3 style={{ color: color3 }}>REFERENCES</h3>
+          <div className={style.title_box}>
+            <span className={style.design}> </span>
+            <h3 style={{ color: color3 }}>REFERENCES</h3>
+          </div>
 
           <ul>
             {formData?.resume?.references.map((item, id) => (
@@ -117,13 +127,15 @@ const Template_5 = () => {
         </div>
       </div>
       <div>
+        
         <div
           className={style.objectiveHeader}
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: color2 }}
         >
+                 <span className={style.design3}> &nbsp; </span>
           <h1
             className={style.person_name}
-            style={{ color: color2, fontFamily: fontStyle, fontSize: fontSize }}
+            style={{ fontFamily: fontStyle, fontSize: fontSize }}
           >
             {formData?.resume?.name}
           </h1>
@@ -131,29 +143,30 @@ const Template_5 = () => {
         </div>
 
         <div className={style.skillsHeader2}>
-          <h2
+          <div
+            className={style.title_box2}
             style={{
-              color: color2,
               fontFamily: fontStyle,
-              backgroundColor: color,
+              backgroundColor: color2,
             }}
           >
-            About Me
-          </h2>
+            <span className={style.design2}> &nbsp; </span>
+            <h3>About Me</h3>
+          </div>
+
           <p>{formData?.resume?.summary}</p>
         </div>
 
         <div className={style.professionalSkillsHeader}>
-          <div>
-            <h2
-              style={{
-                color: color2,
-                fontFamily: fontStyle,
-                backgroundColor: color,
-              }}
-            >
-              WORKING EXPERIENCE
-            </h2>
+          <div
+            className={style.title_box2}
+            style={{
+              fontFamily: fontStyle,
+              backgroundColor: color2,
+            }}
+          >
+            <span className={style.design2}> &nbsp; </span>
+            <h3>WORKING EXPERIENCE</h3>
           </div>
 
           <ul>
@@ -176,28 +189,26 @@ const Template_5 = () => {
             ))}
           </ul>
         </div>
-        <br/>
+        <br />
         <div className={style.professionalSkillsHeader}>
-          <div>
-            <h2
-              style={{
-                color: color2,
-                fontFamily: fontStyle,
-                backgroundColor: color,
-              }}
-            >
-              SOFTWARE SKILL
-            </h2>
+          <div
+            className={style.title_box2}
+            style={{
+              fontFamily: fontStyle,
+              backgroundColor: color2,
+            }}
+          >
+            <span className={style.design2}> &nbsp; </span>
+            <h3>SOFTWARE SKILL</h3>
           </div>
 
           <ul className={style.skillsAndLevel}>
             {formData?.resume?.skillsAndLevel.map((item, id) => (
               <li>
-                  <span>{item.skills}</span>
-                  <span>
+                <span>{item.skills}</span>
+                <span>
                   <ProgressBar bgcolor="orange" progress="40" height={4} />
-                  </span>
-              
+                </span>
               </li>
             ))}
           </ul>
