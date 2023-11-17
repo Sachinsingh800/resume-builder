@@ -21,26 +21,26 @@ const Template_22 = () => {
         <div className={style.contact_info}>
           <div className={style.contact_value}>
             <span className={style.contact_label}>
-              <LocalPhoneIcon sx={{ fontSize: "20px" }} />
+              <LocalPhoneIcon sx={{ fontSize: "20px",color:"#00CCFF" }} />
             </span>
             <p className="contact-value">+91 9503942697</p>
           </div>
           <div className={style.contact_value}>
             <span className={style.contact_label}>
-              <EmailIcon sx={{ fontSize: "20px" }} />
+              <EmailIcon sx={{ fontSize: "20px",color:"#00CCFF" }} />
             </span>
             <p className="contact-value">ss20010126@gmail.com</p>
           </div>
 
           <div className={style.contact_value}>
             <span className={style.contact_label}>
-              <LinkedInIcon sx={{ fontSize: "20px" }} />
+              <LinkedInIcon sx={{ fontSize: "20px",color:"#00CCFF" }} />
             </span>
             <p className="contact-value">linkedin.com/en/5hubzzz</p>
           </div>
           <div className={style.contact_value}>
             <span className={style.contact_label}>
-              <PlaceIcon sx={{ fontSize: "20px" }} />
+              <PlaceIcon sx={{ fontSize: "20px",color:"#00CCFF" }} />
             </span>
             <p className="contact-value">Enter Your Address here</p>
           </div>
@@ -84,7 +84,7 @@ const Template_22 = () => {
         </div>
         <div className={style.left_section}>
           <div className="section">
-            <h2 className={style.section_title}><PersonIcon/>ABOUT</h2>
+            <h2 className={style.section_title}><PersonIcon />ABOUT</h2>
          
             <p className="section-content">
               Lorem Ipsum is simply dummy text of scrambled it to make a ty It
