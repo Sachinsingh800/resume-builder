@@ -151,7 +151,6 @@ flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: orange;
     margin-top: 6rem;
 }
 .img_box img{
