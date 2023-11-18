@@ -59,6 +59,10 @@ const Template_24 = () => {
           </div>
         </d7iv>
         <br />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <div className={style.skillsHeader}>
       
             <h3 style={{ color: color3 }}>EDUCATION</h3>
@@ -86,17 +90,20 @@ const Template_24 = () => {
 
           <div className={style.contactInfo}>
             <p className={style.email} style={{ color: color3 }}>
+              <AiOutlineMail />&nbsp; 
               {formData?.resume?.contact?.email}
             </p>
           </div>
           <div className={style.contactInfo}>
             <p style={{ color: color3 }} className={style.email}>
+              <AiOutlinePhone/>&nbsp; 
               {formData?.resume?.contact?.phone}
             </p>
           </div>
 
           <div className={style.contactInfo}>
             <p className={style.email} style={{ color: color3 }}>
+              < CiLocationOn/>&nbsp; 
               {formData?.resume?.address?.address},
               {formData?.resume?.address?.postalCode}
             </p>
@@ -144,7 +151,6 @@ const Template_24 = () => {
             className={style.title_box2}
             style={{
               fontFamily: fontStyle,
-              backgroundColor: color2,
             }}
           >
             <h3>About Me</h3>
@@ -158,7 +164,7 @@ const Template_24 = () => {
             className={style.title_box2}
             style={{
               fontFamily: fontStyle,
-              backgroundColor: color2,
+       
             }}
           >
         
@@ -191,7 +197,6 @@ const Template_24 = () => {
             className={style.title_box2}
             style={{
               fontFamily: fontStyle,
-              backgroundColor: color2,
             }}
           >
           

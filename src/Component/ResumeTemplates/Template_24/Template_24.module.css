@@ -14,7 +14,7 @@
 }
   
   .container {
-    padding: 13px 0 0 0;
+    /* padding: 13px 0 0 0; */
 
   }
   
@@ -42,9 +42,9 @@
   
   .contactInfo {
     display: flex;
-    gap: 1rem;
-    padding: .5rem;
-
+    gap: .8rem;
+    padding: .3rem;
+    margin-left: 1rem;
 
   }
   .skillsHeader {
@@ -55,8 +55,8 @@
   }
 
   .skillsHeader h3{
-   padding: 0rem 1rem;
-    background-color: aliceblue;
+    border-bottom: 1px rgb(0, 0, 0) solid;
+    margin-left: 1rem;
   }
 
   .skillsHeader ul{
@@ -110,7 +110,6 @@ flex-direction: column;
     justify-content: center;
     gap: .5rem;
    margin-bottom: 1rem;
-   border: 1px red solid;
    margin-top: 3rem;
   }
   .workHeader{
@@ -141,21 +140,19 @@ flex-direction: column;
     font-weight: 400;
   }
   .img_container{
-  padding: .4rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .img_box{
-    height: 10rem;
-    width: 10rem;
+    height: 16rem!important;
+    width: 100%!important;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
     background-color: orange;
-    padding: .3rem;
+    margin-top: 6rem;
 }
 .img_box img{
     height: 100%;
@@ -199,23 +196,7 @@ flex-direction: column;
 .skillsAndLevel li span{
   margin-left: 1rem;
 }
-.design{
-background-color: orange;
-  width: 1rem;
-  height: 100%;
-}
-.design2{
-background-color: orange;
-  width: 1rem;
-  height: 2rem;
-}
-.design3{
-background-color: orange;
-  width: 1rem;
-  height: 10rem;
-  position: absolute;
-  margin-left: -1.5rem;
-}
+
 .title_box{
   display: flex;
   width: 100%;
@@ -223,7 +204,9 @@ background-color: orange;
 }
 .title_box2{
   display: flex;
-  width: 100%;
+  width: 95%;
  align-items:center ;
  gap: .5rem;
+ border-bottom: 1px rgb(8, 8, 8) solid;
+ margin-left: 1rem;
 }
