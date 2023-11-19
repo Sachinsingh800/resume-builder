@@ -69,42 +69,8 @@ const Template_12 = () => {
               </li>
             ))}
           </ul>
-            <ul>
-            {formData?.resume?.work.map((item, id) => (
-              <li>
-            <div className={style.work_entry}>
-              
-              <p className="date">  {handleDate(item?.startDate)}  -  {handleDate(item?.endDate)}</p>
-              <div>
-                <h3 className="position">{item?.title}</h3>
-                <p className="company">{item?.company} - {item?.location}</p>
-
-                <p className="description">
-                {item?.description}
-                </p>
-              </div>
-            </div>
-              </li>
-            ))}
-          </ul>
-            <ul>
-            {formData?.resume?.work.map((item, id) => (
-              <li>
-            <div className={style.work_entry}>
-              
-              <p className="date">  {handleDate(item?.startDate)}  -  {handleDate(item?.endDate)}</p>
-              <div>
-                <h3 className="position">{item?.title}</h3>
-                <p className="company">{item?.company} - {item?.location}</p>
-
-                <p className="description">
-                {item?.description}
-                </p>
-              </div>
-            </div>
-              </li>
-            ))}
-          </ul>
+    
+   
 
 
    
@@ -123,14 +89,7 @@ const Template_12 = () => {
       
             </div>
               </li>
-                 <li key={id} style={{ color: color3 }}>
-           <div className="education-entry">
-              <h3 className="degree">{item.degree}</h3>
-              <p className="university">{item.collegeName}</p>
-              <p className="date">{item?.startYear} - {item.endYear}</p>
-      
-            </div>
-              </li>
+    
               </>
            
             ))}
