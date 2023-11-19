@@ -7,6 +7,7 @@
     background-Color: white;
     box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+ 
 }
 .container{
     display: grid;
@@ -128,12 +129,11 @@ hr{
     gap: 1rem;
 }
 .header{
-  background-color: aqua;
-    height: 8rem;
+  background-color: rgb(163, 163, 163);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0rem 1rem;
+    padding: 2rem 1rem;
 }
 .section{
     display: flex;
@@ -143,4 +143,8 @@ hr{
 .work_entry{
     display: grid;
     grid-template-columns: 1fr 2fr;
+}
+.education{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
