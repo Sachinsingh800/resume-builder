@@ -70,18 +70,25 @@ const Template_7 = () => {
           )}
             
           </ul>
+  
+
      </div>
      <div className={style.Experience}>
           <h2>Eucation</h2>
           <br/>
-          <ul>
+     
+          <ul className={style.ul}>
           {formData?.resume?.education.map((item,id)=>
            <li  key={id} style={{ color: color3}}>
-          <span>{item.degree} <span>{item?.startYear}  - {item.endYear}</span></span>  
+          <span>{item.degree} </span>  
+          <br/>
+          <span>{item?.startYear}  - {item.endYear}</span>
+          <br/>
           <span>{item.collegeName}</span>  
              </li>
           )}
           </ul>
+      
      </div>
      <div className={style.Skills}>
           <h2>Skills</h2>
