@@ -148,6 +148,7 @@ hr{
 .work_entry{
    display: grid;
    grid-template-columns: 1fr 5fr;
+   gap: .5rem;
 }
 .section_title{
     display: flex;
@@ -179,4 +180,7 @@ flex-direction: column;
 gap: .5rem;
 list-style: none;
 padding-top: 1rem;
+}
+.ul{
+   list-style: none;
 }
