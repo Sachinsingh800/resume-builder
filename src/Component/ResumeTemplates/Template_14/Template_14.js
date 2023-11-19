@@ -9,8 +9,39 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ProgressBar from "../../ProgressBar/ProgressBar";
+import { useRecoilState } from "recoil";
+import {
+  ChooseColor,
+  chooseTemplates,
+  ChooseColorSecond,
+  croppedImageState,
+  resumeData,
+  ChooseColorThird,
+  fontState,
+  fontSizeState,
+  imageSizeState,
+} from "../../../Recoil";
 
 const Template_14 = () => {
+  const [color, setColor] = useRecoilState(ChooseColor);
+  const [color2, setColor2] = useRecoilState(ChooseColorSecond);
+  const [color3, setColor3] = useRecoilState(ChooseColorThird);
+  const [fontStyle, setFontStyle] = useRecoilState(fontState);
+  const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+  const [imgSize, setImgSize] = useRecoilState(imageSizeState);
+  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
+  const [formData, setFormData] = useRecoilState(resumeData);
+
+  console.log(formData.resume, "resume data");
+
+  const handleDate = (data) => {
+    console.log(data, "data");
+
+    const startYear = new Date(data).getFullYear();
+
+    return startYear;
+  };
   return (
     <div className={style.main}>
       <div className={style.user_header}>
@@ -19,15 +50,13 @@ const Template_14 = () => {
             <img src={dp} alt="dp" />
           </div>
           <div className={style.profession_box}>
-            <h5 className={style.name}>frontend Developer</h5>
+            <h5 className={style.name}>{formData?.resume?.jobTitle}</h5>
           </div>
         </div>
         <div className={style.name_box}>
-          <h1 className={style.name}>JESSICA CLAIRE</h1>
+          <h2 className={style.name}>{formData?.resume?.name}</h2>
           <p className="section-content">
-            Lorem Ipsum is simply dummy text of scrambled it to make a ty It was
-            popularised in the 1960s with the release of Letraset sheets
-            containing Lorem Ipsum passages, and more.
+          {formData?.resume?.summary}
           </p>
         </div>
       </div>
@@ -39,26 +68,27 @@ const Template_14 = () => {
               <span className={style.contact_label}>
                 <LocalPhoneIcon sx={{ fontSize: "20px" }} />
               </span>
-              <p className="contact-value">+91 9503942697</p>
+              <p className="contact-value">{formData?.resume?.contact?.phone}</p>
             </div>
             <div className={style.contact_value}>
               <span className={style.contact_label}>
                 <EmailIcon sx={{ fontSize: "20px" }} />
               </span>
-              <p className="contact-value">ss20010126@gmail.com</p>
+              <p className="contact-value"> {formData?.resume?.contact?.email}</p>
             </div>
 
             <div className={style.contact_value}>
               <span className={style.contact_label}>
                 <LinkedInIcon sx={{ fontSize: "20px" }} />
               </span>
-              <p className="contact-value">linkedin.com/en/5hubzzz</p>
+              <p className="contact-value">{formData?.resume?.socialLinks?.linkedin }</p>
             </div>
             <div className={style.contact_value}>
               <span className={style.contact_label}>
                 <PlaceIcon sx={{ fontSize: "20px" }} />
               </span>
-              <p className="contact-value">Enter Your Address here</p>
+              <p className="contact-value"> {formData?.resume?.address?.address},
+              {formData?.resume?.address?.postalCode}</p>
             </div>
           </div>
 
@@ -66,145 +96,98 @@ const Template_14 = () => {
 
           <div className={style.section}>
             <h2 className="section-title">SKILLS</h2>
-
-            <ul className={style.skills_list}>
-              <li>
-                <span>javascript</span>{" "}
+            <ul  className={style.skills_list}>
+         
+         {formData?.resume?.skillsAndLevel.map((item, id) => (
+           <li>
+             <span>{item?.skills}</span>
                 <span className={style.ProgressBar_list}>
-                  <ProgressBar bgcolor="black" progress={100} height={5} />
+                  <ProgressBar bgcolor="black" progress={40} height={5} />
                 </span>
-              </li>
-              <li>
-                <span>javascript</span>{" "}
-                <span className={style.ProgressBar_list}>
-                  <ProgressBar bgcolor="black" progress={70} height={5} />
-                </span>
-              </li>
-              <li>
-                <span>javascript</span>{" "}
-                <span className={style.ProgressBar_list}>
-                  <ProgressBar bgcolor="black" progress={30} height={5} />
-                </span>
-              </li>
-              <li>
-                <span>javascript</span>{" "}
-                <span className={style.ProgressBar_list}>
-                  <ProgressBar bgcolor="black" progress={70} height={5} />
-                </span>
-              </li>
-              <li>
-                <span>javascript</span>{" "}
-                <span className={style.ProgressBar_list}>
-                  <ProgressBar bgcolor="black" progress={50} height={5} />
-                </span>
-              </li>
-            </ul>
+           </li>
+         ))}
+         
+         </ul>
+           
           </div>
 
           <div className={style.section}>
             <h2 className="section-title">LANGUAGE</h2>
 
             <ul className={style.skills_list}>
-              <li>Hindi</li>
-              <li>English</li>
-              <li>Urdu</li>
+       
+            {formData?.resume?.knownLanguages.map((item, id) => (
+              <li>
+                <h4>{item?.lang}</h4>
+                </li>
+            ))}
+      
             </ul>
           </div>
 
           <div className={style.section}>
             <h2 className="section-title">AWARDS</h2>
 
-            <ul className={style.skills_list}>
-              <li>Hindi</li>
-              <li>English</li>
-              <li>Urdu</li>
+            <ul >
+          
+            {formData?.resume?.awards.map((item, id) => (
+              <li>
+                <h5>{item?.date}</h5>
+                <h4>{item?.title}</h4>
+                <p>{item?.issuingOrganization}</p>
+                </li>
+            ))}
+       
             </ul>
           </div>
         </div>
         <div className={style.left_section}>
           <div className={style.section}>
             <h2 className={style.section_title}>PROFESSIONAL EXPERIENCE</h2>
-<ul className={style.ul}>
-    <li>
-    <div className={style.work_entry}>
-              <p className="date">2019.08 - Present</p>
-              <div>
-                <h3 className="position">Software Engineer</h3>
-                <p className="company">ABC Company</p>
-                <p>
-                  Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
-                  Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-    </li>
-    <li>
-    <div className={style.work_entry}>
-              <p className="date">2019.08 - Present</p>
-              <div>
-                <h3 className="position">Software Engineer</h3>
-                <p className="company">ABC Company</p>
-                <p>
-                  Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
-                  Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-    </li>
-    <li>
-    <div className={style.work_entry}>
-              <p className="date">2019.08 - Present</p>
-              <div>
-                <h3 className="position">Software Engineer</h3>
-                <p className="company">ABC Company</p>
-                <p>
-                  Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
-                  Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-    </li>
-    <li>
-    <div className={style.work_entry}>
-              <p className="date">2019.08 - Present</p>
-              <div>
-                <h3 className="position">Software Engineer</h3>
-                <p className="company">ABC Company</p>
-                <p>
-                  Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
-                  Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-              </div>
-            </div>
-    </li>
-</ul>
+            <ul className={style.ul}>
+              {formData?.resume?.work.map((item, id) => (
+                <li>
+                  <div className={style.work_entry}>
+                    <p className="date">
+                      {" "}
+                      {handleDate(item?.startDate)} -{" "}
+                      {handleDate(item?.endDate)}
+                    </p>
+                    <div>
+                      <h3 className="position">{item?.title}</h3>
+                      <p className="company">
+                        {item?.company} - {item?.location}
+                      </p>
+
+                      <p className="description">{item?.description}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
          
           </div>
 
           <div className={style.sections}>
             <h2 >EDUCATION</h2>
-<ul className={style.ul}>
-    <li className={style.edu_entry} >
-    <div className={style.work_entry}>
-              <p className="date">2019.08 - 2023.09</p>
+            <ul  className={style.ul}>
+              {formData?.resume?.education.map((item, id) => (
+          
+                  <li key={id} style={{ color: color3 }}>
+                    <div className={style.work_entry}>
+                      <p className="date">
+                        {item?.startYear} - {item.endYear}
+                      </p>
+                      <div>
+                        <h3 className="degree">{item.degree}</h3>
 
-              <div>
-                <h3 className="degree">Masters in Data Science</h3>
-                <p className="university">ABC College</p>
-              </div>
-            </div>
-    </li>
-    <li className={style.edu_entry} >
-    <div className={style.work_entry}>
-              <p className="date">2019.08 - 2023.09</p>
-
-              <div>
-                <h3 className="degree">Masters in Data Science</h3>
-                <p className="university">ABC College</p>
-              </div>
-            </div>
-    </li>
-</ul>
+                        <p className="university">{item.collegeName}</p>
+                      </div>
+                    </div>
+                  </li>
+           
+              ))}
+            </ul>
           
 
 

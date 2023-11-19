@@ -28,6 +28,7 @@
     background-color: white;
     border: 1px black solid;
     padding: .2rem;
+
 }
 .img_box img{
    height: 100%;
@@ -223,7 +224,7 @@ width: 10rem;
 .name_box{
     width: 100%;
     height: 18rem!important;
-    padding: 1rem;
+    padding: 0rem 1.5rem;
     border-bottom: 1px black solid;
     margin: 0rem 1rem;
 }
