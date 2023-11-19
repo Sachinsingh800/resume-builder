@@ -44,7 +44,7 @@ const Template_5 = () => {
     <div onClick={() => setTemplateNo(5)} className={style.main}>
       <div
         className={style.Left_container}
-        style={{ backgroundColor: color, color: "white" }}
+        style={{ backgroundColor: "grey", color: "white" }}
       >
         <div className={style.img_container}>
           <div

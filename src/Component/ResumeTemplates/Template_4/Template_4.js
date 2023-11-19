@@ -1,92 +1,110 @@
 import React from "react";
 import { Divider } from "@mui/material";
 import style from "./Template_4.module.css"
+import { ChooseColor, ChooseColorSecond, ChooseColorThird, chooseTemplates, croppedImageState, fontSizeState, fontState, imageSizeState, resumeData } from "../../../Recoil";
+import { useRecoilState } from "recoil";
 
 const Template_4 = () => {
+  const [color, setColor] = useRecoilState(ChooseColor);
+  const [color2, setColor2] = useRecoilState(ChooseColorSecond);
+  const [color3, setColor3] = useRecoilState(ChooseColorThird);
+  const [fontStyle, setFontStyle] = useRecoilState(fontState);
+  const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+  const [imgSize, setImgSize] = useRecoilState(imageSizeState);
+  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
+  const [formData, setFormData] = useRecoilState(resumeData);
+
+  console.log(formData.resume,"resume data")
+
+  const handleDate = (data) => {
+    console.log(data,"data")
+
+    const startYear = new Date(data).getFullYear();
+  
+    return startYear
+  };
   return (
     <div className={style.main}>
       <div className={style.left_section}>
-        <h1 className={style.name}>JESSICA CLAIRE</h1>
+        <h1 className={style.name}>{formData?.resume?.name}</h1>
         <Divider className="divider" />
         <div className="section">
-          <h2 className="section-title">PROFESSIONAL SUMMARY</h2>
+          <h2 className="section-title"> {formData?.resume?.jobTitle}</h2>
           <Divider className="divider" />
           <p className="section-content">
-            Lorem Ipsum is simply dummy text of scrambled it to make a ty It was
-            popularised in the 1960s with the release of Letraset sheets
-            containing Lorem Ipsum passages, and more.
+          {formData?.resume?.summary}
           </p>
         </div>
         <div className="section">
           <h2 className="section-title">WORK HISTORY</h2>
           <Divider className="divider" />
-          <div className="work-entry">
-            <h3 className="position">Software Engineer</h3>
-            <p className="company">ABC Company</p>
-            <p className="date">2019.08 - Present</p>
-            <p className="description">
-              Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
-              Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+          <ul>
+          {formData?.resume?.work.map((item,id)=>
+          <li className={style.li}> 
+          <div className={style.work_des}>
+        <h3 className={style.customerService}>{item?.title}</h3>
+        <h5 className={style.company_name}><span>{item?.company} - {item?.location}</span> <span>{handleDate(item?.startDate)} - {handleDate(item?.endDate)}</span></h5>
+          <p>
+              {item?.description}
+          </p>
+     
           </div>
-          <div className="work-entry">
-            <h3 className="position">Software Engineer</h3>
-            <p className="company">ABC Company</p>
-            <p className="date">2019.08 - Present</p>
-            <p className="description">
-              Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
-              Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-          </div>
+          </li>
+          )}
+            
+          </ul>
+
         </div>
         <div className="section">
           <h2 className="section-title">EDUCATION</h2>
           <Divider className="divider" />
-          <div className="education-entry">
-            <h3 className="degree">Masters in Data Science</h3>
-            <p className="university">ABC College</p>
-            <p className="date">2019.08 - 2023.09</p>
-            <p className="description">
-              Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
-              Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
+          <ul>
+          {formData?.resume?.education.map((item,id)=>
+      <li className={style.li}> 
+          <div className={style.work_des}>
+        <h3 className={style.customerService}>{item?.degree}</h3>
+        <h5 className={style.company_name}><span>{item?.collegeName} - {item?.location}</span> <span>{handleDate(item?.startYear)} - {handleDate(item?.endYear)}</span></h5>
+          <p>
+              {item?.description}
+          </p>
+     
           </div>
+          </li>
+          )}
+            
+          </ul>
+    
+
         </div>
       </div>
-      <div className={style.right_section} style={{backgroundColor:"blue"}}>
+      <div className={style.right_section} style={{backgroundColor:"grey",color:"white"}}>
         <div className="contact-info">
           <div className="contact-entry">
             <h4 className="contact-label">Address</h4>
-            <p className="contact-value">Enter Your Address here</p>
+            <p className="contact-value">{formData?.resume?.address?.address},{formData?.resume?.address?.postalCode}</p>
           </div>
           <div className="contact-entry">
             <h4 className="contact-label">Phone</h4>
-            <p className="contact-value">+91 9503942697</p>
+            <p className="contact-value">{formData?.resume?.contact?.phone}</p>
           </div>
           <div className="contact-entry">
             <h4 className="contact-label">E-mail</h4>
-            <p className="contact-value">ss20010126@gmail.com</p>
+            <p className="contact-value">{formData?.resume?.contact?.email}</p>
           </div>
-          <div className="contact-entry">
-            <h4 className="contact-label">Twitter</h4>
-            <p className="contact-value">@5hubzzz</p>
-          </div>
-          <div className="contact-entry">
-            <h4 className="contact-label">LinkedIn</h4>
-            <p className="contact-value">linkedin.com/en/5hubzzz</p>
-          </div>
+
         </div>
         <Divider className="divider" />
         <div className="section">
           <h2 className="section-title">SKILLS</h2>
           <Divider className="divider" />
-          <ul className="skills-list">
-            <li>
-              Store Opening and Closing and also helped other members with their work
-            </li>
-            <li>Store Opening and Closing</li>
-            <li>Store Opening and Closing</li>
-            <li>Store Opening and Closing</li>
+          <ul>
+          {formData?.resume?.skillsAndLevel.map((item,id)=>
+      <li > 
+                 {item?.skills}
+          </li>
+          )}
+            
           </ul>
         </div>
       </div>
