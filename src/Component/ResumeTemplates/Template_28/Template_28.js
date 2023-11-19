@@ -44,7 +44,7 @@ const Template_28 = () => {
     <div onClick={() => setTemplateNo(5)} className={style.main}>
       <div
         className={style.Left_container}
-        style={{ backgroundColor: color, color: "white" }}
+        style={{ backgroundColor: "	#D3D3D3", color: "white" }}
       >
         <div className={style.img_container}>
            <div >
@@ -151,6 +151,46 @@ const Template_28 = () => {
         
             <h3>WORKING EXPERIENCE</h3>
           </div>
+
+          <ul>
+            {formData?.resume?.work.map((item, id) => (
+              <li>
+                <div className={style.work_des}>
+                  <h3 className={style.customerService}>{item?.title}</h3>
+                  <h5 className={style.company_name}>
+                    <span>
+                      {item?.company} - {item?.location}
+                    </span>{" "}
+                    <span>
+                      {handleDate(item?.startDate)} -{" "}
+                      {handleDate(item?.endDate)}
+                    </span>
+                  </h5>
+                  <p>{item?.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <ul>
+            {formData?.resume?.work.map((item, id) => (
+              <li>
+                <div className={style.work_des}>
+                  <h3 className={style.customerService}>{item?.title}</h3>
+                  <h5 className={style.company_name}>
+                    <span>
+                      {item?.company} - {item?.location}
+                    </span>{" "}
+                    <span>
+                      {handleDate(item?.startDate)} -{" "}
+                      {handleDate(item?.endDate)}
+                    </span>
+                  </h5>
+                  <p>{item?.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
 
           <ul>
             {formData?.resume?.work.map((item, id) => (

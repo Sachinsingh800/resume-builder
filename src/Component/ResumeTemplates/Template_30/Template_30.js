@@ -98,6 +98,46 @@ const Template_30 = () => {
           )}
             
           </ul>
+          <ul>
+          {formData?.resume?.work.map((item,id)=>
+          <li>
+          <div className={style.work_des}>
+            <div>
+            <h3 className={style.customerService}>{item?.title}</h3>
+        <h5 className={style.company_name}><span>{item?.company} - {item?.location}</span> <span>{handleDate(item?.startDate)} - {handleDate(item?.endDate)}</span></h5>
+            </div>
+<div>
+<p>
+              {item?.description}
+          </p>
+</div>
+      
+     
+          </div>
+          </li>
+          )}
+            
+          </ul>
+          <ul>
+          {formData?.resume?.work.map((item,id)=>
+          <li>
+          <div className={style.work_des}>
+            <div>
+            <h3 className={style.customerService}>{item?.title}</h3>
+        <h5 className={style.company_name}><span>{item?.company} - {item?.location}</span> <span>{handleDate(item?.startDate)} - {handleDate(item?.endDate)}</span></h5>
+            </div>
+<div>
+<p>
+              {item?.description}
+          </p>
+</div>
+      
+     
+          </div>
+          </li>
+          )}
+            
+          </ul>
      </div>
      <div className={style.Eucation}>
         

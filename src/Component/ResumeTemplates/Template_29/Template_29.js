@@ -107,6 +107,42 @@ const Template_29 = () => {
                 </p>
               </div>
             </div>
+            <div className={style.work_entry}>
+              <p className="date">2019.08 - Present</p>
+              <div>
+                <h3 className="position">Software Engineer</h3>
+                <p className="company">ABC Company</p>
+
+                <p className="description">
+                  Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
+                  Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
+            <div className={style.work_entry}>
+              <p className="date">2019.08 - Present</p>
+              <div>
+                <h3 className="position">Software Engineer</h3>
+                <p className="company">ABC Company</p>
+
+                <p className="description">
+                  Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
+                  Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
+            <div className={style.work_entry}>
+              <p className="date">2019.08 - Present</p>
+              <div>
+                <h3 className="position">Software Engineer</h3>
+                <p className="company">ABC Company</p>
+
+                <p className="description">
+                  Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
+                  Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+              </div>
+            </div>
           </div>
           <div className={style.section}>
             <h2 className="section-title">EDUCATION</h2>

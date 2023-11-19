@@ -156,7 +156,7 @@ flex-direction: column;
 .img_box img{
     height: 100%;
     width: 100%;
-    border-radius: 50%;
+    border-radius: 0;
 }
 .person_name{
   font-size: 3rem;

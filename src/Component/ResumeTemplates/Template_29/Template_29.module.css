@@ -128,7 +128,7 @@ hr{
    gap: 1rem;
 }
 .header{
- background-color: aqua;
+ background-color: rgb(131, 136, 136);
 
    display: flex;
    justify-content: space-between;

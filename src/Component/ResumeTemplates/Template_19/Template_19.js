@@ -131,6 +131,54 @@ const Template_19 = () => {
              Aldus PageMaker including versions of Lorem Ipsum.
            </p>
          </div>
+         <div>
+            <div className={style.title_}>
+            <h3 className="position">Software Engineer</h3>
+            <p className="date">2019.08 - Present</p>
+            </div>
+
+           <p className="company">ABC Company</p>
+           <p className={style.description}>
+             Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
+             Aldus PageMaker including versions of Lorem Ipsum.
+           </p>
+         </div>
+         <div>
+            <div className={style.title_}>
+            <h3 className="position">Software Engineer</h3>
+            <p className="date">2019.08 - Present</p>
+            </div>
+
+           <p className="company">ABC Company</p>
+           <p className={style.description}>
+             Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
+             Aldus PageMaker including versions of Lorem Ipsum.
+           </p>
+         </div>
+         <div>
+            <div className={style.title_}>
+            <h3 className="position">Software Engineer</h3>
+            <p className="date">2019.08 - Present</p>
+            </div>
+
+           <p className="company">ABC Company</p>
+           <p className={style.description}>
+             Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
+             Aldus PageMaker including versions of Lorem Ipsum.
+           </p>
+         </div>
+         <div>
+            <div className={style.title_}>
+            <h3 className="position">Software Engineer</h3>
+            <p className="date">2019.08 - Present</p>
+            </div>
+
+           <p className="company">ABC Company</p>
+           <p className={style.description}>
+             Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and
+             Aldus PageMaker including versions of Lorem Ipsum.
+           </p>
+         </div>
 
 
        </div>
