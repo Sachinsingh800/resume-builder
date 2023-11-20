@@ -29,9 +29,38 @@ import resume_27 from "./Component/TemplateImages/24.png"
 import resume_28 from "./Component/TemplateImages/25.png"
 import resume_29 from "./Component/TemplateImages/26.png"
 import resume_30 from "./Component/TemplateImages/27.png"
+
 import Template_1 from './Component/ResumeTemplates/Template_1/Template_1';
 import Template_2 from './Component/ResumeTemplates/Template_2/Template_2';
 import Template_3 from './Component/ResumeTemplates/Template_3/Template_3';
+import Template_4 from './Component/ResumeTemplates/Template_4/Template_4';
+import Template_5 from './Component/ResumeTemplates/Template_5/Template_5';
+import Template_6 from './Component/ResumeTemplates/Template_6/Template_6';
+import Template_7 from './Component/ResumeTemplates/Template_7/Template_7';
+import Template_8 from './Component/ResumeTemplates/Template_8/Template_8';
+import Template_9 from './Component/ResumeTemplates/Template_9/Template_9';
+import Template_10 from './Component/ResumeTemplates/Template_10/Template_10';
+import Template_11 from './Component/ResumeTemplates/Template_11/Template_11';
+import Template_12 from './Component/ResumeTemplates/Template_12/Template_12';
+import Template_13 from './Component/ResumeTemplates/Template_13/Template_13';
+import Template_14 from './Component/ResumeTemplates/Template_14/Template_14';
+import Template_15 from './Component/ResumeTemplates/Template_15/Template_15';
+import Template_16 from './Component/ResumeTemplates/Template_16/Template_16';
+import Template_17 from './Component/ResumeTemplates/Template_17/Template_17';
+import Template_18 from './Component/ResumeTemplates/Template_18/Template_18';
+import Template_19 from './Component/ResumeTemplates/Template_19/Template_19';
+import Template_20 from './Component/ResumeTemplates/Template_20/Template_20';
+import Template_21 from './Component/ResumeTemplates/Template_21/Template_21';
+import Template_22 from './Component/ResumeTemplates/Template_22/Template_22';
+import Template_23 from './Component/ResumeTemplates/Template_23/Template_23';
+import Template_24 from './Component/ResumeTemplates/Template_24/Template_24';
+import Template_25 from './Component/ResumeTemplates/Template_25/Template_25';
+import Template_26 from './Component/ResumeTemplates/Template_26/Template_26';
+import Template_27 from './Component/ResumeTemplates/Template_27/Template_27';
+import Template_28 from './Component/ResumeTemplates/Template_28/Template_28';
+import Template_29 from './Component/ResumeTemplates/Template_29/Template_29';
+import Template_30 from './Component/ResumeTemplates/Template_30/Template_30';
+
 import coverLetter1 from  "./Component/CoverLetterImages/CL 1.png"
 import coverLetter2 from  "./Component/CoverLetterImages/CL 2.png"
 import coverLetter3 from  "./Component/CoverLetterImages/CL 3.png"
@@ -139,6 +168,34 @@ export const resumeTemplates = atom({
    <Template_1/>,
    <Template_2/>,
    <Template_3/>,
+   <Template_4/>,
+   <Template_5/>,
+   <Template_6/>,
+   <Template_7/>,
+   <Template_8/>,
+   <Template_9/>,
+   <Template_10/>,
+   <Template_11/>,
+   <Template_12/>,
+   <Template_13/>,
+   <Template_14/>,
+   <Template_15/>,
+   <Template_16/>,
+   <Template_17/>,
+   <Template_18/>,
+   <Template_19/>,
+   <Template_20/>,
+   <Template_21/>,
+   <Template_22/>,
+   <Template_23/>,
+   <Template_24/>,
+   <Template_25/>,
+   <Template_26/>,
+   <Template_27/>,
+   <Template_28/>,
+   <Template_29/>,
+   <Template_30/>,
+
   ], // Set the default value to an empty array
 });
 

@@ -43,7 +43,7 @@ const Template_14 = () => {
     return startYear;
   };
   return (
-    <div className={style.main}>
+    <div  onClick={()=>setTemplateNo(13)}  className={style.main}>
       <div className={style.user_header}>
         <div className={style.image_box}>
           <div className={style.img_box}>

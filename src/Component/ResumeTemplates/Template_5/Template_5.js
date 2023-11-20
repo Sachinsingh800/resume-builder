@@ -41,7 +41,7 @@ const Template_5 = () => {
     return startYear;
   };
   return (
-    <div onClick={() => setTemplateNo(5)} className={style.main}>
+    <div onClick={() => setTemplateNo(4)} className={style.main}>
       <div
         className={style.Left_container}
         style={{ backgroundColor: "grey", color: "white" }}

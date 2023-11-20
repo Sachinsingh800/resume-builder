@@ -42,7 +42,7 @@ const Template_30 = () => {
   };
 
   return (
-    <div onClick={()=>setTemplateNo(7)} className={style.main}>
+    <div onClick={()=>setTemplateNo(29)} className={style.main}>
      <div className={style.heading}>
           <h1>{formData.resume.name}</h1>
           <p>{formData.resume.contact.email} | {formData.resume.contact.phone}</p>

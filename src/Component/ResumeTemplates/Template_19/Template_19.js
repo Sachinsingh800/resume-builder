@@ -8,10 +8,42 @@ import PlaceIcon from '@mui/icons-material/Place';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { useRecoilState } from "recoil";
+import {
+  ChooseColor,
+  chooseTemplates,
+  ChooseColorSecond,
+  croppedImageState,
+  resumeData,
+  ChooseColorThird,
+  fontState,
+  fontSizeState,
+  imageSizeState,
+} from "../../../Recoil";
 
 const Template_19 = () => {
+  const [color, setColor] = useRecoilState(ChooseColor);
+  const [color2, setColor2] = useRecoilState(ChooseColorSecond);
+  const [color3, setColor3] = useRecoilState(ChooseColorThird);
+  const [fontStyle, setFontStyle] = useRecoilState(fontState);
+  const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+  const [imgSize, setImgSize] = useRecoilState(imageSizeState);
+  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
+  const [formData, setFormData] = useRecoilState(resumeData);
+
+  console.log(formData.resume,"resume data")
+
+  const handleDate = (data) => {
+    console.log(data,"data")
+
+    const startYear = new Date(data).getFullYear();
+  
+    return startYear
+  };
+
   return (
-    <div className={style.main}>
+    <div  onClick={()=>setTemplateNo(18)}  className={style.main}>
       <div className={style.header}>
  
         <div className={style.name_box}>

@@ -36,7 +36,7 @@ const Template_12 = () => {
     return startYear
   };
   return (
-    <div className={style.main}>
+    <div  onClick={()=>setTemplateNo(11)}  className={style.main}>
       <div className={style.header}>
         <h1 className={style.name}>{formData?.resume?.name}</h1>
         <h5 className={style.name}> {formData?.resume?.jobTitle}</h5>

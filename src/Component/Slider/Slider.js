@@ -72,7 +72,10 @@ const imagePaths = [
 export default function Slider() {
   const carouselRef = useRef(null);
 
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+ 
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
     
   const responsive = {
     superLargeDesktop: {
@@ -97,7 +100,7 @@ export default function Slider() {
     <div className={style.main}>
       <Carousel ref={carouselRef} responsive={responsive}>
         {imagePaths.map((path, index) => (
-        <Link to={"/ResumeForm"}>  <div className={style.item} key={index} onClick={()=>setTemplateNo(index)}>
+        <Link to={"/ResumeForm"}>  <div className={style.item} key={index} onClick={()=>handleTemNo(index)}>
             <img src={path} alt={`resume ${index + 1}`} />
           </div>
           </Link>

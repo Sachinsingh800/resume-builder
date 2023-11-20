@@ -25,7 +25,7 @@ const Template_4 = () => {
     return startYear
   };
   return (
-    <div className={style.main}>
+    <div  onClick={()=>setTemplateNo(3)}  className={style.main}>
       <div className={style.left_section}>
         <h1 className={style.name}>{formData?.resume?.name}</h1>
         <Divider className="divider" />

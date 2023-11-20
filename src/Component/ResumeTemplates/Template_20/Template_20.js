@@ -42,7 +42,7 @@ const Template_20 = () => {
   };
 
   return (
-    <div onClick={()=>setTemplateNo(7)} className={style.main}>
+    <div onClick={()=>setTemplateNo(19)} className={style.main}>
      <div className={style.heading}>
         <div>
         <h1>{formData.resume.name}</h1>

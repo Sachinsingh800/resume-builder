@@ -17,7 +17,8 @@ function ChooseTemplates() {
   const [play] = useSound(clickSound);
 
   const [template,setTempletes] = useRecoilState(imageresumeTemplates)
-  const [temNo,setTemNo] = useRecoilState(chooseTemplates)
+
+  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   
   const handleClick = () => {
     play();
@@ -26,7 +27,8 @@ function ChooseTemplates() {
 
   const handtemp=(id)=>{
     handleClick()
-    setTemNo(id)
+    localStorage.setItem("templateid",JSON.stringify(id))
+    setTemplateNo(id)
   }
 
   return (

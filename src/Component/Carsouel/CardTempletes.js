@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import style from "./CardTempletes.module.css"
 
 import resume_1 from "../Images/Template_1.png"
@@ -36,10 +36,13 @@ import { chooseTemplates } from '../../Recoil'
 
 
 export function CardTempletes1() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
 
+
+const handleTemNo=(no)=>{
+  localStorage.setItem("templateid",JSON.stringify(no))
+}
   return (
-    <div onClick={()=>setTemplateNo(0)}  className={style.main}>
+    <div onClick={()=>handleTemNo(0) }  className={style.main}>
       
          <img src={resume_1} alt='resume1' />
 
@@ -47,17 +50,23 @@ export function CardTempletes1() {
   )
 }
 export function CardTempletes2() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-   <div onClick={()=>setTemplateNo(1)}  className={style.main}>
+   <div onClick={()=>handleTemNo(1)}  className={style.main}>
          <img src={resume_2} alt='resume2' />
     </div>
   )
 }
 export function CardTempletes3() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(2)}  className={style.main}>
          
          <img src={resume_3} alt='resume2' />
 
@@ -67,9 +76,12 @@ export function CardTempletes3() {
   )
 }
 export function CardTempletes4() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(4)}  className={style.main}>
          
          <img src={resume_4} alt='resume2' />
 
@@ -79,9 +91,12 @@ export function CardTempletes4() {
   )
 }
 export function CardTempletes5() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(4)}  className={style.main}>
          
          <img src={resume_5} alt='resume2' />
 
@@ -91,9 +106,12 @@ export function CardTempletes5() {
   )
 }
 export function CardTempletes6() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(5)}  className={style.main}>
          
          <img src={resume_6} alt='resume2' />
 
@@ -103,9 +121,12 @@ export function CardTempletes6() {
   )
 }
 export function CardTempletes7() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(6)}  className={style.main}>
          
          <img src={resume_7} alt='resume2' />
 
@@ -115,9 +136,12 @@ export function CardTempletes7() {
   )
 }
 export function CardTempletes8() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(7)}  className={style.main}>
          
          <img src={resume_8} alt='resume2' />
 
@@ -127,9 +151,12 @@ export function CardTempletes8() {
   )
 }
 export function CardTempletes9() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(8)}  className={style.main}>
          
          <img src={resume_9} alt='resume2' />
 
@@ -139,9 +166,12 @@ export function CardTempletes9() {
   )
 }
 export function CardTempletes10() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(9)}  className={style.main}>
          
          <img src={resume_10} alt='resume2' />
 
@@ -151,9 +181,12 @@ export function CardTempletes10() {
   )
 }
 export function CardTempletes11() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(10)}  className={style.main}>
          
          <img src={resume_11} alt='resume2' />
 
@@ -163,9 +196,12 @@ export function CardTempletes11() {
   )
 }
 export function CardTempletes12() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(11)}  className={style.main}>
          
          <img src={resume_12} alt='resume2' />
 
@@ -175,9 +211,12 @@ export function CardTempletes12() {
   )
 }
 export function CardTempletes13() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(12)}  className={style.main}>
          
          <img src={resume_13} alt='resume2' />
 
@@ -187,9 +226,12 @@ export function CardTempletes13() {
   )
 }
 export function CardTempletes14() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(13)}  className={style.main}>
          
          <img src={resume_14} alt='resume2' />
 
@@ -199,9 +241,12 @@ export function CardTempletes14() {
   )
 }
 export function CardTempletes15() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(14)}  className={style.main}>
          
          <img src={resume_15} alt='resume2' />
 
@@ -211,9 +256,12 @@ export function CardTempletes15() {
   )
 }
 export function CardTempletes16() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(15)}  className={style.main}>
          
          <img src={resume_16} alt='resume2' />
 
@@ -223,9 +271,11 @@ export function CardTempletes16() {
   )
 }
 export function CardTempletes17() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(16)}  className={style.main}>
          
          <img src={resume_17} alt='resume2' />
 
@@ -235,9 +285,12 @@ export function CardTempletes17() {
   )
 }
 export function CardTempletes18() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(17)}  className={style.main}>
          
          <img src={resume_18} alt='resume2' />
 
@@ -247,9 +300,12 @@ export function CardTempletes18() {
   )
 }
 export function CardTempletes19() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(18)}  className={style.main}>
          
          <img src={resume_19} alt='resume2' />
 
@@ -259,9 +315,12 @@ export function CardTempletes19() {
   )
 }
 export function CardTempletes20() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(19)}  className={style.main}>
          
          <img src={resume_20} alt='resume2' />
 
@@ -271,9 +330,12 @@ export function CardTempletes20() {
   )
 }
 export function CardTempletes21() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(20)}  className={style.main}>
          
          <img src={resume_3} alt='resume2' />
 
@@ -283,9 +345,12 @@ export function CardTempletes21() {
   )
 }
 export function CardTempletes22() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(21)}  className={style.main}>
          
          <img src={resume_22} alt='resume2' />
 
@@ -295,9 +360,12 @@ export function CardTempletes22() {
   )
 }
 export function CardTempletes23() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(22)}  className={style.main}>
          
          <img src={resume_23} alt='resume2' />
 
@@ -307,9 +375,12 @@ export function CardTempletes23() {
   )
 }
 export function CardTempletes24() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(23)}  className={style.main}>
          
          <img src={resume_24} alt='resume2' />
 
@@ -319,9 +390,12 @@ export function CardTempletes24() {
   )
 }
 export function CardTempletes25() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(24)}  className={style.main}>
          
          <img src={resume_25} alt='resume2' />
 
@@ -331,9 +405,12 @@ export function CardTempletes25() {
   )
 }
 export function CardTempletes26() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(25)}  className={style.main}>
          
          <img src={resume_26} alt='resume2' />
 
@@ -343,9 +420,12 @@ export function CardTempletes26() {
   )
 }
 export function CardTempletes27() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(26)}  className={style.main}>
          
          <img src={resume_27} alt='resume2' />
 
@@ -355,9 +435,12 @@ export function CardTempletes27() {
   )
 }
 export function CardTempletes28() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(27)}  className={style.main}>
          
          <img src={resume_28} alt='resume2' />
 
@@ -367,9 +450,12 @@ export function CardTempletes28() {
   )
 }
 export function CardTempletes29() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
+ 
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(28)}  className={style.main}>
          
          <img src={resume_29} alt='resume2' />
 
@@ -379,9 +465,11 @@ export function CardTempletes29() {
   )
 }
 export function CardTempletes30() {
-  const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+  const handleTemNo=(no)=>{
+    localStorage.setItem("templateid",JSON.stringify(no))
+  }
   return (
-    <div onClick={()=>setTemplateNo(2)}  className={style.main}>
+    <div onClick={()=>handleTemNo(29)}  className={style.main}>
          
          <img src={resume_30} alt='resume2' />
 
