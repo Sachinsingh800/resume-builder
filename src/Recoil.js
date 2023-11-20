@@ -72,6 +72,17 @@ import coverLetter8 from  "./Component/CoverLetterImages/CL 8.png"
 import coverLetter9 from  "./Component/CoverLetterImages/CL 9.png"
 import coverLetter10 from  "./Component/CoverLetterImages/CL 10.png"
 
+import CoverLetter1 from './Component/CoverLetterTemplate/CoverLetter1/CoverLetter1';
+import CoverLetter2 from './Component/CoverLetterTemplate/CoverLetter2/CoverLetter2';
+import CoverLetter3 from './Component/CoverLetterTemplate/CoverLetter3/CoverLetter3';
+import CoverLetter4 from './Component/CoverLetterTemplate/CoverLetter4/CoverLetter4';
+import CoverLetter5 from './Component/CoverLetterTemplate/CoverLetter5/CoverLetter5';
+import CoverLetter6 from './Component/CoverLetterTemplate/CoverLetter6/CoverLetter6';
+import CoverLetter7 from './Component/CoverLetterTemplate/CoverLetter7/CoverLetter7';
+import CoverLetter8 from './Component/CoverLetterTemplate/CoverLetter8/CoverLetter8';
+import CoverLetter9 from './Component/CoverLetterTemplate/CoverLetter9/CoverLetter9';
+import CoverLetter10 from './Component/CoverLetterTemplate/CoverLetter10/CoverLetter10';
+
 
 const resume = JSON.parse(localStorage.getItem("resume"))
 
@@ -196,6 +207,21 @@ export const resumeTemplates = atom({
    <Template_29/>,
    <Template_30/>,
 
+  ], // Set the default value to an empty array
+});
+export const coverLetterTemplates = atom({
+  key: 'coverLetterTemplates', // Unique ID (with respect to other atoms/selectors)
+  default: [
+<CoverLetter1 />,
+<CoverLetter2 />,
+<CoverLetter3 />,
+<CoverLetter4 />,
+<CoverLetter5 />,
+<CoverLetter6 />,
+<CoverLetter7 />,
+<CoverLetter8 />,
+<CoverLetter9 />,
+<CoverLetter10 />,
   ], // Set the default value to an empty array
 });
 

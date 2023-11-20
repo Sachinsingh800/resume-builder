@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { jobApplicationState } from '../../Recoil'; 
+import { coverLetterTemplates, jobApplicationState } from '../../Recoil'; 
 import style from "./CoverLetterForm.module.css"
 import NavBar from '../NavBar/NavBar';
 import CoverLetter1 from '../CoverLetterTemplate/CoverLetter1/CoverLetter1';
@@ -9,8 +9,11 @@ import Swal from "sweetalert2";
 
 const CoverLetterForm = () => {
   const [formData, setFormData] = useRecoilState(jobApplicationState);
+  const [cl, setCl] = useRecoilState(coverLetterTemplates);
   const [section, setSection] = useState(1);
   const [progress, setProgress] = useState(0);
+  const clNo=JSON.parse(localStorage.getItem("coverLetterId"))
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -442,7 +445,7 @@ const CoverLetterForm = () => {
 <div className={style.coverLetter_box}>
 <div className={style.coverletter_container}>
   <div>
-  <CoverLetter1/>
+  {cl[clNo]}
   </div>
 
 </div>
