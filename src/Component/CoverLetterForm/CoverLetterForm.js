@@ -15,6 +15,7 @@ const CoverLetterForm = () => {
   const clNo=JSON.parse(localStorage.getItem("coverLetterId"))
 
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
   

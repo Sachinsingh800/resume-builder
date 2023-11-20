@@ -1,7 +1,7 @@
 .main{
     display: flex;
     flex-direction: column;
-    width: 52rem; /* 874px / 16px = 54.625rem */
+    width: 52rem!important; /* 874px / 16px = 54.625rem */
     height: 73.3rem;  /* 1240px / 16px = 77.5rem */
     margin: 0 auto;
     box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);

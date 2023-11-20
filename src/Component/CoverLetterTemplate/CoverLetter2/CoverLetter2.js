@@ -2,12 +2,27 @@ import React from "react";
 import { useRecoilValue } from "recoil";
 import { jobApplicationState } from "../../../Recoil";
 import style from "./CoverLetter2.module.css";
+import generatePDF from "react-to-pdf";
+import { useRef } from "react";
 
 const CoverLetter2 = () => {
   const formData = useRecoilValue(jobApplicationState);
   console.log(formData);
+  const targetRef = useRef();
+    
+  const pdfOptions = {
+    unit: "mm",
+    format: "a4",
+    orientation: "portrait", // or 'landscape'
+    fileName: "Easyryt.pdf",
+  };
+  
   return (
-    <div className={style.main}>
+    <>
+    <button className={style.download_btn} onClick={() => generatePDF(targetRef, pdfOptions)}>
+            Export to Pdf
+          </button>
+          <div className={style.main} ref={targetRef} id='content'>
       <div className={style.heading}>
         <div>
           <h1>
@@ -58,6 +73,8 @@ const CoverLetter2 = () => {
         <p>{formData.signature}</p>
       </section>
     </div>
+    </>
+    
   );
 };
 
