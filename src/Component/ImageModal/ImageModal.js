@@ -52,7 +52,7 @@ export default function ImageModal() {
                 <div className={styles.img_box}>
                   <img src={upload} alt='img' />
                 </div>
-                <div>
+                <div className={style.info_box}>
                   <h2>Make sure to check the application requirements before adding a photo. Some employers won’t consider a resume with photos.</h2>
                   <h3>Want to add a photo?</h3>
                   <ul>

@@ -77,3 +77,12 @@ font-size: .5rem;
     height: 100%!important;
     width: 100%!important;
 }
+@media (max-width:500px){
+    .right_box{
+        display: none;
+    }
+    .img_container{
+        display: grid;
+        grid-template-columns: 1fr ;
+    }
+}
