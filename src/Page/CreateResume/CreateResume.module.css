@@ -161,3 +161,8 @@
     .progress{
 
     }
+    @media (max-width:500px){
+        .right_box{
+            display: none;
+        }
+    }

@@ -322,3 +322,92 @@ button{
     justify-content: center;
     font-size: .5rem;
   }
+  @media (max-width:500px){
+    
+.info_box{
+    display: grid!important;
+    grid-template-columns: 1fr ;
+    gap: 1rem;
+ 
+}
+.personal_info{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+}
+.section_2{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+padding: 1rem 0rem;
+}
+.section_3{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+}
+.section_4{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+.section_5{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+.section_6{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+.section_8{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+.section_8 input{
+ width: 19rem;
+ padding: 1rem 0rem;
+}
+
+.input_box{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ place-items: center;
+}
+.section_9{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+.section_10{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+.section_11{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+.section_12{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+.section_13{
+ display: grid!important;
+ grid-template-columns: 1fr ;
+ gap: 1rem;
+ padding: 1rem 0rem;
+}
+  }

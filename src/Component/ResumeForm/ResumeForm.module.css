@@ -41,3 +41,12 @@
     background-color: white;
     color: black;
 }
+@media (max-width:500px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr ;
+        width: 70%;
+        margin-top: 4rem;
+        gap: 3rem;
+    }
+}
