@@ -289,6 +289,18 @@ export const getAllLanguages = async () => {
 //addResume
 
 
+export const createResume = async (Data) => {
+
+  try {
+    const response = await axios.post(`https://htmltopdf-yf6w.onrender.com/convert`, Data);
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error creating resume:', error.message);
+
+  }
+};
+
 export const addResume = async (formData) => {
   const headers = {
     'x-auth-token': authToken,
