@@ -92,7 +92,7 @@ export default function Slider() {
     },
     mobile: {
       breakpoint: { max: 500, min: 0 },
-      items: 1,
+      items: 2,
     },
   };
 

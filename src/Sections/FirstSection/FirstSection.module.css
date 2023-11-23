@@ -54,3 +54,8 @@
 .list:hover{
     background-color: rgb(252, 252, 252);
 }
+@media (max-width:500px){
+    .heading{
+        text-align: center;
+    }
+}

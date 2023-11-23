@@ -56,3 +56,13 @@
 .list:hover{
     background-color: rgb(252, 252, 252);
 }
+@media (max-width:500px){
+    .heading h2{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .heading p{
+        width: 40rem;
+        text-align: center;
+    }
+}

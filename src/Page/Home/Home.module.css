@@ -88,4 +88,14 @@ background: linear-gradient(0deg, rgba(17,7,7,1) 0%, rgba(154,8,8,1) 100%, rgba(
             display: grid;
             grid-template-columns: 1fr ;
         }
+        .heading{
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            padding: 6rem 1rem -2rem 0rem;
+            gap: 1rem;
+        }
+        .right_box{
+            margin-top: -19rem;
+        }
     }
