@@ -14,7 +14,7 @@ import PreviewIcon from '@mui/icons-material/Preview';
 const style = {
   position: 'absolute',
   display: "grid",
-  gridTemplateColumns: "1fr ",
+  gridTemplateColumns: "1fr",
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',

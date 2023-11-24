@@ -190,7 +190,7 @@
             width: 100vw;
             overflow: scroll;
             border: 1px rgb(146, 145, 145) solid;
-            padding: 1rem;
+            margin-left: -3rem;
         }
         .download_btn{
             margin-top: .5rem;
