@@ -1,8 +1,33 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlinePhone } from "react-icons/ai";
+import { CiLocationOn } from "react-icons/ci";
+import { useRecoilState } from "recoil";
+import {
+  ChooseColor,
+  chooseTemplates,
+  ChooseColorSecond,
+  croppedImageState,
+  ChooseColorThird,
+  fontState,
+  fontSizeState,
+  imageSizeState,
+} from '../../Recoil';
+import axios from "axios";
+import { resumeData } from '../../Recoil';
 
 function HtmlToPdf() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [color, setColor] = useRecoilState(ChooseColor);
+    const [color2, setColor2] = useRecoilState(ChooseColorSecond);
+    const [color3, setColor3] = useRecoilState(ChooseColorThird);
+    const [fontStyle, setFontStyle] = useRecoilState(fontState);
+    const [fontSize, setFontSize] = useRecoilState(fontSizeState);
+    const [imgSize, setImgSize] = useRecoilState(imageSizeState);
+    const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
+    const [formData, setFormData] = useRecoilState(resumeData);
+    const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   
     const getHTML = () => {
       return `
@@ -177,7 +202,6 @@ function HtmlToPdf() {
     const handleResume = async () => {
       setLoading(true);
       setError(" ");
-  
       const axiosConfig = {
         responseType: "arraybuffer",
         headers: {

@@ -161,8 +161,18 @@
     .progress{
 
     }
+    .preview_button{
+        display: none;
+    }
     @media (max-width:500px){
         .right_box{
             display: none;
+        }
+        .preview_button{
+            display: unset;
+            position: fixed;
+            top: 85%;
+            right: 4%;
+            z-index: 99;
         }
     }

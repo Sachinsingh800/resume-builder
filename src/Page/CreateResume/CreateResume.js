@@ -39,6 +39,7 @@ import resume_img2 from "../../Component/Images/resume_img2.gif"
 import { getAllAreaofInterest, getAllLanguages, getAllSkills, getAllSummary } from "../../Api/Api";
 import { useSound } from 'use-sound';
 import clickSound from "../../Sounds/Click.mp3"
+import MobileViewModal from "../../Component/MobileViewModal/MobileViewModal";
 
 function CreateResume() {
   
@@ -261,7 +262,7 @@ function CreateResume() {
   return (
     <div className={style.main}>
       <NavBar />
-
+    
       <div className={style.container}>
    
         <div className={style.left_box}>
@@ -269,6 +270,7 @@ function CreateResume() {
             <CreateResumeForm />
   
         </div>
+        
         <div className={style.right_box}>
           <div className={style.animation_box}>
           <div className={style.cat}>
@@ -624,6 +626,9 @@ function CreateResume() {
           </div>
         </div>
       </div>
+      <div className={style.preview_button}>
+      <MobileViewModal />
+    </div>
     </div>
   );
 }
