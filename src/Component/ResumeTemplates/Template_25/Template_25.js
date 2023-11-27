@@ -212,9 +212,9 @@ const Template_25 = () => {
         <div class="container">
           <div class="left_section">
             <div class="section">
-                <h2 class="section_title">
+                <h3 class="section_title">
                     ABOUT
-                </h2>
+                </h3>
                 <hr class="divider">
                 <p class="section-content">
                     Lorem Ipsum is simply dummy text of scrambled it to make a ty It was popularised in the 1960s
@@ -222,17 +222,17 @@ const Template_25 = () => {
                 </p>
             </div>
 
-            <div class="section">
-                <h2 class="section_title">
+              <div class="section">
+                   <h3 class="section_title">
                     EXPERIENCE
-                </h2>
-                <hr class="divider">
-                <ul class="ul">
-                    <li>
+                    </h3>
+                    <hr class="divider">
+                      <ul class="ul">
+                        <li>
                         <div class="work_entry">
                             <div>
                                 <div class="title_">
-                                    <h3 class="position">Software Engineer </h3>
+                                    <h4 class="position">Software Engineer </h4>
                                     <p class="date">2019.08 - Present</p>
                                 </div>
 
@@ -248,7 +248,47 @@ const Template_25 = () => {
                         <div class="work_entry">
                             <div>
                                 <div class="title_">
-                                    <h3 class="position">Software Engineer </h3>
+                                    <h4 class="position">Software Engineer </h4>
+                                    <p class="date">2019.08 - Present</p>
+                                </div>
+
+                                <p class="company">ABC Company</p>
+                                <p class="description">
+                                    Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+              <div class="section">
+                   <h3 class="section_title">
+                    PROJECTS
+                    </h3>
+                    <hr class="divider">
+                      <ul class="ul">
+                        <li>
+                        <div class="work_entry">
+                            <div>
+                                <div class="title_">
+                                    <h4 class="position">Software Engineer </h4>
+                                    <p class="date">2019.08 - Present</p>
+                                </div>
+
+                                <p class="company">ABC Company</p>
+                                <p class="description">
+                                    Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
+                                    including versions of Lorem Ipsum.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="work_entry">
+                            <div>
+                                <div class="title_">
+                                    <h4 class="position">Software Engineer </h4>
                                     <p class="date">2019.08 - Present</p>
                                 </div>
 
@@ -264,15 +304,15 @@ const Template_25 = () => {
             </div>
 
             <div class="section">
-                <h2 class="section_title">
+                <h3 class="section_title">
                    EDUCATION
-                </h2>
+                </h3>
                 <hr class="divider">
                 <ul class="ul">
                     <li>
                         <div class="work_entry">
                             <div class="title_">
-                                <h3 class="degree">Masters in Data Science</h3>
+                                <h4 class="degree">Masters in Data Science</h4>
                                 <p class="date">2019.08 - 2023.09</p>
                             </div>
 
@@ -284,7 +324,7 @@ const Template_25 = () => {
                     <li>
                         <div class="work_entry">
                             <div class="title_">
-                                <h3 class="degree">Masters in Data Science</h3>
+                                <h4 class="degree">Masters in Data Science</h4>
                                 <p class="date">2019.08 - 2023.09</p>
                             </div>
 
@@ -296,7 +336,7 @@ const Template_25 = () => {
                     <li>
                         <div class="work_entry">
                             <div class="title_">
-                                <h3 class="degree">Masters in Data Science</h3>
+                                <h4 class="degree">Masters in Data Science</h4>
                                 <p class="date">2019.08 - 2023.09</p>
                             </div>
 
@@ -312,7 +352,7 @@ const Template_25 = () => {
     
 
         <div class="contact_info">
-            <h2 class="section_title">Contact</h2>
+            <h3 class="section_title">Contact</h3>
             <hr class="divider">
             <div class="contact_value">
                 <span class="contact_label">
@@ -345,7 +385,7 @@ const Template_25 = () => {
         </div>
 
         <div class="section">
-            <h2 class="section_title">SKILLS</h2>
+            <h3 class="section_title">SKILLS</h3>
             <hr class="divider">
             <ul class="skills_list">
                 <li>javascript</li>
@@ -361,7 +401,7 @@ const Template_25 = () => {
         <br>
 
         <div class="section">
-            <h2 class="section_title">LANGUAGE</h2>
+            <h3 class="section_title">LANGUAGE</h3>
             <hr class="divider">
             <ul class="skills_list">
                 <li>Hindi</li>
@@ -373,7 +413,7 @@ const Template_25 = () => {
         <br>
 
         <div class="section">
-            <h2 class="section_title">INTEREST</h2>
+            <h3 class="section_title">INTEREST</h3>
             <hr class="divider">
             <ul class="skills_list">
                 <li>Hindi</li>
