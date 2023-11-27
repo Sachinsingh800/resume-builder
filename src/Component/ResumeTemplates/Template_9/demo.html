@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Resume</title>
+    <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+         box-sizing: border-box;
+         background-color: white;
+        
+    }
+
+    .main {
+      width: 794px ;
+        height: 1130px;
+      background-color: white;
+      
+    }
+    .heading{
+      display: flex;
+      justify-content: space-between;
+      width: 52rem; 
+      padding: 1rem ;
+  }
+  .heading div{
+      width: 50%;
+      overflow: hidden;
+  }
+  .summary h2{
+      border-top: 1px  rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 90%;
+  }
+  .para{
+      width: 96%;
+  }
+  .summary {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
+  .Experience{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
+  .Experience h2{
+      border-top: 1px  rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
+  .Experience ul{
+      width: 90%;
+  }
+  .Skills h2{
+      border-top: 1px  rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
+  .Skills {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
+  .Skills ul{
+      width: 90%;
+      display: inline-table;
+      grid-template-columns: auto;
+      margin-left:-5rem;
+  }
+  .Skills ul li{
+     width: max-content;
+      display: inline-table;
+      padding: .5rem;
+      margin: 1rem;
+      border-radius: 5px;
+      color: white!important;
+      background-color: rgb(31, 106, 177);
+  
+    
+  }
+
+  .Education{
+      display: flex;
+      flex-direction: column;
+      padding:1rem;
+     
+  }
+
+    
+  .Education h2{
+      border-top: 1px  rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
+  
+  .Education ul{
+      width: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-left:1rem;
+  }
+   
+  .Education ul li{
+      display: flex;
+      flex-direction: column;
+  }
+  .contact_info{
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+  }
+  .description_box{
+      padding: 1rem;
+  }
+     
+    </style>
+</head>
+
+<body>
+<div onclick="setTemplateNo(8)" class="main">
+    <div class="heading">
+        <div>
+            <h1>John Doe</h1>
+            <p>Software Developer</p>
+        </div>
+        <div class="contact_info">
+            <p>john.doe@example.com</p>
+            <p>123-456-7890</p>
+            <p>123 Main St, Cityville | USA</p>
+            <p>linkedin.com/in/johndoe</p>
+        </div>
+    </div>
+    <div class="description_box">
+        <p>
+        Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.
+        Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.
+        Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.
+        </p>
+    </div>
+    <div class="Skills">
+        <h2>Skills</h2>
+        <ul>
+            <li style="color: color3;">
+                <span>JavaScript</span>
+            </li>
+            <li style="color: color3;">
+                <span>React.js</span>
+            </li>
+            <!-- Add more skills as needed -->
+        </ul>
+    </div>
+    <div class="Experience">
+        <h2>Work History</h2>
+        <ul>
+            <li>
+                <div class="work_des">
+                    <div>
+                        <h3 class="customerService">Software Engineer</h3>
+                        <h5 class="company_name"><span>ABC Tech - Cityville</span> <span>Jan 2020 - Present</span></h5>
+                    </div>
+                    <div>
+                        <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
+                    </div>
+                </div>
+            </li>
+            <!-- Add more work experiences as needed -->
+        </ul>
+    </div>
+    <div class="Education">
+        <h2>Education</h2>
+        <br />
+        <ul>
+            <li style="color: color3;">
+                <span>2016 - 2020</span>
+                <h4>Bachelor of Science in Computer Science</h4>
+                <span>University of Cityville</span>
+            </li>
+            <!-- Add more education details as needed -->
+        </ul>
+    </div>
+</div>
+</body>
+
+</html>
