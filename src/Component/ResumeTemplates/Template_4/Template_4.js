@@ -341,7 +341,7 @@ const Template_4= () => {
                     </ul>
                 </div>
             </div>
-            <div class="right_section" style="background-color: grey; color: white;   height: 1130px;">
+            <div class="right_section" style="background-color: grey; color: white;   height: 1146px;">
                 <div class="contact-info">
                     <div class="contact-entry">
 
