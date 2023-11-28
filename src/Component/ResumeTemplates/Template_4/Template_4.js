@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
+import axios from "axios";
+import location from "../../Images/location-pin.png"
+import linkedin from "../../Images/linkedin.png"
+import mail from "../../Images/mail.png"
+import call from "../../Images/call.png"
+import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_4.module.css"
-import { ChooseColor, ChooseColorSecond, ChooseColorThird, chooseTemplates, croppedImageState, fontSizeState, fontState, imageSizeState, resumeData } from "../../../Recoil";
+import style from "./Template_4.module.css";
+import WorkIcon from "@mui/icons-material/Work";
+import SchoolIcon from "@mui/icons-material/School";
+import PlaceIcon from "@mui/icons-material/Place";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
+import {
+  ChooseColor,
+  chooseTemplates,
+  ChooseColorSecond,
+  croppedImageState,
+  resumeData,
+  ChooseColorThird,
+  fontState,
+  fontSizeState,
+  imageSizeState,
+} from "../../../Recoil";
 
-const Template_4 = () => {
+
+const PDFRenderer = ({ htmlContent }) => {
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+};
+
+const Template_4= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -14,101 +42,392 @@ const Template_4 = () => {
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [formData, setFormData] = useRecoilState(resumeData);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [base64Image1, setBase64Image1] = useState('');
+  const [base64Image2, setBase64Image2] = useState('');
+  const [base64Image3, setBase64Image3] = useState('');
+  const [base64Image4, setBase64Image4] = useState('');
+  const [base64Image5, setBase64Image5] = useState('');
 
-  console.log(formData.resume,"resume data")
+  console.log(formData.resume, "resume data");
 
   const handleDate = (data) => {
-    console.log(data,"data")
+    console.log(data, "data");
 
     const startYear = new Date(data).getFullYear();
-  
-    return startYear
+
+    return startYear;
   };
-  return (
-    <div  onClick={()=>setTemplateNo(3)}  className={style.main}>
-      <div className={style.left_section}>
-        <h1 className={style.name}>{formData?.resume?.name}</h1>
-        <Divider className="divider" />
-        <div className="section">
-          <h2 className="section-title"> {formData?.resume?.jobTitle}</h2>
-          <Divider className="divider" />
-          <p className="section-content">
-          {formData?.resume?.summary}
-          </p>
-        </div>
-        <div className="section">
-          <h2 className="section-title">WORK HISTORY</h2>
-          <Divider className="divider" />
-          <ul>
-          {formData?.resume?.work.map((item,id)=>
-          <li className={style.li}> 
-          <div className={style.work_des}>
-        <h3 className={style.customerService}>{item?.title}</h3>
-        <h5 className={style.company_name}><span>{item?.company} - {item?.location}</span> <span>{handleDate(item?.startDate)} - {handleDate(item?.endDate)}</span></h5>
-          <p>
-              {item?.description}
-          </p>
-     
-          </div>
-          </li>
-          )}
-            
-          </ul>
 
-        </div>
-        <div className="section">
-          <h2 className="section-title">EDUCATION</h2>
-          <Divider className="divider" />
-          <ul>
-          {formData?.resume?.education.map((item,id)=>
-      <li className={style.li}> 
-          <div className={style.work_des}>
-        <h3 className={style.customerService}>{item?.degree}</h3>
-        <h5 className={style.company_name}><span>{item?.collegeName} - {item?.location}</span> <span>{handleDate(item?.startYear)} - {handleDate(item?.endYear)}</span></h5>
-          <p>
-              {item?.description}
-          </p>
-     
-          </div>
-          </li>
-          )}
-            
-          </ul>
+
+
+  
+  useEffect(() => {
+    const imageLocations = [
+      location,
+      linkedin,
+      dp,
+      mail,
+      call,
+    ];
+  
+    const handleImageChange = async () => {
+      try {
+        const promises = imageLocations.map(async (location, index) => {
+          const response = await fetch(location);
+          const blob = await response.blob();
+          const reader = new FileReader();
+  
+          return new Promise((resolve) => {
+            reader.onloadend = () => {
+              // The result property contains the base64-encoded string
+              const base64String = reader.result;
+              resolve({ index, base64String });
+            };
+  
+            // Read the image file as a data URL
+            reader.readAsDataURL(blob);
+          });
+        });
+  
+        // Wait for all promises to resolve
+        const results = await Promise.all(promises);
+  
+        // Update state based on index
+        results.forEach(({ index, base64String }) => {
+          if (index === 0) {
+            setBase64Image1(base64String);
+          } else if (index === 1) {
+            setBase64Image2(base64String);
+          }else if (index === 2) {
+            setBase64Image3(base64String);
+          }
+          else if (index === 3) {
+            setBase64Image4(base64String);
+        
+          }else if (index === 4) {
+            setBase64Image5(base64String);
+          }
+        });
+      } catch (error) {
+        console.error('Error loading images:', error);
+      }
+    };
+  
+    handleImageChange();
+  }, []);
+  
+
+  const getHTML = () => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Your Resume</title>
+        <!-- Include any necessary stylesheets or meta tags here -->
+        <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        .main {
+            width: 850px;
+            height: 1130px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+        .img_box{
+          height: 7rem;
+          width: 7rem;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+      }
+      .img_box img{
+          height: 100%;
+          width: 100%;
+      }
+      .left_section{
+          display: flex;
+          flex-direction: column;
+          padding: 2rem 1rem;
+          gap: 2rem;
+          text-align: left;
+      }
+      
+      .info_box{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem 1rem;
+      }
+      .education{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem 1rem;
+      }
+      .img_container{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .right_section{
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+         padding: 2rem 1rem;
+      }
+      .right_section p{
+          width: 95%!important;
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          list-style: none;
+         
+      }
+      .right_section ul li{
+          margin-left:1.5rem ;
+         
+      }
+      .right_section ul li {
+          width: 95%!important;
+      }
+      .work_history{
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+      }
+      .heading{
+          background-color: aliceblue;
+          padding: 3rem 1rem;
+          
+      }
+      .certifications{
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+      }
+      .skills{
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+      
+      }
+      .skills ul{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+      }
+      .professional_summary{
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+      }
+      .work{
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: .5rem;
+      }
+      hr{
+          margin-left: 1rem;
+      }
+      .info_box p{
+          display: flex;
+          gap: .5rem;
+          align-items: center;
+      }
+      .certifications ul{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+      }
+      .li{
+          list-style: none;
+      }
+      .work  h5,h4,p{
+        margin:.1rem;
+
+      }
+      .work {
+        margin-left:-2.5rem;
+      }
+      .section-title{
+        padding-left: 1rem;
+      }
+      .para{
+      
+        padding-left: 1rem;
+      }
+      .name-box{
+        padding-left: 1rem;
+      }
+      .name-box h1{
+        margin:.1rem;
+      }
+  
+      .skill_ul li{
+        margin-left:-1rem!important;
+      }
+      .contact-entry{
+        display:flex;
+        flex-direction: column;
+        gap:.5rem;
+      }
+      .ul{
+        margin-top:-1rem;
+      }
+      .divider{
+        margin-top:-1rem;
+      }
+        </style>
+    </head>
     
+    <body>
+        <div class="main">
+            <div class="left_section">
+            <div class="name-box">
+            <h1 class="name">John Doe</h1>
+            <p>Software Developer</p>
+            </div>
+                <div class="section">
+                    <hr class="divider" />
+                    <p class="para">
+                        Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.
+                    </p>
+                </div>
+                <div class="section">
+                    <h2 class="section-title">WORK HISTORY</h2>
+                    <hr class="divider" />
+                    <ul class="ul">
+                        <li class="li">
+                            <div class="work">
+                                <h4 class="customerService">Software Engineer</h3>
+                                <h5 class="company_name"><span>ABC Company - Cityville</span> <span>Jan 2020 - Present</span></h5>
+                                <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
+                            </div>
+                        </li>
+                        <!-- Add more work experiences as needed -->
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2 class="section-title">EDUCATION</h2>
+                    <hr class="divider" />
+                    <ul class="ul">
+                        <li class="li">
+                            <div class="work">
+                                <h4 class="customerService">Bachelor of Science in Computer Science</h3>
+                                <h5 class="company_name"><span>University of Cityville - Cityville</span> <span>2016 - 2020</span></h5>
+                                <p>Studied computer science with a focus on software development and problem-solving.</p>
+                            </div>
+                        </li>
+                        <!-- Add more education details as needed -->
+                    </ul>
+                </div>
+            </div>
+            <div class="right_section" style="background-color: grey; color: white;   height: 1130px;">
+                <div class="contact-info">
+                    <div class="contact-entry">
 
-        </div>
-      </div>
-      <div className={style.right_section} style={{backgroundColor:"grey",color:"white"}}>
-        <div className="contact-info">
-          <div className="contact-entry">
-            <h4 className="contact-label">Address</h4>
-            <p className="contact-value">{formData?.resume?.address?.address},{formData?.resume?.address?.postalCode}</p>
-          </div>
-          <div className="contact-entry">
-            <h4 className="contact-label">Phone</h4>
-            <p className="contact-value">{formData?.resume?.contact?.phone}</p>
-          </div>
-          <div className="contact-entry">
-            <h4 className="contact-label">E-mail</h4>
-            <p className="contact-value">{formData?.resume?.contact?.email}</p>
-          </div>
 
-        </div>
-        <Divider className="divider" />
-        <div className="section">
-          <h2 className="section-title">SKILLS</h2>
-          <Divider className="divider" />
-          <ul>
-          {formData?.resume?.skillsAndLevel.map((item,id)=>
-      <li > 
-                 {item?.skills}
-          </li>
-          )}
+                    <div>
+                    <h4 class="contact-label">Address</h4>
+                    <p class="contact-value">123 Main St, Cityville</p>
+                    </div>
+                     
+
+                    <div>
+                    <h4 class="contact-label">Phone</h4>
+                    <p class="contact-value">123-456-7890</p>
+                    </div>
+                      
+
+                    <div>
+                    <h4 class="contact-label">E-mail</h4>
+                    <p class="contact-value">john.doe@example.com</p>
+                    </div>
+                       
+                    </div>
+                </div>
             
-          </ul>
+                <div >
+                    <h2 class="section-title">SKILLS</h2>
+                    <hr class="divider" />
+                    <ul class="skill_ul" >
+                        <li>JavaScript</li>
+                        <!-- Add more skills as needed -->
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </body>
+    
+    </html>
+    
+    `;
+  };
+
+  const handleResume = async () => {
+    setLoading(true);
+    setError("");
+
+    const axiosConfig = {
+      responseType: "arraybuffer",
+      headers: {
+        Accept: "application/json",
+      },
+    };
+
+    try {
+      const response = await axios.post(
+        "https://whihtmltopdf.onrender.com/convertToPdf",
+        { htmlContent: getHTML() },
+        axiosConfig
+      );
+
+      setLoading(false);
+
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "lizmy.pdf");
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+    }
+  };
+
+
+
+
+
+
+  return (
+    <div>
+    <button onClick={handleResume}>Download</button>
+    <br />
+    {loading && <p>Loading...</p>}
+    {error && <p style={{ color: "red" }}>{error}</p>}
+    <PDFRenderer htmlContent={getHTML()} />
+  </div>
   );
 };
 
