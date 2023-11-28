@@ -8,6 +8,7 @@
    box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
    overflow: hidden;
 }
+
 .container{
    display: grid;
    grid-template-columns: 1fr 2fr;
@@ -205,4 +206,5 @@ display: flex;
 flex-direction: column;
 gap: .5rem;
 padding-top: 1rem;
+justify-content: center;
 }
