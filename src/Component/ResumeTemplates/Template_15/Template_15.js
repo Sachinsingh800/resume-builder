@@ -381,6 +381,15 @@ const Template_15= () => {
             }
             .name_box{
               margin-top:3.5rem;
+
+            }
+            .icon{
+              height:1rem;
+              width:1rem;
+              margin-left:-1rem;
+            }
+            .contact_value{
+              margin-left:-2rem; 
             }
         </style>
     </head>
@@ -402,33 +411,33 @@ const Template_15= () => {
                     <ul class="contact_info">
                         <li >
                             <div class="contact_value">
-                                <span class="contact_label">
-                                  
+                                <span class="icon">
+                                <img class="icon" src=${base64Image5} alt="dp" />
                                 </span>
                                 <p class="contact-value">+91 9503942697</p>
                             </div>
                         </li>
                         <li>
                             <div class="contact_value">
-                                <span class="contact_label">
-                               
-                                </span>
+                            <span class="icon">
+                            <img class="icon" src=${base64Image4} alt="dp" />
+                            </span>
                                 <p class="contact-value">ss20010126@gmail.com</p>
                             </div>
                         </li>
                         <li>
                             <div class="contact_value">
-                                <span class="contact_label">
-                                 
-                                </span>
+                            <span class="icon">
+                            <img class="icon" src=${base64Image2} alt="dp" />
+                            </span>
                                 <p class="contact-value">linkedin.com/en/5hubzzz</p>
                             </div>
                         </li>
                         <li>
                             <div class="contact_value">
-                                <span class="contact_label">
-                                
-                                </span>
+                            <span class="icon">
+                            <img class="icon" src=${base64Image1} alt="dp" />
+                            </span>
                                 <p class="contact-value">Enter Your Address here</p>
                             </div>
                         </li>
