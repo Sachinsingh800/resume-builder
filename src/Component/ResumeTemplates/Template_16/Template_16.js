@@ -596,7 +596,8 @@ const Template_16= () => {
     <br />
     {loading && <p>Loading...</p>}
     {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
+    {/* <PDFRenderer htmlContent={getHTML()} /> */}
+    <div dangerouslySetInnerHTML={{ __html: getHTML() }} />
   </div>
   );
 };

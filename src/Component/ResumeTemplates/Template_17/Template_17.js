@@ -1,4 +1,10 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
+import axios from "axios";
+import location from "../../Images/location-pin.png"
+import linkedin from "../../Images/linkedin.png"
+import mail from "../../Images/mail.png"
+import call from "../../Images/call.png"
+import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
 import style from "./Template_17.module.css";
 import WorkIcon from "@mui/icons-material/Work";
@@ -7,6 +13,7 @@ import PlaceIcon from "@mui/icons-material/Place";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
 import {
   ChooseColor,
@@ -20,7 +27,12 @@ import {
   imageSizeState,
 } from "../../../Recoil";
 
-const Template_17 = () => {
+
+const PDFRenderer = ({ htmlContent }) => {
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+};
+
+const Template_17= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -30,201 +42,451 @@ const Template_17 = () => {
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [formData, setFormData] = useRecoilState(resumeData);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [base64Image1, setBase64Image1] = useState('');
+  const [base64Image2, setBase64Image2] = useState('');
+  const [base64Image3, setBase64Image3] = useState('');
+  const [base64Image4, setBase64Image4] = useState('');
+  const [base64Image5, setBase64Image5] = useState('');
 
-  console.log(formData.resume,"resume data")
+  console.log(formData.resume, "resume data");
 
   const handleDate = (data) => {
-    console.log(data,"data")
+    console.log(data, "data");
 
     const startYear = new Date(data).getFullYear();
-  
-    return startYear
+
+    return startYear;
   };
 
-  return (
-    <div  onClick={()=>setTemplateNo(16)}  className={style.main}>
-      <div className={style.header}>
-        <div>
-          <h1 className={style.name}>JESSICA CLAIRE</h1>
-          <h5 className={style.name}>frontend Developer</h5>
-        </div>
-        <div className={style.contact_info}>
-          <div className={style.contact_value}>
-            <span className={style.contact_label}>
-              <LocalPhoneIcon sx={{ fontSize: "20px" }} />
-            </span>
-            <p className="contact-value">+91 9503942697</p>
-          </div>
-          <div className={style.contact_value}>
-            <span className={style.contact_label}>
-              <EmailIcon sx={{ fontSize: "20px" }} />
-            </span>
-            <p className="contact-value">ss20010126@gmail.com</p>
-          </div>
 
-          <div className={style.contact_value}>
-            <span className={style.contact_label}>
-              <LinkedInIcon sx={{ fontSize: "20px" }} />
-            </span>
-            <p className="contact-value">linkedin.com/en/5hubzzz</p>
+
+  
+  useEffect(() => {
+    const imageLocations = [
+      location,
+      linkedin,
+      dp,
+      mail,
+      call,
+    ];
+  
+    const handleImageChange = async () => {
+      try {
+        const promises = imageLocations.map(async (location, index) => {
+          const response = await fetch(location);
+          const blob = await response.blob();
+          const reader = new FileReader();
+  
+          return new Promise((resolve) => {
+            reader.onloadend = () => {
+              // The result property contains the base64-encoded string
+              const base64String = reader.result;
+              resolve({ index, base64String });
+            };
+  
+            // Read the image file as a data URL
+            reader.readAsDataURL(blob);
+          });
+        });
+  
+        // Wait for all promises to resolve
+        const results = await Promise.all(promises);
+  
+        // Update state based on index
+        results.forEach(({ index, base64String }) => {
+          if (index === 0) {
+            setBase64Image1(base64String);
+          } else if (index === 1) {
+            setBase64Image2(base64String);
+          }else if (index === 2) {
+            setBase64Image3(base64String);
+          }
+          else if (index === 3) {
+            setBase64Image4(base64String);
+        
+          }else if (index === 4) {
+            setBase64Image5(base64String);
+          }
+        });
+      } catch (error) {
+        console.error('Error loading images:', error);
+      }
+    };
+  
+    handleImageChange();
+  }, []);
+  
+
+  const getHTML = () => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        box-sizing: border-box;
+        background-color: white;
+    }
+    .main {
+        width: 850px;
+        height: 1130px;
+        background-color: white;
+    }
+    
+.container{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.img_box{
+  height: 7rem;
+  width: 7rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.img_box img{
+  height: 100%;
+  width: 100%;
+}
+.left_section{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  gap: 2rem;
+  text-align: left;
+}
+
+.info_box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1rem;
+}
+.education{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1rem;
+}
+.img_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.right_section{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+ padding: 2rem 1rem;
+ height: 65.3rem;  
+}
+.right_section p{
+  width: 95%!important;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  list-style: none;
+ 
+}
+.right_section ul li{
+  margin-left:1.5rem ;
+ 
+}
+.right_section ul li {
+  width: 95%!important;
+}
+.work_history{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.heading{
+  padding: 3rem 1rem;
+}
+
+.certifications{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+.skills{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+}
+.skills ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.professional_summary{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.work{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+hr{
+  margin-left: 1rem;
+}
+.info_box p{
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.certifications ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.header{
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+}
+.img_box{
+   border-radius: 50%;
+   margin-right: 4rem;
+}
+.section{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.work_entry{
+  display: grid;
+  grid-template-columns: 1fr ;
+}
+.title_{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 90%;
+}
+.section_title{
+   display: flex;
+   align-items: center;
+   gap: 2.7rem;
+}
+.description{
+   width: 25rem;
+}
+.contact_value{
+   display: flex;
+   align-items: center;
+
+}
+.contact_label{
+   font-size: small;
+}
+.contact_info{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+ gap: 0rem;
+}
+.contact_info div{
+  margin:0rem;
+  padding:.1rem;
+}
+.contact_info div p{
+  margin:.3rem;
+}
+
+.skills_list{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: .5rem;
+list-style: none;
+padding-top: 1rem;
+margin-left: -1rem;
+}
+.ul{
+   display: flex;
+   flex-direction: column;
+   gap: .5rem;
+   list-style: none;
+}
+.name-box h1,h5{
+ margin:0rem;
+}
+.contact_label{
+  margin:0rem;
+  boder:1px red solid;
+}
+.divider{
+  margin-left:-1rem;
+  margin-top:-1.5rem;
+}
+
+.section p{
+  margin:0rem;
+}
+.ul {
+  margin-left:-2.4rem;
+  margin-top:-1rem;
+}
+.skills_list {
+  margin-left:-4rem;
+  margin-top:-1rem;
+}
+.icon{
+  height:1rem;
+  width:1rem;
+}
+
+</style>
+    </head>
+    <body>
+    <div class="main">
+      <div class="header">
+        <div class="name-box">
+          <h1 class="name">JESSICA CLAIRE</h1>
+          <h5 class="name">frontend Developer</h5>
+        </div>
+        <div class="contact_info">
+          <div class="contact_value">
+          <span class="icon">
+          <img class="icon" src=${base64Image5} alt="dp" />
+          </span>
+            <p class="contact-value">+91 9503942697</p>
           </div>
-          <div className={style.contact_value}>
-            <span className={style.contact_label}>
-              <PlaceIcon sx={{ fontSize: "20px" }} />
-            </span>
-            <p className="contact-value">Enter Your Address here</p>
+          <div class="contact_value">
+          <span class="icon">
+          <img class="icon" src=${base64Image4} alt="dp" />
+          </span>
+            <p class="contact-value">ss20010126@gmail.com</p>
+          </div>
+          <div class="contact_value">
+          <span class="icon">
+          <img class="icon" src=${base64Image2} alt="dp" />
+          </span>
+            <p class="contact-value">linkedin.com/en/5hubzzz</p>
+          </div>
+          <div class="contact_value">
+          <span class="icon">
+          <img class="icon" src=${base64Image1} alt="dp" />
+          </span>
+            <p class="contact-value">Enter Your Address here</p>
           </div>
         </div>
       </div>
-      <div className={style.container}>
-        <div className={style.left_section}>
-          <div className="section">
-            <h2 className="section-title">SUMMARY</h2>
-            <Divider className="divider" />
-            <p className="section-content">
+      <div class="container">
+        <div class="left_section">
+          <div class="section">
+            <h3 class="section-title">SUMMARY</h3>
+            <div class="divider"><hr/></div>
+            <p class="section-content">
               Lorem Ipsum is simply dummy text of scrambled it to make a ty It
               was popularised in the 1960s with the release of Letraset sheets
               containing Lorem Ipsum passages, and more.
             </p>
           </div>
-
-          <div className={style.section}>
-            <h2 className={style.section_title}>EXPERIENCE</h2>
-            <Divider className="divider" />
-            <ul className={style.ul}>
-              <li>
-                <div className={style.work_entry}>
+  
+          <div class="section">
+            <h3 class="section_title">EXPERIENCE</h3>
+            <div class="divider"><hr/></div>
+            <ul class="ul">
+              <li >
+                <div class="work_entry">
                   <div>
-                    <div className={style.title_}>
-                      <h3 className="position">Software Engineer </h3>
-                      <p className="date">2019.08 - Present</p>
+                    <div class="title_">
+                      <h3 class="position">Software Engineer </h3>
+                      <p class="date">2019.08 - Present</p>
                     </div>
-
-                    <p className="company">ABC Company</p>
-                    <p className={style.description}>
+  
+                    <p class="company">ABC Company</p>
+                    <p class="description">
                       Lorem Ipsum is simply dummy text of Lorem Ipsum passages,
                       and Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
                   </div>
                 </div>
               </li>
-              <li>
-                <div className={style.work_entry}>
+              <li >
+                <div class="work_entry">
                   <div>
-                    <div className={style.title_}>
-                      <h3 className="position">Software Engineer </h3>
-                      <p className="date">2019.08 - Present</p>
+                    <div class="title_">
+                      <h3 class="position">Software Engineer </h3>
+                      <p class="date">2019.08 - Present</p>
                     </div>
-
-                    <p className="company">ABC Company</p>
-                    <p className={style.description}>
-                      Lorem Ipsum is simply dummy text of Lorem Ipsum passages,
-                      and Aldus PageMaker including versions of Lorem Ipsum.
-                    </p>
-                  </div>
-                </div>
-                <div className={style.work_entry}>
-                  <div>
-                    <div className={style.title_}>
-                      <h3 className="position">Software Engineer </h3>
-                      <p className="date">2019.08 - Present</p>
-                    </div>
-
-                    <p className="company">ABC Company</p>
-                    <p className={style.description}>
-                      Lorem Ipsum is simply dummy text of Lorem Ipsum passages,
-                      and Aldus PageMaker including versions of Lorem Ipsum.
-                    </p>
-                  </div>
-                </div>
-                <div className={style.work_entry}>
-                  <div>
-                    <div className={style.title_}>
-                      <h3 className="position">Software Engineer </h3>
-                      <p className="date">2019.08 - Present</p>
-                    </div>
-
-                    <p className="company">ABC Company</p>
-                    <p className={style.description}>
+  
+                    <p class="company">ABC Company</p>
+                    <p class="description">
                       Lorem Ipsum is simply dummy text of Lorem Ipsum passages,
                       and Aldus PageMaker including versions of Lorem Ipsum.
                     </p>
                   </div>
                 </div>
               </li>
+              <!-- Additional experience entries go here -->
             </ul>
           </div>
-          <div className={style.section}>
-            <h2 className={style.section_title}>EDUCATION</h2>
-            <Divider className="divider" />
-            <ul className={style.ul}>
+  
+          <div class="section">
+            <h3 class="section_title">EDUCATION</h3>
+            <div class="divider"><hr/></div>
+            <ul class="ul">
               <li>
-                <div className={style.work_entry}>
-                  <div className={style.title_}>
-                    <h3 className="degree">Masters in Data Science</h3>
-                    <p className="date">2019.08 - 2023.09</p>
+                <div class="work_entry">
+                  <div class="title_">
+                    <h3 class="degree">Masters in Data Science</h3>
+                    <p class="date">2019.08 - 2023.09</p>
                   </div>
-
+  
                   <div>
-                    <p className="university">ABC College</p>
+                    <p class="university">ABC College</p>
                   </div>
                 </div>
               </li>
-              <li>
-                <div className={style.work_entry}>
-                  <div className={style.title_}>
-                    <h3 className="degree">Masters in Data Science</h3>
-                    <p className="date">2019.08 - 2023.09</p>
-                  </div>
-
-                  <div>
-                    <p className="university">ABC College</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div className={style.work_entry}>
-                  <div className={style.title_}>
-                    <h3 className="degree">Masters in Data Science</h3>
-                    <p className="date">2019.08 - 2023.09</p>
-                  </div>
-
-                  <div>
-                    <p className="university">ABC College</p>
-                  </div>
-                </div>
-              </li>
+              <!-- Additional education entries go here -->
             </ul>
           </div>
         </div>
-        <div className={style.right_section}>
-          <div className="section">
-            <h2 className="section-title">SKILLS</h2>
-            <Divider className="divider" />
-            <ul className={style.skills_list}>
+  
+        <div class="right_section">
+          <div class="section">
+            <h3 class="section-title">SKILLS</h3>
+               <div class="divider"><hr/></div>
+            <ul class="skills_list">
               <li>javascript </li>
-              <li>javascript </li>
-              <li>javascript </li>
-              <li>javascript </li>
-              <li>javascript </li>
-              <li>javascript </li>
+              <!-- Add more skills as needed -->
             </ul>
           </div>
-          <br />
-          <div className="section">
-            <h2 className="section-title">LANGUAGE</h2>
-            <Divider className="divider" />
-            <ul className={style.skills_list}>
+  
+          <div class="section">
+            <h3 class="section-title">LANGUAGE</h3>
+               <div class="divider"><hr/></div>
+            <ul class="skills_list">
               <li>Hindi</li>
               <li>English</li>
               <li>Urdu</li>
             </ul>
           </div>
-          <br />
-          <div className="section">
-            <h2 className="section-title">INTREST</h2>
-            <Divider className="divider" />
-            <ul className={style.skills_list}>
+  
+          <div class="section">
+            <h3 class="section-title">INTEREST</h3>
+               <div class="divider"><hr/></div>
+            <ul class="skills_list">
               <li>Hindi</li>
               <li>English</li>
               <li>Urdu</li>
@@ -233,6 +495,59 @@ const Template_17 = () => {
         </div>
       </div>
     </div>
+  </body>
+    </html>
+    
+    
+    `;
+  };
+
+  const handleResume = async () => {
+    setLoading(true);
+    setError("");
+
+    const axiosConfig = {
+      responseType: "arraybuffer",
+      headers: {
+        Accept: "application/json",
+      },
+    };
+
+    try {
+      const response = await axios.post(
+        "https://whihtmltopdf.onrender.com/convertToPdf",
+        { htmlContent: getHTML() },
+        axiosConfig
+      );
+
+      setLoading(false);
+
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "lizmy.pdf");
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+    }
+  };
+
+
+
+
+
+
+  return (
+    <div>
+    <button onClick={handleResume}>Download</button>
+    <br />
+    {loading && <p>Loading...</p>}
+    {error && <p style={{ color: "red" }}>{error}</p>}
+    {/* <PDFRenderer htmlContent={getHTML()} /> */}
+    <div dangerouslySetInnerHTML={{ __html: getHTML() }} />
+  </div>
   );
 };
 
