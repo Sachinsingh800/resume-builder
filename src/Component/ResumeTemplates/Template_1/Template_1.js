@@ -30,7 +30,7 @@ function Template_1() {
 
 
   return (
-    <div onClick={() => setTemplateNo(0)} className={style.main}>
+    <div  className={style.main}>
            <div
         className={style.left_section}
         style={{ backgroundColor: color, color: "white" }}
