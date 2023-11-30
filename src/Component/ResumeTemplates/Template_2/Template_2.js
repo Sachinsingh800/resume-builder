@@ -18,7 +18,7 @@ const Template_2= () => {
 console.log(formData,"formdata")
   
   return (
-    <div onClick={()=>setTemplateNo(1)} className={style.main}>
+    <div  className={style.main}>
       <div className={style.Left_container} style={{ backgroundColor: color }}>
      <div className={style.name_container} style={{ backgroundColor: color2 }}>
      <h1 className={style.name} >
