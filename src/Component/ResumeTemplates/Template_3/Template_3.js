@@ -269,6 +269,7 @@ const Template_3= () => {
     flex-direction: column;
     justify-content: center;
     gap: .5rem;
+    margin-top:-4rem;
   }
   .professionalSkillsHeader{
     padding: 1rem;
@@ -344,6 +345,9 @@ gap:.8rem;
     margin-top:-2rem;
     margin-left: .5rem;
 }
+.Profile-divider{
+  margin-top:-2rem;
+}
 .work-divider{
     margin-top:-1rem;
 }
@@ -363,6 +367,7 @@ gap:.8rem;
 }
 .work-ul{
   margin-top:-1rem;
+  margin-left: -1rem!important;
 }
 .icon{
   height:1rem;
@@ -375,7 +380,7 @@ gap:.8rem;
     
     <body>
         <div class="main">
-            <div class="Left_container" style="background-color: #3498db; color: white;">
+            <div class="Left_container" style="background-color: #3498db; color: white;     height: 1210px;">
                 <div class="img_container">
                     <div class="img_box" style="height: 150px; width: 150px;">
                         <img src=${base64Image3} alt="dp">
@@ -387,7 +392,7 @@ gap:.8rem;
                    <div class="divider"><hr ></div> 
                     <div class="contactInfo">
                         <div class="iconContainer" style="color: black;">
-                        <img class="icon" src=${base64Image5} alt="dp" />
+                        <img class="icon" src=${base64Image4} alt="dp" />
                         </div>
                         <p class="email" >sample.email@example.com</p>
                     </div>
@@ -400,7 +405,7 @@ gap:.8rem;
                     <div class="contactInfo">
                         <div class="iconContainer" style="color: black;">
                      
-                        <img class="icon" src=${base64Image5} alt="dp" />
+                        <img class="icon" src=${base64Image1} alt="dp" />
                  
                         </div>
                         <p class="email" >123 Address St, 56789</p>
@@ -408,7 +413,7 @@ gap:.8rem;
                 </div>
     
                 <div class="skillsHeader">
-                    <h3 >Education</h3>
+                    <h3 >EDUCATION</h3>
                     <div class="divider"><hr ></div> 
                     <ul class="skill-info">
                         <li >
@@ -477,7 +482,7 @@ gap:.8rem;
     
                 <div class="skillsHeader2">
                     <h3>PROFILE</h3>
-                    <div class="divider"><hr ></div> 
+                    <div class="Profile-divider"><hr ></div> 
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius
                         bibendum.</p>
                 </div>
