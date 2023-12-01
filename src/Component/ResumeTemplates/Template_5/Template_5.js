@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
+import axios from "axios";
+import location from "../../Images/location-pin.png"
+import linkedin from "../../Images/linkedin.png"
+import mail from "../../Images/mail.png"
+import call from "../../Images/call.png"
+import dp from "../../Images/dp2.jpg"
+import { Divider } from "@mui/material";
 import style from "./Template_5.module.css";
-import { AiOutlineMail } from "react-icons/ai";
-import { AiOutlinePhone } from "react-icons/ai";
-import { CiLocationOn } from "react-icons/ci";
-import { CgProfile } from "react-icons/cg";
-import { MdOutlineWorkHistory } from "react-icons/md";
-import dp from "../../Images/dp.png";
+import WorkIcon from "@mui/icons-material/Work";
+import SchoolIcon from "@mui/icons-material/School";
+import PlaceIcon from "@mui/icons-material/Place";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
 import {
@@ -20,7 +27,12 @@ import {
   imageSizeState,
 } from "../../../Recoil";
 
-const Template_5 = () => {
+
+const PDFRenderer = ({ htmlContent }) => {
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+};
+
+const Template_5= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -30,6 +42,13 @@ const Template_5 = () => {
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [formData, setFormData] = useRecoilState(resumeData);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [base64Image1, setBase64Image1] = useState('');
+  const [base64Image2, setBase64Image2] = useState('');
+  const [base64Image3, setBase64Image3] = useState('');
+  const [base64Image4, setBase64Image4] = useState('');
+  const [base64Image5, setBase64Image5] = useState('');
 
   console.log(formData.resume, "resume data");
 
@@ -40,181 +59,553 @@ const Template_5 = () => {
 
     return startYear;
   };
-  return (
-    <div onClick={() => setTemplateNo(4)} className={style.main}>
-      <div
-        className={style.Left_container}
-        style={{ backgroundColor: "grey", color: "white" }}
-      >
-        <div className={style.img_container}>
-          <div
-            className={style.img_box}
-            style={{ height: imgSize, width: imgSize }}
-          >
-            {croppedImage ? (
-              <img src={croppedImage} alt="dp" />
-            ) : (
-              <img src={formData?.resume?.profilePicture?.url} alt="dp" />
-            )}
-          </div>
-        </div>
-        <br />
-        <div className={style.skillsHeader}>
-          <div className={style.title_box}>
-            <span className={style.design}> </span>
-            <h3 style={{ color: color3 }}>EDUCATION</h3>
-          </div>
 
-          <ul>
-            {formData?.resume?.education.map((item, id) => (
-              <li key={id} style={{ color: color3 }}>
-                <span>
-                  {item.degree}{" "}
-                  <span>
-                    {item?.startYear} - {item.endYear}
-                  </span>
-                </span>
-                <span>{item.collegeName}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <br />
-        <div className={style.skillsHeader}>
-          <div className={style.title_box}>
-            <span className={style.design}> </span>
-            <h3 style={{ color: color3 }}>CONTACT</h3>
-          </div>
 
-          <div className={style.contactInfo}>
-            <p className={style.email} style={{ color: color3 }}>
-              {formData?.resume?.contact?.email}
-            </p>
-          </div>
-          <div className={style.contactInfo}>
-            <p style={{ color: color3 }} className={style.email}>
-              {formData?.resume?.contact?.phone}
-            </p>
-          </div>
 
-          <div className={style.contactInfo}>
-            <p className={style.email} style={{ color: color3 }}>
-              {formData?.resume?.address?.address},
-              {formData?.resume?.address?.postalCode}
-            </p>
-          </div>
-        </div>
-
-        <br />
-
-        <div className={style.skillsHeader}>
-          <div className={style.title_box}>
-            <span className={style.design}> </span>
-            <h3 style={{ color: color3 }}>REFERENCES</h3>
-          </div>
-
-          <ul>
-            {formData?.resume?.references.map((item, id) => (
-              <li key={id} style={{ color: color3 }}>
-                <h4>{item.name}</h4>
-                <span>
-                  {item.position} | {item.company}
-                </span>
-                <span>{item.phone}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div>
+  
+  useEffect(() => {
+    const imageLocations = [
+      location,
+      linkedin,
+      dp,
+      mail,
+      call,
+    ];
+  
+    const handleImageChange = async () => {
+      try {
+        const promises = imageLocations.map(async (location, index) => {
+          const response = await fetch(location);
+          const blob = await response.blob();
+          const reader = new FileReader();
+  
+          return new Promise((resolve) => {
+            reader.onloadend = () => {
+              // The result property contains the base64-encoded string
+              const base64String = reader.result;
+              resolve({ index, base64String });
+            };
+  
+            // Read the image file as a data URL
+            reader.readAsDataURL(blob);
+          });
+        });
+  
+        // Wait for all promises to resolve
+        const results = await Promise.all(promises);
+  
+        // Update state based on index
+        results.forEach(({ index, base64String }) => {
+          if (index === 0) {
+            setBase64Image1(base64String);
+          } else if (index === 1) {
+            setBase64Image2(base64String);
+          }else if (index === 2) {
+            setBase64Image3(base64String);
+          }
+          else if (index === 3) {
+            setBase64Image4(base64String);
         
-        <div
-          className={style.objectiveHeader}
-          style={{ backgroundColor: color2 }}
-        >
-                 <span className={style.design3}> &nbsp; </span>
-          <h1
-            className={style.person_name}
-            style={{ fontFamily: fontStyle, fontSize: fontSize }}
-          >
-            {formData?.resume?.name}
-          </h1>
-          <p className={style.objectiveText}> {formData?.resume?.jobTitle}</p>
-        </div>
+          }else if (index === 4) {
+            setBase64Image5(base64String);
+          }
+        });
+      } catch (error) {
+        console.error('Error loading images:', error);
+      }
+    };
+  
+    handleImageChange();
+  }, []);
+  
 
-        <div className={style.skillsHeader2}>
-          <div
-            className={style.title_box2}
-            style={{
-              fontFamily: fontStyle,
-              backgroundColor: color2,
-            }}
-          >
-            <span className={style.design2}> &nbsp; </span>
-            <h3>About Me</h3>
-          </div>
+  const getHTML = () => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css"> 
+        <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        .main {
+            width: 850px;
+            height: 1130px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+        
+.Left_container{
+    display: flex;
+    flex-direction: column;
+    height: 1210px;
+}
+  
+  .container {
+    padding: 13px 0 0 0;
 
-          <p>{formData?.resume?.summary}</p>
-        </div>
+  }
+  
+  .name {
+    color: white;
+  }
+  
+  .hr {
+    margin-left: 0.5rem ; /* 0.5rem */
+    margin-right: 4.375rem; /* 4.375rem */
+    color:white;
+  }
+  
 
-        <div className={style.professionalSkillsHeader}>
-          <div
-            className={style.title_box2}
-            style={{
-              fontFamily: fontStyle,
-              backgroundColor: color2,
-            }}
-          >
-            <span className={style.design2}> &nbsp; </span>
-            <h3>WORKING EXPERIENCE</h3>
-          </div>
+  
 
-          <ul>
-            {formData?.resume?.work.map((item, id) => (
-              <li>
-                <div className={style.work_des}>
-                  <h3 className={style.customerService}>{item?.title}</h3>
-                  <h5 className={style.company_name}>
-                    <span>
-                      {item?.company} - {item?.location}
-                    </span>{" "}
-                    <span>
-                      {handleDate(item?.startDate)} -{" "}
-                      {handleDate(item?.endDate)}
-                    </span>
-                  </h5>
-                  <p>{item?.description}</p>
+  .email {
+    color: white;
+  }
+  
+  .phoneIcon {
+    font-size: 12px;
+  }
+
+  
+  .contactInfo {
+    display: flex;
+    gap: 1rem;
+    padding: .5rem;
+
+
+  }
+  .skillsHeader {
+    
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  .skillsHeader h3{
+   padding: 0rem 1rem;
+    background-color: aliceblue;
+  }
+
+  .skillsHeader ul{
+   list-style: none;
+  padding: 0rem 2rem 0rem 1rem;
+
+  }
+  .skillsHeader ul li{
+display: flex;
+flex-direction: column;
+
+  }
+  .skillsHeader2{
+      padding: 0!important;
+  }
+  .skillsHeader2 p{
+    margin: 1rem;
+  }
+  .skillsHeader2 h2{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 2rem;
+    font-weight: 400;
+  }
+  .skillsHeader2 ul{
+    margin-left: 1.5rem;
+  }
+  .professionalSkillsHeader ul{
+    margin-left: 1.5rem;
+  }
+
+  .info_box{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 0rem 2rem;
+  }
+  .info_box h3{
+    margin-left: .5rem;
+  }
+  
+  .educationHeader{
+    padding: 1.5rem;
+  }
+  .objectiveHeader{
+    padding: 1.5rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+   margin-bottom: 1rem;
+  }
+  .workHeader{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+  }
+  .skillsHeader2{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+  }
+  .professionalSkillsHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .professionalSkillsHeader h2{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem 2rem;
+    font-weight: 400;
+  }
+  .img_container{
+  padding: .4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img_box{
+    height: 10rem;
+    width: 10rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: orange;
+    padding: .3rem;
+}
+.img_box img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.person_name{
+  font-size: 3rem;
+}
+.person_name span{
+  color: #2e89ba;
+}
+.company_name{
+  display: flex;
+  justify-content: space-between;
+  color: #2e89ba;
+}
+.work_des{
+  display: flex;
+  flex-direction: column;
+  gap:.5rem ;
+  padding: 0rem 1rem;
+}
+.img_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+}
+.skillsAndLevel{
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  gap: 1rem;
+  padding: 1rem;
+}
+.skillsAndLevel li{
+
+  overflow: hidden;
+}
+
+.design{
+background-color: orange;
+  width: 1rem;
+  height: 100%;
+}
+.design2{
+background-color: orange;
+  width: 1rem;
+  height: 4rem;
+}
+.design3{
+background-color: orange;
+  width: 1rem;
+  height: 13rem;
+  position: absolute;
+  margin-left: -1.5rem;
+}
+.title_box{
+  display: flex;
+  width: 100%;
+  background-color: white;
+}
+.title_box2{
+  display: flex;
+  width: 100%;
+ align-items:center ;
+ gap: .5rem;
+}
+.contactInfo p{
+    margin:0rem;
+}
+.objectiveHeader h1,p{
+    margin:0rem;
+}
+.work_des h4,h5,p{
+    margin:0rem;
+}
+.work-ul  {
+    margin-left:-.5rem!important;
+    flex-direction: column;
+    display: flex;
+    gap:.8rem;
+}
+
+.contact-list  div{
+  flex-direction: column;
+  display: flex;
+  gap:.1rem;
+  padding:.2rem!important ;
+  margin-left:.8rem;
+}
+        </style>
+        
+        <title>Your Page Title</title>
+    </head>
+    
+    <body>
+        <div class="main">
+            <div class="Left_container" style="background-color: ; color: black;">
+                <div class="img_container">
+                    <div class="img_box" style="height: 150px; width: 150px;">
+                        <!-- Use a placeholder image or replace the source with dynamic data -->
+                        <img src=${base64Image3} alt="dp">
+                    </div>
                 </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <br />
-        <div className={style.professionalSkillsHeader}>
-          <div
-            className={style.title_box2}
-            style={{
-              fontFamily: fontStyle,
-              backgroundColor: color2,
-            }}
-          >
-            <span className={style.design2}> &nbsp; </span>
-            <h3>SOFTWARE SKILL</h3>
-          </div>
+                <div class="skillsHeader">
+                    <div class="title_box">
+                        <span class="design"> </span>
+                        <h3 style="color: black;">EDUCATION</h3>
+                    </div>
+                    <ul >
+                        <li style="color: black;">
+                            <span>
+                                Bachelor's Degree
+                                <span>2016 - 2020</span>
+                            </span>
+                            <span>Example University</span>
+                        </li>
+                        <!-- Add more education items as needed -->
+                    </ul>
+                </div>
+                <div class="skillsHeader">
+                    <div class="title_box">
+                        <span class="design"> </span>
+                        <h3 style="color: black;">CONTACT</h3>
+                    </div>
+                   <div class="contact-list">
+                   <div class="contactInfo">
+                   <p class="email" style="color: black;">
+                       john.doe@example.com
+                   </p>
+               </div>
 
-          <ul className={style.skillsAndLevel}>
-            {formData?.resume?.skillsAndLevel.map((item, id) => (
-              <li>
-                <span>{item.skills}</span>
-                <span>
-                  <ProgressBar bgcolor="orange" progress="40" height={4} />
-                </span>
-              </li>
-            ))}
-          </ul>
+               <div class="contactInfo">
+                   <p style="color: black;" class="email">
+                       123-456-7890
+                   </p>
+               </div>
+
+               <div class="contactInfo">
+                   <p class="email" style="color: black;">
+                       123 Main Street, 56789
+                   </p>
+               </div>
+                   </div>
+                   
+
+                </div>
+                <div class="skillsHeader">
+                    <div class="title_box">
+                        <span class="design"> </span>
+                        <h3 style="color: black;">REFERENCES</h3>
+                    </div>
+                    <ul>
+                        <li style="color: black;">
+                            <h4>Jane Doe</h4>
+                            <span>Manager | Example Company</span>
+                            <span>987-654-3210</span>
+                        </li>
+                        <!-- Add more references as needed -->
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="objectiveHeader" style="background-color: ;">
+                    <span class="design3"> &nbsp; </span>
+                    <h1 class="person_name" style="font-family: 'YourFont', sans-serif;  color: black;">
+                        John Doe
+                    </h1>
+                    <p class="objectiveText">
+                        Web Developer
+                    </p>
+                </div>
+                <div class="skillsHeader2">
+                    <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
+                        <span class="design2"> &nbsp; </span>
+                        <h3>About Me</h3>
+                    </div>
+                    <p>
+                        Experienced web developer with expertise in JavaScript and React, seeking challenging projects to contribute my skills and experience.
+                        Experienced web developer with expertise in JavaScript and React, seeking challenging projects to contribute my skills and experience.
+                    </p>
+                </div>
+                <div class="professionalSkillsHeader">
+                    <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
+                        <span class="design2"> &nbsp; </span>
+                        <h3>WORKING EXPERIENCE</h3>
+                    </div>
+                    <ul class="work-ul">
+                        <li>
+                            <div class="work_des">
+                                <h4 class="customerService">Front-End Developer</h4>
+                                <h5 class="company_name">
+                                    <span>Example Company - New York</span>
+                                    <span>Jan 2020 - Present</span>
+                                </h5>
+                                <p>Responsible for developing and maintaining user interfaces...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="work_des">
+                                <h4 class="customerService">Front-End Developer</h4>
+                                <h5 class="company_name">
+                                    <span>Example Company - New York</span>
+                                    <span>Jan 2020 - Present</span>
+                                </h5>
+                                <p>Responsible for developing and maintaining user interfaces...</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="work_des">
+                                <h4 class="customerService">Front-End Developer</h4>
+                                <h5 class="company_name">
+                                    <span>Example Company - New York</span>
+                                    <span>Jan 2020 - Present</span>
+                                </h5>
+                                <p>Responsible for developing and maintaining user interfaces...</p>
+                            </div>
+                        </li>
+                        <!-- Add more work experience items as needed -->
+                    </ul>
+                </div>
+                <br />
+                <div class="professionalSkillsHeader">
+                    <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
+                        <span class="design2"> &nbsp; </span>
+                        <h3>SOFTWARE SKILL</h3>
+                    </div>
+                    <ul class="skillsAndLevel">
+                        <li>
+                            <span>JavaScript</span>
+                            <span>
+                                <!-- You may adjust the ProgressBar according to your design -->
+                                <div style="background-color: orange; width: 40%; height: 4px;"></div>
+                            </span>
+                        </li>
+                        <li>
+                            <span>JavaScript</span>
+                            <span>
+                                <!-- You may adjust the ProgressBar according to your design -->
+                                <div style="background-color: orange; width: 40%; height: 4px;"></div>
+                            </span>
+                        </li>
+                        <li>
+                            <span>JavaScript</span>
+                            <span>
+                              
+                                <div style="background-color: orange; width: 40%; height: 4px;"></div>
+                            </span>
+                        </li>
+                        <li>
+                            <span>JavaScript</span>
+                            <span>
+                                <!-- You may adjust the ProgressBar according to your design -->
+                                <div style="background-color: orange; width: 40%; height: 4px;"></div>
+                            </span>
+                        </li>
+                        <!-- Add more software skills as needed -->
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </body>
+    
+    </html>
+    
+    `;
+  };
+
+  const handleResume = async () => {
+    setLoading(true);
+    setError("");
+
+    const axiosConfig = {
+      responseType: "arraybuffer",
+      headers: {
+        Accept: "application/json",
+      },
+    };
+
+    try {
+      const response = await axios.post(
+        "https://whihtmltopdf.onrender.com/convertToPdf",
+        { htmlContent: getHTML() },
+        axiosConfig
+      );
+
+      setLoading(false);
+
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "lizmy.pdf");
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+    }
+  };
+
+
+
+
+
+
+  return (
+    <div>
+    <button onClick={handleResume}>Download</button>
+    <br />
+    {loading && <p>Loading...</p>}
+    {error && <p style={{ color: "red" }}>{error}</p>}
+    <PDFRenderer htmlContent={getHTML()} />
+  </div>
   );
 };
 
