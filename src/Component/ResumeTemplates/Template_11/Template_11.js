@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
+import axios from "axios";
+import location from "../../Images/location-pin.png"
+import linkedin from "../../Images/linkedin.png"
+import mail from "../../Images/mail.png"
+import call from "../../Images/call.png"
+import dp from "../../Images/dp2.jpg"
+import { Divider } from "@mui/material";
 import style from "./Template_11.module.css";
-import { AiOutlineMail } from "react-icons/ai";
-import { AiOutlinePhone } from "react-icons/ai";
-import { CiLocationOn } from "react-icons/ci";
-import { CgProfile } from "react-icons/cg";
-import { MdOutlineWorkHistory } from "react-icons/md";
-import dp from "../../Images/dp.png";
+import WorkIcon from "@mui/icons-material/Work";
+import SchoolIcon from "@mui/icons-material/School";
+import PlaceIcon from "@mui/icons-material/Place";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import EmailIcon from "@mui/icons-material/Email";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ProgressBar from "../../ProgressBar/ProgressBar";
 import { useRecoilState } from "recoil";
 import {
@@ -20,7 +27,12 @@ import {
   imageSizeState,
 } from "../../../Recoil";
 
-const Template_11 = () => {
+
+const PDFRenderer = ({ htmlContent }) => {
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+};
+
+const Template_11= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -30,6 +42,13 @@ const Template_11 = () => {
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [formData, setFormData] = useRecoilState(resumeData);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [base64Image1, setBase64Image1] = useState('');
+  const [base64Image2, setBase64Image2] = useState('');
+  const [base64Image3, setBase64Image3] = useState('');
+  const [base64Image4, setBase64Image4] = useState('');
+  const [base64Image5, setBase64Image5] = useState('');
 
   console.log(formData.resume, "resume data");
 
@@ -40,131 +59,344 @@ const Template_11 = () => {
 
     return startYear;
   };
-  return (
-    <div onClick={() => setTemplateNo(10)} className={style.main}>
-      <div
-        className={style.Left_container}
-        style={{ backgroundColor: color, color: "white" }}
-      >
-        <div className={style.objectiveHeader}>
-          <h1
-            className={style.person_name}
-            style={{ color: color2, fontFamily: fontStyle, fontSize: fontSize }}
-          >
-            {formData?.resume?.name}
-          </h1>
-          <p className={style.objectiveText}> {formData?.resume?.jobTitle}</p>
-        </div>
 
-        <br />
 
-        <div className={style.info_box}>
-          <h3 style={{ color: color3 }}>Personal info</h3>
 
-          <div className={style.contactInfo}>
-            <label>E-mail</label>
-            <p className={style.email} style={{ color: color3 }}>
-              {formData?.resume?.contact?.email}
-            </p>
-          </div>
-          <div className={style.contactInfo}>
-            <label>Phone</label>
-            <p style={{ color: color3 }} className={style.email}>
-              {formData?.resume?.contact?.phone}
-            </p>
-          </div>
+  
+  useEffect(() => {
+    const imageLocations = [
+      location,
+      linkedin,
+      dp,
+      mail,
+      call,
+    ];
+  
+    const handleImageChange = async () => {
+      try {
+        const promises = imageLocations.map(async (location, index) => {
+          const response = await fetch(location);
+          const blob = await response.blob();
+          const reader = new FileReader();
+  
+          return new Promise((resolve) => {
+            reader.onloadend = () => {
+              // The result property contains the base64-encoded string
+              const base64String = reader.result;
+              resolve({ index, base64String });
+            };
+  
+            // Read the image file as a data URL
+            reader.readAsDataURL(blob);
+          });
+        });
+  
+        // Wait for all promises to resolve
+        const results = await Promise.all(promises);
+  
+        // Update state based on index
+        results.forEach(({ index, base64String }) => {
+          if (index === 0) {
+            setBase64Image1(base64String);
+          } else if (index === 1) {
+            setBase64Image2(base64String);
+          }else if (index === 2) {
+            setBase64Image3(base64String);
+          }
+          else if (index === 3) {
+            setBase64Image4(base64String);
+        
+          }else if (index === 4) {
+            setBase64Image5(base64String);
+          }
+        });
+      } catch (error) {
+        console.error('Error loading images:', error);
+      }
+    };
+  
+    handleImageChange();
+  }, []);
+  
 
-          <div className={style.contactInfo}>
-            <label>Address</label>
-            <p className={style.email} style={{ color: color3 }}>
-              {formData?.resume?.address?.address},
-              {formData?.resume?.address?.postalCode}
-            </p>
-          </div>
-        </div>
-        <br />
+  const getHTML = () => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+                box-sizing: border-box;
+                background-color: white;
+            }
+    
+            .main {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+            }
+    
+            .Left_container {
+                display: flex;
+                flex-direction: column;
+                background-color: grey;
+                color: white;
+                height: 1130px;
+            }
+    
+            .objectiveHeader {
+                padding: 1rem;
+            }
+    
+            .person_name {
+                color: white;
+                font-family: 'YourFont', sans-serif;
+              
+            }
+    
+            .objectiveText {
+                font-size: 18px;
+            }
+    
+            .info_box {
+                padding: 1rem;
+            }
+    
+            .contactInfo {
+                display: flex;
+                gap: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+    
+            label {
+                font-weight: bold;
+                margin-right: 0.5rem;
+                font-size: .8rem;
+            }
+    
+            .skillsHeader {
+                padding: 1rem;
+            }
+    
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+    
+            li {
+                margin-bottom: 0.5rem;
+            }
+    
+            .ProgressBar {
+                background-color: orange;
+                height: 5px;
+            }
+    
+            .skillsHeader2 {
+                padding: 1rem;
+            }
+    
+            .professionalSkillsHeader {
+                padding: 1rem;
+            }
+    
+            .work_des {
+                padding: 1rem;
+            }
+    
+            .education {
+                list-style: none;
+                padding: 0;
+            }
+            .objectiveHeader h1,p{
+                margin:0rem;
+            }
+            .exp-ul{
+                margin-top:-1rem;
+            }
+            .edu-ul h4,span{
+                margin:0rem;
+            }
+            .edu-ul {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap:1rem;
+            }
+            .work_des h4,h5,p{
+              margin:0rem;
+            }
 
-        <div className={style.skillsHeader}>
-          <h3 style={{ color: color3 }}>Additional Skills</h3>
-
-          <ul>
-            {formData?.resume?.skillsAndLevel.map((item, id) => (
-              <li key={id} style={{ color: color3 }}>
-                <span>{item.skills}</span>
-                <p className={style.ProgressBar}>
-                  {" "}
-                  <ProgressBar bgcolor="orange" height={5} />
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <br />
-        <div className={style.skillsHeader}>
-          <h3 style={{ color: color3 }}>LAGNUAGES</h3>
-
-          <ul>
-            {formData?.resume?.knownLanguages.map((item, id) => (
-              <li key={id} style={{ color: color3 }}>
-                <span>{item.lang}</span>
-                <p className={style.ProgressBar}>
-                  {" "}
-                  <ProgressBar bgcolor="orange" height={5} />{" "}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div>
-        <div className={style.skillsHeader2}>
-          <h2>Skills Summary</h2>
-
-          <p>{formData?.resume?.summary}</p>
-        </div>
-
-        <div className={style.professionalSkillsHeader}>
-          <div>
-            <h2>EXPERIENCE</h2>
-          </div>
-
-          <ul>
-            {formData?.resume?.work.map((item, id) => (
-              <li>
-                <div className={style.work_des}>
-                  <h3 className={style.customerService}>{item?.title}</h3>
-                  <h5 className={style.company_name}>
-                    <span>
-                      {item?.company} - {item?.location}
-                    </span>{" "}
-                    <span>
-                      {handleDate(item?.startDate)} -{" "}
-                      {handleDate(item?.endDate)}
-                    </span>
-                  </h5>
-                  <p>{item?.description}</p>
+        </style>
+        <title>Your Page Title</title>
+    </head>
+    
+    <body>
+        <div class="main">
+            <div class="Left_container">
+                <div class="objectiveHeader">
+                    <h1 class="person_name">John Doe</h1>
+                    <p class="objectiveText">Front-end Developer</p>
                 </div>
-              </li>
-            ))}
-          </ul>
+                <div class="info_box">
+                    <h3>Personal info</h3>
+                    <div class="contactInfo">
+                        <label>Mail</label>
+                        <p class="email">john.doe@example.com</p>
+                    </div>
+                    <div class="contactInfo">
+                        <label>Phone</label>
+                        <p class="email">+1 123 456 7890</p>
+                    </div>
+                    <div class="contactInfo">
+                        <label>Address</label>
+                        <p class="email">123 Main St, 56789</p>
+                    </div>
+                </div>
+                <div class="skillsHeader">
+                    <h3>Additional Skills</h3>
+                    <ul>
+                        <li>
+                            <span>JavaScript</span>
+                            <p class="ProgressBar"></p>
+                        </li>
+                        <li>
+                            <span>React</span>
+                            <p class="ProgressBar"></p>
+                        </li>
+                        <li>
+                            <span>HTML5</span>
+                            <p class="ProgressBar"></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skillsHeader">
+                    <h3>LANGUAGES</h3>
+                    <ul>
+                        <li>
+                            <span>English</span>
+                            <p class="ProgressBar"></p>
+                        </li>
+                        <li>
+                            <span>Spanish</span>
+                            <p class="ProgressBar"></p>
+                        </li>
+                        <li>
+                            <span>French</span>
+                            <p class="ProgressBar"></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="skillsHeader2">
+                    <h3>Skills Summary</h3>
+                    <p>Experienced web developer with expertise in JavaScript and React, seeking challenging projects to
+                        contribute my skills and experience.</p>
+                </div>
+                <div class="professionalSkillsHeader">
+                    <div>
+                        <h3>EXPERIENCE</h3>
+                    </div>
+                    <ul class="exp-ul">
+                        <li>
+                            <div class="work_des">
+                                <h4 class="customerService">Front-end Developer</h4>
+                                <h5 class="company_name">
+                                    <span>XYZ Company - New York</span>
+                                    <span>Jan 2022 - Present</span>
+                                </h5>
+                                <p>Worked on developing user interfaces, implementing new features, and maintaining web
+                                    applications.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="work_des">
+                                <h4 class="customerService">Junior Developer</h4>
+                                <h5 class="company_name">
+                                    <span>ABC Agency - San Francisco</span>
+                                    <span>Jun 2019 - Dec 2021</span>
+                                </h5>
+                                <p>Assisted in the development of web applications, participated in code reviews, and
+                                    collaborated with the team.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="skillsHeader2">
+                    <h3>Education</h3>
+                    <ul class="edu-ul">
+                        <li>
+                            <h4>Bachelor's in Computer Science</h4>
+                            <span>2015 - 2019</span>
+                            <span>University of Demo</span>
+                        </li>
+                        <li>
+                            <h4>Master's in Web Development</h4>
+                            <span>2020 - 2022</span>
+                            <span>Tech Institute</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div className={style.skillsHeader2}>
-          <h2 style={{ color: color3 }}>Education</h2>
+    </body>
+    
+    </html>
+    
+    `;
+  };
 
-          <ul className={style.education}>
-            {formData?.resume?.education.map((item, id) => (
-              <li key={id} style={{ color: color3 }}>
-                <h4>{item.degree}</h4>
-                <span>
-                  {item?.startYear} - {item.endYear}
-                </span>
-                <span>{item.collegeName}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+  const handleResume = async () => {
+    setLoading(true);
+    setError("");
+
+    const axiosConfig = {
+      responseType: "arraybuffer",
+      headers: {
+        Accept: "application/json",
+      },
+    };
+
+    try {
+      const response = await axios.post(
+        "https://whihtmltopdf.onrender.com/convertToPdf",
+        { htmlContent: getHTML() },
+        axiosConfig
+      );
+
+      setLoading(false);
+
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "lizmy.pdf");
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+    }
+  };
+
+
+
+
+
+
+  return (
+    <div>
+    <button onClick={handleResume}>Download</button>
+    <br />
+    {loading && <p>Loading...</p>}
+    {error && <p style={{ color: "red" }}>{error}</p>}
+    <PDFRenderer htmlContent={getHTML()} />
+  </div>
   );
 };
 
