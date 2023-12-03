@@ -8,6 +8,8 @@
    box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
    overflow: hidden;
 }
+
+
 .container{
    display: grid;
    grid-template-columns: 1fr 2fr;
