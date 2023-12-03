@@ -401,6 +401,7 @@ const Template_21= () => {
                 <p class="university">ABC College</p>
               </div>
             </div>
+
               <div  class="edu-entry">
               <p class="date">2019.08 - 2023.09</p>
               <div>
@@ -452,11 +453,14 @@ const Template_21= () => {
                 and scrambled it to make a type specimen book.
               </p>
             </div>
+
+
             <div class="section">
               <h3 class="section_title">WORK EXPERIENCE</h3>
          
     
               <div class="work_entry">
+
                 <div>
                   <div class="title_">
                     <h4 class="position">Software Engineer</h4>
@@ -470,6 +474,7 @@ const Template_21= () => {
                     and scrambled it to make a type specimen book.
                   </p>
                 </div>
+
                 <div>
                   <div class="title_">
                     <h4 class="position">Software Engineer</h4>
@@ -483,8 +488,10 @@ const Template_21= () => {
                     and scrambled it to make a type specimen book.
                   </p>
                 </div>
+
                 <!-- Repeat similar blocks for other work experiences -->
               </div>
+              
             </div>
           </div>
         </div>
