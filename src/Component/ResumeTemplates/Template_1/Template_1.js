@@ -362,12 +362,10 @@ hr{
                     <h3>Certifications</h3>
                     <ul class="certi-ul">
                     ${formData.resume.certifications.map((item) => `
-                 
                         <li>
                         <h5>${item.title}</h5>
                         <p>Organization: ${item.issuingOrganization }</p>
                     </li>
-              
                 `)}
                         <!-- Add more certification items as needed -->
                     </ul>
@@ -410,7 +408,6 @@ hr{
                     <p>${item?.company}, ${item?.location}</p>
                     <p>${item?.description}</p>
                 </li>
-          
             `)}
                     </ul>
                 </div>

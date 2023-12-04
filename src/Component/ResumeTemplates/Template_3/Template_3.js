@@ -394,13 +394,13 @@ gap:.8rem;
                         <div class="iconContainer" style="color: black;">
                         <img class="icon" src=${base64Image4} alt="dp" />
                         </div>
-                        <p class="email" >sample.email@example.com</p>
+                        <p class="email" > ${formData.resume.contact.email}</p>
                     </div>
                     <div class="contactInfo">
                         <div class="iconContainer" style="color: black;">
                         <img class="icon" src=${base64Image5} alt="dp" />
                         </div>
-                        <p class="email" >123-456-7890</p>
+                        <p class="email" >        ${formData.resume.contact.phone}</p>
                     </div>
                     <div class="contactInfo">
                         <div class="iconContainer" style="color: black;">
@@ -408,7 +408,9 @@ gap:.8rem;
                         <img class="icon" src=${base64Image1} alt="dp" />
                  
                         </div>
-                        <p class="email" >123 Address St, 56789</p>
+                        <p class="email" > ${formData.resume.address.address},
+                        ${formData.resume.address.state },
+                        ${formData.resume.address.postalCode },</p>
                     </div>
                 </div>
     
@@ -416,22 +418,14 @@ gap:.8rem;
                     <h3 >EDUCATION</h3>
                     <div class="divider"><hr ></div> 
                     <ul class="skill-info">
-                        <li >
-                            <h4>Master's Degree</h4>
-                            <h5>2015 - 2019</h5>
-                            <p>University of Example</p>
-                        </li>
-                        <li >
-                            <h4>Master's Degree</h4>
-                            <h5>2015 - 2019</h5>
-                            <p>University of Example</p>
-                        </li>
-                        <li >
-                            <h4>Master's Degree</h4>
-                            <h5>2015 - 2019</h5>
-                            <p>University of Example</p>
-                        </li>
-                        <!-- Add more education items as needed -->
+                    ${formData.resume.education.map((item) => `
+                    <div>
+                        <h4>${item.degree}</h4>
+                        <h5>${item.startYear} - ${item.endYear}</h5>
+                        <p>${item.collegeName}</p>
+                    </div>
+                `)}
+                       
                     </ul>
                 </div>
     
@@ -439,23 +433,12 @@ gap:.8rem;
                     <h3 >PERSONAL SKILLS</h3>
                     <div class="skill-divider"><hr ></div> 
                     <ul class="skill-list">
-                        <li >
-                            Web Development   
-                        </li>
-                        <li >
-                            Web Development   
-                        </li>
-                        <li >
-                            Web Development   
-                        </li>
-                        <li >
-                            Web Development   
-                        </li>
-                        <li >
-                            Web Development   
-                        </li>
-                       
-                        <!-- Add more skills as needed -->
+                    ${formData.resume.skillsAndLevel.map((item) => `
+                 
+                    <li> ${item.skills }</li>
+          
+            `)}
+                        
                     </ul>
                 </div>
     
@@ -463,11 +446,12 @@ gap:.8rem;
                     <h3 >LANGUAGES</h3>
                     <div class="divider"><hr ></div> 
                     <ul>
-                        <li >
-                            <span>English</span>
-                            <!-- You may add a progress bar here -->
-                        </li>
-                        <!-- Add more languages as needed -->
+                    ${formData.resume.knownLanguages.map((item) => `
+                <li >
+                <span>${item?.lang}</span>
+                 </li>
+            `)}
+                       
                     </ul>
                 </div>
             </div>
@@ -475,16 +459,17 @@ gap:.8rem;
             <div>
                 <div class="objectiveHeader">
                     <h1 class="person_name" style="color: #2980b9; font-family: 'Arial', sans-serif; ">
-                        John Doe
+                    ${formData.resume.name}
                     </h1>
-                    <p class="objectiveText">Web Developer</p>
+                    <p class="objectiveText"> ${formData.resume.jobTitle}</p>
                 </div>
     
                 <div class="skillsHeader2">
                     <h3>PROFILE</h3>
                     <div class="Profile-divider"><hr ></div> 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius
-                        bibendum.</p>
+                    <p>
+                    ${formData.resume.summary}
+                      </p>
                 </div>
     
                 <div class="professionalSkillsHeader">
@@ -493,25 +478,18 @@ gap:.8rem;
                         <div class="work-divider"><hr ></div> 
                     </div>
                     <ul class="work-ul">
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Front-End Developer</h4>
-                                <h5 class="company_name"><span>Example Corp - New York</span> <span>Jan 2018 - Dec 2020</span>
-                                </h5>
-                                <p>Responsible for developing and maintaining user interfaces, ensuring responsiveness,
-                                    and collaborating with the back-end team to integrate with server-side logic.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Front-End Developer</h4>
-                                <h5 class="company_name"><span>Example Corp - New York</span> <span>Jan 2018 - Dec 2020</span>
-                                </h5>
-                                <p>Responsible for developing and maintaining user interfaces, ensuring responsiveness,
-                                    and collaborating with the back-end team to integrate with server-side logic.</p>
-                            </div>
-                        </li>
-                        <!-- Add more work experience items as needed -->
+                    ${formData.resume.work.map((item) => `
+                    <li>
+                    <div class="work_des">
+                    <h4 class="customerService">${item?.title}</h4>
+                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span>
+                    </h5>
+                    <p>
+                       ${item?.description}
+                      </p>
+                </div>
+                </li>
+            `)}     
                     </ul>
                 </div>
             </div>
