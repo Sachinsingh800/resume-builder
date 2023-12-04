@@ -50,7 +50,10 @@ const Template_1= () => {
   const [base64Image4, setBase64Image4] = useState('');
   const [base64Image5, setBase64Image5] = useState('');
 
-  console.log(formData.resume, "resume data");
+  console.log(formData.resume
+    , "resume data");
+
+
 
   const handleDate = (data) => {
     console.log(data, "data");
@@ -316,60 +319,57 @@ hr{
                     <div class="info_box">
                         <p>
                             <span>Email: </span>
-                            john.doe@example.com
+                            ${formData.resume.contact.email}
+                   
                         </p>
                         <p>
                             <span>Phone: </span>
-                            123-456-7890
+                            ${formData.resume.contact.phone}
                         </p>
                         <p>
                             <span>Location: </span>
-                            123 Main Street, 56789
+                            ${formData.resume.address.address},
+                            ${formData.resume.address.address},
+                            ${formData.resume.address.state },
+                            ${formData.resume.address.postalCode },
                         </p>
                     </div>
                 </div>
                <div><hr /></div> 
                 <div class="education">
                     <h3>Education</h3>
+
+            
                     <div class="edu">
-                    <div>
-                    <h4>University of Example</h4>
-                    <p>Master's Degree</p>
-                    <p>2015 - 2019</p>
-                    </div>
-                    <div>
-                    <h4>University of Example</h4>
-                    <p>Master's Degree</p>
-                    <p>2015 - 2019</p>
-                    </div>
-                       
-                    </div>
-                    <!-- Add more education items as needed -->
+                    ${formData.resume.education.map((item) => `
+                        <div>
+                            <h4>${item.collegeName}</h4>
+                            <p>${item.degree}</p>
+                            <p>${item.startYear} - ${item.endYear}</p>
+                        </div>
+                    `)}
+                </div>
                 </div>
             </div>
     
             <div class="right_section">
                 <div class="heading" style="background-color:#3498db;">
                     <h1 style="color: white; font-family: 'Arial', sans-serif; ">
-                        John Doe
+                     ${formData.resume.name}
                     </h1>
                 </div>
     
                 <div class="certifications">
                     <h3>Certifications</h3>
                     <ul class="certi-ul">
+                    ${formData.resume.certifications.map((item) => `
+                 
                         <li>
-                            <h5>Example Certification</h5>
-                            <p>Organization: Certification Organization</p>
-                        </li>
-                        <li>
-                            <h5>Example Certification</h5>
-                            <p>Organization: Certification Organization</p>
-                        </li>
-                        <li>
-                            <h5>Example Certification</h5>
-                            <p>Organization: Certification Organization</p>
-                        </li>
+                        <h5>${item.title}</h5>
+                        <p>Organization: ${item.issuingOrganization }</p>
+                    </li>
+              
+                `)}
                         <!-- Add more certification items as needed -->
                     </ul>
                 </div>
@@ -379,9 +379,15 @@ hr{
                 <div class="skills">
                     <h3>Skills</h3>
                     <ul class="skill-ul">
-                        <li>Skill 1</li>
-                        <li>Skill 2</li>
-                        <!-- Add more skills as needed -->
+                    ${formData.resume.skillsAndLevel.map((item) => `
+                 
+                    <li>
+                    <h5>${item.skills }</h5>
+        
+                </li>
+          
+            `)}
+                   
                     </ul>
                 </div>
     
@@ -390,9 +396,7 @@ hr{
                 <div class="professional_summary">
                     <h3>Professional Summary</h3>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius bibendum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius bibendum.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius bibendum.
+                    ${formData.resume.summary}
                     </p>
                 </div>
     
@@ -401,22 +405,14 @@ hr{
                 <div class="work">
                     <h3>Work History</h3>
                     <ul class="work-ul">
-                        <li>
-                            <h4>Front-End Developer</h4>
-                            <p>Example Company, New York</p>
-                            <p>Responsible for developing and maintaining user interfaces...</p>
-                        </li>
-                        <li>
-                            <h4>Front-End Developer</h4>
-                            <p>Example Company, New York</p>
-                            <p>Responsible for developing and maintaining user interfaces...</p>
-                        </li>
-                        <li>
-                            <h4>Front-End Developer</h4>
-                            <p>Example Company, New York</p>
-                            <p>Responsible for developing and maintaining user interfaces...</p>
-                        </li>
-                        <!-- Add more work history items as needed -->
+                    ${formData.resume.work.map((item) => `
+                    <li>
+                    <h4>${item?.title}</h4>
+                    <p>${item?.company}, ${item?.location}</p>
+                    <p>${item?.description}</p>
+                </li>
+          
+            `)}
                     </ul>
                 </div>
             </div>
