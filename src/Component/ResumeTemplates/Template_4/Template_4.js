@@ -303,41 +303,50 @@ const Template_4= () => {
         <div class="main">
             <div class="left_section">
             <div class="name-box">
-            <h1 class="name">John Doe</h1>
-            <p>Software Developer</p>
+            <h1 class="name">${formData.resume.name}</h1>
+            <p>${formData.resume.jobTitle}</p>
             </div>
                 <div class="section">
                     <hr class="divider" />
                     <p class="para">
-                        Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.
+                    ${formData.resume.summary}
                     </p>
                 </div>
                 <div class="section">
                     <h2 class="section-title">WORK HISTORY</h2>
                     <hr class="divider" />
                     <ul class="ul">
-                        <li class="li">
-                            <div class="work">
-                                <h4 class="customerService">Software Engineer</h3>
-                                <h5 class="company_name"><span>ABC Company - Cityville</span> <span>Jan 2020 - Present</span></h5>
-                                <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                            </div>
-                        </li>
-                        <!-- Add more work experiences as needed -->
+                    ${formData.resume.work.map((item) => `
+                <li class="li">
+                <div class="work">
+                    <h4 class="customerService">${item?.title}</h3>
+                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span></h5>
+                    <p>
+                    ${item?.description}
+                    </p>
+                </div>
+            </li>
+            `)}    
+                      
                     </ul>
                 </div>
                 <div class="section">
                     <h2 class="section-title">EDUCATION</h2>
                     <hr class="divider" />
                     <ul class="ul">
-                        <li class="li">
-                            <div class="work">
-                                <h4 class="customerService">Bachelor of Science in Computer Science</h3>
-                                <h5 class="company_name"><span>University of Cityville - Cityville</span> <span>2016 - 2020</span></h5>
-                                <p>Studied computer science with a focus on software development and problem-solving.</p>
-                            </div>
-                        </li>
-                        <!-- Add more education details as needed -->
+                    ${formData.resume.education.map((item) => `
+                    <div>
+                        <h4>${item.degree}</h4>
+                        <h5>${item.startYear} - ${item.endYear}</h5>
+                        <p>${item.collegeName}</p>
+                    </div>
+                    <li class="li">
+                    <div class="work">
+                        <h4 class="customerService">${item.degree}</h3>
+                        <h5 class="company_name"><span>${item.collegeName}</span> <span>${item.startYear} - ${item.endYear}</span></h5>
+                    </div>
+                </li>
+                `)}
                     </ul>
                 </div>
             </div>
@@ -348,19 +357,21 @@ const Template_4= () => {
 
                     <div>
                     <h4 class="contact-label">Address</h4>
-                    <p class="contact-value">123 Main St, Cityville</p>
+                    <p class="contact-value">   ${formData.resume.address.address},
+                    ${formData.resume.address.state },
+                    ${formData.resume.address.postalCode },</p>
                     </div>
                      
 
                     <div>
                     <h4 class="contact-label">Phone</h4>
-                    <p class="contact-value">123-456-7890</p>
+                    <p class="contact-value"> ${formData.resume.contact.phone}</p>
                     </div>
                       
 
                     <div>
                     <h4 class="contact-label">E-mail</h4>
-                    <p class="contact-value">john.doe@example.com</p>
+                    <p class="contact-value">${formData.resume.contact.email}</p>
                     </div>
                        
                     </div>
@@ -370,8 +381,11 @@ const Template_4= () => {
                     <h2 class="section-title">SKILLS</h2>
                     <hr class="divider" />
                     <ul class="skill_ul" >
-                        <li>JavaScript</li>
-                        <!-- Add more skills as needed -->
+                    ${formData.resume.skillsAndLevel.map((item) => `
+                 
+                    <li> ${item.skills }</li>
+          
+            `)}
                     </ul>
                 </div>
             </div>

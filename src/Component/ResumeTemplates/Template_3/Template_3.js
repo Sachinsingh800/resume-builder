@@ -408,9 +408,11 @@ gap:.8rem;
                         <img class="icon" src=${base64Image1} alt="dp" />
                  
                         </div>
-                        <p class="email" > ${formData.resume.address.address},
+                        <p class="email" > 
+                        ${formData.resume.address.address},
                         ${formData.resume.address.state },
-                        ${formData.resume.address.postalCode },</p>
+                        ${formData.resume.address.postalCode },
+                        </p>
                     </div>
                 </div>
     
