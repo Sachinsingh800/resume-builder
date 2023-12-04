@@ -329,7 +329,6 @@ hr{
                         <p>
                             <span>Location: </span>
                             ${formData.resume.address.address},
-                            ${formData.resume.address.address},
                             ${formData.resume.address.state },
                             ${formData.resume.address.postalCode },
                         </p>

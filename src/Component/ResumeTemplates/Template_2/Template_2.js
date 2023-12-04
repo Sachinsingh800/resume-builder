@@ -325,7 +325,7 @@ const Template_2= () => {
                     <img class="icon" src=${base64Image4} alt="dp" />
                     </div>
                         <p class="email">
-                            john.doe@example.com
+                        ${formData.resume.contact.email}
                         </p>
                     </div>
                     <div class="contactInfo">
@@ -333,7 +333,7 @@ const Template_2= () => {
                     <img class="icon" src=${base64Image5} alt="dp" />
                     </div>
                         <p class="email">
-                            123-456-7890
+                        ${formData.resume.contact.phone}
                         </p>
                     </div>
                     <div class="contactInfo">
@@ -341,7 +341,9 @@ const Template_2= () => {
                     <img class="icon" src=${base64Image1} alt="dp" />
                     </div>
                         <p class="email">
-                            123 Main Street, 56789
+                        ${formData.resume.address.address},
+                        ${formData.resume.address.state },
+                        ${formData.resume.address.postalCode },
                         </p>
                     </div>
                 </div>
@@ -349,86 +351,63 @@ const Template_2= () => {
             <div class="skillsHeader">
                 <h3>SKILLS</h3>
                 <ul>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <!-- Add more skills as needed -->
+                ${formData.resume.skillsAndLevel.map((item) => `
+                 
+                <li>
+               ${item.skills }
+    
+            </li>
+      
+        `)}
+                   
                 </ul>
             </div>
             <div class="educationHeader">
                 <h3>EDUCATION</h3>
+                ${formData.resume.education.map((item) => `
                 <div class="edu-ul">
-                    <h4>University of Example</h4>
-                    <p>Master's Degree</p>
-                    <p>2015 - 2019</p>
+                <h4>${item.collegeName}</h4>
+                <p>${item.degree}</p>
+                <p>${item.startYear} - ${item.endYear}</p>
                 </div>
-                <div class="edu-ul">
-                    <h4>University of Example</h4>
-                    <p>Master's Degree</p>
-                    <p>2015 - 2019</p>
-                </div>
-                <div class="edu-ul">
-                    <h4>University of Example</h4>
-                    <p>Master's Degree</p>
-                    <p>2015 - 2019</p>
-                </div>
-                <!-- Add more education items as needed -->
+            `)}
             </div>
         </div>
         <div>
             <div class="objectiveHeader" style="background-color: #E5E5E5;">
                 <h3>CAREER OBJECTIVE</h3>
                 <p class="objectiveText">
-                    Experienced web developer with expertise in JavaScript and React, seeking challenging projects to contribute my skills and experience.
-                    Experienced web developer with expertise in JavaScript and React, seeking challenging projects to contribute my skills and experience.
-                    Experienced web developer with expertise in JavaScript and React, seeking challenging projects to contribute my skills and experience.
+                ${formData.resume.summary}
                 </p>
             </div>
             <div class="workHeader">
                 <h3>WORK HISTORY</h3>
                 <ul class="work-ul">
-                    <li>
-                        <h4>Front-End Developer</h4>
-                        <p>Example Company, New York</p>
-                        <p>Responsible for developing and maintaining user interfaces...</p>
-                    </li>
-                    <li>
-                        <h4>Front-End Developer</h4>
-                        <p>Example Company, New York</p>
-                        <p>Responsible for developing and maintaining user interfaces...</p>
-                    </li>
-                    <li>
-                        <h4>Front-End Developer</h4>
-                        <p>Example Company, New York</p>
-                        <p>Responsible for developing and maintaining user interfaces...</p>
-                    </li>
-                    <!-- Add more work history items as needed -->
+                ${formData.resume.work.map((item) => `
+                <li>
+                <h4>${item?.title}</h4>
+                <p>${item?.company}, ${item?.location}</p>
+                <p>${item?.description}</p>
+            </li>
+      
+        `)}
+
                 </ul>
             </div>
             <div class="workHeader">
                 <h3>Projects</h3>
                 <ul class="Projects-ul">
-                    <li>
-                        <h4 class="project_title">
-                            <span>Project A</span> <span>2022</span>
-                        </h4>
-                        <p>Project link</p>
-                        <p>Project description</p>
-                    </li>
-                    <li>
-                        <h4 class="project_title">
-                            <span>Project A</span> <span>2022</span>
-                        </h4>
-                        <p>Project link</p>
-                        <p>Project description</p>
-                    </li>
-                    <li>
-                        <h4 class="project_title">
-                            <span>Project A</span> <span>2022</span>
-                        </h4>
-                        <p>Project link</p>
-                        <p>Project description</p>
-                    </li>
-                    <!-- Add more project items as needed -->
+                ${formData.resume.projects.map((item) => `
+                <li>
+                <h4 class="project_title">
+                <span>${item?.title}</span> <span>${item?.year}</span>
+            </h4>
+            <p>${item?.link}</p>
+            <p>${item?.description}</p>
+            </li>
+      
+        `)}
+                   
                 </ul>
             </div>
         </div>
