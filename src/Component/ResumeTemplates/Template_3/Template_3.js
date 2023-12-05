@@ -400,7 +400,7 @@ gap:.8rem;
                         <div class="iconContainer" style="color: black;">
                         <img class="icon" src=${base64Image5} alt="dp" />
                         </div>
-                        <p class="email" >        ${formData.resume.contact.phone}</p>
+                        <p class="email" > ${formData.resume.contact.phone}</p>
                     </div>
                     <div class="contactInfo">
                         <div class="iconContainer" style="color: black;">
@@ -437,7 +437,7 @@ gap:.8rem;
                     <ul class="skill-list">
                     ${formData.resume.skillsAndLevel.map((item) => `
                  
-                    <li> ${item.skills }</li>
+                    <li> ${item.skills}</li>
           
             `)}
                         

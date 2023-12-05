@@ -403,14 +403,16 @@ background-color: orange;
                         <h3 style="color: black;">EDUCATION</h3>
                     </div>
                     <ul >
-                        <li style="color: black;">
-                            <span>
-                                Bachelor's Degree
-                                <span>2016 - 2020</span>
-                            </span>
-                            <span>Example University</span>
-                        </li>
-                        <!-- Add more education items as needed -->
+                    ${formData.resume.education.map((item) => `
+                    <li style="color: black;">
+                    <span>
+                    ${item.degree}
+                        <span>${item.startYear} - ${item.endYear}</span>
+                    </span>
+                    <span>${item.collegeName}</span>
+                </li>
+                `)}
+                       
                     </ul>
                 </div>
                 <div class="skillsHeader">
@@ -421,19 +423,21 @@ background-color: orange;
                    <div class="contact-list">
                    <div class="contactInfo">
                    <p class="email" style="color: black;">
-                       john.doe@example.com
+                   ${formData.resume.contact.email}
                    </p>
                </div>
 
                <div class="contactInfo">
                    <p style="color: black;" class="email">
-                       123-456-7890
+                   ${formData.resume.contact.phone}
                    </p>
                </div>
 
                <div class="contactInfo">
                    <p class="email" style="color: black;">
-                       123 Main Street, 56789
+                   ${formData.resume.address.address},
+                   ${formData.resume.address.state },
+                   ${formData.resume.address.postalCode },
                    </p>
                </div>
                    </div>
@@ -443,15 +447,15 @@ background-color: orange;
                 <div class="skillsHeader">
                     <div class="title_box">
                         <span class="design"> </span>
-                        <h3 style="color: black;">REFERENCES</h3>
+                        <h3 style="color: black;">LANGUAGES</h3>
                     </div>
                     <ul>
-                        <li style="color: black;">
-                            <h4>Jane Doe</h4>
-                            <span>Manager | Example Company</span>
-                            <span>987-654-3210</span>
-                        </li>
-                        <!-- Add more references as needed -->
+                    ${formData.resume.knownLanguages.map((item) => `
+                     <li style="color: black;">
+                     <span>${item?.lang}</span>
+                 </li>
+                `)}
+                   
                     </ul>
                 </div>
             </div>
@@ -459,10 +463,10 @@ background-color: orange;
                 <div class="objectiveHeader" style="background-color: ;">
                     <span class="design3"> &nbsp; </span>
                     <h1 class="person_name" style="font-family: 'YourFont', sans-serif;  color: black;">
-                        John Doe
+                    ${formData.resume.name}
                     </h1>
                     <p class="objectiveText">
-                        Web Developer
+                    ${formData.resume.jobTitle}
                     </p>
                 </div>
                 <div class="skillsHeader2">
@@ -471,8 +475,7 @@ background-color: orange;
                         <h3>About Me</h3>
                     </div>
                     <p>
-                        Experienced web developer with expertise in JavaScript and React, seeking challenging projects to contribute my skills and experience.
-                        Experienced web developer with expertise in JavaScript and React, seeking challenging projects to contribute my skills and experience.
+                    ${formData.resume.summary}
                     </p>
                 </div>
                 <div class="professionalSkillsHeader">
@@ -481,37 +484,19 @@ background-color: orange;
                         <h3>WORKING EXPERIENCE</h3>
                     </div>
                     <ul class="work-ul">
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Front-End Developer</h4>
-                                <h5 class="company_name">
-                                    <span>Example Company - New York</span>
-                                    <span>Jan 2020 - Present</span>
-                                </h5>
-                                <p>Responsible for developing and maintaining user interfaces...</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Front-End Developer</h4>
-                                <h5 class="company_name">
-                                    <span>Example Company - New York</span>
-                                    <span>Jan 2020 - Present</span>
-                                </h5>
-                                <p>Responsible for developing and maintaining user interfaces...</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Front-End Developer</h4>
-                                <h5 class="company_name">
-                                    <span>Example Company - New York</span>
-                                    <span>Jan 2020 - Present</span>
-                                </h5>
-                                <p>Responsible for developing and maintaining user interfaces...</p>
-                            </div>
-                        </li>
-                        <!-- Add more work experience items as needed -->
+                    ${formData.resume.work.map((item) => `
+                    <li>
+                    <div class="work_des">
+                    <h4 class="customerService">${item?.title}</h4>
+                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span>
+                    </h5>
+                    <p>
+                       ${item?.description}
+                      </p>
+                </div>
+                </li>
+            `)}
+                 
                     </ul>
                 </div>
                 <br />
@@ -521,35 +506,18 @@ background-color: orange;
                         <h3>SOFTWARE SKILL</h3>
                     </div>
                     <ul class="skillsAndLevel">
-                        <li>
-                            <span>JavaScript</span>
-                            <span>
-                                <!-- You may adjust the ProgressBar according to your design -->
-                                <div style="background-color: orange; width: 40%; height: 4px;"></div>
-                            </span>
-                        </li>
-                        <li>
-                            <span>JavaScript</span>
-                            <span>
-                                <!-- You may adjust the ProgressBar according to your design -->
-                                <div style="background-color: orange; width: 40%; height: 4px;"></div>
-                            </span>
-                        </li>
-                        <li>
-                            <span>JavaScript</span>
-                            <span>
-                              
-                                <div style="background-color: orange; width: 40%; height: 4px;"></div>
-                            </span>
-                        </li>
-                        <li>
-                            <span>JavaScript</span>
-                            <span>
-                                <!-- You may adjust the ProgressBar according to your design -->
-                                <div style="background-color: orange; width: 40%; height: 4px;"></div>
-                            </span>
-                        </li>
-                        <!-- Add more software skills as needed -->
+                    ${formData.resume.skillsAndLevel.map((item) => `
+                 
+                    <li>
+                    <span>${item.skills}</span>
+                    <span>
+                        <!-- You may adjust the ProgressBar according to your design -->
+                        <div style="background-color: orange; width: 40%; height: 4px;"></div>
+                    </span>
+                </li>
+          
+            `)}
+                       
                     </ul>
                 </div>
             </div>
