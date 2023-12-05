@@ -225,86 +225,57 @@ const Template_10= () => {
     <body>
         <div class="main">
             <div class="heading">
-                <h1>John Doe</h1>
-                <h3>Web Developer</h3>
-                <p>john.doe@example.com | 123-456-7890</p>
+                <h1>  ${formData.resume.name}</h1>
+                <h3>${formData.resume.jobTitle}</h3>
+                <p>${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
             </div>
              <br/>
             <div class="summary">
                 <h3>Summary</h3>
                 <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius bibendum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius bibendum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius bibendum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius bibendum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet quam at purus varius bibendum.
+                ${formData.resume.summary}
                 </p>
             </div>
             <br/>
             <div >
                 <h3>Work Experience</h3>
                 <ul class="work-ul">
-                    <li>
-                        <div class="work-des">
-                            <h4 class="customerService"><span>Front-End Developer</span></h4>
-                            <h6>Jan 2018 - Dec 2020</h6>
-                            <h6 class="company_name"><span>Example Corp - New York</span></h6>
-                            <p>Responsible for developing and maintaining user interfaces, ensuring responsiveness, and
-                                collaborating with the back-end team to integrate with server-side logic.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="work-des">
-                            <h4 class="customerService"><span>Front-End Developer</span></h4>
-                            <h6>Jan 2018 - Dec 2020</h6>
-                            <h6 class="company_name"><span>Example Corp - New York</span></h6>
-                            <p>Responsible for developing and maintaining user interfaces, ensuring responsiveness, and
-                                collaborating with the back-end team to integrate with server-side logic.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="work-des">
-                            <h4 class="customerService"><span>Front-End Developer</span></h4>
-                            <h6>Jan 2018 - Dec 2020</h6>
-                            <h6 class="company_name"><span>Example Corp - New York</span></h6>
-                            <p>Responsible for developing and maintaining user interfaces, ensuring responsiveness, and
-                                collaborating with the back-end team to integrate with server-side logic.</p>
-                        </div>
-                    </li>
-                    <!-- Add more work experience items as needed -->
+                ${formData.resume.work.map((item) => `
+            <li>
+            <div class="work-des">
+                <h4 class="customerService"><span>${item?.title}</span></h4>
+                <h6>Jan 2018 - Dec 2020</h6>
+                <h6 class="company_name"><span>${item?.company} - ${item?.location}</span></h6>
+                <p> ${item?.description}</p>
+            </div>
+        </li>
+        `)}     
+             
+                   
                 </ul>
             </div>
     
             <div>
                 <h3>Education</h3>
                 <ul class="edu-ul">
-                    <li class="education">
-                        <h5>Master's Degree , 2015 - 2019</h5>
-                        <p>University of Example</p>
-                    </li>
-                    <li class="education">
-                        <h5>Master's Degree , 2015 - 2019</h5>
-                        <p>University of Example</p>
-                    </li>
-                    <li class="education">
-                        <h5>Master's Degree , 2015 - 2019</h5>
-                        <p>University of Example</p>
-                    </li>
-                    <li class="education">
-                        <h5>Master's Degree , 2015 - 2019</h5>
-                        <p>University of Example</p>
-                    </li>
-                  
-                    <!-- Add more education items as needed -->
+                ${formData.resume.education.map((item) => `
+                <li class="education">
+                <h5>${item.degree}, ${item.startYear} - ${item.endYear}</h5>
+                <p>${item.collegeName}</p>
+            </li>
+            `)}
+                        
                 </ul>
             </div>
     
             <div >
                 <h3>Skills</h3>
                 <ul class="edu-ul">
-                    <li>Skill 1</li>
-                    <li>Skill 2</li>
-                    <!-- Add more skills as needed -->
+                ${formData.resume.skillsAndLevel.map((item) => `
+                 
+                <li> ${item.skills}</li>
+      
+        `)}
                 </ul>
             </div>
         </div>

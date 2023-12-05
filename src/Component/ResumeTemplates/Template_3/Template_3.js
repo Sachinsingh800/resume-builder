@@ -411,7 +411,7 @@ gap:.8rem;
                         <p class="email" > 
                         ${formData.resume.address.address},
                         ${formData.resume.address.state },
-                        ${formData.resume.address.postalCode },
+                        ${formData.resume.address.postalCode }
                         </p>
                     </div>
                 </div>
@@ -436,10 +436,8 @@ gap:.8rem;
                     <div class="skill-divider"><hr ></div> 
                     <ul class="skill-list">
                     ${formData.resume.skillsAndLevel.map((item) => `
-                 
                     <li> ${item.skills}</li>
-          
-            `)}
+                    `)}
                         
                     </ul>
                 </div>
