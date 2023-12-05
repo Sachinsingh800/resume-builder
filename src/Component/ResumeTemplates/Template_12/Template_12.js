@@ -348,83 +348,76 @@ const Template_12= () => {
     <body>
         <div class="main">
             <div class="header">
-                <h2 class="name">John Doe</h2>
-                <h5 class="name">Frontend Developer</h5>
+                <h2 class="name">      ${formData.resume.name}</h2>
+                <h5 class="name">${formData.resume.jobTitle}</h5>
             </div>
             <div class="container">
                 <div class="left_section">
                     <div class="section">
                         <p class="section-content">
-                            Passionate and detail-oriented Frontend Developer with a strong foundation in web development and UI/UX design.
+                        ${formData.resume.summary}
                         </p>
                     </div>
                     <div class="section">
                         <h3 class="section-title">Experience</h3>
                         <ul class="exp-ul">
-                           
-                            <li>
-                                <div class="work_entry">
-                                    <h5> Jan 2020 - Present</h5>
-                                    <div class="work-info">
-                                        <h4 class="position">Software Engineer</h4>
-                                        <p class="company">ABC Company - Cityville</p>
-                                        <p class="description">Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="work_entry">
-                                    <h5> Jan 2020 - Present</h5>
-                                    <div class="work-info">
-                                        <h4 class="position">Software Engineer</h4>
-                                        <p class="company">ABC Company - Cityville</p>
-                                        <p class="description">Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                                    </div>
-                                </div>
-                            </li>
-                          
-                            <!-- Add more work experiences as needed -->
+                        ${formData.resume.work.map((item) => `
+                        <li>
+                        <div class="work_des">
+                        <h4 class="customerService"></h4>
+                        <h5 class="company_name"><span></span> <span></span>
+                        </h5>
+                        <p>
+                        
+                          </p>
+                    </div>
+                    </li>
+
+
+                    <li>
+                    <div class="work_entry">
+                        <h5> ${item?.startDate} - ${item?.endDate}</h5>
+                        <div class="work-info">
+                            <h4 class="position">${item?.title}</h4>
+                            <p class="company">${item?.company} - ${item?.location}</p>
+                            <p class="description">
+                            ${item?.description}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                `)}  
                         </ul>
                     </div>
                     <div class="section">
                         <h3 class="section-title">Education</h3>
                         <ul class="ul">
-                            <li>
-                                <div class="education-entry">
-                                    <h4 class="degree">Bachelor of Science in Computer Science</h4>
-                                    <p class="university">University of Cityville</p>
-                                    <p class="date">2016 - 2020</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="education-entry">
-                                    <h4 class="degree">Bachelor of Science in Computer Science</h4>
-                                    <p class="university">University of Cityville</p>
-                                    <p class="date">2016 - 2020</p>
-                                </div>
-                            </li>
-                            <!-- Add more education details as needed -->
+
+                        ${formData.resume.education.map((item) => `
+                        <li>
+                        <div class="education-entry">
+                            <h4 class="degree">${item.degree}</h4>
+                            <p class="university">${item.collegeName}</p>
+                            <p class="date">${item.startYear} - ${item.endYear}</p>
+                        </div>
+                    </li>
+                    `)}
+
                         </ul>
                     </div>
                     <div class="section">
                         <h3 class="section-title">Certification</h3>
                         <hr class="divider" />
                         <ul class="ul-certi">
-                            <li>
-                                <div class="education-entry">
-                                    <h4 class="degree">Certification Title</h4>
-                                    <p class="university">Issuing Organization</p>
-                                    <p class="date">Date</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="education-entry">
-                                    <h4 class="degree">Certification Title</h4>
-                                    <p class="university">Issuing Organization</p>
-                                    <p class="date">Date</p>
-                                </div>
-                            </li>
-                            <!-- Add more certification details as needed -->
+                        ${formData.resume.certifications.map((item) => `
+                        <li>
+                        <div class="education-entry">
+                            <h4 class="degree">${item?.title}</h4>
+                            <p class="university">${item?.issuingOrganization }</p>
+                            <p class="date">${item?.date}</p>
+                        </div>
+                    </li>
+                    `)}
                         </ul>
                     </div>
                 </div>
@@ -433,50 +426,60 @@ const Template_12= () => {
                     <div class="contact-info">
                         <div class="contact-entry">
                             <h5 class="contact-label">Address</h5>
-                            <p class="contact-value">Your Address Here</p>
+                            <p class="contact-value">  
+                            ${formData.resume.address.address},
+                            ${formData.resume.address.state },
+                            ${formData.resume.address.postalCode }
+                            </p>
                         </div>
                         <div class="contact-entry">
                             <h5 class="contact-label">Phone</h5>
-                            <p class="contact-value">123-456-7890</p>
+                            <p class="contact-value">${formData.resume.contact.phone}</p>
                         </div>
                         <div class="contact-entry">
                             <h5 class="contact-label">E-mail</h5>
-                            <p class="contact-value">john.doe@example.com</p>
+                            <p class="contact-value"> ${formData.resume.contact.email}</p>
                         </div>
                         <div class="contact-entry">
                             <h5 class="contact-label">LinkedIn</h5>
-                            <p class="contact-value">linkedin.com/in/johndoe</p>
+                            <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
                         </div>
                     </div>
                     <div class="section">
                         <h4 class="section-title">Skill</h4>
                         <ul class="ul-skill">
-                            <li>
-                              JavaScript
-                            
-                            </li>
-                            <!-- Add more skills as needed -->
+                        ${formData.resume.skillsAndLevel.map((item) => `
+                        <li> ${item.skills}</li>
+                        `)}
                         </ul>
                     </div>
                     <div class="section">
                         <h4 class="section-title">Language</h4>
                     
                         <ul class="ul-skill">
-                            <li>
-                              English
-                            </li>
-                            <!-- Add more languages as needed -->
+                        ${formData.resume.knownLanguages.map((item) => `
+                         <li>
+                         ${item?.lang}
+                       </li>
+                    `)}
+                            
                         </ul>
                     </div>
                     <div class="section">
                         <h4 >Awards</h4>
                         <ul class="ul-skill">
-                            <li class="award-list">
-                                <h5>Date</h5>
-                                <h4>Award Title</h4>
-                                <p>Issuing Organization</p>
+                        ${formData.resume.awards.map((item) => `
+                        <li >
+                        <span>${item?.lang}</span>
+                         </li>
+
+
+                         <li class="award-list">
+                                <h5>${item?.date}</h5>
+                                <h4>${item?.title}</h4>
+                                <p>${item?.issuingOrganization}</p>
                             </li>
-                            <!-- Add more awards as needed -->
+                    `)}       
                         </ul>
                     </div>
                 </div>
