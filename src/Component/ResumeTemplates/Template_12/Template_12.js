@@ -348,7 +348,7 @@ const Template_12= () => {
     <body>
         <div class="main">
             <div class="header">
-                <h2 class="name">      ${formData.resume.name}</h2>
+                <h2 class="name"> ${formData.resume.name} </h2>
                 <h5 class="name">${formData.resume.jobTitle}</h5>
             </div>
             <div class="container">
@@ -362,18 +362,7 @@ const Template_12= () => {
                         <h3 class="section-title">Experience</h3>
                         <ul class="exp-ul">
                         ${formData.resume.work.map((item) => `
-                        <li>
-                        <div class="work_des">
-                        <h4 class="customerService"></h4>
-                        <h5 class="company_name"><span></span> <span></span>
-                        </h5>
-                        <p>
-                        
-                          </p>
-                    </div>
-                    </li>
-
-
+                  
                     <li>
                     <div class="work_entry">
                         <h5> ${item?.startDate} - ${item?.endDate}</h5>
@@ -469,11 +458,6 @@ const Template_12= () => {
                         <h4 >Awards</h4>
                         <ul class="ul-skill">
                         ${formData.resume.awards.map((item) => `
-                        <li >
-                        <span>${item?.lang}</span>
-                         </li>
-
-
                          <li class="award-list">
                                 <h5>${item?.date}</h5>
                                 <h4>${item?.title}</h4>

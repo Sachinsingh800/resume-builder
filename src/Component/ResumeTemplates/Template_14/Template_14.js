@@ -385,11 +385,10 @@ const Template_14 = () => {
                  
                 </div>
                 <div class="name_box">
-                    <h1 class="name">John Doe</h1>
-                    <h5 class="name">Software Engineer</h5>
+                    <h1 class="name">${formData.resume.name}</h1>
+                    <h5 class="name">${formData.resume.jobTitle}</h5>
                     <p class="section-content">
-                        Passionate software engineer with expertise in web development and problem-solving. Excited to
-                        contribute to innovative projects.
+                    ${formData.resume.summary}
                     </p>
                 </div>
             </div>
@@ -404,7 +403,7 @@ const Template_14 = () => {
                                     <img src=${base64Image5} />
                                 </span>
                             </span>
-                            <p class="contact-value">+91 23272767623</p>
+                            <p class="contact-value">${formData.resume.contact.phone}</p>
                         </div>
                         <div class="contact_value">
                             <span class="contact_label">
@@ -413,7 +412,7 @@ const Template_14 = () => {
                                     <img src=${base64Image4} />
                                 </span>
                             </span>
-                            <p class="contact-value">JohnDoe@gmail.com</p>
+                            <p class="contact-value">${formData.resume.contact.email}</p>
                         </div>
                         <div class="contact_value">
                             <span class="contact_label">
@@ -422,7 +421,7 @@ const Template_14 = () => {
                                     <img src=${base64Image2} />
                                 </span>
                             </span>
-                            <p class="contact-value">linkedin.com/in/johndoe</p>
+                            <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
                         </div>
                         <div class="contact_value">
                             <span class="contact_label">
@@ -431,44 +430,44 @@ const Template_14 = () => {
                                     <img src=${base64Image1} />
                                 </span>
                             </span>
-                            <p class="contact-value">123 Main St, Cityville, 12345</p>
+                            <p class="contact-value">  
+                             ${formData.resume.address.address},
+                            ${formData.resume.address.state },
+                            ${formData.resume.address.postalCode }
+                            </p>
                         </div>
                     </div>
                     <br />
                     <div class="skills_section">
                         <h3 class="section-title">SKILLS</h3>
                         <ul class="skills_list">
-                            <li>
-                             JavaScript
-                            </li>
-                            <li>
-                             React.js
-                            
-                            </li>
-                            <!-- Add more skills as needed -->
+                        ${formData.resume.skillsAndLevel.map((item) => `
+                        <li> ${item.skills}</li>
+                        `)}
+                        
                         </ul>
                     </div>
                     <div class="skills_section">
                         <h3 class="section-title">LANGUAGE</h3>
                         <ul class="skills_list">
-                            <li>
-                                English
-                            </li>
-                            <li>
-                              Spanish
-                            </li>
-                            <!-- Add more languages as needed -->
+                        ${formData.resume.knownLanguages.map((item) => `
+                        <li>
+                        ${item?.lang}
+                      </li>
+                   `)}
                         </ul>
                     </div>
                     <div class="award_section">
                         <h3 class="award">AWARDS</h3>
                         <ul>
-                            <li>
-                                <h5>2022</h5>
-                                <h4>Outstanding Achievement Award</h4>
-                                <p>XYZ Organization</p>
+                        ${formData.resume.awards.map((item) => `
+                  
+                         <li class="award-list">
+                                <h5>${item?.date}</h5>
+                                <h4>${item?.title}</h4>
+                                <p>${item?.issuingOrganization}</p>
                             </li>
-                            <!-- Add more awards as needed -->
+                    `)} 
                         </ul>
                     </div>
                 </div>
@@ -477,55 +476,43 @@ const Template_14 = () => {
                     <div class="section">
                         <h3 class="section_title">PROFESSIONAL EXPERIENCE</h3>
                         <ul class="ul">
-                        <li>
-                            <div class="work_entry">
-                                <h5 class="date">Jan 2020 - Present</h5>
-                                <div>
-                                    <h4 class="degree">Software Engineer</h4>
-                                    <p class="university">ABC Tech - Cityville</p>
-                                    <p>Contributed to the development of innovative web
-                                    applications using cutting-edge technologies.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_entry">
-                                <h5 class="date">Jan 2020 - Present</h5>
-                                <div>
-                                    <h4 class="degree">Software Engineer</h4>
-                                    <p class="university">ABC Tech - Cityville</p>
-                                    <p>Contributed to the development of innovative web
-                                    applications using cutting-edge technologies.</p>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- Add more education details as needed -->
+
+                        ${formData.resume.work.map((item) => `
+               
+                    <li>
+                    <div class="work_entry">
+                        <h5 class="date">${item?.startDate} - ${item?.endDate}</h5>
+                        <div>
+                            <h4 class="degree">${item?.title}</h4>
+                            <p class="university">${item?.company} - ${item?.location}</p>
+                            <p>
+                            ${item?.description}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                    `)}  
+
                     </ul>
                         
                     </div>
                     <div class="sections">
                         <h3>EDUCATION</h3>
                         <ul class="ul">
-                            <li>
-                                <div class="work_entry">
-                                    <h5 class="date">2016 - 2020</h5>
-                                    <div>
-                                        <h4 class="degree">Bachelor of Science in Computer Science</h4>
-                                        <p class="university">University of Cityville</p>
-                                    </div>
-                                </div>
-                            </li>
-                
-                            <li>
-                                <div class="work_entry">
-                                    <h5 class="date">2016 - 2020</h5>
-                                    <div>
-                                        <h4 class="degree">Bachelor of Science in Computer Science</h4>
-                                        <p class="university">University of Cityville</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- Add more education details as needed -->
+                        ${formData.resume.education.map((item) => `
+         
+                    <li>
+                    <div class="work_entry">
+                        <h5 class="date">${item.startYear} - ${item.endYear}</h5>
+                        <div>
+                            <h4 class="degree">${item.degree}</h4>
+                            <p class="university">${item.collegeName}</p>
+                        </div>
+                    </div>
+                </li>
+
+                    `)}
+                     
                         </ul>
                     </div>
                 </div>

@@ -408,63 +408,75 @@ const Template_13= () => {
                             <span class="contact_label">
                             <img class="icon" src="${base64Image5}" alt="dp" />
                             </span>
-                            <p class="contact-value">+91 9503942697</p>
+                            <p class="contact-value">${formData.resume.contact.phone}</p>
                         </div>
                         <div class="contact_value">
                             <span class="contact_label">
                             <img class="icon" src="${base64Image4}" alt="dp" />
                             </span>
-                            <p class="contact-value">ss20010126@gmail.com</p>
+                            <p class="contact-value">${formData.resume.contact.email}</p>
                         </div>
                         <div class="contact_value">
                             <span class="contact_label">
                             <img class="icon" src="${base64Image2}" alt="dp" />
                             </span>
-                            <p class="contact-value">linkedin.com/en/5hubzzz</p>
+                            <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
                         </div>
                         <div class="contact_value">
                             <span class="contact_label">
                             <img class="icon" src="${base64Image1}" alt="dp" />
                             </span>
-                            <p class="contact-value">Enter Your Address here</p>
+                            <p class="contact-value"> ${formData.resume.contact.email}</p>
                         </div>
                     </div>
     
                     <h3 class="section_title">EDUCATION</h2>
                     <ul class="ul-skill">
-                        <li>
-                            <div class="work_entry">
-                                <p class="date">2019.08 - 2023.09</p>
-                                <div>
-                                    <h3 class="degree">Masters in Data Science</h3>
-                                    <p class="university">ABC College</p>
-                                </div>
-                            </div>
-                        </li>
+                    ${formData.resume.education.map((item) => `
+        
+                <li>
+                <div class="work_entry">
+                    <p class="date">${item.startYear} - ${item.endYear}</p>
+                    <div>
+                        <h3 class="degree">${item.degree}</h3>
+                        <p class="university">${item.collegeName}</p>
+                    </div>
+                </div>
+            </li>
+                `)}
+                    
                     </ul>
     
                     <h3 class="section-title">SKILLS</h2>
                     <ul class="ul-skill">
-                        <li>javascript </li>
-                        <li>javascript </li>
-                        <li>javascript </li>
-                        <li>javascript </li>
-                        <li>javascript </li>
-                        <li>javascript </li>
+                    ${formData.resume.skillsAndLevel.map((item) => `
+                    <li> ${item.skills}</li>
+                    `)}
                     </ul>
     
                     <h3 class="section-title">LANGUAGE</h2>
                     <ul class="ul-skill">
-                        <li>Hindi</li>
-                        <li>English</li>
-                        <li>Urdu</li>
+                    ${formData.resume.knownLanguages.map((item) => `
+                    <li>
+                    ${item?.lang}
+                  </li>
+               `)}
                     </ul>
     
                     <h3 class="section-title">AWARDS</h2>
                     <ul class="ul-skill">
-                        <li>Hindi</li>
-                        <li>English</li>
-                        <li>Urdu</li>
+                    ${formData.resume.awards.map((item) => `
+                    <li >
+                    <span>${item?.lang}</span>
+                     </li>
+
+
+                     <li class="award-list">
+                            <h5>${item?.date}</h5>
+                            <h4>${item?.title}</h4>
+                            <p>${item?.issuingOrganization}</p>
+                        </li>
+                `)}  
                     </ul>
                 </div>
     
@@ -472,72 +484,51 @@ const Template_13= () => {
                     <div class="section">
                         <h3 class="section-title">ABOUT ME</h2>
                         <p class="section-content">
-                            Lorem Ipsum is simply dummy text of scrambled it to make a ty It was popularised in the 1960s with
-                            the release of Letraset sheets containing Lorem Ipsum passages, and more.
+                        ${formData.resume.summary}
                         </p>
                     </div>
     
                     <div class="section">
                         <h3 class="section_title">EXPERIENCE</h2>
                         <ul class="ul">
-                            <li>
-                                <div class="work_entry">
-                                    <p class="date">2019.08 - Present</p>
-                                    <div class="inner_div">
-                                        <h3 class="position">Software Engineer</h3>
-                                        <p class="company">ABC Company</p>
-                                        <p class="description">
-                                            Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                                            including versions of Lorem Ipsum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="work_entry">
-                                    <p class="date">2019.08 - Present</p>
-                                    <div class="inner_div">
-                                        <h3 class="position">Software Engineer</h3>
-                                        <p class="company">ABC Company</p>
-                                        <p class="description">
-                                            Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                                            including versions of Lorem Ipsum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+
+                        ${formData.resume.work.map((item) => `
+                  
+                        <li>
+                        <div class="work_entry">
+                            <h5> ${item?.startDate} - ${item?.endDate}</h5>
+                            <div class="work-info">
+                                <h4 class="position">${item?.title}</h4>
+                                <p class="company">${item?.company} - ${item?.location}</p>
+                                <p class="description">
+                                ${item?.description}
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    `)}  
+
                         </ul>
                     </div>
     
                     <div class="section">
                         <h3 class="section_title">PROJECTS</h2>
                         <ul class="ul">
-                            <li>
-                                <div class="work_entry">
-                                    <p class="date">2019.08 - Present</p>
-                                    <div class="inner_div">
-                                        <h3 class="position">Software Engineer</h3>
-                                        <p class="company">ABC Company</p>
-                                        <p class="description">
-                                            Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                                            including versions of Lorem Ipsum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="work_entry">
-                                    <p class="date">2019.08 - Present</p>
-                                    <div class="inner_div">
-                                        <h3 class="position">Software Engineer</h3>
-                                        <p class="company">ABC Company</p>
-                                        <p class="description">
-                                            Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                                            including versions of Lorem Ipsum.
-                                        </p>
-                                    </div>
-                                </div>
-                            </li>
+                        ${formData.resume.projects.map((item) => `
+                  
+                        <li>
+                        <div class="work_entry">
+                            <h5> ${item?.year} </h5>
+                            <div class="work-info">
+                                <h4 class="position">${item?.title}</h4>
+                                <p class="company">${item?.link} </p>
+                                <p class="description">
+                                ${item?.description}
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    `)}  
                         </ul>
                     </div>
                 </div>
