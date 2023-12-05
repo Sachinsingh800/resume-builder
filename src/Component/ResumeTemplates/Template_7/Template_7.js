@@ -216,71 +216,60 @@ const Template_7= () => {
     <body>
         <div class="main">
             <div class="heading">
-                <h1>John Doe</h1>
-                <p>john.doe@example.com | 123-456-7890</p>
+                <h1>${formData.resume.name}</h1>
+                <p>${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
             </div>
             <div class="summary">
                 <h2>Summary</h2>
-                <p class="para">Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.</p>
+                <p class="para">
+                ${formData.resume.summary}
+                </p>
             </div>
             <div class="Experience">
                 <h2>Experience</h2>
            
                 <ul class="ul">
-                    <li>
-                        <div class="work_des">
-                            <h3 class="customerService">Software Engineer</h3>
-                            <h5 class="company_name"><span>ABC Company - Cityville</span> <span>Jan 2020 - Present</span></h5>
-                            <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="work_des">
-                            <h3 class="customerService">Software Engineer</h3>
-                            <h5 class="company_name"><span>ABC Company - Cityville</span> <span>Jan 2020 - Present</span></h5>
-                            <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="work_des">
-                            <h3 class="customerService">Software Engineer</h3>
-                            <h5 class="company_name"><span>ABC Company - Cityville</span> <span>Jan 2020 - Present</span></h5>
-                            <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                        </div>
-                    </li>
-                    <!-- Add more work experiences as needed -->
+                ${formData.resume.work.map((item) => `
+        
+            <li>
+            <div class="work_des">
+                <h3 class="customerService">${item?.title}</h3>
+                <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span></h5>
+                <p>${item?.description}</p>
+            </div>
+        </li>
+        `)}     
+                
                 </ul>
             </div>
             <div class="Experience">
                 <h2>Education</h2>
               
                 <ul class="ul">
-                    <li >
-                        <h5>Bachelor of Science in Computer Science</span>
+                ${formData.resume.education.map((item) => `
+                <li>
+                    <h5>${item.degree}</h5>
+                    <p>${item.startYear} - ${item.endYear}</p>
+                    <p>${item.collegeName}</p>
+                </li>
+            `)}
                     
-                        <p>2016 - 2020</span>
-                 
-                        <p>University of Cityville</span>
-                    </li>
-                    <li >
-                        <h5>Bachelor of Science in Computer Science</span>
-                    
-                        <p>2016 - 2020</span>
-                 
-                        <p>University of Cityville</span>
-                    </li>
-                    <!-- Add more education details as needed -->
                 </ul>
             </div>
             <div class="Skills">
                 <h2>Skills</h2>
               
                 <ul class="ul">
-                    <li >
-                        <span>JavaScript</span>
-                        <ProgressBar bgcolor="orange" progress="40" height="5" />
-                    </li>
-                    <!-- Add more skills as needed -->
+                <ul class="skill-list">
+                ${formData.resume.skillsAndLevel.map((item) => `
+             
+                <li >
+                <span>${item.skills}</span>
+                <ProgressBar bgcolor="orange" progress="40" height="5" />
+            </li>
+      
+        `)}
+                   
                 </ul>
             </div>
         </div>

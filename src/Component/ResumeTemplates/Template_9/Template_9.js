@@ -302,123 +302,71 @@ const Template_9= () => {
     <div onclick="setTemplateNo(8)" class="main">
         <div class="heading">
             <div class="name">
-                <h1>John Doe</h1>
-                <p>Software Developer</p>
+                <h1> ${formData.resume.name}</h1>
+                <p>${formData.resume.jobTitle}</p>
             </div>
             <div class="contact_info">
-            <a>john.doe@example.com</a>
-            <p>123-456-7890</p>
-            <p>123 Main St, Cityville | USA</p>
-            <p>linkedin.com/in/johndoe</p>
+            <a> ${formData.resume.contact.email}</a>
+            <p>${formData.resume.contact.phone}</p>
+            <p>
+            ${formData.resume.address.address},
+            ${formData.resume.address.state },
+            ${formData.resume.address.postalCode }</p>
+            <p> ${formData.resume.socialLinks.linkedin }</p>
         </div>
         </div>
         <div class="description_box">
             <p>
-            Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.
-            Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.
-            Passionate software developer with expertise in web development and problem-solving. Excited to contribute to innovative projects.
+            ${formData.resume.summary}
             </p>
         </div>
         <div class="Skills">
             <h2>Skills</h2>
             <ul>
-                <li style="color: color3;">
-                    <span>JavaScript</span>
-                </li>
-                <li style="color: color3;">
-                    <span>React.js</span>
-                </li>
-                <li style="color: color3;">
-                    <span>React.js</span>
-                </li>
-                <li style="color: color3;">
-                    <span>React.js</span>
-                </li>
-                <li style="color: color3;">
-                    <span>React.js</span>
-                </li>
-                <li style="color: color3;">
-                    <span>React.js</span>
-                </li>
-                <!-- Add more skills as needed -->
+            ${formData.resume.skillsAndLevel.map((item) => `
+                 
+            <li style="color: color3;">
+            <span>${item.skills}</span>
+        </li>
+  
+    `)}
+            
             </ul>
         </div>
         <div class="Experience">
             <h2>Work History</h2>
             <ul class="ul">
-                <li>
-                    <div class="work_des">
-                      
-                            <h3 class="customerService">Software Engineer</h3>
-                            <h5 class="company_name">
-                            <span>ABC Tech - Cityville</span> 
-                            <span>Jan 2020 - Present</span>
-                            </h5>
-                   
-                        <div>
-                            <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="work_des">
-                      
-                            <h3 class="customerService">Software Engineer</h3>
-                            <h5 class="company_name">
-                            <span>ABC Tech - Cityville</span> 
-                            <span>Jan 2020 - Present</span>
-                            </h5>
-                   
-                        <div>
-                            <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="work_des">
-                      
-                            <h3 class="customerService">Software Engineer</h3>
-                            <h5 class="company_name">
-                            <span>ABC Tech - Cityville</span> 
-                            <span>Jan 2020 - Present</span>
-                            </h5>
-                   
-                        <div>
-                            <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                        </div>
-                    </div>
-                </li>
-                
-              
-                <!-- Add more work experiences as needed -->
+            ${formData.resume.work.map((item) => `
+            <li>
+            <div class="work_des">
+                    <h3 class="customerService">${item?.title}</h3>
+                    <h5 class="company_name">
+                    <span>${item?.company} - ${item?.location}</span> 
+                    <span>${item?.startDate} - ${item?.endDate}</span>
+                    </h5>
+           
+                <div>
+                    <p>
+                    ${item?.description}
+                    </p>
+                </div>
+            </div>
+        </li>
+    `)}     
+
             </ul>
         </div>
         <div class="Education">
             <h2>Education</h2>
             <ul>
-                <li class="edu_des">
-                <h5>2016 - 2020</span>
-                <h4>Bachelor of Science in Computer Science</h4>
-                <p>University of Cityville</span> 
-                </li>
-                <li class="edu_des">
-                <h5>2016 - 2020</span>
-                <h4>Bachelor of Science in Computer Science</h4>
-                <p>University of Cityville</span> 
-                </li>
-                <li class="edu_des">
-                <h5>2016 - 2020</span>
-                <h4>Bachelor of Science in Computer Science</h4>
-                <p>University of Cityville</span> 
-                </li>
-                <li class="edu_des">
-                <h5>2016 - 2020</span>
-                <h4>Bachelor of Science in Computer Science</h4>
-                <p>University of Cityville</span> 
-                </li>
-
-               
-                <!-- Add more education details as needed -->
+            ${formData.resume.education.map((item) => `
+            <li class="edu_des">
+            <h5>${item.startYear} - ${item.endYear}</span>
+            <h4>${item.degree}</h4>
+            <p>${item.collegeName}</span> 
+            </li>
+        `)}
+              
             </ul>
         </div>
     </div>

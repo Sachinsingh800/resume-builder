@@ -402,8 +402,7 @@ const Template_6= () => {
                    
                    <div class="line"><hr " /></div> 
                     <p>
-                        Experienced web developer with expertise in JavaScript and React, seeking challenging projects to
-                        contribute my skills and experience.
+                    ${formData.resume.summary}
                     </p>
                 </div>
                 <div class="info_box">
@@ -413,19 +412,21 @@ const Template_6= () => {
                     <div class="contactInfo">
                         <p ">
                             <span>Mail</span>
-                            demo@mail.com
+                            ${formData.resume.contact.email}
                         </p>
                     </div>
                     <div class="contactInfo">
                         <p class="email" ">
                             <span>Phone</span>
-                            +1 123 456 7890
+                            ${formData.resume.contact.phone}
                         </p>
                     </div>
                     <div class="contactInfo">
                         <p ">
                             <span>Location</span>
-                            Demo Address, 12345
+                            ${formData.resume.address.address},
+                            ${formData.resume.address.state },
+                            ${formData.resume.address.postalCode },
                         </p>
                     </div>
                 </div>
@@ -434,18 +435,15 @@ const Template_6= () => {
                    
                        <div class="line"><hr " /></div> 
                     <ul>
-                        <li ">
-                            <span>HTML</span>
-                            <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
-                        </li>
-                        <li ">
-                            <span>CSS</span>
-                            <div class="ProgressBar" style="background-color: orange; width: 80%; height: 5px;"></div>
-                        </li>
-                        <li ">
-                            <span>JavaScript</span>
-                            <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
-                        </li>
+                    ${formData.resume.skillsAndLevel.map((item) => `
+                 
+                    <li ">
+                    <span>${item.skills}</span>
+                    <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
+                </li>
+          
+            `)}
+                
                     </ul>
                 </div>
                 <div class="skillsHeader">
@@ -453,28 +451,23 @@ const Template_6= () => {
                    
                        <div class="line"><hr " /></div> 
                     <ul>
-                        <li ">
-                            <span>English</span>
-                            <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
-                        </li>
-                        <li>
-                            <span>Spanish</span>
-                            <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
-                        </li>
-                        <li>
-                            <span>French</span>
-                            <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
-                        </li>
+                    ${formData.resume.knownLanguages.map((item) => `
+                     <li ">
+                     <span>${item?.lang}</span>
+                     <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
+                 </li>
+                `)}
+                  
                     </ul>
                 </div>
             </div>
             <div>
                 <div class="objectiveHeader" style="background-color: #3498db;">
                     <h1 class="person_name" style="font-family: 'YourFont', sans-serif;  color: white;">
-                        John Doe
+                    ${formData.resume.name}
                     </h1>
                     <p class="objectiveText">
-                        Front-end Developer
+                    ${formData.resume.jobTitle}
                     </p>
                 </div>
                 <div class="skillsHeader2">
@@ -482,22 +475,15 @@ const Template_6= () => {
                    
                        <div class="edu-line"><hr  /></div> 
                     <ul  class="edu-ul">
-                        <li >
-                            <h4>Computer Science </h4>
-                            <h5>2015 - 2019</h5>
-                            <p>University of Demo</p>
-                        </li>
-                        <li >
-                            <h4>Computer Science </h4>
-                            <h5>2015 - 2019</h5>
-                            <p>University of Demo</p>
-                        </li>
-                        <li >
-                            <h4>Computer Science </h4>
-                            <h5>2015 - 2019</h5>
-                            <p>University of Demo</p>
-                        </li>
-                       
+                    ${formData.resume.education.map((item) => `
+            
+                    <li >
+                    <h4>${item.degree}</h4>
+                        <h5>${item.startYear} - ${item.endYear}</h5>
+                        <p>${item.collegeName}</p>
+                </li>
+                `)}
+                               
                     </ul>
                 </div>
                 <div class="professionalSkillsHeader">
@@ -508,58 +494,22 @@ const Template_6= () => {
                            <div class="exp-line"><hr " /></div> 
                     </div>
                     <ul class="exp-ul">
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Front-end Developer</h4>
-                                <h5 class="company_name">
-                                    <span>XYZ Company - New York</span>
-                                    <span>Jan 2022 - Present</span>
-                                </h5>
-                                <p>
-                                    Worked on developing user interfaces, implementing new features, and maintaining web
-                                    applications.
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Junior Developer</h4>
-                                <h5 class="company_name">
-                                    <span>ABC Agency - San Francisco</span>
-                                    <span>Jun 2019 - Dec 2021</span>
-                                </h5>
-                                <p>
-                                    Assisted in the development of web applications, participated in code reviews, and
-                                    collaborated with the team.
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Junior Developer</h4>
-                                <h5 class="company_name">
-                                    <span>ABC Agency - San Francisco</span>
-                                    <span>Jun 2019 - Dec 2021</span>
-                                </h5>
-                                <p>
-                                    Assisted in the development of web applications, participated in code reviews, and
-                                    collaborated with the team.
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Junior Developer</h4>
-                                <h5 class="company_name">
-                                    <span>ABC Agency - San Francisco</span>
-                                    <span>Jun 2019 - Dec 2021</span>
-                                </h5>
-                                <p>
-                                    Assisted in the development of web applications, participated in code reviews, and
-                                    collaborated with the team.
-                                </p>
-                            </div>
-                        </li>
+                    ${formData.resume.work.map((item) => `
+           
+                <li>
+                <div class="work_des">
+                    <h4 class="customerService">${item?.title}</h4>
+                    <h5 class="company_name">
+                        <span>${item?.company} - ${item?.location}</span>
+                        <span>${item?.startDate} - ${item?.endDate}</span>
+                    </h5>
+                    <p>
+                    ${item?.description}
+                    </p>
+                </div>
+            </li>
+            `)}    
+                 
                     </ul>
                 </div>
             </div>
