@@ -515,7 +515,6 @@ const Template_15= () => {
                         <Divider class="divider" />
                         <ul>
                         ${formData.resume.work.map((item) => `
-    
                     <li>
                     <div class="work_entry">
                         <p class="date">${item?.startDate} - ${item?.endDate}</p>

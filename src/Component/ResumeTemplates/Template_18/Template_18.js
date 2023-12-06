@@ -369,30 +369,27 @@ margin-top:-1.5rem;
                     </div>
                 </div>
                 <div class="name_box">
-                    <h1 class="name">JESSICA CLAIRE</h1>
-                    <h5 class="name">Frontend Developer</h5>
+                    <h1 class="name">${formData.resume.name} </h1>
+                    <h5 class="name">${formData.resume.jobTitle}</h5>
                 </div>
             </div>
             <div class="container">
                 <div class="right_section">
                     <div class="section">
                         <h3 class="section_title">EDUCATION</h3>
-                        <!-- Replace with your styling for Divider -->
+
                         <div class="divider"><hr/></div>
+                        ${formData.resume.education.map((item) => `
+                
                         <div class="work_entry">
-                            <p class="date">2019.08 - 2023.09</p>
-                            <div>
-                                <h4 class="degree">Masters in Data Science</h3>
-                                <p class="university">ABC College</p>
-                            </div>
+                        <p class="date">${item.startYear} - ${item.endYear}</p>
+                        <div>
+                            <h4 class="degree">${item.degree}</h3>
+                            <p class="university">${item.collegeName}</p>
                         </div>
-                        <div class="work_entry">
-                            <p class="date">2019.08 - 2023.09</p>
-                            <div>
-                                <h4 class="degree">Masters in Data Science</h3>
-                                <p class="university">ABC College</p>
-                            </div>
                         </div>
+                        `)}
+                  
                     </div>
                     <h3 class="section-title">CONTACTS</h3>
                     <div class="divider"><hr/></div>
@@ -401,55 +398,62 @@ margin-top:-1.5rem;
                               <span class="icon">
           <img class="icon" src=${base64Image5} alt="dp" />
           </span>
-                            <p class="contact-value">+91 9503942697</p>
+                            <p class="contact-value">${formData.resume.contact.phone}</p>
                         </div>
                         <div class="contact_value">
                               <span class="icon">
           <img class="icon" src=${base64Image4} alt="dp" />
           </span>
-                            <p class="contact-value">ss20010126@gmail.com</p>
+                            <p class="contact-value">${formData.resume.contact.email}</p>
                         </div>
                         <div class="contact_value">
                               <span class="icon">
           <img class="icon" src=${base64Image2} alt="dp" />
           </span>
-                            <p class="contact-value">linkedin.com/en/5hubzzz</p>
+                            <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
                         </div>
                         <div class="contact_value">
                               <span class="icon">
           <img class="icon" src=${base64Image1} alt="dp" />
           </span>
-                            <p class="contact-value">Enter Your Address here</p>
+                            <p class="contact-value">
+                             ${formData.resume.address.address},
+                            ${formData.resume.address.state },
+                            ${formData.resume.address.postalCode }
+                            </p>
                         </div>
                     </div>
                     <div class="section">
                         <h3 class="section-title">SKILLS</h3>
                         <div class="divider"><hr/></div>
                         <ul class="skills_list">
-                            <li>JavaScript</li>
-                            <li>JavaScript</li>
-                            <li>JavaScript</li>
-                            <li>JavaScript</li>
-                            <li>JavaScript</li>
-                            <li>JavaScript</li>
+                        ${formData.resume.skillsAndLevel.map((item) => `
+                        <li> ${item.skills}</li>
+                        `)}
                         </ul>
                     </div>
                     <div class="section">
                         <h3 class="section-title">LANGUAGE</h3>
                         <div class="divider"><hr/></div>
                         <ul class="skills_list">
-                            <li>Hindi</li>
-                            <li>English</li>
-                            <li>Urdu</li>
+                        ${formData.resume.knownLanguages.map((item) => `
+                        <li>
+                        ${item?.lang}
+                      </li>
+                   `)}
                         </ul>
                     </div>
                     <div class="section">
-                        <h3 class="section-title">INTEREST</h3>
+                        <h3 class="section-title">AWARDS</h3>
                         <div class="divider"><hr/></div>
                         <ul class="skills_list">
-                            <li>Hindi</li>
-                            <li>English</li>
-                            <li>Urdu</li>
+                        ${formData.resume.awards.map((item) => `
+                        <li class="award-list">
+                               <h5>${item?.date}</h5>
+                               <h4>${item?.title}</h4>
+                               <p>${item?.issuingOrganization}</p>
+                           </li>
+                   `)}  
                         </ul>
                     </div>
                 </div>
@@ -458,42 +462,29 @@ margin-top:-1.5rem;
                         <h3 class="section-title">SUMMARY</h3>
                         <div class="divider"><hr/></div>
                         <p class="section-content">
-                            Lorem Ipsum is simply dummy text of scrambled it to make a ty It was popularised in the
-                            1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more.
+                        ${formData.resume.summary}
                         </p>
                     </div>
                     <div class="section">
                         <h3 class="section_title">EXPERIENCE</h3>
                         <div class="divider"><hr/></div>
-                        <div class="work_expe">
-                            <div class="work-info" >
-                                <div class="title_">
-                                    <h3 class="position">Software Engineer</h3>
-                                    <p class="date">2019.08 - Present</p>
-                                </div>
-                                <p class="company">ABC Company</p>
-                                <p class="description">
-                                    Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                                    including versions of Lorem Ipsum.
-                                </p>
-                            </div>
-                           
+                        ${formData.resume.work.map((item) => `
+      
+                    <div class="work_expe">
+                    <div class="work-info" >
+                        <div class="title_">
+                            <h3 class="position">${item?.title}</h3>
+                            <p class="date">${item?.startDate} - ${item?.endDate}</p>
                         </div>
-                        <div class="work_expe">
-                            <div class="work-info" >
-                                <div class="title_">
-                                    <h3 class="position">Software Engineer</h3>
-                                    <p class="date">2019.08 - Present</p>
-                                </div>
-                                <p class="company">ABC Company</p>
-                                <p class="description">
-                                    Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                                    including versions of Lorem Ipsum.
-                                </p>
-                            </div>
-                           
-                        </div>
-                        <!-- Repeat the above block for each work entry -->
+                        <p class="company">${item?.company} </p>
+                        <p class="description">
+                        ${item?.description}
+                        </p>
+                    </div>
+                   
+                </div>
+                        `)}    
+        
                     </div>
                 </div>
             </div>

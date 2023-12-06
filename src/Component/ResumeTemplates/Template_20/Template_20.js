@@ -275,86 +275,65 @@ const Template_20= () => {
         <div class="main">
             <div class="heading">
                 <div class="name">
-                    <h1>Jessica Claire</h1>
-                    <p>Frontend Developer</p>
+                    <h1>${formData.resume.name} </h1>
+                    <p>${formData.resume.jobTitle}</p>
                 </div>
                 <div class="contact_info">
-                    <p>jessica.claire@example.com</p>
-                    <p>+1 234 567 890</p>
-                    <p>123 Main Street, Cityville, Country</p>
-                    <p>linkedin.com/in/jessicaclaire</p>
+                    <p>${formData.resume.contact.email}</p>
+                    <p>${formData.resume.contact.phone}</p>
+                    <p> ${formData.resume.address.address},
+                    ${formData.resume.address.state },
+                    ${formData.resume.address.postalCode }</p>
+                    <p>${formData.resume.socialLinks.linkedin}</p>
                 </div>
             </div>
             <div class="description_box">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>
+                ${formData.resume.summary}
+                </p>
             </div>
             <div class="Skills">
                 <h2>RELEVANT SKILLS</h2>
                 <ul class="skill-list">
-                    <li style="color: #333;"><span>JavaScript</span></li>
-                    <li style="color: #333;"><span>React.js</span></li>
-                    <li style="color: #333;"><span>HTML</span></li>
-                    <li style="color: #333;"><span>CSS</span></li>
+                ${formData.resume.skillsAndLevel.map((item) => `
+                <li style="color: #333;"><span>${item.skills}</span></li>
+                `)}
                 </ul>
             </div>
             <div class="Experience">
                 <h3>PROFESSIONAL EXPERIENCE</h2>
                 <ul class="ul">
-                    <li>
-                        <div class="work_des">
-                            <div>
-                                <h4 class="customerService">Frontend Developer</h4>
-                                <h5 class="company_name"><span>ABC Company - Cityville</span> ,
-                                <span>Jan 2022 - Present</span></h5>
-                            </div>
-                            <div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="work_des">
-                            <div >
-                                <h4 class="customerService">Frontend Developer</h4>
-                                <h5 class="company_name"><span>ABC Company - Cityville</span>, <span>Jan 2022 - Present</span></h5>
-                            </div>
-                            <div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="work_des">
-                            <div>
-                                <h4 class="customerService">Frontend Developer</h4>
-                                <h5 class="company_name"><span>ABC Company - Cityville</span>,<span>Jan 2022 - Present</span></h5>
-                            </div>
-                            <div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- Repeat the above block for each work entry -->
+                ${formData.resume.work.map((item) => `
+  
+            <li>
+            <div class="work_des">
+                <div>
+                    <h4 class="customerService">${item?.title}</h4>
+                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> ,
+                    <span>${item?.startDate} - ${item?.endDate}</span></h5>
+                </div>
+                <div>
+                    <p>
+                    ${item?.description}
+                    </p>
+                </div>
+            </div>
+        </li>
+                `)}  
                 </ul>
             </div>
             <div class="Eucation">
                 <h3>EDUCATION</h2>
                 <ul>
-                    <li style="color: #333;">
-                        <span>2018 - 2022</span>
-                        <h4>Bachelor of Science in Computer Science</h4>
-                        <span>University of XYZ</span>
-                    </li>
-                    <li style="color: #333;">
-                        <span>2018 - 2022</span>
-                        <h4>Bachelor of Science in Computer Science</h4>
-                        <span>University of XYZ</span>
-                    </li>
-                    <li style="color: #333;">
-                        <span>2018 - 2022</span>
-                        <h4>Bachelor of Science in Computer Science</h4>
-                        <span>University of XYZ</span>
-                    </li>
+                ${formData.resume.education.map((item) => `
+       
+            <li style="color: #333;">
+            <span>${item.startYear} - ${item.endYear}</span>
+            <h4>${item.degree}</h4>
+            <span>${item.collegeName}</span>
+        </li>
+            `)}
+            
                 </ul>
             </div>
         </div>
