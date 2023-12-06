@@ -466,11 +466,7 @@ const Template_13= () => {
                     <h3 class="section-title">AWARDS</h2>
                     <ul class="ul-skill">
                     ${formData.resume.awards.map((item) => `
-                    <li >
-                    <span>${item?.lang}</span>
-                     </li>
-
-
+        
                      <li class="award-list">
                             <h5>${item?.date}</h5>
                             <h4>${item?.title}</h4>

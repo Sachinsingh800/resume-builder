@@ -348,7 +348,7 @@ const Template_12= () => {
     <body>
         <div class="main">
             <div class="header">
-                <h2 class="name"> ${formData.resume.name} </h2>
+                <h2 class="name"> ${formData.resume.name}</h2>
                 <h5 class="name">${formData.resume.jobTitle}</h5>
             </div>
             <div class="container">

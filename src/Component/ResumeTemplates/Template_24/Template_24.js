@@ -414,34 +414,19 @@ flex-direction: column;
                 <div class="skillsHeader">
                     <h3>EDUCATION</h3>
                     <ul class="edu-ul">
-                        <li style="color: black;">
-                            <span>
-                                Bachelor's Degree
-                                <span>
-                                    2015 - 2019
-                                </span>
-                            </span>
-                            <span>University XYZ</span>
-                        </li>
-                        <li style="color: black;">
-                            <span>
-                                Bachelor's Degree
-                                <span>
-                                    2015 - 2019
-                                </span>
-                            </span>
-                            <span>University XYZ</span>
-                        </li>
-                        <li style="color: black;">
-                            <span>
-                                Bachelor's Degree
-                                <span>
-                                    2015 - 2019
-                                </span>
-                            </span>
-                            <span>University XYZ</span>
-                        </li>
-                        <!-- More education items here -->
+                    ${formData.resume.education.map((item) => `
+
+                <li style="color: black;">
+                <span>
+                ${item.degree}
+                    <span>
+                    ${item.startYear} - ${item.endYear}
+                    </span>
+                </span>
+                <span>${item.collegeName}</span>
+            </li>
+                `)}
+                    
                     </ul>
                 </div>
     
@@ -451,20 +436,22 @@ flex-direction: column;
                      <div class="contactInfo">
                         <p class="email" style="color: black;">
                             <span>Email</span>
-                            example@email.com
+                            ${formData.resume.contact.email}
                         </p>
                     </div>
                     <div class="contactInfo">
                         <p style="color: black;" class="email">
                             <span>Phone</span>
-                            +1234567890
+                            ${formData.resume.contact.phone}
                         </p>
                     </div>
     
                     <div class="contactInfo">
                         <p style="color: black;">
                             <span>Address</span>
-                            123 Main St, City
+                            ${formData.resume.address.address},
+                            ${formData.resume.address.state },
+                            ${formData.resume.address.postalCode }
                         </p>
                     </div>
                     </div>
@@ -475,20 +462,22 @@ flex-direction: column;
                 <div class="skillsHeader">
                     <h3>REFERENCES</h3>
                     <ul class="ref-ul">
-                        <li style="color: black;">
-                            <h4>John Doe</h4>
-                            <span>Position | ABC Company</span>
-                            <span>(123) 456-7890</span>
-                        </li>
-                        <!-- More references items here -->
+                    ${formData.resume.references.map((item) => `
+                       <li style="color: black;">
+                       <h4>${item?.name}</h4>
+                       <span>${item?.position} | ${item?.company}</span>
+                       <span>${item?.phone}</span>
+                   </li>
+               `)}  
+                    
                     </ul>
                 </div>
             </div>
     
             <div>
                 <div class="objectiveHeader">
-                    <h1 class="person_name">Jessica Claire</h1>
-                    <p class="objectiveText">Frontend Developer</p>
+                    <h1 class="person_name">${formData.resume.name}</h1>
+                    <p class="objectiveText">${formData.resume.jobTitle}</p>
                 </div>
                  <br/>
           
@@ -497,9 +486,7 @@ flex-direction: column;
                         <h3>About Me</h3>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nullam nec hendrerit urna, at convallis ex. Praesent et
-                        convallis libero, a fermentum tellus.
+                    ${formData.resume.summary}
                     </p>
                 </div>
     
@@ -508,46 +495,23 @@ flex-direction: column;
                         <h3>WORKING EXPERIENCE</h3>
                     </div>
                     <ul class="work-ul">
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Software Engineer</h4>
-                                <h5 class="company_name">
-                                    <span>ABC Company - Location</span>
-                                    <span>2019.08 - Present</span>
-                                </h5>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing
-                                    and typesetting industry.
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Software Engineer</h4>
-                                <h5 class="company_name">
-                                    <span>ABC Company - Location</span>
-                                    <span>2019.08 - Present</span>
-                                </h5>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing
-                                    and typesetting industry.
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="work_des">
-                                <h4 class="customerService">Software Engineer</h4>
-                                <h5 class="company_name">
-                                    <span>ABC Company - Location</span>
-                                    <span>2019.08 - Present</span>
-                                </h5>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing
-                                    and typesetting industry.
-                                </p>
-                            </div>
-                        </li>
-                        <!-- More work experience items here -->
+
+                    ${formData.resume.work.map((item) => `
+                  
+                <li>
+                <div class="work_des">
+                    <h4 class="customerService">${item?.title}</h4>
+                    <h5 class="company_name">
+                        <span>${item?.company} - ${item?.location}</span>
+                        <span>${item?.startDate} - ${item?.endDate}</span>
+                    </h5>
+                    <p>
+                    ${item?.description}
+                    </p>
+                </div>
+            </li>
+                    `)}  
+
                     </ul>
                 </div>
     
@@ -556,31 +520,17 @@ flex-direction: column;
                         <h3>SOFTWARE SKILL</h3>
                     </div>
                     <ul class="skillsAndLevel">
-                        <li>
-                            <p>JavaScript</p>
-                            <div class="ProgressBar">
-                                <div style="width: 40%;"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p>JavaScript</p>
-                            <div class="ProgressBar">
-                                <div style="width: 40%;"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p>JavaScript</p>
-                            <div class="ProgressBar">
-                                <div style="width: 40%;"></div>
-                            </div>
-                        </li>
-                        <li>
-                            <p>JavaScript</p>
-                            <div class="ProgressBar">
-                                <div style="width: 40%;"></div>
-                            </div>
-                        </li>
-                        <!-- More software skills items here -->
+                    ${formData.resume.skillsAndLevel.map((item) => `
+                 
+                <li>
+                <p>${item.skills}</p>
+                <div class="ProgressBar">
+                    <div style="width: 40%;"></div>
+                </div>
+            </li>
+          
+            `)}
+                         
                     </ul>
                 </div>
             </div>

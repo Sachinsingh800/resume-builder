@@ -350,33 +350,37 @@ const Template_22= () => {
         <div  class="main">
             <div class="header">
                 <div class="name">
-                    <h1 >JESSICA CLAIRE</h1>
-                    <h5 >frontend Developer</h5>
+                    <h1 > ${formData.resume.name}</h1>
+                    <h5 >${formData.resume.jobTitle}</h5>
                 </div>
                 <div class="contact_info">
                     <div class="contact_value">
                         <span class="contact_label">
                             <LocalPhoneIcon style="font-size: 20px; color: #00CCFF;"></LocalPhoneIcon>
                         </span>
-                        <p class="contact-value">+91 9503942697</p>
+                        <p class="contact-value">${formData.resume.contact.phone}</p>
                     </div>
                     <div class="contact_value">
                         <span class="contact_label">
                             <EmailIcon style="font-size: 20px; color: #00CCFF;"></EmailIcon>
                         </span>
-                        <p class="contact-value">ss20010126@gmail.com</p>
+                        <p class="contact-value">${formData.resume.contact.email}</p>
                     </div>
                     <div class="contact_value">
                         <span class="contact_label">
                             <LinkedInIcon style="font-size: 20px; color: #00CCFF;"></LinkedInIcon>
                         </span>
-                        <p class="contact-value">linkedin.com/en/5hubzzz</p>
+                        <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
                     </div>
                     <div class="contact_value">
                         <span class="contact_label">
                             <PlaceIcon style="font-size: 20px; color: #00CCFF;"></PlaceIcon>
                         </span>
-                        <p class="contact-value">Enter Your Address here</p>
+                        <p class="contact-value">
+                        ${formData.resume.address.address},
+                        ${formData.resume.address.state },
+                        ${formData.resume.address.postalCode }
+                        </p>
                     </div>
                 </div>
             </div>
@@ -386,31 +390,32 @@ const Template_22= () => {
                     <div class="section">
                         <h2 class="section_title">SKILLS</h2>
                         <ul class="skills_list">
-                            <!-- Include your skill list items and progress bars here -->
-                            <li>javascript <span> <ProgressBar bgcolor="#00CCFF" progress="40" height="5"></span></li>
-                            <li>javascript <span> <ProgressBar bgcolor="#00CCFF" progress="40" height="5"></span></li>
-                            <li>javascript <span> <ProgressBar bgcolor="#00CCFF" progress="40" height="5"></span></li>
-                            <li>javascript <span> <ProgressBar bgcolor="#00CCFF" progress="40" height="5"></span></li>
-                            <li>javascript <span> <ProgressBar bgcolor="#00CCFF" progress="40" height="5"></span></li>
-                            <!-- Repeat for other skills -->
+                        ${formData.resume.skillsAndLevel.map((item) => `
+                        <li>${item.skills}<span> <ProgressBar bgcolor="#00CCFF" progress="40" height="5"></span></li>
+                        `)}
+               
                         </ul>
                     </div>
                     <div class="section">
                         <h2 class="section_title">LANGUAGE</h2>
                         <ul class="skills_list">
-                            <!-- Include your language list items here -->
-                            <li>Hindi</li>
-                            <li>Hindi</li>
-                            <li>Hindi</li>
-                            <!-- Repeat for other languages -->
+                        ${formData.resume.knownLanguages.map((item) => `
+                        <li>
+                        ${item?.lang}
+                      </li>
+                   `)}
                         </ul>
                     </div>
                     <div class="section">
-                        <h2 class="section_title">INTEREST</h2>
+                        <h2 class="section_title">AWARDS</h2>
                         <ul class="skills_list">
-                            <!-- Include your interest list items here -->
-                            <li>Machine learning</li>
-                            <!-- Repeat for other interests -->
+                        ${formData.resume.awards.map((item) => `
+                        <li class="award-list">
+                               <h5>${item?.date}</h5>
+                               <h4>${item?.title}</h4>
+                               <p>${item?.issuingOrganization}</p>
+                           </li>
+                   `)}  
                         </ul>
                     </div>
                 </div>
@@ -418,9 +423,7 @@ const Template_22= () => {
                     <div class="section">
                         <h2 class="section_title"><PersonIcon />ABOUT</h2>
                         <p class="section-content">
-                            Lorem Ipsum is simply dummy text of scrambled it to make a ty It
-                            was popularised in the 1960s with the release of Letraset sheets
-                            containing Lorem Ipsum passages, and more.
+                        ${formData.resume.summary}
                         </p>
                     </div>
     
@@ -428,52 +431,26 @@ const Template_22= () => {
                         <h2 class="section_title"><WorkIcon/>EXPERIENCE</h2>
                         <Divider class="divider" />
                         <ul class="ul">
+                        ${formData.resume.work.map((item) => `
+                  
+                    <li>
+                    <div class="work_des">
+                      
+                            <h3 class="customerService">${item?.title}</h3>
+                            <h5 class="company_name">
+                            <span>${item?.company} - ${item?.location}</span> 
+                            <span>${item?.startDate} - ${item?.endDate}</span>
+                            </h5>
+                   
+                        <div>
+                            <p>
+                            ${item?.description}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                    `)}  
                           
-                            <li>
-                            <div class="work_des">
-                              
-                                    <h3 class="customerService">Software Engineer</h3>
-                                    <h5 class="company_name">
-                                    <span>ABC Tech - Cityville</span> 
-                                    <span>Jan 2020 - Present</span>
-                                    </h5>
-                           
-                                <div>
-                                    <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                                </div>
-                            </div>
-                        </li>
-                          
-                            <li>
-                            <div class="work_des">
-                              
-                                    <h3 class="customerService">Software Engineer</h3>
-                                    <h5 class="company_name">
-                                    <span>ABC Tech - Cityville</span> 
-                                    <span>Jan 2020 - Present</span>
-                                    </h5>
-                           
-                                <div>
-                                    <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                                </div>
-                            </div>
-                        </li>
-                          
-                            <li>
-                            <div class="work_des">
-                              
-                                    <h3 class="customerService">Software Engineer</h3>
-                                    <h5 class="company_name">
-                                    <span>ABC Tech - Cityville</span> 
-                                    <span>Jan 2020 - Present</span>
-                                    </h5>
-                           
-                                <div>
-                                    <p>Contributed to the development of innovative web applications using cutting-edge technologies.</p>
-                                </div>
-                            </div>
-                        </li>
-                            <!-- Repeat for other entries -->
                         </ul>
                     </div>
     
@@ -481,21 +458,20 @@ const Template_22= () => {
                         <h2 class="section_title"><SchoolIcon/>EDUCATION</h2>
                         <Divider class="divider" />
                         <ul class="ul">
-                            <!-- Include your education entries here -->
-                            <li class="edu_des">
-                            <h5>2016 - 2020</span>
-                            <h4>Bachelor of Science in Computer Science</h4>
-                            <p>University of Cityville</span> 
-                            </li>
-                            <!-- Repeat for other entries -->
+                        ${formData.resume.education.map((item) => `
+             
+                    <li class="edu_des">
+                    <h5>${item.startYear} - ${item.endYear}</span>
+                    <h4>${item.degree}</h4>
+                    <p>${item.collegeName}</p> 
+                    </li>
+                    `)}
+                        
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    
-        <!-- Include your JavaScript scripts or other body elements here -->
-    
     </body>
     </html>
     
