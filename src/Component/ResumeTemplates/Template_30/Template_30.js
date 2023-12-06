@@ -294,15 +294,17 @@ width: 72%;
 <body>
     <div class="main">
         <div class="heading">
-            <h1>Jane Doe</h1>
-            <p>jane.doe@example.com | +1 123-456-7890</p>
+            <h1>${formData.resume.name}</h1>
+            <p>${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
         </div>
         <div class="summary">
             <div class="title_section">
                 <h3>Professional Summary </h3>
                 <hr class="line" />
             </div>
-            <p class="para">Experienced and detail-oriented software developer with a passion for creating efficient and scalable solutions. Proven track record of successful project management and strong analytical skills.</p>
+            <p class="para">
+            ${formData.resume.summary}
+            </p>
         </div>
         <div class="Skills">
             <div class="title_section">
@@ -310,21 +312,11 @@ width: 72%;
                 <hr class="line2" />
             </div>
             <ul>
-                <li>
-                    <span>JavaScript</span>
-                </li>
-                <li>
-                    <span>React</span>
-                </li>
-                <li>
-                    <span>Node.js</span>
-                </li>
-                <li>
-                    <span>HTML</span>
-                </li>
-                <li>
-                    <span>CSS</span>
-                </li>
+            ${formData.resume.skillsAndLevel.map((item) => `
+            <li>
+            <span>${item.skills}</span>
+        </li>
+            `)}
             </ul>
         </div>
         <div class="Experience">
@@ -333,64 +325,40 @@ width: 72%;
                 <hr class="line3" />
             </div>
             <ul class="ul">
-            
-                <li>
-                    <div class="work_des">
-                        <div class="work-info">
-                            <h4 class="customerService">Software Engineer</h4>
-                            <h6 class="company_name"><span>XYZ Solutions - San Francisco</span> <span>Jun 2018 - Dec 2019</span></h6>
-                        </div>
-                        <div class="des-info">
-                            <p>
-                                Contributed to the design and implementation of backend systems using Node.js. Resolved complex technical issues and optimized application performance.
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="work_des">
-                        <div class="work-info">
-                            <h4 class="customerService">Software Engineer</h4>
-                            <h6 class="company_name"><span>XYZ Solutions - San Francisco</span> <span>Jun 2018 - Dec 2019</span></h6>
-                        </div>
-                        <div class="des-info">
-                            <p>
-                                Contributed to the design and implementation of backend systems using Node.js. Resolved complex technical issues and optimized application performance.
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="work_des">
-                        <div class="work-info">
-                            <h4 class="customerService">Software Engineer</h4>
-                            <h6 class="company_name"><span>XYZ Solutions - San Francisco</span> <span>Jun 2018 - Dec 2019</span></h6>
-                        </div>
-                        <div class="des-info">
-                            <p>
-                                Contributed to the design and implementation of backend systems using Node.js. Resolved complex technical issues and optimized application performance.
-                            </p>
-                        </div>
-                    </div>
-                </li>
+            ${formData.resume.work.map((item) => `
+             
+        <li>
+        <div class="work_des">
+            <div class="work-info">
+                <h4 class="customerService">${item?.title}</h4>
+                <h6 class="company_name"><span>${item?.company} - ${item?.location} </span> <span>${item?.startDate} - ${item?.endDate}</span></h6>
+            </div>
+            <div class="des-info">
+                <p>
+                ${item?.description}
+                </p>
+            </div>
+        </div>
+    </li>
+                `)} 
             </ul>
         </div>
+
         <div class="Education">
             <div class="title_section">
                 <h3>Education</h3>
                 <hr class="line4" />
             </div>
             <ul>
-                <li >
-                    <span>2015 - 2019</span>
-                    <h4>Bachelor's in Computer Science</h4>
-                    <span>University of Example</span>
-                </li>
-                <li >
-                    <span>2019 - 2021</span>
-                    <h4>Master's in Software Engineering</h4>
-                    <span>Graduate School of Tech</span>
-                </li>
+            ${formData.resume.education.map((item) => `
+
+            <li >
+            <span>${item.startYear} - ${item.endYear}</span>
+            <h4>${item.degree}</h4>
+            <span>${item.collegeName}</span>
+        </li>
+                `)}    
+       
             </ul>
         </div>
     </div>
