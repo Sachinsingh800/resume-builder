@@ -493,7 +493,6 @@ const Template_16= () => {
                         <h3 class="section_title">EXPERIENCE</h2>
                         <ul class="ul">
                         ${formData.resume.work.map((item) => `
-                  
                     <li>
                     <div class="work_entry">
                         <p class="date">${item?.startDate} - ${item?.endDate}</p>
