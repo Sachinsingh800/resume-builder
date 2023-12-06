@@ -370,8 +370,8 @@ width:1rem;
         <div class="main">
             <div class="header">
                 <div class="name-box">
-                    <h1 class="name">JESSICA CLAIRE</h1>
-                    <h5 class="name">Frontend Developer</h5>
+                    <h1 class="name">${formData.resume.name}</h1>
+                    <h5 class="name">${formData.resume.jobTitle}</h5>
                 </div>
                 <div class="img_box">
                     <img src=${base64Image3} alt="dp" />
@@ -384,19 +384,23 @@ width:1rem;
                     <div class="contact-info">
                         <div class="contact-entry">
                             <h5 class="contact-label">Address</h5>
-                            <p class="contact-value">Enter Your Address here</p>
+                            <p class="contact-value">
+                            ${formData.resume.address.address},
+                            ${formData.resume.address.state },
+                            ${formData.resume.address.postalCode }
+                            </p>
                         </div>
                         <div class="contact-entry">
                             <h5 class="contact-label">Phone</h5>
-                            <p class="contact-value">+91 9503942697</p>
+                            <p class="contact-value">${formData.resume.contact.phone}</p>
                         </div>
                         <div class="contact-entry">
                             <h5 class="contact-label">E-mail</h5>
-                            <p class="contact-value">ss20010126@gmail.com</p>
+                            <p class="contact-value">${formData.resume.contact.email}</p>
                         </div>
                         <div class="contact-entry">
                             <h5 class="contact-label">LinkedIn</h5>
-                            <p class="contact-value">linkedin.com/en/5hubzzz</p>
+                            <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
                         </div>
                     </div>
     
@@ -404,115 +408,81 @@ width:1rem;
                         <h3 class="section-title">SKILLS</h3>
                         <div class="divider"> <hr  /></div>
                         <ul class="skills-list">
-                            <li>
-                                <h4>C++</h4>
-                                <p>Advanced</p>
-                            </li>
-                            <li>
-                                <h4>C++</h4>
-                                <p>Advanced</p>
-                            </li>
-                            <li>
-                                <h4>C++</h4>
-                                <p>Advanced</p>
-                            </li>
+                        ${formData.resume.skillsAndLevel.map((item) => `
+                        <li>
+                        <h4>${item.skills}</h4>
+                        <p>Advanced</p>
+                    </li>
+                        `)}
                         </ul>
                     </div>
-                    <!-- Additional sections for Language and Interest -->
+    
     
                 </div>
                 <div class="left_section">
                     <div class="section">
                         <p class="section-content">
-                            Lorem Ipsum is simply dummy text of scrambled it to make a ty It was popularised in the
-                            1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more.
+                        ${formData.resume.summary}
                         </p>
                     </div>
                     <div class="section">
                         <h3 class="section-title">Experience</h3>
                         <div class="divider"> <hr  /></div>
     
-                        <div class="work_entry">
+                        ${formData.resume.work.map((item) => `
+      
+                    <div class="work_entry">
 
-                            <p class="date">2019.08 - Present</p>
-                           
-                            <div class="work-info">
-                                <h4 class="position">Software Engineer</h4>
-                                <p class="company">ABC Company</p>
-                                <p class="description">
-                                    Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                                    including versions of Lorem Ipsum.
-                                </p>
-                            
-                             </div>
-                        </div>
-                        <div class="work_entry">
+                    <p class="date">${item?.startDate} - ${item?.endDate}</p>
+                   
+                    <div class="work-info">
+                        <h4 class="position">${item?.title}</h4>
+                        <p class="company">${item?.company} </p>
+                        <p class="description">
+                        ${item?.description}
+                        </p>
+                    
+                     </div>
+                </div>
+                            `)}  
 
-                            <p class="date">2019.08 - Present</p>
-                           
-                            <div class="work-info">
-                                <h4 class="position">Software Engineer</h4>
-                                <p class="company">ABC Company</p>
-                                <p class="description">
-                                    Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                                    including versions of Lorem Ipsum.
-                                </p>
-                            
-                             </div>
-                        </div>
-                        <!-- Additional work entries -->
-    
                     </div>
                     <div class="section">
                         <h3 class="section-title">EDUCATION</h3>
                         <div class="divider"> <hr  /></div>
 
                         <div class="edu-his">
+
+                        ${formData.resume.education.map((item) => `
+                
                         <div class="education-entry">
-                        <h4 class="degree">Masters in Data Science</h4>
-                        <p class="university">ABC College</p>
-                        <p class="date">2019.08 - 2023.09</p>
-                        <p class="description">
-                            Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                            including versions of Lorem Ipsum.
-                        </p>
+                        <h4 class="degree">${item.degree}</h4>
+                        <p class="university">${item.collegeName}</p>
+                        <p class="date">${item.startYear} - ${item.endYear}</p>
                     </div>
-                        <div class="education-entry">
-                        <h4 class="degree">Masters in Data Science</h4>
-                        <p class="university">ABC College</p>
-                        <p class="date">2019.08 - 2023.09</p>
-                        <p class="description">
-                            Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                            including versions of Lorem Ipsum.
-                        </p>
-                    </div>
+                        `)}
+
                         </div>
                        
                     </div>
+
+
                     <div class="section">
                         <h3 class="section-title">Certification</h3>
                         <div class="divider"> <hr  /></div>
                         <div class="edu-info">
-
+            ${formData.resume.certifications.map((item) => `
+                
                         <div class="education-entry">
-                        <h4 class="degree">Masters in Data Science</h4>
-                        <p class="university">ABC College</p>
-                        <p class="date">2019.08 - 2023.09</p>
-                        <p class="description">
-                            Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                            including versions of Lorem Ipsum.
-                        </p>
-                        <div class="education-entry">
-                        <h4 class="degree">Masters in Data Science</h4>
-                        <p class="university">ABC College</p>
-                        <p class="date">2019.08 - 2023.09</p>
-                        <p class="description">
-                            Lorem Ipsum is simply dummy text of Lorem Ipsum passages, and Aldus PageMaker
-                            including versions of Lorem Ipsum.
-                        </p>
+                        <h4 class="degree">${item.title}</h4>
+                        <p class="date">${item.date}</p>
+                        <p class="university">${item.issuingOrganization}</p>
+                     
+                
+                        </div>
 
-                    </div>
-                        
+                        `)}
+                                
                         </div>
                        
                     </div>

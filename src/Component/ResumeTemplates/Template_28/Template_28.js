@@ -381,20 +381,24 @@ margin-left: 1rem;
         <div class="Left_container" style="background-color: #D3D3D3; color: white;">
           <div class="img_container">
             <div class="name-box">
-            <h1 >John Doe</h1>
-            <p class="objectiveText">Software Developer</p>
+            <h1 >${formData.resume.name} </h1>
+            <p class="objectiveText">${formData.resume.jobTitle}</p>
        
             </div>
              
             <div>
               <div class="contactInfo">
-                <p class="email" style="color: white;"><span>Email: </span>john.doe@example.com</p>
+                <p class="email" style="color: white;"><span>Email: </span>${formData.resume.contact.email}</p>
               </div>
               <div class="contactInfo">
-                <p class="email" style="color: white;"><span>Phone: </span>(123) 456-7890</p>
+                <p class="email" style="color: white;"><span>Phone: </span>${formData.resume.contact.phone}</p>
               </div>
               <div class="contactInfo">
-                <p class="email" style="color: white;"><span>Address: </span>123 Main St, 56789</p>
+                <p class="email" style="color: white;"><span>Address: </span>
+                ${formData.resume.address.address},
+                ${formData.resume.address.state },
+                ${formData.resume.address.postalCode }
+                </p>
               </div>
             </div>
           </div>
@@ -402,23 +406,27 @@ margin-left: 1rem;
           <div class="skillsHeader">
             <h3 style="color: #333;">EDUCATION</h3>
             <ul class="edu-ul">
-              <li style="color: #333;">
-                <span>Bachelor's in Computer Science <span>2010 - 2014</span></span>
-                <span>University of XYZ</span>
-              </li>
-              <!-- Add more education items as needed -->
+            ${formData.resume.education.map((item) => `
+
+        <li style="color: #333;">
+        <span>${item.degree} <span>${item.startYear} - ${item.endYear}</span></span>
+        <span>${item.collegeName}</span>
+      </li>
+            `)}
+
             </ul>
           </div>
     
           <div class="skillsHeader">
             <h3 style="color: #333;">REFERENCES</h3>
             <ul class="ref-ul">
-              <li style="color: #333;">
-                <h4>Reference Name</h4>
-                <span>Position | Company</span>
-                <span>Phone: (123) 456-7890</span>
-              </li>
-              <!-- Add more references as needed -->
+            ${formData.resume.references.map((item) => `
+            <li style="color: #333;">
+            <h4>${item?.name}</h4>
+            <span>${item?.position} | ${item?.company}</span>
+            <span>Phone: ${item?.phone}</span>
+          </li>
+            `)}
             </ul>
           </div>
         </div>
@@ -428,7 +436,9 @@ margin-left: 1rem;
             <div class="title_box2">
               <h3>About Me</h3>
             </div>
-            <p class="para">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="para">
+            ${formData.resume.summary}
+            </p>
           </div>
     
           <div class="professionalSkillsHeader">
@@ -436,42 +446,16 @@ margin-left: 1rem;
               <h3>WORKING EXPERIENCE</h3>
             </div>
             <ul class="work-ul">
-              <li>
-                <div class="work_des">
-                  <h3 class="customerService">Software Engineer</h3>
-                  <h5 class="company_name"><span>ABC Inc - New York</span> <span>Jan 2015 - Dec 2018</span></h5>
-                  <p>Worked on various software development projects.</p>
-                </div>
-              </li>
-              <li>
-                <div class="work_des">
-                  <h3 class="customerService">Software Engineer</h3>
-                  <h5 class="company_name"><span>ABC Inc - New York</span> <span>Jan 2015 - Dec 2018</span></h5>
-                  <p>Worked on various software development projects.</p>
-                </div>
-              </li>
-              <li>
-                <div class="work_des">
-                  <h3 class="customerService">Software Engineer</h3>
-                  <h5 class="company_name"><span>ABC Inc - New York</span> <span>Jan 2015 - Dec 2018</span></h5>
-                  <p>Worked on various software development projects.</p>
-                </div>
-              </li>
-              <li>
-                <div class="work_des">
-                  <h3 class="customerService">Software Engineer</h3>
-                  <h5 class="company_name"><span>ABC Inc - New York</span> <span>Jan 2015 - Dec 2018</span></h5>
-                  <p>Worked on various software development projects.</p>
-                </div>
-              </li>
-              <li>
-                <div class="work_des">
-                  <h3 class="customerService">Software Engineer</h3>
-                  <h5 class="company_name"><span>ABC Inc - New York</span> <span>Jan 2015 - Dec 2018</span></h5>
-                  <p>Worked on various software development projects.</p>
-                </div>
-              </li>
-              <!-- Add more work experience items as needed -->
+            ${formData.resume.work.map((item) => `
+        <li>
+        <div class="work_des">
+          <h3 class="customerService">${item?.title}</h3>
+          <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span></h5>
+          <p>${item?.description}</p>
+        </div>
+      </li>
+                `)} 
+
             </ul>
           </div>
     
@@ -480,23 +464,12 @@ margin-left: 1rem;
               <h3>SOFTWARE SKILL</h3>
             </div>
             <ul class="skillsAndLevel">
-              <li>
-                <span>JavaScript</span>
-                <span style="width: 40%; height:.5rem; background-color: orange; display: inline-block;"></span>
-              </li>
-              <li>
-                <span>JavaScript</span>
-                <span style="width: 40%; height:.5rem; background-color: orange; display: inline-block;"></span>
-              </li>
-              <li>
-                <span>JavaScript</span>
-                <span style="width: 40%; height:.5rem; background-color: orange; display: inline-block;"></span>
-              </li>
-              <li>
-                <span>JavaScript</span>
-                <span style="width: 40%; height:.5rem; background-color: orange; display: inline-block;"></span>
-              </li>
-              <!-- Add more skills and levels as needed -->
+            ${formData.resume.skillsAndLevel.map((item) => `
+            <li>
+            <span>${item.skills}</span>
+            <span style="width: 40%; height:.5rem; background-color: orange; display: inline-block;"></span>
+          </li>
+            `)}
             </ul>
           </div>
         </div>
