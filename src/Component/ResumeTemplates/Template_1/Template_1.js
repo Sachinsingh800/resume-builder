@@ -28,9 +28,7 @@ import {
 } from "../../../Recoil";
 
 
-const PDFRenderer = ({ htmlContent }) => {
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-};
+
 
 const Template_1= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -306,10 +304,10 @@ hr{
     
     <body>
         <div class="main">
-            <div class="left_section" style="background-color: #3498db; color: white;">
+            <div class="left_section" style="background-color: ${color}; color: ${color3};">
                 <div>
                     <div class="img_container">
-                        <div class="img_box" style="height: 150px; width: 150px;">
+                        <div class="img_box" style="height: ${imgSize}; width: ${imgSize};">
                             <!-- Replace the image source with your actual 
                             image URL -->
                             <img src=${base64Image3} alt="dp" />
@@ -352,8 +350,8 @@ hr{
             </div>
     
             <div class="right_section">
-                <div class="heading" style="background-color:#3498db;">
-                    <h1 style="color: white; font-family: 'Arial', sans-serif; ">
+                <div class="heading" style="background-color:${color2};">
+                    <h1 style="color: white; font-family: ${fontStyle}; font-size:${fontSize};">
                      ${formData.resume.name}
                     </h1>
                 </div>
@@ -454,17 +452,114 @@ hr{
 
 
 
-
-
-
   return (
-    <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
+    <>
+       <button className={style.download_btn}  onClick={handleResume}>Download</button>
+       <div className={style.main}>
+    <div className={style.left_section} style={{ backgroundColor: color, color: color3 }}>
+      <div>
+        <div className={style.img_container}>
+          <div className={style.img_box} style={{ height: imgSize, width: imgSize }}>
+            {/* Replace the image source with your actual image URL */}
+            <img src={base64Image3} alt="dp" />
+          </div>
+        </div>
+
+        <div className={style.info_box}>
+          <p>
+            <span>Email: </span>
+            {formData.resume.contact.email}
+          </p>
+          <p>
+            <span>Phone: </span>
+            {formData.resume.contact.phone}
+          </p>
+          <p>
+            <span>Location: </span>
+            {formData.resume.address.address}, {formData.resume.address.state}, {formData.resume.address.postalCode}
+          </p>
+        </div>
+      </div>
+      <div>
+        <br/>
+      </div>
+      <div className={style.education}>
+        <h3>Education</h3>
+        <div className={style.edu}>
+          {formData.resume.education.map((item, index) => (
+            <div key={index}>
+              <h4>{item.collegeName}</h4>
+              <p>{item.degree}</p>
+              <p>
+                {item.startYear} - {item.endYear}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div className={style.right_section}>
+      <div className={style.heading} style={{ backgroundColor: color2}}>
+        <h1 style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>{formData.resume.name}</h1>
+      </div>
+
+      <div className={style.certifications}>
+        <h3>Certifications</h3>
+        <ul className={style.certi_ul}>
+          {formData.resume.certifications.map((item, index) => (
+            <li key={index}>
+              <h5>{item.title}</h5>
+              <p>Organization: {item.issuingOrganization}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={style.line}>
+      </div>
+
+      <div className={style.skills}>
+        <h3>Skills</h3>
+        <ul className={style.skill_ul}>
+          {formData.resume.skillsAndLevel.map((item, index) => (
+            <li key={index}>
+              <h5>{item.skills}</h5>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={style.line}>
+     
+      </div>
+
+      <div className={style.professional_summary}>
+        <h3>Professional Summary</h3>
+        <p>{formData.resume.summary}</p>
+      </div>
+
+      <div className={style.line}>
+      </div>
+
+      <div className={style.work}>
+        <h3>Work History</h3>
+        <ul className={style.work_ul}>
+          {formData.resume.work.map((item, index) => (
+            <li key={index}>
+              <h4>{item?.title}</h4>
+              <p>
+                {item?.company}, {item?.location}
+              </p>
+              <p>{item?.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   </div>
+    </>
+   
   );
 };
 

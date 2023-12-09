@@ -116,7 +116,7 @@ export default function MobileViewModal() {
           <div className={styles.resume_container}>
             <button onClick={() => handleClose()} className={styles.Close_btn}>X</button>
             <div className={styles.resume}>
-              <div ref={targetRef} id='content'>
+              <div className={styles.reume_div}>
                 {templates[templateNo]}
               </div>
             </div>

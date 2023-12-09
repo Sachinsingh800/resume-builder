@@ -254,3 +254,8 @@
             background-color: transparent;
         }
     }
+    .reume_div{
+        margin:0rem;
+        padding:0rem;
+        box-sizing: border-box;
+    }
