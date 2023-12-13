@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_11.module.css";
+import styles from "./Template_11.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -377,12 +377,91 @@ const Template_11= () => {
 
 
   return (
+    <div className={styles.main}>
+    <div className={styles.Left_container}>
+      <div className={styles.objectiveHeader}>
+        <h1 className={styles.personName}>{formData.resume.name}</h1>
+        <p className={styles.objectiveText}>{formData.resume.jobTitle}</p>
+      </div>
+      <div className={styles.infoBox}>
+        <h3>Personal info</h3>
+        <div className={styles.contactInfo}>
+          <label>Mail</label>
+          <p className={styles.email}>{formData.resume.contact.email}</p>
+        </div>
+        <div className={styles.contactInfo}>
+          <label>Phone</label>
+          <p className={styles.email}>{formData.resume.contact.phone}</p>
+        </div>
+        <div className={styles.contactInfo}>
+          <label>Address</label>
+          <p className={styles.email}>
+            {formData.resume.address.address},
+            {formData.resume.address.state},
+            {formData.resume.address.postalCode}
+          </p>
+        </div>
+      </div>
+      <div className={styles.skillsHeader}>
+        <h3>Additional Skills</h3>
+        <ul>
+          {formData.resume.skillsAndLevel.map((item, index) => (
+            <li key={index}>
+              <span>{item.skills}</span>
+              <p className={styles.ProgressBar}></p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.skillsHeader}>
+        <h3>LANGUAGES</h3>
+        <ul>
+          {formData.resume.knownLanguages.map((item, index) => (
+            <li key={index}>
+              <span>{item?.lang}</span>
+              <p className={styles.ProgressBar}></p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
     <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
+      <div className={styles.skillsHeader2}>
+        <h3>Skills Summary</h3>
+        <p>{formData.resume.summary}</p>
+      </div>
+      <div className={styles.professionalSkillsHeader}>
+        <div>
+          <h3>EXPERIENCE</h3>
+        </div>
+        <ul className={styles.expUl}>
+          {formData.resume.work.map((item, index) => (
+            <li key={index}>
+              <div className={styles.workDes}>
+                <h4 className={styles.customerService}>{item?.title}</h4>
+                <h5 className={styles.companyName}>
+                  <span>{item?.company} - {item?.location}</span>
+                  <span>{item?.startDate} - {item?.endDate}</span>
+                </h5>
+                <p>{item?.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.skillsHeader2}>
+        <h3>Education</h3>
+        <ul className={styles.eduUl}>
+          {formData.resume.education.map((item, index) => (
+            <li key={index}>
+              <h4>{item.degree}</h4>
+              <span>{item.startYear} - {item.endYear}</span>
+              <span>{item.collegeName}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   </div>
   );
 };

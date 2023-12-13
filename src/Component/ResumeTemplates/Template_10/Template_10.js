@@ -318,10 +318,6 @@ const Template_10= () => {
   };
 
 
-
-
-
-
   return (
 <div className={styles.main}>
       <div className={styles.heading}>
