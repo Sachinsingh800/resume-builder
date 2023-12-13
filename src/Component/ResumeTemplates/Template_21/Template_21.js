@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_21.module.css";
+import styles from "./Template_21.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -519,12 +519,88 @@ const Template_21= () => {
 
 
   return (
-    <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
+    <div className={styles.main}>
+    <div className={styles.header}>
+      <div className={styles.name_box}>
+        <h1 className={styles.name}>JESSICA CLAIRE</h1>
+        <h5 className={styles.name}>Frontend Developer</h5>
+      </div>
+    </div>
+    <div className={styles.container}>
+      <div className={styles.right_section}>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>CONTACTS</h3>
+          <div className={styles.contact_info}>
+            <div className={styles.contact_value}>
+              <img className={styles.icon} src={base64Image5} alt="dp" />
+              <p className={styles.contactValue}>{formData.resume.contact.phone}</p>
+            </div>
+            {/* ... Other contact values ... */}
+          </div>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>EDUCATION</h3>
+          <div className={styles.edu_ul}>
+            {formData.resume.education.map((item, index) => 
+              <div key={index} className={styles.edu_entry}>
+                <p className={styles.date}>{item.startYear} - {item.endYear}</p>
+                <div>
+                  <h4 className={styles.degree}>{item.degree}</h4>
+                  <p className={styles.university}>{item.collegeName}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>SKILLS</h3>
+          <ul className={styles.skills_list}>
+            {formData.resume.skillsAndLevel.map((item, index) => 
+              <li key={index}>{item.skills}</li>
+            )}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>LANGUAGE</h3>
+          <ul className={styles.skills_list}>
+            {formData.resume.knownLanguages.map((item, index) => 
+              <li key={index}>{item?.lang}</li>
+            )}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>AWARDS</h3>
+          <ul className={styles.skills_list}>
+            {formData.resume.awards.map((item, index) => 
+              <li key={index} className={styles.awardList}>
+                <h5>{item?.date}</h5>
+                <h4>{item?.title}</h4>
+                <p>{item?.issuingOrganization}</p>
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
+      <div className={styles.left_section}>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>PROFILE</h3>
+          <p className={styles.sectionContent}>{formData.resume.summary}</p>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>WORK EXPERIENCE</h3>
+          <div className={styles.work_entry}>
+            {formData.resume.work.map((item, index) => 
+              <div key={index} className={styles.title_}>
+                <h4 className={styles.position}>{item?.title}</h4>
+                <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
+                <p className={styles.company}>{item?.company}</p>
+                <p className={styles.description}>{item?.description}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   );
 };

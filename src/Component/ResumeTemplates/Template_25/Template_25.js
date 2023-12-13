@@ -3,6 +3,7 @@ import axios from "axios";
 import location from "../../Images/location-pin.png"
 import linkedin from "../../Images/linkedin.png"
 import { useRecoilState } from "recoil";
+import styles from "./Template_25.module.css"
 import {
   ChooseColor,
   chooseTemplates,
@@ -442,13 +443,168 @@ const Template_25 = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleResume}>Download</button>
-      <br />
-      {loading && <p>Loading...</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <PDFRenderer htmlContent={getHTML()} />
+    <div className={styles.main}>
+    <div className={styles.header}>
+      <div className={styles.nameBox}>
+        <h1 className={styles.name}>{formData.resume.name}</h1>
+        <h4>{formData.resume.jobTitle}</h4>
+      </div>
     </div>
+
+    <div className={styles.container}>
+      <div className={styles.leftSection}>
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>ABOUT</h3>
+          <hr className={styles.divider} />
+          <p className={styles.sectionContent}>{formData.resume.summary}</p>
+        </div>
+
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>EXPERIENCE</h3>
+          <hr className={styles.divider} />
+          <ul className={styles.ul}>
+            {formData.resume.work.map((item, index) => (
+              <li key={index}>
+                <div className={styles.workEntry}>
+                  <div>
+                    <div className={styles.title_}>
+                      <h4 className={styles.position}>{item?.title}</h4>
+                      <p className={styles.date}>
+                        {item?.startDate} - {item?.endDate}
+                      </p>
+                    </div>
+
+                    <p className={styles.companyName}>
+                      {item?.company} - {item?.location}
+                    </p>
+                    <p className={styles.description}>{item?.description}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>PROJECTS</h3>
+          <hr className={styles.divider} />
+          <ul className={styles.ul}>
+            {formData.resume.projects.map((item, index) => (
+              <li key={index}>
+                <div className={styles.workEntry}>
+                  <div>
+                    <div className={styles.title_}>
+                      <h4 className={styles.position}>{item?.title}</h4>
+                      <p className={styles.date}>{item?.year}</p>
+                    </div>
+
+                    <p className={styles.companyName}>{item?.link} </p>
+                    <p className={styles.description}>{item?.description}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>EDUCATION</h3>
+          <hr className={styles.divider} />
+          <ul className={styles.ul}>
+            {formData.resume.education.map((item, index) => (
+              <li key={index}>
+                <div className={styles.workEntry}>
+                  <p className={styles.date}>
+                    {item.startYear} - {item.endYear}
+                  </p>
+                  <div>
+                    <h3 className={styles.degree}>{item.degree}</h3>
+                    <p className={styles.university}>{item.collegeName}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className={styles.rightSection}>
+        <div className={styles.contactInfo}>
+          <h3 className={styles.sectionTitle}>Contact</h3>
+          <hr className={styles.divider} />
+          <div className={styles.contactValue}>
+            <span className={styles.contactLabel}>
+              <span style={{ fontSize: '20px' }}>&#9990;</span>
+              <p className={styles.contactValue}>{formData.resume.contact.phone}</p>
+            </span>
+          </div>
+          <div className={styles.contactValue}>
+            <span className={styles.contactLabel}>
+              <span style={{ fontSize: '20px' }}>&#9993;</span>
+              <p className={styles.contactValue}>{formData.resume.contact.email}</p>
+            </span>
+          </div>
+          <div className={styles.contactValue}>
+            <span className={styles.contactLabel}>
+              <span style={{ fontSize: '20px' }} className={styles.imgBox}>
+                <img src={base64Image2} alt="LinkedIn" />
+              </span>
+              <p className={styles.contactValue}>{formData.resume.socialLinks.linkedin}</p>
+            </span>
+          </div>
+          <div className={styles.contactValue}>
+            <span className={styles.contactLabel}>
+              <span style={{ fontSize: '20px' }} className={styles.imgBox}>
+                <img src={base64Image1} alt="Address" />
+              </span>
+              <p className={styles.contactValue}>
+                {formData.resume.address.address},
+                {formData.resume.address.state},
+                {formData.resume.address.postalCode}
+              </p>
+            </span>
+          </div>
+        </div>
+
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>SKILLS</h3>
+          <hr className={styles.divider} />
+          <ul className={styles.skillsList}>
+            {formData.resume.skillsAndLevel.map((item, index) => (
+              <li key={index}> {item.skills}</li>
+            ))}
+          </ul>
+        </div>
+
+        <br />
+
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>LANGUAGE</h3>
+          <hr className={styles.divider} />
+          <ul className={styles.skillsList}>
+            {formData.resume.knownLanguages.map((item, index) => (
+              <li key={index}>{item?.lang}</li>
+            ))}
+          </ul>
+        </div>
+
+        <br />
+
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>AWARDS</h3>
+          <hr className={styles.divider} />
+          <ul className={styles.skillsList}>
+            {formData.resume.awards.map((item, index) => (
+              <li key={index} className={styles.awardList}>
+                <h5>{item?.date}</h5>
+                <h4>{item?.title}</h4>
+                <p>{item?.issuingOrganization}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
   );
 };
 

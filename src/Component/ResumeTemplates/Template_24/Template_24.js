@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_24.module.css";
+import styles from "./Template_24.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -579,12 +579,131 @@ flex-direction: column;
 
 
   return (
+    <div className={styles.main}>
+    <div className={styles.leftContainer}>
+      <div className={styles.imgContainer}>
+        <div className={styles.imgBox}>
+          <img src={base64Image3} alt="dp" />
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className={styles.skillsHeader}>
+        <h3>EDUCATION</h3>
+        <ul className={styles.eduUl}>
+          {formData.resume.education.map((item, index) => (
+            <li key={index} style={{ color: 'black' }}>
+              <span>
+                {item.degree}
+                <span>
+                  {item.startYear} - {item.endYear}
+                </span>
+              </span>
+              <span>{item.collegeName}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={styles.skillsHeader}>
+        <h3>CONTACT</h3>
+        <div>
+          <div className={styles.contactInfo}>
+            <p className={styles.email} style={{ color: 'black' }}>
+              <span>Email</span>
+              {formData.resume.contact.email}
+            </p>
+          </div>
+          <div className={styles.contactInfo}>
+            <p style={{ color: 'black' }} className={styles.email}>
+              <span>Phone</span>
+              {formData.resume.contact.phone}
+            </p>
+          </div>
+
+          <div className={styles.contactInfo}>
+            <p style={{ color: 'black' }}>
+              <span>Address</span>
+              {formData.resume.address.address},
+              {formData.resume.address.state},
+              {formData.resume.address.postalCode}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.skillsHeader}>
+        <h3>REFERENCES</h3>
+        <ul className={styles.refUl}>
+          {formData.resume.references.map((item, index) => (
+            <li key={index} style={{ color: 'black' }}>
+              <h4>{item?.name}</h4>
+              <span>
+                {item?.position} | {item?.company}
+              </span>
+              <span>{item?.phone}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
     <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
+      <div className={styles.objectiveHeader}>
+        <h1 className={styles.personName}>{formData.resume.name}</h1>
+        <p className={styles.objectiveText}>{formData.resume.jobTitle}</p>
+      </div>
+      <br />
+
+      <div className={styles.skillsHeader2} style={{ marginTop: '0.7rem' }}>
+        <div className={styles.titleBox2}>
+          <h3>About Me</h3>
+        </div>
+        <p>{formData.resume.summary}</p>
+      </div>
+
+      <div className={styles.professionalSkillsHeader}>
+        <div className={styles.titleBox2}>
+          <h3>WORKING EXPERIENCE</h3>
+        </div>
+        <ul className={styles.workUl}>
+          {formData.resume.work.map((item, index) => (
+            <li key={index}>
+              <div className={styles.workDes}>
+                <h4 className={styles.customerService}>{item?.title}</h4>
+                <h5 className={styles.companyName}>
+                  <span>
+                    {item?.company} - {item?.location}
+                  </span>
+                  ,
+                  <span>
+                    {item?.startDate} - {item?.endDate}
+                  </span>
+                </h5>
+                <p>{item?.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={styles.professionalSkillsHeader}>
+        <div className={styles.titleBox2} style={{ paddingLeft: '2rem' }}>
+          <h3>SOFTWARE SKILL</h3>
+        </div>
+        <ul className={styles.skillsAndLevel}>
+          {formData.resume.skillsAndLevel.map((item, index) => (
+            <li key={index}>
+              <p>{item.skills}</p>
+              <div className={styles.progressBar}></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   </div>
   );
 };

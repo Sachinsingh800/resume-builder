@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_23.module.css";
+import styles from "./Template_23.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -585,12 +585,136 @@ const Template_23= () => {
 
 
   return (
-    <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
+    <div className={styles.main}>
+    <div className={styles.header}>
+      <div className={styles.name_box}>
+        <h1 className={styles.name}>{formData.resume.name}</h1>
+        <h4>{formData.resume.jobTitle}</h4>
+      </div>
+    </div>
+    <div className={styles.container}>
+      <div className={styles.right_section}>
+        <div className={styles.img_box}>
+          <img src={base64Image3} alt="dp" />
+        </div>
+        <div className={styles.contact_info}>
+          <h3 className={styles.section_title}>Contact</h3>
+          <div className={styles.divider}><hr /></div>
+          <div className={styles.contact_value}>
+            <span className={styles.contact_label}>
+              <img className={styles.icon} src={base64Image5} alt="dp" />
+            </span>
+            <p className="contact-value">{formData.resume.contact.phone}</p>
+          </div>
+          <div className={styles.contact_value}>
+            <span className={styles.contact_label}>
+              <img className={styles.icon} src={base64Image4} alt="dp" />
+            </span>
+            <p className="contact-value">{formData.resume.contact.email}</p>
+          </div>
+          <div className={styles.contact_value}>
+            <span className={styles.contact_label}>
+              <img className={styles.icon} src={base64Image2} alt="dp" />
+            </span>
+            <p className="contact-value">{formData.resume.socialLinks.linkedin}</p>
+          </div>
+          <div className={styles.contact_value}>
+            <span className={styles.contact_label}>
+              <img className={styles.icon} src={base64Image1} alt="dp" />
+            </span>
+            <p className="contact-value">
+              {formData.resume.address.address},
+              {formData.resume.address.state},
+              {formData.resume.address.postalCode}
+            </p>
+          </div>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>SKILLS</h3>
+          <div className={styles.divider}><hr /></div>
+          <ul className={styles.skill_list}>
+            {formData.resume.skillsAndLevel.map((item) => (
+              <li key={item.skills}>{item.skills}</li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>LANGUAGE</h3>
+          <div className={styles.divider}><hr /></div>
+          <ul className={styles.skill_list}>
+            {formData.resume.knownLanguages.map((item) => (
+              <li key={item?.lang}>{item?.lang}</li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>AWARDS</h3>
+          <div className={styles.divider}><hr /></div>
+          <ul className={styles.skill_list}>
+            {formData.resume.awards.map((item) => (
+              <li key={item?.title} className={styles.award_list}>
+                <h5>{item?.date}</h5>
+                <h4>{item?.title}</h4>
+                <p>{item?.issuingOrganization}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className={styles.left_section}>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>ABOUT</h3>
+          <div className={styles.divider}><hr /></div>
+          <p className={styles.section_content}>
+            {formData.resume.summary}
+          </p>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>EXPERIENCE</h3>
+          <div className={styles.divider}><hr /></div>
+          <ul className="ul">
+            {formData.resume.work.map((item) => (
+              <li key={item.title}>
+                <div className={styles.work_entry}>
+                  <div>
+                    <div className="title_">
+                      <h4 className="position">{item?.title}</h4>
+                      <p className="date">{item?.startDate} - {item?.endDate}</p>
+                    </div>
+                    <p className="company">{item?.company}</p>
+                    <p className="description">
+                      {item?.description}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>
+            <SchoolIcon />
+            EDUCATION
+          </h3>
+          <div className={styles.divider}><hr /></div>
+          <ul className="ul">
+            {formData.resume.education.map((item) => (
+              <li key={item.degree}>
+                <div className={styles.work_entry}>
+                  <div className="title_">
+                    <h4 className="degree">{item.degree}</h4>
+                    <p className="date">{item.startYear} - {item.endYear}</p>
+                  </div>
+                  <div>
+                    <p className="university">{item.collegeName}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   );
 };

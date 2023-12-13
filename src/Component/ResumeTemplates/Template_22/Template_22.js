@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_22.module.css";
+import styles from "./Template_22.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -516,13 +516,137 @@ const Template_22= () => {
 
 
   return (
-    <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
+
+<div className={styles.main}>
+<div className={styles.header}>
+  <div className={styles.name}>
+    <h1>{formData.resume.name}</h1>
+    <h5>{formData.resume.jobTitle}</h5>
   </div>
+  <div className="contact_info">
+        <div className="contact_value">
+          <span className="contact_label">
+            <LocalPhoneIcon style={{ fontSize: '20px', color: '#00CCFF' }} />
+          </span>
+          <p className="contact-value">{formData.resume.contact.phone}</p>
+        </div>
+        <div className="contact_value">
+          <span className="contact_label">
+            <EmailIcon style={{ fontSize: '20px', color: '#00CCFF' }} />
+          </span>
+          <p className="contact-value">{formData.resume.contact.email}</p>
+        </div>
+        <div className="contact_value">
+          <span className="contact_label">
+            <LinkedInIcon style={{ fontSize: '20px', color: '#00CCFF' }} />
+          </span>
+          <p className="contact-value">{formData.resume.socialLinks.linkedin}</p>
+        </div>
+        <div className="contact_value">
+          <span className="contact_label">
+            <PlaceIcon style={{ fontSize: '20px', color: '#00CCFF' }} />
+          </span>
+          <p className="contact-value">
+            {formData.resume.address.address},
+            {formData.resume.address.state},
+            {formData.resume.address.postalCode}
+          </p>
+        </div>
+      </div>
+</div>
+
+<div className="container">
+  <div className="right_section">
+    <div className="section">
+      <h2 className="section_title">SKILLS</h2>
+      <ul className={styles.skills_list}>
+        {formData.resume.skillsAndLevel.map((item, index) => (
+          <li key={index}>
+            {item.skills}
+            <span>
+              <ProgressBar bgcolor="#00CCFF" progress="40" height="5" />
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className="section">
+      <h2 className="section_title">LANGUAGE</h2>
+      <ul className={styles.skills_list}>
+        {formData.resume.knownLanguages.map((item, index) => (
+          <li key={index}>{item?.lang}</li>
+        ))}
+      </ul>
+    </div>
+    <div className="section">
+      <h2 className="section_title">AWARDS</h2>
+      <ul className={styles.skills_list}>
+        {formData.resume.awards.map((item, index) => (
+          <li key={index} className={styles.award_list}>
+            <h5>{item?.date}</h5>
+            <h4>{item?.title}</h4>
+            <p>{item?.issuingOrganization}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+  <div className="left_section">
+    <div className="section">
+      <h2 className="section_title">
+        ABOUT
+      </h2>
+      <p className={styles.section_content}>{formData.resume.summary}</p>
+    </div>
+
+    <div className="section">
+      <h2 className="section_title">
+        <WorkIcon />EXPERIENCE
+      </h2>
+      <Divider className={styles.divider} />
+      <ul className="ul">
+        {formData.resume.work.map((item, index) => (
+          <li key={index}>
+            <div className={styles.work_des}>
+              <h3 className="customerService">{item?.title}</h3>
+              <h5 className="company_name">
+                <span>
+                  {item?.company} - {item?.location}
+                </span>
+                ,
+                <span>
+                  {item?.startDate} - {item?.endDate}
+                </span>
+              </h5>
+              <div>
+                <p>{item?.description}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="section">
+      <h2 className="section_title">
+        <SchoolIcon />EDUCATION
+      </h2>
+      <Divider className={styles.divider} />
+      <ul className="ul">
+        {formData.resume.education.map((item, index) => (
+          <li key={index} className={styles.edu_des}>
+            <h5>
+              {item.startYear} - {item.endYear}
+            </h5>
+            <h4>{item.degree}</h4>
+            <p>{item.collegeName}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
   );
 };
 
