@@ -8,6 +8,9 @@
     box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
+.background{
+    background-color: gray;
+}
 .img_box{
     height: 7rem;
     width: 7rem;

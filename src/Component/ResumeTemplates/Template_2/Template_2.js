@@ -452,18 +452,79 @@ const Template_2= () => {
   };
 
 
-
-
-
-
   return (
-    <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
-  </div>
+<div className={style.main}>
+      <div className={style.Left_container} style={{ backgroundColor: "grey", color: "white" }}>
+        <div className={style.name_container}>
+          <h1 className={style.name}>John Doe</h1>
+          <hr className={style.hr} />
+          <div className={style.info_box}>
+            <div className={style.contactInfo}>
+              <div className={style.iconContainer} style={{ color: "black" }}>
+                <img className={style.icon} src={base64Image4} alt="dp" />
+              </div>
+              <p className={style.email}>{formData.resume.contact.email}</p>
+            </div>
+            <div className={style.contactInfo}>
+              <div className={style.iconContainer} style={{ color: "black" }}>
+                <img className={style.icon} src={base64Image1} alt="dp" />
+              </div>
+              <p className={style.email}>{formData.resume.address.address}, {formData.resume.address.state}, {formData.resume.address.postalCode}</p>
+            </div>
+          </div>
+        </div>
+        <div className={style.skillsHeader}>
+          <h3>SKILLS</h3>
+          <ul>
+            {formData.resume.skillsAndLevel.map((item) => (
+              <li key={item.skills}>{item.skills}</li>
+            ))}
+          </ul>
+        </div>
+        <div className={style.educationHeader}>
+          <h3>EDUCATION</h3>
+          {formData.resume.education.map((item) => (
+            <div key={item.collegeName} className={style.edu_ul}>
+              <h4>{item.collegeName}</h4>
+              <p>{item.degree}</p>
+              <p>{item.startYear} - {item.endYear}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <div className={style.objectiveHeader} style={{ backgroundColor: "#E5E5E5" }}>
+          <h3>CAREER OBJECTIVE</h3>
+          <p className={style.objectiveText}>{formData.resume.summary}</p>
+        </div>
+        <div className={style.workHeader}>
+          <h3>WORK HISTORY</h3>
+          <ul className={style.work_ul}>
+            {formData.resume.work.map((item) => (
+              <li key={item.title}>
+                <h4>{item.title}</h4>
+                <p>{item.company}, {item.location}</p>
+                <p>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={style.workHeader}>
+          <h3>Projects</h3>
+          <ul className={style.Projects_ul}>
+            {formData.resume.projects.map((item) => (
+              <li key={item.title}>
+                <h4 className={style.project_title}>
+                  <span>{item.title}</span> <span>{item.year}</span>
+                </h4>
+                <p>{item.link}</p>
+                <p>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };
 

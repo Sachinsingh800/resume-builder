@@ -1,69 +1,78 @@
-.main{
+.main {
+    width: 850px;
+    height: 1130px;
+    background-color: white;
+    padding:1rem;
+}
+.heading{
     display: flex;
-       flex-direction: column;
-        width: 52rem; /* 874px / 16px = 54.625rem */
-        height: 73.3rem;  /* 1240px / 16px = 77.5rem */
-        background-Color: white;
-        box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    height: 5rem;
+    width: 52rem; 
+}
+.summary h3{
+    width: 90%;
+}
+.para{
+    width: 90%;
+}
+.summary {
+    display: flex;
+  
+    flex-direction: column;
+}
+.Experience{
+    display: flex;
+  
+    flex-direction: column;
+}
+.Experience h3{
+    width: 90%;
+}
+.Experience ul{
+    width: 90%;
     
-    }
+}
+.Skills h3{
 
+    width: 90%
+}
+.Skills {
+    display: flex;
+  
+    flex-direction: column;
+}
+.Skills ul{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 1rem;
+}
+.customerService{
+    display: flex;
+    justify-content: space-between;
+  
+}
 
-    
-    .heading{
-        display: flex;
-        padding: 0rem 3rem;
-        flex-direction: column;
-        justify-content: center;
-        height: 5rem;
-        width: 52rem; 
-    }
-    .summary h2{
-        width: 90%;
-    }
-    .para{
-        width: 90%;
-    }
-    .summary {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    .Experience{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    .Experience h2{
-        width: 90%;
-    }
-    .Experience ul{
-        width: 90%;
-        list-style: none;
-    }
-    .Skills h2{
-
-        width: 90%
-    }
-    .Skills {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    .Skills ul{
-        width: 90%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        padding-left: 1rem;
-    }
-    .customerService{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .education{
-        list-style: none;
-    }
+.heading h1,h3,p{
+  margin:0rem;
+}
+.education h5{
+  margin:0rem;
+}
+.work-des h4,p,h6{
+  margin:0rem!important;
+}
+.edu-ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:.5rem;
+  margin-left:-1.2rem;
+}
+.work-ul{
+  display: grid;
+  grid-template-columns: 1fr ;
+  gap:.5rem;
+  margin-left:-1.2rem;
+}

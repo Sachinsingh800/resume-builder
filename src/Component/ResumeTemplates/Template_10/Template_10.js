@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_10.module.css";
+import styles from "./Template_10.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -144,7 +144,6 @@ const Template_10= () => {
             background-color: white;
             padding:1rem;
         }
-        .
         .heading{
             display: flex;
             flex-direction: column;
@@ -324,13 +323,55 @@ const Template_10= () => {
 
 
   return (
-    <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
-  </div>
+<div className={styles.main}>
+      <div className={styles.heading}>
+        <h1>{formData.resume.name}</h1>
+        <h3>{formData.resume.jobTitle}</h3>
+        <p>{formData.resume.contact.email} | {formData.resume.contact.phone}</p>
+      </div>
+      <br />
+      <div className={styles.summary}>
+        <h3>Summary</h3>
+        <p>
+          {formData.resume.summary}
+        </p>
+      </div>
+      <br />
+      <div>
+        <h3>Work Experience</h3>
+        <ul className={styles.workUl}>
+          {formData.resume.work.map((item, index) => (
+            <li key={index}>
+              <div className={styles.workDes}>
+                <h4 className={styles.customerService}><span>{item?.title}</span></h4>
+                <h6>Jan 2018 - Dec 2020</h6>
+                <h6 className={styles.companyName}><span>{item?.company} - {item?.location}</span></h6>
+                <p>{item?.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3>Education</h3>
+        <ul className={styles.eduUl}>
+          {formData.resume.education.map((item, index) => (
+            <li key={index} className={styles.education}>
+              <h5>{item.degree}, {item.startYear} - {item.endYear}</h5>
+              <p>{item.collegeName}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3>Skills</h3>
+        <ul className={styles.eduUl}>
+          {formData.resume.skillsAndLevel.map((item, index) => (
+            <li key={index}>{item.skills}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };
 

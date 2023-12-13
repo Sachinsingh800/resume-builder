@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_4.module.css";
+import styles from "./Template_4.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -435,13 +435,78 @@ const Template_4= () => {
 
 
   return (
-    <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
-  </div>
+<div className={styles.main}>
+      <div className={styles.left_section}>
+        <div className={styles.name_box}>
+          <h1 className={styles.name}>{formData.resume.name}</h1>
+          <p>{formData.resume.jobTitle}</p>
+        </div>
+        <div className={styles.section}>
+          <hr className={styles.divider} />
+          <p className={styles.para}>{formData.resume.summary}</p>
+        </div>
+        <div className={styles.section}>
+          <h2 className={styles.section_title}>WORK HISTORY</h2>
+          <hr className={styles.divider} />
+          <ul className={styles.ul}>
+            {formData.resume.work.map((item, index) => (
+              <li key={index} className={styles.li}>
+                <div className={styles.work}>
+                  <h4 className={styles.customerService}>{item?.title}</h4>
+                  <h5 className={styles.company_name}><span>{item?.company} - {item?.location}</span> <span>{item?.startDate} - {item?.endDate}</span></h5>
+                  <p>{item?.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h2 className={styles.section_title}>EDUCATION</h2>
+          <hr className={styles.divider} />
+          <ul className={styles.ul}>
+            {formData.resume.education.map((item, index) => (
+              <li key={index} className={styles.li}>
+                <div className={styles.work}>
+                  <h4 className={styles.customerService}>{item.degree}</h4>
+                  <h5 className={styles.company_name}><span>{item.collegeName}</span> <span>{item.startYear} - {item.endYear}</span></h5>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className={`${styles.right_section} ${styles.background}`} style={{ height: "1146px" }}>
+        <div className={styles.contact_info}>
+          <div className={styles.contact_entry}>
+            <div>
+              <h4 className={styles.contact_label}>Address</h4>
+              <p className={styles.contact_value}>
+                {formData.resume.address.address},
+                {formData.resume.address.state},
+                {formData.resume.address.postalCode},
+              </p>
+            </div>
+            <div>
+              <h4 className={styles.contact_label}>Phone</h4>
+              <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
+            </div>
+            <div>
+              <h4 className={styles.contact_label}>E-mail</h4>
+              <p className={styles.contact_value}>{formData.resume.contact.email}</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2 className={styles.section_title}>SKILLS</h2>
+          <hr className={styles.divider} />
+          <ul className={styles.skill_ul}>
+            {formData.resume.skillsAndLevel.map((item, index) => (
+              <li key={index}>{item.skills}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };
 

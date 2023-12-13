@@ -1,15 +1,16 @@
 import React, { useState, useRef } from 'react';
 import Cropper from 'react-easy-crop';
 import style from "./CropImage.module.css";
-import { croppedImageState, uploadImage } from '../../Recoil';
+import { croppedImageState } from '../../Recoil'; // Assuming uploadImage is not needed
 import { useRecoilState } from 'recoil';
+
+const MAX_FILE_SIZE_KB = 50; // Maximum allowed file size in kilobytes
 
 const CropImage = () => {
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [images, setImages] = useState([]); // Store multiple images
-  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);// Store the cropped image
-
+  const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState); // Store the cropped image
 
   const cropperRef = useRef(null);
 
@@ -52,11 +53,17 @@ const CropImage = () => {
     e.preventDefault();
     e.stopPropagation();
     const files = e.target.files;
-    
+
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
 
       if (file) {
+        if (file.size > MAX_FILE_SIZE_KB * 1024) {
+          // File size exceeds the limit
+          alert(`File size must be under ${MAX_FILE_SIZE_KB} KB`);
+          continue; // Skip processing this file
+        }
+
         const reader = new FileReader();
         reader.onload = (event) => {
           const newImage = new window.Image();
@@ -115,7 +122,6 @@ const CropImage = () => {
           </div>
         </>
       )}
-
     </div>
   );
 };

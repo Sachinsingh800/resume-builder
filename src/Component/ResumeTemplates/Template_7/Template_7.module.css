@@ -1,66 +1,71 @@
-.main{
-display: flex;
-   flex-direction: column;
-    width: 52rem; /* 874px / 16px = 54.625rem */
-    height: 73.3rem;  /* 1240px / 16px = 77.5rem */
-    background-Color: white;
-    box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    gap: 1rem;
-
+.main {
+    width: 850px;
+    height: 1130px;
+    background-color: white;
 }
-
 .heading{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 5rem;
-    width: 52rem; 
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+height: 5rem;
+width: 52rem; 
 }
 .summary h2{
-    border-top: 1px  rgb(112, 111, 111) solid;
-    border-bottom: 1px rgb(112, 111, 111) solid;
-    width: 90%;
+border-top: 1px  rgb(112, 111, 111) solid;
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 90%;
 }
 .para{
-    width: 90%;
-}
-.summary {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.Experience{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.Experience h2{
-    border-top: 1px  rgb(112, 111, 111) solid;
-    border-bottom: 1px rgb(112, 111, 111) solid;
-    width: 90%;
-}
-.Experience ul{
-    width: 90%;
+width: 90%;
 
 }
+.summary {
+display: flex;
+align-items: center;
+flex-direction: column;
+
+}
+.Experience{
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+.Experience h2{
+border-top: 1px  rgb(112, 111, 111) solid;
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 90%;
+}
+.Experience ul{
+width: 90%;
+}
 .ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap:.5rem;
 }
 .Skills h2{
-    border-top: 1px  rgb(112, 111, 111) solid;
-    border-bottom: 1px rgb(112, 111, 111) solid;
-    width: 90%
+border-top: 1px  rgb(112, 111, 111) solid;
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 90%
 }
 .Skills {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+display: flex;
+align-items: center;
+flex-direction: column;
 }
 .Skills ul{
-    width: 90%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+width: 90%;
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+.heading h1,p{
+margin:0rem;
+}
+.ul{
+margin-left:-1rem;
+margin-top:-1rem;
+}
+.work_des h3,h5{
+margin:0rem;
 }

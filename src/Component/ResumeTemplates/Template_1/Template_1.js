@@ -47,6 +47,7 @@ const Template_1= () => {
   const [base64Image3, setBase64Image3] = useState('');
   const [base64Image4, setBase64Image4] = useState('');
   const [base64Image5, setBase64Image5] = useState('');
+  const [base64Image6, setBase64Image6] = useState('');
 
   console.log(formData.resume
     , "resume data");
@@ -68,7 +69,7 @@ const Template_1= () => {
     const imageLocations = [
       location,
       linkedin,
-      dp,
+      croppedImage ? croppedImage : dp,
       mail,
       call,
     ];
@@ -109,6 +110,9 @@ const Template_1= () => {
         
           }else if (index === 4) {
             setBase64Image5(base64String);
+          }
+          else if (index === 5) {
+            setBase64Image6(base64String);
           }
         });
       } catch (error) {

@@ -1,90 +1,117 @@
-.main{
-    display: flex;
-       flex-direction: column;
-        width: 52rem; /* 874px / 16px = 54.625rem */
-        height: 73.3rem;  /* 1240px / 16px = 77.5rem */
-        background-Color: white;
-        box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        gap: 1rem;
-    
-    }
-    .heading{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        height: 5rem;
-        width: 52rem; 
-    }
-    .summary h2{
-        background-color:rgb(211, 211, 211)  ;
-        padding: 0rem .5rem;
-        width: 90%;
-    }
-    .para{
-        width: 90%;
-    }
-    .summary {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    .Experience{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    .Experience h2{
-        background-color:rgb(211, 211, 211)  ;
-        padding: 0rem .5rem;
-        width: 90%;
-    }
-    .Experience ul{
-        width: 90%;
-        list-style: none;
-    }
-    .Skills h2{
-        padding: 0rem .5rem;
-        background-color:rgb(211, 211, 211)  ;
-        width: 90%
-    }
-    .Skills {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    .Skills ul{
-        width: 90%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    .Skills ul li{
-        padding: 1rem;
-        margin-left: 1rem;
-    }
-    .work_des {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
+.main {
+    width: 850px;
+    height: auto;
+    background-color: white;
+}
 
-    }
-    .Eucation{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
+.heading{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 5rem;
+  width: 52rem; 
 
-    .Eucation h2{
-        padding: 0rem .5rem;
-        background-color:rgb(211, 211, 211)  ;
-        width: 90%
-    }
-    .Eucation ul{
-        width: 90%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-    .Eucation ul li{
-        display: flex;
-        flex-direction: column;
-    }
+}
+.heading h1,p{
+margin:0rem;
+}
+.summary h2{
+  background-color:rgb(211, 211, 211)  ;
+  padding: 0rem .5rem;
+  width: 90%;
+font-weight:100;
+}
+.para{
+  width: 90%;
+}
+.summary {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.Experience{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+.Experience h2{
+  background-color:rgb(211, 211, 211)  ;
+  padding: 0rem .5rem;
+  width: 90%;
+}
+.Experience ul{
+  width: 90%;
+  list-style: none;
+  margin-top:-1rem;
+ 
+}
+.Experience ul li{
+margin:1rem;
+
+margin-left:-1rem;
+}
+.Skills h2{
+background-color:rgb(211, 211, 211)  ;
+padding: 0rem .5rem;
+width: 90%;
+font-weight:100;
+}
+.Skills {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin:0rem;
+}
+.Skills ul{
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-top:-.5rem;
+}
+.Skills ul li{
+  padding: 1rem;
+  margin-left: 1rem;
+  margin:0rem;
+}
+.work_des {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+}
+
+.Education {
+display: flex;
+flex-direction: column;
+gap: 0rem;
+align-items: center;
+width: 850px;
+}
+
+.Education  h2{
+background-color:rgb(211, 211, 211)  ;
+padding: 0rem .5rem;
+width: 90%;
+}
+
+.Education ul {
+width: 90%;
+display: grid;
+grid-template-columns: 1fr 1fr;
+padding-left: 10px; /* Adjusted from 1rem to pixels based on your requirement */
+gap: 15px; /* Adjusted from 1rem to pixels based on your requirement */
+margin-top:-.5rem;
+}
+
+.Education ul li {
+display: flex;
+flex-direction: column;
+}
+.edu_des h5,h4,p{
+margin:.1rem;
+}
+.work  h5,h4,p{
+margin:.1rem;
+}
