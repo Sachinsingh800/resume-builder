@@ -2,6 +2,10 @@
     width: 850px;
     height: auto;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 1130px;
 }
 
 .heading{
@@ -40,6 +44,7 @@ font-weight:100;
   background-color:rgb(211, 211, 211)  ;
   padding: 0rem .5rem;
   width: 90%;
+  font-weight:100;
 }
 .Experience ul{
   width: 90%;
@@ -94,6 +99,7 @@ width: 850px;
 background-color:rgb(211, 211, 211)  ;
 padding: 0rem .5rem;
 width: 90%;
+font-weight:100;
 }
 
 .Education ul {

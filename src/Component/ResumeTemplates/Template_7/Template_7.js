@@ -320,7 +320,7 @@ const Template_7= () => {
   return (
 <div className={styles.main}>
       <div className={styles.heading}>
-        <h1>{formData.resume.name}</h1>
+        <h1 style={{ fontFamily:fontStyle ,color:color,fontSize: fontSize }}>{formData.resume.name}</h1>
         <p>{formData.resume.contact.email} | {formData.resume.contact.phone}</p>
       </div>
       <div className={styles.summary}>
@@ -358,15 +358,15 @@ const Template_7= () => {
       <div className={styles.Skills}>
         <h2>Skills</h2>
         <ul className={styles.ul}>
-          <ul className={styles.skillList}>
+        
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}>
                 <span>{item.skills}</span>
                 {/* You may adjust the ProgressBar according to your design */}
-                <ProgressBar bgcolor="orange" progress="40" height="5" />
+                {/* <ProgressBar bgcolor={color2}  progress="40" height="2" /> */}
               </li>
             ))}
-          </ul>
+       
         </ul>
       </div>
     </div>

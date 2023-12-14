@@ -438,7 +438,7 @@ const Template_4= () => {
 <div className={styles.main}>
       <div className={styles.left_section}>
         <div className={styles.name_box}>
-          <h1 className={styles.name}>{formData.resume.name}</h1>
+          <h1 className={styles.name} style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>{formData.resume.name}</h1>
           <p>{formData.resume.jobTitle}</p>
         </div>
         <div className={styles.section}>
@@ -475,7 +475,7 @@ const Template_4= () => {
           </ul>
         </div>
       </div>
-      <div className={`${styles.right_section} ${styles.background}`} style={{ height: "1146px" }}>
+      <div className={`${styles.right_section} `} style={{ height: "1146px" ,backgroundColor:color ,color:color2 }}>
         <div className={styles.contact_info}>
           <div className={styles.contact_entry}>
             <div>

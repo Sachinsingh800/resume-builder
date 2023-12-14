@@ -560,10 +560,10 @@ const Template_6= () => {
 
   return (
     <div className={styles.main}>
-    <div className={`${styles.Left_container} ${styles.background}`} style={{ backgroundColor: "grey", color: "white" }}>
+    <div className={`${styles.Left_container} ${styles.background}`} style={{ backgroundColor: color, color: color3 }}>
       <div className={styles.img_container}>
-        <div className={styles.img_box}>
-          <img src={formData.resume.base64Image3} alt="dp" />
+        <div className={styles.img_box} style={{backgroundColor:color2,height: imgSize, width: imgSize}}>
+        <img style={{backgroundColor:color2,height: imgSize, width: imgSize}} src={base64Image3} alt="dp" />
         </div>
       </div>
       <div className={styles.skillsHeader2}>
@@ -621,11 +621,11 @@ const Template_6= () => {
       </div>
     </div>
     <div>
-      <div className={`${styles.objectiveHeader} ${styles.background}`} style={{ backgroundColor: "#3498db" }}>
-        <h1 className={styles.person_name} style={{ fontFamily: "'YourFont', sans-serif", color: "white" }}>
+      <div className={`${styles.objectiveHeader} ${styles.background}`} style={{ backgroundColor: color2 }}>
+        <h1 className={styles.person_name} style={{ fontFamily:fontStyle ,color: "white",fontSize: fontSize }}>
           {formData.resume.name}
         </h1>
-        <p className={styles.objectiveText}>{formData.resume.jobTitle}</p>
+        <p className={styles.objectiveText} style={{ fontFamily: "'YourFont', sans-serif", color: "white" }}>{formData.resume.jobTitle}</p>
       </div>
       <div className={styles.skillsHeader2}>
         <h3>EDUCATION</h3>

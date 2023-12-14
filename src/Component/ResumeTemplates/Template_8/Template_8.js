@@ -367,17 +367,17 @@ const Template_8= () => {
   return (
     <div onClick={() => setTemplateNo(7)} className={styles.main}>
     <div className={styles.heading}>
-      <h1>{formData.resume.name}</h1>
+      <h1 style={{ fontFamily:fontStyle ,color:color2,fontSize: fontSize }}>{formData.resume.name}</h1>
       <p>{formData.resume.contact.email} | {formData.resume.contact.phone}</p>
     </div>
     <div className={styles.summary}>
-      <h2>Professional Summary</h2>
+      <h2 style={{backgroundColor:color,color:color3}}>Professional Summary</h2>
       <p className={styles.para}>
         {formData.resume.summary}
       </p>
     </div>
     <div className={styles.Skills}>
-      <h2>Skills</h2>
+      <h2 style={{backgroundColor:color,color:color3}}>Skills</h2>
       <ul>
         {formData.resume.skillsAndLevel.map((item, index) => (
           <li key={index} style={{ color: "color3" }}>
@@ -387,7 +387,7 @@ const Template_8= () => {
       </ul>
     </div>
     <div className={styles.Experience}>
-      <h2>Work History</h2>
+      <h2 style={{backgroundColor:color,color:color3}}>Work History</h2>
       <ul>
         {formData.resume.work.map((item, index) => (
           <li key={index}>
@@ -410,7 +410,7 @@ const Template_8= () => {
       </ul>
     </div>
     <div className={styles.Education}>
-      <h2>Education</h2>
+      <h2 style={{backgroundColor:color,color:color3}}>Education</h2>
       <ul>
         {formData.resume.education.map((item, index) => (
           <li key={index} className={styles.edu_des}>

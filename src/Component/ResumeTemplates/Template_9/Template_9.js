@@ -418,7 +418,7 @@ const Template_9= () => {
     <div onClick={() => setTemplateNo(8)} className={styles.main}>
     <div className={styles.heading}>
       <div className={styles.name}>
-        <h1>{formData.resume.name}</h1>
+        <h1 style={{ fontFamily:fontStyle ,color:color2,fontSize: fontSize }}>{formData.resume.name}</h1>
         <p>{formData.resume.jobTitle}</p>
       </div>
       <div className={styles.contact_info}>
@@ -439,8 +439,8 @@ const Template_9= () => {
       <h2>Skills</h2>
       <ul>
         {formData.resume.skillsAndLevel.map((item, index) => (
-          <li key={index} style={{ color: "color3" }}>
-            <span>{item.skills}</span>
+          <li key={index} style={{ color: color3,backgroundColor:color }}>
+            <span style={{ color: color3,backgroundColor:color }}>{item.skills}</span>
           </li>
         ))}
       </ul>

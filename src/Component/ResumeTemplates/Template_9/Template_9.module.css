@@ -2,6 +2,10 @@
     width: 850px;
     height: 1130px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+   
 }
 
 .heading {
@@ -72,7 +76,7 @@
     margin:.1rem;
     display: inline-table;
     grid-template-columns: auto;
-    margin-left: -80px; /* Adjusted from -5rem to pixels based on your requirement */
+    margin-left: -5rem!important; /* Adjusted from -5rem to pixels based on your requirement */
 }
 
 .Skills ul li {
@@ -83,6 +87,7 @@
     border-radius: 5px;
     color: white !important;
     background-color: rgb(31, 106, 177);
+    margin: 1rem!important;
 }
 
 .Education {

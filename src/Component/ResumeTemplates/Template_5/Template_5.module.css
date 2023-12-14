@@ -4,6 +4,7 @@
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  overflow: hidden;
 }
 
 .Left_container{
@@ -105,7 +106,7 @@ padding: 1.5rem;
 padding: 1.5rem;
 height: 10rem;
 display: flex;
-flex-direction: column;
+align-items: center;
 justify-content: center;
 gap: .5rem;
 margin-bottom: 1rem;
@@ -194,21 +195,24 @@ overflow: hidden;
 }
 
 .design{
-background-color: orange;
+background-color: rgb(0, 72, 255);
 width: 1rem;
 height: 100%;
 }
 .design2{
-background-color: orange;
+background-color: rgb(0, 255, 30);
 width: 1rem;
 height: 4rem;
 }
 .design3{
-background-color: orange;
+background-color: rgb(255, 0, 238);
 width: 1rem;
-height: 13rem;
-position: absolute;
-margin-left: -1.5rem;
+height: 9rem!important;
+position: sticky;
+margin-left: -10.6rem!important;
+}
+.inner_box{
+  width: 72%;
 }
 .title_box{
 display: flex;

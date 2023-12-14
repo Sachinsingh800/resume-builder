@@ -2,6 +2,9 @@
     width: 850px;
     height: 1130px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 .heading{
 display: flex;

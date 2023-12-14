@@ -67,7 +67,7 @@ const Template_5= () => {
     const imageLocations = [
       location,
       linkedin,
-      dp,
+      croppedImage ? croppedImage : dp,
       mail,
       call,
     ];
@@ -569,15 +569,15 @@ background-color: orange;
   return (
 <div className={styles.main}>
       <div className={`${styles.Left_container} ${styles.background}`} style={{ color: "black" }}>
-        <div className={styles.img_container}>
-          <div className={styles.img_box}>
+        <div className={styles.img_container} >
+          <div className={styles.img_box} style={{backgroundColor:color2,height: imgSize, width: imgSize}} >
             {/* Use a placeholder image or replace the source with dynamic data */}
-            <img src={formData.resume.base64Image3} alt="dp" />
+            <img src={base64Image3} alt="dp" />
           </div>
         </div>
         <div className={styles.skillsHeader}>
           <div className={styles.title_box}>
-            <span className={styles.design}> </span>
+            <span className={styles.design} style={{backgroundColor:color2}}> </span>
             <h3 style={{ color: "black" }}>EDUCATION</h3>
           </div>
           <ul>
@@ -596,7 +596,7 @@ background-color: orange;
         </div>
         <div className={styles.skillsHeader}>
           <div className={styles.title_box}>
-            <span className={styles.design}> </span>
+            <span className={styles.design} style={{backgroundColor:color2}}> </span>
             <h3 style={{ color: "black" }}>CONTACT</h3>
           </div>
           <div className={styles.contact_list}>
@@ -621,7 +621,7 @@ background-color: orange;
         </div>
         <div className={styles.skillsHeader}>
           <div className={styles.title_box}>
-            <span className={styles.design}> </span>
+            <span className={styles.design} style={{backgroundColor:color2}}> </span>
             <h3 style={{ color: "black" }}>LANGUAGES</h3>
           </div>
           <ul>
@@ -634,23 +634,26 @@ background-color: orange;
         </div>
       </div>
       <div>
-        <div className={`${styles.objectiveHeader} ${styles.background}`}>
-          <span className={styles.design3}> &nbsp; </span>
-          <h1 className={styles.person_name} style={{ fontFamily: "'YourFont', sans-serif", color: "black" }}>
+        <div className={`${styles.objectiveHeader} `}>
+          <span className={styles.design3} style={{backgroundColor:color2}}> </span>
+          <div className={styles.inner_box}>
+          <h1 className={styles.person_name} style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>
             {formData.resume.name}
           </h1>
           <p className={styles.objectiveText}>{formData.resume.jobTitle}</p>
+          </div>
+
         </div>
         <div className={styles.skillsHeader2}>
           <div className={styles.title_box2} style={{ fontFamily: "'YourFont', sans-serif", backgroundColor: "" }}>
-            <span className={styles.design2}> &nbsp; </span>
+            <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
             <h3>About Me</h3>
           </div>
           <p>{formData.resume.summary}</p>
         </div>
         <div className={styles.professionalSkillsHeader}>
           <div className={styles.title_box2} style={{ fontFamily: "'YourFont', sans-serif", backgroundColor: "" }}>
-            <span className={styles.design2}> &nbsp; </span>
+            <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
             <h3>WORKING EXPERIENCE</h3>
           </div>
           <ul className={styles.work_ul}>
@@ -675,7 +678,7 @@ background-color: orange;
         <br />
         <div className={styles.professionalSkillsHeader}>
           <div className={styles.title_box2} style={{ fontFamily: "'YourFont', sans-serif", backgroundColor: "" }}>
-            <span className={styles.design2}> &nbsp; </span>
+            <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
             <h3>SOFTWARE SKILL</h3>
           </div>
           <ul className={styles.skillsAndLevel}>
