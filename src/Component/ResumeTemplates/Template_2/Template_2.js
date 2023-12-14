@@ -454,9 +454,9 @@ const Template_2= () => {
 
   return (
 <div className={style.main}>
-      <div className={style.Left_container} style={{ backgroundColor: "grey", color: "white" }}>
-        <div className={style.name_container}>
-          <h1 className={style.name}>John Doe</h1>
+      <div className={style.Left_container} style={{ backgroundColor: color, color: color3 }}>
+        <div className={style.name_container} style={{ backgroundColor: color2, color: "white" }} >
+          <h1 className={style.name} style={{ color: "white", fontFamily: fontStyle ,fontSize: fontSize}} >{formData.resume.name}</h1>
           <hr className={style.hr} />
           <div className={style.info_box}>
             <div className={style.contactInfo}>
@@ -493,9 +493,9 @@ const Template_2= () => {
         </div>
       </div>
       <div>
-        <div className={style.objectiveHeader} style={{ backgroundColor: "#E5E5E5" }}>
-          <h3>CAREER OBJECTIVE</h3>
-          <p className={style.objectiveText}>{formData.resume.summary}</p>
+        <div className={style.objectiveHeader} style={{ backgroundColor: color }}>
+          <h3 style={{color:color3}}>CAREER OBJECTIVE</h3>
+          <p className={style.objectiveText} style={{color:color3}}>{formData.resume.summary}</p>
         </div>
         <div className={style.workHeader}>
           <h3>WORK HISTORY</h3>

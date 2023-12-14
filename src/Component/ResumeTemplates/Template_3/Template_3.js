@@ -67,7 +67,7 @@ const Template_3= () => {
     const imageLocations = [
       location,
       linkedin,
-      dp,
+      croppedImage ? croppedImage : dp,
       mail,
       call,
     ];
@@ -539,33 +539,33 @@ gap:.8rem;
 
   return (
 <div className={style.main}>
-      <div className={`${style.Left_container} ${style.background}`} style={{ height: "1210px" }}>
+      <div className={`${style.Left_container} `} style={{ height: "1210px" ,backgroundColor:color ,color:color3}}>
         <div className={style.img_container}>
-          <div className={style.img_box} style={{ height: "150px", width: "150px" }}>
+          <div className={style.img_box} style={{ height: imgSize, width: imgSize }}>
             <img src={base64Image3} alt="dp" />
           </div>
         </div>
 
-        <div className={style.info_box}>
+        <div className={style.info_box} >
           <h3 className={style.heading}>CONTACT</h3>
           <div className={style.divider}><hr /></div>
           <div className={style.contactInfo}>
-            <div className={`${style.iconContainer} ${style.color}`}>
+            <div className={`${style.iconContainer} `}>
               <img className={style.icon} src={base64Image4} alt="dp" />
             </div>
-            <p className={style.email}>{formData.resume.contact.email}</p>
+            <p className={style.email} style={{color:color3}}>{formData.resume.contact.email}</p>
           </div>
           <div className={style.contactInfo}>
             <div className={`${style.iconContainer} ${style.color}`}>
               <img className={style.icon} src={base64Image5} alt="dp" />
             </div>
-            <p className={style.email}>{formData.resume.contact.phone}</p>
+            <p className={style.email} style={{color:color3}}>{formData.resume.contact.phone}</p>
           </div>
           <div className={style.contactInfo}>
             <div className={`${style.iconContainer} ${style.color}`}>
               <img className={style.icon} src={base64Image1} alt="dp" />
             </div>
-            <p className={style.email}>
+            <p className={style.email} style={{color:color3}}>
               {formData.resume.address.address},
               {formData.resume.address.state},
               {formData.resume.address.postalCode}
@@ -612,7 +612,7 @@ gap:.8rem;
 
       <div>
         <div className={style.objectiveHeader}>
-          <h1 className={style.person_name}>{formData.resume.name}</h1>
+          <h1 className={style.person_name} style={{ fontFamily: fontStyle ,fontSize: fontSize}} >{formData.resume.name}</h1>
           <p className={style.objectiveText}>{formData.resume.jobTitle}</p>
         </div>
 
@@ -632,7 +632,7 @@ gap:.8rem;
               <li key={index}>
                 <div className={style.work_des}>
                   <h4 className={style.customerService}>{item?.title}</h4>
-                  <h5 className={style.company_name}>
+                  <h5 className={style.company_name} style={{color:color2}}>
                     <span>{item?.company} - {item?.location}</span> <span>{item?.startDate} - {item?.endDate}</span>
                   </h5>
                   <p>{item?.description}</p>
