@@ -92,3 +92,8 @@ li {
 .work_des h4,h5,p{
 margin:0rem;
 }
+
+.infoBox{
+  margin: 0rem!important;
+  padding-left: 1rem;
+}

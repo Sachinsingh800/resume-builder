@@ -321,7 +321,7 @@ const Template_10= () => {
   return (
 <div className={styles.main}>
       <div className={styles.heading}>
-        <h1>{formData.resume.name}</h1>
+        <h1 style={{ fontFamily:fontStyle ,color:color2,fontSize: fontSize }}>{formData.resume.name}</h1>
         <h3>{formData.resume.jobTitle}</h3>
         <p>{formData.resume.contact.email} | {formData.resume.contact.phone}</p>
       </div>

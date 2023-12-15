@@ -200,6 +200,7 @@ p {
    list-style: none;
    gap: .5rem;
    margin-left:-1rem;
+
 }
 
 .skills_list {
@@ -236,7 +237,8 @@ p {
 }
 
 .contact_value {
-   margin-left: 0rem;
+ 
+   margin: .3rem 0rem!important;
 }
 
 .icon {

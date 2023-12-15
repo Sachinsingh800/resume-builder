@@ -583,45 +583,45 @@ const Template_16= () => {
 <div className={styles.main}>
       <div className={styles.header}>
         <div className={styles.name_box}>
-          <div className={styles.Design_box}></div>
+          <div className={styles.Design_box} style={{backgroundColor:color2}}></div>
           <div>
-            <h1 className={styles.name} style={{ fontWeight: 100 }}>{formData.resume.name}</h1>
+            <h1 className={styles.name} style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
             <p className={styles.name}>{formData.resume.jobTitle}</p>
           </div>
         </div>
         <div>
-          <div className={styles.img_box}>
+          <div className={styles.img_box} style={{ height: imgSize, width: imgSize }}>
             <img src={base64Image3} alt="dp" />
           </div>
         </div>
       </div>
       <div className={styles.container}>
         <div className={styles.right_section}>
-          <h3 className={styles.section_title}>CONTACTS</h3>
+          <h3 className={styles['section-title']}>CONTACTS</h3>
           <div className={styles.contact_info}>
             <div className={styles.contact_value}>
-              <span className={styles.icon}>
+              <span className={styles.contact_label} style={{backgroundColor:color2}}>
                 <img className={styles.icon} src={base64Image5} alt="dp" />
               </span>
-              <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
+              <p className={styles['contact-value']}>{formData.resume.contact.phone}</p>
             </div>
             <div className={styles.contact_value}>
-              <span className={styles.icon}>
+              <span className={styles.contact_label} style={{backgroundColor:color2}}>
                 <img className={styles.icon} src={base64Image4} alt="dp" />
               </span>
-              <p className={styles.contact_value}>{formData.resume.contact.email}</p>
+              <p className={styles['contact-value']}>{formData.resume.contact.email}</p>
             </div>
             <div className={styles.contact_value}>
-              <span className={styles.icon}>
+              <span className={styles.contact_label} style={{backgroundColor:color2}}>
                 <img className={styles.icon} src={base64Image2} alt="dp" />
               </span>
-              <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
+              <p className={styles['contact-value']}>{formData.resume.socialLinks.linkedin}</p>
             </div>
             <div className={styles.contact_value}>
-              <span className={styles.icon}>
+              <span className={styles.contact_label} style={{backgroundColor:color2}}>
                 <img className={styles.icon} src={base64Image1} alt="dp" />
               </span>
-              <p className={styles.contact_value}>
+              <p className={styles['contact-value']}>
                 {formData.resume.address.address},
                 {formData.resume.address.state},
                 {formData.resume.address.postalCode}
@@ -629,37 +629,39 @@ const Template_16= () => {
             </div>
           </div>
 
-          <h3 className={styles.section_title}>EDUCATION</h3>
-          <ul className={styles.ul_skill}>
-            {formData.resume.education.map((item, index) => (
-              <li key={index} className={styles.work_entry}>
-                <p className={styles.date}>{item.startYear} - {item.endYear}</p>
-                <div className={styles.work_info}>
-                  <h3 className={styles.degree}>{item.degree}</h3>
-                  <p className={styles.university}>{item.collegeName}</p>
+          <h3 className={styles['section-title']}>EDUCATION</h3>
+          <ul className={styles['ul-skill']}>
+            {formData.resume.education.map((item) => (
+              <li>
+                <div className={styles.work_entry}>
+                  <p className={styles.date}>{item.startYear} - {item.endYear}</p>
+                  <div>
+                    <h3 className={styles.degree}>{item.degree}</h3>
+                    <p className={styles.university}>{item.collegeName}</p>
+                  </div>
                 </div>
               </li>
             ))}
           </ul>
 
-          <h3 className={styles.section_title}>SKILLS</h3>
-          <ul className={styles.ul_skill}>
-            {formData.resume.skillsAndLevel.map((item, index) => (
-              <li key={index}>{item.skills}</li>
+          <h3 className={styles['section-title']}>SKILLS</h3>
+          <ul className={styles['ul-skill']}>
+            {formData.resume.skillsAndLevel.map((item) => (
+              <li> {item.skills}</li>
             ))}
           </ul>
 
-          <h3 className={styles.section_title}>LANGUAGE</h3>
-          <ul className={styles.ul_skill}>
-            {formData.resume.knownLanguages.map((item, index) => (
-              <li key={index}>{item?.lang}</li>
+          <h3 className={styles['section-title']}>LANGUAGE</h3>
+          <ul className={styles['ul-skill']}>
+            {formData.resume.knownLanguages.map((item) => (
+              <li>{item?.lang}</li>
             ))}
           </ul>
 
-          <h3 className={styles.section_title}>AWARDS</h3>
-          <ul className={styles.ul_skill}>
-            {formData.resume.awards.map((item, index) => (
-              <li key={index} className={styles.award_list}>
+          <h3 className={styles['section-title']}>AWARDS</h3>
+          <ul className={styles['ul-skill']}>
+            {formData.resume.awards.map((item) => (
+              <li className={styles['award-list']}>
                 <h5>{item?.date}</h5>
                 <h4>{item?.title}</h4>
                 <p>{item?.issuingOrganization}</p>
@@ -670,20 +672,22 @@ const Template_16= () => {
 
         <div className={styles.left_section}>
           <div className={styles.section}>
-            <h3 className={styles.section_title}>ABOUT ME</h3>
-            <p className={styles.section_content}>{formData.resume.summary}</p>
+            <h3 className={styles['section-title']}>ABOUT ME</h3>
+            <p className={styles['section-content']}>{formData.resume.summary}</p>
           </div>
 
           <div className={styles.section}>
-            <h3 className={styles.section_title}>EXPERIENCE</h3>
+            <h3 className={styles['section_title']}>EXPERIENCE</h3>
             <ul className={styles.ul}>
-              {formData.resume.work.map((item, index) => (
-                <li key={index} className={styles.work_entry}>
-                  <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
-                  <div className={styles.inner_div}>
-                    <h3 className={styles.position}>{item?.title}</h3>
-                    <p className={styles.company}>{item?.company}</p>
-                    <p className={styles.description}>{item?.description}</p>
+              {formData.resume.work.map((item) => (
+                <li>
+                  <div className={styles.work_entry}>
+                    <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
+                    <div className={styles.inner_div}>
+                      <h3 className={styles.position}>{item?.title}</h3>
+                      <p className={styles.company}>{item?.company} </p>
+                      <p className={styles.description}>{item?.description}</p>
+                    </div>
                   </div>
                 </li>
               ))}
@@ -691,15 +695,17 @@ const Template_16= () => {
           </div>
 
           <div className={styles.section}>
-            <h3 className={styles.section_title}>PROJECTS</h3>
+            <h3 className={styles['section_title']}>PROJECTS</h3>
             <ul className={styles.ul}>
-              {formData.resume.projects.map((item, index) => (
-                <li key={index} className={styles.work_entry}>
-                  <p className={styles.date}>{item?.year}</p>
-                  <div className={styles.inner_div}>
-                    <h3 className={styles.position}>{item?.title}</h3>
-                    <p className={styles.company}>{item?.link}</p>
-                    <p className={styles.description}>{item?.description}</p>
+              {formData.resume.projects.map((item) => (
+                <li>
+                  <div className={styles.work_entry}>
+                    <p className={styles.date}>{item?.year}</p>
+                    <div className={styles.inner_div}>
+                      <h3 className={styles.position}>{item?.title}</h3>
+                      <p className={styles.company}>{item?.link} </p>
+                      <p className={styles.description}>{item?.description}</p>
+                    </div>
                   </div>
                 </li>
               ))}

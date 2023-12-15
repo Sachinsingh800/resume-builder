@@ -580,11 +580,11 @@ const Template_15= () => {
   return (
     <div className={styles.main}>
     <div className={styles.header}>
-      <div className={styles.img_box}>
+      <div className={styles.img_box} style={{ height: imgSize, width: imgSize }}>
         <img src={base64Image3} alt="dp" />
       </div>
       <div className={styles.name_box}>
-        <h1 className={styles.name}>{formData.resume.name}</h1>
+        <h1 className={styles.name} style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize  }}>{formData.resume.name}</h1>
         <h5 className={styles.name}>{formData.resume.jobTitle}</h5>
       </div>
     </div>

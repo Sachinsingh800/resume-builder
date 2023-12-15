@@ -540,8 +540,8 @@ margin-left: -1rem;
     <div className={styles.main}>
     <div className={styles.header}>
       <div className={styles.name_box}>
-        <h1 className={styles.name}>JESSICA CLAIRE</h1>
-        <h5 className={styles.name}>frontend Developer</h5>
+        <h1 className={styles.name} style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
+        <h5 className={styles.name}>{formData.resume.jobTitle}</h5>
       </div>
       <div className={styles.contact_info}>
         <div className={styles.contact_value}>

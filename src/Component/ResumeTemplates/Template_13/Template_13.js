@@ -576,40 +576,40 @@ const Template_13= () => {
 
   return (
 <div className={styles.main}>
-      <div className={styles.header}>
+      <div className={styles.header} style={{backgroundColor:color,color:color3}}>
         <div className={styles.nameBox}>
-          <h1 className={styles.name} style={{ fontWeight: 100 }}>JESSICA CLAIR</h1>
-          <p className={styles.name}>Frontend Developer</p>
+          <h1 className={styles.name}  style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize,fontWeight: 100  }}>{formData.resume.name}</h1>
+          <p className={styles.name}>{formData.resume.jobTitle}</p>
         </div>
         <div></div>
       </div>
       <div className={styles.container}>
-        <div className={styles.rightSection}>
-          <h3 className={styles.sectionTitle}>CONTACTS</h3>
-          <div className={styles.contactInfo}>
-            <div className={styles.contactValue}>
-              <span className={styles.contactLabel}>
+        <div className={styles.right_section}>
+          <h3 className={styles.section_title}>CONTACTS</h3>
+          <div className={styles.contact_Info}>
+            <div className={styles.contact_value}>
+              <span className={styles.contact_label}>
                 <img className={styles.icon} src={base64Image5} alt="dp" />
               </span>
-              <p className={styles.contactValue}>{formData.resume.contact.phone}</p>
+              <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
             </div>
-            <div className={styles.contactValue}>
-              <span className={styles.contactLabel}>
+            <div className={styles.contact_value}>
+              <span className={styles.contact_label}>
                 <img className={styles.icon} src={base64Image4} alt="dp" />
               </span>
-              <p className={styles.contactValue}>{formData.resume.contact.email}</p>
+              <p className={styles.contact_value}>{formData.resume.contact.email}</p>
             </div>
-            <div className={styles.contactValue}>
-              <span className={styles.contactLabel}>
+            <div className={styles.contact_value}>
+              <span className={styles.contact_label}>
                 <img className={styles.icon} src={base64Image2} alt="dp" />
               </span>
-              <p className={styles.contactValue}>{formData.resume.socialLinks.linkedin}</p>
+              <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
             </div>
-            <div className={styles.contactValue}>
-              <span className={styles.contactLabel}>
+            <div className={styles.contact_value}>
+              <span className={styles.contact_label}>
                 <img className={styles.icon} src={base64Image1} alt="dp" />
               </span>
-              <p className={styles.contactValue}>{formData.resume.contact.email}</p>
+              <p className={styles.contact_value}>{formData.resume.contact.email}</p>
             </div>
           </div>
 
@@ -652,7 +652,7 @@ const Template_13= () => {
           </ul>
         </div>
 
-        <div className={styles.leftSection}>
+        <div className={styles.left_section}>
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>ABOUT ME</h3>
             <p className={styles.sectionContent}>{formData.resume.summary}</p>

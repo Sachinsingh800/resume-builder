@@ -378,9 +378,9 @@ const Template_11= () => {
 
   return (
     <div className={styles.main}>
-    <div className={styles.Left_container}>
+    <div className={styles.Left_container} style={{backgroundColor:color ,color:color2}}>
       <div className={styles.objectiveHeader}>
-        <h1 className={styles.personName}>{formData.resume.name}</h1>
+        <h1 className={styles.personName} style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
         <p className={styles.objectiveText}>{formData.resume.jobTitle}</p>
       </div>
       <div className={styles.infoBox}>

@@ -108,7 +108,7 @@
    background-color: rgb(255, 179, 0);
    width: 1rem;
    height: 7rem;
-   margin-left: -3rem;
+   margin-left: -3rem!important;
 }
 
 .contact_label {

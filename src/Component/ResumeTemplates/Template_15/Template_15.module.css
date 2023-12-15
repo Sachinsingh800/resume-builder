@@ -236,11 +236,13 @@ hr {
 .ul{
  margin-top:-1rem;
 }
-.ul li{
- margin-left:-1rem!important;
-}
+
 .name_box{
- margin-top:3.5rem;
+ margin-top:0rem!important;
+ display: flex;
+justify-content: center;
+ flex-direction: column;
+margin-right: 7rem!important;
 
 }
 .icon{

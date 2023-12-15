@@ -285,6 +285,8 @@ hr{
 .skill-ul{
     margin-top:-1rem;
     margin-left:-2.7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 .line{
     margin-top:-1rem;

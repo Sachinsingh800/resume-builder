@@ -385,7 +385,7 @@ const Template_20= () => {
     <div className={styles.main}>
     <div className={styles.heading}>
       <div className={styles.name}>
-        <h1>{formData.resume.name}</h1>
+        <h1  style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
         <p>{formData.resume.jobTitle}</p>
       </div>
       <div className={styles.contact_info}>
@@ -408,7 +408,7 @@ const Template_20= () => {
       <h2>RELEVANT SKILLS</h2>
       <ul className={styles.skill_list}>
         {formData.resume.skillsAndLevel.map((item, index) => (
-          <li key={index} style={{ color: '#333' }}>
+          <li key={index} style={{ color: color3 ,backgroundColor:color2}}>
             <span>{item.skills}</span>
           </li>
         ))}

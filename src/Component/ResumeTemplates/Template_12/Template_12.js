@@ -515,12 +515,12 @@ const Template_12= () => {
 
   return (
 <div className={styles.main}>
-      <div className={styles.header}>
-        <h2 className={styles.name}>{formData.resume.name}</h2>
+      <div className={styles.header} style={{backgroundColor:color}}>
+        <h2 className={styles.name} style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h2>
         <h5 className={styles.name}>{formData.resume.jobTitle}</h5>
       </div>
       <div className={styles.container}>
-        <div className={styles.leftSection}>
+        <div className={styles.left_section} >
           <div className={styles.section}>
             <p className={styles.sectionContent}>{formData.resume.summary}</p>
           </div>
@@ -565,7 +565,7 @@ const Template_12= () => {
             </ul>
           </div>
         </div>
-        <div className={styles.rightSection}>
+        <div className={styles.right_section} style={{backgroundColor:color2}}>
           <h4 className={styles.sectionTitle}>Personal Info</h4>
           <div className={styles.contactInfo}>
             <div className={styles.contactEntry}>
