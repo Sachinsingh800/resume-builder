@@ -604,25 +604,25 @@ const Template_23= () => {
             <span className={styles.contact_label}>
               <img className={styles.icon} src={base64Image5} alt="dp" />
             </span>
-            <p className="contact-value">{formData.resume.contact.phone}</p>
+            <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
           </div>
           <div className={styles.contact_value}>
             <span className={styles.contact_label}>
               <img className={styles.icon} src={base64Image4} alt="dp" />
             </span>
-            <p className="contact-value">{formData.resume.contact.email}</p>
+            <p className={styles.contact_value}>{formData.resume.contact.email}</p>
           </div>
           <div className={styles.contact_value}>
             <span className={styles.contact_label}>
               <img className={styles.icon} src={base64Image2} alt="dp" />
             </span>
-            <p className="contact-value">{formData.resume.socialLinks.linkedin}</p>
+            <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
           </div>
           <div className={styles.contact_value}>
             <span className={styles.contact_label}>
               <img className={styles.icon} src={base64Image1} alt="dp" />
             </span>
-            <p className="contact-value">
+            <p className={styles.contact_value}>
               {formData.resume.address.address},
               {formData.resume.address.state},
               {formData.resume.address.postalCode}
@@ -672,17 +672,17 @@ const Template_23= () => {
         <div className={styles.section}>
           <h3 className={styles.section_title}>EXPERIENCE</h3>
           <div className={styles.divider}><hr /></div>
-          <ul className="ul">
+          <ul className={styles.ul}>
             {formData.resume.work.map((item) => (
               <li key={item.title}>
                 <div className={styles.work_entry}>
                   <div>
-                    <div className="title_">
-                      <h4 className="position">{item?.title}</h4>
-                      <p className="date">{item?.startDate} - {item?.endDate}</p>
+                    <div className={styles.title_}>
+                      <h4 className={styles.position}>{item?.title}</h4>
+                      <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
                     </div>
-                    <p className="company">{item?.company}</p>
-                    <p className="description">
+                    <p className={styles.company}>{item?.company}</p>
+                    <p className={styles.description}>
                       {item?.description}
                     </p>
                   </div>

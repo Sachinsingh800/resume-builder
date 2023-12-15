@@ -520,33 +520,33 @@ const Template_22= () => {
 <div className={styles.main}>
 <div className={styles.header}>
   <div className={styles.name}>
-    <h1>{formData.resume.name}</h1>
+    <h1  style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
     <h5>{formData.resume.jobTitle}</h5>
   </div>
-  <div className="contact_info">
-        <div className="contact_value">
-          <span className="contact_label">
-            <LocalPhoneIcon style={{ fontSize: '20px', color: '#00CCFF' }} />
+  <div className={styles.contact_info}>
+        <div className={styles.contact_value}>
+          <span className={styles.contact_label}>
+            <LocalPhoneIcon style={{ fontSize: '20px', color: color2}} />
           </span>
-          <p className="contact-value">{formData.resume.contact.phone}</p>
+          <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
         </div>
-        <div className="contact_value">
-          <span className="contact_label">
-            <EmailIcon style={{ fontSize: '20px', color: '#00CCFF' }} />
+        <div className={styles.contact_value}>
+          <span className={styles.contact_label}>
+            <EmailIcon style={{ fontSize: '20px', color: color2}} />
           </span>
-          <p className="contact-value">{formData.resume.contact.email}</p>
+          <p className={styles.contact_value}>{formData.resume.contact.email}</p>
         </div>
-        <div className="contact_value">
-          <span className="contact_label">
-            <LinkedInIcon style={{ fontSize: '20px', color: '#00CCFF' }} />
+        <div className={styles.contact_value}>
+          <span className={styles.contact_label}>
+            <LinkedInIcon style={{ fontSize: '20px', color: color2 }} />
           </span>
-          <p className="contact-value">{formData.resume.socialLinks.linkedin}</p>
+          <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
         </div>
-        <div className="contact_value">
-          <span className="contact_label">
-            <PlaceIcon style={{ fontSize: '20px', color: '#00CCFF' }} />
+        <div className={styles.contact_value}>
+          <span className={styles.contact_label}>
+            <PlaceIcon style={{ fontSize: '20px', color: color2 }} />
           </span>
-          <p className="contact-value">
+          <p className={styles.contact_value}>
             {formData.resume.address.address},
             {formData.resume.address.state},
             {formData.resume.address.postalCode}
@@ -555,31 +555,29 @@ const Template_22= () => {
       </div>
 </div>
 
-<div className="container">
-  <div className="right_section">
-    <div className="section">
-      <h2 className="section_title">SKILLS</h2>
+<div className={styles.container}>
+  <div className={styles.right_section}>
+    <div className={styles.section}>
+      <h2 className={styles.section_title } style={{backgroundColor:color ,color:color3}}> SKILLS</h2>
       <ul className={styles.skills_list}>
         {formData.resume.skillsAndLevel.map((item, index) => (
           <li key={index}>
             {item.skills}
-            <span>
-              <ProgressBar bgcolor="#00CCFF" progress="40" height="5" />
-            </span>
+      
           </li>
         ))}
       </ul>
     </div>
-    <div className="section">
-      <h2 className="section_title">LANGUAGE</h2>
+    <div className={styles.section}>
+      <h2 className={styles.section_title} style={{backgroundColor:color ,color:color3}}>LANGUAGE</h2>
       <ul className={styles.skills_list}>
         {formData.resume.knownLanguages.map((item, index) => (
           <li key={index}>{item?.lang}</li>
         ))}
       </ul>
     </div>
-    <div className="section">
-      <h2 className="section_title">AWARDS</h2>
+    <div className={styles.section}>
+      <h2 className={styles.section_title} style={{backgroundColor:color ,color:color3}}>AWARDS</h2>
       <ul className={styles.skills_list}>
         {formData.resume.awards.map((item, index) => (
           <li key={index} className={styles.award_list}>
@@ -591,25 +589,25 @@ const Template_22= () => {
       </ul>
     </div>
   </div>
-  <div className="left_section">
-    <div className="section">
-      <h2 className="section_title">
+  <div className={styles.left_section}>
+    <div className={styles.section}>
+      <h2 className={styles.section_title} style={{backgroundColor:color ,color:color3}}>
         ABOUT
       </h2>
       <p className={styles.section_content}>{formData.resume.summary}</p>
     </div>
 
-    <div className="section">
-      <h2 className="section_title">
-        <WorkIcon />EXPERIENCE
+    <div className={styles.section}>
+      <h2 className={styles.section_title} style={{backgroundColor:color ,color:color3}}>
+        EXPERIENCE
       </h2>
       <Divider className={styles.divider} />
-      <ul className="ul">
+      <ul className={styles.ul}>
         {formData.resume.work.map((item, index) => (
           <li key={index}>
             <div className={styles.work_des}>
-              <h3 className="customerService">{item?.title}</h3>
-              <h5 className="company_name">
+              <h3 className={styles.customerService}>{item?.title}</h3>
+              <h5 className={styles.company_name}>
                 <span>
                   {item?.company} - {item?.location}
                 </span>
@@ -627,9 +625,9 @@ const Template_22= () => {
       </ul>
     </div>
 
-    <div className="section">
-      <h2 className="section_title">
-        <SchoolIcon />EDUCATION
+    <div className={styles.section}>
+      <h2 className={styles.section_title} style={{backgroundColor:color ,color:color3}}>
+      EDUCATION
       </h2>
       <Divider className={styles.divider} />
       <ul className="ul">

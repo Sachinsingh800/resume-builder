@@ -1,5 +1,5 @@
 .main {
-   width: 794px ;
+  width: 850px;
    height: 1130px;
  background-color: white;
  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -104,7 +104,9 @@
 
 }
 .left_section{
-
+display: flex;
+flex-direction: column;
+gap: .5rem;
  width:30rem;
 }
 .img_box {

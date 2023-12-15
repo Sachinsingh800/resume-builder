@@ -180,12 +180,12 @@ align-items: center;
   font-size: small;
 }
 .contact_info{
-display:flex;
+display:flex!important;
 justify-content: space-evenly;
 gap: .8rem;
 font-size: small;
 }
-.skills-list{
+.skills_list{
 display: grid!important;
 grid-template-columns: 1fr 1fr ;
 gap: .5rem;
@@ -225,7 +225,7 @@ margin-top:-1rem;
 .name_box h1,h5{
  margin:0rem;
 }
-.section-content{
+.section_content{
 margin-top:-1rem;
 }
 .edu_des h5,h4,p{
@@ -240,13 +240,14 @@ padding:0rem;
 
 }
 
-.section-title-exp{
+.section_title_exp{
 
 padding-left:1rem;
 }
-.work-div{
-margin-left: 1rem;
+.work_div{
+margin-left: 1rem!important;
 padding:0rem;
+
 }
 .icon{
 height:1rem;

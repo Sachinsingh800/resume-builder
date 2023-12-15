@@ -201,3 +201,10 @@ margin-top:-1rem;
 .edu_des h5,h4,p{
 margin:.1rem;
 }
+.award_list{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  text-align: left!important;
+  align-items: flex-start!important;
+}

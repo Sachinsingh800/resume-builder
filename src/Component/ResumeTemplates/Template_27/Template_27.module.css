@@ -193,15 +193,15 @@ margin:0rem;
 margin:0rem;  
 }
 .skills_list li{
-margin-left:-1rem!important;
+
 }
-.edu-ul{
+.edu_ul{
 display: flex;
 flex-direction: column;
 gap: .5rem;
 margin-top:-1rem;
 }
-.section-content{
+.section_content{
 margin-top:-1rem;  
 }
 .icon{
@@ -209,7 +209,7 @@ height:1rem;
 width:1rem;
 
 }
-.edu-entry p,h4{
+.edu_entry p,h4{
 margin:0rem;  
 }
 .name_box h1,h5{

@@ -580,9 +580,9 @@ flex-direction: column;
 
   return (
     <div className={styles.main}>
-    <div className={styles.leftContainer}>
-      <div className={styles.imgContainer}>
-        <div className={styles.imgBox}>
+    <div className={styles.left_container}>
+      <div className={styles.img_container} >
+        <div className={styles.img_box} style={{ height: imgSize, width: imgSize }}>
           <img src={base64Image3} alt="dp" />
         </div>
       </div>

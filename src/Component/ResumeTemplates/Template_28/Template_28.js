@@ -520,24 +520,24 @@ margin-left: 1rem;
 
   return (
     <div className={styles.main}>
-    <div className={styles.left_Container}>
-      <div className={styles.img_Container}>
-        <div className={styles.name_Box}>
+    <div className={styles.left_container}>
+      <div className={styles.img_container}>
+        <div className={styles.name_box}>
           <h1 className={styles.name}>{formData.resume.name}</h1>
-          <p className="objectiveText">{formData.resume.jobTitle}</p>
+          <p className={styles.objectiveText}>{formData.resume.jobTitle}</p>
         </div>
 
         <div>
-          <div className={styles.contactInfo}>
-            <p className="email">
+          <div className={styles.contact_Info}>
+            <p className={styles.email}>
               <span>Email: </span>
               {formData.resume.contact.email}
             </p>
-            <p className="email">
+            <p className={styles.email}>
               <span>Phone: </span>
               {formData.resume.contact.phone}
             </p>
-            <p className="email">
+            <p className={styles.email}>
               <span>Address: </span>
               {formData.resume.address.address},
               {formData.resume.address.state},
@@ -548,11 +548,11 @@ margin-left: 1rem;
       </div>
 
       <div>
-        <div className={styles.skillsHeader}>
+        <div className={styles.skills_Header}>
           <h3>EDUCATION</h3>
-          <ul className={styles.eduUl}>
+          <ul className={styles.edu_ul}>
             {formData.resume.education.map((item, index) => (
-              <li key={index} className={styles.eduLi}>
+              <li key={index} className={styles.edu_li}>
                 <span>
                   {item.degree}{' '}
                   <span>
@@ -565,11 +565,11 @@ margin-left: 1rem;
           </ul>
         </div>
 
-        <div className={styles.skillsHeader}>
+        <div className={styles.skills_Header}>
           <h3>REFERENCES</h3>
-          <ul className={styles.refUl}>
+          <ul className={styles.ref_ul}>
             {formData.resume.references.map((item, index) => (
-              <li key={index} className={styles.refLi}>
+              <li key={index} className={styles.ref_li}>
                 <h4>{item?.name}</h4>
                 <span>
                   {item?.position} | {item?.company}
@@ -583,23 +583,23 @@ margin-left: 1rem;
     </div>
 
     <div>
-      <div className={styles.skillsHeader2}>
-        <div className={styles.titleBox2}>
+      <div className={styles.skills_Header2}>
+        <div className={styles.title_box2}>
           <h3>About Me</h3>
         </div>
         <p className={styles.para}>{formData.resume.summary}</p>
       </div>
 
-      <div className={styles.professionalSkillsHeader}>
-        <div className={styles.titleBox2}>
+      <div className={styles.professional_SkillsHeader}>
+        <div className={styles.title_box2}>
           <h3>WORKING EXPERIENCE</h3>
         </div>
-        <ul className={styles.workUl}>
+        <ul className={styles.work_ul}>
           {formData.resume.work.map((item, index) => (
-            <li key={index} className={styles.workLi}>
-              <div className={styles.workDes}>
-                <h3 className={styles.customerService}>{item?.title}</h3>
-                <h5 className={styles.companyName}>
+            <li key={index} className={styles.work_li}>
+              <div className={styles.work_des}>
+                <h3 className={styles.customer_service}>{item?.title}</h3>
+                <h5 className={styles.company_name}>
                   <span>
                     {item?.company} - {item?.location}
                   </span>{' '}
@@ -614,13 +614,13 @@ margin-left: 1rem;
         </ul>
       </div>
 
-      <div className={styles.professionalSkillsHeader}>
-        <div className={styles.titleBox2}>
+      <div className={styles.professional_SkillsHeader}>
+        <div className={styles.title_box2}>
           <h3>SOFTWARE SKILL</h3>
         </div>
         <ul className={styles.skillsAndLevel}>
           {formData.resume.skillsAndLevel.map((item, index) => (
-            <li key={index} className={styles.skillsLi}>
+            <li key={index} className={styles.skills_li}>
               <span>{item.skills}</span>
               <span style={{ width: '40%', height: '.5rem', backgroundColor: 'orange', display: 'inline-block' }}></span>
             </li>

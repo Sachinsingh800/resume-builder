@@ -551,31 +551,31 @@ const Template_26= () => {
 
   return (
     <div className={styles.main}>
-    <div className={styles.header}>
-      <div className={styles.imgBox}>
+    <div className={styles.header} style={{backgroundColor:color}}>
+      <div className={styles.img_box} style={{ height: imgSize, width: imgSize }}>
         <img src={base64Image3} alt="dp" />
       </div>
-      <div className={styles.nameBox}>
-        <h1 className={styles.name}>{formData.resume.name}</h1>
-        <h5 className={styles.name}>{formData.resume.jobTitle}</h5>
-        <div className={styles.contactInfo}>
-          <div className={styles.contactValue}>
+      <div className={styles.name_box}>
+        <h1 className={styles.name} style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
+        <h5 className={styles.name} style={{color:color3}}>{formData.resume.jobTitle}</h5>
+        <div className={styles.contact_info} style={{color:color3}}>
+          <div className={styles.contact_value} >
             <span className={styles.icon}>
               <img className={styles.icon} src={base64Image5} alt="dp" />
             </span>
-            <p className={styles.contactValue}>{formData.resume.contact.phone}</p>
+            <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
           </div>
-          <div className={styles.contactValue}>
+          <div className={styles.contact_value}>
             <span className={styles.icon}>
               <img className={styles.icon} src={base64Image4} alt="dp" />
             </span>
-            <p className={styles.contactValue}>{formData.resume.contact.email}</p>
+            <p className={styles.contact_value}>{formData.resume.contact.email}</p>
           </div>
-          <div className={styles.contactValue}>
+          <div className={styles.contact_value}>
             <span className={styles.icon}>
               <img className={styles.icon} src={base64Image2} alt="dp" />
             </span>
-            <p className={styles.contactValue}>
+            <p className={styles.contact_value}>
               {formData.resume.address.address},
               {formData.resume.address.state},
               {formData.resume.address.postalCode}
@@ -586,7 +586,7 @@ const Template_26= () => {
     </div>
 
     <div className={styles.container}>
-      <div className={styles.containerSection1}>
+      <div className={styles.container_section1}>
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>SUMMARY</h3>
           <p className={styles.sectionContent}>{formData.resume.summary}</p>
@@ -615,10 +615,10 @@ const Template_26= () => {
       </div>
 
       <div className={styles.section}>
-        <h3 className={styles.sectionTitleExp}>EXPERIENCE</h3>
-        <div className={styles.workEntry}>
+        <h3 className={styles.section_title_exp}>EXPERIENCE</h3>
+        <div className={styles.work_entry}>
           {formData.resume.work.map((item, index) => (
-            <div key={index} className={styles.workDiv}>
+            <div key={index} className={styles.work_div}>
               <div className={styles.title_}>
                 <h3 className={styles.position}>{item?.title}</h3>
                 <p className={styles.date}>
@@ -636,7 +636,7 @@ const Template_26= () => {
         <hr />
       </div>
 
-      <div className={styles.containerSection1}>
+      <div className={styles.container_section1}>
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>SKILLS</h3>
           <ul className={styles.skillsList}>
