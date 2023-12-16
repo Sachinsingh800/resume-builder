@@ -243,9 +243,9 @@ const Template_11= () => {
     
     <body>
         <div class="main">
-            <div class="Left_container">
+            <div class="Left_container" style="background-color:${color}; color:${color2}">
                 <div class="objectiveHeader">
-                    <h1 class="person_name">${formData.resume.name}</h1>
+                    <h1 class="person_name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name}</h1>
                     <p class="objectiveText">${formData.resume.jobTitle}</p>
                 </div>
                 <div class="info_box">

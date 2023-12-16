@@ -229,7 +229,7 @@ const Template_10= () => {
     <body>
         <div class="main">
             <div class="heading">
-                <h1>  ${formData.resume.name}</h1>
+                <h1   style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">  ${formData.resume.name}</h1>
                 <h3>${formData.resume.jobTitle}</h3>
                 <p>${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
             </div>
@@ -376,7 +376,7 @@ const Template_10= () => {
     
     <div className={styles.main}>
       <div className={styles.heading}>
-        <h1 style={{ fontFamily:fontStyle ,color:color2,fontSize: fontSize }}>{formData.resume.name}</h1>
+        <h1 style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
         <h3>{formData.resume.jobTitle}</h3>
         <p>{formData.resume.contact.email} | {formData.resume.contact.phone}</p>
       </div>

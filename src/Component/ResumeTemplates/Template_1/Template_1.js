@@ -127,6 +127,179 @@ const Template_1= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () => {
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+  }
+  
+.img_box{
+height: 7rem;
+width: 7rem;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+}
+.img_box img{
+height: 100%;
+width: 100%;
+}
+.left_section{
+display: flex;
+flex-direction: column;
+padding: 3rem 1rem;
+height: 1112px;
+text-align: left;
+
+}
+
+.info_box{
+width: 100%;
+display: flex;
+flex-direction: column;
+padding: 1rem 1rem;
+}
+.education{
+width: 100%;
+display: flex;
+flex-direction: column;
+
+padding: 1rem 1rem;
+}
+.img_container{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.right_section{
+display: flex;
+flex-direction: column;
+
+}
+.right_section p{
+width: 95%!important;
+display: flex;
+flex-direction: column;
+text-align: left;
+list-style: none;
+
+}
+.right_section ul li{
+margin-left:1.5rem ;
+
+}
+.right_section ul li {
+width: 95%!important;
+}
+.work_history{
+display: flex;
+flex-direction: column;
+
+}
+.heading{
+background-color: aliceblue;
+padding: 3rem 1rem;
+}
+.certifications{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+.skills{
+padding: 0rem .5rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+
+}
+.skills ul{
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+}
+.professional_summary{
+padding: 0rem .5rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+.work{
+padding: 0rem .5rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+hr{
+margin-left: 1rem;
+}
+.info_box p{
+display: flex;
+gap: .5rem;
+align-items: center;
+margin:0rem;
+}
+.certifications ul{
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+}
+.edu{
+flex-direction: column;
+display: flex;
+gap:.5rem;
+}
+.edu h4,p{
+margin:0rem; 
+}
+.certi-ul {
+margin-top:-1rem;
+margin-left:-2.7rem;
+flex-direction: column;
+display: flex;
+gap:.5rem;
+}
+.certi-ul li h5,p{
+margin:0rem; 
+}
+.skill-ul{
+margin-top:-1rem;
+margin-left:-2.7rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+.line{
+margin-top:-1rem;
+width:98%;
+}
+.work-ul{
+
+margin-top:-1rem;
+margin-left:-2.7rem;
+flex-direction: column;
+display: flex;
+gap:.5rem;
+
+}
+.work-ul li h4,p{
+margin:0rem;  
+}
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -427,26 +600,63 @@ hr{
     `;
   };
 
+  // const handleResume = async () => {
+  //   setLoading(true);
+  //   setError("");
+
+  //   const axiosConfig = {
+  //     responseType: "arraybuffer",
+  //     headers: {
+  //       Accept: "application/json",
+  //     },
+  //   };
+
+  //   try {
+  //     const response = await axios.post(
+  //       "https://whihtmltopdf.onrender.com/convertToPdf",
+  //       { htmlContent: getHTML() },
+  //       axiosConfig
+  //     );
+
+  //     setLoading(false);
+
+  //     const url = window.URL.createObjectURL(new Blob([response.data]));
+  //     const link = document.createElement("a");
+  //     link.href = url;
+  //     link.setAttribute("download", "lizmy.pdf");
+  //     document.body.appendChild(link);
+  //     link.click();
+  //   } catch (error) {
+  //     setLoading(false);
+  //     setError(error.message);
+  //   }
+  // };
+
+
+
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

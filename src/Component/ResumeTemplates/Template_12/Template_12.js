@@ -198,7 +198,7 @@ const Template_12= () => {
                 flex-direction: column;
                 gap: 0.25rem; /* Reduced gap */
                 padding: 0rem 1rem;
-                height: 1100px;
+                height: 1000px;
             }
     
             .right_section p {
@@ -352,9 +352,9 @@ const Template_12= () => {
     
     <body>
         <div class="main">
-            <div class="header">
-                <h2 class="name"> ${formData.resume.name}</h2>
-                <h5 class="name">${formData.resume.jobTitle}</h5>
+            <div class="header" style="background-color:${color}; color: ${color3}; ">
+                <h2 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;"> ${formData.resume.name}</h2>
+                <h4  style="color: ${color3};" >${formData.resume.jobTitle}</h4>
             </div>
             <div class="container">
                 <div class="left_section">
@@ -415,7 +415,7 @@ const Template_12= () => {
                         </ul>
                     </div>
                 </div>
-                <div class="right_section" style="background-color: #D3D3D3;">
+                <div class="right_section" style="background-color:${color2}; color: ${color3}; ">
                     <h4 class="section-title">Personal Info</h4>
                     <div class="contact-info">
                         <div class="contact-entry">
@@ -571,7 +571,7 @@ const Template_12= () => {
     <div className={styles.main}>
       <div className={styles.header} style={{backgroundColor:color}}>
         <h2 className={styles.name} style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h2>
-        <h5 className={styles.name}>{formData.resume.jobTitle}</h5>
+        <h5 className={styles.name} style={{color:color3}}>{formData.resume.jobTitle}</h5>
       </div>
       <div className={styles.container}>
         <div className={styles.left_section} >
@@ -619,7 +619,7 @@ const Template_12= () => {
             </ul>
           </div>
         </div>
-        <div className={styles.right_section} style={{backgroundColor:color2}}>
+        <div className={styles.right_section} style={{backgroundColor:color2,color:color3}}>
           <h4 className={styles.sectionTitle}>Personal Info</h4>
           <div className={styles.contactInfo}>
             <div className={styles.contactEntry}>
