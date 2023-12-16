@@ -72,7 +72,7 @@ const Template_10= () => {
     const imageLocations = [
       location,
       linkedin,
-      dp,
+      croppedImage ? croppedImage : dp,
       mail,
       call,
     ];

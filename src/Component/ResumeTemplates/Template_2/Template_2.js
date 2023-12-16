@@ -522,6 +522,12 @@ const Template_2= () => {
             </div>
             <div className={style.contactInfo}>
               <div className={style.iconContainer} style={{ color: "black" }}>
+                <img className={style.icon} src={base64Image5} alt="dp" />
+              </div>
+              <p className={style.email}>{formData.resume.contact.phone}</p>
+            </div>
+            <div className={style.contactInfo}>
+              <div className={style.iconContainer} style={{ color: "black" }}>
                 <img className={style.icon} src={base64Image1} alt="dp" />
               </div>
               <p className={style.email}>{formData.resume.address.address}, {formData.resume.address.state}, {formData.resume.address.postalCode}</p>
