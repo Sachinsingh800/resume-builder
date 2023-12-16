@@ -564,7 +564,11 @@ const Template_22= () => {
 
 
   return (
-
+    <>
+    <div className={styles.download_btn} >
+<button onClick={handleDownloadClick}>Download</button>
+<ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+</div>
 <div className={styles.main}>
 <div className={styles.header}>
   <div className={styles.name}>
@@ -693,6 +697,8 @@ const Template_22= () => {
   </div>
 </div>
 </div>
+</>
+
   );
 };
 

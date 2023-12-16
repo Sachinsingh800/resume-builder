@@ -425,6 +425,12 @@ const Template_11= () => {
 
 
   return (
+    <>
+                            <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+
     <div className={styles.main}>
     <div className={styles.Left_container} style={{backgroundColor:color ,color:color2}}>
       <div className={styles.objectiveHeader}>
@@ -511,6 +517,9 @@ const Template_11= () => {
       </div>
     </div>
   </div>
+    
+    </>
+  
   );
 };
 

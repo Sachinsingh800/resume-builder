@@ -462,6 +462,12 @@ const Template_9= () => {
 
 
   return (
+    <>
+                    <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+
     <div onClick={() => setTemplateNo(8)} className={styles.main}>
     <div className={styles.heading}>
       <div className={styles.name}>
@@ -524,6 +530,8 @@ const Template_9= () => {
       </ul>
     </div>
   </div>
+    </>
+   
   );
 };
 

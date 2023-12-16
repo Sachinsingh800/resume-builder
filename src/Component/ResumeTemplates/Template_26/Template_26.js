@@ -597,7 +597,12 @@ const Template_26= () => {
 
 
   return (
-    <div className={styles.main}>
+    <>
+    <div className={styles.download_btn} >
+<button onClick={handleDownloadClick}>Download</button>
+<ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+</div>
+<div className={styles.main}>
     <div className={styles.header} style={{backgroundColor:color}}>
       <div className={styles.img_box} style={{ height: imgSize, width: imgSize }}>
         <img src={base64Image3} alt="dp" />
@@ -703,6 +708,8 @@ const Template_26= () => {
       </div>
     </div>
   </div>
+</>
+   
   );
 };
 

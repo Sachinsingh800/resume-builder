@@ -453,6 +453,11 @@ width: 72%;
 
 
   return (
+    <>
+    <div className={styles.download_btn} >
+<button onClick={handleDownloadClick}>Download</button>
+<ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+</div>
 <div className={styles.main}>
     <div className={styles.heading}>
       <h1 style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
@@ -522,6 +527,8 @@ width: 72%;
       </ul>
     </div>
   </div>
+</>
+
   );
 };
 

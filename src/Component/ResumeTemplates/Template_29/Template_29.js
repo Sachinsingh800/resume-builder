@@ -580,7 +580,12 @@ width:1rem;
 
 
   return (
-    <div className={styles.main}>
+    <>
+    <div className={styles.download_btn} >
+<button onClick={handleDownloadClick}>Download</button>
+<ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+</div>
+<div className={styles.main}>
     <div className={styles.header}>
       <div className={styles.nameBox}>
         <h1 className={styles.name}>{formData.resume.name}</h1>
@@ -695,6 +700,8 @@ width:1rem;
         </div>
       </div>
     </div>
+</>
+   
   );
 };
 

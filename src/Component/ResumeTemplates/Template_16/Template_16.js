@@ -627,7 +627,13 @@ const Template_16= () => {
 
 
   return (
-<div className={styles.main}>
+    <>
+          <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+    
+    <div className={styles.main}>
       <div className={styles.header}>
         <div className={styles.name_box}>
           <div className={styles.Design_box} style={{backgroundColor:color2}}></div>
@@ -761,6 +767,8 @@ const Template_16= () => {
         </div>
       </div>
     </div>
+    </>
+
   );
 };
 

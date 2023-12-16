@@ -482,7 +482,12 @@ const Template_4= () => {
 
 
   return (
-<div className={styles.main}>
+    <>
+             <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+    <div className={styles.main}>
       <div className={styles.left_section}>
         <div className={styles.name_box}>
           <h1 className={styles.name} style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>{formData.resume.name}</h1>
@@ -554,6 +559,8 @@ const Template_4= () => {
         </div>
       </div>
     </div>
+    </>
+
   );
 };
 

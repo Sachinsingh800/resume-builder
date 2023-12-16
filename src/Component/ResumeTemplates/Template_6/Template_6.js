@@ -606,6 +606,13 @@ const Template_6= () => {
 
 
   return (
+    <>
+        <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+
+
     <div className={styles.main}>
     <div className={`${styles.Left_container} ${styles.background}`} style={{ backgroundColor: color, color: color3 }}>
       <div className={styles.img_container}>
@@ -715,6 +722,9 @@ const Template_6= () => {
       </div>
     </div>
   </div>
+    
+    </>
+    
   );
 };
 

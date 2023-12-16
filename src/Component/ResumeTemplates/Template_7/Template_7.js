@@ -366,7 +366,13 @@ const Template_7= () => {
 
 
   return (
-<div className={styles.main}>
+    <>
+            <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+
+    <div className={styles.main}>
       <div className={styles.heading}>
         <h1 style={{ fontFamily:fontStyle ,color:color,fontSize: fontSize }}>{formData.resume.name}</h1>
         <p>{formData.resume.contact.email} | {formData.resume.contact.phone}</p>
@@ -418,6 +424,9 @@ const Template_7= () => {
         </ul>
       </div>
     </div>
+    
+    </>
+
   );
 };
 

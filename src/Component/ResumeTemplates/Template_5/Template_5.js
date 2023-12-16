@@ -614,7 +614,14 @@ background-color: orange;
 
 
   return (
-<div className={styles.main}>
+    <>
+    
+    <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+
+    <div className={styles.main}>
       <div className={`${styles.Left_container} ${styles.background}`} style={{ color: "black" }}>
         <div className={styles.img_container} >
           <div className={styles.img_box} style={{backgroundColor:color2,height: imgSize, width: imgSize}} >
@@ -742,6 +749,8 @@ background-color: orange;
         </div>
       </div>
     </div>
+    </>
+
   );
 };
 

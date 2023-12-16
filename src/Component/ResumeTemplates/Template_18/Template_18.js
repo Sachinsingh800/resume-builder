@@ -581,6 +581,12 @@ margin-top:-1.5rem;
 
 
   return (
+    <>
+     <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+    
     <div className={styles.main}>
     <div className={styles.header} style={{backgroundColor:color}}>
       <div>
@@ -703,6 +709,8 @@ margin-top:-1.5rem;
       </div>
     </div>
   </div>
+    </>
+    
   );
 };
 

@@ -626,6 +626,12 @@ const Template_15= () => {
 
 
   return (
+    <>
+      <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+    
     <div className={styles.main}>
     <div className={styles.header}>
       <div className={styles.img_box} style={{ height: imgSize, width: imgSize }}>
@@ -751,6 +757,8 @@ const Template_15= () => {
       </div>
     </div>
   </div>
+    </>
+   
   );
 };
 

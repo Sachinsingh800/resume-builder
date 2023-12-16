@@ -612,6 +612,13 @@ const Template_14 = () => {
 
 
   return (
+    <>
+             <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+
+
     <div className={styles.main}>
     <div className={styles.user_header}>
       <div className={styles.image_box} >
@@ -734,6 +741,9 @@ const Template_14 = () => {
       </div>
     </div>
   </div>
+    
+    </>
+   
   );
 };
 

@@ -627,7 +627,12 @@ flex-direction: column;
 
 
   return (
-    <div className={styles.main}>
+    <>
+    <div className={styles.download_btn} >
+<button onClick={handleDownloadClick}>Download</button>
+<ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+</div>
+<div className={styles.main}>
     <div className={styles.left_container}>
       <div className={styles.img_container} >
         <div className={styles.img_box} style={{ height: imgSize, width: imgSize }}>
@@ -753,6 +758,8 @@ flex-direction: column;
       </div>
     </div>
   </div>
+</>
+  
   );
 };
 

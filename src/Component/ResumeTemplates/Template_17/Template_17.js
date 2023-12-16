@@ -584,6 +584,12 @@ margin-left: -1rem;
 
 
   return (
+    <>
+              <div className={styles.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+    
     <div className={styles.main}>
     <div className={styles.header}>
       <div className={styles.name_box}>
@@ -714,6 +720,8 @@ margin-left: -1rem;
       </div>
     </div>
   </div>
+    </>
+   
   );
 };
 
