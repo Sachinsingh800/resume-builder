@@ -395,16 +395,16 @@ background-color: orange;
     
     <body>
         <div class="main">
-            <div class="Left_container" style="background-color: ; color: black;">
-                <div class="img_container">
-                    <div class="img_box" style="height: 150px; width: 150px;">
+            <div class="Left_container" style="background-color:white; color:${color3};">
+                <div class="img_container" >
+                    <div class="img_box" style="height: ${imgSize}; width: ${imgSize};background-color:${color2}; ">
                         <!-- Use a placeholder image or replace the source with dynamic data -->
                         <img src=${base64Image3} alt="dp">
                     </div>
                 </div>
                 <div class="skillsHeader">
                     <div class="title_box">
-                        <span class="design"> </span>
+                        <span class="design" style="background-color:${color2}"> </span>
                         <h3 style="color: black;">EDUCATION</h3>
                     </div>
                     <ul >
@@ -422,7 +422,7 @@ background-color: orange;
                 </div>
                 <div class="skillsHeader">
                     <div class="title_box">
-                        <span class="design"> </span>
+                        <span class="design" style="background-color:${color2}"> </span>
                         <h3 style="color: black;">CONTACT</h3>
                     </div>
                    <div class="contact-list">
@@ -451,7 +451,7 @@ background-color: orange;
                 </div>
                 <div class="skillsHeader">
                     <div class="title_box">
-                        <span class="design"> </span>
+                        <span class="design" style="background-color:${color2}"> </span>
                         <h3 style="color: black;">LANGUAGES</h3>
                     </div>
                     <ul>
@@ -466,7 +466,7 @@ background-color: orange;
             </div>
             <div>
                 <div class="objectiveHeader" style="background-color: ;">
-                    <span class="design3"> &nbsp; </span>
+                    <span class="design3" style="background-color:${color2}"> &nbsp; </span>
                     <h1 class="person_name" style="font-family: 'YourFont', sans-serif;  color: black;">
                     ${formData.resume.name}
                     </h1>
@@ -476,7 +476,7 @@ background-color: orange;
                 </div>
                 <div class="skillsHeader2">
                     <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
-                        <span class="design2"> &nbsp; </span>
+                        <span class="design2" style="background-color:${color2}"> &nbsp; </span>
                         <h3>About Me</h3>
                     </div>
                     <p>
@@ -485,7 +485,7 @@ background-color: orange;
                 </div>
                 <div class="professionalSkillsHeader">
                     <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
-                        <span class="design2"> &nbsp; </span>
+                        <span class="design2" style="background-color:${color2}"> &nbsp; </span>
                         <h3>WORKING EXPERIENCE</h3>
                     </div>
                     <ul class="work-ul">
@@ -507,7 +507,7 @@ background-color: orange;
                 <br />
                 <div class="professionalSkillsHeader">
                     <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
-                        <span class="design2"> &nbsp; </span>
+                        <span class="design2" style="background-color:${color2}"> &nbsp; </span>
                         <h3>SOFTWARE SKILL</h3>
                     </div>
                     <ul class="skillsAndLevel">

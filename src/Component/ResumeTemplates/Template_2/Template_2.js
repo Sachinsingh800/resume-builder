@@ -318,10 +318,10 @@ const Template_2= () => {
 
 <body>
     <div class="main">
-        <div class="Left_container" style="background-color: grey; color:white;">
-            <div class="name_container">
-                <h1 class="name">
-                    John Doe
+        <div class="Left_container" style="background-color:${color}; color:${color3};">
+            <div class="name_container" style="background-color:${color2}; color:white;">
+                <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">
+                ${formData.resume.name}
                 </h1>
                 <hr class="hr" />
                 <div class="info_box">
@@ -379,9 +379,9 @@ const Template_2= () => {
             </div>
         </div>
         <div>
-            <div class="objectiveHeader" style="background-color: #E5E5E5;">
-                <h3>CAREER OBJECTIVE</h3>
-                <p class="objectiveText">
+            <div class="objectiveHeader" style="background-color: ${color}">
+                <h3 style="color: ${color3}">CAREER OBJECTIVE</h3>
+                <p class="objectiveText"  style="color: ${color3}">
                 ${formData.resume.summary}
                 </p>
             </div>

@@ -384,9 +384,9 @@ gap:.8rem;
     
     <body>
         <div class="main">
-            <div class="Left_container" style="background-color: #3498db; color: white;     height: 1210px;">
+            <div class="Left_container" style="background-color: ${color}; color: ${color3};  height: 1210px;">
                 <div class="img_container">
-                    <div class="img_box" style="height: 150px; width: 150px;">
+                    <div class="img_box" style="height: ${imgSize}; width: ${imgSize};">
                         <img src=${base64Image3} alt="dp">
                     </div>
                 </div>
@@ -394,20 +394,20 @@ gap:.8rem;
                 <div class="info_box">
                     <h3 >CONTACT</h3>
                    <div class="divider"><hr ></div> 
-                    <div class="contactInfo">
-                        <div class="iconContainer" style="color: black;">
+                    <div class="contactInfo" style="color:${color3}">
+                        <div class="iconContainer" >
                         <img class="icon" src=${base64Image4} alt="dp" />
                         </div>
                         <p class="email" > ${formData.resume.contact.email}</p>
                     </div>
                     <div class="contactInfo">
-                        <div class="iconContainer" style="color: black;">
+                        <div class="iconContainer" >
                         <img class="icon" src=${base64Image5} alt="dp" />
                         </div>
                         <p class="email" > ${formData.resume.contact.phone}</p>
                     </div>
                     <div class="contactInfo">
-                        <div class="iconContainer" style="color: black;">
+                        <div class="iconContainer" >
                      
                         <img class="icon" src=${base64Image1} alt="dp" />
                  
@@ -462,7 +462,7 @@ gap:.8rem;
     
             <div>
                 <div class="objectiveHeader">
-                    <h1 class="person_name" style="color: #2980b9; font-family: 'Arial', sans-serif; ">
+                    <h1 class="person_name"  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">
                     ${formData.resume.name}
                     </h1>
                     <p class="objectiveText"> ${formData.resume.jobTitle}</p>

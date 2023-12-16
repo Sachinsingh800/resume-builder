@@ -266,17 +266,17 @@ const Template_8= () => {
     <body>
         <div onclick="setTemplateNo(7)" class="main">
             <div class="heading">
-                <h1>${formData.resume.name}</h1>
+                <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">${formData.resume.name}</h1>
                 <p>${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
             </div>
             <div class="summary">
-                <h2>Professional Summary</h2>
+                <h2 style="background-color:${color}; color:${color3};">Professional Summary</h2>
                 <p class="para">
                 ${formData.resume.summary}
                 </p>
             </div>
             <div class="Skills">
-                <h2>Skills</h2>
+                <h2 style="background-color:${color}; color:${color3};">Skills</h2>
                 <ul>
                 ${formData.resume.skillsAndLevel.map((item) => `
                  
@@ -289,7 +289,7 @@ const Template_8= () => {
                 </ul>
             </div>
             <div class="Experience">
-                <h2>Work History</h2>
+                <h2 style="background-color:${color}; color:${color3};">Work History</h2>
                 <ul>
                 ${formData.resume.work.map((item) => `
             <li>
@@ -313,7 +313,7 @@ const Template_8= () => {
                 </ul>
             </div>
             <div class="Education">
-                <h2>Education</h2>
+                <h2  style="background-color:${color}; color:${color3};">Education</h2>
                 <ul>
                 ${formData.resume.education.map((item) => `
                 <li class="edu_des">

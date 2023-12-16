@@ -180,7 +180,6 @@ const Template_1= () => {
     width: 100%;
     display: flex;
     flex-direction: column;
-
     padding: 1rem 1rem;
 }
 .education{
@@ -231,7 +230,7 @@ const Template_1= () => {
   gap: .5rem;
 }
 .skills{
-    padding: 1rem;
+  padding: 0rem .5rem;
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -243,13 +242,13 @@ const Template_1= () => {
    
 }
 .professional_summary{
-    padding: 1rem;
+  padding: 0rem .5rem;
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
 .work{
-    padding: 1rem;
+  padding: 0rem .5rem;
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -361,7 +360,7 @@ hr{
     
             <div class="right_section">
                 <div class="heading" style="background-color:${color2};">
-                    <h1 style="color: white; font-family: ${fontStyle}; font-size:${fontSize};">
+                    <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">
                      ${formData.resume.name}
                     </h1>
                 </div>
@@ -379,7 +378,7 @@ hr{
                     </ul>
                 </div>
     
-             <div class="line"> <hr /></div>  
+         
     
                 <div class="skills">
                     <h3>Skills</h3>
@@ -396,7 +395,7 @@ hr{
                     </ul>
                 </div>
     
-                <div class="line"> <hr /></div>  
+            
     
                 <div class="professional_summary">
                     <h3>Professional Summary</h3>
@@ -405,7 +404,7 @@ hr{
                     </p>
                 </div>
     
-                <div class="line"> <hr /></div>  
+            
     
                 <div class="work">
                     <h3>Work History</h3>

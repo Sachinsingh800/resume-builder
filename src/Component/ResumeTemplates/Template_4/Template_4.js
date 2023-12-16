@@ -32,9 +32,7 @@ import downloaddoc from "../../Images/google-docs-icon-2.svg"
 import downloadtext from "../../Images/icons8-text-500.svg"
 
 
-const PDFRenderer = ({ htmlContent }) => {
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-};
+
 
 const Template_4= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -308,7 +306,7 @@ const Template_4= () => {
         <div class="main">
             <div class="left_section">
             <div class="name-box">
-            <h1 class="name">${formData.resume.name}</h1>
+            <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">${formData.resume.name}</h1>
             <p>${formData.resume.jobTitle}</p>
             </div>
                 <div class="section">
@@ -355,7 +353,7 @@ const Template_4= () => {
                     </ul>
                 </div>
             </div>
-            <div class="right_section" style="background-color: grey; color: white;   height: 1146px;">
+            <div class="right_section" style="background-color: ${color}; color: ${color3};  height: 1146px;" >
                 <div class="contact-info">
                     <div class="contact-entry">
 
@@ -462,8 +460,6 @@ const Template_4= () => {
        </div>
        }
          
-        
-
         </div>
       </div>
     );

@@ -221,7 +221,7 @@ const Template_7= () => {
     <body>
         <div class="main">
             <div class="heading">
-                <h1>${formData.resume.name}</h1>
+                <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">${formData.resume.name}</h1>
                 <p>${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
             </div>
             <div class="summary">

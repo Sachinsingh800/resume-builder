@@ -393,9 +393,9 @@ const Template_6= () => {
     
     <body>
         <div class="main">
-            <div class="Left_container" style="background-color: grey; color: white;">
+            <div class="Left_container" style="background-color:${color}; color:${color3};">
                 <div class="img_container">
-                    <div class="img_box" style="height: 200px; width: 200px;">
+                    <div class="img_box" style="height: ${imgSize}; width: ${imgSize};">
                         <img src=${base64Image3}
                             alt="dp">
                     </div>
@@ -467,11 +467,11 @@ const Template_6= () => {
                 </div>
             </div>
             <div>
-                <div class="objectiveHeader" style="background-color: #3498db;">
-                    <h1 class="person_name" style="font-family: 'YourFont', sans-serif;  color: white;">
+                <div class="objectiveHeader" style="background-color: ${color2};">
+                    <h1 class="person_name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">
                     ${formData.resume.name}
                     </h1>
-                    <p class="objectiveText">
+                    <p class="objectiveText"  style="color: ${color3}; ">
                     ${formData.resume.jobTitle}
                     </p>
                 </div>
