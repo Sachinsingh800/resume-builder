@@ -54,46 +54,16 @@ export default function ResumeModal() {
     }
   }, []);
 
-  const pdfOptions = {
-    unit: "mm",
-    format: "a4",
-    orientation: "portrait", // or 'landscape'
-    fileName: "Easyryt.pdf",
-  };
 
-  const exportHTML = () => {
-    const header =
-      "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
-      "xmlns:w='urn:schemas-microsoft-com:office:word' " +
-      "xmlns='http://www.w3.org/TR/REC-html40'>" +
-      "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title></head><body>";
-    const footer = '</body></html>';
 
-    const sourceHTML =
-      header + document.getElementById('content').innerHTML + footer;
 
-    const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-    const fileDownload = document.createElement('a');
-    document.body.appendChild(fileDownload);
-    fileDownload.href = source;
-    fileDownload.download = 'document.doc';
-    fileDownload.click();
-    document.body.removeChild(fileDownload);
-  };
 
   const handleFilterTemplates = (index) => {
     localStorage.setItem("templateid", JSON.stringify(index));
     setTemplateNo(index);
   }
 
-  const handleExportClick = () => {
-    const jsxCode = targetRef.current.textContent;
-    const element = document.createElement('a');
-    const file = new Blob([jsxCode], { type: 'text/plain' });
-    element.href = URL.createObjectURL(file);
-    element.download = 'exported-jsx.txt';
-    element.click();
-  };
+  
 
   return (
     <div>
@@ -112,11 +82,7 @@ export default function ResumeModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <button className={styles.download_btn} onClick={() => generatePDF(targetRef, pdfOptions)}>
-            Export to Pdf
-          </button>
-          <button className={styles.download_btn2} onClick={exportHTML}>Export to DOC</button>
-          <button className={styles.download_btn3} onClick={handleExportClick}>Export to txt</button>
+  
           <div className={styles.resume_container}>
             <button onClick={() => handleClose()} className={styles.Close_btn}>X</button>
             <div className={styles.resume}>

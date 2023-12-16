@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import style from "./Template_30.module.css";
+import styles from "./Template_30.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -26,6 +26,10 @@ import {
   fontSizeState,
   imageSizeState,
 } from "../../../Recoil";
+import downloadimg from "../../Images/download.gif"
+import downloadpdf from "../../Images/pdf-download-2617.svg"
+import downloaddoc from "../../Images/google-docs-icon-2.svg"
+import downloadtext from "../../Images/icons8-text-500.svg"
 
 
 const PDFRenderer = ({ htmlContent }) => {
@@ -49,6 +53,7 @@ const Template_30= () => {
   const [base64Image3, setBase64Image3] = useState('');
   const [base64Image4, setBase64Image4] = useState('');
   const [base64Image5, setBase64Image5] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   console.log(formData.resume, "resume data");
 
@@ -401,13 +406,121 @@ width: 72%;
     }
   };
 
+
+  const ResumeModal = ({ isOpen, onClose }) => {
+    if (!isOpen) {
+      return null;
+    }
+  
+    return (
+      <div className={styles.overlay}>
+        <div className={styles.modal}>
+  
+
+       {loading ?   
+       <div  className={styles.down_img_box}>
+           <img src={downloadimg } alt="downloading" />
+           {error && <p style={{ color: "red" }}>{error}</p>}
+       </div>
+       :
+       <div className={styles.download_box}>
+       <button className={styles.closeButton} onClick={onClose}>Close
+       </button>
+       <div  className={styles.down_btn_box}>
+       <div  onClick={handleResume} className={styles.icon_download}><img src={downloadpdf } alt="pdf"/>PDF</div>
+        <div  onClick={handleResume} className={styles.icon_download}><img src={downloaddoc } alt="doc"/> DOC</div>
+         <div  onClick={handleResume} className={styles.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
+       </div>
+       </div>
+       }
+         
+        
+
+        </div>
+      </div>
+    );
+  };
+
+  const handleDownloadClick = () => {
+    // Handle the download logic
+    // For now, let's just open the modal
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+
   return (
-    <div>
-    <button onClick={handleResume}>Download</button>
-    <br />
-    {loading && <p>Loading...</p>}
-    {error && <p style={{ color: "red" }}>{error}</p>}
-    <PDFRenderer htmlContent={getHTML()} />
+<div className={styles.main}>
+    <div className={styles.heading}>
+      <h1 style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
+      <p>{formData.resume.contact.email} | {formData.resume.contact.phone}</p>
+    </div>
+    <div className={styles.summary}>
+      <div className={styles.title_section}>
+        <h3>Professional Summary</h3>
+        <hr className={styles.line} />
+      </div>
+      <p className={styles.para}>
+        {formData.resume.summary}
+      </p>
+    </div>
+    <div className={styles.Skills}>
+      <div className={styles.title_section}>
+        <h3>Skills</h3>
+        <hr className={styles.line2} />
+      </div>
+      <ul>
+        {formData.resume.skillsAndLevel.map((item) => (
+          <li key={item.skills}>
+            <span>{item.skills}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className={styles.Experience}>
+      <div className={styles.title_section}>
+        <h3>Work History</h3>
+        <hr className={styles.line3} />
+      </div>
+      <ul className={styles.ul}>
+        {formData.resume.work.map((item, index) => (
+          <li key={index}>
+            <div className={styles.work_des}>
+              <div className={styles.work_info}>
+                <h4 className={styles.customerService}>{item?.title}</h4>
+                <h6 className={styles.company_name}>
+                  <span>{item?.company} - {item?.location}</span>
+                  <span>{item?.startDate} - {item?.endDate}</span>
+                </h6>
+              </div>
+              <div className={styles.des_info}>
+                <p>
+                  {item?.description}
+                </p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className={styles.Education}>
+      <div className={styles.title_section_edu}>
+        <h3>Education</h3>
+        <hr className={styles.line4} />
+      </div>
+      <ul>
+        {formData.resume.education.map((item, index) => (
+          <li key={index}>
+            <span>{item.startYear} - {item.endYear}</span>
+            <h4>{item.degree}</h4>
+            <span>{item.collegeName}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
   );
 };

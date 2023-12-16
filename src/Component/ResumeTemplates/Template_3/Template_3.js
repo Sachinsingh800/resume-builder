@@ -26,6 +26,10 @@ import {
   fontSizeState,
   imageSizeState,
 } from "../../../Recoil";
+import downloadimg from "../../Images/download.gif"
+import downloadpdf from "../../Images/pdf-download-2617.svg"
+import downloaddoc from "../../Images/google-docs-icon-2.svg"
+import downloadtext from "../../Images/icons8-text-500.svg"
 
 
 const PDFRenderer = ({ htmlContent }) => {
@@ -49,6 +53,7 @@ const Template_3= () => {
   const [base64Image3, setBase64Image3] = useState('');
   const [base64Image4, setBase64Image4] = useState('');
   const [base64Image5, setBase64Image5] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   console.log(formData.resume, "resume data");
 
@@ -533,12 +538,59 @@ gap:.8rem;
   };
 
 
+  const ResumeModal = ({ isOpen, onClose }) => {
+    if (!isOpen) {
+      return null;
+    }
+  
+    return (
+      <div className={style.overlay}>
+        <div className={style.modal}>
+  
 
+       {loading ?   
+       <div  className={style.down_img_box}>
+           <img src={downloadimg } alt="downloading" />
+           {error && <p style={{ color: "red" }}>{error}</p>}
+       </div>
+       :
+       <div className={style.download_box}>
+       <button className={style.closeButton} onClick={onClose}>Close
+       </button>
+       <div  className={style.down_btn_box}>
+       <div  onClick={handleResume} className={style.icon_download}><img src={downloadpdf } alt="pdf"/>PDF</div>
+        <div  onClick={handleResume} className={style.icon_download}><img src={downloaddoc } alt="doc"/> DOC</div>
+         <div  onClick={handleResume} className={style.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
+       </div>
+       </div>
+       }
+         
+        
+
+        </div>
+      </div>
+    );
+  };
+
+  const handleDownloadClick = () => {
+    // Handle the download logic
+    // For now, let's just open the modal
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
 
 
   return (
-<div className={style.main}>
+    <>
+         <div className={style.download_btn} >
+    <button onClick={handleDownloadClick}>Download</button>
+      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+    </div>
+    <div className={style.main}>
       <div className={`${style.Left_container} `} style={{ height: "1210px" ,backgroundColor:color ,color:color3}}>
         <div className={style.img_container}>
           <div className={style.img_box} style={{ height: imgSize, width: imgSize }}>
@@ -643,6 +695,8 @@ gap:.8rem;
         </div>
       </div>
     </div>
+    </>
+
   );
 };
 

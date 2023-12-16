@@ -15,6 +15,10 @@ import {
   fontSizeState,
   imageSizeState,
 } from "../../../Recoil";
+import downloadimg from "../../Images/download.gif"
+import downloadpdf from "../../Images/pdf-download-2617.svg"
+import downloaddoc from "../../Images/google-docs-icon-2.svg"
+import downloadtext from "../../Images/icons8-text-500.svg"
 
 const PDFRenderer = ({ htmlContent }) => {
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
@@ -34,6 +38,7 @@ const Template_25 = () => {
   const [error, setError] = useState("");
   const [base64Image1, setBase64Image1] = useState('');
   const [base64Image2, setBase64Image2] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   useEffect(() => {
     const imageLocations = [
@@ -440,6 +445,51 @@ const Template_25 = () => {
       setLoading(false);
       setError(error.message);
     }
+  };
+
+
+  const ResumeModal = ({ isOpen, onClose }) => {
+    if (!isOpen) {
+      return null;
+    }
+  
+    return (
+      <div className={styles.overlay}>
+        <div className={styles.modal}>
+  
+
+       {loading ?   
+       <div  className={styles.down_img_box}>
+           <img src={downloadimg } alt="downloading" />
+           {error && <p style={{ color: "red" }}>{error}</p>}
+       </div>
+       :
+       <div className={styles.download_box}>
+       <button className={styles.closeButton} onClick={onClose}>Close
+       </button>
+       <div  className={styles.down_btn_box}>
+       <div  onClick={handleResume} className={styles.icon_download}><img src={downloadpdf } alt="pdf"/>PDF</div>
+        <div  onClick={handleResume} className={styles.icon_download}><img src={downloaddoc } alt="doc"/> DOC</div>
+         <div  onClick={handleResume} className={styles.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
+       </div>
+       </div>
+       }
+         
+        
+
+        </div>
+      </div>
+    );
+  };
+
+  const handleDownloadClick = () => {
+    // Handle the download logic
+    // For now, let's just open the modal
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
