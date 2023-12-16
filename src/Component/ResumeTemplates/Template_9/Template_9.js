@@ -56,6 +56,7 @@ const Template_9= () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   console.log(formData.resume, "resume data");
+  console.log(fontSize, "fontsize");
 
   const handleDate = (data) => {
     console.log(data, "data");
@@ -307,7 +308,9 @@ const Template_9= () => {
     <div onclick="setTemplateNo(8)" class="main">
         <div class="heading">
             <div class="name">
-                <h1> ${formData.resume.name}</h1>
+                <h1  
+                style="font-family:${fontStyle}; font-size: ${fontSize}px; color: ${color2};"
+                > ${formData.resume.name}</h1>
                 <p>${formData.resume.jobTitle}</p>
             </div>
             <div class="contact_info">
@@ -330,7 +333,7 @@ const Template_9= () => {
             <ul>
             ${formData.resume.skillsAndLevel.map((item) => `
                  
-            <li style="color: color3;">
+            <li style="background-color:${color}; color:${color3};">
             <span>${item.skills}</span>
         </li>
   

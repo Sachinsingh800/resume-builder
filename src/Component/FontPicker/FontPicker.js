@@ -7,16 +7,17 @@ function FontPicker() {
   const [selectedFont, setSelectedFont] = useRecoilState(fontState);
 
   const fontOptions = [
-    'Arial',
-    'Calibri',
-    'Helvetica',
-    'Times New Roman',
-    'Georgia',
-    'Garamond',
-    'Cambria',
-    'Verdana',
-    'Lato',
-    'Trebuchet MS',
+    'Arial, Helvetica, sans-serif',
+    'Times New Roman, Times, serif ',
+    'Georgia, Times New Roman, Times, serif',
+    'Cambria, Cochin, Georgia, Times, Times New Roman, serif',
+    'Verdana, Geneva, Tahoma, sans-serif',
+    'Palatino, Palatino Linotype, Book Antiqua, Georgia, serif',
+    'Arial Black, Gadget, sans-serif',
+    'Courier New, Courier, monospace',
+    'Century Gothic, sans-serif',
+    'Copperplate, Copperplate Gothic Light, fantasy',
+
   ];
 
   return (

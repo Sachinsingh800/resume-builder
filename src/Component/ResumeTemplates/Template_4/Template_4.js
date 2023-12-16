@@ -306,7 +306,7 @@ const Template_4= () => {
         <div class="main">
             <div class="left_section">
             <div class="name-box">
-            <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">${formData.resume.name}</h1>
+            <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name}</h1>
             <p>${formData.resume.jobTitle}</p>
             </div>
                 <div class="section">

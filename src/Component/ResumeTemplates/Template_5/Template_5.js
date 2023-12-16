@@ -397,7 +397,7 @@ background-color: orange;
         <div class="main">
             <div class="Left_container" style="background-color:white; color:${color3};">
                 <div class="img_container" >
-                    <div class="img_box" style="height: ${imgSize}; width: ${imgSize};background-color:${color2}; ">
+                    <div class="img_box" style="height: ${imgSize}px; width: ${imgSize}px; background-color:${color2}; ">
                         <!-- Use a placeholder image or replace the source with dynamic data -->
                         <img src=${base64Image3} alt="dp">
                     </div>
@@ -467,7 +467,7 @@ background-color: orange;
             <div>
                 <div class="objectiveHeader" style="background-color: ;">
                     <span class="design3" style="background-color:${color2}"> &nbsp; </span>
-                    <h1 class="person_name" style="font-family: 'YourFont', sans-serif;  color: black;">
+                    <h1 class="person_name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
                     ${formData.resume.name}
                     </h1>
                     <p class="objectiveText">

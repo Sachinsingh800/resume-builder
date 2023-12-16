@@ -386,7 +386,7 @@ gap:.8rem;
         <div class="main">
             <div class="Left_container" style="background-color: ${color}; color: ${color3};  height: 1210px;">
                 <div class="img_container">
-                    <div class="img_box" style="height: ${imgSize}; width: ${imgSize};">
+                    <div class="img_box" style="height: ${imgSize}px; width: ${imgSize}px;">
                         <img src=${base64Image3} alt="dp">
                     </div>
                 </div>
@@ -462,7 +462,7 @@ gap:.8rem;
     
             <div>
                 <div class="objectiveHeader">
-                    <h1 class="person_name"  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">
+                    <h1 class="person_name"  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
                     ${formData.resume.name}
                     </h1>
                     <p class="objectiveText"> ${formData.resume.jobTitle}</p>

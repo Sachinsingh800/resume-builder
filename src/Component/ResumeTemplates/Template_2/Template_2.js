@@ -320,7 +320,7 @@ const Template_2= () => {
     <div class="main">
         <div class="Left_container" style="background-color:${color}; color:${color3};">
             <div class="name_container" style="background-color:${color2}; color:white;">
-                <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">
+                <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
                 ${formData.resume.name}
                 </h1>
                 <hr class="hr" />

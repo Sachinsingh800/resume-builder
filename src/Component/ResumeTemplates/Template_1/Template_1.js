@@ -316,7 +316,7 @@ hr{
             <div class="left_section" style="background-color: ${color}; color: ${color3};">
                 <div>
                     <div class="img_container">
-                        <div class="img_box" style="height: ${imgSize}; width: ${imgSize};">
+                        <div class="img_box" style="height: ${imgSize}px; width: ${imgSize}px;">
                             <!-- Replace the image source with your actual 
                             image URL -->
                             <img src=${base64Image3} alt="dp" />
@@ -360,7 +360,7 @@ hr{
     
             <div class="right_section">
                 <div class="heading" style="background-color:${color2};">
-                    <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">
+                    <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
                      ${formData.resume.name}
                     </h1>
                 </div>

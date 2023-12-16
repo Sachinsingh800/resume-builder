@@ -395,7 +395,7 @@ const Template_6= () => {
         <div class="main">
             <div class="Left_container" style="background-color:${color}; color:${color3};">
                 <div class="img_container">
-                    <div class="img_box" style="height: ${imgSize}; width: ${imgSize};">
+                    <div class="img_box" style="height: ${imgSize}px; width: ${imgSize}px;">
                         <img src=${base64Image3}
                             alt="dp">
                     </div>
@@ -468,7 +468,7 @@ const Template_6= () => {
             </div>
             <div>
                 <div class="objectiveHeader" style="background-color: ${color2};">
-                    <h1 class="person_name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize};">
+                    <h1 class="person_name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
                     ${formData.resume.name}
                     </h1>
                     <p class="objectiveText"  style="color: ${color3}; ">
