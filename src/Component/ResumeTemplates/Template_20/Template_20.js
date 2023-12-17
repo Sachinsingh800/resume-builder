@@ -123,6 +123,148 @@ const Template_20= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+  
+.heading{
+display: flex;
+justify-content: space-between;
+width: 52rem; 
+padding: 1rem ;
+}
+.heading div{
+width: 50%;
+overflow: hidden;
+}
+.summary h2{
+border-top: 1px  rgb(112, 111, 111) solid;
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 90%;
+}
+.para{
+width: 96%;
+}
+.summary {
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+.Experience{
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+.Experience h3{
+
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 96%;
+}
+.Experience ul{
+width: 90%;
+}
+.Skills h2{
+
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 96%;
+
+}
+.Skills {
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+.Skills ul{
+width: 90%;
+
+margin-top:-1rem;
+margin-left:-6rem;
+
+}
+.Skills ul li{
+width: max-content;
+display: inline-table;
+padding: .5rem;
+margin: .5rem;
+border-radius: 5px;
+color: white!important;
+background-color: rgb(215, 168, 57);
+
+}
+
+.Eucation{
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+
+.Eucation h3{
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 96%;
+}
+
+.Eucation ul{
+width: 90%;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap:.5rem;
+margin-left:-4rem;
+}
+.Eucation ul li{
+display: flex;
+flex-direction: column;
+}
+.contact_info{
+display: flex;
+flex-direction: column;
+text-align: right;
+}
+.description_box{
+padding: 1rem;
+}
+.contact_info {
+height: 6rem;
+display:flex;
+flex-direction:column;
+
+}
+.contact_info p{
+margin:.1rem;
+}
+.work_des p{
+margin:.1rem;
+}
+.work_des h5,h3{
+margin:.1rem;
+}
+.ul{
+display:flex;
+flex-direction:column;
+gap:.2rem;
+margin-left:-3rem;
+}
+
+.edu_des h5,h4,p{
+margin:.1rem;
+}
+.name h1,p{
+margin:.1rem;
+}
+
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -134,154 +276,15 @@ const Template_20= () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="your-style.css">
         <title>Your Resume</title>
-        <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            box-sizing: border-box;
-            background-color: white;
-        }
-        .main {
-            width: 850px;
-            height: 1130px;
-            background-color: white;
-        }
-        
-    .heading{
-      display: flex;
-      justify-content: space-between;
-      width: 52rem; 
-      padding: 1rem ;
-  }
-  .heading div{
-      width: 50%;
-      overflow: hidden;
-  }
-  .summary h2{
-      border-top: 1px  rgb(112, 111, 111) solid;
-      border-bottom: 1px rgb(112, 111, 111) solid;
-      width: 90%;
-  }
-  .para{
-      width: 96%;
-  }
-  .summary {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
-  .Experience{
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
-  .Experience h3{
-
-      border-bottom: 1px rgb(112, 111, 111) solid;
-      width: 96%;
-  }
-  .Experience ul{
-      width: 90%;
-  }
-  .Skills h2{
-
-      border-bottom: 1px rgb(112, 111, 111) solid;
-      width: 96%;
-    
-  }
-  .Skills {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
-  .Skills ul{
-      width: 90%;
-      
-      margin-top:-1rem;
-      margin-left:-6rem;
      
-  }
-  .Skills ul li{
-     width: max-content;
-      display: inline-table;
-      padding: .5rem;
-      margin: .5rem;
-      border-radius: 5px;
-      color: white!important;
-      background-color: rgb(215, 168, 57);
-      
-  }
-
-  .Eucation{
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
-
-  .Eucation h3{
-      border-bottom: 1px rgb(112, 111, 111) solid;
-      width: 96%;
-  }
-
-  .Eucation ul{
-      width: 90%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap:.5rem;
-      margin-left:-4rem;
-  }
-  .Eucation ul li{
-      display: flex;
-      flex-direction: column;
-  }
-  .contact_info{
-      display: flex;
-      flex-direction: column;
-      text-align: right;
-  }
-  .description_box{
-      padding: 1rem;
-  }
-  .contact_info {
-    height: 6rem;
-    display:flex;
-    flex-direction:column;
-  
-}
-.contact_info p{
-  margin:.1rem;
-}
-.work_des p{
-  margin:.1rem;
-}
-.work_des h5,h3{
-  margin:.1rem;
-}
-.ul{
-  display:flex;
-  flex-direction:column;
-  gap:.2rem;
-  margin-left:-3rem;
-}
-
-.edu_des h5,h4,p{
-  margin:.1rem;
-}
-.name h1,p{
-  margin:.1rem;
-}
-
-        </style>
     </head>
     
     <body>
         <div class="main">
             <div class="heading">
                 <div class="name">
-                    <h1>${formData.resume.name} </h1>
-                    <p>${formData.resume.jobTitle}</p>
+                    <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name} </h1>
+                    <p style="color: ${color3};">${formData.resume.jobTitle}</p>
                 </div>
                 <div class="contact_info">
                     <p>${formData.resume.contact.email}</p>
@@ -301,7 +304,7 @@ const Template_20= () => {
                 <h2>RELEVANT SKILLS</h2>
                 <ul class="skill-list">
                 ${formData.resume.skillsAndLevel.map((item) => `
-                <li style="color: #333;"><span>${item.skills}</span></li>
+                <li style="background-color:${color2}; color: ${color3}; "><span>${item.skills}</span></li>
                 `)}
                 </ul>
             </div>
@@ -352,23 +355,26 @@ const Template_20= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -439,7 +445,7 @@ const Template_20= () => {
     <div className={styles.heading}>
       <div className={styles.name}>
         <h1  style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
-        <p>{formData.resume.jobTitle}</p>
+        <p style={{color:color3}}>{formData.resume.jobTitle}</p>
       </div>
       <div className={styles.contact_info}>
         <p>{formData.resume.contact.email}</p>

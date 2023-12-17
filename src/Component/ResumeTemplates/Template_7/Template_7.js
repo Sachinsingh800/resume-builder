@@ -123,6 +123,90 @@ const Template_7= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+.heading{
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+height: 5rem;
+width: 52rem; 
+}
+.summary h2{
+border-top: 1px  rgb(112, 111, 111) solid;
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 90%;
+}
+.para{
+width: 90%;
+
+}
+.summary {
+display: flex;
+align-items: center;
+flex-direction: column;
+
+}
+.Experience{
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+.Experience h2{
+border-top: 1px  rgb(112, 111, 111) solid;
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 90%;
+}
+.Experience ul{
+width: 90%;
+}
+.ul {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap:.5rem;
+}
+.Skills h2{
+border-top: 1px  rgb(112, 111, 111) solid;
+border-bottom: 1px rgb(112, 111, 111) solid;
+width: 90%
+}
+.Skills {
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+.Skills ul{
+width: 90%;
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+.heading h1,p{
+margin:0rem;
+}
+.ul{
+margin-left:-1rem;
+margin-top:-1rem;
+}
+.work_des h3,h5{
+margin:0rem;
+}
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -134,88 +218,7 @@ const Template_7= () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Resume</title>
         <!-- Include any necessary stylesheets or meta tags here -->
-        <style>
-        body {
-          font-family: 'Arial', sans-serif;
-          margin: 0;
-          padding: 0;
-          background-color: #f0f0f0;
-          box-sizing: border-box;
-          background-color: white;
-      }
 
-      .main {
-          width: 850px;
-          height: 1130px;
-          background-color: white;
-      }
-.heading{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  height: 5rem;
-  width: 52rem; 
-}
-.summary h2{
-  border-top: 1px  rgb(112, 111, 111) solid;
-  border-bottom: 1px rgb(112, 111, 111) solid;
-  width: 90%;
-}
-.para{
-  width: 90%;
- 
-}
-.summary {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-}
-.Experience{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.Experience h2{
-  border-top: 1px  rgb(112, 111, 111) solid;
-  border-bottom: 1px rgb(112, 111, 111) solid;
-  width: 90%;
-}
-.Experience ul{
-  width: 90%;
-}
-.ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap:.5rem;
-}
-.Skills h2{
-  border-top: 1px  rgb(112, 111, 111) solid;
-  border-bottom: 1px rgb(112, 111, 111) solid;
-  width: 90%
-}
-.Skills {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.Skills ul{
-  width: 90%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.heading h1,p{
- margin:0rem;
-}
-.ul{
-  margin-left:-1rem;
-  margin-top:-1rem;
-}
-.work_des h3,h5{
-  margin:0rem;
-}
-        </style>
     </head>
     
     <body>
@@ -288,23 +291,26 @@ const Template_7= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

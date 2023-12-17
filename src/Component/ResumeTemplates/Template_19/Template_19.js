@@ -123,6 +123,241 @@ const Template_19= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+  
+.container{
+display: grid;
+grid-template-columns: 1fr 2fr;
+}
+.img_box{
+height: 7rem;
+width: 7rem;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+}
+.img_box img{
+height: 100%;
+width: 100%;
+}
+.left_section{
+display: flex;
+flex-direction: column;
+padding: 2rem 1rem;
+gap: 2rem;
+text-align: left;
+border-left:1px black solid ;
+margin: .5rem 0rem;
+height: 1000px;
+}
+
+.info_box{
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem 1rem;
+}
+.education{
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem 1rem;
+}
+.img_container{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.right_section{
+display: flex;
+flex-direction: column;
+gap: .5rem;
+padding: 2rem 1rem;
+height: 1000px;
+}
+.right_section p{
+width: 95%!important;
+display: flex;
+flex-direction: column;
+text-align: left;
+list-style: none;
+
+}
+.right_section ul li{
+margin-left:1.5rem ;
+
+}
+.right_section ul li {
+width: 95%!important;
+}
+.work_history{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+.heading{
+
+padding: 3rem 1rem;
+}
+
+.certifications{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+.skills{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+
+}
+.skills ul{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+}
+.professional_summary{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+.work{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+hr{
+margin-left: 1rem;
+}
+.info_box p{
+display: flex;
+gap: .5rem;
+align-items: center;
+}
+.certifications ul{
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+}
+.header{
+background-color: rgb(215, 213, 213);
+height: 8rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0rem 1rem;
+}
+.img_box{
+border-radius: 50%;
+margin-left: 2rem;
+}
+.section{
+display: flex;
+flex-direction: column;
+gap: .5rem;
+border-bottom: 1px black solid;
+padding-bottom:.5rem ;
+}
+.work_entry{
+display: grid;
+grid-template-columns: 1fr;
+margin-top:-1rem;
+gap:.5rem;
+}
+.section_title{
+display: flex;
+align-items: center;
+gap: 2.7rem;
+
+}
+.title_{
+display: flex;
+justify-content: space-between;
+width: 90%;
+}
+.description{
+width: 25rem;
+}
+.contact_value{
+display: flex;
+align-items: center;
+gap: .2rem;
+
+}
+.name_box{
+width: 75%;
+}
+
+.contact_label{
+font-size: small;
+}
+.contact_info{
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+.skills_list{
+display: flex;
+flex-direction: column;
+gap: .5rem;
+padding-top: 1rem;
+}
+.name_box h1,h5{
+margin:0;
+}
+.divider{
+margin-left:-1rem;
+margin-top:-1.5rem;
+}
+.work_entry p,h4{
+margin:0;
+}
+.contact_value p{
+margin:0rem;
+}
+.skills_list{
+margin-left:-2.5rem;
+margin-top:-1.5rem;
+}
+.section-content{
+margin-top:-1rem;
+}
+.work_expe{
+display: grid;
+grid-template-columns: 1fr;
+margin-top:-1rem;
+}
+.work-info p{
+margin:0rem;
+}
+.icon{
+height:1rem;
+width:1rem;
+}
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -134,248 +369,16 @@ const Template_19= () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="your-style.css">
         <title>Your Resume</title>
-        <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            box-sizing: border-box;
-            background-color: white;
-        }
-        .main {
-            width: 850px;
-            height: 1130px;
-            background-color: white;
-        }
-        
-.container{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-}
-.img_box{
-  height: 7rem;
-  width: 7rem;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-.img_box img{
-  height: 100%;
-  width: 100%;
-}
-.left_section{
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
-  gap: 2rem;
-  text-align: left;
-  border-left:1px black solid ;
-  margin: .5rem 0rem;
-  height: 1000px;
-}
 
-.info_box{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1rem;
-}
-.education{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1rem;
-}
-.img_container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.right_section{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
- padding: 2rem 1rem;
- height: 1000px;
-}
-.right_section p{
-  width: 95%!important;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  list-style: none;
- 
-}
-.right_section ul li{
-  margin-left:1.5rem ;
- 
-}
-.right_section ul li {
-  width: 95%!important;
-}
-.work_history{
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.heading{
- 
-  padding: 3rem 1rem;
-}
-
-.certifications{
-padding: 1rem;
-display: flex;
-flex-direction: column;
-gap: .5rem;
-}
-.skills{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-
-}
-.skills ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.professional_summary{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-.work{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-hr{
-  margin-left: 1rem;
-}
-.info_box p{
-  display: flex;
-  gap: .5rem;
-  align-items: center;
-}
-.certifications ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.header{
- background-color: rgb(215, 213, 213);
-  height: 8rem;
-  display: flex;
-align-items: center;
-  justify-content: space-between;
-  padding: 0rem 1rem;
-}
-.img_box{
-   border-radius: 50%;
-  margin-left: 2rem;
-}
-.section{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  border-bottom: 1px black solid;
-  padding-bottom:.5rem ;
-}
-.work_entry{
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-top:-1rem;
-  gap:.5rem;
-}
-.section_title{
-   display: flex;
-   align-items: center;
-   gap: 2.7rem;
-
-}
-.title_{
-   display: flex;
-   justify-content: space-between;
-   width: 90%;
-}
-.description{
-   width: 25rem;
-}
-.contact_value{
-   display: flex;
-   align-items: center;
-   gap: .2rem;
-
-}
-.name_box{
-   width: 75%;
-}
-
-.contact_label{
-   font-size: small;
-}
-.contact_info{
- display: flex;
- flex-direction: column;
- gap: .5rem;
-}
-.skills_list{
-display: flex;
-flex-direction: column;
-gap: .5rem;
-padding-top: 1rem;
-}
-.name_box h1,h5{
-  margin:0;
-}
-.divider{
-margin-left:-1rem;
-margin-top:-1.5rem;
-}
-.work_entry p,h4{
-  margin:0;
-}
-.contact_value p{
-  margin:0rem;
-}
-.skills_list{
-  margin-left:-2.5rem;
-margin-top:-1.5rem;
-}
-.section-content{
-  margin-top:-1rem;
-}
-.work_expe{
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-top:-1rem;
-}
-.work-info p{
-  margin:0rem;
-}
-.icon{
-  height:1rem;
-  width:1rem;
-}
-        </style>
        
     </head>
     
     <body>
         <div class="main">
-            <div class="header">
+            <div class="header"  style="background-color:${color}; color: ${color3}; ">
                 <div class="name_box">
-                    <h1 class="name">${formData.resume.name} </h1>
-                    <h5 class="name">${formData.resume.jobTitle}</h5>
+                    <h1 class="name"  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name} </h1>
+                    <h5 class="name" style="color: ${color3};">${formData.resume.jobTitle}</h5>
                 </div>
             </div>
             <div class="container">
@@ -493,23 +496,26 @@ margin-top:-1.5rem;
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

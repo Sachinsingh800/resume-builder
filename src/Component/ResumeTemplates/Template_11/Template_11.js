@@ -124,6 +124,114 @@ const Template_11= () => {
   }, []);
   
 
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+  }
+
+  .Left_container {
+      display: flex;
+      flex-direction: column;
+      background-color: grey;
+      color: white;
+      height: 1130px;
+  }
+
+  .objectiveHeader {
+      padding: 1rem;
+  }
+
+  .person_name {
+      color: white;
+      font-family: 'YourFont', sans-serif;
+    
+  }
+
+  .objectiveText {
+      font-size: 18px;
+  }
+
+  .info_box {
+      padding: 1rem;
+  }
+
+  .contactInfo {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+  }
+
+  label {
+      font-weight: bold;
+      margin-right: 0.5rem;
+      font-size: .8rem;
+  }
+
+  .skillsHeader {
+      padding: 1rem;
+  }
+
+  ul {
+      list-style: none;
+      padding: 0;
+  }
+
+  li {
+      margin-bottom: 0.5rem;
+  }
+
+  .ProgressBar {
+      background-color: orange;
+      height: 5px;
+  }
+
+  .skillsHeader2 {
+      padding: 1rem;
+  }
+
+  .professionalSkillsHeader {
+      padding: 1rem;
+  }
+
+  .work_des {
+      padding: 1rem;
+  }
+
+  .education {
+      list-style: none;
+      padding: 0;
+  }
+  .objectiveHeader h1,p{
+      margin:0rem;
+  }
+  .exp-ul{
+      margin-top:-1rem;
+  }
+  .edu-ul h4,span{
+      margin:0rem;
+  }
+  .edu-ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
+  }
+  .work_des h4,h5,p{
+    margin:0rem;
+  }
+    `
+  }
+
   const getHTML = () => {
     return `
     <!DOCTYPE html>
@@ -132,112 +240,7 @@ const Template_11= () => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f0f0f0;
-                box-sizing: border-box;
-                background-color: white;
-            }
-    
-            .main {
-                display: grid;
-                grid-template-columns: 1fr 2fr;
-            }
-    
-            .Left_container {
-                display: flex;
-                flex-direction: column;
-                background-color: grey;
-                color: white;
-                height: 1130px;
-            }
-    
-            .objectiveHeader {
-                padding: 1rem;
-            }
-    
-            .person_name {
-                color: white;
-                font-family: 'YourFont', sans-serif;
-              
-            }
-    
-            .objectiveText {
-                font-size: 18px;
-            }
-    
-            .info_box {
-                padding: 1rem;
-            }
-    
-            .contactInfo {
-                display: flex;
-                gap: 0.5rem;
-                margin-bottom: 0.5rem;
-            }
-    
-            label {
-                font-weight: bold;
-                margin-right: 0.5rem;
-                font-size: .8rem;
-            }
-    
-            .skillsHeader {
-                padding: 1rem;
-            }
-    
-            ul {
-                list-style: none;
-                padding: 0;
-            }
-    
-            li {
-                margin-bottom: 0.5rem;
-            }
-    
-            .ProgressBar {
-                background-color: orange;
-                height: 5px;
-            }
-    
-            .skillsHeader2 {
-                padding: 1rem;
-            }
-    
-            .professionalSkillsHeader {
-                padding: 1rem;
-            }
-    
-            .work_des {
-                padding: 1rem;
-            }
-    
-            .education {
-                list-style: none;
-                padding: 0;
-            }
-            .objectiveHeader h1,p{
-                margin:0rem;
-            }
-            .exp-ul{
-                margin-top:-1rem;
-            }
-            .edu-ul h4,span{
-                margin:0rem;
-            }
-            .edu-ul {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap:1rem;
-            }
-            .work_des h4,h5,p{
-              margin:0rem;
-            }
 
-        </style>
         <title>Your Page Title</title>
     </head>
     
@@ -347,23 +350,26 @@ const Template_11= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

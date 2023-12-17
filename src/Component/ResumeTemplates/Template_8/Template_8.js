@@ -123,6 +123,136 @@ const Template_8= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      width: 850px;
+      height: auto;
+      background-color: white;
+  }
+
+  .heading{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 5rem;
+    width: 52rem; 
+ 
+}
+.heading h1,p{
+  margin:0rem;
+}
+.summary h2{
+    background-color:rgb(211, 211, 211)  ;
+    padding: 0rem .5rem;
+    width: 90%;
+  font-weight:100;
+}
+.para{
+    width: 90%;
+}
+.summary {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Experience{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+ 
+}
+.Experience h2{
+    background-color:rgb(211, 211, 211)  ;
+    padding: 0rem .5rem;
+    width: 90%;
+}
+.Experience ul{
+    width: 90%;
+    list-style: none;
+    margin-top:-1rem;
+   
+}
+.Experience ul li{
+  margin:1rem;
+
+  margin-left:-1rem;
+}
+.Skills h2{
+  background-color:rgb(211, 211, 211)  ;
+  padding: 0rem .5rem;
+  width: 90%;
+font-weight:100;
+}
+.Skills {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin:0rem;
+}
+.Skills ul{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ 
+    margin-top:-.5rem;
+}
+.Skills ul li{
+    padding: 1rem;
+    margin-left: 1rem;
+    margin:0rem;
+}
+.work_des {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+}
+
+.Education {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  align-items: center;
+  width: 850px;
+}
+
+.Education  h2{
+background-color:rgb(211, 211, 211)  ;
+padding: 0rem .5rem;
+width: 90%;
+}
+
+.Education ul {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 10px; /* Adjusted from 1rem to pixels based on your requirement */
+  gap: 15px; /* Adjusted from 1rem to pixels based on your requirement */
+  margin-top:-.5rem;
+}
+
+.Education ul li {
+  display: flex;
+  flex-direction: column;
+}
+.edu_des h5,h4,p{
+  margin:.1rem;
+}
+.work  h5,h4,p{
+  margin:.1rem;
+}
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -133,134 +263,7 @@ const Template_8= () => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Resume</title>
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f0f0f0;
-                box-sizing: border-box;
-                background-color: white;
-            }
-    
-            .main {
-                width: 850px;
-                height: auto;
-                background-color: white;
-            }
-    
-            .heading{
-              display: flex;
-              align-items: center;
-              flex-direction: column;
-              justify-content: center;
-              height: 5rem;
-              width: 52rem; 
-           
-          }
-          .heading h1,p{
-            margin:0rem;
-          }
-          .summary h2{
-              background-color:rgb(211, 211, 211)  ;
-              padding: 0rem .5rem;
-              width: 90%;
-            font-weight:100;
-          }
-          .para{
-              width: 90%;
-          }
-          .summary {
-              display: flex;
-              align-items: center;
-              flex-direction: column;
-          }
-          .Experience{
-              display: flex;
-              align-items: center;
-              flex-direction: column;
-           
-          }
-          .Experience h2{
-              background-color:rgb(211, 211, 211)  ;
-              padding: 0rem .5rem;
-              width: 90%;
-          }
-          .Experience ul{
-              width: 90%;
-              list-style: none;
-              margin-top:-1rem;
-             
-          }
-          .Experience ul li{
-            margin:1rem;
-         
-            margin-left:-1rem;
-          }
-          .Skills h2{
-            background-color:rgb(211, 211, 211)  ;
-            padding: 0rem .5rem;
-            width: 90%;
-          font-weight:100;
-          }
-          .Skills {
-              display: flex;
-              align-items: center;
-              flex-direction: column;
-              margin:0rem;
-          }
-          .Skills ul{
-              width: 90%;
-              display: grid;
-              grid-template-columns: 1fr 1fr;
-           
-              margin-top:-.5rem;
-          }
-          .Skills ul li{
-              padding: 1rem;
-              margin-left: 1rem;
-              margin:0rem;
-          }
-          .work_des {
-              display: grid;
-              grid-template-columns: 1fr 2fr;
-      
-          }
-        
-          .Education {
-            display: flex;
-            flex-direction: column;
-            gap: 0rem;
-            align-items: center;
-            width: 850px;
-        }
 
-        .Education  h2{
-          background-color:rgb(211, 211, 211)  ;
-          padding: 0rem .5rem;
-          width: 90%;
-      }
-
-        .Education ul {
-            width: 90%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding-left: 10px; /* Adjusted from 1rem to pixels based on your requirement */
-            gap: 15px; /* Adjusted from 1rem to pixels based on your requirement */
-            margin-top:-.5rem;
-        }
-
-        .Education ul li {
-            display: flex;
-            flex-direction: column;
-        }
-          .edu_des h5,h4,p{
-            margin:.1rem;
-          }
-          .work  h5,h4,p{
-            margin:.1rem;
-          }
-        </style>
     </head>
     
     <body>
@@ -335,23 +338,26 @@ const Template_8= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

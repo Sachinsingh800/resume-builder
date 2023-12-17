@@ -123,6 +123,97 @@ const Template_10= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+      padding:1rem;
+  }
+  .heading{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 5rem;
+      width: 52rem; 
+  }
+  .summary h3{
+      width: 90%;
+  }
+  .para{
+      width: 90%;
+  }
+  .summary {
+      display: flex;
+    
+      flex-direction: column;
+  }
+  .Experience{
+      display: flex;
+    
+      flex-direction: column;
+  }
+  .Experience h3{
+      width: 90%;
+  }
+  .Experience ul{
+      width: 90%;
+      
+  }
+  .Skills h3{
+
+      width: 90%
+  }
+  .Skills {
+      display: flex;
+    
+      flex-direction: column;
+  }
+  .Skills ul{
+      width: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-left: 1rem;
+  }
+  .customerService{
+      display: flex;
+      justify-content: space-between;
+    
+  }
+ 
+  .heading h1,h3,p{
+    margin:0rem;
+  }
+  .education h5{
+    margin:0rem;
+  }
+  .work-des h4,p,h6{
+    margin:0rem!important;
+  }
+  .edu-ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:.5rem;
+    margin-left:-1.2rem;
+  }
+  .work-ul{
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap:.5rem;
+    margin-left:-1.2rem;
+  }
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -133,95 +224,7 @@ const Template_10= () => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css"> 
-        <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            box-sizing: border-box;
-            background-color: white;
-        }
 
-        .main {
-            width: 850px;
-            height: 1130px;
-            background-color: white;
-            padding:1rem;
-        }
-        .heading{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 5rem;
-            width: 52rem; 
-        }
-        .summary h3{
-            width: 90%;
-        }
-        .para{
-            width: 90%;
-        }
-        .summary {
-            display: flex;
-          
-            flex-direction: column;
-        }
-        .Experience{
-            display: flex;
-          
-            flex-direction: column;
-        }
-        .Experience h3{
-            width: 90%;
-        }
-        .Experience ul{
-            width: 90%;
-            
-        }
-        .Skills h3{
-    
-            width: 90%
-        }
-        .Skills {
-            display: flex;
-          
-            flex-direction: column;
-        }
-        .Skills ul{
-            width: 90%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding-left: 1rem;
-        }
-        .customerService{
-            display: flex;
-            justify-content: space-between;
-          
-        }
-       
-        .heading h1,h3,p{
-          margin:0rem;
-        }
-        .education h5{
-          margin:0rem;
-        }
-        .work-des h4,p,h6{
-          margin:0rem!important;
-        }
-        .edu-ul{
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap:.5rem;
-          margin-left:-1.2rem;
-        }
-        .work-ul{
-          display: grid;
-          grid-template-columns: 1fr ;
-          gap:.5rem;
-          margin-left:-1.2rem;
-        }
-        </style>
      
         <title>Your Page Title</title>
     </head>
@@ -293,23 +296,26 @@ const Template_10= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

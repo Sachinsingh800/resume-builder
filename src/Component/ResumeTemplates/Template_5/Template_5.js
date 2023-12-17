@@ -123,6 +123,264 @@ const Template_5= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+  }
+  
+.Left_container{
+display: flex;
+flex-direction: column;
+height: 1210px;
+}
+
+.container {
+padding: 13px 0 0 0;
+
+}
+
+.name {
+color: white;
+}
+
+.hr {
+margin-left: 0.5rem ; /* 0.5rem */
+margin-right: 4.375rem; /* 4.375rem */
+color:white;
+}
+
+
+
+
+.email {
+color: white;
+}
+
+.phoneIcon {
+font-size: 12px;
+}
+
+
+.contactInfo {
+display: flex;
+gap: 1rem;
+padding: .5rem;
+
+
+}
+.skillsHeader {
+
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+
+.skillsHeader h3{
+padding: 0rem 1rem;
+background-color: aliceblue;
+}
+
+.skillsHeader ul{
+list-style: none;
+padding: 0rem 2rem 0rem 1rem;
+
+}
+.skillsHeader ul li{
+display: flex;
+flex-direction: column;
+
+}
+.skillsHeader2{
+padding: 0!important;
+}
+.skillsHeader2 p{
+margin: 1rem;
+}
+.skillsHeader2 h2{
+display: flex;
+align-items: center;
+gap: .5rem;
+padding: .5rem 2rem;
+font-weight: 400;
+}
+.skillsHeader2 ul{
+margin-left: 1.5rem;
+}
+.professionalSkillsHeader ul{
+margin-left: 1.5rem;
+}
+
+.info_box{
+display: flex;
+flex-direction: column;
+gap: .5rem;
+padding: 0rem 2rem;
+}
+.info_box h3{
+margin-left: .5rem;
+}
+
+.educationHeader{
+padding: 1.5rem;
+}
+.objectiveHeader{
+padding: 1.5rem;
+height: 10rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: .5rem;
+margin-bottom: 1rem;
+}
+.workHeader{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: .5rem;
+}
+.skillsHeader2{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: .5rem;
+}
+.professionalSkillsHeader{
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 1rem;
+}
+.professionalSkillsHeader h2{
+display: flex;
+align-items: center;
+gap: .5rem;
+padding: .5rem 2rem;
+font-weight: 400;
+}
+.img_container{
+padding: .4rem;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.img_box{
+height: 10rem;
+width: 10rem;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background-color: orange;
+padding: .3rem;
+}
+.img_box img{
+height: 100%;
+width: 100%;
+border-radius: 50%;
+}
+.person_name{
+font-size: 3rem;
+}
+.person_name span{
+color: #2e89ba;
+}
+.company_name{
+display: flex;
+justify-content: space-between;
+color: #2e89ba;
+}
+.work_des{
+display: flex;
+flex-direction: column;
+gap:.5rem ;
+padding: 0rem 1rem;
+}
+.img_container{
+display: flex;
+align-items: center;
+justify-content: center;
+height: 10rem;
+}
+.skillsAndLevel{
+display: grid;
+grid-template-columns: 1fr 1fr ;
+gap: 1rem;
+padding: 1rem;
+}
+.skillsAndLevel li{
+
+overflow: hidden;
+}
+
+.design{
+background-color: orange;
+width: 1rem;
+height: 100%;
+}
+.design2{
+background-color: orange;
+width: 1rem;
+height: 4rem;
+}
+.design3{
+background-color: orange;
+width: 1rem;
+height: 13rem;
+position: absolute;
+margin-left: -1.5rem;
+}
+.title_box{
+display: flex;
+width: 100%;
+background-color: white;
+}
+.title_box2{
+display: flex;
+width: 100%;
+align-items:center ;
+gap: .5rem;
+}
+.contactInfo p{
+margin:0rem;
+}
+.objectiveHeader h1,p{
+margin:0rem;
+}
+.work_des h4,h5,p{
+margin:0rem;
+}
+.work-ul  {
+margin-left:-.5rem!important;
+flex-direction: column;
+display: flex;
+gap:.8rem;
+}
+
+.contact-list  div{
+flex-direction: column;
+display: flex;
+gap:.1rem;
+padding:.2rem!important ;
+margin-left:.8rem;
+}
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -133,262 +391,7 @@ const Template_5= () => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css"> 
-        <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            box-sizing: border-box;
-            background-color: white;
-        }
-        .main {
-            width: 850px;
-            height: 1130px;
-            background-color: white;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-        }
-        
-.Left_container{
-    display: flex;
-    flex-direction: column;
-    height: 1210px;
-}
-  
-  .container {
-    padding: 13px 0 0 0;
 
-  }
-  
-  .name {
-    color: white;
-  }
-  
-  .hr {
-    margin-left: 0.5rem ; /* 0.5rem */
-    margin-right: 4.375rem; /* 4.375rem */
-    color:white;
-  }
-  
-
-  
-
-  .email {
-    color: white;
-  }
-  
-  .phoneIcon {
-    font-size: 12px;
-  }
-
-  
-  .contactInfo {
-    display: flex;
-    gap: 1rem;
-    padding: .5rem;
-
-
-  }
-  .skillsHeader {
-    
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-  }
-
-  .skillsHeader h3{
-   padding: 0rem 1rem;
-    background-color: aliceblue;
-  }
-
-  .skillsHeader ul{
-   list-style: none;
-  padding: 0rem 2rem 0rem 1rem;
-
-  }
-  .skillsHeader ul li{
-display: flex;
-flex-direction: column;
-
-  }
-  .skillsHeader2{
-      padding: 0!important;
-  }
-  .skillsHeader2 p{
-    margin: 1rem;
-  }
-  .skillsHeader2 h2{
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .5rem 2rem;
-    font-weight: 400;
-  }
-  .skillsHeader2 ul{
-    margin-left: 1.5rem;
-  }
-  .professionalSkillsHeader ul{
-    margin-left: 1.5rem;
-  }
-
-  .info_box{
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    padding: 0rem 2rem;
-  }
-  .info_box h3{
-    margin-left: .5rem;
-  }
-  
-  .educationHeader{
-    padding: 1.5rem;
-  }
-  .objectiveHeader{
-    padding: 1.5rem;
-    height: 10rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: .5rem;
-   margin-bottom: 1rem;
-  }
-  .workHeader{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: .5rem;
-  }
-  .skillsHeader2{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: .5rem;
-  }
-  .professionalSkillsHeader{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .professionalSkillsHeader h2{
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .5rem 2rem;
-    font-weight: 400;
-  }
-  .img_container{
-  padding: .4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .img_box{
-    height: 10rem;
-    width: 10rem;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: orange;
-    padding: .3rem;
-}
-.img_box img{
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-}
-.person_name{
-  font-size: 3rem;
-}
-.person_name span{
-  color: #2e89ba;
-}
-.company_name{
-  display: flex;
-  justify-content: space-between;
-  color: #2e89ba;
-}
-.work_des{
-  display: flex;
-  flex-direction: column;
-  gap:.5rem ;
-  padding: 0rem 1rem;
-}
-.img_container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 10rem;
-}
-.skillsAndLevel{
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
-  gap: 1rem;
-  padding: 1rem;
-}
-.skillsAndLevel li{
-
-  overflow: hidden;
-}
-
-.design{
-background-color: orange;
-  width: 1rem;
-  height: 100%;
-}
-.design2{
-background-color: orange;
-  width: 1rem;
-  height: 4rem;
-}
-.design3{
-background-color: orange;
-  width: 1rem;
-  height: 13rem;
-  position: absolute;
-  margin-left: -1.5rem;
-}
-.title_box{
-  display: flex;
-  width: 100%;
-  background-color: white;
-}
-.title_box2{
-  display: flex;
-  width: 100%;
- align-items:center ;
- gap: .5rem;
-}
-.contactInfo p{
-    margin:0rem;
-}
-.objectiveHeader h1,p{
-    margin:0rem;
-}
-.work_des h4,h5,p{
-    margin:0rem;
-}
-.work-ul  {
-    margin-left:-.5rem!important;
-    flex-direction: column;
-    display: flex;
-    gap:.8rem;
-}
-
-.contact-list  div{
-  flex-direction: column;
-  display: flex;
-  gap:.1rem;
-  padding:.2rem!important ;
-  margin-left:.8rem;
-}
-        </style>
         
         <title>Your Page Title</title>
     </head>
@@ -537,23 +540,26 @@ background-color: orange;
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

@@ -123,6 +123,168 @@ const Template_30= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+  .heading{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 5rem;
+    width: 52rem; 
+}
+.summary h2{
+    background-color:rgb(211, 211, 211)  ;
+    padding: 0rem .5rem;
+    width: 90%;
+}
+.para{
+    width: 90%;
+}
+.summary {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Experience{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Experience h2{
+    background-color:rgb(211, 211, 211)  ;
+    padding: 0rem .5rem;
+    width: 90%;
+}
+.Experience ul{
+    width: 90%;
+    list-style: none;
+    display:flex;
+    flex-direction:column;
+    gap:.5rem;
+}
+.Skills h2{
+    padding: 0rem .5rem;
+    background-color:rgb(211, 211, 211)  ;
+    width: 90%
+}
+.Skills {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Skills ul{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.Skills ul li{
+    padding: .5rem;
+   
+}
+.work_des {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+}
+.Eucation{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Eucation h2{
+    padding: 0rem .5rem;
+    background-color:rgb(211, 211, 211)  ;
+    width: 90%
+}
+.Eucation ul{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.Eucation ul li{
+    display: flex;
+    flex-direction: column;
+}
+.title_section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+      margin-left:1rem;
+    overflow: hidden;
+}
+.line{
+   
+width: 60%;
+
+    border: 1px rgb(94, 93, 93) dotted;
+    margin-top: .4rem;
+}
+.line2{
+   
+width: 78%;
+
+    border: 1px rgb(94, 93, 93) dotted;
+    margin-top: .4rem;
+}
+.line3{
+   
+width: 72%;
+
+    border: 1px rgb(94, 93, 93) dotted;
+    margin-top: .4rem;
+}
+.line4 {
+  width: 70%;
+  border: 1px rgb(94, 93, 93) dotted;
+  margin-top: .4rem;
+}
+.title_section h3{
+   width: max-content;
+   background-color: white;
+   margin-left:2rem;
+}
+.heading p,h1{
+  margin:0rem;
+}
+.work-info h4,h6{
+  margin:0rem;
+}
+
+.des-info p{
+  margin:0rem;
+}
+.Education ul li  span,h4{
+  margin:0rem;
+}
+.Education ul  {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-left:2rem;
+}
+
+.ul{
+  margin-left:-2rem;
+}
+
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -132,175 +294,15 @@ const Template_30= () => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-        box-sizing: border-box;
-        background-color: white;
-    }
 
-    .main {
-        width: 850px;
-        height: 1130px;
-        background-color: white;
-    }
-    .heading{
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      height: 5rem;
-      width: 52rem; 
-  }
-  .summary h2{
-      background-color:rgb(211, 211, 211)  ;
-      padding: 0rem .5rem;
-      width: 90%;
-  }
-  .para{
-      width: 90%;
-  }
-  .summary {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
-  .Experience{
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
-  .Experience h2{
-      background-color:rgb(211, 211, 211)  ;
-      padding: 0rem .5rem;
-      width: 90%;
-  }
-  .Experience ul{
-      width: 90%;
-      list-style: none;
-      display:flex;
-      flex-direction:column;
-      gap:.5rem;
-  }
-  .Skills h2{
-      padding: 0rem .5rem;
-      background-color:rgb(211, 211, 211)  ;
-      width: 90%
-  }
-  .Skills {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
-  .Skills ul{
-      width: 90%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-  }
-  .Skills ul li{
-      padding: .5rem;
-     
-  }
-  .work_des {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-
-  }
-  .Eucation{
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-  }
-
-  .Eucation h2{
-      padding: 0rem .5rem;
-      background-color:rgb(211, 211, 211)  ;
-      width: 90%
-  }
-  .Eucation ul{
-      width: 90%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-  }
-  .Eucation ul li{
-      display: flex;
-      flex-direction: column;
-  }
-  .title_section{
-      width: 100%;
-      display: flex;
-      align-items: center;
-        margin-left:1rem;
-      overflow: hidden;
-  }
-  .line{
-     
-width: 60%;
- 
-      border: 1px rgb(94, 93, 93) dotted;
-      margin-top: .4rem;
-  }
-  .line2{
-     
-width: 78%;
- 
-      border: 1px rgb(94, 93, 93) dotted;
-      margin-top: .4rem;
-  }
-  .line3{
-     
-width: 72%;
- 
-      border: 1px rgb(94, 93, 93) dotted;
-      margin-top: .4rem;
-  }
-  .line4 {
-    width: 70%;
-    border: 1px rgb(94, 93, 93) dotted;
-    margin-top: .4rem;
-}
-  .title_section h3{
-     width: max-content;
-     background-color: white;
-     margin-left:2rem;
-  }
-  .heading p,h1{
-    margin:0rem;
-  }
-  .work-info h4,h6{
-    margin:0rem;
-  }
-
-  .des-info p{
-    margin:0rem;
-  }
-  .Education ul li  span,h4{
-    margin:0rem;
-  }
-  .Education ul  {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    margin-left:2rem;
-  }
-
-  .ul{
-    margin-left:-2rem;
-  }
-
-    </style>
     <title>Your Resume</title>
 </head>
 
 <body>
     <div class="main">
         <div class="heading">
-            <h1>${formData.resume.name}</h1>
-            <p>${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
+            <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name}</h1>
+            <p style="color: ${color3};">${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
         </div>
         <div class="summary">
             <div class="title_section">
@@ -377,23 +379,26 @@ width: 72%;
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

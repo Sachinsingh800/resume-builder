@@ -124,99 +124,95 @@ const Template_17= () => {
   }, []);
   
 
-  const getHTML = () => {
+  const getCSS = () =>{
     return `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-    <style>
     body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-        box-sizing: border-box;
-        background-color: white;
-    }
-    .main {
-        width: 850px;
-        height: 1130px;
-        background-color: white;
-    }
-    
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+  
 .container{
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+display: grid;
+grid-template-columns: 2fr 1fr;
 }
 .img_box{
-  height: 7rem;
-  width: 7rem;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+height: 7rem;
+width: 7rem;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
 }
 .img_box img{
-  height: 100%;
-  width: 100%;
+height: 100%;
+width: 100%;
 }
 .left_section{
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
-  gap: 2rem;
-  text-align: left;
+display: flex;
+flex-direction: column;
+padding: 2rem 1rem;
+gap: 2rem;
+text-align: left;
 }
 
 .info_box{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1rem;
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem 1rem;
 }
 .education{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1rem;
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem 1rem;
 }
 .img_container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .right_section{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
- padding: 2rem 1rem;
- height: 65.3rem;  
+display: flex;
+flex-direction: column;
+gap: .5rem;
+padding: 2rem 1rem;
+height: 65.3rem;  
 }
 .right_section p{
-  width: 95%!important;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  list-style: none;
- 
+width: 95%!important;
+display: flex;
+flex-direction: column;
+text-align: left;
+list-style: none;
+
 }
 .right_section ul li{
-  margin-left:1.5rem ;
- 
+margin-left:1.5rem ;
+
 }
 .right_section ul li {
-  width: 95%!important;
+width: 95%!important;
 }
 .work_history{
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
 }
 .heading{
-  padding: 3rem 1rem;
+padding: 3rem 1rem;
 }
 
 .certifications{
@@ -226,95 +222,95 @@ flex-direction: column;
 gap: .5rem;
 }
 .skills{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
 
 }
 .skills ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
 }
 .professional_summary{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
 }
 .work{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
 }
 hr{
-  margin-left: 1rem;
+margin-left: 1rem;
 }
 .info_box p{
-  display: flex;
-  gap: .5rem;
-  align-items: center;
+display: flex;
+gap: .5rem;
+align-items: center;
 }
 .certifications ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
 }
 .header{
-  height: 8rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0rem 1rem;
+height: 8rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 0rem 1rem;
 }
 .img_box{
-   border-radius: 50%;
-   margin-right: 4rem;
+ border-radius: 50%;
+ margin-right: 4rem;
 }
 .section{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
 }
 .work_entry{
-  display: grid;
-  grid-template-columns: 1fr ;
+display: grid;
+grid-template-columns: 1fr ;
 }
 .title_{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   width: 90%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ width: 90%;
 }
 .section_title{
-   display: flex;
-   align-items: center;
-   gap: 2.7rem;
+ display: flex;
+ align-items: center;
+ gap: 2.7rem;
 }
 .description{
-   width: 25rem;
+ width: 25rem;
 }
 .contact_value{
-   display: flex;
-   align-items: center;
+ display: flex;
+ align-items: center;
 
 }
 .contact_label{
-   font-size: small;
+ font-size: small;
 }
 .contact_info{
 display: grid;
 grid-template-columns: 1fr 1fr 1fr;
- gap: 0rem;
+gap: 0rem;
 }
 .contact_info div{
-  margin:0rem;
-  padding:.1rem;
+margin:0rem;
+padding:.1rem;
 }
 .contact_info div p{
-  margin:.3rem;
+margin:.3rem;
 }
 
 .skills_list{
@@ -326,47 +322,54 @@ padding-top: 1rem;
 margin-left: -1rem;
 }
 .ul{
-   display: flex;
-   flex-direction: column;
-   gap: .5rem;
-   list-style: none;
+ display: flex;
+ flex-direction: column;
+ gap: .5rem;
+ list-style: none;
 }
 .name-box h1,h5{
- margin:0rem;
+margin:0rem;
 }
 .contact_label{
-  margin:0rem;
-  boder:1px red solid;
+margin:0rem;
+boder:1px red solid;
 }
 .divider{
-  margin-left:-1rem;
-  margin-top:-1.5rem;
+margin-left:-1rem;
+margin-top:-1.5rem;
 }
 
 .section p{
-  margin:0rem;
+margin:0rem;
 }
 .ul {
-  margin-left:-2.4rem;
-  margin-top:-1rem;
+margin-left:-2.4rem;
+margin-top:-1rem;
 }
 .skills_list {
-  margin-left:-4rem;
-  margin-top:-1rem;
+margin-left:-4rem;
+margin-top:-1rem;
 }
 .icon{
-  height:1rem;
-  width:1rem;
+height:1rem;
+width:1rem;
 }
+    `
+  }
 
-</style>
+  const getHTML = () => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+
     </head>
     <body>
     <div class="main">
       <div class="header">
         <div class="name-box">
-          <h1 class="name">JESSICA CLAIRE</h1>
-          <h5 class="name">frontend Developer</h5>
+          <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name} </h1>
+          <h5 class="name" style="color: ${color3};">${formData.resume.jobTitle}</h5>
         </div>
         <div class="contact_info">
           <div class="contact_value">
@@ -507,23 +510,26 @@ margin-left: -1rem;
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -594,7 +600,7 @@ margin-left: -1rem;
     <div className={styles.header}>
       <div className={styles.name_box}>
         <h1 className={styles.name} style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
-        <h5 className={styles.name}>{formData.resume.jobTitle}</h5>
+        <h5 className={styles.name} style={{color:color3}}>{formData.resume.jobTitle}</h5>
       </div>
       <div className={styles.contact_info}>
         <div className={styles.contact_value}>

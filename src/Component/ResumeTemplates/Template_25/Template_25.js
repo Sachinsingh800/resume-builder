@@ -84,6 +84,135 @@ const Template_25 = () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+         box-sizing: border-box;
+    }
+
+    .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      height:8rem;
+    }
+
+    .name_box {
+      text-align: center;
+    }
+
+    .name {
+      color: white;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      padding: 20px;
+      // border:1px red solid;
+    }
+    .section {
+      margin-bottom: 20px;
+      // border:1px red solid;
+    }
+
+    .section_title {
+      position: relative;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .section_title span {
+      font-size: 1.2em;
+      margin-right: 5px;
+    }
+
+    .divider {
+      border: 1px solid #333;
+      margin: 5px 0;
+    }
+
+    .skills_list,
+    .ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills_list li,
+    .ul li {
+      margin-bottom: 5px;
+    }
+
+    .ul .work_entry {
+      margin-bottom: 10px;
+    }
+
+    .ul .title_ {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .ul .position,
+    .ul .degree {
+      margin: 0;
+    }
+
+    .university,
+    .company,
+    .date,
+    .description {
+      margin: 0;
+    }
+
+    .section-content {
+      line-height: 1.6;
+    }
+
+    .contact_info,
+    .work_entry,
+    .contact_value {
+  
+      align-items: center;
+    }
+
+    .contact_label {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding:.5rem .5rem .5rem 0rem  ;
+    }
+
+    .contact-value {
+      margin: 0;
+
+    }
+    .left_section{
+      // border:1px red solid;
+      width:30rem;
+    }
+    .img_box {
+height:1rem;
+width:1rem;
+    }
+    .img_box  img{
+      height:1rem;
+      width:1rem;
+    }
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -96,143 +225,16 @@ const Template_25 = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Resume</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <style>
-        body {
-          font-family: 'Arial', sans-serif;
-          margin: 0;
-          padding: 0;
-          background-color: #f0f0f0;
-             box-sizing: border-box;
-        }
-    
-        .main {
-            width: 794px ;
-            height: 1130px;
-          background-color: white;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    
-        .header {
-          background-color: #333;
-          color: white;
-          padding: 20px;
-          text-align: center;
-          // border:1px red solid;
-        }
-    
-        .name_box {
-          text-align: center;
-        }
-    
-        .name {
-          color: white;
-        }
-    
-        .container {
-          display: grid;
-          grid-template-columns: 2fr 1fr;
-          padding: 20px;
-          // border:1px red solid;
-        }
-        .section {
-          margin-bottom: 20px;
-          // border:1px red solid;
-        }
-    
-        .section_title {
-          position: relative;
-          font-size: 1.5em;
-          margin-bottom: 10px;
-        }
-    
-        .section_title span {
-          font-size: 1.2em;
-          margin-right: 5px;
-        }
-    
-        .divider {
-          border: 1px solid #333;
-          margin: 5px 0;
-        }
-    
-        .skills_list,
-        .ul {
-          list-style: none;
-          padding: 0;
-        }
-    
-        .skills_list li,
-        .ul li {
-          margin-bottom: 5px;
-        }
-    
-        .ul .work_entry {
-          margin-bottom: 10px;
-        }
-    
-        .ul .title_ {
-          display: flex;
-          justify-content: space-between;
-        }
-    
-        .ul .position,
-        .ul .degree {
-          margin: 0;
-        }
-    
-        .university,
-        .company,
-        .date,
-        .description {
-          margin: 0;
-        }
-    
-        .section-content {
-          line-height: 1.6;
-        }
-    
-        .contact_info,
-        .work_entry,
-        .contact_value {
-      
-          align-items: center;
-        }
-    
-        .contact_label {
-          margin-right: 10px;
-          display: flex;
-          align-items: center;
-          gap: .5rem;
-          padding:.5rem .5rem .5rem 0rem  ;
-        }
-    
-        .contact-value {
-          margin: 0;
- 
-        }
-        .left_section{
-          // border:1px red solid;
-          width:30rem;
-        }
-        .img_box {
-  height:1rem;
-  width:1rem;
-        }
-        .img_box  img{
-          height:1rem;
-          width:1rem;
-        }
-        
-      </style>
+
     </head>
     
     <body>
     
       <div class="main">
-          <div class="header">
+          <div class="header"  style="background-color:${color}; color: ${color3}; ">
              <div class="name_box">
-                 <h1 class="name">${formData.resume.name}</h1>
-                       <h4> ${formData.resume.jobTitle}</h4>
+                 <h1 class="name"  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name}</h1>
+                       <h4 style="color: ${color3};"> ${formData.resume.jobTitle}</h4>
           </div>
         </div>
     
@@ -418,23 +420,26 @@ const Template_25 = () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

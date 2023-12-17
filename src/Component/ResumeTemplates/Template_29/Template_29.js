@@ -123,108 +123,99 @@ const Template_29= () => {
     handleImageChange();
   }, []);
   
-
-  const getHTML = () => {
+  const getCSS = () =>{
     return `
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Add any necessary head elements or links to external stylesheets -->
-        <style>
-    
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            box-sizing: border-box;
-            background-color: white;
-        }
+  
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
 
-        .main {
-            width: 850px;
-            height: 1130px;
-            background-color: white;
-        }
-        
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+  
 .container{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+display: grid;
+grid-template-columns: 1fr 2fr;
 }
 .img_box{
-  height: 7rem;
-  width: 7rem;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+height: 7rem;
+width: 7rem;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
 }
 .img_box img{
-  height: 100%;
-  width: 100%;
+height: 100%;
+width: 100%;
 }
 .left_section{
-  display: flex;
-  flex-direction: column;
- padding-top:4rem;
-  gap: 2rem;
-  text-align: left;
+display: flex;
+flex-direction: column;
+padding-top:4rem;
+gap: 2rem;
+text-align: left;
 
 }
 
 .info_box{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1rem;
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem 1rem;
 }
 .education{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1rem;
+width: 100%;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem 1rem;
 }
 .img_container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .right_section{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
- padding: 2rem 1rem;
- height: 65.3rem;  /* 1240px / 16px = 77.5rem */
+display: flex;
+flex-direction: column;
+gap: .5rem;
+padding: 2rem 1rem;
+height: 65.3rem;  /* 1240px / 16px = 77.5rem */
 }
 .right_section p{
-  width: 95%!important;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  list-style: none;
- 
+width: 95%!important;
+display: flex;
+flex-direction: column;
+text-align: left;
+list-style: none;
+
 }
 .right_section ul li{
-  margin-left:1.5rem ;
- 
+margin-left:1.5rem ;
+
 }
 .right_section ul li {
-  width: 95%!important;
+width: 95%!important;
 }
 .work_history{
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
 }
 .heading{
-  background-color: aliceblue;
-  padding: 3rem 1rem;
+background-color: aliceblue;
+padding: 3rem 1rem;
 }
 .certifications{
 padding: 1rem;
@@ -233,86 +224,86 @@ flex-direction: column;
 gap: .5rem;
 }
 .skills{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
 
 }
 .skills ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
 }
 .professional_summary{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
 }
 .work{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
 }
 hr{
-  margin-left: 1rem;
+margin-left: 1rem;
 }
 .info_box p{
-  display: flex;
-  gap: .5rem;
-  align-items: center;
+display: flex;
+gap: .5rem;
+align-items: center;
 }
 .certifications ul{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
 }
 .header{
 background-color: rgb(131, 136, 136);
 
-  display: flex;
-  justify-content: space-between;
-  padding: 1.5rem 1rem;
-  margin-top: 2rem;
-  align-items: center;
+display: flex;
+justify-content: space-between;
+padding: 1.5rem 1rem;
+margin-top: 2rem;
+align-items: center;
 }
 .img_box{
 
-   height: 8rem;
-   width: 8rem;
-   border-radius: 0;
-   position: absolute;
-    margin-left:40rem ;
-    overflow: hidden;
+height: 8rem;
+width: 8rem;
+border-radius: 0;
+position: absolute;
+margin-left:40rem ;
+overflow: hidden;
 
 }
 .img_box img{
-   height: 100%;
-   width: 100%;
+height: 100%;
+width: 100%;
 }
 .section{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
 }
 .work_entry{
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+display: grid;
+grid-template-columns: 1fr 2fr;
 }
 .ul{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  margin-top:-1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+margin-top:-1rem;
 }
 .section_title{
-  background-color: rgb(0, 208, 255);
-  padding: 0rem 1rem;
-  color: white;
-  display: flex;
-  gap: .5rem;
+background-color: rgb(0, 208, 255);
+padding: 0rem 1rem;
+color: white;
+display: flex;
+gap: .5rem;
 }
 .name-box h1,h5{
 margin:0rem;
@@ -338,36 +329,47 @@ height:1rem;
 width:1rem;
 }
 .divider{
-  margin-top:-1.8rem; 
-  margin-left: -1rem;
+margin-top:-1.8rem; 
+margin-left: -1rem;
 }
 
 .work-info h3{
-  margin:0rem;
+margin:0rem;
 }
 .edu-his{
-  margin-top:-.5rem;
-  display:flex;
-  flex-direction:colunm;
-  gap:.5rem;
+margin-top:-.5rem;
+display:flex;
+flex-direction:colunm;
+gap:.5rem;
 }
 .contact-info{
-  display: grid;
-  grid-template-columns: 1fr ;
-  gap:.5rem;
+display: grid;
+grid-template-columns: 1fr ;
+gap:.5rem;
 }
 .edu-info{
-  margin-top:-.5rem;
+margin-top:-.5rem;
 
 }
 .skills-list{
-  margin-top:-.5rem;
-  margin-left: -2.5rem;
+margin-top:-.5rem;
+margin-left: -2.5rem;
 }
 .education-entry{
-  margin-top:.5rem;
+margin-top:.5rem;
 }
-        </style>
+    `
+  }
+
+  const getHTML = () => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Add any necessary head elements or links to external stylesheets -->
         <title>Jessica Claire's Resume</title>
     </head>
     
@@ -504,23 +506,26 @@ width:1rem;
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -591,7 +596,7 @@ width:1rem;
         <h1 className={styles.name}>{formData.resume.name}</h1>
         <h5 className={styles.name}>{formData.resume.jobTitle}</h5>
       </div>
-      <div className={styles.imgBox}>
+      <div className={styles.img_box}>
         <img src={base64Image3} alt="dp" />
       </div>
     </div>

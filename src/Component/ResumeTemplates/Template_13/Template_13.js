@@ -123,6 +123,264 @@ const Template_13= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+
+  .container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+  }
+
+  .img_box {
+      height: 7rem;
+      width: 7rem;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 2rem;
+  }
+
+  .img_box img {
+      height: 100%;
+      width: 100%;
+
+  }
+
+  .left_section {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+      gap: 2rem;
+      text-align: left;
+  }
+
+  .info_box,
+  .education {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 1rem;
+  }
+
+  .right_section {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding: 2rem 1rem;
+      height: 1130px;
+  }
+
+  .right_section p {
+      width: 95%!important;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      list-style: none;
+  }
+
+  .right_section ul li {
+      margin-left: 1.5rem;
+  }
+
+  .work_history {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+  }
+
+  .heading {
+      padding: 3rem 1rem;
+  }
+
+  .certifications,
+  .skills,
+  .professional_summary,
+  .work,
+  .contact_info,
+  .skills_list {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+  }
+
+  .skills ul,
+  .certifications ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+  }
+
+  .header {
+      height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0rem 1rem;
+      overflow: hidden;
+      background-color:grey;
+  }
+
+  .img_box {
+      border-radius: 50%;
+  }
+
+
+
+  .contact_label {
+      border:1px grey solid;
+      height: 1.2rem;
+      width: 1.2rem;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      justify-content: center;
+  }
+
+  .name_box {
+      width: 70%;
+      height: 100%;
+      padding: .5rem ;
+      display: flex;
+      display: flex;
+      flex-direction: column;
+      color:white;
+  }
+
+
+  .section {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+  }
+
+  .work_entry {
+      display: grid;
+      grid-template-columns: 1fr;
+  }
+
+  .inner_div {
+      border-left: 1px rgb(0, 0, 0) solid;
+      padding:  .5rem;
+      margin-left: -1rem;
+  }
+
+  .section_title {
+      display: flex;
+      align-items: center;
+      gap: 2.7rem;
+  }
+
+  .description {
+      width: 25rem;
+  }
+
+  .contact_value {
+      display: flex;
+      align-items: center;
+      gap: .2rem;
+  }
+
+  .contact_label {
+      font-size: small;
+  }
+
+  .contact_info {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+  }
+
+  .skills_list {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding-top: 1rem;
+  }
+
+  .contact_value {
+      display: flex;
+      align-items: center;
+  }
+
+  .contact_value span,
+  p {
+      margin: 0;
+  }
+
+  .contact_label {
+      font-size: small;
+  }
+
+  .contact_info {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      list-style: none;
+      gap: .5rem;
+      margin-left:-1rem;
+  }
+
+  .skills_list {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      padding-top: 1rem;
+  }
+
+  .name {
+      margin: 0rem;
+  }
+
+  .work-info h3,
+  p {
+      margin: 0rem;
+  }
+
+  .ul {
+      margin-top: -1rem;
+  }
+
+  .ul li {
+      margin-left: -1rem;
+  }
+  .ul-skill{
+    margin-top: -1rem;
+    margin-left: -2rem;
+  }
+
+
+  .name_box {
+      margin-top: 3.5rem;
+  }
+
+  .contact_value {
+      margin-left: 0rem;
+  }
+
+  .icon {
+      height: 1rem;
+      width: 1rem;
+  }
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -133,272 +391,15 @@ const Template_13= () => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Resume</title>
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f0f0f0;
-                box-sizing: border-box;
-                background-color: white;
-            }
-    
-            .main {
-                width: 850px;
-                height: 1130px;
-                background-color: white;
-            }
-    
-            .container {
-                display: grid;
-                grid-template-columns: 1fr 2fr;
-            }
-    
-            .img_box {
-                height: 7rem;
-                width: 7rem;
-                overflow: hidden;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%;
-                margin-right: 2rem;
-            }
-    
-            .img_box img {
-                height: 100%;
-                width: 100%;
-          
-            }
-    
-            .left_section {
-                display: flex;
-                flex-direction: column;
-                padding: 2rem 1rem;
-                gap: 2rem;
-                text-align: left;
-            }
-    
-            .info_box,
-            .education {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem 1rem;
-            }
-    
-            .right_section {
-                display: flex;
-                flex-direction: column;
-                gap: .5rem;
-                padding: 2rem 1rem;
-                height: 1130px;
-            }
-    
-            .right_section p {
-                width: 95%!important;
-                display: flex;
-                flex-direction: column;
-                text-align: left;
-                list-style: none;
-            }
-    
-            .right_section ul li {
-                margin-left: 1.5rem;
-            }
-    
-            .work_history {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-    
-            .heading {
-                padding: 3rem 1rem;
-            }
-    
-            .certifications,
-            .skills,
-            .professional_summary,
-            .work,
-            .contact_info,
-            .skills_list {
-                padding: 1rem;
-                display: flex;
-                flex-direction: column;
-                gap: .5rem;
-            }
-    
-            .skills ul,
-            .certifications ul {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 1rem;
-            }
-    
-            .header {
-                height: 8rem;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 0rem 1rem;
-                overflow: hidden;
-                background-color:grey;
-            }
-    
-            .img_box {
-                border-radius: 50%;
-            }
-    
-         
-    
-            .contact_label {
-                border:1px grey solid;
-                height: 1.2rem;
-                width: 1.2rem;
-                display: flex;
-                align-items: center;
-                border-radius: 5px;
-                justify-content: center;
-            }
-    
-            .name_box {
-                width: 70%;
-                height: 100%;
-                padding: .5rem ;
-                display: flex;
-                display: flex;
-                flex-direction: column;
-                color:white;
-            }
 
-    
-            .section {
-                display: flex;
-                flex-direction: column;
-                gap: .5rem;
-            }
-    
-            .work_entry {
-                display: grid;
-                grid-template-columns: 1fr;
-            }
-    
-            .inner_div {
-                border-left: 1px rgb(0, 0, 0) solid;
-                padding:  .5rem;
-                margin-left: -1rem;
-            }
-    
-            .section_title {
-                display: flex;
-                align-items: center;
-                gap: 2.7rem;
-            }
-    
-            .description {
-                width: 25rem;
-            }
-    
-            .contact_value {
-                display: flex;
-                align-items: center;
-                gap: .2rem;
-            }
-    
-            .contact_label {
-                font-size: small;
-            }
-    
-            .contact_info {
-                display: flex;
-                flex-direction: column;
-                gap: .5rem;
-            }
-    
-            .skills_list {
-                display: flex;
-                flex-direction: column;
-                gap: .5rem;
-                padding-top: 1rem;
-            }
-    
-            .contact_value {
-                display: flex;
-                align-items: center;
-            }
-    
-            .contact_value span,
-            p {
-                margin: 0;
-            }
-    
-            .contact_label {
-                font-size: small;
-            }
-    
-            .contact_info {
-                display: flex;
-                flex-direction: column;
-                margin: 0;
-                list-style: none;
-                gap: .5rem;
-                margin-left:-1rem;
-            }
-    
-            .skills_list {
-                display: flex;
-                flex-direction: column;
-                gap: .5rem;
-                padding-top: 1rem;
-            }
-    
-            .name {
-                margin: 0rem;
-            }
-    
-            .work-info h3,
-            p {
-                margin: 0rem;
-            }
-    
-            .ul {
-                margin-top: -1rem;
-            }
-    
-            .ul li {
-                margin-left: -1rem;
-            }
-            .ul-skill{
-              margin-top: -1rem;
-              margin-left: -2rem;
-            }
-         
-    
-            .name_box {
-                margin-top: 3.5rem;
-            }
-    
-            .contact_value {
-                margin-left: 0rem;
-            }
-    
-            .icon {
-                height: 1rem;
-                width: 1rem;
-            }
-        </style>
     </head>
     
     <body>
         <div class="main">
-            <div class="header">
-             
-                  
+            <div class="header" style="background-color:${color}; color: ${color3}; ">
                     <div class="name_box">
-                        <h1 class="name" style="font-weight: 100;">JESSICA CLAIR </h1>
-                        <p class="name">frontend Developer</p>
+                        <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name}</h1>
+                        <p class="name" style="color: ${color3};" >${formData.resume.jobTitle}</p>
                     </div>
              
                 <div>
@@ -545,23 +546,26 @@ const Template_13= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -632,8 +636,9 @@ const Template_13= () => {
     <div className={styles.main}>
       <div className={styles.header} style={{backgroundColor:color,color:color3}}>
         <div className={styles.nameBox}>
-          <h1 className={styles.name}  style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize,fontWeight: 100  }}>{formData.resume.name}</h1>
+          <h1 className={styles.name}  style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize,fontWeight: 100  }}>{formData.resume.name} </h1>
           <p className={styles.name}>{formData.resume.jobTitle}</p>
+     
         </div>
         <div></div>
       </div>

@@ -13,11 +13,6 @@ function FontPicker() {
     'Cambria, Cochin, Georgia, Times, Times New Roman, serif',
     'Verdana, Geneva, Tahoma, sans-serif',
     'Palatino, Palatino Linotype, Book Antiqua, Georgia, serif',
-    'Arial Black, Gadget, sans-serif',
-    'Courier New, Courier, monospace',
-    'Century Gothic, sans-serif',
-    'Copperplate, Copperplate Gothic Light, fantasy',
-
   ];
 
   return (

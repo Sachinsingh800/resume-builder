@@ -1,7 +1,7 @@
 .main {
-   width: 850px;
-   height: 1130px;
-   background-color: white;
+  width: 850px;
+  height: 1130px;
+  background-color: white;
 }
 
 .container{
@@ -133,12 +133,11 @@ margin-top: 2rem;
 align-items: center;
 }
 .img_box{
-
 height: 8rem;
 width: 8rem;
 border-radius: 0;
-position: absolute;
-margin-left:40rem ;
+position: fixed;
+margin-left:40rem!important ;
 overflow: hidden;
 
 }
@@ -168,7 +167,7 @@ color: white;
 display: flex;
 gap: .5rem;
 }
-.name-box h1,h5{
+.name_box h1,h5{
 margin:0rem;
 }
 .section-content{
@@ -199,29 +198,28 @@ margin-left: -1rem;
 .work-info h3{
 margin:0rem;
 }
-.edu-his{
+.edu_list{
 margin-top:-.5rem;
 display:flex;
-flex-direction:colunm;
+flex-direction:column;
 gap:.5rem;
 }
-.contact-info{
+.contact_info{
 display: grid;
 grid-template-columns: 1fr ;
 gap:.5rem;
 }
-.edu-info{
+.edu_info{
 margin-top:-.5rem;
 
 }
-.skills-list{
+.skills_list{
 margin-top:-.5rem;
 margin-left: -2.5rem;
 }
-.education-entry{
+.education_entry{
 margin-top:.5rem;
 }
-
 
 
 /* modal.module.css */

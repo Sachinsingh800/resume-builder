@@ -124,6 +124,175 @@ const Template_9= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+
+  .heading {
+      display: flex;
+      justify-content: space-between;
+      width: 850px;
+      padding: 0.5rem 1rem;
+      height: 6rem;
+  }
+
+  .heading div {
+      width: 50%;
+    //  border:1px red solid;
+  }
+
+  .summary h2 {
+      border-top: 1px rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 90%;
+  }
+
+  .para {
+      width: 96%;
+  }
+
+  .summary {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  .Experience {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 850px;
+
+  }
+
+  .Experience h2 {
+      border-top: 1px rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
+
+  .Experience ul {
+      width: 90%;
+ 
+  }
+
+  .Skills h2 {
+      border-top: 1px rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
+
+  .Skills {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 850px;
+      
+  }
+
+  .Skills ul {
+      width: 90%;
+      margin:.1rem;
+      display: inline-table;
+      grid-template-columns: auto;
+      margin-left: -80px; /* Adjusted from -5rem to pixels based on your requirement */
+  }
+
+  .Skills ul li {
+      width: max-content;
+      display: inline-table;
+      padding: 8px; /* Adjusted from .5rem to pixels based on your requirement */
+      margin: 8px; /* Adjusted from .5rem to pixels based on your requirement */
+      border-radius: 5px;
+      color: white !important;
+      background-color: rgb(31, 106, 177);
+  }
+
+  .Education {
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+      align-items: center;
+      width: 850px;
+  }
+
+  .Education h2 {
+      border-top: 1px rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
+
+  .Education ul {
+      width: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-left: 10px; /* Adjusted from 1rem to pixels based on your requirement */
+      gap: 5px; /* Adjusted from 1rem to pixels based on your requirement */
+  }
+
+  .Education ul li {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .contact_info {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+  }
+
+  .description_box {
+      padding: 0 16px; /* Adjusted from 0rem 1rem to pixels based on your requirement */
+      width: 850px;
+  }
+
+  .contact_info {
+      height: 6rem;
+      display:flex;
+      flex-direction:column;
+    
+  }
+  .contact_info p{
+    margin:.1rem;
+  }
+  .work_des p{
+    margin:.1rem;
+  }
+  .work_des h5,h3{
+    margin:.1rem;
+  }
+  .ul{
+    display:flex;
+    flex-direction:column;
+    gap:.2rem;
+  }
+  .ul li{
+    margin-left:-1rem;
+  }
+  .edu_des h5,h4,p{
+    margin:.1rem;
+  }
+  .name h1,p{
+    margin:.1rem;
+  }
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -134,174 +303,7 @@ const Template_9= () => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Resume</title>
-        <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            box-sizing: border-box;
-            background-color: white;
-        }
 
-        .main {
-            width: 850px;
-            height: 1130px;
-            background-color: white;
-        }
-
-        .heading {
-            display: flex;
-            justify-content: space-between;
-            width: 850px;
-            padding: 0.5rem 1rem;
-            height: 6rem;
-        }
-
-        .heading div {
-            width: 50%;
-          //  border:1px red solid;
-        }
-
-        .summary h2 {
-            border-top: 1px rgb(112, 111, 111) solid;
-            border-bottom: 1px rgb(112, 111, 111) solid;
-            width: 90%;
-        }
-
-        .para {
-            width: 96%;
-        }
-
-        .summary {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        .Experience {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            width: 850px;
-      
-        }
-
-        .Experience h2 {
-            border-top: 1px rgb(112, 111, 111) solid;
-            border-bottom: 1px rgb(112, 111, 111) solid;
-            width: 96%;
-            text-align: center;
-        }
-
-        .Experience ul {
-            width: 90%;
-       
-        }
-
-        .Skills h2 {
-            border-top: 1px rgb(112, 111, 111) solid;
-            border-bottom: 1px rgb(112, 111, 111) solid;
-            width: 96%;
-            text-align: center;
-        }
-
-        .Skills {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            width: 850px;
-            
-        }
-
-        .Skills ul {
-            width: 90%;
-            margin:.1rem;
-            display: inline-table;
-            grid-template-columns: auto;
-            margin-left: -80px; /* Adjusted from -5rem to pixels based on your requirement */
-        }
-
-        .Skills ul li {
-            width: max-content;
-            display: inline-table;
-            padding: 8px; /* Adjusted from .5rem to pixels based on your requirement */
-            margin: 8px; /* Adjusted from .5rem to pixels based on your requirement */
-            border-radius: 5px;
-            color: white !important;
-            background-color: rgb(31, 106, 177);
-        }
-
-        .Education {
-            display: flex;
-            flex-direction: column;
-            gap: 0rem;
-            align-items: center;
-            width: 850px;
-        }
-
-        .Education h2 {
-            border-top: 1px rgb(112, 111, 111) solid;
-            border-bottom: 1px rgb(112, 111, 111) solid;
-            width: 96%;
-            text-align: center;
-        }
-
-        .Education ul {
-            width: 90%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding-left: 10px; /* Adjusted from 1rem to pixels based on your requirement */
-            gap: 5px; /* Adjusted from 1rem to pixels based on your requirement */
-        }
-
-        .Education ul li {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact_info {
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-        }
-
-        .description_box {
-            padding: 0 16px; /* Adjusted from 0rem 1rem to pixels based on your requirement */
-            width: 850px;
-        }
-
-        .contact_info {
-            height: 6rem;
-            display:flex;
-            flex-direction:column;
-          
-        }
-        .contact_info p{
-          margin:.1rem;
-        }
-        .work_des p{
-          margin:.1rem;
-        }
-        .work_des h5,h3{
-          margin:.1rem;
-        }
-        .ul{
-          display:flex;
-          flex-direction:column;
-          gap:.2rem;
-        }
-        .ul li{
-          margin-left:-1rem;
-        }
-        .edu_des h5,h4,p{
-          margin:.1rem;
-        }
-        .name h1,p{
-          margin:.1rem;
-        }
-        
-    </style>
     </head>
     
     <body>
@@ -388,23 +390,26 @@ const Template_9= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

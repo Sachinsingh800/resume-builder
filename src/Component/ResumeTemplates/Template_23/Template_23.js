@@ -123,6 +123,273 @@ const Template_23= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+
+     
+.container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.img_box{
+  height: 7rem;
+  width: 7rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.img_box img{
+  height: 100%;
+  width: 100%;
+}
+.left_section{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  gap: 2rem;
+  text-align: left;
+
+}
+
+.info_box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1rem;
+}
+.education{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1rem;
+}
+.img_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.right_section{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 15rem;
+ padding: 2rem 1rem;
+ height: 1100px;
+ margin-left:1rem ;
+ margin-top: -13rem;
+ background-color: rgb(178, 176, 181);
+ 
+}
+.right_section p{
+  width: 95%!important;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  list-style: none;
+ 
+}
+.right_section ul li{
+  margin-left:1.5rem ;
+ 
+}
+.right_section ul li {
+  width: 95%!important;
+}
+.work_history{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.heading{
+
+  padding: 3rem 1rem;
+}
+
+.certifications{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+gap: .5rem;
+}
+.skills{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+}
+.skills ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+}
+.professional_summary{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.work{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.info_box p{
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.certifications ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.header{
+
+  height: 15rem;
+  display: flex;
+align-items: center;
+justify-content: end;
+ width:;
+  padding: 0rem 1rem;
+  background-color: grey;
+ 
+}
+.img_box{
+   border-radius: 0;
+   width: 14.8rem;
+   height: 12rem;
+   margin-top: -1rem;
+   background-color: rgb(31, 0, 110);
+   overflow: hidden;
+   background-color: white;
+}
+.img_box img{
+   height: 100%;
+   width: 100%;
+}
+.section{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+}
+.work_entry{
+  display: grid;
+  grid-template-columns: 1fr ;
+}
+.title_{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 90%;
+}
+.section_title{
+   display: flex;
+   align-items: center;
+   gap: 2.7rem;
+   color: black!important;
+
+}
+.description{
+   width: 25rem;
+}
+.contact_value{
+   display: flex;
+   align-items: center;
+   gap: .3rem;
+
+}
+
+.contact_label{
+   font-size: small;
+}
+.contact_info{
+display: grid;
+grid-template-columns: 1fr ;
+ gap: .5rem;
+}
+.skills_list{
+display: grid;
+grid-template-columns: 1fr ;
+gap: .5rem;
+
+padding-top: 1rem;
+}
+.skills_list li{
+   display: flex;
+   align-items: center;
+}
+.ul{
+   display: flex;
+   flex-direction: column;
+   gap: .5rem;
+ 
+}
+.section_title{
+   padding: 0rem ;
+   color: white;
+   display: flex;
+   gap: .5rem;
+}
+.name{
+   font-size: 3rem;
+}
+.name_box{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 70%;
+   color: white;
+   
+}
+.name_box h1,h4{
+   margin:0rem;
+}
+.contact_value span,p{
+  margin:0rem;
+}
+.divider{
+   margin-top:-2rem;
+}
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap:.3rem;
+   margin-top:-.5rem;
+}
+.skill-list  li{
+
+  margin-left:-1rem!important;
+}
+.icon{
+height:1rem;
+width:1rem;
+
+}
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -132,289 +399,25 @@ const Template_23= () => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-        box-sizing: border-box;
-        background-color: white;
-    }
 
-    .main {
-        width: 850px;
-        height: 1130px;
-        background-color: white;
-    }
-
-       
-.container{
-    display: grid;
-    grid-template-columns: 1fr 2fr;
- }
- .img_box{
-    height: 7rem;
-    width: 7rem;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
- }
- .img_box img{
-    height: 100%;
-    width: 100%;
- }
- .left_section{
-    display: flex;
-    flex-direction: column;
-    padding: 2rem 1rem;
-    gap: 2rem;
-    text-align: left;
- 
- }
- 
- .info_box{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 1rem;
- }
- .education{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 1rem;
- }
- .img_container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
- }
- .right_section{
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    width: 15rem;
-   padding: 2rem 1rem;
-   height: 1100px;
-   margin-left:1rem ;
-   margin-top: -13rem;
-   background-color: rgb(178, 176, 181);
-   
- }
- .right_section p{
-    width: 95%!important;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    list-style: none;
-   
- }
- .right_section ul li{
-    margin-left:1.5rem ;
-   
- }
- .right_section ul li {
-    width: 95%!important;
- }
- .work_history{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
- }
- .heading{
-  
-    padding: 3rem 1rem;
- }
- 
- .certifications{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
- }
- .skills{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
- 
- }
- .skills ul{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
- 
- }
- .professional_summary{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
- }
- .work{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
- }
-
- .info_box p{
-    display: flex;
-    gap: .5rem;
-    align-items: center;
- }
- .certifications ul{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
- }
- .header{
- 
-    height: 15rem;
-    display: flex;
-  align-items: center;
-  justify-content: end;
-   width:;
-    padding: 0rem 1rem;
-    background-color: grey;
-   
- }
- .img_box{
-     border-radius: 0;
-     width: 14.8rem;
-     height: 12rem;
-     margin-top: -1rem;
-     background-color: rgb(31, 0, 110);
-     overflow: hidden;
-     background-color: white;
- }
- .img_box img{
-     height: 100%;
-     width: 100%;
- }
- .section{
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
- 
- }
- .work_entry{
-    display: grid;
-    grid-template-columns: 1fr ;
- }
- .title_{
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     width: 90%;
- }
- .section_title{
-     display: flex;
-     align-items: center;
-     gap: 2.7rem;
-     color: black!important;
- 
- }
- .description{
-     width: 25rem;
- }
- .contact_value{
-     display: flex;
-     align-items: center;
-     gap: .3rem;
- 
- }
- 
- .contact_label{
-     font-size: small;
- }
- .contact_info{
- display: grid;
- grid-template-columns: 1fr ;
-   gap: .5rem;
- }
- .skills_list{
- display: grid;
- grid-template-columns: 1fr ;
- gap: .5rem;
-
- padding-top: 1rem;
- }
- .skills_list li{
-     display: flex;
-     align-items: center;
- }
- .ul{
-     display: flex;
-     flex-direction: column;
-     gap: .5rem;
-   
- }
- .section_title{
-     padding: 0rem ;
-     color: white;
-     display: flex;
-     gap: .5rem;
- }
- .name{
-     font-size: 3rem;
- }
- .name_box{
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     width: 70%;
-     color: white;
-     
- }
- .name_box h1,h4{
-     margin:0rem;
- }
- .contact_value span,p{
-    margin:0rem;
- }
- .divider{
-     margin-top:-2rem;
- }
- .skill-list {
-    display: flex;
-    flex-direction: column;
-    gap:.3rem;
-     margin-top:-.5rem;
- }
- .skill-list  li{
-  
-    margin-left:-1rem!important;
- }
- .icon{
-  height:1rem;
-  width:1rem;
-
-}
-    </style>
     <title>Your Page Title</title>
 </head>
 
 <body>
     <div class="main">
-        <div class="header">
+        <div class="header" style="background-color: ${color}; color: ${color3};">
             <div class="name_box">
-                <h1 class="name"> ${formData.resume.name}</h1>
-                <h4>${formData.resume.jobTitle}</h4>
+                <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;"> ${formData.resume.name}</h1>
+                <h4  style="color: ${color3};">${formData.resume.jobTitle}</h4>
             </div>
         </div>
         <div class="container">
-            <div class="right_section">
-                <div class="img_box">
-                    <img src=${base64Image3} alt="dp">
+            <div class="right_section" style="background-color: ${color2}; color: ${color3};">
+                <div class="img_box" style="background-color: ${color2}; ">
+                    <img style="height: ${imgSize}px; width: ${imgSize}px;" src=${base64Image3} alt="dp">
                 </div>
                 <div class="contact_info">
-                    <h3 class="section_title">Contact</h3>
+                    <h3 class="section_title" style="color: ${color3};">Contact</h3>
                     <div class="divider"><hr/></div>
                     <div class="contact_value">
                         <span class="contact_label">
@@ -446,7 +449,7 @@ const Template_23= () => {
                     </div>
                 </div>
                 <div class="section">
-                    <h3 class="section_title">SKILLS</h3>
+                    <h3 class="section_title" style="color: ${color3};">SKILLS</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
                     ${formData.resume.skillsAndLevel.map((item) => `
@@ -455,7 +458,7 @@ const Template_23= () => {
                     </ul>
                 </div>
                 <div class="section">
-                    <h3 class="section_title">LANGUAGE</h3>
+                    <h3 class="section_title" style="color: ${color3};">LANGUAGE</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
                     ${formData.resume.knownLanguages.map((item) => `
@@ -466,7 +469,7 @@ const Template_23= () => {
                     </ul>
                 </div>
                 <div class="section">
-                    <h3 class="section_title">AWARDS</h3>
+                    <h3 class="section_title" style="color: ${color3};">AWARDS</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
                     ${formData.resume.awards.map((item) => `
@@ -481,7 +484,7 @@ const Template_23= () => {
             </div>
             <div class="left_section">
                 <div class="section">
-                    <h3 class="section_title">
+                    <h3 class="section_title" style="color: ${color3};">
                         <PersonIcon />
                         ABOUT
                     </h3>
@@ -491,7 +494,7 @@ const Template_23= () => {
                     </p>
                 </div>
                 <div class="section">
-                    <h3 class="section_title">
+                    <h3 class="section_title" style="color: ${color3};">
                         <WorkIcon />
                         EXPERIENCE
                     </h3>
@@ -519,7 +522,7 @@ const Template_23= () => {
                     </ul>
                 </div>
                 <div class="section">
-                    <h3 class="section_title">
+                    <h3 class="section_title" style="color: ${color3};">
                         <SchoolIcon />
                         EDUCATION
                     </h3>
@@ -555,23 +558,26 @@ const Template_23= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -639,136 +645,137 @@ const Template_23= () => {
 <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
 </div>
 <div className={styles.main}>
-    <div className={styles.header}>
-      <div className={styles.name_box}>
-        <h1 className={styles.name}>{formData.resume.name}</h1>
-        <h4>{formData.resume.jobTitle}</h4>
-      </div>
-    </div>
-    <div className={styles.container}>
-      <div className={styles.right_section}>
-        <div className={styles.img_box}>
-          <img src={base64Image3} alt="dp" />
-        </div>
-        <div className={styles.contact_info}>
-          <h3 className={styles.section_title}>Contact</h3>
-          <div className={styles.divider}><hr /></div>
-          <div className={styles.contact_value}>
-            <span className={styles.contact_label}>
-              <img className={styles.icon} src={base64Image5} alt="dp" />
-            </span>
-            <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
-          </div>
-          <div className={styles.contact_value}>
-            <span className={styles.contact_label}>
-              <img className={styles.icon} src={base64Image4} alt="dp" />
-            </span>
-            <p className={styles.contact_value}>{formData.resume.contact.email}</p>
-          </div>
-          <div className={styles.contact_value}>
-            <span className={styles.contact_label}>
-              <img className={styles.icon} src={base64Image2} alt="dp" />
-            </span>
-            <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
-          </div>
-          <div className={styles.contact_value}>
-            <span className={styles.contact_label}>
-              <img className={styles.icon} src={base64Image1} alt="dp" />
-            </span>
-            <p className={styles.contact_value}>
-              {formData.resume.address.address},
-              {formData.resume.address.state},
-              {formData.resume.address.postalCode}
-            </p>
-          </div>
-        </div>
-        <div className={styles.section}>
-          <h3 className={styles.section_title}>SKILLS</h3>
-          <div className={styles.divider}><hr /></div>
-          <ul className={styles.skill_list}>
-            {formData.resume.skillsAndLevel.map((item) => (
-              <li key={item.skills}>{item.skills}</li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.section}>
-          <h3 className={styles.section_title}>LANGUAGE</h3>
-          <div className={styles.divider}><hr /></div>
-          <ul className={styles.skill_list}>
-            {formData.resume.knownLanguages.map((item) => (
-              <li key={item?.lang}>{item?.lang}</li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.section}>
-          <h3 className={styles.section_title}>AWARDS</h3>
-          <div className={styles.divider}><hr /></div>
-          <ul className={styles.skill_list}>
-            {formData.resume.awards.map((item) => (
-              <li key={item?.title} className={styles.award_list}>
-                <h5>{item?.date}</h5>
-                <h4>{item?.title}</h4>
-                <p>{item?.issuingOrganization}</p>
-              </li>
-            ))}
-          </ul>
+      <div className={styles.header} style={{ backgroundColor: color, color: color3 }}>
+        <div className={styles.name_box}>
+          <h1 className={styles.name} style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
+          <h4 style={{color:color3}}>{formData.resume.jobTitle}</h4>
         </div>
       </div>
-      <div className={styles.left_section}>
-        <div className={styles.section}>
-          <h3 className={styles.section_title}>ABOUT</h3>
-          <div className={styles.divider}><hr /></div>
-          <p className={styles.section_content}>
-            {formData.resume.summary}
-          </p>
+      <div className={styles.container}>
+        <div className={styles.right_section} style={{ backgroundColor: color2, color: color3 }}>
+          <div className={styles.img_box} style={{ backgroundColor: color2 }}>
+            <img style={{ height: imgSize, width: imgSize }} src={base64Image3} alt="dp" />
+          </div>
+          <div className={styles.contact_info}>
+            <h3 className={styles.section_title} style={{color:color3}}>Contact</h3>
+            <div className={styles.divider}><hr/></div>
+            <div className={styles.contact_value}>
+              <span className={styles.contact_label}>
+                <img className={styles.icon} src={base64Image5} alt="dp" />
+              </span>
+              <p >{formData.resume.contact.phone}</p>
+            </div>
+            <div className={styles.contact_value}>
+              <span className={styles.contact_label}>
+                <img className={styles.icon} src={base64Image4} alt="dp" />
+              </span>
+              <p >{formData.resume.contact.email}</p>
+            </div>
+            <div className={styles.contact_value}>
+              <span className={styles.contact_label}>
+                <img className={styles.icon} src={base64Image2} alt="dp" />
+              </span>
+              <p >{formData.resume.socialLinks.linkedin}</p>
+            </div>
+            <div className={styles.contact_value}>
+              <span className={styles.contact_label}>
+                <img className={styles.icon} src={base64Image1} alt="dp" />
+              </span>
+              <p >
+                {formData.resume.address.address},
+                {formData.resume.address.state},
+                {formData.resume.address.postalCode}
+              </p>
+            </div>
+          </div>
+          <div className={styles.section}>
+            <h3 className={styles.section_title} style={{color:color3}}>SKILLS</h3>
+            <div className={styles.divider}><hr/></div>
+            <ul className={styles.skill_list}>
+              {formData.resume.skillsAndLevel.map((item) => (
+                <li key={item.skills}>{item.skills}</li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.section}>
+            <h3 className={styles.section_title} style={{color:color3}}>LANGUAGE</h3>
+            <div className={styles.divider}><hr/></div>
+            <ul className={styles.skill_list}>
+              {formData.resume.knownLanguages.map((item) => (
+                <li key={item?.lang}>{item?.lang}</li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.section}>
+            <h3 className={styles.section_title} style={{color:color3}}>AWARDS</h3>
+            <div className={styles.divider}><hr/></div>
+            <ul className={styles.skill_list}>
+              {formData.resume.awards.map((item) => (
+                <li key={item?.title} className={styles.award_list}>
+                  <h5>{item?.date}</h5>
+                  <h4>{item?.title}</h4>
+                  <p>{item?.issuingOrganization}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className={styles.section}>
-          <h3 className={styles.section_title}>EXPERIENCE</h3>
-          <div className={styles.divider}><hr /></div>
-          <ul className={styles.ul}>
-            {formData.resume.work.map((item) => (
-              <li key={item.title}>
-                <div className={styles.work_entry}>
-                  <div>
-                    <div className={styles.title_}>
-                      <h4 className={styles.position}>{item?.title}</h4>
-                      <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
+        <div className={styles.left_section}>
+          <div className={styles.section}>
+            <h3 className={styles.section_title} style={{color:color3}}>
+              ABOUT
+            </h3>
+            <div className={styles.divider}><hr/></div>
+            <p className={styles.section_content}>{formData.resume.summary}</p>
+          </div>
+          <div className={styles.section}>
+            <h3 className={styles.section_title} style={{color:color3}}>
+      
+              EXPERIENCE
+            </h3>
+            <div className={styles.divider}><hr/></div>
+            <ul className={styles.ul}>
+              {formData.resume.work.map((item) => (
+                <li key={item?.title}>
+                  <div className={styles.work_entry}>
+                    <div>
+                      <div className={styles.title_}>
+                        <h4 className={styles.position}>{item?.title}</h4>
+                        <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
+                      </div>
+                      <p className={styles.company}>{item?.company}</p>
+                      <p className={styles.description}>{item?.description}</p>
                     </div>
-                    <p className={styles.company}>{item?.company}</p>
-                    <p className={styles.description}>
-                      {item?.description}
-                    </p>
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.section}>
-          <h3 className={styles.section_title}>
-            <SchoolIcon />
-            EDUCATION
-          </h3>
-          <div className={styles.divider}><hr /></div>
-          <ul className="ul">
-            {formData.resume.education.map((item) => (
-              <li key={item.degree}>
-                <div className={styles.work_entry}>
-                  <div className="title_">
-                    <h4 className="degree">{item.degree}</h4>
-                    <p className="date">{item.startYear} - {item.endYear}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.section}>
+            <h3 className={styles.section_title} style={{color:color3}}>
+      
+              EDUCATION
+            </h3>
+            <div className={styles.divider}><hr/></div>
+            <ul className={styles.ul}>
+              {formData.resume.education.map((item) => (
+                <li key={item?.degree}>
+                  <div className={styles.work_entry}>
+                    <div className={styles.title_}>
+                      <h4 className={styles.degree}>{item.degree}</h4>
+                      <p className={styles.date}>{item.startYear} - {item.endYear}</p>
+                    </div>
+                    <div>
+                      <p className={styles.university}>{item.collegeName}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="university">{item.collegeName}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </>
    
   );

@@ -123,6 +123,188 @@ const Template_2= () => {
     handleImageChange();
   }, []);
   
+const getCSS = () =>{
+  return `
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    background-color: white;
+}
+.main {
+    width: 850px;
+    height: 1130px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.Left_container{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+height: 1210px;
+}
+
+.name_container{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1.5rem;
+background-color: #c2c3c4;
+height: 14rem;
+}
+.container {
+padding: 13px 0 0 0;
+}
+
+.name {
+color: white;
+}
+
+.hr {
+margin-left: 2px;
+margin-right: 30px;
+color: #A2A2A2;
+margin-top:-1rem;
+}
+
+.iconContainer {
+width: 20px;
+height: 20px;
+background-color: white;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.icon {
+color: black;
+}
+
+.email {
+color: white;
+}
+
+.phoneIcon {
+font-size: 12px;
+}
+
+
+.contactInfo {
+display: flex;
+gap: .5rem;
+
+}
+.skillsHeader {
+padding: 0rem 1.5rem;
+}
+
+
+.skillsHeader ul{
+margin-left: -1.2rem;
+
+
+}
+
+.skillsHeader2 ul{
+margin-left: -1.5rem;
+}
+.professionalSkillsHeader ul{
+margin-left: 1.5rem;
+}
+
+.info_box{
+display: flex;
+flex-direction: column;
+gap:.5rem;
+}
+
+.educationHeader{
+padding: 1.5rem;
+}
+.objectiveHeader{
+padding: 1rem;
+height: max-content;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: .5rem;
+}
+.workHeader{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: .5rem;
+}
+.skillsHeader2{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: .5rem;
+}
+.professionalSkillsHeader{
+padding: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: .5rem;
+}
+.work_history{
+list-style: none;
+padding: 0rem 1rem;
+}
+.Projects{
+list-style: none;
+padding: 0rem 1rem;
+}
+.project_title{
+display:flex ;
+justify-content: space-between;
+}
+.contactInfo p{
+  margin:0rem;
+}
+.edu-ul h4,p{
+margin:0rem; 
+}
+.work-ul li h4,p{
+margin:0rem; 
+} 
+.work-ul {
+  margin:-1rem;
+  flex-direction: column;
+  display: flex;
+  gap:.5rem;
+}
+.edu-ul{
+    flex-direction: column;
+    display: flex;
+    gap:.5rem;
+}
+.Projects-ul li h4,p{
+margin:0rem; 
+}
+
+.Projects-ul{
+  margin-top:-1rem;
+  flex-direction: column;
+  display: flex;
+  gap:.5rem;
+}
+.icon{
+height:1rem;
+width:1rem;
+
+}
+  `
+}
+
 
   const getHTML = () => {
     return `
@@ -133,186 +315,7 @@ const Template_2= () => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css"> <!-- You may link your stylesheet if you have one -->
-    <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-        box-sizing: border-box;
-        background-color: white;
-    }
-    .main {
-        width: 850px;
-        height: 1130px;
-        background-color: white;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-    }
-    
-.Left_container{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    height: 1210px;
-}
-  
-.name_container{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-    background-color: #c2c3c4;
-    height: 14rem;
-}
-  .container {
-    padding: 13px 0 0 0;
-  }
-  
-  .name {
-    color: white;
-  }
-  
-  .hr {
-    margin-left: 2px;
-    margin-right: 30px;
-    color: #A2A2A2;
-    margin-top:-1rem;
-  }
-  
-  .iconContainer {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .icon {
-    color: black;
-  }
-  
-  .email {
-    color: white;
-  }
-  
-  .phoneIcon {
-    font-size: 12px;
-  }
 
-  
-  .contactInfo {
-    display: flex;
-    gap: .5rem;
-
-  }
-  .skillsHeader {
-    padding: 0rem 1.5rem;
-  }
-
-
-  .skillsHeader ul{
-   margin-left: -1.2rem;
-    
-
-  }
-
-  .skillsHeader2 ul{
-    margin-left: -1.5rem;
-  }
-  .professionalSkillsHeader ul{
-    margin-left: 1.5rem;
-  }
-
-  .info_box{
-    display: flex;
-    flex-direction: column;
-    gap:.5rem;
-  }
-  
-  .educationHeader{
-    padding: 1.5rem;
-  }
-  .objectiveHeader{
-    padding: 1rem;
-   height: max-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: .5rem;
-  }
-  .workHeader{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: .5rem;
-  }
-  .skillsHeader2{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: .5rem;
-  }
-  .professionalSkillsHeader{
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: .5rem;
-  }
-  .work_history{
-    list-style: none;
-    padding: 0rem 1rem;
-  }
-  .Projects{
-    list-style: none;
-    padding: 0rem 1rem;
-  }
-  .project_title{
-    display:flex ;
-    justify-content: space-between;
-  }
-  .contactInfo p{
-      margin:0rem;
-  }
-  .edu-ul h4,p{
-    margin:0rem; 
-  }
-  .work-ul li h4,p{
-    margin:0rem; 
-  } 
-  .work-ul {
-      margin:-1rem;
-      flex-direction: column;
-      display: flex;
-      gap:.5rem;
-  }
-    .edu-ul{
-        flex-direction: column;
-        display: flex;
-        gap:.5rem;
-    }
-  .Projects-ul li h4,p{
-    margin:0rem; 
-  }
-
-  .Projects-ul{
-      margin-top:-1rem;
-      flex-direction: column;
-      display: flex;
-      gap:.5rem;
-  }
-  .icon{
-    height:1rem;
-    width:1rem;
-  
-  }
-
-    </style>
     <title>Your Page Title</title>
 </head>
 
@@ -424,26 +427,31 @@ const Template_2= () => {
     `;
   };
 
+
+
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;

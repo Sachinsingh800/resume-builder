@@ -123,6 +123,231 @@ const Template_22= () => {
     handleImageChange();
   }, []);
   
+  const getCSS = () =>{
+    return `
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      box-sizing: border-box;
+      background-color: white;
+  }
+
+  .main {
+      width: 850px;
+      height: 1130px;
+      background-color: white;
+  }
+  .container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: -1rem;
+ }
+ .img_box{
+    height: 7rem;
+    width: 7rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+ }
+ .img_box img{
+    height: 100%;
+    width: 100%;
+ }
+ .left_section{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    text-align: left;
+ 
+ }
+ 
+ .info_box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1rem;
+ }
+ .education{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1rem;
+ }
+ .img_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+ .right_section{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+   padding: 2rem 1rem;
+   height: 65.3rem;  /* 1240px / 16px = 77.5rem */
+ }
+ .right_section p{
+    width: 95%!important;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+   
+   
+ }
+ .right_section ul li{
+    margin-left:1.5rem ;
+   
+ }
+ .right_section ul li {
+    width: 95%!important;
+ }
+ .work_history{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+ }
+ .heading{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 5rem;
+  width: 52rem; 
+
+}
+.heading h1,p{
+margin:0rem;
+}
+ 
+ .certifications{
+
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+ }
+
+ .professional_summary{
+  
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+ }
+ .work{
+  
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+ }
+ hr{
+    margin-left: 1rem;
+ }
+ .info_box p{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+ }
+ .certifications ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ 
+ }
+ .header{
+ 
+    height: 8rem;
+    display: flex;
+  align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+   
+ }
+
+ .section{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+ }
+ .work_entry{
+    display: grid;
+    grid-template-columns: 1fr ;
+ }
+ .title_{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 90%;
+ }
+ .section_title{
+     display: flex;
+     align-items: center;
+    font-weight:100;
+ 
+ }
+ .description{
+     width: 25rem;
+ }
+ .contact_value{
+     display: flex;
+     align-items: center;
+     gap: .3rem;
+ }
+ .contact_label{
+     font-size: small;
+ }
+ .contact_info{
+ display: grid;
+ grid-template-columns: 1fr ;
+   gap: .5rem;
+ }
+ .skills_list{
+ display: grid;
+ grid-template-columns: 1fr ;
+ gap: .5rem;
+ margin-left: -1rem;
+ margin-top:-1rem;
+ }
+ .skills_list li{
+     display: flex;
+     align-items: center;
+ }
+ .ul{
+     display: flex;
+     flex-direction: column;
+     gap: .5rem;
+     margin-top:-1rem;
+ }
+ .section_title{
+     background-color: rgb(0, 208, 255);
+     padding: 0rem 1rem;
+     color: white;
+     display: flex;
+     gap: .5rem;
+ }
+ .name h1,h5{
+   margin:0.1rem;
+ }
+ .section-content{
+  margin-top:-1rem;
+ }
+ .edu_des h5,h4,p{
+  margin:.1rem;
+}
+.icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon img {
+  height: 1rem;
+  width: 1rem;
+}
+    `
+  }
 
   const getHTML = () => {
     return `
@@ -135,251 +360,38 @@ const Template_22= () => {
         <!-- Include your CSS stylesheets or other head elements here -->
     
         <!-- Assuming you have the necessary CSS styles defined for the classes used in the JSX code -->
-        <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            box-sizing: border-box;
-            background-color: white;
-        }
 
-        .main {
-            width: 850px;
-            height: 1130px;
-            background-color: white;
-        }
-        .container{
-          display: grid;
-          grid-template-columns: 1fr 2fr;
-          margin-top: -1rem;
-       }
-       .img_box{
-          height: 7rem;
-          width: 7rem;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 50%;
-       }
-       .img_box img{
-          height: 100%;
-          width: 100%;
-       }
-       .left_section{
-          display: flex;
-          flex-direction: column;
-          padding: 2rem 1rem;
-          gap: 2rem;
-          text-align: left;
-       
-       }
-       
-       .info_box{
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1rem 1rem;
-       }
-       .education{
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          padding: 1rem 1rem;
-       }
-       .img_container{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-       }
-       .right_section{
-          display: flex;
-          flex-direction: column;
-          gap: .5rem;
-         padding: 2rem 1rem;
-         height: 65.3rem;  /* 1240px / 16px = 77.5rem */
-       }
-       .right_section p{
-          width: 95%!important;
-          display: flex;
-          flex-direction: column;
-          text-align: left;
-         
-         
-       }
-       .right_section ul li{
-          margin-left:1.5rem ;
-         
-       }
-       .right_section ul li {
-          width: 95%!important;
-       }
-       .work_history{
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-       }
-       .heading{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        height: 5rem;
-        width: 52rem; 
-     
-    }
-    .heading h1,p{
-      margin:0rem;
-    }
-       
-       .certifications{
-      
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-       }
-
-       .professional_summary{
-        
-          display: flex;
-          flex-direction: column;
-          gap: .5rem;
-       }
-       .work{
-        
-          display: flex;
-          flex-direction: column;
-          gap: .5rem;
-       }
-       hr{
-          margin-left: 1rem;
-       }
-       .info_box p{
-          display: flex;
-          gap: .5rem;
-          align-items: center;
-       }
-       .certifications ul{
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-       
-       }
-       .header{
-       
-          height: 8rem;
-          display: flex;
-        align-items: center;
-          justify-content: space-between;
-          padding: 0rem 1rem;
-         
-       }
-   
-       .section{
-          display: flex;
-          flex-direction: column;
-          gap: .5rem;
-       }
-       .work_entry{
-          display: grid;
-          grid-template-columns: 1fr ;
-       }
-       .title_{
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           width: 90%;
-       }
-       .section_title{
-           display: flex;
-           align-items: center;
-          font-weight:100;
-       
-       }
-       .description{
-           width: 25rem;
-       }
-       .contact_value{
-           display: flex;
-           align-items: center;
-           gap: .3rem;
-       }
-       .contact_label{
-           font-size: small;
-       }
-       .contact_info{
-       display: grid;
-       grid-template-columns: 1fr ;
-         gap: .5rem;
-       }
-       .skills_list{
-       display: grid;
-       grid-template-columns: 1fr ;
-       gap: .5rem;
-       margin-left: -1rem;
-       margin-top:-1rem;
-       }
-       .skills_list li{
-           display: flex;
-           align-items: center;
-       }
-       .ul{
-           display: flex;
-           flex-direction: column;
-           gap: .5rem;
-           margin-top:-1rem;
-       }
-       .section_title{
-           background-color: rgb(0, 208, 255);
-           padding: 0rem 1rem;
-           color: white;
-           display: flex;
-           gap: .5rem;
-       }
-       .name h1,h5{
-         margin:0.1rem;
-       }
-       .section-content{
-        margin-top:-1rem;
-       }
-       .edu_des h5,h4,p{
-        margin:.1rem;
-      }
-        </style>
     </head>
     <body>
     
         <div  class="main">
             <div class="header">
                 <div class="name">
-                    <h1 > ${formData.resume.name}</h1>
-                    <h5 >${formData.resume.jobTitle}</h5>
+                    <h1  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;"> ${formData.resume.name}</h1>
+                    <h5  style="color: ${color3};">${formData.resume.jobTitle}</h5>
                 </div>
                 <div class="contact_info">
                     <div class="contact_value">
                         <span class="contact_label">
-                            <LocalPhoneIcon style="font-size: 20px; color: #00CCFF;"></LocalPhoneIcon>
+                        <img class="icon" src="${base64Image5}" alt="dp" />
                         </span>
                         <p class="contact-value">${formData.resume.contact.phone}</p>
                     </div>
                     <div class="contact_value">
                         <span class="contact_label">
-                            <EmailIcon style="font-size: 20px; color: #00CCFF;"></EmailIcon>
+                        <img class="icon" src="${base64Image4}" alt="dp" />
                         </span>
                         <p class="contact-value">${formData.resume.contact.email}</p>
                     </div>
                     <div class="contact_value">
                         <span class="contact_label">
-                            <LinkedInIcon style="font-size: 20px; color: #00CCFF;"></LinkedInIcon>
+                        <img class="icon" src="${base64Image2}" alt="dp" />
                         </span>
                         <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
                     </div>
                     <div class="contact_value">
                         <span class="contact_label">
-                            <PlaceIcon style="font-size: 20px; color: #00CCFF;"></PlaceIcon>
+                        <img class="icon" src="${base64Image1}" alt="dp" />
                         </span>
                         <p class="contact-value">
                         ${formData.resume.address.address},
@@ -393,7 +405,7 @@ const Template_22= () => {
             <div class="container">
                 <div class="right_section">
                     <div class="section">
-                        <h2 class="section_title">SKILLS</h2>
+                        <h2 class="section_title" style="background-color:${color}; color: ${color3}; ">SKILLS</h2>
                         <ul class="skills_list">
                         ${formData.resume.skillsAndLevel.map((item) => `
                         <li>${item.skills}<span> <ProgressBar bgcolor="#00CCFF" progress="40" height="5"></span></li>
@@ -402,7 +414,7 @@ const Template_22= () => {
                         </ul>
                     </div>
                     <div class="section">
-                        <h2 class="section_title">LANGUAGE</h2>
+                        <h2 class="section_title" style="background-color:${color}; color: ${color3}; ">LANGUAGE</h2>
                         <ul class="skills_list">
                         ${formData.resume.knownLanguages.map((item) => `
                         <li>
@@ -412,7 +424,7 @@ const Template_22= () => {
                         </ul>
                     </div>
                     <div class="section">
-                        <h2 class="section_title">AWARDS</h2>
+                        <h2 class="section_title" style="background-color:${color}; color: ${color3}; ">AWARDS</h2>
                         <ul class="skills_list">
                         ${formData.resume.awards.map((item) => `
                         <li class="award-list">
@@ -426,14 +438,14 @@ const Template_22= () => {
                 </div>
                 <div class="left_section">
                     <div class="section">
-                        <h2 class="section_title"><PersonIcon />ABOUT</h2>
+                        <h2 class="section_title" style="background-color:${color}; color: ${color3}; ">ABOUT</h2>
                         <p class="section-content">
                         ${formData.resume.summary}
                         </p>
                     </div>
     
                     <div class="section">
-                        <h2 class="section_title"><WorkIcon/>EXPERIENCE</h2>
+                        <h2 class="section_title" style="background-color:${color}; color: ${color3}; ">EXPERIENCE</h2>
                         <Divider class="divider" />
                         <ul class="ul">
                         ${formData.resume.work.map((item) => `
@@ -460,7 +472,7 @@ const Template_22= () => {
                     </div>
     
                     <div class="section">
-                        <h2 class="section_title"><SchoolIcon/>EDUCATION</h2>
+                        <h2 class="section_title"  style="background-color:${color}; color: ${color3}; ">EDUCATION</h2>
                         <Divider class="divider" />
                         <ul class="ul">
                         ${formData.resume.education.map((item) => `
@@ -486,23 +498,26 @@ const Template_22= () => {
   const handleResume = async () => {
     setLoading(true);
     setError("");
-
+  
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-
+  
     try {
       const response = await axios.post(
-        "https://whihtmltopdf.onrender.com/convertToPdf",
-        { htmlContent: getHTML() },
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
+        },
         axiosConfig
       );
-
+  
       setLoading(false);
-
+  
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -578,25 +593,25 @@ const Template_22= () => {
   <div className={styles.contact_info}>
         <div className={styles.contact_value}>
           <span className={styles.contact_label}>
-            <LocalPhoneIcon style={{ fontSize: '20px', color: color2}} />
+            <LocalPhoneIcon style={{ fontSize: '20px', }} />
           </span>
           <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
         </div>
         <div className={styles.contact_value}>
           <span className={styles.contact_label}>
-            <EmailIcon style={{ fontSize: '20px', color: color2}} />
+            <EmailIcon style={{ fontSize: '20px', }} />
           </span>
           <p className={styles.contact_value}>{formData.resume.contact.email}</p>
         </div>
         <div className={styles.contact_value}>
           <span className={styles.contact_label}>
-            <LinkedInIcon style={{ fontSize: '20px', color: color2 }} />
+            <LinkedInIcon style={{ fontSize: '20px',  }} />
           </span>
           <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
         </div>
         <div className={styles.contact_value}>
           <span className={styles.contact_label}>
-            <PlaceIcon style={{ fontSize: '20px', color: color2 }} />
+            <PlaceIcon style={{ fontSize: '20px',  }} />
           </span>
           <p className={styles.contact_value}>
             {formData.resume.address.address},
