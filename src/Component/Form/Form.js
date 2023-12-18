@@ -46,11 +46,8 @@ export default function Form() {
       if (axios.isAxiosError(error)) {
         // Axios error (HTTP error)
         const { response } = error;
-  
         // Set the error message
         errorMessage = response?.data?.message;
-     
-
         // Log the error message as a string
         console.log('Error Message:', JSON.stringify(errorMessage));
         Swal.fire("Oops!", JSON.stringify(errorMessage), "error");
