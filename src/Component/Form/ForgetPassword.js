@@ -2,67 +2,89 @@
 import React, { useState } from "react";
 import { forgetPassword, verifyOtp, resetPassword } from "../../Api/Api";
 import Swal from "sweetalert2";
-import styles from "./ForgetPassword.module.css"
+import styles from "./ForgetPassword.module.css";
+import NavBar from "../NavBar/NavBar";
+import { useNavigate } from "react-router-dom";
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [showEmailForm, setShowEmailForm] = useState(true);
+  const [loading, setLoading] = useState(false);
+const navigate = useNavigate()
+
+
 
   const handleSendOtp = async (e) => {
     e.preventDefault();
-
+  
     const emailData = {
       email: email,
     };
-
+  
     try {
+      setLoading(true); // Set loading to true when sending OTP
+  
       // Assuming forgetPassword function initiates the forgot password process and sends an OTP
       await forgetPassword(emailData);
-
+  
       // Display a message to inform the user that the password reset process has started
       Swal.fire(
         "Success!",
         "A password reset OTP has been sent to your email.",
         "success"
       );
-
+  
       // Hide the email form and show the OTP verification form
       setShowEmailForm(false);
     } catch (error) {
-      // Handle API error, e.g., if the email is not found
-      Swal.fire("Oops!", "Something went wrong", "error");
+      if (error.response && error.response.status === 400) {
+        // Handle 400 error - User not found
+        Swal.fire("Oops!", "User not found. Please check your email address.", "error");
+      } else {
+        // Handle other API errors
+        Swal.fire("Oops!", "Something went wrong", "error");
+      }
+    } finally {
+      setLoading(false); // Set loading to false after request completion
     }
   };
-
-
+  
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
 
-    const formdata = {
+    const formData = {
       email: email,
       otp: otp,
       newPassword: newPassword,
     };
 
     try {
+      setLoading(true); // Set loading to true when updating password
+
       // Assuming resetPassword function takes the email, OTP, and new password as parameters
-      await resetPassword(formdata);
+      await resetPassword(formData);
 
       // Display a message to inform the user that the password has been reset successfully
       Swal.fire("Success!", "Password reset successfully", "success");
-
+      navigate("/Form")
       // Optionally, you can redirect the user to the login page or perform any other action
     } catch (error) {
       // Handle API error, e.g., if the OTP is invalid or the new password is not strong enough
       Swal.fire("Oops!", "Something went wrong", "error");
+    } finally {
+      setLoading(false); // Set loading to false after request completion
     }
   };
 
   return (
     <div className={styles.container}>
+      <div className={styles.navBar}>
+        <NavBar />
+      </div>
+
       {showEmailForm && (
         <div className={styles.formContainer}>
           <h2 className={styles.formTitle}>Forgot Password</h2>
@@ -76,8 +98,8 @@ const ForgetPassword = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </label>
-            <button className={styles.formButton} type="submit">
-              Send OTP
+            <button className={styles.formButton} type="submit" disabled={loading}>
+              {loading ? "Sending..." : "Send OTP"}
             </button>
           </form>
         </div>
@@ -88,7 +110,7 @@ const ForgetPassword = () => {
           <h2 className={styles.formTitle}>Verify OTP</h2>
           <form onSubmit={handleResetPassword}>
             <label className={styles.formLabel}>
-              OTP:
+             <span>OTP:</span> 
               <input
                 className={styles.formInput}
                 type="text"
@@ -96,7 +118,7 @@ const ForgetPassword = () => {
                 onChange={(e) => setOtp(e.target.value)}
               />
             </label>
-   
+
             <label className={styles.formLabel}>
               New Password:
               <input
@@ -115,8 +137,8 @@ const ForgetPassword = () => {
                 onChange={(e) => setNewPassword(e.target.value)}
               />
             </label>
-            <button className={styles.formButton} type="submit">
-              Reset Password
+            <button className={styles.formButton} type="submit" disabled={loading}>
+              {loading ? "Updating..." : "Reset Password"}
             </button>
           </form>
         </div>

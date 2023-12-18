@@ -68,7 +68,7 @@ export const forgetPassword= async (emailData) => {
 };
 export const resetPassword= async (formdata) => {
   try {
-    const response = await axios.post(`${BASE_URL}/user/auth/forgetPass`, formdata);
+    const response = await axios.post(`${BASE_URL}/user/auth/resetPassword`, formdata);
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {
@@ -78,16 +78,51 @@ export const resetPassword= async (formdata) => {
 };
 
 
-export const signInuser = async (formData) => {
-  try {
-    const response = await axios.post(`${BASE_URL}/user/auth/logIn`, formData );
-    const { status, message, data } = response.data;
-    return { status, message, data };
-  } catch (error) {
-    console.error('Error creating resume:', error.message);
+// export const signInuser = async (formData) => {
+//   try {
+//     const response = await axios.post(`${BASE_URL}/user/auth/logIn`, formData );
+//     const { status, message, data } = response.data;
+//     console(response,"signi")
+//   } catch (error) {
+//     console.error('Error creating resume:', error.message);
 
-  }
-};
+//   }
+// };
+
+
+// export const signInuser = async (formData) => {
+//   let errorMessage;
+
+//   try {
+//     const response = await axios.post(`${BASE_URL}/user/auth/logIn`, formData);
+
+//     // Assuming the API returns a JSON response with status and message
+//     const { status, message, data } = response.data;
+
+//     // Log the response data
+//     console.log('Sign In Response:', { status, message, data });
+//   } catch (error) {
+//     // Check if the error is an Axios error (HTTP error) or a network error
+//     if (axios.isAxiosError(error)) {
+//       // Axios error (HTTP error)
+//       const { response } = error;
+
+//       // Set the error message
+//       errorMessage = response?.data?.message;
+
+//       // Log the error message as a string
+//       console.log('Error Message:', JSON.stringify(errorMessage));
+//     } else {
+//       // Network error (e.g., no internet connection)
+//       errorMessage = error.message;
+//       console.log('Network Error:', errorMessage);
+//     }
+//   }
+
+// };
+
+
+
 
 
 
