@@ -65,11 +65,6 @@ export default function Form() {
   };
 
 
-
-
-
-
-
   const handleSignUp = async (e) => {
     e.preventDefault()
     let errorMessage;
