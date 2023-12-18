@@ -34,6 +34,49 @@ export const registration = async (formData) => {
   }
 };
 
+export const otpverification = async (OTP) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/user/auth/verify`, OTP );
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error creating resume:', error.message);
+
+  }
+};
+
+
+export const sendOtp = async (resendOtp) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/user/auth/resendOtp`, resendOtp );
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error creating resume:', error.message);
+
+  }
+};
+export const forgetPassword= async (emailData) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/user/auth/forgetPass`, emailData );
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error creating resume:', error.message);
+
+  }
+};
+export const resetPassword= async (formdata) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/user/auth/forgetPass`, formdata);
+    const { status, message, data } = response.data;
+    return { status, message, data };
+  } catch (error) {
+    console.error('Error creating resume:', error.message);
+
+  }
+};
+
 
 export const signInuser = async (formData) => {
   try {

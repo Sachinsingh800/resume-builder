@@ -136,11 +136,10 @@ const Template_1= () => {
       background-color: #f0f0f0;
       box-sizing: border-box;
       background-color: white;
-      width: 100%;
-      height: 100%;
   }
   .main {
-
+      width: 850px;
+      height: 1130px;
       background-color: white;
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -172,6 +171,7 @@ text-align: left;
 width: 100%;
 display: flex;
 flex-direction: column;
+
 padding: 1rem 1rem;
 }
 .education{
@@ -222,7 +222,7 @@ flex-direction: column;
 gap: .5rem;
 }
 .skills{
-padding: 0rem .5rem;
+padding: 1rem;
 display: flex;
 flex-direction: column;
 gap: .5rem;
@@ -234,13 +234,13 @@ grid-template-columns: 1fr 1fr;
 
 }
 .professional_summary{
-padding: 0rem .5rem;
+padding: 1rem;
 display: flex;
 flex-direction: column;
 gap: .5rem;
 }
 .work{
-padding: 0rem .5rem;
+padding: 1rem;
 display: flex;
 flex-direction: column;
 gap: .5rem;
@@ -280,8 +280,6 @@ margin:0rem;
 .skill-ul{
 margin-top:-1rem;
 margin-left:-2.7rem;
-display: grid;
-grid-template-columns: 1fr 1fr;
 }
 .line{
 margin-top:-1rem;
@@ -317,13 +315,13 @@ margin:0rem;
     
     <body>
         <div class="main">
-            <div class="left_section" style="background-color: ${color}; color: ${color3};">
+            <div class="left_section" style="background-color:${color}; color:${color3};">
                 <div>
                     <div class="img_container">
                         <div class="img_box" style="height: ${imgSize}px; width: ${imgSize}px;">
                             <!-- Replace the image source with your actual 
                             image URL -->
-                            <img src=${base64Image3} alt="dp" />
+                            <img src=${base64Image3} alt="dp">
                         </div>
                     </div>
     
@@ -331,7 +329,6 @@ margin:0rem;
                         <p>
                             <span>Email: </span>
                             ${formData.resume.contact.email}
-                   
                         </p>
                         <p>
                             <span>Phone: </span>
@@ -348,58 +345,58 @@ margin:0rem;
                <div><hr /></div> 
                 <div class="education">
                     <h3>Education</h3>
-
-            
                     <div class="edu">
+
                     ${formData.resume.education.map((item) => `
-                        <div>
-                            <h4>${item.collegeName}</h4>
-                            <p>${item.degree}</p>
-                            <p>${item.startYear} - ${item.endYear}</p>
-                        </div>
-                    `)}
-                </div>
+                    <div >
+                    <h4>${item.collegeName}</h4>
+                    <p>${item.degree}</p>
+                    <p>${item.startYear} - ${item.endYear}</p>
+                    </div>
+                `)}
+    
+                    </div>
+                    <!-- Add more education items as needed -->
                 </div>
             </div>
     
             <div class="right_section">
-                <div class="heading" style="background-color:${color2};">
+                <div class="heading" style="background-color:${color2}; color:${color3};">
                     <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
-                     ${formData.resume.name}
+                    ${formData.resume.name}
                     </h1>
                 </div>
     
                 <div class="certifications">
                     <h3>Certifications</h3>
                     <ul class="certi-ul">
+
                     ${formData.resume.certifications.map((item) => `
-                        <li>
-                        <h5>${item.title}</h5>
-                        <p>Organization: ${item.issuingOrganization }</p>
-                    </li>
+                <li>
+                <h5>${item?.title}</h5>
+                <p>${item?.issuingOrganization }: ${item?.date}</p>
+                </li>
                 `)}
+                    
                         <!-- Add more certification items as needed -->
                     </ul>
                 </div>
     
-         
-    
+             <div class="line"> <hr /></div>  
+      
                 <div class="skills">
                     <h3>Skills</h3>
-                    <ul class="skill-ul">
-                    ${formData.resume.skillsAndLevel.map((item) => `
-                 
-                    <li>
-                    <h5>${item.skills }</h5>
-        
-                </li>
-          
-            `)}
                    
+                    ${formData.resume.skillsAndLevel.map((item) => `
+                    <ul class="skill-ul">
+                    <li> ${item.skills }</li>
                     </ul>
+            `)}
+                  
                 </div>
+
     
-            
+                <div class="line"> <hr /></div>  
     
                 <div class="professional_summary">
                     <h3>Professional Summary</h3>
@@ -408,17 +405,19 @@ margin:0rem;
                     </p>
                 </div>
     
-            
+                <div class="line"> <hr /></div>  
     
                 <div class="work">
                     <h3>Work History</h3>
                     <ul class="work-ul">
+
                     ${formData.resume.work.map((item) => `
                     <li>
                     <h4>${item?.title}</h4>
                     <p>${item?.company}, ${item?.location}</p>
                     <p>${item?.description}</p>
                 </li>
+          
             `)}
                     </ul>
                 </div>

@@ -59,6 +59,7 @@ import Template_28 from './Component/ResumeTemplates/Template_28/Template_28';
 import Template_29 from './Component/ResumeTemplates/Template_29/Template_29';
 import Template_30 from './Component/ResumeTemplates/Template_30/Template_30';
 import HtmlToPdf from './Component/HtmlToPdf/HtmlToPdf';
+import ForgetPassword from './Component/Form/ForgetPassword';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -210,6 +211,10 @@ const router = createBrowserRouter([
   {
     path: "/Form",
     element: <Form/>
+  },
+  {
+    path: "/ForgetPassword",
+    element: <ForgetPassword/>
   },
   {
     path: "/CoverLetterForm",

@@ -234,7 +234,22 @@ margin-top:-1rem!important;
 margin-left:-.4rem!important;
 }
 
-
+.contactInfo{
+  margin-left:-3rem!important;
+}
+.skillsHeader h3{
+ padding-left: 1rem!important;
+}
+.title_box2{
+  padding-left: 1rem!important;
+}
+.work_ul{
+  padding-left: 1rem!important;
+}
+.skillsAndLevel{
+  margin-left: 1rem!important;
+  width: 95%;
+}
 /* modal.module.css */
 .overlay {
   position: fixed;

@@ -561,15 +561,12 @@ gap: .5rem;
 
 }
 .skillsAndLevel{
-display: grid;
-grid-template-columns: 1fr 1fr ;
-gap: .5rem;
-padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  gap: .5rem;
+  padding: 1rem!important;
 }
-.skillsAndLevel li{
 
-overflow: hidden;
-}
 
 .skillsAndLevel li span{
 margin-left: 1rem;
@@ -627,23 +624,23 @@ margin-left: 1rem;
     
     <body>
       <div class="main">
-        <div class="Left_container" style="background-color: #D3D3D3; color: white;">
-          <div class="img_container">
+        <div class="Left_container" style="background-color: ${color}; color: ${color3};">
+          <div class="img_container" style="background-color: ${color2}; color: ${color3};">
             <div class="name-box">
-            <h1 >${formData.resume.name} </h1>
-            <p class="objectiveText">${formData.resume.jobTitle}</p>
+            <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name} </h1>
+            <p class="objectiveText" style="color: ${color3};">${formData.resume.jobTitle}</p>
        
             </div>
              
             <div>
               <div class="contactInfo">
-                <p class="email" style="color: white;"><span>Email: </span>${formData.resume.contact.email}</p>
+                <p class="email" style="color: ${color3};"><span>Email: </span>${formData.resume.contact.email}</p>
               </div>
               <div class="contactInfo">
-                <p class="email" style="color: white;"><span>Phone: </span>${formData.resume.contact.phone}</p>
+                <p class="email" style="color: ${color3};"><span>Phone: </span>${formData.resume.contact.phone}</p>
               </div>
               <div class="contactInfo">
-                <p class="email" style="color: white;"><span>Address: </span>
+                <p class="email" style="color: ${color3};"><span>Address: </span>
                 ${formData.resume.address.address},
                 ${formData.resume.address.state },
                 ${formData.resume.address.postalCode }
@@ -653,11 +650,11 @@ margin-left: 1rem;
           </div>
     
           <div class="skillsHeader">
-            <h3 style="color: #333;">EDUCATION</h3>
+            <h3 style="color: ${color3};">EDUCATION</h3>
             <ul class="edu-ul">
             ${formData.resume.education.map((item) => `
 
-        <li style="color: #333;">
+        <li style="color: ${color3};">
         <span>${item.degree} <span>${item.startYear} - ${item.endYear}</span></span>
         <span>${item.collegeName}</span>
       </li>
@@ -667,10 +664,10 @@ margin-left: 1rem;
           </div>
     
           <div class="skillsHeader">
-            <h3 style="color: #333;">REFERENCES</h3>
+            <h3 style="color: ${color3};">REFERENCES</h3>
             <ul class="ref-ul">
             ${formData.resume.references.map((item) => `
-            <li style="color: #333;">
+            <li style="color: ${color3};">
             <h4>${item?.name}</h4>
             <span>${item?.position} | ${item?.company}</span>
             <span>Phone: ${item?.phone}</span>
@@ -716,7 +713,6 @@ margin-left: 1rem;
             ${formData.resume.skillsAndLevel.map((item) => `
             <li>
             <span>${item.skills}</span>
-            <span style="width: 40%; height:.5rem; background-color: orange; display: inline-block;"></span>
           </li>
             `)}
             </ul>
@@ -820,115 +816,98 @@ margin-left: 1rem;
 </div>
 
 <div className={styles.main}>
-    <div className={styles.left_container}>
-      <div className={styles.img_container}>
-        <div className={styles.name_box}>
-          <h1 className={styles.name}>{formData.resume.name}</h1>
-          <p className={styles.objectiveText}>{formData.resume.jobTitle}</p>
-        </div>
+      <div className={`${styles.Left_container} `} style={{backgroundColor:color,color:color3}}>
+        <div className={styles.img_container} style={{backgroundColor:color2,color:color3}}>
+          <div className={styles.name_box} >
+            <h1 style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
+            <p className={styles.objectiveText} style={{color:color3}}>{formData.resume.jobTitle}</p>
+          </div>
 
-        <div>
-          <div className={styles.contact_Info}>
-            <p className={styles.email}>
-              <span>Email: </span>
-              {formData.resume.contact.email}
-            </p>
-            <p className={styles.email}>
-              <span>Phone: </span>
-              {formData.resume.contact.phone}
-            </p>
-            <p className={styles.email}>
-              <span>Address: </span>
-              {formData.resume.address.address},
-              {formData.resume.address.state},
-              {formData.resume.address.postalCode}
-            </p>
+          <div>
+            <div className={styles.contactInfo}>
+              <p className={styles.email} style={{color:color3}}>Email: {formData.resume.contact.email}</p>
+            </div>
+            <div className={styles.contactInfo}>
+              <p className={styles.email} style={{color:color3}}>Phone: {formData.resume.contact.phone}</p>
+            </div>
+            <div className={styles.contactInfo}>
+              <p className={styles.email} style={{color:color3}}>
+                Address: {formData.resume.address.address}, {formData.resume.address.state}, {formData.resume.address.postalCode}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div>
-        <div className={styles.skills_Header}>
+        <div className={styles.skillsHeader}>
           <h3>EDUCATION</h3>
           <ul className={styles.edu_ul}>
-            {formData.resume.education.map((item, index) => (
-              <li key={index} className={styles.edu_li}>
+            {formData.resume.education.map((item) => (
+              <li key={item.degree}>
                 <span>
-                  {item.degree}{' '}
-                  <span>
-                    {item.startYear} - {item.endYear}
-                  </span>
+                  {item.degree} <span>{item.startYear} - {item.endYear}</span>
                 </span>
                 <span>{item.collegeName}</span>
               </li>
             ))}
           </ul>
         </div>
-
-        <div className={styles.skills_Header}>
+<br/>
+        <div className={styles.skillsHeader}>
           <h3>REFERENCES</h3>
           <ul className={styles.ref_ul}>
-            {formData.resume.references.map((item, index) => (
-              <li key={index} className={styles.ref_li}>
+            {formData.resume.references.map((item) => (
+              <li key={item?.name}>
                 <h4>{item?.name}</h4>
-                <span>
-                  {item?.position} | {item?.company}
-                </span>
+                <span>{item?.position} | {item?.company}</span>
                 <span>Phone: {item?.phone}</span>
               </li>
             ))}
           </ul>
         </div>
       </div>
-    </div>
 
-    <div>
-      <div className={styles.skills_Header2}>
-        <div className={styles.title_box2}>
-          <h3>About Me</h3>
+      <div>
+        <div className={styles.skillsHeader2}>
+          <div className={styles.title_box2}>
+            <h3>ABOUT ME</h3>
+          </div>
+          <p className={styles.para}>{formData.resume.summary}</p>
         </div>
-        <p className={styles.para}>{formData.resume.summary}</p>
-      </div>
 
-      <div className={styles.professional_SkillsHeader}>
-        <div className={styles.title_box2}>
-          <h3>WORKING EXPERIENCE</h3>
+        <div className={styles.professionalSkillsHeader}>
+          <div className={styles.title_box2}>
+            <h3>WORKING EXPERIENCE</h3>
+          </div>
+          <ul className={styles.work_ul}>
+            {formData.resume.work.map((item) => (
+              <li key={item?.title}>
+                <div className={styles.work_des}>
+                  <h4 className={styles.customerService}>{item?.title}</h4>
+                  <h5 className={styles.company_name}>
+                    <span>{item?.company} - {item?.location}</span> <span>{item?.startDate} - {item?.endDate}</span>
+                  </h5>
+                  <p>{item?.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className={styles.work_ul}>
-          {formData.resume.work.map((item, index) => (
-            <li key={index} className={styles.work_li}>
-              <div className={styles.work_des}>
-                <h3 className={styles.customer_service}>{item?.title}</h3>
-                <h5 className={styles.company_name}>
-                  <span>
-                    {item?.company} - {item?.location}
-                  </span>{' '}
-                  <span>
-                    {item?.startDate} - {item?.endDate}
-                  </span>
-                </h5>
-                <p>{item?.description}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className={styles.professional_SkillsHeader}>
-        <div className={styles.title_box2}>
-          <h3>SOFTWARE SKILL</h3>
+  <br/>
+        <div className={styles.professionalSkillsHeader}>
+          <div className={styles.title_box2}>
+            <h3>SOFTWARE SKILL</h3>
+          </div>
+          <ul className={styles.skillsAndLevel}>
+            {formData.resume.skillsAndLevel.map((item) => (
+              <li key={item.skills}>
+                <span>{item.skills}</span>
+                <span className={styles.orangeBar}></span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className={styles.skillsAndLevel}>
-          {formData.resume.skillsAndLevel.map((item, index) => (
-            <li key={index} className={styles.skills_li}>
-              <span>{item.skills}</span>
-              <span style={{ width: '40%', height: '.5rem', backgroundColor: 'orange', display: 'inline-block' }}></span>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
-  </div>
 
 </>
    
