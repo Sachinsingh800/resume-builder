@@ -134,7 +134,6 @@ const CoverLetter1 = () => {
       padding: 0;
       color: black;
       width: 850px;
-      height: 1130px;
     }
   
     #header {
@@ -182,7 +181,7 @@ const CoverLetter1 = () => {
       width: 35%;
       background-color: #F4F4F4;
       padding: 10px;
-      height: 990px;
+      height: 985px;
       margin-right: -10px;
     }
   
