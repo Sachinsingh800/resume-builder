@@ -1,24 +1,135 @@
 .main{
+    width: 850px;
+    height: max-content;
+}
+.header {
+    width: 100%;
+    height:6rem;
+    background-color: #003D74;
+    padding: 10px 0 0 10px;
     display: flex;
     flex-direction: column;
-    width: 52rem!important; /* 874px / 16px = 54.625rem */
-    height: 73.3rem;  /* 1240px / 16px = 77.5rem */
-    margin: 0 auto;
-    box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-.heading{
+   justify-content: center;
+   
+  }
+
+  .header h1 {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .header p {
+    color: white;
+    font-weight: 300;
+  }
+
+  .main_content {
     display: flex;
-     justify-content: space-between;
-     padding: 1rem ;
-     background-color: rgb(212, 209, 209);
-}
-.section_1 p{
-    text-transform: uppercase;
-}
-.section_1,.section_2,.section_3{
+    max-width: 100%;
+  }
+
+  .left_column {
+    width: 70%;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+  }
+
+  .left_column h2,
+  .left_column p,
+  .left_column .letter-body {
+    cursor: pointer;
+  }
+
+  .right_column {
+    width: 30%;
+    background-color: #d6d6d6;
+    padding: 10px;
+    height: 1000px;
+  }
+
+  .right_column h2 {
+    color: #003D74;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .right_column hr {
+    border: 0.5px solid #000000;
+  }
+
+  .personal_Info p {
+    font-weight: 600;
+  }
+
+/* modal.module.css */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+  }
+  
+  .closeButton {
+    background: #000000;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: white;
+
+  }
+  .closeButton:hover{
+    background: white;
+    color: black;
+  }
+  .download_box{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    padding: 1rem;
-}
+    justify-content: center;
+  }
+  .down_img_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .down_img_box img{
+    height: 100%;
+    width: 100%;
+  }
+  .icon_download{
+    height: 6rem;
+    width: 6rem;
+    text-align: center;
+  }
+  .icon_download:hover{
+    border: 1px rgb(0, 42, 255) solid;
+    border-radius: 5px ;
+  }
+  .icon_download img{
+    height: 100%;
+    width: 100%;
+  }
+  .down_btn_box{
+    display: flex;
+    justify-content: space-between;
+    height: 10rem;
+  }

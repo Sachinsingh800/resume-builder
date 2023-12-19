@@ -129,6 +129,7 @@ const CoverLetterForm = () => {
              name="nameAndContact.profession"
              value={formData.nameAndContact.profession}
              onChange={handleChange}
+             spellcheck="false"
            />
          </label>
 
@@ -165,7 +166,7 @@ const CoverLetterForm = () => {
          <label>
            Phone Number:
            <input
-             type="text"
+             type="number"
              name="nameAndContact.phoneNumber"
              value={formData.nameAndContact.phoneNumber}
              onChange={handleChange}
@@ -175,7 +176,7 @@ const CoverLetterForm = () => {
          <label>
            Email:
            <input
-             type="text"
+             type="email"
              name="nameAndContact.email"
              value={formData.nameAndContact.email}
              onChange={handleChange}
@@ -187,7 +188,7 @@ const CoverLetterForm = () => {
          <label>
            Date:
            <input
-             type="text"
+             type="date"
              name="date"
              value={formData.date}
              onChange={handleChange}
@@ -275,7 +276,7 @@ const CoverLetterForm = () => {
       <label>
         Recipient Email:
         <input
-          type="text"
+          type="email"
           name="recipient.email"
           value={formData.recipient.email}
           onChange={handleChange}
@@ -313,7 +314,7 @@ const CoverLetterForm = () => {
 <label>
   Opening:
   <textarea
-
+    spellcheck="false"
     type="text"
     name="opening"
     value={formData.opening}
@@ -324,7 +325,7 @@ const CoverLetterForm = () => {
 <label>
   Letter Body:
   <textarea
-
+    spellcheck="false"
     type="text"
     name="letterBody"
     value={formData.letterBody}
@@ -335,7 +336,7 @@ const CoverLetterForm = () => {
 <label>
   Call to Action:
   <textarea
-  
+      spellcheck="false"
     type="text"
     name="callToAction"
     value={formData.callToAction}
@@ -346,7 +347,7 @@ const CoverLetterForm = () => {
 <label>
   Closing:
   <textarea
-
+    spellcheck="false"
     type="text"
     name="closing"
     value={formData.closing}
@@ -444,12 +445,9 @@ const CoverLetterForm = () => {
 
 </div>
 <div className={style.coverLetter_box}>
-<div className={style.coverletter_container}>
-  <div>
-  {cl[clNo]}
-  </div>
 
-</div>
+  {cl[clNo]}
+
 </div>
     </div>
   );

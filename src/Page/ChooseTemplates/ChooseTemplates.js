@@ -19,7 +19,7 @@ function ChooseTemplates() {
   const [template,setTempletes] = useRecoilState(imageresumeTemplates)
 
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
-  
+
   const handleClick = () => {
     play();
   };

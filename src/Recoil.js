@@ -118,7 +118,6 @@ export const resumeData = atom({
       areaOfInterest: resume?.areaOfInterest,
       references:resume?.references,
       interestedIn: "job",
-
     },
   },
 });

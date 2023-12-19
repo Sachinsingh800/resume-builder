@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import style from "./CreateResumeForm.module.css"
 import { useRecoilState } from 'recoil';
-import { resumeData, updateButton, uploadImage } from '../../Recoil'; 
+import { chooseTemplates, resumeData, updateButton, uploadImage } from '../../Recoil'; 
 import ImageModal from '../ImageModal/ImageModal';
 import { AiFillDelete } from 'react-icons/ai';
 import { croppedImageState,suggestionData,selectedValue1,selectedValue2,modalValue} from '../../Recoil';
@@ -25,9 +25,10 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
   const [progress, setProgress] = useState(0);
   const navigate= useNavigate()
   const authToken = JSON.parse(localStorage.getItem("token"))
+  const templateNo = JSON.parse(localStorage.getItem("templateid"))
   const [play] = useSound(clickSound);
 
-
+console.log(templateNo,"tempno")
 
 
   async function createFileFromImageUrl(imageUrl, fileName) {
@@ -105,7 +106,7 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
     formData.append('references', JSON.stringify(resume.references));
     formData.append('jobTitle', JSON.stringify(resume.jobTitle));
     formData.append('interestedIn', (resume.interestedIn));
-    formData.append('tempId', JSON.stringify(2));
+    formData.append('tempId', JSON.stringify(templateNo));
   
 
     for (let i = 0; i < resumeImg.length; i++) {
@@ -130,7 +131,7 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
         Swal.fire("Good job!", "Resume Created", "success");
       } else {
         Swal.fire("Oops!", "Something went wrong", "error");
-        navigate("/SignIn");
+        navigate("/Form");
       }
       // Handle update error
     }
@@ -165,7 +166,7 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
     formData.append('references', JSON.stringify(resume.references));
     formData.append('jobTitle', JSON.stringify(resume.jobTitle));
     formData.append('interestedIn', (resume.interestedIn));
-    formData.append('tempId', JSON.stringify(2));
+    formData.append('tempId', JSON.stringify(templateNo));
   
 
     for (let i = 0; i < resumeImg.length; i++) {
@@ -190,7 +191,7 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
         Swal.fire("Good job!", "Resume Created", "success");
       } else {
         Swal.fire("Oops!", "Something went wrong", "error");
-        navigate("/SignIn");
+    
       }
       // Handle update error
     }

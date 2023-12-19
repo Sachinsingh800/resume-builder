@@ -6,7 +6,7 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import { resumeData, updateButton,resumeTemplates } from '../../Recoil';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-import Template_2 from '../ResumeTemplates/Template_2/Template_2';
+
 
 function LastResume() {
   const [formData, setFormData] = useRecoilState(resumeData);
@@ -15,10 +15,6 @@ function LastResume() {
   const navigate = useNavigate();
   const templates = useRecoilValue(resumeTemplates);
 
-
-
-
- 
 
   useEffect(() => {
     handleLastResume();
