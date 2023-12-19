@@ -48,7 +48,7 @@ function LastResume() {
   const handleEditResume = () => {
 
     setUpdateBtn(true);
-    window.location.href = "/CreateResume"
+    navigate("/CreateResume")
    
   };
 
