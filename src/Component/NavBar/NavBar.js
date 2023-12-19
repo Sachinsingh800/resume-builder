@@ -94,9 +94,9 @@ function NavBar() {
             {isUserHovered && (
               <div className={style.logout_box} onMouseLeave={handleUserLeave}>
                 <p onClick={handleLogOut}>Log Out</p>
-                <Link to={'/Profile'}>
+                <a href='/Profile'>
                   <p>Profile</p>
-                </Link>
+                </a>
               </div>
             )}
           </>

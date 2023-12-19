@@ -18,46 +18,14 @@ function LastResume() {
 
 
 
-  const obj =  {
-    status: true,
-    message: "Resume created successfully",
-    resume: {
-      userId: data?._id,
-      jobTitle:data?.jobTitle ,
-      name: data?.name,
-      summary: data?.summary,
-      contact: data?.contact,
-      address: data?.address,
-      dob: data?.dob,
-      gender: data?.gender,
-      profilePicture:data?.profilePicture ,
-      education: data?.education,
-      work: data?.work,
-      skillsAndLevel: data?.skillsAndLevel ,
-      internShips: data?.internShips,
-      projects: data?.projects,
-      socialLinks: data?.socialLinks,
-      knownLanguages: data?.knownLanguages,
-      certifications:data?.certifications,
-      awards: data?.awards,
-      volunteerExperience: data?.volunteerExperience,
-      areaOfInterest: data?.areaOfInterest,
-      references:data?.references,
-      interestedIn: "job",
-
-    },
-  }
-  console.log(data.tempId,"obj")
  
 
   useEffect(() => {
     handleLastResume();
-    // getResumedata()
+   
   }, []);
 
-// const getResumedata=()=>{
-//   setFormData(obj)
-// }
+
 
 
   const handleLastResume = async () => {
@@ -67,6 +35,8 @@ function LastResume() {
       if (response.status === true) {
         setData(response?.data);
         console.log(response,"response")
+        localStorage.setItem('resume', JSON.stringify(response?.data));
+      
       } else {
         console.error('Error fetching user profile:', response.data.message);
       }
@@ -76,10 +46,10 @@ function LastResume() {
   };
 
   const handleEditResume = () => {
-    // setFormData(obj);
-    // localStorage.setItem('resume', JSON.stringify(obj));
+
     setUpdateBtn(true);
-    navigate('/CreateResume');
+    window.location.href = "/CreateResume"
+   
   };
 
   return (
@@ -98,3 +68,12 @@ function LastResume() {
 }
 
 export default LastResume;
+
+
+
+
+
+
+
+
+
