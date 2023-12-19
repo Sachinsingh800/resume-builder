@@ -3,8 +3,8 @@ import { getlastResume } from '../../Api/Api';
 import Template_1 from '../ResumeTemplates/Template_1/Template_1';
 import style from './LastResume.module.css';
 import EditNoteIcon from '@mui/icons-material/EditNote';
-import { resumeData, updateButton } from '../../Recoil';
-import { useRecoilState } from 'recoil';
+import { resumeData, updateButton,resumeTemplates } from '../../Recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import Template_2 from '../ResumeTemplates/Template_2/Template_2';
 
@@ -13,7 +13,7 @@ function LastResume() {
   const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-
+  const templates = useRecoilValue(resumeTemplates);
 
 
 
@@ -47,17 +47,17 @@ function LastResume() {
 
     },
   }
-  console.log(obj,"obj")
-  console.log(formData,"obj2")
+  console.log(data.tempId,"obj")
+ 
 
   useEffect(() => {
     handleLastResume();
-    getResumedata()
+    // getResumedata()
   }, []);
 
-const getResumedata=()=>{
-  setFormData(obj)
-}
+// const getResumedata=()=>{
+//   setFormData(obj)
+// }
 
 
   const handleLastResume = async () => {
@@ -91,7 +91,7 @@ const getResumedata=()=>{
         </button>
       </div>
       <div className={style.container}>
-        <Template_1 />
+      {templates[data?.tempId]}
       </div>
     </div>
   );
