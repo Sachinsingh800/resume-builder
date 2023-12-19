@@ -28,19 +28,30 @@ export default function Form() {
 
 
 
-   const handleSignIn = async (e) => {
-    e.preventDefault()
+  const handleSignIn = async (e) => {
+    e.preventDefault();
     let errorMessage;
   
     try {
-      const response = await axios.post(`https://lizmyresume.onrender.com/user/auth/logIn`, formData);
+      const response = await axios.post(
+        `https://lizmyresume.onrender.com/user/auth/logIn`,
+        formData
+      );
   
       // Assuming the API returns a JSON response with status and message
       const { status, message, data } = response.data;
-
+  
       Swal.fire("Success!", "Login successfully", "success");
-      localStorage.setItem(JSON.stringify("token",data))
-      navigate("/")
+      
+      // Corrected localStorage.setItem syntax
+      localStorage.setItem("token", JSON.stringify(data));
+      
+      // Assuming you are using react-router-dom for navigation
+      // Corrected the navigate method
+      // Make sure to import 'useHistory' from 'react-router-dom'
+    
+      navigate("/");
+  
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
       if (axios.isAxiosError(error)) {
@@ -51,18 +62,18 @@ export default function Form() {
         // Log the error message as a string
         console.log('Error Message:', JSON.stringify(errorMessage));
         Swal.fire("Oops!", JSON.stringify(errorMessage), "error");
-        if(errorMessage === "Email is not verified. Please verify your email"){
+        if (errorMessage === "Email is not verified. Please verify your email") {
           setShowOtpModal(true);
         }
-    
+  
       } else {
         // Network error (e.g., no internet connection)
         errorMessage = error.message;
         console.log('Network Error:', errorMessage);
       }
     }
-  
   };
+  
 
 
   const handleSignUp = async (e) => {

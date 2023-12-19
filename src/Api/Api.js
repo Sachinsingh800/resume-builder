@@ -260,7 +260,7 @@ export const updateProfile = async (updatedData) => {
     'Content-Type': 'multipart/form-data', // Set the content type for file uploads
   };
   try {
-    const response = await axios.put(`${BASE_URL}/user/updateProfile`, updatedData,{headers});
+    const response = await axios.put(`${BASE_URL}/user/auth/updateProfile`, updatedData,{headers});
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {
@@ -385,7 +385,7 @@ export const addResume = async (formData) => {
     'Content-Type': 'multipart/form-data', // Set the content type for file uploads
   };
   try {
-    const response = await axios.post(`${BASE_URL}/user/createResume`, formData, { headers });
+    const response = await axios.post(`${BASE_URL}/user/resume/createResume`, formData, { headers });
     const { status, message, data } = response.data;
     return { status, message, data };
   } catch (error) {

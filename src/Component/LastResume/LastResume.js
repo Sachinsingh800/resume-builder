@@ -6,6 +6,7 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import { resumeData, updateButton } from '../../Recoil';
 import { useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
+import Template_2 from '../ResumeTemplates/Template_2/Template_2';
 
 function LastResume() {
   const [formData, setFormData] = useRecoilState(resumeData);
@@ -13,12 +14,41 @@ function LastResume() {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
-  const obj = {
+
+
+
+
+  const obj =  {
     status: true,
-    message: 'Resume created successfully',
-    resume: data,
-  };
-console.log(formData,"obj")
+    message: "Resume created successfully",
+    resume: {
+      userId: data?._id,
+      jobTitle:data?.jobTitle ,
+      name: data?.name,
+      summary: data?.summary,
+      contact: data?.contact,
+      address: data?.address,
+      dob: data?.dob,
+      gender: data?.gender,
+      profilePicture:data?.profilePicture ,
+      education: data?.education,
+      work: data?.work,
+      skillsAndLevel: data?.skillsAndLevel ,
+      internShips: data?.internShips,
+      projects: data?.projects,
+      socialLinks: data?.socialLinks,
+      knownLanguages: data?.knownLanguages,
+      certifications:data?.certifications,
+      awards: data?.awards,
+      volunteerExperience: data?.volunteerExperience,
+      areaOfInterest: data?.areaOfInterest,
+      references:data?.references,
+      interestedIn: "job",
+
+    },
+  }
+  console.log(obj,"obj")
+  console.log(formData,"obj2")
 
   useEffect(() => {
     handleLastResume();
@@ -46,8 +76,8 @@ const getResumedata=()=>{
   };
 
   const handleEditResume = () => {
-    setFormData(obj);
-    localStorage.setItem('resume', JSON.stringify(obj));
+    // setFormData(obj);
+    // localStorage.setItem('resume', JSON.stringify(obj));
     setUpdateBtn(true);
     navigate('/CreateResume');
   };

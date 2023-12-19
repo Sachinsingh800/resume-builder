@@ -112,8 +112,8 @@ function ProfileDetails() {
           <br/>
           <hr className={style.hr}/>
             <div className={style.user_box}>
-            <p><strong>Name: </strong>{userProfileData.name}</p>
-             <p><strong>Email: </strong>{userProfileData.email}</p>
+            <p><strong>Name: </strong>{userProfileData?.name}</p>
+             <p><strong>Email: </strong>{userProfileData?.email}</p>
             </div>
          
         </div>

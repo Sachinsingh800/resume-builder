@@ -1039,3 +1039,7 @@ export const jobApplicationState = atom({
     salaryRequirements: "My salary requirements are flexible..."
   },
 });
+
+
+
+

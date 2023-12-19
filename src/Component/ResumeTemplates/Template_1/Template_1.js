@@ -328,17 +328,17 @@ margin:0rem;
                     <div class="info_box">
                         <p>
                             <span>Email: </span>
-                            ${formData.resume.contact.email}
+                            ${formData?.resume?.contact?.email}
                         </p>
                         <p>
                             <span>Phone: </span>
-                            ${formData.resume.contact.phone}
+                            ${formData?.resume?.contact?.phone}
                         </p>
                         <p>
                             <span>Location: </span>
-                            ${formData.resume.address.address},
-                            ${formData.resume.address.state },
-                            ${formData.resume.address.postalCode },
+                            ${formData?.resume?.address?.address},
+                            ${formData?.resume?.address?.state },
+                            ${formData?.resume?.address?.postalCode },
                         </p>
                     </div>
                 </div>
@@ -347,11 +347,11 @@ margin:0rem;
                     <h3>Education</h3>
                     <div class="edu">
 
-                    ${formData.resume.education.map((item) => `
+                    ${formData?.resume?.education.map((item) => `
                     <div >
-                    <h4>${item.collegeName}</h4>
-                    <p>${item.degree}</p>
-                    <p>${item.startYear} - ${item.endYear}</p>
+                    <h4>${item?.collegeName}</h4>
+                    <p>${item?.degree}</p>
+                    <p>${item?.startYear} - ${item?.endYear}</p>
                     </div>
                 `)}
     
@@ -363,7 +363,7 @@ margin:0rem;
             <div class="right_section">
                 <div class="heading" style="background-color:${color2}; color:${color3};">
                     <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
-                    ${formData.resume.name}
+                    ${formData?.resume?.name}
                     </h1>
                 </div>
     
@@ -371,7 +371,7 @@ margin:0rem;
                     <h3>Certifications</h3>
                     <ul class="certi-ul">
 
-                    ${formData.resume.certifications.map((item) => `
+                    ${formData?.resume?.certifications.map((item) => `
                 <li>
                 <h5>${item?.title}</h5>
                 <p>${item?.issuingOrganization }: ${item?.date}</p>
@@ -387,9 +387,9 @@ margin:0rem;
                 <div class="skills">
                     <h3>Skills</h3>
                    
-                    ${formData.resume.skillsAndLevel.map((item) => `
+                    ${formData?.resume?.skillsAndLevel.map((item) => `
                     <ul class="skill-ul">
-                    <li> ${item.skills }</li>
+                    <li> ${item?.skills }</li>
                     </ul>
             `)}
                   
@@ -401,7 +401,7 @@ margin:0rem;
                 <div class="professional_summary">
                     <h3>Professional Summary</h3>
                     <p>
-                    ${formData.resume.summary}
+                    ${formData?.resume?.summary}
                     </p>
                 </div>
     
@@ -411,7 +411,7 @@ margin:0rem;
                     <h3>Work History</h3>
                     <ul class="work-ul">
 
-                    ${formData.resume.work.map((item) => `
+                    ${formData?.resume?.work.map((item) => `
                     <li>
                     <h4>${item?.title}</h4>
                     <p>${item?.company}, ${item?.location}</p>
@@ -533,15 +533,15 @@ margin:0rem;
         <div className={style.info_box}>
           <p>
             <span>Email: </span>
-            {formData.resume.contact.email}
+            {/* {formData?.resume?.contact?.email} */}
           </p>
           <p>
             <span>Phone: </span>
-            {formData.resume.contact.phone}
+            {formData?.resume?.contact?.phone}
           </p>
           <p>
             <span>Location: </span>
-            {formData.resume.address.address}, {formData.resume.address.state}, {formData.resume.address.postalCode}
+            {formData?.resume?.address?.address}, {formData?.resume?.address?.state}, {formData?.resume?.address?.postalCode}
           </p>
         </div>
       </div>
@@ -552,12 +552,12 @@ margin:0rem;
       <div className={style.education}>
         <h3>Education</h3>
         <div className={style.edu}>
-          {formData.resume.education.map((item, index) => (
+          {formData?.resume?.education.map((item, index) => (
             <div key={index}>
-              <h4>{item.collegeName}</h4>
-              <p>{item.degree}</p>
+              <h4>{item?.collegeName}</h4>
+              <p>{item?.degree}</p>
               <p>
-                {item.startYear} - {item.endYear}
+                {item?.startYear} - {item?.endYear}
               </p>
             </div>
           ))}
@@ -567,16 +567,16 @@ margin:0rem;
 
     <div className={style.right_section}>
       <div className={style.heading} style={{ backgroundColor: color2}}>
-        <h1 style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>{formData.resume.name}</h1>
+        <h1 style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>{formData?.resume?.name}</h1>
       </div>
  
       <div className={style.certifications}>
         <h3>Certifications</h3>
         <ul className={style.certi_ul}>
-          {formData.resume.certifications.map((item, index) => (
+          {formData?.resume?.certifications.map((item, index) => (
             <li key={index}>
-              <h5>{item.title}</h5>
-              <p>Organization: {item.issuingOrganization}</p>
+              <h5>{item?.title}</h5>
+              <p>Organization: {item?.issuingOrganization}</p>
             </li>
           ))}
         </ul>
@@ -588,9 +588,9 @@ margin:0rem;
       <div className={style.skills}>
         <h3>Skills</h3>
         <ul className={style.skill_ul}>
-          {formData.resume.skillsAndLevel.map((item, index) => (
+          {formData?.resume?.skillsAndLevel.map((item, index) => (
             <li key={index}>
-              <h5>{item.skills}</h5>
+              <h5>{item?.skills}</h5>
             </li>
           ))}
         </ul>
@@ -602,7 +602,7 @@ margin:0rem;
 
       <div className={style.professional_summary}>
         <h3>Professional Summary</h3>
-        <p>{formData.resume.summary}</p>
+        <p>{formData?.resume?.summary}</p>
       </div>
 
       <div className={style.line}>
@@ -611,7 +611,7 @@ margin:0rem;
       <div className={style.work}>
         <h3>Work History</h3>
         <ul className={style.work_ul}>
-          {formData.resume.work.map((item, index) => (
+          {formData?.resume?.work.map((item, index) => (
             <li key={index}>
               <h4>{item?.title}</h4>
               <p>
