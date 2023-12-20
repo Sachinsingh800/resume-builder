@@ -431,7 +431,7 @@ const CoverLetter3 = () => {
     <br/>
     <hr />
     <p>Sincerely,</p>
-    <p><strong>{formData.nameAndContact.firstName}{" "}
+    <p><strong>{formData.nameAndContact.firstName}
           {formData.nameAndContact.lastName}</strong></p>
   </div>
    
