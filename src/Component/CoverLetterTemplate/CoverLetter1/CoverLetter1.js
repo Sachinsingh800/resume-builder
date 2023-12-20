@@ -31,6 +31,11 @@ import downloadimg from "../../Images/download.gif";
 import downloadpdf from "../../Images/pdf-download-2617.svg";
 import downloaddoc from "../../Images/google-docs-icon-2.svg";
 import downloadtext from "../../Images/icons8-text-500.svg";
+import Fonts from "../../Fonts/Fonts";
+import FontPicker from "../../FontPicker/FontPicker";
+import FontSizePicker from "../../FontSizePicker/FontSizePicker";
+import ColorPlate from "../../ColorPlate/ColorPlate";
+import ColorPlate2 from "../../ColorPlate2/ColorPlate2";
 
 const CoverLetter1 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -181,7 +186,7 @@ const CoverLetter1 = () => {
       width: 35%;
       background-color: #F4F4F4;
       padding: 10px;
-      height: 985px;
+      height: 987px;
       margin-right: -10px;
     }
   
@@ -212,11 +217,11 @@ const CoverLetter1 = () => {
 
 </head>
 <body>
-  <div id="header">
-    <h1 >
+  <div id="header" style="background-color:${color}; color:${color3};">
+    <h1  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
     ${formData.nameAndContact.firstName} ${formData.nameAndContact.lastName}
     </h1>
-    <p>${formData.nameAndContact.profession} </p>
+    <p style="color: ${color3}; ">${formData.nameAndContact.profession} </p>
   </div>
 
   <div id="main-content">
@@ -252,7 +257,7 @@ const CoverLetter1 = () => {
       <p> ${formData.recipient.phoneNumber}</p>
     </div>
 
-    <div id="right-column">
+    <div id="right-column" style="background-color:${color2}; ">
       <h2>Personal Info</h2>
       <hr>
       <div id="personal-info">
@@ -358,18 +363,22 @@ const CoverLetter1 = () => {
     <>
       <div className={styles.download_btn}>
         <button onClick={handleDownloadClick}>Download</button>
-
+               <FontPicker />
+                <FontSizePicker/>
+                <ColorPlate2 />
         <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
       </div>
 
       <br />
+      <br />
+      <br />
       <div className={styles.main}>
-        <div className={styles.header}>
-          <h1>
+        <div className={styles.header}  style={{ backgroundColor: color, color: color3 }}>
+          <h1 style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>
             {formData.nameAndContact.firstName}
             {formData.nameAndContact.lastName}
           </h1>
-          <p>{formData.nameAndContact.profession}</p>
+          <p style={{color:color3}}>{formData.nameAndContact.profession}</p>
         </div>
 
         <div className={styles.main_content}>
@@ -411,7 +420,7 @@ const CoverLetter1 = () => {
             <p> {formData.recipient.phoneNumber}</p>
           </div>
 
-          <div className={styles.right_column}>
+          <div className={styles.right_column} style={{ backgroundColor: color2 }}>
             <h2>Personal Info</h2>
             <hr />
             <div className={styles.personal_Info}>

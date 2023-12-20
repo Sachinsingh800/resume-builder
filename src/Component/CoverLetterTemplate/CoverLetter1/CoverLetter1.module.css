@@ -1,5 +1,5 @@
 .main{
-    width: 850px;
+    /* width: 690px; */
     height: max-content;
 }
 .header {
@@ -132,4 +132,15 @@
     display: flex;
     justify-content: space-between;
     height: 10rem;
+  }
+  .download_btn{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    width: 41rem;
+    padding: .2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: -.5rem!important;
   }
