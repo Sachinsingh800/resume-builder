@@ -1,8 +1,20 @@
-
+.main{
+  max-width: 100%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  height: 1098px;
+  border: 1px rgb(5, 5, 5) solid;
+}
   .orange_bar {
     height: 5px;
     width: 100%;
     background-color: orange;
+ 
+  }
+  .orange_bar2{
+    height: 5px;
+    width: 100%;
+    bottom: -58.5%;
+    position: relative;
   }
 
   .contact_info_container {

@@ -1,7 +1,8 @@
 .main{
     height: max-content;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    height: 1000px;
+    height: 1098px;
+    border: 1px rgb(5, 5, 5) solid;
 }
 .header {
     width: 100%;

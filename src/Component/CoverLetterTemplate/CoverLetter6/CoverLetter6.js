@@ -141,6 +141,8 @@ const CoverLetter6 = () => {
       margin: 0;
       padding: 0;
       font-family: 'Readex Pro', sans-serif;
+      width: 850px;
+      height: 1100px;
     }
 
     .header-container {
@@ -391,7 +393,7 @@ const CoverLetter6 = () => {
       <br />
 
       {/* coverletter  Templates */}
-
+<div className={styles.main}>
       <div className={styles.header_container} style={{ backgroundColor: color, color: color3 }}>
         <div className={styles.main_text} style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>     {formData.nameAndContact.firstName}
           {formData.nameAndContact.lastName}</div>
@@ -427,6 +429,7 @@ const CoverLetter6 = () => {
           <div className={styles.contact_text}>{formData.nameAndContact.phoneNumber}</div>
           <div className={styles.contact_text}>{formData.nameAndContact.email}</div>
         </div>
+      </div>
       </div>
     </>
   );

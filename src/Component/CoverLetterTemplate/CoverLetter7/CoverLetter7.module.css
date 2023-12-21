@@ -2,11 +2,10 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-
     margin: 0 auto;
-    
-    box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    height: 1098px;
+    border: 1px rgb(5, 5, 5) solid;
 }
 .heading{
     display: flex;

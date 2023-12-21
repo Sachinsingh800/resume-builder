@@ -142,11 +142,19 @@ const CoverLetter5 = () => {
       margin: 0;
       padding: 0;
       font-family: 'Readex Pro', sans-serif;
+      width: 850px;
+      height: 1100px;
     }
     .orange-bar {
       height: 5px;
       width: 100%;
+    }
+    .orange-bar2 {
+      height: 5px;
+      width: 100%;
       background-color: orange;
+      position: absolute;
+      bottom: 0;
     }
 
     .contact-info-container {
@@ -265,7 +273,7 @@ const CoverLetter5 = () => {
         <p>Best regards</p>
         <p>      ${formData.nameAndContact.firstName} ${formData.nameAndContact.lastName}</p>
       </div>
-      <div class="orange-bar" style="background-color:${color};"></div>
+      <div class="orange-bar2" style="background-color:${color};"></div>
     </body>
     </html>
     
@@ -374,7 +382,7 @@ const CoverLetter5 = () => {
       <br />
 
       {/* coverletter  Templates */}
-
+<div className={styles.main}>
       <div className={styles.orange_bar} style={{backgroundColor:color}}></div>
       <div className={styles.contact_info_container}>
         <div className={styles.left_column}>
@@ -436,7 +444,8 @@ const CoverLetter5 = () => {
           {formData.nameAndContact.firstName} {formData.nameAndContact.lastName}
         </p>
       </div>
-      <div className={styles.orange_bar} style={{backgroundColor:color}}></div>
+      <div className={styles.orange_bar2} style={{backgroundColor:color}}></div>
+      </div>
     </>
   );
 };

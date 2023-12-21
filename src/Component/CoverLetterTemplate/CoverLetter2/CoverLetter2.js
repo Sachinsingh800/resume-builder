@@ -142,6 +142,7 @@ const CoverLetter2 = () => {
       padding: 0;
       font-family: 'Readex Pro', sans-serif;
       width: 850px;
+      height: 1100px;
     }
 
     .main-container {
@@ -198,7 +199,7 @@ const CoverLetter2 = () => {
     .left-column {
       flex: 1;
       padding: 10px;
-      height: 987px;
+      height:100%;
       width:65%
     }
 
@@ -219,7 +220,9 @@ const CoverLetter2 = () => {
     }
 
     .letter-content {
-  
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
     }
 
     .signature {
@@ -468,9 +471,9 @@ const CoverLetter2 = () => {
             <div className={styles.letter_content}>
 
               <p>{formData.subject}</p>
-              <br />
+   
               <p>{formData.greeting}</p>
-              <br />
+             
               <p>{formData.opening}</p>
               <p>{formData.letterBody}</p>
               <p>{formData.callToAction}</p>

@@ -141,6 +141,7 @@ const CoverLetter3 = () => {
       margin: 0;
       font-family: 'Readex Pro', sans-serif;
       width: 850px;
+      height: 1100px;
       padding:10px;
     }
 

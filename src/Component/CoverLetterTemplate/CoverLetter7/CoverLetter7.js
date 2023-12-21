@@ -144,7 +144,7 @@ const CoverLetter7 = () => {
       padding: 0;
       font-family: 'Readex Pro', sans-serif;
       width: 850px;
-      height: 987px;
+      height: 1100px;
     }
     .letter-body{
       padding:1rem;
@@ -252,7 +252,7 @@ ${formData.greeting}
    
       <br />
     <section class="section_3">
-        <p>John Doe</p>
+        <p>${formData.signature}</p>
     </section>
 </div>
 
@@ -367,8 +367,8 @@ ${formData.greeting}
 
       <div className={styles.main}>
       <div className={styles.heading}>
-        <div>
-          <h1 className={styles.name}>
+        <div >
+          <h1 className={styles.name} style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>
             {formData.nameAndContact.firstName}{" "}
             {formData.nameAndContact.lastName}
           </h1>

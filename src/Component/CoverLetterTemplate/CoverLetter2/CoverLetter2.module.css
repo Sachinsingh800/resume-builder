@@ -4,7 +4,8 @@
     flex-direction: column;
     width: 100%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    height: 1000px;
+    height: 1098px;
+    border: 1px rgb(5, 5, 5) solid;
   }
 
   .header_container {
@@ -74,10 +75,11 @@
     border: none;
     border-top: 3px solid #4569B5; /* Add your color */
   }
-
   .letter_content {
-    /* padding: 10px; */
-  }
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+   }
 
   .signature {
     color: #4569B5; /* Add your color */

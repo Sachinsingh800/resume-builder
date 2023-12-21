@@ -152,6 +152,7 @@ const CoverLetter1 = () => {
       padding: 0;
       color: black;
       width: 850px;
+      height: 1100px;
     }
   
     #header {
@@ -239,8 +240,8 @@ const CoverLetter1 = () => {
 
   <div id="main-content">
     <div id="left-column">
-      <h2>${formatDate(formData.date)}</h2>
-      <br/>
+      <h4>${formatDate(formData.date)}</h4>
+ 
       <p >
       ${formData.nameAndContact.firstName} ${formData.nameAndContact.lastName}
       </p>
@@ -248,16 +249,16 @@ const CoverLetter1 = () => {
       ${formData.nameAndContact.city},${formData.nameAndContact.state},
       ${formData.nameAndContact.zip}</p>
       <p>  Dear  ${formData.recipient.firstName } ${formData.recipient.lastName} </p>
-      <br />
+ 
       <div class="letter-body">
       <p>${formData.subject}</p>
-      <br />
+   
       <p>${formData.greeting}</p>
-      <br />
+
       <p>${formData.opening}</p>
       <p>${formData.letterBody}</p>
       <p>${formData.callToAction}</p>
-      <br />
+  
       <p>${formData.closing}</p>
       </div>
       <br/>
