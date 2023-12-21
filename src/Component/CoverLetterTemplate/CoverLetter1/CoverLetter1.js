@@ -385,7 +385,7 @@ const CoverLetter1 = () => {
       <p className={styles.grid_icon} onClick={openModal}><GridOnIcon/></p>
       <CoverLetterModal showModal={showModal} closeModal={closeModal} />
     </div>
-    
+
       </div>
 
       <br />
@@ -402,7 +402,7 @@ const CoverLetter1 = () => {
 
         <div className={styles.main_content}>
           <div className={styles.left_column}>
-            <h2>{formatDate(formData.date)}</h2>
+            <h4>{formatDate(formData.date)}</h4>
             <br />
             <p>
               {formData.nameAndContact.firstName}
