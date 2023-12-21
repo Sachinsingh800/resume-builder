@@ -28,7 +28,17 @@ const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
   const templateNo = JSON.parse(localStorage.getItem("templateid"))
   const [play] = useSound(clickSound);
 
-console.log(templateNo,"tempno")
+
+const [showModal, setShowModal] = useState(false);
+
+const openModal = () => {
+  setShowModal(true);
+};
+
+const closeModal = () => {
+  setShowModal(false);
+};
+
 
 
   async function createFileFromImageUrl(imageUrl, fileName) {

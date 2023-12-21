@@ -36,6 +36,9 @@ import FontPicker from "../../FontPicker/FontPicker";
 import FontSizePicker from "../../FontSizePicker/FontSizePicker";
 import ColorPlate from "../../ColorPlate/ColorPlate";
 import ColorPlate2 from "../../ColorPlate2/ColorPlate2";
+import CoverLetterModal from "../../CoverLetterModal/CoverLetterModal";
+import GridOnIcon from '@mui/icons-material/GridOn';
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 
 const CoverLetter1 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -56,6 +59,16 @@ const CoverLetter1 = () => {
   const [base64Image5, setBase64Image5] = useState("");
   const [base64Image6, setBase64Image6] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
 
   console.log(formData.resume, "resume data");
 
@@ -362,11 +375,17 @@ const CoverLetter1 = () => {
   return (
     <>
       <div className={styles.download_btn}>
-        <button onClick={handleDownloadClick}>Download</button>
+        <p className={styles.grid_icon} onClick={handleDownloadClick}><DownloadForOfflineIcon/></p>
                <FontPicker />
                 <FontSizePicker/>
                 <ColorPlate2 />
         <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
+        
+      <div>
+      <p className={styles.grid_icon} onClick={openModal}><GridOnIcon/></p>
+      <CoverLetterModal showModal={showModal} closeModal={closeModal} />
+    </div>
+    
       </div>
 
       <br />

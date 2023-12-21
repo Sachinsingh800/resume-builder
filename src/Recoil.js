@@ -131,6 +131,10 @@ export const updateButton = atom({
   key: 'updateButton',
   default:false
 });
+export const coverLetterId = atom({
+  key: 'coverLetterId ',
+  default:0
+});
 
 export const selectedJobCate = atom({
   key: 'selectedJobCate',

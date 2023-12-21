@@ -7,11 +7,12 @@ import ColorPlate from "../../Component/ColorPlate/ColorPlate";
 import { useSound } from "use-sound";
 import clickSound from "../../Sounds/Click.mp3";
 
-import { imageCoverLetter, chooseTemplates } from "../../Recoil";
+import { imageCoverLetter, chooseTemplates, coverLetterId } from "../../Recoil";
 import { useRecoilState } from "recoil";
 
 function ChooseCoverLetter() {
   const [play] = useSound(clickSound);
+  const [clNo, setClNo] = useRecoilState(coverLetterId);
 
   const [template, setTempletes] = useRecoilState(imageCoverLetter);
 
@@ -22,7 +23,7 @@ function ChooseCoverLetter() {
 
   const handtemp = (id) => {
     handleClick();
-    localStorage.setItem("coverLetterId",JSON.stringify(id))
+    setClNo(id)
   };
 
   return (
