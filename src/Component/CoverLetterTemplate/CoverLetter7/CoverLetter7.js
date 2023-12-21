@@ -209,13 +209,14 @@ const CoverLetter7 = () => {
     <div class="main">
     <div class="heading">
         <div>
-            <h1 class="name">
-                John Doe
+            <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
+            ${formData.nameAndContact.firstName} ${formData.nameAndContact.lastName}
             </h1>
         </div>
         <div class="contact_box">
-            <p>(555) 789-0123</p>
-            <p>john.doe@example.com</p>
+        <p> ${formData.nameAndContact.state}, ${formData.nameAndContact.city}, ${formData.nameAndContact.zip} </p> 
+        <p> ${formData.nameAndContact.phoneNumber}</p> 
+        <p>  ${formData.nameAndContact.email}</p> 
         </div>
     </div>
 
@@ -373,8 +374,9 @@ ${formData.greeting}
           </h1>
         </div>
         <div className={styles.contact_box}>
-          <p> {formData.nameAndContact.phoneNumber}</p>
-          <p> {formData.nameAndContact.email}</p>
+        <p> {formData.nameAndContact.state}, ${formData.nameAndContact.city}, ${formData.nameAndContact.zip} </p> 
+        <p> {formData.nameAndContact.phoneNumber}</p> 
+        <p>  {formData.nameAndContact.email}</p> 
         </div>
       </div>
 
