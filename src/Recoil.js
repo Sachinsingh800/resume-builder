@@ -143,12 +143,12 @@ export const selectedJobCate = atom({
 
 export const ChooseColor = atom({
   key: 'ChooseColor',
-  default:"#113f67"
+  default:"#C0C0C0"
 });
 
 export const ChooseColorSecond = atom({
   key: 'ChooseColorSecond',
-  default:"grey"
+  default:"#E5E4E2"
 });
 export const ChooseColorThird= atom({
   key: 'ChooseColorThird',
