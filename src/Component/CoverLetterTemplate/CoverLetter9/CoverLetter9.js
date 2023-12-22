@@ -39,6 +39,7 @@ import ColorPlate2 from "../../ColorPlate2/ColorPlate2";
 import CoverLetterModal from "../../CoverLetterModal/CoverLetterModal";
 import GridOnIcon from "@mui/icons-material/GridOn";
 import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
+import { saveAs } from 'file-saver';
 
 const CoverLetter9 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -296,6 +297,55 @@ ${formData.recipient.zip}
     }
   };
 
+  const handleDownloadDoc = async ( ) => {
+    setLoading(true);
+    setError("");
+  try {
+    // Step 1: Convert HTML and CSS to PDF
+    const pdfResponse = await axios.post(
+      'http://3.144.48.243/api/convert',
+      {
+        html: getHTML(),
+        cssStyles: getCSS(), // Include your CSS data here
+      },
+      {
+        responseType: 'arraybuffer',
+        headers: {
+          Accept: 'application/json',
+        },
+      }
+    );
+
+    // Step 2: Convert PDF to DOCX
+    const formData = new FormData();
+    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
+
+    const docxResponse = await axios.post(
+      'http://35.172.118.147/api/convert/pdftodocx',
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        responseType: 'arraybuffer',
+      }
+    );
+    setLoading(false);
+    // Create a Blob from the response data
+    const docxBlob = new Blob([docxResponse.data], {
+      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    });
+
+    // Save the Blob as a file using FileSaver.js
+    saveAs(docxBlob, 'converted.docx');
+
+    return 'Conversion successful';
+  } catch (error) {
+    setLoading(false);
+    throw new Error('Error converting HTML and CSS to DOCX');
+  }
+};
+
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
@@ -319,7 +369,7 @@ ${formData.recipient.zip}
                   <img src={downloadpdf} alt="pdf" />
                   PDF
                 </div>
-                <div onClick={handleResume} className={styles.icon_download}>
+                <div onClick={handleDownloadDoc} className={styles.icon_download}>
                   <img src={downloaddoc} alt="doc" /> DOC
                 </div>
                 <div onClick={handleResume} className={styles.icon_download}>

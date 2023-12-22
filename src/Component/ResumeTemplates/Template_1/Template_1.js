@@ -30,7 +30,7 @@ import downloadimg from "../../Images/download.gif"
 import downloadpdf from "../../Images/pdf-download-2617.svg"
 import downloaddoc from "../../Images/google-docs-icon-2.svg"
 import downloadtext from "../../Images/icons8-text-500.svg"
-
+import { saveAs } from 'file-saver';
 
 
 const Template_1= () => {
@@ -469,6 +469,104 @@ margin:0rem;
     }
   };
 
+
+
+  const handleDownloadDoc = async ( ) => {
+    setLoading(true);
+    setError("");
+  try {
+    // Step 1: Convert HTML and CSS to PDF
+    const pdfResponse = await axios.post(
+      'http://3.144.48.243/api/convert',
+      {
+        html: getHTML(),
+        cssStyles: getCSS(), // Include your CSS data here
+      },
+      {
+        responseType: 'arraybuffer',
+        headers: {
+          Accept: 'application/json',
+        },
+      }
+    );
+
+    // Step 2: Convert PDF to DOCX
+    const formData = new FormData();
+    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
+
+    const docxResponse = await axios.post(
+      'http://35.172.118.147/api/convert/pdftodocx',
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        responseType: 'arraybuffer',
+      }
+    );
+    setLoading(false);
+    // Create a Blob from the response data
+    const docxBlob = new Blob([docxResponse.data], {
+      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    });
+
+    // Save the Blob as a file using FileSaver.js
+    saveAs(docxBlob, 'converted.docx');
+
+    return 'Conversion successful';
+  } catch (error) {
+    setLoading(false);
+    throw new Error('Error converting HTML and CSS to DOCX');
+  }
+};
+
+  
+const handleDownloadTxt = async () => {
+  setLoading(true);
+  setError("");
+
+  try {
+    // Step 1: Convert HTML and CSS to PDF
+    const pdfResponse = await axios.post(
+      'http://3.144.48.243/api/convert',
+      {
+        html: getHTML(),
+        cssStyles: getCSS(), // Include your CSS data here
+      },
+      {
+        responseType: 'arraybuffer',
+        headers: {
+          Accept: 'application/json',
+        },
+      }
+    );
+
+    // Step 2: Convert PDF to text using your PDF to text API
+    const textResponse = await axios.post(
+      'https://pdfcontentextractor.onrender.com',
+      {
+        pdf: pdfResponse.data,
+      },
+      {
+        responseType: 'text/plain',
+      }
+    );
+
+    // Save the text content as a file
+    const blob = new Blob([textResponse.data], { type: 'text/plain' });
+    saveAs(blob, 'converted.txt');
+
+    setLoading(false);
+    return 'Conversion successful';
+  } catch (error) {
+    setLoading(false);
+    throw new Error('Error converting HTML and CSS to TXT');
+  }
+};
+
+
+  
+
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
@@ -490,8 +588,8 @@ margin:0rem;
        </button>
        <div  className={style.down_btn_box}>
        <div  onClick={handleResume} className={style.icon_download}><img src={downloadpdf } alt="pdf"/>PDF</div>
-        <div  onClick={handleResume} className={style.icon_download}><img src={downloaddoc } alt="doc"/> DOC</div>
-         <div  onClick={handleResume} className={style.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
+        <div  onClick={handleDownloadDoc } className={style.icon_download}><img src={downloaddoc } alt="doc"/> DOC</div>
+         <div  onClick={handleDownloadTxt} className={style.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
        </div>
        </div>
        }

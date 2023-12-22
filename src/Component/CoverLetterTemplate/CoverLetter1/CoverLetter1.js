@@ -39,6 +39,7 @@ import ColorPlate2 from "../../ColorPlate2/ColorPlate2";
 import CoverLetterModal from "../../CoverLetterModal/CoverLetterModal";
 import GridOnIcon from '@mui/icons-material/GridOn';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+import { saveAs } from 'file-saver';
 
 const CoverLetter1 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -81,13 +82,7 @@ const CoverLetter1 = () => {
     return formattedDate;
   }
 
-  const handleDate = (data) => {
-    console.log(data, "data");
 
-    const startYear = new Date(data).getFullYear();
-
-    return startYear;
-  };
 
   useEffect(() => {
     const imageLocations = [
@@ -233,7 +228,7 @@ const CoverLetter1 = () => {
 <body>
   <div id="header" style="background-color:${color}; color:${color3};">
     <h1  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
-    ${formData.nameAndContact.firstName} ${formData.nameAndContact.lastName}
+    ${formData.nameAndContact.firstName}  ${formData.nameAndContact.lastName}
     </h1>
     <p style="color: ${color3}; ">${formData.nameAndContact.profession} </p>
   </div>
@@ -290,40 +285,95 @@ const CoverLetter1 = () => {
     `;
   };
 
-  const handleResume = async () => {
+
+
+  const handleDownloadDoc = async ( ) => {
     setLoading(true);
     setError("");
-
-    const axiosConfig = {
-      responseType: "arraybuffer",
-      headers: {
-        Accept: "application/json",
+  try {
+    // Step 1: Convert HTML and CSS to PDF
+    const pdfResponse = await axios.post(
+      'http://3.144.48.243/api/convert',
+      {
+        html: getHTML(),
+        cssStyles: getCSS(), // Include your CSS data here
       },
-    };
-
-    try {
-      const response = await axios.post(
-        "http://3.144.48.243/api/convert",
-        {
-          html: getHTML(),
-          cssStyles: getCSS(), // Include your CSS data here
+      {
+        responseType: 'arraybuffer',
+        headers: {
+          Accept: 'application/json',
         },
-        axiosConfig
-      );
+      }
+    );
 
-      setLoading(false);
+    // Step 2: Convert PDF to DOCX
+    const formData = new FormData();
+    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
 
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
-      document.body.appendChild(link);
-      link.click();
-    } catch (error) {
-      setLoading(false);
-      setError(error.message);
-    }
+    const docxResponse = await axios.post(
+      'http://35.172.118.147/api/convert/pdftodocx',
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        responseType: 'arraybuffer',
+      }
+    );
+    setLoading(false);
+    // Create a Blob from the response data
+    const docxBlob = new Blob([docxResponse.data], {
+      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    });
+
+    // Save the Blob as a file using FileSaver.js
+    saveAs(docxBlob, 'converted.docx');
+
+    return 'Conversion successful';
+  } catch (error) {
+    setLoading(false);
+    throw new Error('Error converting HTML and CSS to DOCX');
+  }
+};
+
+  
+const handleResume = async () => {
+  setLoading(true);
+  setError("");
+
+  const axiosConfig = {
+    responseType: "arraybuffer",
+    headers: {
+      Accept: "application/json",
+    },
   };
+
+  try {
+    const response = await axios.post(
+      "http://3.144.48.243/api/convert",
+      {
+        html: getHTML(),
+        cssStyles: getCSS(), // Include your CSS data here
+      },
+      axiosConfig
+    );
+
+    setLoading(false);
+
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "lizmy.pdf");
+    document.body.appendChild(link);
+    link.click();
+  } catch (error) {
+    setLoading(false);
+    setError(error.message);
+  }
+};
+
+
+
 
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
@@ -348,10 +398,10 @@ const CoverLetter1 = () => {
                   <img src={downloadpdf} alt="pdf" />
                   PDF
                 </div>
-                <div onClick={handleResume} className={styles.icon_download}>
+                <div onClick={handleDownloadDoc} className={styles.icon_download}>
                   <img src={downloaddoc} alt="doc" /> DOC
                 </div>
-                <div onClick={handleResume} className={styles.icon_download}>
+                <div onClick={handleDownloadDoc} className={styles.icon_download}>
                   <img src={downloadtext} alt="text" />
                   TEXT
                 </div>
@@ -396,6 +446,7 @@ const CoverLetter1 = () => {
         <div className={styles.header}  style={{ backgroundColor: color, color: color3 }}>
           <h1 style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>
             {formData.nameAndContact.firstName}
+            {" "}
             {formData.nameAndContact.lastName}
           </h1>
           <p style={{color:color3}}>{formData.nameAndContact.profession}</p>
