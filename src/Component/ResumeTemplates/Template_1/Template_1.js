@@ -136,10 +136,10 @@ const Template_1= () => {
       background-color: #f0f0f0;
       box-sizing: border-box;
       background-color: white;
-  }
-  .main {
       width: 850px;
       height: 1130px;
+  }
+  .main {
       background-color: white;
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -162,7 +162,7 @@ width: 100%;
 display: flex;
 flex-direction: column;
 padding: 3rem 1rem;
-height: 1112px;
+height: 1000px;
 text-align: left;
 
 }
@@ -639,7 +639,7 @@ const handleDownloadTxt = async () => {
         <div className={style.info_box}>
           <p>
             <span>Email: </span>
-            {/* {formData?.resume?.contact?.email} */}
+            {formData?.resume?.contact?.email}
           </p>
           <p>
             <span>Phone: </span>
