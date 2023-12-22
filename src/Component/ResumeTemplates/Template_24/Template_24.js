@@ -636,6 +636,57 @@ text-align: left;
 };
 
 
+const handleDownloadTxt = async () => {
+  setLoading(true);
+  setError("");
+
+  try {
+    // Step 1: Convert HTML and CSS to PDF
+    const pdfResponse = await axios.post(
+      'http://3.144.48.243/api/convert',
+      {
+        html: getHTML(),
+        cssStyles: getCSS(), // Include your CSS data here
+      },
+      {
+        responseType: 'arraybuffer',
+        headers: {
+          Accept: 'application/json',
+        },
+      }
+    );
+
+    // Step 2: Convert PDF to text using your PDF to text API
+    const formData = new FormData();
+    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
+
+    const textResponse = await axios.post(
+      'https://pdfcontentextractor.onrender.com/upload',
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        responseType: 'text/plain', // Update the responseType to 'text/plain'
+      }
+    );
+
+    setLoading(false);
+    // Create a Blob from the response data
+    const textBlob = new Blob([textResponse.data], {
+      type: 'text/plain',
+    });
+
+    // Save the Blob as a file using FileSaver.js
+    saveAs(textBlob, 'converted.txt');
+
+    return 'Conversion successful';
+  } catch (error) {
+    setLoading(false);
+    throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
+  }
+};
+
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
@@ -658,7 +709,7 @@ text-align: left;
        <div  className={styles.down_btn_box}>
        <div  onClick={handleResume} className={styles.icon_download}><img src={downloadpdf } alt="pdf"/>PDF</div>
         <div  onClick={handleDownloadDoc} className={styles.icon_download}><img src={downloaddoc } alt="doc"/> DOC</div>
-         <div  onClick={handleResume} className={styles.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
+         <div  onClick={handleDownloadTxt} className={styles.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
        </div>
        </div>
        }
