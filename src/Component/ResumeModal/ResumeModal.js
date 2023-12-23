@@ -38,7 +38,8 @@ export default function ResumeModal() {
   };
 
   const templates = useRecoilValue(resumeTemplates);
-  const [imgtemplateNo, setImgTemplateNo] = useRecoilState(imageresumeTemplates);
+  const [imgtemplate, setImgTemplateNo] = useRecoilState(imageresumeTemplates);
+  console.log(templateNo,"temp no modal")
   const targetRef = useRef();
 
   useEffect(() => {
@@ -72,7 +73,7 @@ export default function ResumeModal() {
           <h1 className={styles.preview}>Preview</h1>
         </div>
         <div className={styles.preview_template} >
-          <img src={imgtemplateNo[templateNo]} alt={`template-${templateNo}`} />
+          <img src={imgtemplate[templateNo]} alt={`template-${templateNo}`} />
         </div>
       </div>
       <Modal
@@ -100,7 +101,7 @@ export default function ResumeModal() {
               <Fonts />
             </div>
             <div className={styles.template_box}>
-              {imgtemplateNo.map((item, index) =>
+              {imgtemplate.map((item, index) =>
                 <div className={styles.template_card} key={index} onClick={() => handleFilterTemplates(index)}>
                   <img className={styles._card} src={item} alt={`template-${index}`} />
                 </div>

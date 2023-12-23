@@ -340,7 +340,7 @@ const Template_9= () => {
             <span>${item.skills}</span>
         </li>
   
-    `)}
+    `).join('')}
             
             </ul>
         </div>
@@ -363,7 +363,7 @@ const Template_9= () => {
                 </div>
             </div>
         </li>
-    `)}     
+    `).join('')}     
 
             </ul>
         </div>
@@ -376,7 +376,7 @@ const Template_9= () => {
             <h4>${item.degree}</h4>
             <p>${item.collegeName}</span> 
             </li>
-        `)}
+        `).join('')}
               
             </ul>
         </div>

@@ -304,7 +304,7 @@ margin:.1rem;
                 <ul class="skill-list">
                 ${formData.resume.skillsAndLevel.map((item) => `
                 <li style="background-color:${color2}; color: ${color3}; "><span>${item.skills}</span></li>
-                `)}
+                `).join('')}
                 </ul>
             </div>
             <div class="Experience">
@@ -326,7 +326,7 @@ margin:.1rem;
                 </div>
             </div>
         </li>
-                `)}  
+                `).join('')}  
                 </ul>
             </div>
             <div class="Eucation">
@@ -339,7 +339,7 @@ margin:.1rem;
             <h4>${item.degree}</h4>
             <span>${item.collegeName}</span>
         </li>
-            `)}
+            `).join('')}
             
                 </ul>
             </div>

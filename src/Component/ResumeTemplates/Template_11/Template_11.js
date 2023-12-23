@@ -278,7 +278,7 @@ const Template_11= () => {
                     <span>${item.skills}</span>
                     <p class="ProgressBar"></p>
                 </li>
-                    `)}
+                    `).join('')}
                        
                     </ul>
                 </div>
@@ -290,7 +290,7 @@ const Template_11= () => {
                     <span>${item?.lang}</span>
                     <p class="ProgressBar"></p>
                      </li>
-                `)}
+                `).join('')}
                        
                     </ul>
                 </div>
@@ -320,7 +320,7 @@ const Template_11= () => {
                         </p>
                 </div>
             </li>
-            `)} 
+            `).join('')} 
                         
                     </ul>
                 </div>
@@ -333,7 +333,7 @@ const Template_11= () => {
                     <span>${item.startYear} - ${item.endYear}</span>
                     <span>${item.collegeName}</span>
                 </li>
-                `)}
+                `).join('')}
             
                     </ul>
                 </div>

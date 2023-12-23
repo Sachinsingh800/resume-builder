@@ -136,7 +136,7 @@ const Template_5= () => {
   }
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -145,7 +145,7 @@ const Template_5= () => {
 .Left_container{
 display: flex;
 flex-direction: column;
-height: 1210px;
+height: 1000px;
 }
 
 .container {
@@ -191,7 +191,7 @@ gap: .5rem;
 
 .skillsHeader h3{
 padding: 0rem 1rem;
-background-color: aliceblue;
+
 }
 
 .skillsHeader ul{
@@ -420,7 +420,7 @@ margin-left:.8rem;
                     </span>
                     <span>${item.collegeName}</span>
                 </li>
-                `)}
+                `).join('')}
                        
                     </ul>
                 </div>
@@ -463,7 +463,7 @@ margin-left:.8rem;
                      <li style="color: black;">
                      <span>${item?.lang}</span>
                  </li>
-                `)}
+                `).join('')}
                    
                     </ul>
                 </div>
@@ -504,7 +504,7 @@ margin-left:.8rem;
                       </p>
                 </div>
                 </li>
-            `)}
+            `).join('')}
                  
                     </ul>
                 </div>
@@ -525,7 +525,7 @@ margin-left:.8rem;
                     </span>
                 </li>
           
-            `)}
+                   `).join('')}
                        
                     </ul>
                 </div>

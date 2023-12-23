@@ -41,6 +41,7 @@ const imagePaths = [
   resume_1, 
   resume_2, 
   resume_3,
+  resume_4,
   resume_5,
   resume_6,
   resume_7,

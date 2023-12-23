@@ -410,7 +410,7 @@ margin:0rem;
                         <ul class="skills_list">
                         ${formData.resume.skillsAndLevel.map((item) => `
                         <li>${item.skills}<span> <ProgressBar bgcolor="#00CCFF" progress="40" height="5"></span></li>
-                        `)}
+                        `).join('')}
                
                         </ul>
                     </div>
@@ -421,7 +421,7 @@ margin:0rem;
                         <li>
                         ${item?.lang}
                       </li>
-                   `)}
+                   `).join('')}
                         </ul>
                     </div>
                     <div class="section">
@@ -433,7 +433,7 @@ margin:0rem;
                                <h4>${item?.title}</h4>
                                <p>${item?.issuingOrganization}</p>
                            </li>
-                   `)}  
+                   `).join('')}  
                         </ul>
                     </div>
                 </div>
@@ -467,7 +467,7 @@ margin:0rem;
                         </div>
                     </div>
                 </li>
-                    `)}  
+                    `).join('')}  
                           
                         </ul>
                     </div>
@@ -483,7 +483,7 @@ margin:0rem;
                     <h4>${item.degree}</h4>
                     <p>${item.collegeName}</p> 
                     </li>
-                    `)}
+                    `).join('')}
                         
                         </ul>
                     </div>

@@ -421,7 +421,7 @@ margin-top:.5rem;
                         <h4>${item.skills}</h4>
                         <p>Advanced</p>
                     </li>
-                        `)}
+                        `).join('')}
                         </ul>
                     </div>
     
@@ -452,7 +452,7 @@ margin-top:.5rem;
                     
                      </div>
                 </div>
-                            `)}  
+                            `).join('')}  
 
                     </div>
                     <div class="section">
@@ -468,7 +468,7 @@ margin-top:.5rem;
                         <p class="university">${item.collegeName}</p>
                         <p class="date">${item.startYear} - ${item.endYear}</p>
                     </div>
-                        `)}
+                        `).join('')}
 
                         </div>
                        
@@ -489,7 +489,7 @@ margin-top:.5rem;
                 
                         </div>
 
-                        `)}
+                        `).join('')}
                                 
                         </div>
                        

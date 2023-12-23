@@ -6,6 +6,7 @@
   grid-template-columns: 1fr 2fr;
 }
 
+
 .Left_container{
 display: flex;
 flex-direction: column;
@@ -111,11 +112,12 @@ padding: 1.5rem;
 }
 .objectiveHeader{
 padding: 1rem;
-height: 13rem;
+height: 9rem;
 display: flex;
 flex-direction: column;
 justify-content: center;
 gap: .5rem;
+
 }
 .workHeader{
 padding: 1rem;
@@ -208,11 +210,19 @@ display:grid;
 grid-template-columns: 1fr ;
 gap:.8rem;
 }
+.skill{
 
-.divider{
+  padding: 0rem 1.5rem!important;
+}
+
+.divider  {
 /* margin-top:-2rem; */
 margin-left: .5rem;
+height: .1rem;
+background-color: #000000;
+color: #000000;
 }
+
 .Profile-divider{
 /* margin-top:-2rem; */
 }

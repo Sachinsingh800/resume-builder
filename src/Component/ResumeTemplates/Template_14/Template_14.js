@@ -449,7 +449,7 @@ const Template_14 = () => {
                         <ul class="skills_list">
                         ${formData.resume.skillsAndLevel.map((item) => `
                         <li> ${item.skills}</li>
-                        `)}
+                        `).join('')}
                         
                         </ul>
                     </div>
@@ -460,7 +460,7 @@ const Template_14 = () => {
                         <li>
                         ${item?.lang}
                       </li>
-                   `)}
+                   `).join('')}
                         </ul>
                     </div>
                     <div class="award_section">
@@ -473,7 +473,7 @@ const Template_14 = () => {
                                 <h4>${item?.title}</h4>
                                 <p>${item?.issuingOrganization}</p>
                             </li>
-                    `)} 
+                    `).join('')} 
                         </ul>
                     </div>
                 </div>
@@ -497,7 +497,7 @@ const Template_14 = () => {
                         </div>
                     </div>
                 </li>
-                    `)}  
+                    `).join('')}  
 
                     </ul>
                         
@@ -517,7 +517,7 @@ const Template_14 = () => {
                     </div>
                 </li>
 
-                    `)}
+                    `).join('')}
                      
                         </ul>
                     </div>

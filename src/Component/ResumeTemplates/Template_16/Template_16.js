@@ -454,7 +454,7 @@ const Template_16= () => {
                     </div>
                 </div>
             </li>
-                `)}
+                `).join('')}
                    
                     </ul>
     
@@ -462,7 +462,7 @@ const Template_16= () => {
                     <ul class="ul-skill">
                     ${formData.resume.skillsAndLevel.map((item) => `
                     <li> ${item.skills}</li>
-                    `)}
+                    `).join('')}
                     </ul>
     
                     <h3 class="section-title">LANGUAGE</h2>
@@ -471,7 +471,7 @@ const Template_16= () => {
                     <li>
                     ${item?.lang}
                   </li>
-               `)}
+               `).join('')}
                     </ul>
     
                     <h3 class="section-title">AWARDS</h2>
@@ -482,7 +482,7 @@ const Template_16= () => {
                            <h4>${item?.title}</h4>
                            <p>${item?.issuingOrganization}</p>
                        </li>
-               `)}  
+               `).join('')}  
                     </ul>
                 </div>
     
@@ -510,7 +510,7 @@ const Template_16= () => {
                         </div>
                     </div>
                 </li>
-                    `)} 
+                    `).join('')} 
                          
                         </ul>
                     </div>
@@ -533,7 +533,7 @@ const Template_16= () => {
                         </div>
                     </div>
                 </li>
-                    `)}  
+                    `).join('')}  
                         </ul>
                     </div>
                 </div>

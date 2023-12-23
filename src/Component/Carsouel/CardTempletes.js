@@ -39,9 +39,11 @@ import { chooseTemplates } from '../../Recoil'
 export function CardTempletes1() {
 
 
+
 const handleTemNo=(no)=>{
   localStorage.setItem("templateid",JSON.stringify(no))
 }
+
   return (
     <div onClick={()=>handleTemNo(0) }  className={style.main}>
       
@@ -82,7 +84,7 @@ export function CardTempletes4() {
   }
 
   return (
-    <div onClick={()=>handleTemNo(4)}  className={style.main}>
+    <div onClick={()=>handleTemNo(3)}  className={style.main}>
          
          <img src={resume_4} alt='resume2' />
 
@@ -338,7 +340,7 @@ export function CardTempletes21() {
   return (
     <div onClick={()=>handleTemNo(20)}  className={style.main}>
          
-         <img src={resume_3} alt='resume2' />
+         <img src={resume_21} alt='resume2' />
 
 
    

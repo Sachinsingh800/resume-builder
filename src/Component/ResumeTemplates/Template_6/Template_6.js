@@ -451,7 +451,7 @@ const Template_6= () => {
                     <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
                 </li>
           
-            `)}
+            `).join('')}
                 
                     </ul>
                 </div>
@@ -465,7 +465,7 @@ const Template_6= () => {
                      <span>${item?.lang}</span>
                      <div class="ProgressBar" style="background-color: orange; width: 40%; height: 5px;"></div>
                  </li>
-                `)}
+                `).join('')}
                   
                     </ul>
                 </div>
@@ -491,7 +491,7 @@ const Template_6= () => {
                         <h5>${item.startYear} - ${item.endYear}</h5>
                         <p>${item.collegeName}</p>
                 </li>
-                `)}
+                `).join('')}
                                
                     </ul>
                 </div>
@@ -517,7 +517,7 @@ const Template_6= () => {
                     </p>
                 </div>
             </li>
-            `)}    
+            `).join('')}    
                  
                     </ul>
                 </div>

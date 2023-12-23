@@ -102,7 +102,9 @@ gap: .5rem;
 }
 .skills ul{
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr ;
+gap: .5rem;
+
 
 }
 .professional_summary{
@@ -128,7 +130,8 @@ margin:0rem;
 }
 .certifications ul{
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr ;
+gap: .5rem;
 
 }
 .edu{

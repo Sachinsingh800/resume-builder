@@ -247,7 +247,7 @@ margin:0rem;
                 <p>${item?.description}</p>
             </div>
         </li>
-        `)}     
+        `).join('')}     
                 
                 </ul>
             </div>
@@ -261,7 +261,7 @@ margin:0rem;
                     <p>${item.startYear} - ${item.endYear}</p>
                     <p>${item.collegeName}</p>
                 </li>
-            `)}
+            `).join('')}
                     
                 </ul>
             </div>
@@ -277,7 +277,7 @@ margin:0rem;
                 <ProgressBar bgcolor="orange" progress="40" height="5" />
             </li>
       
-        `)}
+        `).join('')}
                    
                 </ul>
             </div>

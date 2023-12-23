@@ -411,7 +411,7 @@ margin:0rem;
             <p class="university">${item.collegeName}</p>
           </div>
         </div>
-              `)}
+              `).join('')}
 
               </div>
             </div>
@@ -420,7 +420,7 @@ margin:0rem;
               <ul class="skills_list">
                       ${formData.resume.skillsAndLevel.map((item) => `
                     <li> ${item.skills}</li>
-                    `)}
+                    `).join('')}
               </ul>
             </div>
             <div class="section">
@@ -430,7 +430,7 @@ margin:0rem;
               <li>
               ${item?.lang}
             </li>
-         `)}
+         `).join('')}
               </ul>
             </div>
             <div class="section">
@@ -442,7 +442,7 @@ margin:0rem;
                      <h4>${item?.title}</h4>
                      <p>${item?.issuingOrganization}</p>
                  </li>
-         `)}  
+         `).join('')}  
               </ul>
             </div>
           </div>
@@ -470,7 +470,7 @@ margin:0rem;
           ${item?.description}
           </p>
         </div>
-              `)} 
+              `).join('')} 
 
               </div>
             </div>

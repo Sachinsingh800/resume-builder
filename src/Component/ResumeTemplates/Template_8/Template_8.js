@@ -288,7 +288,7 @@ width: 90%;
                 <span> ${item.skills}</span>
             </li>
       
-        `)}
+        `).join('')}
                   
                 </ul>
             </div>
@@ -312,7 +312,7 @@ width: 90%;
                 </div>
             </div>
         </li>
-        `)}   
+        `).join('')}   
                      
                 </ul>
             </div>
@@ -325,7 +325,7 @@ width: 90%;
                 <h4>${item.degree}</h4>
                 <p>${item.collegeName}</span> 
                 </li>
-            `)}
+            `).join('')}
              
                 </ul>
             </div>

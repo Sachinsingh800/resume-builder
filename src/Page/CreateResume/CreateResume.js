@@ -5,7 +5,6 @@ import CreateResumeForm from "../../Component/CreateResumeForm/CreateResumeForm"
 import ResumeModal from "../../Component/ResumeModal/ResumeModal";
 import CreateResumeFormForFresher from "../../Component/CreateResumeFormForFresher/CreateResumeFormForFresher";
 import {
-  resumeType,
   resumeTemplates,
   summarySuggestion,
   skillSuggestion,
@@ -44,7 +43,6 @@ import MobileViewModal from "../../Component/MobileViewModal/MobileViewModal";
 function CreateResume() {
   
   const [play] = useSound(clickSound);
-  const type = useRecoilValue(resumeType);
   const sectionNo = useRecoilValue(suggestionData);
   const [summary, setSummary] = useState([]);
   const [skill, setSkill] = useState([]);
@@ -73,8 +71,8 @@ function CreateResume() {
     const [progress, setProgress] = useState(1);
     const [counter, setCounter] = useState(0);
  
-
-
+    const resumeType= JSON.parse(localStorage.getItem("resumetype"))
+console.log(resumeType,"type ")
   const animation_img=[
     {
   anim:panda,
@@ -266,8 +264,11 @@ function CreateResume() {
       <div className={style.container}>
    
         <div className={style.left_box}>
-     
-            <CreateResumeForm />
+     {resumeType === "Fresher"  ?
+      <CreateResumeFormForFresher/> :    <CreateResumeForm />  
+    }
+          
+           
   
         </div>
         

@@ -134,7 +134,6 @@ const Template_4= () => {
   }
   .main {
       width: 850px;
-      height: 1130px;
       background-color: white;
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -334,7 +333,7 @@ hr{
                     </p>
                 </div>
             </li>
-            `)}    
+            `).join('')}    
                       
                     </ul>
                 </div>
@@ -343,27 +342,22 @@ hr{
                     <hr class="divider" />
                     <ul class="ul">
                     ${formData.resume.education.map((item) => `
-                    <div>
-                        <h4>${item.degree}</h4>
-                        <h5>${item.startYear} - ${item.endYear}</h5>
-                        <p>${item.collegeName}</p>
-                    </div>
                     <li class="li">
                     <div class="work">
                         <h4 class="customerService">${item.degree}</h3>
                         <h5 class="company_name"><span>${item.collegeName}</span> <span>${item.startYear} - ${item.endYear}</span></h5>
                     </div>
                 </li>
-                `)}
+                `).join('')}
                     </ul>
                 </div>
             </div>
-            <div class="right_section" style="background-color: ${color}; color: ${color3};  height: 1146px;" >
+            <div class="right_section" style="background-color: ${color}; color: ${color3};  height: 1034px;" >
                 <div class="contact-info">
                     <div class="contact-entry">
 
 
-                    <div>
+                    <div  style="color:${color2}">
                     <h4 class="contact-label">Address</h4>
                     <p class="contact-value">   ${formData.resume.address.address},
                     ${formData.resume.address.state },
@@ -371,13 +365,13 @@ hr{
                     </div>
                      
 
-                    <div>
+                    <div style="color:${color2}">
                     <h4 class="contact-label">Phone</h4>
                     <p class="contact-value"> ${formData.resume.contact.phone}</p>
                     </div>
                       
 
-                    <div>
+                    <div style="color:${color2}">
                     <h4 class="contact-label">E-mail</h4>
                     <p class="contact-value">${formData.resume.contact.email}</p>
                     </div>
@@ -385,15 +379,11 @@ hr{
                     </div>
                 </div>
             
-                <div >
+                <div style="color:${color2}">
                     <h2 class="section-title">SKILLS</h2>
                     <hr class="divider" />
                     <ul class="skill_ul" >
-                    ${formData.resume.skillsAndLevel.map((item) => `
-                 
-                    <li> ${item.skills }</li>
-          
-            `)}
+                    ${formData.resume.skillsAndLevel.map((item) => `<li>${item.skills}</li>`).join('') }
                     </ul>
                 </div>
             </div>
@@ -599,12 +589,12 @@ const handleDownloadTxt = async () => {
           <p>{formData.resume.jobTitle}</p>
         </div>
         <div className={styles.section}>
-          <hr className={styles.divider} />
+        <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black"}} />
           <p className={styles.para}>{formData.resume.summary}</p>
         </div>
         <div className={styles.section}>
           <h2 className={styles.section_title}>WORK HISTORY</h2>
-          <hr className={styles.divider} />
+          <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black"}} />
           <ul className={styles.ul}>
             {formData.resume.work.map((item, index) => (
               <li key={index} className={styles.li}>
@@ -619,7 +609,8 @@ const handleDownloadTxt = async () => {
         </div>
         <div className={styles.section}>
           <h2 className={styles.section_title}>EDUCATION</h2>
-          <hr className={styles.divider} />
+          <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black"}} />
+
           <ul className={styles.ul}>
             {formData.resume.education.map((item, index) => (
               <li key={index} className={styles.li}>
@@ -632,7 +623,7 @@ const handleDownloadTxt = async () => {
           </ul>
         </div>
       </div>
-      <div className={`${styles.right_section} `} style={{ height: "1146px" ,backgroundColor:color ,color:color2 }}>
+      <div className={`${styles.right_section} `} style={{ height: "1200px" ,backgroundColor:color ,color:color2 }}>
         <div className={styles.contact_info}>
           <div className={styles.contact_entry}>
             <div>
@@ -655,7 +646,7 @@ const handleDownloadTxt = async () => {
         </div>
         <div>
           <h2 className={styles.section_title}>SKILLS</h2>
-          <hr className={styles.divider} />
+          <hr className={styles.divider} style={{borderColor: "black" }} />
           <ul className={styles.skill_ul}>
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}>{item.skills}</li>

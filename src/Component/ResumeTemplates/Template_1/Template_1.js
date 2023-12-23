@@ -137,14 +137,14 @@ const Template_1= () => {
       box-sizing: border-box;
       background-color: white;
       width: 850px;
-      height: 1130px;
-  }
+    }
   .main {
-      background-color: white;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-  }
-  
+    width: 850px;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
 .img_box{
 height: 7rem;
 width: 7rem;
@@ -162,7 +162,7 @@ width: 100%;
 display: flex;
 flex-direction: column;
 padding: 3rem 1rem;
-height: 1000px;
+height: 1003px;
 text-align: left;
 
 }
@@ -190,6 +190,7 @@ justify-content: center;
 display: flex;
 flex-direction: column;
 
+
 }
 .right_section p{
 width: 95%!important;
@@ -210,22 +211,24 @@ width: 95%!important;
 display: flex;
 flex-direction: column;
 
+
 }
 .heading{
 background-color: aliceblue;
 padding: 3rem 1rem;
 }
 .certifications{
-padding: 1rem;
+padding: 0rem 1rem;
 display: flex;
 flex-direction: column;
 gap: .5rem;
+
 }
 .skills{
-padding: 1rem;
+padding: 0rem 1rem;
 display: flex;
 flex-direction: column;
-gap: .5rem;
+
 
 }
 .skills ul{
@@ -240,7 +243,7 @@ flex-direction: column;
 gap: .5rem;
 }
 .work{
-padding: 1rem;
+padding: 0rem 1rem;
 display: flex;
 flex-direction: column;
 gap: .5rem;
@@ -280,6 +283,9 @@ margin:0rem;
 .skill-ul{
 margin-top:-1rem;
 margin-left:-2.7rem;
+}
+.skill-ul li{
+  list-style: none;
 }
 .line{
 margin-top:-1rem;
@@ -353,11 +359,21 @@ margin:0rem;
                     <p>${item?.degree}</p>
                     <p>${item?.startYear} - ${item?.endYear}</p>
                     </div>
-                `)}
+                `).join('')}
     
                     </div>
                     <!-- Add more education items as needed -->
                 </div>
+                <div class="skills">
+                <h3>Skills</h3>
+               
+                ${formData?.resume?.skillsAndLevel.map((item) => `
+                <ul class="skill-ul">
+                <li> ${item?.skills }</li>
+                </ul>
+        `).join('')}
+              
+            </div>
             </div>
     
             <div class="right_section">
@@ -376,27 +392,11 @@ margin:0rem;
                 <h5>${item?.title}</h5>
                 <p>${item?.issuingOrganization }: ${item?.date}</p>
                 </li>
-                `)}
+                `).join('')}
                     
                         <!-- Add more certification items as needed -->
                     </ul>
                 </div>
-    
-             <div class="line"> <hr /></div>  
-      
-                <div class="skills">
-                    <h3>Skills</h3>
-                   
-                    ${formData?.resume?.skillsAndLevel.map((item) => `
-                    <ul class="skill-ul">
-                    <li> ${item?.skills }</li>
-                    </ul>
-            `)}
-                  
-                </div>
-
-    
-                <div class="line"> <hr /></div>  
     
                 <div class="professional_summary">
                     <h3>Professional Summary</h3>
@@ -405,7 +405,7 @@ margin:0rem;
                     </p>
                 </div>
     
-                <div class="line"> <hr /></div>  
+               
     
                 <div class="work">
                     <h3>Work History</h3>
@@ -418,7 +418,7 @@ margin:0rem;
                     <p>${item?.description}</p>
                 </li>
           
-            `)}
+            `).join('')}
                     </ul>
                 </div>
             </div>
@@ -653,7 +653,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div>
         <br/>
-        <div><hr /></div> 
+        <hr  style={{borderColor: "black", backgroundColor: "black"}} />
       </div>
       <div className={style.education}>
         <h3>Education</h3>
@@ -668,6 +668,16 @@ const handleDownloadTxt = async () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className={style.skills}>
+        <h3>Skills</h3>
+        <ul className={style.skill_ul}>
+          {formData?.resume?.skillsAndLevel.map((item, index) => (
+            <li key={index}>
+              <h5>{item?.skills}</h5>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
 
@@ -691,16 +701,7 @@ const handleDownloadTxt = async () => {
       <div className={style.line}>
       </div>
 
-      <div className={style.skills}>
-        <h3>Skills</h3>
-        <ul className={style.skill_ul}>
-          {formData?.resume?.skillsAndLevel.map((item, index) => (
-            <li key={index}>
-              <h5>{item?.skills}</h5>
-            </li>
-          ))}
-        </ul>
-      </div>
+  
 
       <div className={style.line}>
      

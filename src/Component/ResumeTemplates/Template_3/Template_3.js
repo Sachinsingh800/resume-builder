@@ -134,7 +134,7 @@ const Template_3= () => {
   }
   .main {
       width: 850px;
-      height: 1130px;
+ 
       background-color: white;
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -144,6 +144,7 @@ const Template_3= () => {
 display: flex;
 flex-direction: column;
 margin:0;
+height: 1100px;
 }
 
 .container {
@@ -206,6 +207,7 @@ margin-left: 2rem;
 .skillsHeader ul{
 list-style: none;
 padding: 0rem 2rem 0rem 0rem;
+margin-top:-.5rem;
 
 }
 .skillsHeader ul li{
@@ -244,7 +246,7 @@ padding: 1.5rem;
 }
 .objectiveHeader{
 padding: 1rem;
-height: 13rem;
+height: 9rem;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -304,12 +306,12 @@ border-radius: 50%;
 font-size: 3rem;
 }
 .person_name span{
-color: #2e89ba;
+
 }
 .company_name{
 display: flex;
 justify-content: space-between;
-color: #2e89ba;
+
 }
 .work_des{
 display: flex;
@@ -326,13 +328,15 @@ height: 10rem;
 .contactInfo p{
 margin:0rem;
 }
-.skill-info li h4,h5,p{
-margin:0rem;
+.edu-list h4,h5,p{
+  margin:0rem;
 }
 .skill-info{
 display:grid;
 grid-template-columns: 1fr ;
 gap:.8rem;
+margin-top:-.5rem;
+margin-left: 1rem;
 }
 
 .divider{
@@ -388,7 +392,7 @@ width:1rem;
     
     <body>
         <div class="main">
-            <div class="Left_container" style="background-color: ${color}; color: ${color3};  height: 1210px;">
+            <div class="Left_container" style="background-color: ${color}; color: ${color3};  ;">
                 <div class="img_container">
                     <div class="img_box" style="height: ${imgSize}px; width: ${imgSize}px;">
                         <img src=${base64Image3} alt="dp">
@@ -402,13 +406,13 @@ width:1rem;
                         <div class="iconContainer" >
                         <img class="icon" src=${base64Image4} alt="dp" />
                         </div>
-                        <p class="email" > ${formData.resume.contact.email}</p>
+                        <p class="email" style="color:${color3}"> ${formData.resume.contact.email}</p>
                     </div>
                     <div class="contactInfo">
                         <div class="iconContainer" >
                         <img class="icon" src=${base64Image5} alt="dp" />
                         </div>
-                        <p class="email" > ${formData.resume.contact.phone}</p>
+                        <p class="email"style="color:${color3}" > ${formData.resume.contact.phone}</p>
                     </div>
                     <div class="contactInfo">
                         <div class="iconContainer" >
@@ -416,7 +420,7 @@ width:1rem;
                         <img class="icon" src=${base64Image1} alt="dp" />
                  
                         </div>
-                        <p class="email" > 
+                        <p class="email" style="color:${color3}" > 
                         ${formData.resume.address.address},
                         ${formData.resume.address.state },
                         ${formData.resume.address.postalCode }
@@ -429,12 +433,12 @@ width:1rem;
                     <div class="divider"><hr ></div> 
                     <ul class="skill-info">
                     ${formData.resume.education.map((item) => `
-                    <div>
+                    <div  class="edu-list">
                         <h4>${item.degree}</h4>
                         <h5>${item.startYear} - ${item.endYear}</h5>
                         <p>${item.collegeName}</p>
                     </div>
-                `)}
+                `).join('')}
                        
                     </ul>
                 </div>
@@ -445,7 +449,7 @@ width:1rem;
                     <ul class="skill-list">
                     ${formData.resume.skillsAndLevel.map((item) => `
                     <li> ${item.skills}</li>
-                    `)}
+                    `).join('')}
                         
                     </ul>
                 </div>
@@ -458,7 +462,7 @@ width:1rem;
                 <li >
                 <span>${item?.lang}</span>
                  </li>
-            `)}
+            `).join('')}
                        
                     </ul>
                 </div>
@@ -471,7 +475,8 @@ width:1rem;
                     </h1>
                     <p class="objectiveText"> ${formData.resume.jobTitle}</p>
                 </div>
-    
+                    <br/>
+                    <br/>
                 <div class="skillsHeader2">
                     <h3>PROFILE</h3>
                     <div class="Profile-divider"><hr ></div> 
@@ -490,14 +495,14 @@ width:1rem;
                     <li>
                     <div class="work_des">
                     <h4 class="customerService">${item?.title}</h4>
-                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span>
+                    <h5 class="company_name" style="color:${color2}"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span>
                     </h5>
                     <p>
                        ${item?.description}
                       </p>
                 </div>
                 </li>
-            `)}     
+            `).join('')}     
                     </ul>
                 </div>
             </div>
@@ -708,7 +713,7 @@ const handleDownloadTxt = async () => {
 
         <div className={style.info_box} >
           <h3 className={style.heading}>CONTACT</h3>
-          <div className={style.divider}><hr /></div>
+          <div className={style.divider}>&ensp;</div>
           <div className={style.contactInfo}>
             <div className={`${style.iconContainer} `}>
               <img className={style.icon} src={base64Image4} alt="dp" />
@@ -735,7 +740,7 @@ const handleDownloadTxt = async () => {
 
         <div className={style.skillsHeader}>
           <h3 className={style.heading}>EDUCATION</h3>
-          <div className={style.divider}><hr /></div>
+          <div className={style.divider}>&ensp;</div>
           <ul className={style.skillInfo}>
             {formData.resume.education.map((item, index) => (
               <div key={index} className={style.edu}>
@@ -749,8 +754,8 @@ const handleDownloadTxt = async () => {
 
         <div className={style.skill}>
           <h3 className={style.heading}>PERSONAL SKILLS</h3>
-          <div className={style.skillDivider}><hr /></div>
-          <ul className={style.skillList}>
+          <div className={style.divider}>&ensp;</div>
+          <ul className={style.skill_list}>
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}>{item.skills}</li>
             ))}
@@ -759,7 +764,7 @@ const handleDownloadTxt = async () => {
 
         <div className={style.skillsHeader}>
           <h3 className={style.heading}>LANGUAGES</h3>
-          <div className={style.divider}><hr /></div>
+          <div className={style.divider}>&ensp;</div>
           <ul>
             {formData.resume.knownLanguages.map((item, index) => (
               <li key={index}>
@@ -778,14 +783,14 @@ const handleDownloadTxt = async () => {
 
         <div className={style.skillsHeader2}>
           <h3 className={style.heading}>PROFILE</h3>
-          <div className={style.ProfileDivider}><hr /></div>
+          <div className={style.divider}>&ensp;</div>
           <p>{formData.resume.summary}</p>
         </div>
 
         <div className={style.professionalSkillsHeader}>
           <div>
             <h3 className={style.heading}>WORKING EXPERIENCE</h3>
-            <div className={style.workDivider}><hr /></div>
+            <div className={style.divider}>&ensp;</div>
           </div>
           <ul className={style.workUl}>
             {formData.resume.work.map((item, index) => (

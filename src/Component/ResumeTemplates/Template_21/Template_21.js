@@ -413,7 +413,7 @@ const Template_21= () => {
             <p class="university">${item.collegeName}</p>
           </div>
         </div>
-          `)}
+          `).join('')}
               </div>
              
             </div>
@@ -422,7 +422,7 @@ const Template_21= () => {
               <ul class="skills_list">
               ${formData.resume.skillsAndLevel.map((item) => `
               <li> ${item.skills}</li>
-              `)}
+              `).join('')}
               </ul>
             </div>
             <div class="section">
@@ -432,7 +432,7 @@ const Template_21= () => {
               <li>
               ${item?.lang}
             </li>
-         `)}
+         `).join('')}
               </ul>
             </div>
             <div class="section">
@@ -444,7 +444,7 @@ const Template_21= () => {
                      <h4>${item?.title}</h4>
                      <p>${item?.issuingOrganization}</p>
                  </li>
-         `)}  
+         `).join('')}  
               </ul>
             </div>
           </div>
@@ -475,7 +475,7 @@ const Template_21= () => {
           ${item?.description}
           </p>
         </div>
-          `)}  
+          `).join('')}  
           
               </div>
               

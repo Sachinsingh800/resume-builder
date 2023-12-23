@@ -659,7 +659,7 @@ margin-left: 1rem;
         <span>${item.degree} <span>${item.startYear} - ${item.endYear}</span></span>
         <span>${item.collegeName}</span>
       </li>
-            `)}
+            `).join('')}
 
             </ul>
           </div>
@@ -673,7 +673,7 @@ margin-left: 1rem;
             <span>${item?.position} | ${item?.company}</span>
             <span>Phone: ${item?.phone}</span>
           </li>
-            `)}
+            `).join('')}
             </ul>
           </div>
         </div>
@@ -701,7 +701,7 @@ margin-left: 1rem;
           <p>${item?.description}</p>
         </div>
       </li>
-                `)} 
+                `).join('')} 
 
             </ul>
           </div>
@@ -715,7 +715,7 @@ margin-left: 1rem;
             <li>
             <span>${item.skills}</span>
           </li>
-            `)}
+            `).join('')}
             </ul>
           </div>
         </div>

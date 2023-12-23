@@ -136,7 +136,6 @@ const getCSS = () =>{
 }
 .main {
     width: 850px;
-    height: 1130px;
     background-color: white;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -146,7 +145,7 @@ const getCSS = () =>{
 display: flex;
 flex-direction: column;
 gap: 1rem;
-height: 1210px;
+height: 1100px;
 }
 
 .name_container{
@@ -324,7 +323,7 @@ width:1rem;
     <div class="main">
         <div class="Left_container" style="background-color:${color}; color:${color3};">
             <div class="name_container" style="background-color:${color2}; color:white;">
-                <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
+                <h1 class="name" style="color: white; font-family: ${fontStyle}; font-size:${fontSize}px;">
                 ${formData.resume.name}
                 </h1>
                 <hr class="hr" />
@@ -367,7 +366,7 @@ width:1rem;
     
             </li>
       
-        `)}
+        `).join('')}
                    
                 </ul>
             </div>
@@ -379,7 +378,7 @@ width:1rem;
                 <p>${item.degree}</p>
                 <p>${item.startYear} - ${item.endYear}</p>
                 </div>
-            `)}
+            `).join('')}
             </div>
         </div>
         <div>
@@ -399,7 +398,7 @@ width:1rem;
                 <p>${item?.description}</p>
             </li>
       
-        `)}
+        `).join('')}
 
                 </ul>
             </div>
@@ -415,7 +414,7 @@ width:1rem;
             <p>${item?.description}</p>
             </li>
       
-        `)}
+        `).join('')}
                    
                 </ul>
             </div>
@@ -620,7 +619,7 @@ const handleDownloadTxt = async () => {
       <div className={style.Left_container} style={{ backgroundColor: color, color: color3 }}>
         <div className={style.name_container} style={{ backgroundColor: color2, color: "white" }} >
           <h1 className={style.name} style={{ color: "white", fontFamily: fontStyle ,fontSize: fontSize}} >{formData.resume.name}</h1>
-          <hr className={style.hr} />
+          <hr  style={{borderColor: "black", backgroundColor: "black"}} />
           <div className={style.info_box}>
             <div className={style.contactInfo}>
               <div className={style.iconContainer} style={{ color: "black" }}>

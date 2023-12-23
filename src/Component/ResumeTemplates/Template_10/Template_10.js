@@ -255,7 +255,7 @@ const Template_10= () => {
                 <p> ${item?.description}</p>
             </div>
         </li>
-        `)}     
+        `).join('')}     
              
                    
                 </ul>
@@ -269,7 +269,7 @@ const Template_10= () => {
                 <h5>${item.degree}, ${item.startYear} - ${item.endYear}</h5>
                 <p>${item.collegeName}</p>
             </li>
-            `)}
+            `).join('')}
                         
                 </ul>
             </div>
@@ -281,7 +281,7 @@ const Template_10= () => {
                  
                 <li> ${item.skills}</li>
       
-        `)}
+        `).join('')}
                 </ul>
             </div>
         </div>

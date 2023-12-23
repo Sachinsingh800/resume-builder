@@ -434,7 +434,7 @@ text-align: left;
                 </span>
                 <span>${item.collegeName}</span>
             </li>
-                `)}
+                `).join('')}
                     
                     </ul>
                 </div>
@@ -477,7 +477,7 @@ text-align: left;
                        <span>${item?.position} | ${item?.company}</span>
                        <span>${item?.phone}</span>
                    </li>
-               `)}  
+               `).join('')}  
                     
                     </ul>
                 </div>
@@ -519,7 +519,7 @@ text-align: left;
                     </p>
                 </div>
             </li>
-                    `)}  
+                    `).join('')}  
 
                     </ul>
                 </div>
@@ -538,7 +538,7 @@ text-align: left;
                 </div>
             </li>
           
-            `)}
+            `).join('')}
                          
                     </ul>
                 </div>

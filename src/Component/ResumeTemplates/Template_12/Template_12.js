@@ -385,7 +385,7 @@ const Template_12= () => {
                         </div>
                     </div>
                 </li>
-                `)}  
+                `).join('')}  
                         </ul>
                     </div>
                     <div class="section">
@@ -400,7 +400,7 @@ const Template_12= () => {
                             <p class="date">${item.startYear} - ${item.endYear}</p>
                         </div>
                     </li>
-                    `)}
+                    `).join('')}
 
                         </ul>
                     </div>
@@ -416,7 +416,7 @@ const Template_12= () => {
                             <p class="date">${item?.date}</p>
                         </div>
                     </li>
-                    `)}
+                    `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -449,7 +449,7 @@ const Template_12= () => {
                         <ul class="ul-skill">
                         ${formData.resume.skillsAndLevel.map((item) => `
                         <li> ${item.skills}</li>
-                        `)}
+                        `).join('')}
                         </ul>
                     </div>
                     <div class="section">
@@ -460,7 +460,7 @@ const Template_12= () => {
                          <li>
                          ${item?.lang}
                        </li>
-                    `)}
+                    `).join('')}
                             
                         </ul>
                     </div>
@@ -473,7 +473,7 @@ const Template_12= () => {
                                 <h4>${item?.title}</h4>
                                 <p>${item?.issuingOrganization}</p>
                             </li>
-                    `)}       
+                    `).join('')}       
                         </ul>
                     </div>
                 </div>
