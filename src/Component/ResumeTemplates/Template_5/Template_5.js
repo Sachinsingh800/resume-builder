@@ -191,12 +191,13 @@ gap: .5rem;
 
 .skillsHeader h3{
 padding: 0rem 1rem;
-
+margin-top:.3rem;
 }
 
 .skillsHeader ul{
 list-style: none;
 padding: 0rem 2rem 0rem 1rem;
+margin-top:-1rem;
 
 }
 .skillsHeader ul li{
@@ -260,6 +261,9 @@ flex-direction: column;
 justify-content: center;
 gap: .5rem;
 }
+.skillsHeader2 p{
+  margin-top:-1rem;
+}
 .professionalSkillsHeader{
 display: flex;
 flex-direction: column;
@@ -322,7 +326,9 @@ height: 10rem;
 display: grid;
 grid-template-columns: 1fr 1fr ;
 gap: 1rem;
-padding: 1rem;
+margin-top:-1rem;
+margin-left:-1rem;
+list-style: none;
 }
 .skillsAndLevel li{
 
@@ -333,11 +339,13 @@ overflow: hidden;
 background-color: orange;
 width: 1rem;
 height: 100%;
+height: 2rem;
+
 }
 .design2{
 background-color: orange;
 width: 1rem;
-height: 4rem;
+height: 2rem;
 }
 .design3{
 background-color: orange;
@@ -371,6 +379,7 @@ margin-left:-.5rem!important;
 flex-direction: column;
 display: flex;
 gap:.8rem;
+margin-top:-1rem;
 }
 
 .contact-list  div{
@@ -379,6 +388,9 @@ display: flex;
 gap:.1rem;
 padding:.2rem!important ;
 margin-left:.8rem;
+}
+.contact-list{
+  margin-top:-1rem;
 }
     `
   }
@@ -423,6 +435,7 @@ margin-left:.8rem;
                 `).join('')}
                        
                     </ul>
+                    <br/>
                 </div>
                 <div class="skillsHeader">
                     <div class="title_box">
@@ -453,6 +466,7 @@ margin-left:.8rem;
                    
 
                 </div>
+                <br/>
                 <div class="skillsHeader">
                     <div class="title_box">
                         <span class="design" style="background-color:${color2}"> </span>
@@ -479,7 +493,7 @@ margin-left:.8rem;
                     </p>
                 </div>
                 <div class="skillsHeader2">
-                    <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
+                    <div class="title_box2" >
                         <span class="design2" style="background-color:${color2}"> &nbsp; </span>
                         <h3>About Me</h3>
                     </div>
@@ -488,7 +502,7 @@ margin-left:.8rem;
                     </p>
                 </div>
                 <div class="professionalSkillsHeader">
-                    <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
+                    <div class="title_box2" >
                         <span class="design2" style="background-color:${color2}"> &nbsp; </span>
                         <h3>WORKING EXPERIENCE</h3>
                     </div>
@@ -510,7 +524,7 @@ margin-left:.8rem;
                 </div>
                 <br />
                 <div class="professionalSkillsHeader">
-                    <div class="title_box2" style="font-family: 'YourFont', sans-serif; background-color: ;">
+                    <div class="title_box2" >
                         <span class="design2" style="background-color:${color2}"> &nbsp; </span>
                         <h3>SOFTWARE SKILL</h3>
                     </div>
@@ -753,6 +767,7 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+        <br/>
         <div className={styles.skillsHeader}>
           <div className={styles.title_box}>
             <span className={styles.design} style={{backgroundColor:color2}}> </span>
@@ -778,6 +793,7 @@ const handleDownloadTxt = async () => {
             </div>
           </div>
         </div>
+        <br/>
         <div className={styles.skillsHeader}>
           <div className={styles.title_box}>
             <span className={styles.design} style={{backgroundColor:color2}}> </span>
@@ -804,14 +820,15 @@ const handleDownloadTxt = async () => {
 
         </div>
         <div className={styles.skillsHeader2}>
-          <div className={styles.title_box2} style={{ fontFamily: "'YourFont', sans-serif", backgroundColor: "" }}>
+          <div className={styles.title_box2} >
             <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
-            <h3>About Me</h3>
+            <h3>ABOUT ME</h3>
           </div>
-          <p>{formData.resume.summary}</p>
+          <p className={styles.para}>{formData.resume.summary}</p>
         </div>
+        <br/>
         <div className={styles.professionalSkillsHeader}>
-          <div className={styles.title_box2} style={{ fontFamily: "'YourFont', sans-serif", backgroundColor: "" }}>
+          <div className={styles.title_box2} >
             <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
             <h3>WORKING EXPERIENCE</h3>
           </div>
@@ -836,7 +853,7 @@ const handleDownloadTxt = async () => {
         </div>
         <br />
         <div className={styles.professionalSkillsHeader}>
-          <div className={styles.title_box2} style={{ fontFamily: "'YourFont', sans-serif", backgroundColor: "" }}>
+          <div className={styles.title_box2} >
             <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
             <h3>SOFTWARE SKILL</h3>
           </div>

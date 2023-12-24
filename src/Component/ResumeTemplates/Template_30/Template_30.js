@@ -274,7 +274,6 @@ width: 72%;
 .Education ul  {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   margin-left:2rem;
 }
 
