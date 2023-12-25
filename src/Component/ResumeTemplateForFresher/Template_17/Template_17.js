@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import styles from "./Template_19.module.css";
+import styles from "./Template_17.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -37,7 +37,7 @@ const PDFRenderer = ({ htmlContent }) => {
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 };
 
-const Template_19= () => {
+const Template_17= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -124,6 +124,7 @@ const Template_19= () => {
     handleImageChange();
   }, []);
   
+
   const getCSS = () =>{
     return `
     body {
@@ -143,7 +144,7 @@ const Template_19= () => {
   
 .container{
 display: grid;
-grid-template-columns: 1fr 2fr;
+grid-template-columns: 2fr 1fr;
 }
 .img_box{
 height: 7rem;
@@ -162,10 +163,8 @@ width: 100%;
 display: flex;
 flex-direction: column;
 padding: 2rem 1rem;
+gap: 2rem;
 text-align: left;
-border-left:1px black solid ;
-margin: .5rem 0rem;
-height: 100%;
 }
 
 .info_box{
@@ -192,7 +191,7 @@ display: flex;
 flex-direction: column;
 gap: .5rem;
 padding: 2rem 1rem;
-height: 100%;
+height:100%
 }
 .right_section p{
 width: 95%!important;
@@ -215,7 +214,6 @@ flex-direction: column;
 gap: 1rem;
 }
 .heading{
-
 padding: 3rem 1rem;
 }
 
@@ -263,109 +261,103 @@ grid-template-columns: 1fr 1fr;
 gap: 1rem;
 }
 .header{
-background-color: rgb(215, 213, 213);
 height: 8rem;
 display: flex;
-align-items: center;
+flex-direction: column;
 justify-content: space-between;
 padding: 0rem 1rem;
 }
 .img_box{
-border-radius: 50%;
-margin-left: 2rem;
+ border-radius: 50%;
+ margin-right: 4rem;
 }
 .section{
 display: flex;
 flex-direction: column;
 gap: .5rem;
-border-bottom: 1px black solid;
-padding-bottom:.5rem ;
 }
 .work_entry{
 display: grid;
-grid-template-columns: 1fr;
-margin-top:-1rem;
-gap:.5rem;
-}
-.section_title{
-display: flex;
-align-items: center;
-gap: 2.7rem;
-
+grid-template-columns: 1fr ;
 }
 .title_{
-display: flex;
-justify-content: space-between;
-width: 90%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ width: 90%;
+}
+.section_title{
+ display: flex;
+ align-items: center;
+ gap: 2.7rem;
 }
 .description{
-width: 25rem;
+ width: 25rem;
 }
 .contact_value{
-display: flex;
-align-items: center;
-gap: .2rem;
+ display: flex;
+ align-items: center;
 
 }
-.name_box{
-width: 75%;
-}
-
 .contact_label{
-font-size: small;
+ font-size: small;
 }
 .contact_info{
-display: flex;
-flex-direction: column;
-gap: .5rem;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 0rem;
 }
+.contact_info div{
+margin:0rem;
+padding:.1rem;
+}
+.contact_info div p{
+margin:.3rem;
+}
+
 .skills_list{
-display: flex;
-flex-direction: column;
+display: grid;
+grid-template-columns: 1fr 1fr;
 gap: .5rem;
+list-style: none;
 padding-top: 1rem;
+margin-left: -1rem;
 }
-.name_box h1,h5{
-margin:0;
+.ul{
+ display: flex;
+ flex-direction: column;
+ gap: .5rem;
+ list-style: none;
+}
+.name-box h1,h5{
+margin:0rem;
+}
+.contact_label{
+margin:0rem;
+boder:1px red solid;
 }
 .divider{
 margin-left:-1rem;
 margin-top:-1.5rem;
 }
-.work_entry p,h4{
-margin:0;
-}
-.contact_value p{
+
+.section p{
 margin:0rem;
 }
-.skills_list{
-margin-left:-2.5rem;
-margin-top:-1.5rem;
-}
-.section-content{
+.ul {
+margin-left:-2.4rem;
 margin-top:-1rem;
 }
-.work_expe{
-display: grid;
-grid-template-columns: 1fr;
+.skills_list {
+margin-left:-4rem;
 margin-top:-1rem;
-}
-.work-info p{
-margin:0rem;
 }
 .icon{
 height:1rem;
 width:1rem;
 }
-*{
-  list-style:none;
-}
-ul li{
-  margin-left: .5rem!important;
-
-}
-.work_entry{
-  margin-top:-1rem!important;
+.award-list h4,h5,p{
+  margin:0;
 }
     `
   }
@@ -374,132 +366,148 @@ ul li{
     return `
     <!DOCTYPE html>
     <html lang="en">
-    
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="your-style.css">
-        <title>Your Resume</title>
 
-       
     </head>
-    
     <body>
-        <div class="main">
-            <div class="header"  style="background-color:${color}; color: ${color3}; ">
-                <div class="name_box">
-                    <h1 class="name"  style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name} </h1>
-                    <h5 class="name" style="color: ${color3};">${formData.resume.jobTitle}</h5>
-                </div>
-            </div>
-            <div class="container">
-                <div class="right_section">
-                    <div class="section">
-                        <h3 class="section_title">EDUCATION</h3>
-                        ${formData.resume.education.map((item) => `
-                        <div class="work_entry">
-                        <p class="date">${item.startYear} - ${item.endYear}</p>
-                        <div>
-                            <h4 class="degree">${item.degree}</h4>
-                            <p class="university">${item.collegeName}</p>
-                        </div>
-                    </div>
-                        `).join('')}
-                  
-                    </div>
-                    <div class="section">
-                        <h3 class="section-title">CONTACTS</h3>
-                        <div class="contact_info">
-                            <div class="contact_value">
-                                 <span class="icon">
+    <div class="main">
+      <div class="header">
+        <div class="name-box">
+          <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name} </h1>
+          <h5 class="name" style="color: ${color3};">${formData.resume.jobTitle}</h5>
+        </div>
+        <div class="contact_info">
+          <div class="contact_value">
+          <span class="icon">
           <img class="icon" src=${base64Image5} alt="dp" />
           </span>
-                                <p class="contact-value">${formData.resume.contact.phone}</p>
-                            </div>
-                            <div class="contact_value">
-                                 <span class="icon">
+            <p class="contact-value">${formData.resume.contact.phone}</p>
+          </div>
+          <div class="contact_value">
+          <span class="icon">
           <img class="icon" src=${base64Image4} alt="dp" />
           </span>
-                                <p class="contact-value">${formData.resume.contact.email}</p>
-                            </div>
-                            <div class="contact_value">
-                                 <span class="icon">
+            <p class="contact-value">${formData.resume.contact.email}</p>
+          </div>
+          <div class="contact_value">
+          <span class="icon">
           <img class="icon" src=${base64Image2} alt="dp" />
           </span>
-                                <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
-                            </div>
-                            <div class="contact_value">
-                                 <span class="icon">
+            <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
+          </div>
+          <div class="contact_value">
+          <span class="icon">
           <img class="icon" src=${base64Image1} alt="dp" />
           </span>
-                                <p class="contact-value">  ${formData.resume.address.address},
-                                ${formData.resume.address.state },
-                                ${formData.resume.address.postalCode }</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="section">
-                        <h3 class="section-title">SKILLS</h3>
-                        <ul class="skills_list">
-                        ${formData.resume.skillsAndLevel.map((item) => `
-                        <li> ${item.skills}</li>
-                        `).join('')}
-                        </ul>
-                    </div>
-                    <div class="section">
-                        <h3 class="section-title">LANGUAGE</h3>
-                        <ul class="skills_list">
-                        ${formData.resume.knownLanguages.map((item) => `
-                        <li>
-                        ${item?.lang}
-                      </li>
-                   `).join('')}
-                        </ul>
-                    </div>
-                    <div class="section">
-                        <h3 class="section-title">AWARDS</h3>
-                        <ul class="skills_list">
-                        ${formData.resume.awards.map((item) => `
-                        <li class="award-list">
-                               <h5>${item?.date}</h5>
-                               <h4>${item?.title}</h4>
-                               <p>${item?.issuingOrganization}</p>
-                           </li>
-                   `).join('')}   
-                        </ul>
-                    </div>
-                </div>
-                <div class="left_section">
-                    <div class="section">
-                        <h3 class="section-title">PROFILE</h3>
-                        <p class="section-content">
-                        ${formData.resume.summary}
-                        </p>
-                    </div>
-                    <div class="section">
-                        <h3 class="section_title">EXPERIENCE</h3>
-                        <div class="work_entry">
-                        ${formData.resume.work.map((item) => `
-                        
-                    <div>
-                    <div class="title_">
-                            <h4 class="position">${item?.title}</h4>
-                            <p class="date">${item?.startDate} - ${item?.endDate}</p>
-                        </div>
-                        <p class="company">${item?.company}</p>
-                        <p class="description">
-                        ${item?.description}
-                        </p>
-                    </div>
-                        `).join('')}  
-                  
-                    </div>
-                </div>
-            </div>
+            <p class="contact-value">
+            ${formData.resume.address.address},
+            ${formData.resume.address.state },
+            ${formData.resume.address.postalCode }
+            </p>
+          </div>
         </div>
-    </body>
-    
+      </div>
+      <div class="container">
+        <div class="left_section">
+          <div class="section">
+            <h3 class="section-title">SUMMARY</h3>
+            <div class="divider"><hr/></div>
+            <p class="section-content">
+            ${formData.resume.summary}
+            </p>
+          </div>
+  
+          <div class="section">
+            <h3 class="section_title">EXPERIENCE</h3>
+            <div class="divider"><hr/></div>
+            <ul class="ul">
+            ${formData.resume.work.map((item) => `
+          
+        <li >
+        <div class="work_entry">
+          <div>
+            <div class="title_">
+              <h3 class="position">${item?.title}</h3>
+              <p class="date">${item?.startDate} - ${item?.endDate}</p>
+            </div>
+
+            <p class="company">${item?.company} </p>
+            <p class="description">
+            ${item?.description}
+            </p>
+          </div>
+        </div>
+      </li>
+            `).join('')}   
+         
+            </ul>
+          </div>
+  
+          <div class="section">
+            <h3 class="section_title">EDUCATION</h3>
+            <div class="divider"><hr/></div>
+            <ul class="ul">
+            ${formData.resume.education.map((item) => `
+   
+            <li>
+            <div class="work_entry">
+              <div class="title_">
+                <h3 class="degree">${item.degree}</h3>
+                <p class="date">${item.startYear} - ${item.endYear}</p>
+              </div>
+              <div>
+                <p class="university">${item.collegeName}</p>
+              </div>
+            </div>
+          </li>
+            `).join('')}
+      
+            </ul>
+          </div>
+        </div>
+  
+        <div class="right_section">
+          <div class="section">
+            <h3 class="section-title">SKILLS</h3>
+               <div class="divider"><hr/></div>
+            <ul class="skills_list">
+            ${formData.resume.skillsAndLevel.map((item) => `
+            <li> ${item.skills}</li>
+            `).join('')}
+            </ul>
+          </div>
+  
+          <div class="section">
+            <h3 class="section-title">LANGUAGE</h3>
+               <div class="divider"><hr/></div>
+            <ul class="skills_list">
+            ${formData.resume.knownLanguages.map((item) => `
+            <li>
+            ${item?.lang}
+          </li>
+       `).join('')}
+            </ul>
+          </div>
+  
+          <div class="section">
+            <h3 class="section-title">AWARDS</h3>
+               <div class="divider"><hr/></div>
+            <ul class="skills_list">
+            ${formData.resume.awards.map((item) => `
+            <li class="award-list">
+                   <h5>${item?.date}</h5>
+                   <h4>${item?.title}</h4>
+                   <p>${item?.issuingOrganization}</p>
+               </li>
+       `).join('')}   
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
     </html>
+    
     
     `;
   };
@@ -590,6 +598,7 @@ ul li{
 };
 
 
+
 const handleDownloadTxt = async () => {
   setLoading(true);
   setError("");
@@ -641,7 +650,6 @@ const handleDownloadTxt = async () => {
   }
 };
 
-
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
@@ -687,128 +695,146 @@ const handleDownloadTxt = async () => {
   };
 
 
-
   return (
     <>
-         <div className={styles.download_btn} >
+              <div className={styles.download_btn} >
     <button onClick={handleDownloadClick}>Download</button>
       <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
     
-
     <div className={styles.main}>
-      <div className={styles.header} style={{backgroundColor:color}}>
-        <div className={styles.name_box}>
-          <h1 className={styles.name}  style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
-          <h5 className={styles.name} style={{color:color3}}>{formData.resume.jobTitle}</h5>
-        </div>
+    <div className={styles.header}>
+      <div className={styles.name_box}>
+        <h1 className={styles.name} style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
+        <h5 className={styles.name} style={{color:color3}}>{formData.resume.jobTitle}</h5>
       </div>
-      <div className={styles.container}>
-        <div className={styles.right_section}>
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>EDUCATION</h3>
-            {formData.resume.education.map((item, index) => (
-              <div key={index} className={styles.work_entry}>
-                <p className={styles.date}>{item.startYear} - {item.endYear}</p>
-                <div>
-                  <h4 className={styles.degree}>{item.degree}</h4>
-                  <p className={styles.university}>{item.collegeName}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>CONTACTS</h3>
-            <div className={styles.contact_info}>
-              <div className={styles.contact_value}>
-                <span className={styles.icon}>
-                  <img className={styles.icon} src={base64Image5} alt="dp" />
-                </span>
-                <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
-              </div>
-              <div className={styles.contact_value}>
-                <span className={styles.icon}>
-                  <img className={styles.icon} src={base64Image4} alt="dp" />
-                </span>
-                <p className={styles.contact_value}>{formData.resume.contact.email}</p>
-              </div>
-              <div className={styles.contact_value}>
-                <span className={styles.icon}>
-                  <img className={styles.icon} src={base64Image2} alt="dp" />
-                </span>
-                <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
-              </div>
-              <div className={styles.contact_value}>
-                <span className={styles.icon}>
-                  <img className={styles.icon} src={base64Image1} alt="dp" />
-                </span>
-                <p className={styles.contact_value}>
-                  {formData.resume.address.address},
-                  {formData.resume.address.state},
-                  {formData.resume.address.postalCode}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>SKILLS</h3>
-            <ul className={styles.skills_list}>
-              {formData.resume.skillsAndLevel.map((item, index) => (
-                <li key={index}> {item.skills}</li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>LANGUAGE</h3>
-            <ul className={styles.skills_list}>
-              {formData.resume.knownLanguages.map((item, index) => (
-                <li key={index}>
-                  {item?.lang}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>AWARDS</h3>
-            <ul className={styles.skills_list}>
-              {formData.resume.awards.map((item, index) => (
-                <li key={index} className={styles.award_list}>
-                  <h5>{item?.date}</h5>
-                  <h4>{item?.title}</h4>
-                  <p>{item?.issuingOrganization}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className={styles.contact_info}>
+        <div className={styles.contact_value}>
+          <span className={styles.icon}>
+            <img className={styles.icon} src={base64Image5} alt="dp" />
+          </span>
+          <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
         </div>
-        <div className={styles.left_section}>
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>PROFILE</h3>
-            <p className={styles.section_content}>
-              {formData.resume.summary}
-            </p>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>EXPERIENCE</h3>
-            <div className={styles.work_entry}>
-              {formData.resume.work.map((item, index) => (
-                <div key={index} className={styles.title_}>
-                  <h4 className={styles.position}>{item?.title}</h4>
-                  <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
-                  <p className={styles.company}>{item?.company}</p>
-                  <p className={styles.description}>
-                    {item?.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className={styles.contact_value}>
+          <span className={styles.icon}>
+            <img className={styles.icon} src={base64Image4} alt="dp" />
+          </span>
+          <p className={styles.contact_value}>{formData.resume.contact.email}</p>
+        </div>
+        <div className={styles.contact_value}>
+          <span className={styles.icon}>
+            <img className={styles.icon} src={base64Image2} alt="dp" />
+          </span>
+          <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
+        </div>
+        <div className={styles.contact_value}>
+          <span className={styles.icon}>
+            <img className={styles.icon} src={base64Image1} alt="dp" />
+          </span>
+          <p className={styles.contact_value}>
+            {formData.resume.address.address},
+            {formData.resume.address.state},
+            {formData.resume.address.postalCode}
+          </p>
         </div>
       </div>
     </div>
-    </>
+    <div className={styles.container}>
+      <div className={styles.left_section}>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>SUMMARY</h3>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}   /></div>
+          <p className={styles.section_content}>
+            {formData.resume.summary}
+          </p>
+        </div>
 
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>EXPERIENCE</h3>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
+          <ul className={styles.ul}>
+            {formData.resume.work.map((item, index) => (
+              <li key={index}>
+                <div className={styles.work_entry}>
+                  <div>
+                    <div className={styles.title_}>
+                      <h3 className={styles.position}>{item?.title}</h3>
+                      <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
+                    </div>
+                    <p className={styles.company}>{item?.company} </p>
+                    <p className={styles.description}>
+                      {item?.description}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>EDUCATION</h3>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
+          <ul className={styles.ul}>
+            {formData.resume.education.map((item, index) => (
+              <li key={index}>
+                <div className={styles.work_entry}>
+                  <div className={styles.title_}>
+                    <h3 className={styles.degree}>{item.degree}</h3>
+                    <p className={styles.date}>{item.startYear} - {item.endYear}</p>
+                  </div>
+                  <div>
+                    <p className={styles.university}>{item.collegeName}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className={styles.right_section}>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>SKILLS</h3>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
+          <ul className={styles.skills_list}>
+            {formData.resume.skillsAndLevel.map((item, index) => (
+              <li key={index}> {item.skills}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>LANGUAGE</h3>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
+          <ul className={styles.skills_list}>
+            {formData.resume.knownLanguages.map((item, index) => (
+              <li key={index}>
+                {item?.lang}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>AWARDS</h3>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
+          <ul className={styles.skills_list}>
+            {formData.resume.awards.map((item, index) => (
+              <li key={index} className={styles.award_list}>
+                <h5>{item?.date}</h5>
+                <h4>{item?.title}</h4>
+                <p>{item?.issuingOrganization}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+    </>
+   
   );
 };
 
-export default Template_19;
+export default Template_17;

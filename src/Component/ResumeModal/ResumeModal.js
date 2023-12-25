@@ -7,7 +7,7 @@ import generatePDF from "react-to-pdf";
 import { useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { resumeTemplates, chooseTemplates, imageresumeTemplates, modalValue } from '../../Recoil';
+import { resumeTemplates, chooseTemplates, imageresumeTemplates, modalValue, resumeTemplatesForFresher } from '../../Recoil';
 import Fonts from '../Fonts/Fonts';
 
 const style = {
@@ -36,11 +36,14 @@ export default function ResumeModal() {
     setOpen(false)
     setModal(false)
   };
-
+  const resumeType= JSON.parse(localStorage.getItem("resumetype"))
   const templates = useRecoilValue(resumeTemplates);
+  const templates2 = useRecoilValue(resumeTemplatesForFresher);
   const [imgtemplate, setImgTemplateNo] = useRecoilState(imageresumeTemplates);
   console.log(templateNo,"temp no modal")
   const targetRef = useRef();
+
+
 
   useEffect(() => {
     if (modal === true) {
@@ -88,7 +91,7 @@ export default function ResumeModal() {
             <button onClick={() => handleClose()} className={styles.Close_btn}>X</button>
             <div className={styles.resume}>
               <div ref={targetRef} id='content'>
-                {templates[templateNo]}
+                {resumeType === "Fresher" ? templates2[templateNo]  : templates[templateNo] }
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ import mail from "../../Images/mail.png"
 import call from "../../Images/call.png"
 import dp from "../../Images/dp2.jpg"
 import { Divider } from "@mui/material";
-import styles from "./Template_20.module.css";
+import styles from "./Template_9.module.css";
 import WorkIcon from "@mui/icons-material/Work";
 import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -33,9 +33,11 @@ import downloadtext from "../../Images/icons8-text-500.svg"
 import { saveAs } from 'file-saver';
 
 
+const PDFRenderer = ({ htmlContent }) => {
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+};
 
-
-const Template_20= () => {
+const Template_9= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -55,6 +57,7 @@ const Template_20= () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   console.log(formData.resume, "resume data");
+  console.log(fontSize, "fontsize");
 
   const handleDate = (data) => {
     console.log(data, "data");
@@ -132,139 +135,163 @@ const Template_20= () => {
       box-sizing: border-box;
       background-color: white;
   }
+
   .main {
       width: 850px;
       height: 1130px;
       background-color: white;
   }
-  
-.heading{
-display: flex;
-justify-content: space-between;
-width: 52rem; 
-padding: 1rem ;
-}
-.heading div{
-width: 50%;
-overflow: hidden;
-}
-.summary h2{
-border-top: 1px  rgb(112, 111, 111) solid;
-border-bottom: 1px rgb(112, 111, 111) solid;
-width: 90%;
-}
-.para{
-width: 96%;
-}
-.summary {
-display: flex;
-align-items: center;
-flex-direction: column;
-}
-.Experience{
-display: flex;
-align-items: center;
-flex-direction: column;
-}
-.Experience h3{
 
-border-bottom: 1px rgb(112, 111, 111) solid;
-width: 96%;
-}
-.Experience ul{
-width: 90%;
-}
-.Skills h2{
+  .heading {
+      display: flex;
+      justify-content: space-between;
+      width: 850px;
+      padding: 0.5rem 1rem;
+      height: 6rem;
+  }
 
-border-bottom: 1px rgb(112, 111, 111) solid;
-width: 96%;
+  .heading div {
+      width: 50%;
+    //  border:1px red solid;
+  }
 
-}
-.Skills {
-display: flex;
-align-items: center;
-flex-direction: column;
-}
-.Skills ul{
-width: 90%;
+  .summary h2 {
+      border-top: 1px rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 90%;
+  }
 
-margin-top:-1rem;
-margin-left:-6rem;
+  .para {
+      width: 96%;
+  }
 
-}
-.Skills ul li{
-width: max-content;
-display: inline-table;
-padding: .5rem;
-margin: .5rem;
-border-radius: 5px;
-color: white!important;
-background-color: rgb(215, 168, 57);
+  .summary {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  }
 
-}
+  .Experience {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 850px;
 
-.Eucation{
-display: flex;
-align-items: center;
-flex-direction: column;
-}
+  }
 
-.Eucation h3{
-border-bottom: 1px rgb(112, 111, 111) solid;
-width: 96%;
-}
+  .Experience h2 {
+      border-top: 1px rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
 
-.Eucation ul{
-width: 90%;
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap:.5rem;
-margin-left:-4rem;
-}
-.Eucation ul li{
-display: flex;
-flex-direction: column;
-}
-.contact_info{
-display: flex;
-flex-direction: column;
-text-align: right;
-}
-.description_box{
-padding: 1rem;
-}
-.contact_info {
-height: 6rem;
-display:flex;
-flex-direction:column;
+  .Experience ul {
+      width: 90%;
+ 
+  }
 
-}
-.contact_info p{
-margin:.1rem;
-}
-.work_des p{
-margin:.1rem;
-}
-.work_des h5,h3{
-margin:.1rem;
-}
-.ul{
-display:flex;
-flex-direction:column;
-gap:.2rem;
-margin-left:-5rem;
-}
+  .Skills h2 {
+      border-top: 1px rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
 
-.edu_des h5,h4,p{
-margin:.1rem;
-}
-.name h1,p{
-margin:.1rem;
-}
-*{
-  list-style:none;
-}
+  .Skills {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 850px;
+      
+  }
 
+  .Skills ul {
+      width: 90%;
+      margin:.1rem;
+      display: inline-table;
+      grid-template-columns: auto;
+      margin-left: -80px; /* Adjusted from -5rem to pixels based on your requirement */
+  }
+
+  .Skills ul li {
+      width: max-content;
+      display: inline-table;
+      padding: 8px; /* Adjusted from .5rem to pixels based on your requirement */
+      margin: 8px; /* Adjusted from .5rem to pixels based on your requirement */
+      border-radius: 5px;
+      color: white !important;
+      background-color: rgb(31, 106, 177);
+  }
+
+  .Education {
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+      align-items: center;
+      width: 850px;
+  }
+
+  .Education h2 {
+      border-top: 1px rgb(112, 111, 111) solid;
+      border-bottom: 1px rgb(112, 111, 111) solid;
+      width: 96%;
+      text-align: center;
+  }
+
+  .Education ul {
+      width: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-left: 10px; /* Adjusted from 1rem to pixels based on your requirement */
+      gap: 5px; /* Adjusted from 1rem to pixels based on your requirement */
+  }
+
+  .Education ul li {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .contact_info {
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+  }
+
+  .description_box {
+      padding: 0 16px; /* Adjusted from 0rem 1rem to pixels based on your requirement */
+      width: 850px;
+  }
+
+  .contact_info {
+      height: 6rem;
+      display:flex;
+      flex-direction:column;
+    
+  }
+  .contact_info p{
+    margin:.1rem;
+  }
+  .work_des p{
+    margin:.1rem;
+  }
+  .work_des h5,h3{
+    margin:.1rem;
+  }
+  .ul{
+    display:flex;
+    flex-direction:column;
+    gap:.2rem;
+  }
+  .ul li{
+    margin-left:-1rem;
+  }
+  .edu_des h5,h4,p{
+    margin:.1rem;
+  }
+  .name h1,p{
+    margin:.1rem;
+  }
     `
   }
 
@@ -276,52 +303,59 @@ margin:.1rem;
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="your-style.css">
         <title>Your Resume</title>
-     
+
     </head>
     
     <body>
-        <div class="main">
-            <div class="heading">
-                <div class="name">
-                    <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name} </h1>
-                    <p style="color: ${color3};">${formData.resume.jobTitle}</p>
-                </div>
-                <div class="contact_info">
-                    <p>${formData.resume.contact.email}</p>
-                    <p>${formData.resume.contact.phone}</p>
-                    <p> ${formData.resume.address.address},
-                    ${formData.resume.address.state },
-                    ${formData.resume.address.postalCode }</p>
-                    <p>${formData.resume.socialLinks.linkedin}</p>
-                </div>
+    <div onclick="setTemplateNo(8)" class="main">
+        <div class="heading">
+            <div class="name">
+                <h1  
+                style="font-family:${fontStyle}; font-size: ${fontSize}px; color: ${color2};"
+                > ${formData.resume.name}</h1>
+                <p>${formData.resume.jobTitle}</p>
             </div>
-            <div class="description_box">
-                <p>
-                ${formData.resume.summary}
-                </p>
-            </div>
-            <div class="Skills">
-                <h2>RELEVANT SKILLS</h2>
-                <ul class="skill-list">
-                ${formData.resume.skillsAndLevel.map((item) => `
-                <li style="background-color:${color2}; color: ${color3}; "><span>${item.skills}</span></li>
-                `).join('')}
-                </ul>
-            </div>
-            <div class="Experience">
-                <h3>PROFESSIONAL EXPERIENCE</h2>
-                <ul class="ul">
-                ${formData.resume.work.map((item) => `
+            <div class="contact_info">
+            <a> ${formData.resume.contact.email}</a>
+            <p>${formData.resume.contact.phone}</p>
+            <p>
+            ${formData.resume.address.address},
+            ${formData.resume.address.state },
+            ${formData.resume.address.postalCode }</p>
+            <p> ${formData.resume.socialLinks.linkedin }</p>
+        </div>
+        </div>
+        <div class="description_box">
+            <p>
+            ${formData.resume.summary}
+            </p>
+        </div>
+        <div class="Skills">
+            <h2>Skills</h2>
+            <ul>
+            ${formData.resume.skillsAndLevel.map((item) => `
+                 
+            <li style="background-color:${color}; color:${color3};">
+            <span>${item.skills}</span>
+        </li>
   
+    `).join('')}
+            
+            </ul>
+        </div>
+        <div class="Experience">
+            <h2>Work History</h2>
+            <ul class="ul">
+            ${formData.resume.work.map((item) => `
             <li>
             <div class="work_des">
-                <div>
-                    <h4 class="customerService">${item?.title}</h4>
-                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> ,
-                    <span>${item?.startDate} - ${item?.endDate}</span></h5>
-                </div>
+                    <h3 class="customerService">${item?.title}</h3>
+                    <h5 class="company_name">
+                    <span>${item?.company} - ${item?.location}</span> 
+                    <span>${item?.startDate} - ${item?.endDate}</span>
+                    </h5>
+           
                 <div>
                     <p>
                     ${item?.description}
@@ -329,25 +363,25 @@ margin:.1rem;
                 </div>
             </div>
         </li>
-                `).join('')}  
-                </ul>
-            </div>
-            <div class="Eucation">
-                <h3>EDUCATION</h2>
-                <ul class="ul">
-                ${formData.resume.education.map((item) => `
-       
-            <li style="color: #333;">
-            <span>${item.startYear} - ${item.endYear}</span>
-            <h4>${item.degree}</h4>
-            <span>${item.collegeName}</span>
-        </li>
-            `).join('')}
-            
-                </ul>
-            </div>
+    `).join('')}     
+
+            </ul>
         </div>
-    </body>
+        <div class="Education">
+            <h2>Education</h2>
+            <ul>
+            ${formData.resume.education.map((item) => `
+            <li class="edu_des">
+            <h5>${item.startYear} - ${item.endYear}</span>
+            <h4>${item.degree}</h4>
+            <p>${item.collegeName}</span> 
+            </li>
+        `).join('')}
+              
+            </ul>
+        </div>
+    </div>
+</body>
     
     </html>
     
@@ -491,8 +525,6 @@ const handleDownloadTxt = async () => {
   }
 };
 
-
-
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
@@ -541,59 +573,54 @@ const handleDownloadTxt = async () => {
 
   return (
     <>
-             <div className={styles.download_btn} >
+                    <div className={styles.download_btn} >
     <button onClick={handleDownloadClick}>Download</button>
       <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
-    <div className={styles.main}>
+
+    <div onClick={() => setTemplateNo(8)} className={styles.main}>
     <div className={styles.heading}>
       <div className={styles.name}>
-        <h1  style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
-        <p style={{color:color3}}>{formData.resume.jobTitle}</p>
+        <h1 style={{ fontFamily:fontStyle ,color:color2,fontSize: fontSize }}>{formData.resume.name}</h1>
+        <p>{formData.resume.jobTitle}</p>
       </div>
       <div className={styles.contact_info}>
-        <p>{formData.resume.contact.email}</p>
+        <a>{formData.resume.contact.email}</a>
         <p>{formData.resume.contact.phone}</p>
         <p>
           {formData.resume.address.address},
-          {formData.resume.address.state},
-          {formData.resume.address.postalCode}
+          {formData.resume.address.state },
+          {formData.resume.address.postalCode }
         </p>
         <p>{formData.resume.socialLinks.linkedin}</p>
       </div>
     </div>
     <div className={styles.description_box}>
-      <p>
-        {formData.resume.summary}
-      </p>
+      <p>{formData.resume.summary}</p>
     </div>
     <div className={styles.Skills}>
-      <h2>RELEVANT SKILLS</h2>
-      <ul className={styles.skill_list}>
+      <h2>Skills</h2>
+      <ul>
         {formData.resume.skillsAndLevel.map((item, index) => (
-          <li key={index} style={{ color: color3 ,backgroundColor:color2}}>
-            <span>{item.skills}</span>
+          <li key={index} style={{ color: color3,backgroundColor:color }}>
+            <span style={{ color: color3,backgroundColor:color }}>{item.skills}</span>
           </li>
         ))}
       </ul>
     </div>
     <div className={styles.Experience}>
-      <h3>PROFESSIONAL EXPERIENCE</h3>
+      <h2>Work History</h2>
       <ul className={styles.ul}>
         {formData.resume.work.map((item, index) => (
           <li key={index}>
             <div className={styles.work_des}>
+              <h3 className={styles.customerService}>{item?.title}</h3>
+              <h5 className={styles.company_name}>
+                <span>{item?.company} - {item?.location}</span>
+                <span>{item?.startDate} - {item?.endDate}</span>
+              </h5>
               <div>
-                <h4 className={styles.customerService}>{item?.title}</h4>
-                <h5 className={styles.company_name}>
-                  <span>{item?.company} - {item?.location}</span> ,
-                  <span>{item?.startDate} - {item?.endDate}</span>
-                </h5>
-              </div>
-              <div>
-                <p>
-                  {item?.description}
-                </p>
+                <p>{item?.description}</p>
               </div>
             </div>
           </li>
@@ -601,21 +628,21 @@ const handleDownloadTxt = async () => {
       </ul>
     </div>
     <div className={styles.Education}>
-      <h3>EDUCATION</h3>
-      <ul className={styles.ul}>
+      <h2>Education</h2>
+      <ul>
         {formData.resume.education.map((item, index) => (
-          <li key={index} style={{ color: '#333' }}>
-            <span>{item.startYear} - {item.endYear}</span>
+          <li key={index} className={styles.edu_des}>
+            <h5>{item.startYear} - {item.endYear}</h5>
             <h4>{item.degree}</h4>
-            <span>{item.collegeName}</span>
+            <p>{item.collegeName}</p>
           </li>
         ))}
       </ul>
     </div>
   </div>
     </>
-  
+   
   );
 };
 
-export default Template_20;
+export default Template_9;

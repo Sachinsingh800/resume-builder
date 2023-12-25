@@ -62,6 +62,37 @@ import Template_28 from './Component/ResumeTemplates/Template_28/Template_28';
 import Template_29 from './Component/ResumeTemplates/Template_29/Template_29';
 import Template_30 from './Component/ResumeTemplates/Template_30/Template_30';
 
+import F_Template_1 from './Component/ResumeTemplateForFresher/Template_1/Template_1';
+import F_Template_2 from './Component/ResumeTemplateForFresher/Template_2/Template_2';
+import F_Template_3 from './Component/ResumeTemplateForFresher/Template_3/Template_3';
+import F_Template_4 from './Component/ResumeTemplateForFresher/Template_4/Template_4';
+import F_Template_5 from './Component/ResumeTemplateForFresher/Template_5/Template_5';
+import F_Template_6 from './Component/ResumeTemplateForFresher/Template_6/Template_6';
+import F_Template_7 from './Component/ResumeTemplateForFresher/Template_7/Template_7';
+import F_Template_8 from './Component/ResumeTemplateForFresher/Template_8/Template_8';
+import F_Template_9 from './Component/ResumeTemplateForFresher/Template_9/Template_9';
+import F_Template_10 from './Component/ResumeTemplateForFresher/Template_10/Template_10';
+import F_Template_11 from './Component/ResumeTemplateForFresher/Template_11/Template_11';
+import F_Template_12 from './Component/ResumeTemplateForFresher/Template_12/Template_12';
+import F_Template_13 from './Component/ResumeTemplateForFresher/Template_13/Template_13';
+import F_Template_14 from './Component/ResumeTemplateForFresher/Template_14/Template_14';
+import F_Template_15 from './Component/ResumeTemplateForFresher/Template_15/Template_15';
+import F_Template_16 from './Component/ResumeTemplateForFresher/Template_16/Template_16';
+import F_Template_17 from './Component/ResumeTemplateForFresher/Template_17/Template_17';
+import F_Template_18 from './Component/ResumeTemplateForFresher/Template_18/Template_18';
+import F_Template_19 from './Component/ResumeTemplateForFresher/Template_19/Template_19';
+import F_Template_20 from './Component/ResumeTemplateForFresher/Template_20/Template_20';
+import F_Template_21 from './Component/ResumeTemplateForFresher/Template_21/Template_21';
+import F_Template_22 from './Component/ResumeTemplateForFresher/Template_22/Template_22';
+import F_Template_23 from './Component/ResumeTemplateForFresher/Template_23/Template_23';
+import F_Template_24 from './Component/ResumeTemplateForFresher/Template_24/Template_24';
+import F_Template_25 from './Component/ResumeTemplateForFresher/Template_25/Template_25';
+import F_Template_26 from './Component/ResumeTemplateForFresher/Template_26/Template_26';
+import F_Template_27 from './Component/ResumeTemplateForFresher/Template_27/Template_27';
+import F_Template_28 from './Component/ResumeTemplateForFresher/Template_28/Template_28';
+import F_Template_29 from './Component/ResumeTemplateForFresher/Template_29/Template_29';
+import F_Template_30 from './Component/ResumeTemplateForFresher/Template_30/Template_30';
+
 import coverLetter1 from  "./Component/CoverLetterImages/CL 1.png"
 import coverLetter2 from  "./Component/CoverLetterImages/CL 2.png"
 import coverLetter3 from  "./Component/CoverLetterImages/CL 3.png"
@@ -210,6 +241,42 @@ export const resumeTemplates = atom({
    <Template_28/>,
    <Template_29/>,
    <Template_30/>,
+
+  ], // Set the default value to an empty array
+});
+export const resumeTemplatesForFresher = atom({
+  key: 'resumeTemplatesForFresher', // Unique ID (with respect to other atoms/selectors)
+  default: [
+   <F_Template_1/>,
+   <F_Template_2/>,
+   <F_Template_3/>,
+   <F_Template_4/>,
+   <F_Template_5/>,
+   <F_Template_6/>,
+   <F_Template_7/>,
+   <F_Template_8/>,
+   <F_Template_9/>,
+   <F_Template_10/>,
+   <F_Template_11/>,
+   <F_Template_12/>,
+   <F_Template_13/>,
+   <F_Template_14/>,
+   <F_Template_15/>,
+   <F_Template_16/>,
+   <F_Template_17/>,
+   <F_Template_18/>,
+   <F_Template_19/>,
+   <F_Template_20/>,
+   <F_Template_21/>,
+   <F_Template_22/>,
+   <F_Template_23/>,
+   <F_Template_24/>,
+   <F_Template_25/>,
+   <F_Template_26/>,
+   <F_Template_27/>,
+   <F_Template_28/>,
+   <F_Template_29/>,
+   <F_Template_30/>,
 
   ], // Set the default value to an empty array
 });
