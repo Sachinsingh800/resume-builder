@@ -131,11 +131,12 @@ const Template_15= () => {
       background-color: #f0f0f0;
       box-sizing: border-box;
       background-color: white;
+      width: 850px;
+      height: 1000px;
   }
 
   .main {
-      width: 850px;
-      height: 1130px;
+
       background-color: white;
       font-size: 14px;
   }
@@ -146,8 +147,8 @@ const Template_15= () => {
   }
 
   .img_box {
-      height: 7rem;
-      width: 7rem;
+      height: 6rem;
+      width: 6rem;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -195,8 +196,6 @@ const Template_15= () => {
       flex-direction: column;
       gap: .5rem;
       padding: 2rem 1rem;
-      height: 65.3rem;
-      /* 1240px / 16px = 77.5rem */
       font-size: 14px;
   }
 
@@ -353,6 +352,7 @@ const Template_15= () => {
       margin:0;
       list-style:none;
       gap:.5rem;
+      margin-left:-1rem;
   }
 
 
@@ -386,6 +386,22 @@ const Template_15= () => {
   .contact_value{
     margin-left:-2rem; 
   }
+  *{
+    list-style:none;
+  }
+  .work_entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top:1rem
+}
+.work_entry p,h4,h5,h3{
+  margin:0;
+}
+
+.ul{
+  margin-left:-1.5rem;
+  margin-top:-1.5rem
+}
     `
   }
 
@@ -520,7 +536,7 @@ const Template_15= () => {
                     <div class="section">
                         <h2 class="section_title">EXPERIENCE</h2>
                         <Divider class="divider" />
-                        <ul>
+                        <ul  class="ul">
                         ${formData.resume.work.map((item) => `
                     <li>
                     <div class="work_entry">
@@ -741,8 +757,8 @@ const handleDownloadTxt = async () => {
     
     <div className={styles.main}>
     <div className={styles.header} style={{backgroundColor:color,color:color3}}>
-      <div className={styles.img_box} style={{ height: imgSize, width: imgSize }}>
-        <img src={base64Image3} alt="dp" />
+      <div className={styles.img_box}  >
+        <img style={{ height: imgSize, width: imgSize }} src={base64Image3} alt="dp" />
       </div>
       <div className={styles.name_box}>
         <h1 className={styles.name} style={{ fontFamily:fontStyle ,color:color3,fontSize: fontSize  }}>{formData.resume.name}</h1>

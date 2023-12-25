@@ -133,253 +133,257 @@ const Template_13= () => {
       background-color: #f0f0f0;
       box-sizing: border-box;
       background-color: white;
-  }
-
-  .main {
       width: 850px;
-      height: 1130px;
-      background-color: white;
+      height: 1000px;
   }
 
-  .container {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-  }
+    
+  .main {
 
-  .img_box {
-      height: 7rem;
-      width: 7rem;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      margin-right: 2rem;
-  }
+    background-color: white;
+}
 
-  .img_box img {
-      height: 100%;
-      width: 100%;
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
 
-  }
+.img_box {
+    height: 7rem;
+    width: 7rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 2rem;
+}
 
-  .left_section {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem 1rem;
-      gap: 2rem;
-      text-align: left;
-  }
+.img_box img {
+    height: 100%;
+    width: 100%;
 
-  .info_box,
-  .education {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 1rem 1rem;
-  }
+}
 
-  .right_section {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      padding: 2rem 1rem;
-      height: 1130px;
-  }
+.left_section {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 2rem;
+    text-align: left;
+}
 
-  .right_section p {
-      width: 95%!important;
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      list-style: none;
-  }
+.info_box,
+.education {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1rem;
+}
 
-  .right_section ul li {
-      margin-left: 1.5rem;
-  }
+.right_section {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 2rem 1rem;
+}
 
-  .work_history {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-  }
+.right_section p {
+    width: 95%!important;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    list-style: none;
+}
 
-  .heading {
-      padding: 3rem 1rem;
-  }
+.right_section ul li {
+    margin-left: 1.5rem;
+}
 
-  .certifications,
-  .skills,
-  .professional_summary,
-  .work,
-  .contact_info,
-  .skills_list {
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-  }
+.work_history {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-  .skills ul,
-  .certifications ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-  }
+.heading {
+    padding: 3rem 1rem;
+}
 
-  .header {
-      height: 8rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0rem 1rem;
-      overflow: hidden;
-      background-color:grey;
-  }
+.certifications,
+.skills,
+.professional_summary,
+.work,
+.contact_info,
+.skills_list {
+    padding: 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
 
-  .img_box {
-      border-radius: 50%;
-  }
+.skills ul,
+.certifications ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
 
+.header {
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+    overflow: hidden;
+    background-color:grey;
+}
 
-
-  .contact_label {
-      border:1px grey solid;
-      height: 1.2rem;
-      width: 1.2rem;
-      display: flex;
-      align-items: center;
-      border-radius: 5px;
-      justify-content: center;
-  }
-
-  .name_box {
-      width: 70%;
-      height: 100%;
-      padding: .5rem ;
-      display: flex;
-      display: flex;
-      flex-direction: column;
-      color:white;
-  }
+.img_box {
+    border-radius: 50%;
+}
 
 
-  .section {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-  }
 
-  .work_entry {
-      display: grid;
-      grid-template-columns: 1fr;
-  }
+.contact_label {
+    border:1px grey solid;
+    height: 1.2rem;
+    width: 1.2rem;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: center;
+}
 
-  .inner_div {
-      border-left: 1px rgb(0, 0, 0) solid;
-      padding:  .5rem;
-      margin-left: -1rem;
-  }
+.name_box {
+    width: 70%;
+    height: 100%;
+    padding: .5rem ;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    color:white;
+}
 
-  .section_title {
-      display: flex;
-      align-items: center;
-      gap: 2.7rem;
-  }
 
-  .description {
-      width: 25rem;
-  }
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
 
-  .contact_value {
-      display: flex;
-      align-items: center;
-      gap: .2rem;
-  }
+.work_entry {
+    display: grid;
+    grid-template-columns: 1fr;
+}
 
-  .contact_label {
-      font-size: small;
-  }
+.inner_div {
+    border-left: 1px rgb(0, 0, 0) solid;
+    padding:  .5rem;
+    margin-left: -1rem;
+}
 
-  .contact_info {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-  }
+.section_title {
+    display: flex;
+    align-items: center;
+    gap: 2.7rem;
+}
 
-  .skills_list {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      padding-top: 1rem;
-  }
+.description {
+    width: 25rem;
+}
 
-  .contact_value {
-      display: flex;
-      align-items: center;
-  }
+.contact_value {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+}
 
-  .contact_value span,
-  p {
-      margin: 0;
-  }
+.contact_label {
+    font-size: small;
+}
 
-  .contact_label {
-      font-size: small;
-  }
+.contact_info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
 
-  .contact_info {
-      display: flex;
-      flex-direction: column;
-      margin: 0;
-      list-style: none;
-      gap: .5rem;
-      margin-left:-1rem;
-  }
+.skills_list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-top: 1rem;
+}
 
-  .skills_list {
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      padding-top: 1rem;
-  }
+.contact_value {
+    display: flex;
+    align-items: center;
+}
 
-  .name {
-      margin: 0rem;
-  }
+.contact_value span,
+p {
+    margin: 0;
+}
 
-  .work-info h3,
-  p {
-      margin: 0rem;
-  }
+.contact_label {
+    font-size: small;
+}
 
-  .ul {
-      margin-top: -1rem;
-  }
+.contact_info {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    list-style: none;
+    gap: .5rem;
+    margin-left:-1rem;
+}
 
-  .ul li {
-      margin-left: -1rem;
-  }
-  .ul-skill{
+.skills_list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-top: 1rem;
+}
+
+.name {
+    margin: 0rem;
+}
+
+.work-info h4,p {
+    margin: 0rem;
+}
+
+.ul {
     margin-top: -1rem;
-    margin-left: -2rem;
-  }
+}
+
+.ul li {
+    margin-left: -1rem;
+}
+.ul-skill{
+  margin-top: -.5rem;
+  margin-left: -2.5rem;
+}
 
 
-  .name_box {
-      margin-top: 3.5rem;
-  }
+.name_box {
+    margin-top: 3.5rem;
+}
 
-  .contact_value {
-      margin-left: 0rem;
-  }
+.contact_value {
+    margin-left: 0rem;
+}
 
-  .icon {
-      height: 1rem;
-      width: 1rem;
-  }
+.icon {
+    height: 1rem;
+    width: 1rem;
+}
+.work_entry p,h4,h5{
+  margin:0!important;
+}
+
     `
   }
 
@@ -445,7 +449,7 @@ const Template_13= () => {
                 <div class="work_entry">
                     <p class="date">${item.startYear} - ${item.endYear}</p>
                     <div>
-                        <h3 class="degree">${item.degree}</h3>
+                        <h4 class="degree">${item.degree}</h4>
                         <p class="university">${item.collegeName}</p>
                     </div>
                 </div>
@@ -771,8 +775,8 @@ const handleDownloadTxt = async () => {
             </div>
           </div>
 
-          <h3 className={styles.sectionTitle}>EDUCATION</h3>
-          <ul className={styles.ulSkill}>
+          <h3 className={styles.section_title}>EDUCATION</h3>
+          <ul className={styles.ul_skill}>
             {formData.resume.education.map((item, index) => (
               <li key={index} className={styles.workEntry}>
                 <p className={styles.date}>{item.startYear} - {item.endYear}</p>
@@ -784,24 +788,24 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
 
-          <h3 className={styles.sectionTitle}>SKILLS</h3>
-          <ul className={styles.ulSkill}>
+          <h3 className={styles.section_title}>SKILLS</h3>
+          <ul className={styles.ul_skill}>
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}>{item.skills}</li>
             ))}
           </ul>
 
-          <h3 className={styles.sectionTitle}>LANGUAGE</h3>
-          <ul className={styles.ulSkill}>
+          <h3 className={styles.section_title}>LANGUAGE</h3>
+          <ul className={styles.ul_skill}>
             {formData.resume.knownLanguages.map((item, index) => (
               <li key={index}>{item?.lang}</li>
             ))}
           </ul>
 
-          <h3 className={styles.sectionTitle}>AWARDS</h3>
-          <ul className={styles.ulSkill}>
+          <h3 className={styles.section_title}>AWARDS</h3>
+          <ul className={styles.ul_skill}>
             {formData.resume.awards.map((item, index) => (
-              <li key={index} className={styles.awardList}>
+              <li key={index} className={styles.award_list}>
                 <h5>{item?.date}</h5>
                 <h4>{item?.title}</h4>
                 <p>{item?.issuingOrganization}</p>
@@ -812,17 +816,18 @@ const handleDownloadTxt = async () => {
 
         <div className={styles.left_section}>
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>ABOUT ME</h3>
-            <p className={styles.sectionContent}>{formData.resume.summary}</p>
+            <h3 className={styles.section_title}>ABOUT ME</h3>
+            <p className={styles.section_content}>{formData.resume.summary}</p>
           </div>
 
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>EXPERIENCE</h3>
-            <ul className={styles.ul}>
+            <h3 className={styles.section_title}>EXPERIENCE</h3>
+            <ul className={styles.ul} >
               {formData.resume.work.map((item, index) => (
-                <li key={index} className={styles.workEntry}>
+                <li key={index} className={styles.work_entry}>
                   <h5>{item?.startDate} - {item?.endDate}</h5>
-                  <div className={styles.workInfo}>
+                  <div className={styles.work_info}>
+                
                     <h4 className={styles.position}>{item?.title}</h4>
                     <p className={styles.company}>{item?.company} - {item?.location}</p>
                     <p className={styles.description}>{item?.description}</p>
@@ -833,12 +838,12 @@ const handleDownloadTxt = async () => {
           </div>
 
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>PROJECTS</h3>
+            <h3 className={styles.section_title}>PROJECTS</h3>
             <ul className={styles.ul}>
               {formData.resume.projects.map((item, index) => (
-                <li key={index} className={styles.workEntry}>
+                <li key={index} className={styles.work_entry}>
                   <h5>{item?.year}</h5>
-                  <div className={styles.workInfo}>
+                  <div className={styles.work_info}>
                     <h4 className={styles.position}>{item?.title}</h4>
                     <p className={styles.company}>{item?.link}</p>
                     <p className={styles.description}>{item?.description}</p>

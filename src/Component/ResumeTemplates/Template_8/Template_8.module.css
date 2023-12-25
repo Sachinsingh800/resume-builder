@@ -73,18 +73,17 @@ font-weight:100;
   width: 90%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  list-style-type: disc;
 
-  margin-top:-.5rem;
 }
 .Skills ul li{
   padding: 1rem;
-  margin-left: 1rem;
-  margin:0rem;
+  margin-left: 1rem!important;
 }
 .work_des {
   display: grid;
   grid-template-columns: 1fr 2fr;
-
+  margin-left: 1rem!important;
 }
 
 .Education {

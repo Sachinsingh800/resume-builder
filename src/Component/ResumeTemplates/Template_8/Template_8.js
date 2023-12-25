@@ -270,7 +270,7 @@ width: 90%;
     <body>
         <div onclick="setTemplateNo(7)" class="main">
             <div class="heading">
-                <h1 style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name}</h1>
+                <h1 style="color: ${color2}; font-family: ${fontStyle}; font-size:${fontSize}px;">${formData.resume.name}</h1>
                 <p>${formData.resume.contact.email} | ${formData.resume.contact.phone}</p>
             </div>
             <div class="summary">

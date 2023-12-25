@@ -135,7 +135,7 @@ const Template_10= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
       padding:1rem;
   }
@@ -497,10 +497,10 @@ const handleDownloadTxt = async () => {
       <br />
       <div>
         <h3>Work Experience</h3>
-        <ul className={styles.workUl}>
+        <ul className={styles.work_ul}>
           {formData.resume.work.map((item, index) => (
             <li key={index}>
-              <div className={styles.workDes}>
+              <div className={styles.work_des}>
                 <h4 className={styles.customerService}><span>{item?.title}</span></h4>
                 <h6>Jan 2018 - Dec 2020</h6>
                 <h6 className={styles.companyName}><span>{item?.company} - {item?.location}</span></h6>
@@ -512,7 +512,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div>
         <h3>Education</h3>
-        <ul className={styles.eduUl}>
+        <ul className={styles.edu_ul}>
           {formData.resume.education.map((item, index) => (
             <li key={index} className={styles.education}>
               <h5>{item.degree}, {item.startYear} - {item.endYear}</h5>
@@ -523,7 +523,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div>
         <h3>Skills</h3>
-        <ul className={styles.eduUl}>
+        <ul className={styles.edu_ul}>
           {formData.resume.skillsAndLevel.map((item, index) => (
             <li key={index}>{item.skills}</li>
           ))}

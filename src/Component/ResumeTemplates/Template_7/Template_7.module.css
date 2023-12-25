@@ -13,7 +13,9 @@ flex-direction: column;
 justify-content: center;
 height: 5rem;
 width: 52rem; 
+
 }
+
 .summary h2{
 border-top: 1px  rgb(112, 111, 111) solid;
 border-bottom: 1px rgb(112, 111, 111) solid;
@@ -60,7 +62,7 @@ flex-direction: column;
 .Skills ul{
 width: 90%;
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr;
 }
 .heading h1,p{
 margin:0rem;

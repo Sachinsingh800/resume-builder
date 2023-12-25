@@ -130,12 +130,13 @@ const Template_14 = () => {
       background-color: #f0f0f0;
          box-sizing: border-box;
          background-color: white;
+         width: 794px ;
+         height: 1000px;
         
     }
 
     .main {
-      width: 794px ;
-        height: 1130px;
+    
       background-color: white;
       
     }
@@ -171,7 +172,7 @@ const Template_14 = () => {
           display: flex;
           flex-direction: column;
           padding: .5rem 2rem;
-          gap: 1rem;
+       
           text-align: left;
        
        }
@@ -280,12 +281,15 @@ const Template_14 = () => {
           flex-direction: column;
           gap: .5rem;
           border-bottom: 1px rgb(0, 0, 0) solid;
-          padding: .5rem 1rem;
+          padding: 0rem 1rem;
+     
 
        }
        .work_entry{
           display: grid;
           grid-template-columns: 1fr 3fr;
+          place-items: baseline;
+    
        
        }
        .edu_entry{
@@ -307,12 +311,17 @@ const Template_14 = () => {
        .contact_value{
            display: flex;
            align-items: center;
-           gap: .2rem;
-       
+           gap:.2rem;
        }
        
        .contact_label{
            font-size: small;
+          
+           margin:0rem;
+       }
+       .contact_label span,p{
+    
+        margin:0rem;
        }
        .contact_info{
          display: flex;
@@ -320,6 +329,7 @@ const Template_14 = () => {
          gap: .5rem;
          border-bottom: 1px rgb(0, 0, 0) solid;
          padding: .2rem 1rem;
+         margin:0rem;
        }
        .skills_list{
        display: flex;
@@ -347,6 +357,7 @@ const Template_14 = () => {
         .icon {
             height: 1rem;
             width: 1rem;
+            margin:.2rem;
         }
 
         .icon img {
@@ -362,7 +373,24 @@ const Template_14 = () => {
           padding-left:.5rem;
         }
         .skills_section{
-          padding:.5rem;
+          padding: 0rem 1rem;
+     
+          margin-top:-1rem;
+        }
+        .skills_section ul{
+     
+          margin-top:-1rem;
+          margin-left:-2.6rem;
+        }
+        .award_section h4,h5,p{
+         margin:0rem;
+        }
+        .award_section ul{
+          margin-left:-2.6rem;
+          margin-top:-1rem;
+        }
+        .ul{
+          margin-top:-2rem;
         }
     `
   }
@@ -405,7 +433,6 @@ const Template_14 = () => {
                         <div class="contact_value">
                             <span class="contact_label">
                                 <span style="font-size:20px" class="icon">
-                                    <!-- Replace with actual base64 encoded image -->
                                     <img src=${base64Image5} />
                                 </span>
                             </span>
@@ -414,7 +441,6 @@ const Template_14 = () => {
                         <div class="contact_value">
                             <span class="contact_label">
                                 <span style="font-size:20px" class="icon">
-                                    <!-- Replace with actual base64 encoded image -->
                                     <img src=${base64Image4} />
                                 </span>
                             </span>
@@ -423,7 +449,6 @@ const Template_14 = () => {
                         <div class="contact_value">
                             <span class="contact_label">
                                 <span style="font-size:20px" class="icon">
-                                    <!-- Replace with actual base64 encoded image -->
                                     <img src=${base64Image2} />
                                 </span>
                             </span>
@@ -432,7 +457,6 @@ const Template_14 = () => {
                         <div class="contact_value">
                             <span class="contact_label">
                                 <span style="font-size:20px" class="icon">
-                                    <!-- Replace with actual base64 encoded image -->
                                     <img src=${base64Image1} />
                                 </span>
                             </span>
@@ -481,7 +505,7 @@ const Template_14 = () => {
                 <div class="left_section">
                     <div class="section">
                         <h3 class="section_title">PROFESSIONAL EXPERIENCE</h3>
-                        <ul class="ul">
+                        <ul class="ul" style="margin-left:-20px">
 
                         ${formData.resume.work.map((item) => `
                

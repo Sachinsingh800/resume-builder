@@ -144,7 +144,7 @@ const Template_11= () => {
       flex-direction: column;
       background-color: grey;
       color: white;
-      height: 1130px;
+      height: 1056px;
   }
 
   .objectiveHeader {
@@ -216,6 +216,7 @@ const Template_11= () => {
   }
   .exp-ul{
       margin-top:-1rem;
+      margin-left:-1rem;
   }
   .edu-ul h4,span{
       margin:0rem;
@@ -251,7 +252,7 @@ const Template_11= () => {
                     <p class="objectiveText">${formData.resume.jobTitle}</p>
                 </div>
                 <div class="info_box">
-                    <h3>Personal info</h3>
+                    <h3>PERSONAL INFO</h3>
                     <div class="contactInfo">
                         <label>Mail</label>
                         <p class="email"> ${formData.resume.contact.email}</p>
@@ -270,7 +271,7 @@ const Template_11= () => {
                     </div>
                 </div>
                 <div class="skillsHeader">
-                    <h3>Additional Skills</h3>
+                    <h3>ADDITIONAL SKILLS</h3>
                     <ul>
                     ${formData.resume.skillsAndLevel.map((item) => `
         
@@ -297,7 +298,7 @@ const Template_11= () => {
             </div>
             <div>
                 <div class="skillsHeader2">
-                    <h3>Skills Summary</h3>
+                    <h3>SKILLS SUMMARY</h3>
                     <p>
                     ${formData.resume.summary}
                 </p>
@@ -325,7 +326,7 @@ const Template_11= () => {
                     </ul>
                 </div>
                 <div class="skillsHeader2">
-                    <h3>Education</h3>
+                    <h3>EDUCATION</h3>
                     <ul class="edu-ul">
                     ${formData.resume.education.map((item) => `
                     <li>
@@ -543,7 +544,7 @@ const handleDownloadTxt = async () => {
         <p className={styles.objectiveText}>{formData.resume.jobTitle}</p>
       </div>
       <div className={styles.infoBox}>
-        <h3>Personal info</h3>
+        <h3>PERSONAL INFO</h3>
         <div className={styles.contactInfo}>
           <label>Mail</label>
           <p className={styles.email}>{formData.resume.contact.email}</p>
@@ -562,7 +563,7 @@ const handleDownloadTxt = async () => {
         </div>
       </div>
       <div className={styles.skillsHeader}>
-        <h3>Additional Skills</h3>
+        <h3>ADDITIONAL SKILLS</h3>
         <ul>
           {formData.resume.skillsAndLevel.map((item, index) => (
             <li key={index}>
@@ -586,14 +587,14 @@ const handleDownloadTxt = async () => {
     </div>
     <div>
       <div className={styles.skillsHeader2}>
-        <h3>Skills Summary</h3>
+        <h3>SKILLS SUMMARY</h3>
         <p>{formData.resume.summary}</p>
       </div>
       <div className={styles.professionalSkillsHeader}>
         <div>
           <h3>EXPERIENCE</h3>
         </div>
-        <ul className={styles.expUl}>
+        <ul className={styles.exp_ul}>
           {formData.resume.work.map((item, index) => (
             <li key={index}>
               <div className={styles.workDes}>
@@ -609,8 +610,8 @@ const handleDownloadTxt = async () => {
         </ul>
       </div>
       <div className={styles.skillsHeader2}>
-        <h3>Education</h3>
-        <ul className={styles.eduUl}>
+        <h3>EDUCATION</h3>
+        <ul className={styles.edu_ul}>
           {formData.resume.education.map((item, index) => (
             <li key={index}>
               <h4>{item.degree}</h4>

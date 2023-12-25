@@ -41,7 +41,8 @@
     align-items: center;
     flex-direction: column;
     width: 850px;
-
+ 
+  
 }
 
 .Experience h2 {
@@ -53,7 +54,8 @@
 
 .Experience ul {
     width: 90%;
-
+   list-style-type: disc;
+   padding: .5rem 0;
 }
 
 .Skills h2 {
@@ -77,6 +79,7 @@
     display: inline-table;
     grid-template-columns: auto;
     margin-left: -5rem!important; /* Adjusted from -5rem to pixels based on your requirement */
+
 }
 
 .Skills ul li {
@@ -109,8 +112,8 @@
     width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-left: 10px; /* Adjusted from 1rem to pixels based on your requirement */
     gap: 5px; /* Adjusted from 1rem to pixels based on your requirement */
+    padding: .5rem 0;
 }
 
 .Education ul li {

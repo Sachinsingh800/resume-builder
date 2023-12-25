@@ -137,7 +137,7 @@ const Template_12= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
   }
 
@@ -190,7 +190,7 @@ const Template_12= () => {
       flex-direction: column;
       gap: 0.25rem; /* Reduced gap */
       padding: 0rem 1rem;
-      height: 1000px;
+      height: 945px;
   }
 
   .right_section p {
@@ -338,6 +338,19 @@ const Template_12= () => {
   .ul-skill{
     margin-top:-1rem;
     margin-left:-2.5rem;
+  }
+  .ul-skill li{
+    margin-left:-2.5rem;
+  }
+  *{
+    list-style: none;
+  }
+  ul{
+    margin-left:-2.5rem;
+  }
+  .ul-skill li{
+         
+    margin-left:0rem!important;
   }
     `
   }
@@ -684,15 +697,15 @@ const handleDownloadTxt = async () => {
       <div className={styles.container}>
         <div className={styles.left_section} >
           <div className={styles.section}>
-            <p className={styles.sectionContent}>{formData.resume.summary}</p>
+            <p className={styles.section_content}>{formData.resume.summary}</p>
           </div>
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>Experience</h3>
-            <ul className={styles.expUl}>
+            <h3 className={styles.section_title}>Experience</h3>
+            <ul className={styles.exp_ul}>
               {formData.resume.work.map((item, index) => (
-                <li key={index} className={styles.workEntry}>
+                <li key={index} className={styles.work_entry}>
                   <h5>{item?.startDate} - {item?.endDate}</h5>
-                  <div className={styles.workInfo}>
+                  <div className={styles.work_info}>
                     <h4 className={styles.position}>{item?.title}</h4>
                     <p className={styles.company}>{item?.company} - {item?.location}</p>
                     <p className={styles.description}>{item?.description}</p>
@@ -702,10 +715,10 @@ const handleDownloadTxt = async () => {
             </ul>
           </div>
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>Education</h3>
+            <h3 className={styles.section_title}>Education</h3>
             <ul className={styles.ul}>
               {formData.resume.education.map((item, index) => (
-                <li key={index} className={styles.educationEntry}>
+                <li key={index} className={styles.education_entry}>
                   <h4 className={styles.degree}>{item.degree}</h4>
                   <p className={styles.university}>{item.collegeName}</p>
                   <p className={styles.date}>{item.startYear} - {item.endYear}</p>
@@ -714,11 +727,11 @@ const handleDownloadTxt = async () => {
             </ul>
           </div>
           <div className={styles.section}>
-            <h3 className={styles.sectionTitle}>Certification</h3>
-            <hr className={styles.divider} />
-            <ul className={styles.ulCerti}>
+            <h3 className={styles.section_title}>Certification</h3>
+          
+            <ul className={styles.ul_certi}>
               {formData.resume.certifications.map((item, index) => (
-                <li key={index} className={styles.educationEntry}>
+                <li key={index} className={styles.education_entry}>
                   <h4 className={styles.degree}>{item?.title}</h4>
                   <p className={styles.university}>{item?.issuingOrganization}</p>
                   <p className={styles.date}>{item?.date}</p>
@@ -728,40 +741,40 @@ const handleDownloadTxt = async () => {
           </div>
         </div>
         <div className={styles.right_section} style={{backgroundColor:color2,color:color3}}>
-          <h4 className={styles.sectionTitle}>Personal Info</h4>
-          <div className={styles.contactInfo}>
-            <div className={styles.contactEntry}>
-              <h5 className={styles.contactLabel}>Address</h5>
-              <p className={styles.contactValue}>
+          <h4 className={styles.section_title}>Personal Info</h4>
+          <div className={styles.contact_info}>
+            <div className={styles.contact_entry}>
+              <h5 className={styles.contact_label}>Address</h5>
+              <p className={styles.contact_value}>
                 {formData.resume.address.address},
                 {formData.resume.address.state},
                 {formData.resume.address.postalCode}
               </p>
             </div>
-            <div className={styles.contactEntry}>
-              <h5 className={styles.contactLabel}>Phone</h5>
-              <p className={styles.contactValue}>{formData.resume.contact.phone}</p>
+            <div className={styles.contact_entry}>
+              <h5 className={styles.contact_label}>Phone</h5>
+              <p className={styles.contact_value}>{formData.resume.contact.phone}</p>
             </div>
-            <div className={styles.contactEntry}>
-              <h5 className={styles.contactLabel}>E-mail</h5>
-              <p className={styles.contactValue}>{formData.resume.contact.email}</p>
+            <div className={styles.contact_entry}>
+              <h5 className={styles.contact_label}>E-mail</h5>
+              <p className={styles.contact_value}>{formData.resume.contact.email}</p>
             </div>
-            <div className={styles.contactEntry}>
-              <h5 className={styles.contactLabel}>LinkedIn</h5>
-              <p className={styles.contactValue}>{formData.resume.socialLinks.linkedin}</p>
+            <div className={styles.contact_entry}>
+              <h5 className={styles.contact_label}>LinkedIn</h5>
+              <p className={styles.contact_value}>{formData.resume.socialLinks.linkedin}</p>
             </div>
           </div>
           <div className={styles.section}>
-            <h4 className={styles.sectionTitle}>Skill</h4>
-            <ul className={styles.ulSkill}>
+            <h4 className={styles.section_title}>Skill</h4>
+            <ul className={styles.ul_skill}>
               {formData.resume.skillsAndLevel.map((item, index) => (
                 <li key={index}>{item.skills}</li>
               ))}
             </ul>
           </div>
           <div className={styles.section}>
-            <h4 className={styles.sectionTitle}>Language</h4>
-            <ul className={styles.ulSkill}>
+            <h4 className={styles.section_title}>Language</h4>
+            <ul className={styles.ul_skill}>
               {formData.resume.knownLanguages.map((item, index) => (
                 <li key={index}>{item?.lang}</li>
               ))}
@@ -769,9 +782,9 @@ const handleDownloadTxt = async () => {
           </div>
           <div className={styles.section}>
             <h4>Awards</h4>
-            <ul className={styles.ulSkill}>
+            <ul className={styles.ul_skill}>
               {formData.resume.awards.map((item, index) => (
-                <li key={index} className={styles.awardList}>
+                <li key={index} className={styles.award_list}>
                   <h5>{item?.date}</h5>
                   <h4>{item?.title}</h4>
                   <p>{item?.issuingOrganization}</p>

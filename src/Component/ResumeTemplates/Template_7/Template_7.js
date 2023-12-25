@@ -137,7 +137,7 @@ const Template_7= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
   }
 .heading{
@@ -146,7 +146,6 @@ align-items: center;
 flex-direction: column;
 justify-content: center;
 height: 5rem;
-width: 52rem; 
 }
 .summary h2{
 border-top: 1px  rgb(112, 111, 111) solid;
@@ -194,7 +193,10 @@ flex-direction: column;
 .Skills ul{
 width: 90%;
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr 1fr 1fr;
+gap:1rem;
+
+
 }
 .heading h1,p{
 margin:0rem;
@@ -205,6 +207,14 @@ margin-top:-1rem;
 }
 .work_des h3,h5{
 margin:0rem;
+}
+*{
+  list-style: none;
+
+}
+.ul li{
+  margin-left:-.5rem;
+
 }
     `
   }
@@ -269,7 +279,6 @@ margin:0rem;
                 <h2>Skills</h2>
               
                 <ul class="ul">
-                <ul class="skill-list">
                 ${formData.resume.skillsAndLevel.map((item) => `
              
                 <li >

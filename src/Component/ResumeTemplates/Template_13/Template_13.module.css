@@ -56,11 +56,15 @@
    display: flex;
    flex-direction: column;
    text-align: left;
-   list-style: none;
+   list-style-type: disc;
+  
+   
 }
 
 .right_section ul li {
    margin-left: 1.5rem;
+    list-style-type: disc;
+   
 }
 
 .work_history {
@@ -90,7 +94,14 @@
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: 1rem;
+    list-style-type: disc;
+   
 }
+.work_entry{
+   margin-left: 1rem!important;
+   list-style-type: circle!important;
+}
+
 
 .header {
    height: 8rem;
@@ -197,7 +208,8 @@ p {
    display: flex;
    flex-direction: column;
    margin: 0;
-   list-style: none;
+    list-style-type: disc;
+   
    gap: .5rem;
    margin-left:-1rem;
 
@@ -221,14 +233,21 @@ p {
 
 .ul {
    margin-top: -1rem;
+    list-style-type: disc;
 }
 
 .ul li {
    margin-left: -1rem;
+    list-style-type: disc;
+   
+}
+.work_entry{
+   list-style-type: disc;
 }
 .ul-skill{
  margin-top: -1rem;
  margin-left: -2rem;
+
 }
 
 
@@ -245,7 +264,22 @@ p {
    height: 1rem;
    width: 1rem;
 }
+.contact_value{
+   display: flex;
+   align-items: center;
+   text-align: left!important;
+}
+.contact_value p{
+   display: grid;
+   margin: .2rem!important;
+   text-align: left!important;
+}
+.ul_skill{
 
+}
+.ul_skill  li{
+   margin-left: 1.5rem!important;
+}
 /* modal.module.css */
 .overlay {
    position: fixed;

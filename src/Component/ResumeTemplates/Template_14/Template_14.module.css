@@ -5,6 +5,9 @@
    background-color: white;
    
  }
+ .main ul{
+   list-style-type: disc!important;
+ }
 
      .container{
        display: grid;
@@ -39,6 +42,7 @@
        padding: .5rem 2rem;
        gap: 1rem;
        text-align: left;
+
     
     }
     
@@ -68,13 +72,14 @@
       border-right: 1px black solid;
       width: 16.5rem;
       margin-top: 1rem;
+      list-style-type: disc!important;
     }
     .right_section p{
        width: 95%!important;
        display: flex;
        flex-direction: column;
        text-align: left;
-       list-style: none;
+     
     }
     .right_section ul li{
        margin-left:1.5rem ;
@@ -128,6 +133,7 @@
        display: grid;
        grid-template-columns: 1fr 1fr;
        gap: 1rem;
+       list-style-type: disc!important;
     }
     .header{
     
@@ -162,6 +168,7 @@
         display: flex;
         flex-direction: column;
         gap: .5rem;
+        list-style-type: disc!important;
     }
     .section_title{
        margin-left: -1rem;
@@ -190,6 +197,8 @@
     .skills_list{
     display: flex;
     flex-direction: column;
+    list-style-type: disc!important;
+    
   
     }
 
@@ -222,7 +231,7 @@
      }
 
      .ul li{
-       list-style: circle;
+       list-style-type: disc!important;
      }
      .award_section{
   
@@ -231,7 +240,17 @@
      .skills_section{
        padding:.5rem;
      }
- 
+     .contact_value{
+      display: flex;
+      align-items: center;
+      text-align: left!important;
+   }
+   .contact_value p{
+      display: grid;
+      margin: .2rem!important;
+      text-align: left!important;
+   }
+
      
 /* modal.module.css */
 .overlay {

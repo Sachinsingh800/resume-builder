@@ -129,11 +129,12 @@ const Template_16= () => {
       background-color: #f0f0f0;
       box-sizing: border-box;
       background-color: white;
+      width: 850px;
+      height: 1000px;
   }
 
   .main {
-      width: 850px;
-      height: 1130px;
+
       background-color: white;
   }
 
@@ -162,7 +163,6 @@ const Template_16= () => {
       display: flex;
       flex-direction: column;
       padding: 2rem 1rem;
-      gap: 2rem;
       text-align: left;
   }
 
@@ -180,7 +180,7 @@ const Template_16= () => {
       flex-direction: column;
       gap: .5rem;
       padding: 2rem 1rem;
-      height: 1130px;
+      height: 100%;
   }
 
   .right_section p {
@@ -360,7 +360,7 @@ const Template_16= () => {
   }
   .ul-skill{
     margin-top: -1rem;
-    margin-left: -2rem;
+    margin-left: -2.6rem;
   }
 
 
@@ -375,6 +375,13 @@ const Template_16= () => {
   .icon {
       height: 1rem;
       width: 1rem;
+  }
+  .work_entry h3{
+    margin:  0rem;
+   
+  }
+  .award-list h4,h5,p{
+    margin:  0rem;
   }
     `
   }
