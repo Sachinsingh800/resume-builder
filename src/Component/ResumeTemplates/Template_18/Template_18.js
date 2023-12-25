@@ -710,7 +710,7 @@ const handleDownloadTxt = async () => {
       <div className={styles.right_section}>
         <div className={styles.section}>
           <h3 className={styles.section_title}>EDUCATION</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           {formData.resume.education.map((item, index) => (
             <div key={index} className={styles.work_entry}>
               <p className={styles.date}>{item.startYear} - {item.endYear}</p>
@@ -722,7 +722,7 @@ const handleDownloadTxt = async () => {
           ))}
         </div>
         <h3 className={styles.section_title}>CONTACTS</h3>
-        <div className={styles.divider}><hr /></div>
+        <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
         <div className={styles.contact_info}>
           <div className={styles.contact_value}>
             <span className={styles.icon}>
@@ -755,7 +755,7 @@ const handleDownloadTxt = async () => {
         </div>
         <div className={styles.section}>
           <h3 className={styles.section_title}>SKILLS</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <ul className={styles.skills_list}>
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}> {item.skills}</li>
@@ -764,7 +764,7 @@ const handleDownloadTxt = async () => {
         </div>
         <div className={styles.section}>
           <h3 className={styles.section_title}>LANGUAGE</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <ul className={styles.skills_list}>
             {formData.resume.knownLanguages.map((item, index) => (
               <li key={index}>
@@ -775,7 +775,7 @@ const handleDownloadTxt = async () => {
         </div>
         <div className={styles.section}>
           <h3 className={styles.section_title}>AWARDS</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <ul className={styles.skills_list}>
             {formData.resume.awards.map((item, index) => (
               <li key={index} className={styles.award_list}>
@@ -790,14 +790,14 @@ const handleDownloadTxt = async () => {
       <div className={styles.left_section}>
         <div className={styles.section}>
           <h3 className={styles.section_title}>SUMMARY</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <p className={styles.section_content}>
             {formData.resume.summary}
           </p>
         </div>
         <div className={styles.section}>
           <h3 className={styles.section_title}>EXPERIENCE</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           {formData.resume.work.map((item, index) => (
             <div key={index} className={styles.work_expe}>
               <div className={styles.work_info}>

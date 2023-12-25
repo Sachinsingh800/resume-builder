@@ -732,12 +732,12 @@ const handleDownloadTxt = async () => {
       </div>
       <div className={styles.skillsHeader2}>
         <h3>PROFILE</h3>
-        <div className={styles.line}><hr style={{borderColor: "black", backgroundColor: "black"}}  /></div>
+        <div className={styles.line}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
         <p>{formData.resume.summary}</p>
       </div>
       <div className={styles.info_box}>
         <h3>CONTACT ME</h3>
-        <div className={styles.line}><hr style={{borderColor: "black", backgroundColor: "black"}}  /></div>
+        <div className={styles.line}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
         <div className={styles.contactInfo}>
           <p>
             <span>Mail</span>
@@ -761,7 +761,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div className={styles.skillsHeader}>
         <h3>PERSONAL SKILLS</h3>
-        <div className={styles.line}><hr  style={{borderColor: "black", backgroundColor: "black"}}  /></div>
+        <div className={styles.line}><hr  style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
         <ul>
           {formData.resume.skillsAndLevel.map((item, index) => (
             <li key={index}>
@@ -773,7 +773,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div className={styles.skillsHeader}>
         <h3>LANGUAGES</h3>
-        <div className={styles.line}><hr style={{borderColor: "black", backgroundColor: "black"}}  /></div>
+        <div className={styles.line}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
         <ul>
           {formData.resume.knownLanguages.map((item, index) => (
             <li key={index}>
@@ -793,7 +793,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div className={styles.skillsHeader2}>
         <h3>EDUCATION</h3>
-        <div className={styles.edu_line}><hr style={{borderColor: "black", backgroundColor: "black"}}  /></div>
+        <div className={styles.edu_line}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
         <ul className={styles.edu_ul}>
           {formData.resume.education.map((item, index) => (
             <li key={index}>
@@ -809,7 +809,7 @@ const handleDownloadTxt = async () => {
       <div className={styles.professionalSkillsHeader}>
         <div>
           <h3>EXPERIENCE</h3>
-          <div className={styles.exp_line}><hr style={{borderColor: "black", backgroundColor: "black"}}  /></div>
+          <div className={styles.exp_line}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
         </div>
         <ul className={styles.exp_ul}>
           {formData.resume.work.map((item, index) => (

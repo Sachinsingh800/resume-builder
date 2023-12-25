@@ -653,7 +653,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div>
         <br/>
-        <hr  style={{borderColor: "black", backgroundColor: "black"}} />
+        <hr  style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
       </div>
       <div className={style.education}>
         <h3>Education</h3>

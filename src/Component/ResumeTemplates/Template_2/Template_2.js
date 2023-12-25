@@ -619,7 +619,7 @@ const handleDownloadTxt = async () => {
       <div className={style.Left_container} style={{ backgroundColor: color, color: color3 }}>
         <div className={style.name_container} style={{ backgroundColor: color2, color: "white" }} >
           <h1 className={style.name} style={{ color: "white", fontFamily: fontStyle ,fontSize: fontSize}} >{formData.resume.name}</h1>
-          <hr  style={{borderColor: "black", backgroundColor: "black"}} />
+          <hr  style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
           <div className={style.info_box}>
             <div className={style.contactInfo}>
               <div className={style.iconContainer} style={{ color: "black" }}>

@@ -134,10 +134,11 @@ const Template_17= () => {
       background-color: #f0f0f0;
       box-sizing: border-box;
       background-color: white;
+      width: 850px;
+      height: 1000px;
   }
   .main {
-      width: 850px;
-      height: 1130px;
+ 
       background-color: white;
   }
   
@@ -190,7 +191,7 @@ display: flex;
 flex-direction: column;
 gap: .5rem;
 padding: 2rem 1rem;
-height: 65.3rem;  
+height:100%
 }
 .right_section p{
 width: 95%!important;
@@ -354,6 +355,9 @@ margin-top:-1rem;
 .icon{
 height:1rem;
 width:1rem;
+}
+.award-list h4,h5,p{
+  margin:0;
 }
     `
   }
@@ -739,7 +743,7 @@ const handleDownloadTxt = async () => {
       <div className={styles.left_section}>
         <div className={styles.section}>
           <h3 className={styles.section_title}>SUMMARY</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}   /></div>
           <p className={styles.section_content}>
             {formData.resume.summary}
           </p>
@@ -747,7 +751,7 @@ const handleDownloadTxt = async () => {
 
         <div className={styles.section}>
           <h3 className={styles.section_title}>EXPERIENCE</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <ul className={styles.ul}>
             {formData.resume.work.map((item, index) => (
               <li key={index}>
@@ -770,7 +774,7 @@ const handleDownloadTxt = async () => {
 
         <div className={styles.section}>
           <h3 className={styles.section_title}>EDUCATION</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <ul className={styles.ul}>
             {formData.resume.education.map((item, index) => (
               <li key={index}>
@@ -792,7 +796,7 @@ const handleDownloadTxt = async () => {
       <div className={styles.right_section}>
         <div className={styles.section}>
           <h3 className={styles.section_title}>SKILLS</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <ul className={styles.skills_list}>
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}> {item.skills}</li>
@@ -802,7 +806,7 @@ const handleDownloadTxt = async () => {
 
         <div className={styles.section}>
           <h3 className={styles.section_title}>LANGUAGE</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <ul className={styles.skills_list}>
             {formData.resume.knownLanguages.map((item, index) => (
               <li key={index}>
@@ -814,7 +818,7 @@ const handleDownloadTxt = async () => {
 
         <div className={styles.section}>
           <h3 className={styles.section_title}>AWARDS</h3>
-          <div className={styles.divider}><hr /></div>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
           <ul className={styles.skills_list}>
             {formData.resume.awards.map((item, index) => (
               <li key={index} className={styles.award_list}>
