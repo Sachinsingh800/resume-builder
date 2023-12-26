@@ -394,13 +394,31 @@ const Template_12= () => {
                         <h3 class="section-title">Experience</h3>
                         <ul class="exp-ul">
                         ${formData.resume.work.map((item) => `
-                  
                     <li>
                     <div class="work_entry">
                         <h5> ${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </h5>
                         <div class="work-info">
                             <h4 class="position">${item?.title}</h4>
                             <p class="company">${item?.company} - ${item?.location}</p>
+                            <p class="description">
+                            ${item?.description}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                `).join('')}  
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h3 class="section-title">Projects</h3>
+                        <ul class="exp-ul">
+                        ${formData.resume.projects.map((item) => `
+                    <li>
+                    <div class="work_entry">
+                        <h5> ${item?.year} </h5>
+                        <div class="work-info">
+                            <h4 class="position">${item?.title}</h4>
+                            <p class="company">${item?.link}</p>
                             <p class="description">
                             ${item?.description}
                             </p>
@@ -717,6 +735,21 @@ const handleDownloadTxt = async () => {
                   <div className={styles.work_info}>
                     <h4 className={styles.position}>{item?.title}</h4>
                     <p className={styles.company}>{item?.company} - {item?.location}</p>
+                    <p className={styles.description}>{item?.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.section}>
+            <h3 className={styles.section_title}>Projects</h3>
+            <ul className={styles.exp_ul}>
+              {formData.resume.projects.map((item, index) => (
+                <li key={index} className={styles.work_entry}>
+                  <h5> {item?.year}</h5>
+                  <div className={styles.work_info}>
+                    <h4 className={styles.position}>{item?.title}</h4>
+                    <p className={styles.company}>{item?.link}</p>
                     <p className={styles.description}>{item?.description}</p>
                   </div>
                 </li>

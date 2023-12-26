@@ -178,7 +178,6 @@ const Template_13= () => {
     display: flex;
     flex-direction: column;
     padding: 2rem 1rem;
-    gap: 2rem;
     text-align: left;
 }
 
@@ -187,8 +186,7 @@ const Template_13= () => {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 1rem;
+    padding: 0rem 1rem;
 }
 
 .right_section {
@@ -213,7 +211,6 @@ const Template_13= () => {
 .work_history {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 }
 
 .heading {
@@ -236,7 +233,6 @@ const Template_13= () => {
 .certifications ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
 }
 
 .header {
@@ -280,6 +276,7 @@ const Template_13= () => {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    
 }
 
 .work_entry {
@@ -323,7 +320,7 @@ const Template_13= () => {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    padding-top: 1rem;
+  
 }
 
 .contact_value {
@@ -353,7 +350,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    padding-top: 1rem;
+  
 }
 
 .name {
@@ -372,7 +369,7 @@ p {
     margin-left: -1rem;
 }
 .ul-skill{
-  margin-top: -.5rem;
+  margin-top: -1rem;
   margin-left: -2.5rem;
 }
 
