@@ -123,6 +123,7 @@ display:flex;
 flex-direction:column;
 gap:.2rem;
 margin-left:-3rem!important;
+padding: 1rem 0rem!important;
 }
 
 .edu_des h5,h4,p{

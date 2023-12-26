@@ -140,10 +140,11 @@ const Template_20= () => {
       background-color: #f0f0f0;
       box-sizing: border-box;
       background-color: white;
+      width: 850px;
+      height: 1000px;
   }
   .main {
-      width: 850px;
-      height: 1130px;
+
       background-color: white;
   }
   
@@ -330,6 +331,28 @@ margin:.1rem;
                     <h4 class="customerService">${item?.title}</h4>
                     <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> ,
                     <span>${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </span></h5>
+                </div>
+                <div>
+                    <p>
+                    ${item?.description}
+                    </p>
+                </div>
+            </div>
+        </li>
+                `).join('')}  
+                </ul>
+            </div>
+            <div class="Experience">
+                <h3>PROJECTS</h2>
+                <ul class="ul">
+                ${formData.resume.projects.map((item) => `
+  
+            <li>
+            <div class="work_des">
+                <div>
+                    <h4 class="customerService">${item?.title}</h4>
+                    <h5 class="company_name"><span>${item?.year}</span> ,
+                    <span>${item?.link} </span></h5>
                 </div>
                 <div>
                     <p>
@@ -597,6 +620,29 @@ const handleDownloadTxt = async () => {
                 <h5 className={styles.company_name}>
                   <span>{item?.company} - {item?.location}</span> ,
                   <span>  {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span>
+                </h5>
+              </div>
+              <div>
+                <p>
+                  {item?.description}
+                </p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className={styles.Experience}>
+      <h3>PROJECTS</h3>
+      <ul className={styles.ul}>
+        {formData.resume.projects.map((item, index) => (
+          <li key={index}>
+            <div className={styles.work_des}>
+              <div>
+                <h4 className={styles.customerService}>{item?.title}</h4>
+                <h5 className={styles.company_name}>
+                  <span>{item.year}</span> ,
+                  <span>  {item?.link}</span>
                 </h5>
               </div>
               <div>
