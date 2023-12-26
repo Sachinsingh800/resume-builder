@@ -121,6 +121,15 @@ const Template_3= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -485,17 +494,18 @@ width:1rem;
                       </p>
                 </div>
     
+               
                 <div class="professionalSkillsHeader">
                     <div>
-                        <h3>WORKING EXPERIENCE</h3>
+                        <h3>PROJECTS</h3>
                         <div class="work-divider"><hr ></div> 
                     </div>
                     <ul class="work-ul">
-                    ${formData.resume.work.map((item) => `
+                    ${formData.resume.projects.map((item) => `
                     <li>
                     <div class="work_des">
                     <h4 class="customerService">${item?.title}</h4>
-                    <h5 class="company_name" style="color:${color2}"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span>
+                    <h5 class="company_name" style="color:${color2}"><span>${item?.link}</span> <span>${item?.year}</span>
                     </h5>
                     <p>
                        ${item?.description}
@@ -789,16 +799,16 @@ const handleDownloadTxt = async () => {
 
         <div className={style.professionalSkillsHeader}>
           <div>
-            <h3 className={style.heading}>WORKING EXPERIENCE</h3>
+            <h3 className={style.heading}>PROJECTS</h3>
             <div className={style.divider}>&ensp;</div>
           </div>
           <ul className={style.workUl}>
-            {formData.resume.work.map((item, index) => (
+          {formData?.resume?.projects.map((item, index) => (
               <li key={index}>
                 <div className={style.work_des}>
                   <h4 className={style.customerService}>{item?.title}</h4>
                   <h5 className={style.company_name} style={{color:color2}}>
-                    <span>{item?.company} - {item?.location}</span> <span>{item?.startDate} - {item?.endDate}</span>
+                    <span>{item?.link}</span> <span>  {item?.year}</span>
                   </h5>
                   <p>{item?.description}</p>
                 </div>

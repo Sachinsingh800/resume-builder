@@ -121,6 +121,16 @@ const Template_11= () => {
   
     handleImageChange();
   }, []);
+
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
 
   const getCSS = () =>{
@@ -148,7 +158,7 @@ const Template_11= () => {
   }
 
   .objectiveHeader {
-      padding: 1rem;
+       padding: 0rem 1rem;
   }
 
   .person_name {
@@ -162,7 +172,7 @@ const Template_11= () => {
   }
 
   .info_box {
-      padding: 1rem;
+       padding: 0rem 1rem;
   }
 
   .contactInfo {
@@ -178,7 +188,7 @@ const Template_11= () => {
   }
 
   .skillsHeader {
-      padding: 1rem;
+       padding: 0rem 1rem;
   }
 
   ul {
@@ -196,15 +206,15 @@ const Template_11= () => {
   }
 
   .skillsHeader2 {
-      padding: 1rem;
+       padding: 0rem 1rem;
   }
 
   .professionalSkillsHeader {
-      padding: 1rem;
+       padding: 0rem 1rem;
   }
 
   .work_des {
-      padding: 1rem;
+       padding: 0rem 1rem;
   }
 
   .education {
@@ -225,6 +235,7 @@ const Template_11= () => {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap:1rem;
+      margin-top:-1rem!important;
   }
   .work_des h4,h5,p{
     margin:0rem;
@@ -296,25 +307,26 @@ const Template_11= () => {
                     </ul>
                 </div>
             </div>
-            <div>
+            <div >
                 <div class="skillsHeader2">
                     <h3>SKILLS SUMMARY</h3>
                     <p>
                     ${formData.resume.summary}
                 </p>
                 </div>
+              
                 <div class="professionalSkillsHeader">
                     <div>
-                        <h3>EXPERIENCE</h3>
+                        <h3>PROJECTS</h3>
                     </div>
                     <ul class="exp-ul">
-                    ${formData.resume.work.map((item) => `
+                    ${formData.resume.projects.map((item) => `
                 <li>
                 <div class="work_des">
                     <h4 class="customerService">${item?.title}</h4>
                     <h5 class="company_name">
-                        <span>${item?.company} - ${item?.location}</span>
-                        <span>${item?.startDate} - ${item?.endDate}</span>
+                        <span>${item?.link}</span>  |  <span>${item?.year} </span>
+                     
                     </h5>
                     <p>
                     ${item?.description}
@@ -590,18 +602,18 @@ const handleDownloadTxt = async () => {
         <h3>SKILLS SUMMARY</h3>
         <p>{formData.resume.summary}</p>
       </div>
+
       <div className={styles.professionalSkillsHeader}>
         <div>
-          <h3>EXPERIENCE</h3>
+          <h3>PROJECTS</h3>
         </div>
         <ul className={styles.exp_ul}>
-          {formData.resume.work.map((item, index) => (
+          {formData.resume.projects.map((item, index) => (
             <li key={index}>
               <div className={styles.workDes}>
                 <h4 className={styles.customerService}>{item?.title}</h4>
                 <h5 className={styles.companyName}>
-                  <span>{item?.company} - {item?.location}</span>
-                  <span>{item?.startDate} - {item?.endDate}</span>
+                  <span>{item?.link}</span>  |  <span>{item?.year}</span>  
                 </h5>
                 <p>{item?.description}</p>
               </div>

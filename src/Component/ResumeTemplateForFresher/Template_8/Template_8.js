@@ -123,6 +123,15 @@ const Template_8= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -292,17 +301,18 @@ width: 90%;
                   
                 </ul>
             </div>
+          
             <div class="Experience">
-                <h2 style="background-color:${color}; color:${color3};">Work History</h2>
+                <h2 style="background-color:${color}; color:${color3};">Projects</h2>
                 <ul>
-                ${formData.resume.work.map((item) => `
+                ${formData.resume.projects.map((item) => `
             <li>
             <div class="work_des">
                 <div class="work">
                     <h4 class="customerService">${item?.title}</h3>
                     <h5 class="company_name">
-                        <span>${item?.company} - ${item?.location}</span>
-                        <p>${item?.startDate} - ${item?.endDate}</p>
+                        <span>${item?.link}</span>
+                        <p>${item?.year} </p>
                     </h5>
                 </div>
                 <div>
@@ -547,17 +557,18 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+
     <div className={styles.Experience}>
-      <h2 style={{backgroundColor:color,color:color3}}>Work History</h2>
+      <h2 style={{backgroundColor:color,color:color3}}>Projects</h2>
       <ul>
-        {formData.resume.work.map((item, index) => (
+        {formData.resume.projects.map((item, index) => (
           <li key={index}>
             <div className={styles.work_des}>
               <div className={styles.work}>
                 <h4 className={styles.customerService}>{item?.title}</h4>
                 <h5 className={styles.company_name}>
-                  <span>{item?.company} - {item?.location}</span>
-                  <p>{item?.startDate} - {item?.endDate}</p>
+                  <span>{item?.link}</span>
+                  <p> {item?.year}</p>
                 </h5>
               </div>
               <div>

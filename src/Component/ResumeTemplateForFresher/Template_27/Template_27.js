@@ -123,6 +123,15 @@ const Template_27= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -137,7 +146,7 @@ const Template_27= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
   }
   
@@ -162,10 +171,9 @@ width: 100%;
 display: flex;
 flex-direction: column;
 padding: 2rem 1rem;
-gap: 2rem;
 text-align: left;
 border-left:1px black solid ;
-height: 1000px;
+height: 100%;
 }
 
 .info_box{
@@ -173,14 +181,14 @@ width: 100%;
 display: flex;
 flex-direction: column;
 gap: 1rem;
-padding: 1rem 1rem;
+padding: 0rem 1rem;
 }
 .education{
 width: 100%;
 display: flex;
 flex-direction: column;
 gap: 1rem;
-padding: 1rem 1rem;
+padding: 0rem 1rem;
 }
 .img_container{
 display: flex;
@@ -190,9 +198,7 @@ justify-content: center;
 .right_section{
 display: flex;
 flex-direction: column;
-gap: .5rem;
 padding: 2rem 1rem;
-height: 65.3rem;  /* 1240px / 16px = 77.5rem */
 }
 .right_section p{
 width: 95%!important;
@@ -284,6 +290,7 @@ padding-bottom:.5rem ;
 display: grid;
 grid-template-columns: 1fr;
 gap:1rem;
+margin-top:-1rem;
 }
 .section_title{
 display: flex;
@@ -453,19 +460,20 @@ margin:0rem;
               ${formData.resume.summary}
               </p>
             </div>
+          
             <div class="section">
-              <h3 class="section_title">WORK EXPERIENCE</h3>
+              <h3 class="section_title">PROJECTS</h3>
              
               <div class="work_entry">
 
-              ${formData.resume.work.map((item) => `
+              ${formData.resume.projects.map((item) => `
         
           <div>
           <div class="title_">
             <h4 class="position">${item?.title}</h4>
-            <p class="date">${item?.startDate} - ${item?.endDate}</p>
+            <p class="date">${item?.year} </p>
           </div>
-          <p class="company">${item?.company}</p>
+          <p class="company">${item?.link}</p>
           <p class="description">
           ${item?.description}
           </p>
@@ -760,19 +768,18 @@ const handleDownloadTxt = async () => {
             <h3 className={styles.section_title}>PROFILE</h3>
             <p className={styles.section_content}>{formData.resume.summary}</p>
           </div>
-
           <div className={styles.section}>
-            <h3 className={styles.section_title}>WORK EXPERIENCE</h3>
+            <h3 className={styles.section_title}>PROJECTS</h3>
             <div className={styles.work_entry}>
-              {formData.resume.work.map((item, index) => (
+              {formData.resume.projects.map((item, index) => (
                 <div key={index} className={styles.work}>
                   <div className={styles.title_}>
                     <h4 className={styles.position}>{item?.title}</h4>
                     <p className={styles.date}>
-                      {item?.startDate} - {item?.endDate}
+                    {item?.year}
                     </p>
                   </div>
-                  <p className={styles.company}>{item?.company}</p>
+                  <p className={styles.company}>{item?.link}</p>
                   <p className={styles.description}>{item?.description}</p>
                 </div>
               ))}

@@ -121,6 +121,15 @@ const Template_26= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -135,7 +144,7 @@ const Template_26= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
   }
   .container{
@@ -188,7 +197,6 @@ const Template_26= () => {
     flex-direction: column;
     gap: .5rem;
    padding: 2rem 1rem;
-   height: 65.3rem;  /* 1240px / 16px = 77.5rem */
  }
  .right_section p{
     width: 95%!important;
@@ -279,7 +287,7 @@ const Template_26= () => {
     display: grid;
     grid-template-columns: 1fr 1fr ;
     gap: 1rem;
-    margin-top:-1rem;
+    margin-top:-2rem;
  }
  .section_title{
      display: flex;
@@ -390,6 +398,7 @@ const Template_26= () => {
 .hr{
   width:98%
 }
+
     `
   }
 
@@ -469,18 +478,19 @@ const Template_26= () => {
                     </div>
                 </div>
               <div class="hr"> <hr/></div> 
+             
                 <div class="section">
-                    <h3 class="section-title-exp">EXPERIENCE</h3>
+                    <h3 class="section-title-exp">PROJECTS</h3>
                     <div class="work_entry">
 
-                    ${formData.resume.work.map((item) => `
+                    ${formData.resume.projects.map((item) => `
              
                 <div class="work-div">
                 <div class="title_">
                     <h3 class="position">${item?.title}</h3>
-                    <p class="date">${item?.startDate} - ${item?.endDate}</p>
+                    <p class="date">${item?.year} </p>
                 </div>
-                <p class="company">${item?.company}</p>
+                <p class="company">${item?.link}</p>
                 <p class="description">
                 ${item?.description}
                 </p>
@@ -770,29 +780,30 @@ const handleDownloadTxt = async () => {
       </div>
 
       <div className={styles.hr}>
-        <hr />
+        <hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
       </div>
 
+      <br/>
       <div className={styles.section}>
-        <h3 className={styles.section_title_exp}>EXPERIENCE</h3>
+        <h3 className={styles.section_title_exp}>PROJECTS</h3>
         <div className={styles.work_entry}>
-          {formData.resume.work.map((item, index) => (
+          {formData.resume.projects.map((item, index) => (
             <div key={index} className={styles.work_div}>
               <div className={styles.title_}>
                 <h3 className={styles.position}>{item?.title}</h3>
                 <p className={styles.date}>
-                  {item?.startDate} - {item?.endDate}
+                {item?.year}
                 </p>
               </div>
-              <p className={styles.company}>{item?.company}</p>
+              <p className={styles.company}>{item?.link}</p>
               <p className={styles.description}>{item?.description}</p>
             </div>
           ))}
         </div>
       </div>
-
+      <br/>
       <div className={styles.hr}>
-        <hr />
+        <hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
       </div>
 
       <div className={styles.container_section1}>

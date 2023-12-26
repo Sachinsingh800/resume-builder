@@ -121,6 +121,15 @@ const Template_15= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -527,23 +536,24 @@ const Template_15= () => {
                 <div class="left_section">
                     <div class="section">
                         <h2 class="section-title">ABOUT ME</h2>
-                        <Divider class="divider" />
+                        
                         <p class="section-content">
                         ${formData.resume.summary}
                         </p>
                     </div>
     
+           
                     <div class="section">
-                        <h2 class="section_title">EXPERIENCE</h2>
-                        <Divider class="divider" />
+                        <h2 class="section_title">PROJECTS</h2>
+                        
                         <ul  class="ul">
-                        ${formData.resume.work.map((item) => `
+                        ${formData.resume.projects.map((item) => `
                     <li>
                     <div class="work_entry">
-                        <p class="date">${item?.startDate} - ${item?.endDate}</p>
+                        <p class="date">${item?.year} </p>
                         <div class="inner_div">
                             <h3 class="position">${item?.title}</h3>
-                            <p class="company">${item?.company} </p>
+                            <p class="company">${item?.link} </p>
                             <p class="description">
                             ${item?.description}
                             </p>
@@ -857,20 +867,21 @@ const handleDownloadTxt = async () => {
       <div className={styles.left_section}>
         <div className={styles.section}>
           <h2 className={styles.section_title}>ABOUT ME</h2>
-          <Divider className={styles.divider} />
+       
           <p className={styles.section_content}>{formData.resume.summary}</p>
         </div>
 
+    
         <div className={styles.section}>
-          <h2 className={styles.section_title}>EXPERIENCE</h2>
-          <Divider className={styles.divider} />
+          <h2 className={styles.section_title}>PROJECTS</h2>
+       
           <ul>
-            {formData.resume.work.map((item, index) => (
+            {formData.resume.projects.map((item, index) => (
               <li key={index} className={styles.work_entry}>
-                <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
+                <p className={styles.date}> {item?.year}</p>
                 <div className={styles.inner_div}>
                   <h3 className={styles.position}>{item?.title}</h3>
-                  <p className={styles.company}>{item?.company}</p>
+                  <p className={styles.company}>{item?.link}</p>
                   <p className={styles.description}>{item?.description}</p>
                 </div>
               </li>

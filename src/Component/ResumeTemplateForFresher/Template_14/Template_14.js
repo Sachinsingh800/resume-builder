@@ -120,6 +120,15 @@ const Template_14 = () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -503,18 +512,17 @@ const Template_14 = () => {
                 </div>
     
                 <div class="left_section">
+                    
                     <div class="section">
-                        <h3 class="section_title">PROFESSIONAL EXPERIENCE</h3>
+                        <h3 class="section_title">PROJECTS</h3>
                         <ul class="ul" style="margin-left:-20px">
-
-                        ${formData.resume.work.map((item) => `
-               
+                        ${formData.resume.projects.map((item) => `
                     <li>
                     <div class="work_entry">
-                        <h5 class="date">${item?.startDate} - ${item?.endDate}</h5>
+                        <h5 class="date">${item?.year} </h5>
                         <div>
                             <h4 class="degree">${item?.title}</h4>
-                            <p class="university">${item?.company} - ${item?.location}</p>
+                            <p class="university">${item?.link}</p>
                             <p>
                             ${item?.description}
                             </p>
@@ -837,15 +845,16 @@ const handleDownloadTxt = async () => {
       </div>
 
       <div className={styles.left_section}>
+  
         <div className={styles.section}>
-          <h3 className={styles.section_title}>PROFESSIONAL EXPERIENCE</h3>
+          <h3 className={styles.section_title}>PROJECTS</h3>
           <ul className={styles.ul}>
-            {formData.resume.work.map((item, index) => (
+            {formData.resume.projects.map((item, index) => (
               <li key={index} className={styles.work_entry}>
-                <h5 className={styles.date}>{item?.startDate} - {item?.endDate}</h5>
+                <h5 className={styles.date}>        {item?.year}</h5>
                 <div>
                   <h4 className={styles.degree}>{item?.title}</h4>
-                  <p className={styles.university}>{item?.company} - {item?.location}</p>
+                  <p className={styles.university}>{item?.link}</p>
                   <p>{item?.description}</p>
                 </div>
               </li>

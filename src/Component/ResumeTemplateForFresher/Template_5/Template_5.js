@@ -33,9 +33,7 @@ import downloadtext from "../../Images/icons8-text-500.svg"
 import { saveAs } from 'file-saver';
 
 
-const PDFRenderer = ({ htmlContent }) => {
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-};
+
 
 const Template_5= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -123,6 +121,15 @@ const Template_5= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -501,17 +508,18 @@ margin-left:.8rem;
                     ${formData.resume.summary}
                     </p>
                 </div>
+               
                 <div class="professionalSkillsHeader">
                     <div class="title_box2" >
                         <span class="design2" style="background-color:${color2}"> &nbsp; </span>
-                        <h3>WORKING EXPERIENCE</h3>
+                        <h3>PROJECTS</h3>
                     </div>
                     <ul class="work-ul">
-                    ${formData.resume.work.map((item) => `
+                    ${formData.resume.projects.map((item) => `
                     <li>
                     <div class="work_des">
                     <h4 class="customerService">${item?.title}</h4>
-                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span>
+                    <h5 class="company_name" ><span style="color: ${color2};" >${item?.link}</span> <span>${item?.year}</span>
                     </h5>
                     <p>
                        ${item?.description}
@@ -522,7 +530,7 @@ margin-left:.8rem;
                  
                     </ul>
                 </div>
-                <br />
+         
                 <div class="professionalSkillsHeader">
                     <div class="title_box2" >
                         <span class="design2" style="background-color:${color2}"> &nbsp; </span>
@@ -830,19 +838,19 @@ const handleDownloadTxt = async () => {
         <div className={styles.professionalSkillsHeader}>
           <div className={styles.title_box2} >
             <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
-            <h3>WORKING EXPERIENCE</h3>
+            <h3>PROJECTS</h3>
           </div>
           <ul className={styles.work_ul}>
-            {formData.resume.work.map((item, index) => (
+          {formData?.resume?.projects.map((item, index) => (
               <li key={index}>
                 <div className={styles.work_des}>
                   <h4 className={styles.customerService}>{item?.title}</h4>
                   <h5 className={styles.company_name}>
                     <span>
-                      {item?.company} - {item?.location}
+                      {item?.link}
                     </span>{" "}
                     <span>
-                      {item?.startDate} - {item?.endDate}
+                      {item?.year} 
                     </span>
                   </h5>
                   <p>{item?.description}</p>

@@ -121,6 +121,15 @@ const Template_10= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -243,15 +252,16 @@ const Template_10= () => {
                 </p>
             </div>
             <br/>
+          
             <div >
-                <h3>Work Experience</h3>
+                <h3>Projects</h3>
                 <ul class="work-ul">
-                ${formData.resume.work.map((item) => `
+                ${formData.resume.projects.map((item) => `
             <li>
             <div class="work-des">
                 <h4 class="customerService"><span>${item?.title}</span></h4>
-                <h6>Jan 2018 - Dec 2020</h6>
-                <h6 class="company_name"><span>${item?.company} - ${item?.location}</span></h6>
+                <h6>${item?.link}</h6>
+                <h6 class="company_name"><span>${item?.year}</span></h6>
                 <p> ${item?.description}</p>
             </div>
         </li>
@@ -495,15 +505,16 @@ const handleDownloadTxt = async () => {
         </p>
       </div>
       <br />
+    
       <div>
-        <h3>Work Experience</h3>
+        <h3>Projects</h3>
         <ul className={styles.work_ul}>
-          {formData.resume.work.map((item, index) => (
+          {formData.resume.projects.map((item, index) => (
             <li key={index}>
               <div className={styles.work_des}>
                 <h4 className={styles.customerService}><span>{item?.title}</span></h4>
-                <h6>Jan 2018 - Dec 2020</h6>
-                <h6 className={styles.companyName}><span>{item?.company} - {item?.location}</span></h6>
+                <h6>{item?.link}</h6>
+                <h6 className={styles.companyName}><span>{item?.year}</span></h6>
                 <p>{item?.description}</p>
               </div>
             </li>

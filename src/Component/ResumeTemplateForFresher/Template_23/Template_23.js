@@ -121,6 +121,15 @@ const Template_23= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -135,7 +144,7 @@ const Template_23= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
   }
 
@@ -161,7 +170,6 @@ const Template_23= () => {
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem;
-  gap: 2rem;
   text-align: left;
 
 }
@@ -170,15 +178,13 @@ const Template_23= () => {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1rem;
+  padding: 0rem 1rem;
 }
 .education{
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1rem 1rem;
+  padding: 0rem 1rem;
 }
 .img_container{
   display: flex;
@@ -191,7 +197,7 @@ const Template_23= () => {
   gap: .5rem;
   width: 15rem;
  padding: 2rem 1rem;
- height: 1100px;
+ height: 1000px;
  margin-left:1rem ;
  margin-top: -13rem;
  background-color: rgb(178, 176, 181);
@@ -215,10 +221,8 @@ const Template_23= () => {
 .work_history{
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 .heading{
-
   padding: 3rem 1rem;
 }
 
@@ -229,7 +233,7 @@ flex-direction: column;
 gap: .5rem;
 }
 .skills{
-  padding: 1rem;
+  padding: 0rem 1rem;
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -238,17 +242,16 @@ gap: .5rem;
 .skills ul{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
 
 }
 .professional_summary{
-  padding: 1rem;
+  padding: 0rem 1rem;
   display: flex;
   flex-direction: column;
   gap: .5rem;
 }
 .work{
-  padding: 1rem;
+  padding: 0rem 1rem;
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -262,7 +265,7 @@ gap: .5rem;
 .certifications ul{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+
 }
 .header{
 
@@ -303,6 +306,7 @@ justify-content: end;
    justify-content: space-between;
    align-items: center;
    width: 90%;
+
 }
 .section_title{
    display: flex;
@@ -387,6 +391,12 @@ height:1rem;
 width:1rem;
 
 }
+.ul{
+  margin-top:-.5rem;
+}
+.award-list h4,h5,p{
+  margin:0;
+}
     `
   }
 
@@ -417,7 +427,7 @@ width:1rem;
                 </div>
                 <div class="contact_info">
                     <h3 class="section_title" style="color: ${color3};">Contact</h3>
-                    <div class="divider"><hr/></div>
+                    <div class="divider"><hr  /></div>
                     <div class="contact_value">
                         <span class="contact_label">
                         <img class="icon" src=${base64Image5} alt="dp" />
@@ -492,24 +502,23 @@ width:1rem;
                     ${formData.resume.summary}
                     </p>
                 </div>
+        
                 <div class="section">
                     <h3 class="section_title" style="color: ${color3};">
                         <WorkIcon />
-                        EXPERIENCE
+                        PROJECTS
                     </h3>
                  <div class="divider"><hr/></div>
                     <ul class="ul">
-
-                    ${formData.resume.work.map((item) => `
-                  
+                    ${formData.resume.projects.map((item) => `
                 <li>
                 <div class="work_entry">
                     <div>
                         <div class="title_">
                             <h4 class="position">${item?.title}</h4>
-                            <p class="date">${item?.startDate} - ${item?.endDate}</p>
+                            <p class="date">${item?.year} </p>
                         </div>
-                        <p class="company">${item?.company}</p>
+                        <p class="company">${item?.link}</p>
                         <p class="description">
                         ${item?.description}
                         </p>
@@ -758,7 +767,7 @@ const handleDownloadTxt = async () => {
           </div>
           <div className={styles.contact_info}>
             <h3 className={styles.section_title} style={{color:color3}}>Contact</h3>
-            <div className={styles.divider}><hr/></div>
+            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
             <div className={styles.contact_value}>
               <span className={styles.contact_label}>
                 <img className={styles.icon} src={base64Image5} alt="dp" />
@@ -790,7 +799,7 @@ const handleDownloadTxt = async () => {
           </div>
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>SKILLS</h3>
-            <div className={styles.divider}><hr/></div>
+            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
             <ul className={styles.skill_list}>
               {formData.resume.skillsAndLevel.map((item) => (
                 <li key={item.skills}>{item.skills}</li>
@@ -799,7 +808,7 @@ const handleDownloadTxt = async () => {
           </div>
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>LANGUAGE</h3>
-            <div className={styles.divider}><hr/></div>
+            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
             <ul className={styles.skill_list}>
               {formData.resume.knownLanguages.map((item) => (
                 <li key={item?.lang}>{item?.lang}</li>
@@ -808,7 +817,7 @@ const handleDownloadTxt = async () => {
           </div>
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>AWARDS</h3>
-            <div className={styles.divider}><hr/></div>
+            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
             <ul className={styles.skill_list}>
               {formData.resume.awards.map((item) => (
                 <li key={item?.title} className={styles.award_list}>
@@ -825,25 +834,25 @@ const handleDownloadTxt = async () => {
             <h3 className={styles.section_title} style={{color:color3}}>
               ABOUT
             </h3>
-            <div className={styles.divider}><hr/></div>
+            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
             <p className={styles.section_content}>{formData.resume.summary}</p>
           </div>
+ 
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>
-      
-              EXPERIENCE
+              PROJECTS
             </h3>
-            <div className={styles.divider}><hr/></div>
+            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
             <ul className={styles.ul}>
-              {formData.resume.work.map((item) => (
+              {formData.resume.projects.map((item) => (
                 <li key={item?.title}>
                   <div className={styles.work_entry}>
                     <div>
                       <div className={styles.title_}>
                         <h4 className={styles.position}>{item?.title}</h4>
-                        <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
+                        <p className={styles.date}> {item?.year}</p>
                       </div>
-                      <p className={styles.company}>{item?.company}</p>
+                      <p className={styles.company}>{item?.link}</p>
                       <p className={styles.description}>{item?.description}</p>
                     </div>
                   </div>
@@ -856,7 +865,7 @@ const handleDownloadTxt = async () => {
       
               EDUCATION
             </h3>
-            <div className={styles.divider}><hr/></div>
+            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
             <ul className={styles.ul}>
               {formData.resume.education.map((item) => (
                 <li key={item?.degree}>

@@ -123,6 +123,15 @@ const Template_2= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
 const getCSS = () =>{
   return `
@@ -326,7 +335,7 @@ width:1rem;
                 <h1 class="name" style="color: white; font-family: ${fontStyle}; font-size:${fontSize}px;">
                 ${formData.resume.name}
                 </h1>
-                <hr class="hr" />
+                <hr class="hr" style=" color:white;" />
                 <div class="info_box">
                     <div class="contactInfo">
                     <div class="iconContainer" style="color: black;">
@@ -388,20 +397,7 @@ width:1rem;
                 ${formData.resume.summary}
                 </p>
             </div>
-            <div class="workHeader">
-                <h3>WORK HISTORY</h3>
-                <ul class="work-ul">
-                ${formData.resume.work.map((item) => `
-                <li>
-                <h4>${item?.title}</h4>
-                <p>${item?.company}, ${item?.location}</p>
-                <p>${item?.description}</p>
-            </li>
-      
-        `).join('')}
-
-                </ul>
-            </div>
+         
             <div class="workHeader">
                 <h3>Projects</h3>
                 <ul class="Projects-ul">
@@ -619,7 +615,7 @@ const handleDownloadTxt = async () => {
       <div className={style.Left_container} style={{ backgroundColor: color, color: color3 }}>
         <div className={style.name_container} style={{ backgroundColor: color2, color: "white" }} >
           <h1 className={style.name} style={{ color: "white", fontFamily: fontStyle ,fontSize: fontSize}} >{formData.resume.name}</h1>
-          <hr  style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
+          <hr  style={{borderColor: "white", borderWidth: "1px"}} />
           <div className={style.info_box}>
             <div className={style.contactInfo}>
               <div className={style.iconContainer} style={{ color: "black" }}>
@@ -664,18 +660,6 @@ const handleDownloadTxt = async () => {
         <div className={style.objectiveHeader} style={{ backgroundColor: color }}>
           <h3 style={{color:color3}}>CAREER OBJECTIVE</h3>
           <p className={style.objectiveText} style={{color:color3}}>{formData.resume.summary}</p>
-        </div>
-        <div className={style.workHeader}>
-          <h3>WORK HISTORY</h3>
-          <ul className={style.work_ul}>
-            {formData.resume.work.map((item) => (
-              <li key={item.title}>
-                <h4>{item.title}</h4>
-                <p>{item.company}, {item.location}</p>
-                <p>{item.description}</p>
-              </li>
-            ))}
-          </ul>
         </div>
         <div className={style.workHeader}>
           <h3>Projects</h3>

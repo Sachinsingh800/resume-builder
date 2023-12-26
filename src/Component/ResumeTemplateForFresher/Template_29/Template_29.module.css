@@ -2,11 +2,13 @@
   width: 850px;
   height: 1130px;
   background-color: white;
+
 }
 
 .container{
 display: grid;
 grid-template-columns: 1fr 2fr;
+
 }
 .img_box{
 height: 7rem;
@@ -79,7 +81,9 @@ gap: 1rem;
 .heading{
 background-color: aliceblue;
 padding: 3rem 1rem;
+
 }
+
 .certifications{
 padding: 1rem;
 display: flex;

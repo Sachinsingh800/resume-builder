@@ -33,9 +33,7 @@ import downloadtext from "../../Images/icons8-text-500.svg"
 import { saveAs } from 'file-saver';
 
 
-const PDFRenderer = ({ htmlContent }) => {
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-};
+
 
 const Template_6= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -123,6 +121,15 @@ const Template_6= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -146,7 +153,7 @@ const Template_6= () => {
 .Left_container {
     display: flex;
     flex-direction: column;
-    height: 1210px;
+    height: 1100px;
 }
 
 .container {
@@ -290,6 +297,7 @@ const Template_6= () => {
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    margin-top:-1.5rem;
 }
 
 .professionalSkillsHeader h2 {
@@ -381,9 +389,10 @@ const Template_6= () => {
   grid-template-columns: 1fr 1fr;
   gap:1rem;
   margin-left:-1rem!important;
+  margin-top:-.5rem;
 }
 .edu-line{
-  margin-top:-1.5rem;
+  margin-top:-1.9rem;
 }
     `
   }
@@ -423,20 +432,20 @@ const Template_6= () => {
                     <h3 ">CONTACT ME</h3>
                    
                   <div class="line"><hr " /></div> 
-                    <div class="contactInfo">
-                        <p ">
+                    <div class="contactInfo" style="color: ${color3}; ">
+                        <p >
                             <span>Mail</span>
                             ${formData.resume.contact.email}
                         </p>
                     </div>
-                    <div class="contactInfo">
-                        <p class="email" ">
-                            <span>Phone</span>
+                    <div class="contactInfo" style="color: ${color3}; ">
+                        <p class="email" style="color: ${color3}; " >
+                            <span >Phone</span>
                             ${formData.resume.contact.phone}
                         </p>
                     </div>
-                    <div class="contactInfo">
-                        <p ">
+                    <div class="contactInfo" style="color: ${color3}; ">
+                        <p>
                             <span>Location</span>
                             ${formData.resume.address.address},
                             ${formData.resume.address.state },
@@ -475,7 +484,8 @@ const Template_6= () => {
                     </ul>
                 </div>
             </div>
-            <div>
+
+            <div class="right_section">
                 <div class="objectiveHeader" style="background-color: ${color2};">
                     <h1 class="person_name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;">
                     ${formData.resume.name}
@@ -500,22 +510,23 @@ const Template_6= () => {
                                
                     </ul>
                 </div>
+               
                 <div class="professionalSkillsHeader">
                     <div>
-                        <h3 ">EXPERIENCE</h3>
+                        <h3 >PROJECTS</h3>
                        
                        
                            <div class="exp-line"><hr " /></div> 
                     </div>
                     <ul class="exp-ul">
-                    ${formData.resume.work.map((item) => `
+                    ${formData.resume.projects.map((item) => `
            
                 <li>
                 <div class="work_des">
                     <h4 class="customerService">${item?.title}</h4>
                     <h5 class="company_name">
-                        <span>${item?.company} - ${item?.location}</span>
-                        <span>${item?.startDate} - ${item?.endDate}</span>
+                        <span>${item?.link}</span>
+                        <span>${ item?.year}</span>
                     </h5>
                     <p>
                     ${item?.description}
@@ -808,20 +819,20 @@ const handleDownloadTxt = async () => {
       </div>
       <div className={styles.professionalSkillsHeader}>
         <div>
-          <h3>EXPERIENCE</h3>
+          <h3>PROJECTS</h3>
           <div className={styles.exp_line}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
         </div>
         <ul className={styles.exp_ul}>
-          {formData.resume.work.map((item, index) => (
+        {formData?.resume?.projects.map((item, index) => (
             <li key={index}>
               <div className={styles.work_des}>
                 <h4 className={styles.customerService}>{item?.title}</h4>
                 <h5 className={styles.company_name}>
                   <span>
-                    {item?.company} - {item?.location}
+                  {item?.link}
                   </span>
                   <span>
-                    {item?.startDate} - {item?.endDate}
+                  {item?.year}
                   </span>
                 </h5>
                 <p>{item?.description}</p>

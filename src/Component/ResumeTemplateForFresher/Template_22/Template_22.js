@@ -123,6 +123,15 @@ const Template_22= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -137,7 +146,7 @@ const Template_22= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
   }
   .container{
@@ -191,7 +200,7 @@ const Template_22= () => {
     flex-direction: column;
     gap: .5rem;
    padding: 2rem 1rem;
-   height: 65.3rem;  /* 1240px / 16px = 77.5rem */
+   height: 100%;
  }
  .right_section p{
     width: 95%!important;
@@ -309,7 +318,7 @@ margin:0rem;
  display: grid;
  grid-template-columns: 1fr ;
  gap: .5rem;
- margin-left: -1rem;
+ margin-left: -3rem;
  margin-top:-1rem;
  }
  .skills_list li{
@@ -346,6 +355,15 @@ margin:0rem;
 .icon img {
   height: 1rem;
   width: 1rem;
+}
+.award{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items:  baseline;
+}
+.exp-section{
+  margin-top:-1rem;
 }
     `
   }
@@ -424,18 +442,7 @@ margin:0rem;
                    `).join('')}
                         </ul>
                     </div>
-                    <div class="section">
-                        <h2 class="section_title" style="background-color:${color}; color: ${color3}; ">AWARDS</h2>
-                        <ul class="skills_list">
-                        ${formData.resume.awards.map((item) => `
-                        <li class="award-list">
-                               <h5>${item?.date}</h5>
-                               <h4>${item?.title}</h4>
-                               <p>${item?.issuingOrganization}</p>
-                           </li>
-                   `).join('')}  
-                        </ul>
-                    </div>
+             
                 </div>
                 <div class="left_section">
                     <div class="section">
@@ -445,19 +452,19 @@ margin:0rem;
                         </p>
                     </div>
     
-                    <div class="section">
-                        <h2 class="section_title" style="background-color:${color}; color: ${color3}; ">EXPERIENCE</h2>
+         
+                    <div class="exp-section">
+                        <h2 class="section_title" style="background-color:${color}; color: ${color3}; ">PROJECTS</h2>
                         <Divider class="divider" />
                         <ul class="ul">
-                        ${formData.resume.work.map((item) => `
-                  
+                        ${formData.resume.projects.map((item) => `
                     <li>
                     <div class="work_des">
-                      
                             <h3 class="customerService">${item?.title}</h3>
                             <h5 class="company_name">
-                            <span>${item?.company} - ${item?.location}</span> 
-                            <span>${item?.startDate} - ${item?.endDate}</span>
+                            <span>${item?.link} </span> ,
+                            <span>${item?.year}</span> 
+                          
                             </h5>
                    
                         <div>
@@ -472,7 +479,7 @@ margin:0rem;
                         </ul>
                     </div>
     
-                    <div class="section">
+                    <div class="exp-section">
                         <h2 class="section_title"  style="background-color:${color}; color: ${color3}; ">EDUCATION</h2>
                         <Divider class="divider" />
                         <ul class="ul">
@@ -743,18 +750,7 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
-    <div className={styles.section}>
-      <h2 className={styles.section_title} style={{backgroundColor:color ,color:color3}}>AWARDS</h2>
-      <ul className={styles.skills_list}>
-        {formData.resume.awards.map((item, index) => (
-          <li key={index} className={styles.award_list}>
-            <h5>{item?.date}</h5>
-            <h4>{item?.title}</h4>
-            <p>{item?.issuingOrganization}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+
   </div>
   <div className={styles.left_section}>
     <div className={styles.section}>
@@ -764,25 +760,29 @@ const handleDownloadTxt = async () => {
       <p className={styles.section_content}>{formData.resume.summary}</p>
     </div>
 
+
     <div className={styles.section}>
       <h2 className={styles.section_title} style={{backgroundColor:color ,color:color3}}>
-        EXPERIENCE
+        PROJECTS
       </h2>
       <Divider className={styles.divider} />
       <ul className={styles.ul}>
-        {formData.resume.work.map((item, index) => (
+        {formData.resume.projects.map((item, index) => (
           <li key={index}>
             <div className={styles.work_des}>
               <h3 className={styles.customerService}>{item?.title}</h3>
+              <br/>
               <h5 className={styles.company_name}>
                 <span>
-                  {item?.company} - {item?.location}
+                {item?.link}
+          
                 </span>
                 ,
                 <span>
-                  {item?.startDate} - {item?.endDate}
+                {item?.year}
                 </span>
               </h5>
+          
               <div>
                 <p>{item?.description}</p>
               </div>

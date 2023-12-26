@@ -80,6 +80,15 @@ const Template_25 = () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -247,33 +256,7 @@ width:1rem;
                 </p>
             </div>
 
-              <div class="section">
-                   <h3 class="section_title">
-                    EXPERIENCE
-                    </h3>
-                    <hr class="divider">
-                      <ul class="ul">
-                      ${formData.resume.work.map((item) => `
-           
-                  <li>
-                  <div class="work_entry">
-                      <div>
-                          <div class="title_">
-                              <h4 class="position">${item?.title}</h4>
-                              <p class="date">${item?.startDate} - ${item?.endDate}</p>
-                          </div>
-
-                          <p class="company">${item?.company} - ${item?.location}</p>
-                          <p class="description">
-                          ${item?.description}
-                          </p>
-                      </div>
-                  </div>
-              </li>
-                  `).join('')}   
-                  
-                </ul>
-            </div>
+             
               <div class="section">
                    <h3 class="section_title">
                     PROJECTS
@@ -327,7 +310,7 @@ width:1rem;
         <div class="right_section">
   
         <div class="contact_info">
-            <h3 class="section_title">Contact</h3>
+            <h3 class="section_title">CONTACT</h3>
             <hr class="divider">
             <div class="contact_value">
                 <span class="contact_label">
@@ -629,7 +612,7 @@ const handleDownloadTxt = async () => {
                     <div className={styles.title_}>
                       <h4 className={styles.position}>{item?.title}</h4>
                       <p className={styles.date}>
-                        {item?.startDate} - {item?.endDate}
+                      {formatDate(item?.startDate)} - {formatDate(item?.endDate)}
                       </p>
                     </div>
 
@@ -688,7 +671,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div className={styles.right_section}>
         <div className={styles.contact_Info}>
-          <h3 className={styles.section_title}>Contact</h3>
+          <h3 className={styles.section_title}>CONTACT</h3>
           <hr className={styles.divider} />
           <div className={styles.contact_value}>
             <span className={styles.contact_label}>

@@ -123,6 +123,15 @@ const Template_13= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -169,7 +178,6 @@ const Template_13= () => {
     display: flex;
     flex-direction: column;
     padding: 2rem 1rem;
-    gap: 2rem;
     text-align: left;
 }
 
@@ -178,8 +186,7 @@ const Template_13= () => {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 1rem;
+    padding: 0rem 1rem;
 }
 
 .right_section {
@@ -204,7 +211,6 @@ const Template_13= () => {
 .work_history {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
 }
 
 .heading {
@@ -227,7 +233,6 @@ const Template_13= () => {
 .certifications ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
 }
 
 .header {
@@ -271,6 +276,7 @@ const Template_13= () => {
     display: flex;
     flex-direction: column;
     gap: .5rem;
+    
 }
 
 .work_entry {
@@ -314,7 +320,7 @@ const Template_13= () => {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    padding-top: 1rem;
+  
 }
 
 .contact_value {
@@ -344,7 +350,7 @@ p {
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    padding-top: 1rem;
+  
 }
 
 .name {
@@ -363,7 +369,7 @@ p {
     margin-left: -1rem;
 }
 .ul-skill{
-  margin-top: -.5rem;
+  margin-top: -1rem;
   margin-left: -2.5rem;
 }
 
@@ -495,28 +501,7 @@ p {
                         </p>
                     </div>
     
-                    <div class="section">
-                        <h3 class="section_title">EXPERIENCE</h2>
-                        <ul class="ul">
-
-                        ${formData.resume.work.map((item) => `
-                  
-                        <li>
-                        <div class="work_entry">
-                            <h5> ${item?.startDate} - ${item?.endDate}</h5>
-                            <div class="work-info">
-                                <h4 class="position">${item?.title}</h4>
-                                <p class="company">${item?.company} - ${item?.location}</p>
-                                <p class="description">
-                                ${item?.description}
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                    `).join('')}  
-
-                        </ul>
-                    </div>
+                    
     
                     <div class="section">
                         <h3 class="section_title">PROJECTS</h2>
@@ -820,22 +805,7 @@ const handleDownloadTxt = async () => {
             <p className={styles.section_content}>{formData.resume.summary}</p>
           </div>
 
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>EXPERIENCE</h3>
-            <ul className={styles.ul} >
-              {formData.resume.work.map((item, index) => (
-                <li key={index} className={styles.work_entry}>
-                  <h5>{item?.startDate} - {item?.endDate}</h5>
-                  <div className={styles.work_info}>
-                
-                    <h4 className={styles.position}>{item?.title}</h4>
-                    <p className={styles.company}>{item?.company} - {item?.location}</p>
-                    <p className={styles.description}>{item?.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+ 
 
           <div className={styles.section}>
             <h3 className={styles.section_title}>PROJECTS</h3>

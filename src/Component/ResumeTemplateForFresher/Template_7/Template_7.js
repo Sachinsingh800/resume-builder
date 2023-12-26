@@ -123,6 +123,15 @@ const Template_7= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -244,16 +253,17 @@ margin:0rem;
                 ${formData.resume.summary}
                 </p>
             </div>
+           
             <div class="Experience">
-                <h2>Experience</h2>
+                <h2>Projects</h2>
            
                 <ul class="ul">
-                ${formData.resume.work.map((item) => `
+                ${formData.resume.projects.map((item) => `
         
             <li>
             <div class="work_des">
                 <h3 class="customerService">${item?.title}</h3>
-                <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span></h5>
+                <h5 class="company_name"><span>${item?.link}</span> <span>${item?.year} </span></h5>
                 <p>${item?.description}</p>
             </div>
         </li>
@@ -499,14 +509,15 @@ const handleDownloadTxt = async () => {
           {formData.resume.summary}
         </p>
       </div>
+  
       <div className={styles.Experience}>
-        <h2>Experience</h2>
+        <h2>Projects</h2>
         <ul className={styles.ul}>
-          {formData.resume.work.map((item, index) => (
+          {formData.resume.projects.map((item, index) => (
             <li key={index}>
               <div className={styles.work_des}>
                 <h3 className={styles.customerService}>{item?.title}</h3>
-                <h5 className={styles.company_name}><span>{item?.company} - {item?.location}</span> <span>{item?.startDate} - {item?.endDate}</span></h5>
+                <h5 className={styles.company_name}><span>{item?.link}</span> <span>{item?.year}</span></h5>
                 <p>{item?.description}</p>
               </div>
             </li>
@@ -532,8 +543,7 @@ const handleDownloadTxt = async () => {
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}>
                 <span>{item.skills}</span>
-                {/* You may adjust the ProgressBar according to your design */}
-                {/* <ProgressBar bgcolor={color2}  progress="40" height="2" /> */}
+            
               </li>
             ))}
        

@@ -123,6 +123,15 @@ const Template_19= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -476,24 +485,33 @@ ul li{
                         ${formData.resume.summary}
                         </p>
                     </div>
+
+                   
+        
                     <div class="section">
-                        <h3 class="section_title">EXPERIENCE</h3>
+                        <h3 class="section_title">PROJECTS</h3>
                         <div class="work_entry">
-                        ${formData.resume.work.map((item) => `
+                        ${formData.resume.projects.map((item) => `
                         
-                    <div>
-                    <div class="title_">
-                            <h4 class="position">${item?.title}</h4>
-                            <p class="date">${item?.startDate} - ${item?.endDate}</p>
+                        <div>
+                        <div class="title_">
+                                <h4 class="position">${item?.title}</h4>
+                                <p class="date">${item?.year} </p>
+                            </div>
+                            <p class="company">${item?.link}</p>
+                            <p class="description">
+                            ${item?.description}
+                            </p>
                         </div>
-                        <p class="company">${item?.company}</p>
-                        <p class="description">
-                        ${item?.description}
-                        </p>
-                    </div>
-                        `).join('')}  
+                            `).join('')}  
+                     
                   
                     </div>
+                  </div>
+
+
+                 
+                    
                 </div>
             </div>
         </div>
@@ -788,14 +806,15 @@ const handleDownloadTxt = async () => {
               {formData.resume.summary}
             </p>
           </div>
+  
           <div className={styles.section}>
-            <h3 className={styles.section_title}>EXPERIENCE</h3>
+            <h3 className={styles.section_title}>PROJECTS</h3>
             <div className={styles.work_entry}>
-              {formData.resume.work.map((item, index) => (
-                <div key={index} className={styles.title_}>
+              {formData.resume.projects.map((item, index) => (
+                <div key={index} >
                   <h4 className={styles.position}>{item?.title}</h4>
-                  <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
-                  <p className={styles.company}>{item?.company}</p>
+                  <p className={styles.date}>        {item?.year}</p>
+                  <p className={styles.company}>{item?.link}</p>
                   <p className={styles.description}>
                     {item?.description}
                   </p>

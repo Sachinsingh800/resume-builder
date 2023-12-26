@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import location from "../../Images/location-pin.png"
-import linkedin from "../../Images/linkedin.png"
-import mail from "../../Images/mail.png"
-import call from "../../Images/call.png"
-import dp from "../../Images/dp2.jpg"
+import location from "../../Images/location-pin.png";
+import linkedin from "../../Images/linkedin.png";
+import mail from "../../Images/mail.png";
+import call from "../../Images/call.png";
+import dp from "../../Images/dp2.jpg";
 import { Divider } from "@mui/material";
 import style from "./Template_1.module.css";
 import WorkIcon from "@mui/icons-material/Work";
@@ -26,14 +26,13 @@ import {
   fontSizeState,
   imageSizeState,
 } from "../../../Recoil";
-import downloadimg from "../../Images/download.gif"
-import downloadpdf from "../../Images/pdf-download-2617.svg"
-import downloaddoc from "../../Images/google-docs-icon-2.svg"
-import downloadtext from "../../Images/icons8-text-500.svg"
-import { saveAs } from 'file-saver';
+import downloadimg from "../../Images/download.gif";
+import downloadpdf from "../../Images/pdf-download-2617.svg";
+import downloaddoc from "../../Images/google-docs-icon-2.svg";
+import downloadtext from "../../Images/icons8-text-500.svg";
+import { saveAs } from "file-saver";
 
-
-const Template_1= () => {
+const Template_1 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -45,18 +44,15 @@ const Template_1= () => {
   const [formData, setFormData] = useRecoilState(resumeData);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [base64Image1, setBase64Image1] = useState('');
-  const [base64Image2, setBase64Image2] = useState('');
-  const [base64Image3, setBase64Image3] = useState('');
-  const [base64Image4, setBase64Image4] = useState('');
-  const [base64Image5, setBase64Image5] = useState('');
-  const [base64Image6, setBase64Image6] = useState('');
+  const [base64Image1, setBase64Image1] = useState("");
+  const [base64Image2, setBase64Image2] = useState("");
+  const [base64Image3, setBase64Image3] = useState("");
+  const [base64Image4, setBase64Image4] = useState("");
+  const [base64Image5, setBase64Image5] = useState("");
+  const [base64Image6, setBase64Image6] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(formData.resume
-    , "resume data");
-
-
+  console.log(formData.resume, "resume data");
 
   const handleDate = (data) => {
     console.log(data, "data");
@@ -66,9 +62,6 @@ const Template_1= () => {
     return startYear;
   };
 
-
-
-  
   useEffect(() => {
     const imageLocations = [
       location,
@@ -77,56 +70,62 @@ const Template_1= () => {
       mail,
       call,
     ];
-  
+
     const handleImageChange = async () => {
       try {
         const promises = imageLocations.map(async (location, index) => {
           const response = await fetch(location);
           const blob = await response.blob();
           const reader = new FileReader();
-  
+
           return new Promise((resolve) => {
             reader.onloadend = () => {
               // The result property contains the base64-encoded string
               const base64String = reader.result;
               resolve({ index, base64String });
             };
-  
+
             // Read the image file as a data URL
             reader.readAsDataURL(blob);
           });
         });
-  
+
         // Wait for all promises to resolve
         const results = await Promise.all(promises);
-  
+
         // Update state based on index
         results.forEach(({ index, base64String }) => {
           if (index === 0) {
             setBase64Image1(base64String);
           } else if (index === 1) {
             setBase64Image2(base64String);
-          }else if (index === 2) {
+          } else if (index === 2) {
             setBase64Image3(base64String);
-          }
-          else if (index === 3) {
+          } else if (index === 3) {
             setBase64Image4(base64String);
-        
-          }else if (index === 4) {
+          } else if (index === 4) {
             setBase64Image5(base64String);
-          }
-          else if (index === 5) {
+          } else if (index === 5) {
             setBase64Image6(base64String);
           }
         });
       } catch (error) {
-        console.error('Error loading images:', error);
+        console.error("Error loading images:", error);
       }
     };
-  
+
     handleImageChange();
   }, []);
-  
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
+
   const getCSS = () => {
     return `
     body {
@@ -266,6 +265,7 @@ grid-template-columns: 1fr 1fr;
 flex-direction: column;
 display: flex;
 gap:.5rem;
+margin-top:-1rem;
 }
 .edu h4,p{
 margin:0rem; 
@@ -282,7 +282,7 @@ margin:0rem;
 }
 .skill-ul{
 margin-top:-1rem;
-margin-left:-2.7rem;
+margin-left:-2.5rem;
 }
 .skill-ul li{
   list-style: none;
@@ -303,8 +303,8 @@ gap:.5rem;
 .work-ul li h4,p{
 margin:0rem;  
 }
-    `
-  }
+    `;
+  };
 
   const getHTML = () => {
     return `
@@ -343,8 +343,8 @@ margin:0rem;
                         <p>
                             <span>Location: </span>
                             ${formData?.resume?.address?.address},
-                            ${formData?.resume?.address?.state },
-                            ${formData?.resume?.address?.postalCode },
+                            ${formData?.resume?.address?.state},
+                            ${formData?.resume?.address?.postalCode},
                         </p>
                     </div>
                 </div>
@@ -353,13 +353,17 @@ margin:0rem;
                     <h3>Education</h3>
                     <div class="edu">
 
-                    ${formData?.resume?.education.map((item) => `
+                    ${formData?.resume?.education
+                      .map(
+                        (item) => `
                     <div >
                     <h4>${item?.collegeName}</h4>
                     <p>${item?.degree}</p>
                     <p>${item?.startYear} - ${item?.endYear}</p>
                     </div>
-                `).join('')}
+                `
+                      )
+                      .join("")}
     
                     </div>
                     <!-- Add more education items as needed -->
@@ -367,11 +371,15 @@ margin:0rem;
                 <div class="skills">
                 <h3>Skills</h3>
                
-                ${formData?.resume?.skillsAndLevel.map((item) => `
+                ${formData?.resume?.skillsAndLevel
+                  .map(
+                    (item) => `
                 <ul class="skill-ul">
-                <li> ${item?.skills }</li>
+                <li> ${item?.skills}</li>
                 </ul>
-        `).join('')}
+        `
+                  )
+                  .join("")}
               
             </div>
             </div>
@@ -387,12 +395,16 @@ margin:0rem;
                     <h3>Certifications</h3>
                     <ul class="certi-ul">
 
-                    ${formData?.resume?.certifications.map((item) => `
+                    ${formData?.resume?.certifications
+                      .map(
+                        (item) => `
                 <li>
                 <h5>${item?.title}</h5>
-                <p>${item?.issuingOrganization }: ${item?.date}</p>
+                <p>${item?.issuingOrganization}: ${item?.date}</p>
                 </li>
-                `).join('')}
+                `
+                      )
+                      .join("")}
                     
                         <!-- Add more certification items as needed -->
                     </ul>
@@ -407,20 +419,27 @@ margin:0rem;
     
                
     
+              
                 <div class="work">
-                    <h3>Work History</h3>
+                    <h3>Projects</h3>
                     <ul class="work-ul">
 
-                    ${formData?.resume?.work.map((item) => `
+
+                    ${formData?.resume?.projects
+                      .map(
+                        (item) => `
                     <li>
                     <h4>${item?.title}</h4>
-                    <p>${item?.company}, ${item?.location}</p>
+                    <p>${item?.year}, ${item?.link}</p>
                     <p>${item?.description}</p>
                 </li>
           
-            `).join('')}
+            `
+                      )
+                      .join("")}
                     </ul>
                 </div>
+
             </div>
         </div>
     </body>
@@ -430,21 +449,17 @@ margin:0rem;
     `;
   };
 
-
-
-
-
   const handleResume = async () => {
     setLoading(true);
     setError("");
-  
+
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-  
+
     try {
       const response = await axios.post(
         "http://3.144.48.243/api/convert",
@@ -454,9 +469,9 @@ margin:0rem;
         },
         axiosConfig
       );
-  
+
       setLoading(false);
-  
+
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
@@ -469,141 +484,151 @@ margin:0rem;
     }
   };
 
-
-
-  const handleDownloadDoc = async ( ) => {
+  const handleDownloadDoc = async () => {
     setLoading(true);
     setError("");
-  try {
-    // Step 1: Convert HTML and CSS to PDF
-    const pdfResponse = await axios.post(
-      'http://3.144.48.243/api/convert',
-      {
-        html: getHTML(),
-        cssStyles: getCSS(), // Include your CSS data here
-      },
-      {
-        responseType: 'arraybuffer',
-        headers: {
-          Accept: 'application/json',
+    try {
+      // Step 1: Convert HTML and CSS to PDF
+      const pdfResponse = await axios.post(
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
         },
-      }
-    );
+        {
+          responseType: "arraybuffer",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
 
-    // Step 2: Convert PDF to DOCX
-    const formData = new FormData();
-    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
+      // Step 2: Convert PDF to DOCX
+      const formData = new FormData();
+      formData.append(
+        "pdf",
+        new Blob([pdfResponse.data], { type: "application/pdf" })
+      );
 
-    const docxResponse = await axios.post(
-      'http://35.172.118.147/api/convert/pdftodocx',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
+      const docxResponse = await axios.post(
+        "http://35.172.118.147/api/convert/pdftodocx",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          responseType: "arraybuffer",
+        }
+      );
+      setLoading(false);
+      // Create a Blob from the response data
+      const docxBlob = new Blob([docxResponse.data], {
+        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      });
+
+      // Save the Blob as a file using FileSaver.js
+      saveAs(docxBlob, "converted.docx");
+
+      return "Conversion successful";
+    } catch (error) {
+      setLoading(false);
+      throw new Error("Error converting HTML and CSS to DOCX");
+    }
+  };
+
+  const handleDownloadTxt = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      // Step 1: Convert HTML and CSS to PDF
+      const pdfResponse = await axios.post(
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
         },
-        responseType: 'arraybuffer',
-      }
-    );
-    setLoading(false);
-    // Create a Blob from the response data
-    const docxBlob = new Blob([docxResponse.data], {
-      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    });
+        {
+          responseType: "arraybuffer",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
 
-    // Save the Blob as a file using FileSaver.js
-    saveAs(docxBlob, 'converted.docx');
+      // Step 2: Convert PDF to text using your PDF to text API
+      const formData = new FormData();
+      formData.append(
+        "pdf",
+        new Blob([pdfResponse.data], { type: "application/pdf" })
+      );
 
-    return 'Conversion successful';
-  } catch (error) {
-    setLoading(false);
-    throw new Error('Error converting HTML and CSS to DOCX');
-  }
-};
+      const textResponse = await axios.post(
+        "https://pdfcontentextractor.onrender.com/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          responseType: "text/plain", // Update the responseType to 'text/plain'
+        }
+      );
 
-  
-const handleDownloadTxt = async () => {
-  setLoading(true);
-  setError("");
+      setLoading(false);
+      // Create a Blob from the response data
+      const textBlob = new Blob([textResponse.data], {
+        type: "text/plain",
+      });
 
-  try {
-    // Step 1: Convert HTML and CSS to PDF
-    const pdfResponse = await axios.post(
-      'http://3.144.48.243/api/convert',
-      {
-        html: getHTML(),
-        cssStyles: getCSS(), // Include your CSS data here
-      },
-      {
-        responseType: 'arraybuffer',
-        headers: {
-          Accept: 'application/json',
-        },
-      }
-    );
+      // Save the Blob as a file using FileSaver.js
+      saveAs(textBlob, "converted.txt");
 
-    // Step 2: Convert PDF to text using your PDF to text API
-    const formData = new FormData();
-    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
-
-    const textResponse = await axios.post(
-      'https://pdfcontentextractor.onrender.com/upload',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        responseType: 'text/plain', // Update the responseType to 'text/plain'
-      }
-    );
-
-    setLoading(false);
-    // Create a Blob from the response data
-    const textBlob = new Blob([textResponse.data], {
-      type: 'text/plain',
-    });
-
-    // Save the Blob as a file using FileSaver.js
-    saveAs(textBlob, 'converted.txt');
-
-    return 'Conversion successful';
-  } catch (error) {
-    setLoading(false);
-    throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
-  }
-};
-
-
-  
+      return "Conversion successful";
+    } catch (error) {
+      setLoading(false);
+      throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
+    }
+  };
 
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
     }
-  
+
     return (
       <div className={style.overlay}>
         <div className={style.modal}>
-  
-
-       {loading ?   
-       <div  className={style.down_img_box}>
-           <img src={downloadimg } alt="downloading" />
-           {error && <p style={{ color: "red" }}>{error}</p>}
-       </div>
-       :
-       <div className={style.download_box}>
-       <button className={style.closeButton} onClick={onClose}>Close
-       </button>
-       <div  className={style.down_btn_box}>
-       <div  onClick={handleResume} className={style.icon_download}><img src={downloadpdf } alt="pdf"/>PDF</div>
-        <div  onClick={handleDownloadDoc } className={style.icon_download}><img src={downloaddoc } alt="doc"/> DOC</div>
-         <div  onClick={handleDownloadTxt} className={style.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
-       </div>
-       </div>
-       }
-         
-        
-
+          {loading ? (
+            <div className={style.down_img_box}>
+              <img src={downloadimg} alt="downloading" />
+              {error && <p style={{ color: "red" }}>{error}</p>}
+            </div>
+          ) : (
+            <div className={style.download_box}>
+              <button className={style.closeButton} onClick={onClose}>
+                Close
+              </button>
+              <div className={style.down_btn_box}>
+                <div onClick={handleResume} className={style.icon_download}>
+                  <img src={downloadpdf} alt="pdf" />
+                  PDF
+                </div>
+                <div
+                  onClick={handleDownloadDoc}
+                  className={style.icon_download}
+                >
+                  <img src={downloaddoc} alt="doc" /> DOC
+                </div>
+                <div
+                  onClick={handleDownloadTxt}
+                  className={style.icon_download}
+                >
+                  <img src={downloadtext} alt="text" />
+                  TEXT
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -621,118 +646,131 @@ const handleDownloadTxt = async () => {
 
   return (
     <>
-    <div className={style.download_btn} >
-    <button onClick={handleDownloadClick}>Download</button>
-      <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
-    </div>
-   
-       <div className={style.main}>
-    <div className={style.left_section} style={{ backgroundColor: color, color: color3 }}>
-      <div>
-        <div className={style.img_container}>
-          <div className={style.img_box} style={{ height: imgSize, width: imgSize }}>
-            {/* Replace the image source with your actual image URL */}
-            <img src={base64Image3} alt="dp" />
-          </div>
-        </div>
-       
-        <div className={style.info_box}>
-          <p>
-            <span>Email: </span>
-            {formData?.resume?.contact?.email}
-          </p>
-          <p>
-            <span>Phone: </span>
-            {formData?.resume?.contact?.phone}
-          </p>
-          <p>
-            <span>Location: </span>
-            {formData?.resume?.address?.address}, {formData?.resume?.address?.state}, {formData?.resume?.address?.postalCode}
-          </p>
-        </div>
+      <div className={style.download_btn}>
+        <button onClick={handleDownloadClick}>Download</button>
+        <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
       </div>
-      <div>
-        <br/>
-        <hr  style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
-      </div>
-      <div className={style.education}>
-        <h3>Education</h3>
-        <div className={style.edu}>
-          {formData?.resume?.education.map((item, index) => (
-            <div key={index}>
-              <h4>{item?.collegeName}</h4>
-              <p>{item?.degree}</p>
+
+      <div className={style.main}>
+        <div
+          className={style.left_section}
+          style={{ backgroundColor: color, color: color3 }}
+        >
+          <div>
+            <div className={style.img_container}>
+              <div
+                className={style.img_box}
+                style={{ height: imgSize, width: imgSize }}
+              >
+                <img src={base64Image3} alt="dp" />
+              </div>
+            </div>
+
+            <div className={style.info_box}>
               <p>
-                {item?.startYear} - {item?.endYear}
+                <span>Email: </span>
+                {formData?.resume?.contact?.email}
+              </p>
+              <p>
+                <span>Phone: </span>
+                {formData?.resume?.contact?.phone}
+              </p>
+              <p>
+                <span>Location: </span>
+                {formData?.resume?.address?.address},{" "}
+                {formData?.resume?.address?.state},{" "}
+                {formData?.resume?.address?.postalCode}
               </p>
             </div>
-          ))}
+          </div>
+          <div>
+            <br />
+            <hr
+              style={{
+                borderColor: "black",
+                backgroundColor: "black",
+                borderWidth: "1px",
+              }}
+            />
+          </div>
+          <div className={style.education}>
+            <h3>Education</h3>
+            <div className={style.edu}>
+              {formData?.resume?.education.map((item, index) => (
+                <div key={index}>
+                  <h4>{item?.collegeName}</h4>
+                  <p>{item?.degree}</p>
+                  <p>
+                    {item?.startYear} - {item?.endYear}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={style.skills}>
+            <h3>Skills</h3>
+            <ul className={style.skill_ul}>
+              {formData?.resume?.skillsAndLevel.map((item, index) => (
+                <li key={index}>
+                  <h5>{item?.skills}</h5>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className={style.right_section}>
+          <div className={style.heading} style={{ backgroundColor: color2 }}>
+            <h1
+              style={{
+                color: color3,
+                fontFamily: fontStyle,
+                fontSize: fontSize,
+              }}
+            >
+              {formData?.resume?.name}
+            </h1>
+          </div>
+
+          <div className={style.certifications}>
+            <h3>Certifications</h3>
+            <ul className={style.certi_ul}>
+              {formData?.resume?.certifications.map((item, index) => (
+                <li key={index}>
+                  <h5>{item?.title}</h5>
+                  <p>Organization: {item?.issuingOrganization}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={style.line}></div>
+
+          <div className={style.line}></div>
+
+          <div className={style.professional_summary}>
+            <h3>Professional Summary</h3>
+            <p>{formData?.resume?.summary}</p>
+          </div>
+
+          <div className={style.line}></div>
+          <div className={style.work}>
+            <h3>Projects</h3>
+            <ul className={style.work_ul}>
+              {formData?.resume?.projects.map((item, index) => (
+                <li key={index}>
+                  <h4>{item?.title}</h4>
+                  <p>
+                    {item?.year}, {item?.link}
+                  </p>
+                  <p>{item?.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-      <div className={style.skills}>
-        <h3>Skills</h3>
-        <ul className={style.skill_ul}>
-          {formData?.resume?.skillsAndLevel.map((item, index) => (
-            <li key={index}>
-              <h5>{item?.skills}</h5>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-
-    <div className={style.right_section}>
-      <div className={style.heading} style={{ backgroundColor: color2}}>
-        <h1 style={{ color: color3, fontFamily: fontStyle ,fontSize: fontSize}}>FRESHER{formData?.resume?.name}</h1>
-      </div>
- 
-      <div className={style.certifications}>
-        <h3>Certifications</h3>
-        <ul className={style.certi_ul}>
-          {formData?.resume?.certifications.map((item, index) => (
-            <li key={index}>
-              <h5>{item?.title}</h5>
-              <p>Organization: {item?.issuingOrganization}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className={style.line}>
-      </div>
-
-  
-
-      <div className={style.line}>
-     
-      </div>
-
-      <div className={style.professional_summary}>
-        <h3>Professional Summary</h3>
-        <p>{formData?.resume?.summary}</p>
-      </div>
-
-      <div className={style.line}>
-      </div>
-
-      <div className={style.work}>
-        <h3>Work History</h3>
-        <ul className={style.work_ul}>
-          {formData?.resume?.work.map((item, index) => (
-            <li key={index}>
-              <h4>{item?.title}</h4>
-              <p>
-                {item?.company}, {item?.location}
-              </p>
-              <p>{item?.description}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </div>
     </>
-   
   );
 };
 

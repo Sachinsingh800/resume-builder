@@ -123,6 +123,15 @@ const Template_24= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -133,11 +142,12 @@ const Template_24= () => {
       background-color: #f0f0f0;
       box-sizing: border-box;
       background-color: white;
+      width: 850px;
+      height: 1000px;
   }
 
   .main {
-      width: 850px;
-      height: 1130px;
+    
       background-color: white;
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -392,6 +402,12 @@ margin-top:-.8rem;
 .skillsAndLevel li{
 text-align: left;
 }
+.contact-infor{
+  margin-top:-.5rem;
+}
+.para{
+  margin-top:-1rem;
+}
     `
   }
 
@@ -441,7 +457,7 @@ text-align: left;
     
                 <div class="skillsHeader">
                     <h3>CONTACT</h3>
-                    <div>
+                    <div class="contact-infor">
                      <div class="contactInfo">
                         <p class="email" style="color: black;">
                             <span>Email</span>
@@ -494,25 +510,27 @@ text-align: left;
                     <div class="title_box2" >
                         <h3>ABOUT ME</h3>
                     </div>
-                    <p>
+                    <p class="para">
                     ${formData.resume.summary}
                     </p>
                 </div>
     
+               
                 <div class="professionalSkillsHeader">
                     <div class="title_box2">
-                        <h3>WORKING EXPERIENCE</h3>
+                        <h3>PROJECTS</h3>
                     </div>
                     <ul class="work-ul">
 
-                    ${formData.resume.work.map((item) => `
+                    ${formData.resume.projects.map((item) => `
                   
                 <li>
                 <div class="work_des">
                     <h4 class="customerService">${item?.title}</h4>
                     <h5 class="company_name">
-                        <span>${item?.company} - ${item?.location}</span>
-                        <span>${item?.startDate} - ${item?.endDate}</span>
+                    <span>${item?.link} </span>
+                        <span>${item?.year}</span>
+                       
                     </h5>
                     <p>
                     ${item?.description}
@@ -533,9 +551,7 @@ text-align: left;
                  
                 <li>
                 <p>${item.skills}</p>
-                <div class="ProgressBar">
-                    <div style="width: 40%;"></div>
-                </div>
+      
             </li>
           
             `).join('')}
@@ -768,7 +784,7 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
-
+     <br/>
       <div className={styles.skillsHeader}>
         <h3>CONTACT</h3>
         <div>
@@ -795,7 +811,7 @@ const handleDownloadTxt = async () => {
           </div>
         </div>
       </div>
-
+     <br/>
       <div className={styles.skillsHeader}>
         <h3>REFERENCES</h3>
         <ul className={styles.refUl}>
@@ -820,28 +836,29 @@ const handleDownloadTxt = async () => {
       <br />
 
       <div className={styles.skillsHeader2} >
-        <div className={styles.titleBox2}>
+        <div className={styles.title_box2}>
           <h3>ABOUT ME</h3>
         </div>
-        <p>{formData.resume.summary}</p>
+        <p >{formData.resume.summary}</p>
       </div>
-
+     <br/>
       <div className={styles.professionalSkillsHeader}>
-        <div className={styles.titleBox2}>
-          <h3>WORKING EXPERIENCE</h3>
+        <div className={styles.title_box2}>
+          <h3>PROJECTS</h3>
         </div>
-        <ul className={styles.workUl}>
-          {formData.resume.work.map((item, index) => (
+        <ul className={styles.work_ul}>
+          {formData.resume.projects.map((item, index) => (
             <li key={index}>
-              <div className={styles.workDes}>
-                <h4 className={styles.customerService}>{item?.title}</h4>
-                <h5 className={styles.companyName}>
+              <div className={styles.work_des}>
+                <h4 className={styles.customer_service}>{item?.title}</h4>
+                <h5 className={styles.company_name}>
                   <span>
-                    {item?.company} - {item?.location}
+                  {item?.link}
+                  
                   </span>
                   ,
                   <span>
-                    {item?.startDate} - {item?.endDate}
+                  {item?.year}
                   </span>
                 </h5>
                 <p>{item?.description}</p>
@@ -850,7 +867,7 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
-
+      <br/>
       <div className={styles.professionalSkillsHeader}>
         <div className={styles.titleBox2} >
           <h3>SOFTWARE SKILL</h3>
