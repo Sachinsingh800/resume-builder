@@ -530,16 +530,13 @@ const Template_16= () => {
                          
                         </ul>
                     </div>
-    
                     <div class="section">
                         <h3 class="section_title">PROJECTS</h2>
                         <ul class="ul">
-
                         ${formData.resume.projects.map((item) => `
-                  
                     <li>
                     <div class="work_entry">
-                        <p class="date">${item?.year}</p>
+                        <p class="date">${item?.year} </p>
                         <div class="inner_div">
                             <h3 class="position">${item?.title}</h3>
                             <p class="company">${item?.link} </p>
@@ -549,9 +546,12 @@ const Template_16= () => {
                         </div>
                     </div>
                 </li>
-                    `).join('')}  
+                    `).join('')} 
+                         
                         </ul>
                     </div>
+    
+       
                 </div>
             </div>
         </div>

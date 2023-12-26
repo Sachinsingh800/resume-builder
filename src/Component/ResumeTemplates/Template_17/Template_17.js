@@ -171,7 +171,6 @@ width: 100%;
 display: flex;
 flex-direction: column;
 padding: 2rem 1rem;
-gap: 2rem;
 text-align: left;
 }
 
@@ -179,15 +178,13 @@ text-align: left;
 width: 100%;
 display: flex;
 flex-direction: column;
-gap: 1rem;
-padding: 1rem 1rem;
+padding: 0rem 1rem;
 }
 .education{
 width: 100%;
 display: flex;
 flex-direction: column;
-gap: 1rem;
-padding: 1rem 1rem;
+padding: 0rem 1rem;
 }
 .img_container{
 display: flex;
@@ -219,7 +216,6 @@ width: 95%!important;
 .work_history{
 display: flex;
 flex-direction: column;
-gap: 1rem;
 }
 .heading{
 padding: 3rem 1rem;
@@ -241,7 +237,6 @@ gap: .5rem;
 .skills ul{
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 1rem;
 }
 .professional_summary{
 padding: 1rem;
@@ -266,7 +261,6 @@ align-items: center;
 .certifications ul{
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 1rem;
 }
 .header{
 height: 8rem;
@@ -440,6 +434,31 @@ width:1rem;
             </div>
 
             <p class="company">${item?.company} </p>
+            <p class="description">
+            ${item?.description}
+            </p>
+          </div>
+        </div>
+      </li>
+            `).join('')}   
+         
+            </ul>
+          </div>
+          <div class="section">
+            <h3 class="section_title">PROJECTS</h3>
+            <div class="divider"><hr/></div>
+            <ul class="ul">
+            ${formData.resume.projects.map((item) => `
+          
+        <li >
+        <div class="work_entry">
+          <div>
+            <div class="title_">
+              <h3 class="position">${item?.title}</h3>
+              <p class="date">${item?.year} </p>
+            </div>
+
+            <p class="company">${item?.link} </p>
             <p class="description">
             ${item?.description}
             </p>
@@ -770,6 +789,28 @@ const handleDownloadTxt = async () => {
                       <p className={styles.date}> {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</p>
                     </div>
                     <p className={styles.company}>{item?.company} </p>
+                    <p className={styles.description}>
+                      {item?.description}
+                    </p>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>PROJECTS</h3>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
+          <ul className={styles.ul}>
+            {formData.resume.projects.map((item, index) => (
+              <li key={index}>
+                <div className={styles.work_entry}>
+                  <div>
+                    <div className={styles.title_}>
+                      <h3 className={styles.position}>{item?.title}</h3>
+                      <p className={styles.date}> {item?.year}</p>
+                    </div>
+                    <p className={styles.company}>{item?.link} </p>
                     <p className={styles.description}>
                       {item?.description}
                     </p>

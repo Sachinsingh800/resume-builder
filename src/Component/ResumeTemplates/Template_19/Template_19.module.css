@@ -146,10 +146,10 @@ border-bottom: 1px black solid;
 padding-bottom:.5rem ;
 }
 .work_entry{
-display: grid;
-grid-template-columns: 1fr;
-margin-top:-1rem;
-gap:.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top:-1rem;
+  gap:.5rem;
 }
 .section_title{
 display: flex;

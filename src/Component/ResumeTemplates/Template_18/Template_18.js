@@ -168,7 +168,6 @@ width: 100%;
 display: flex;
 flex-direction: column;
 padding: 2rem 1rem;
-gap: 2rem;
 text-align: left;
 
 }
@@ -177,15 +176,14 @@ text-align: left;
 width: 100%;
 display: flex;
 flex-direction: column;
-gap: 1rem;
-padding: 1rem 1rem;
+padding: 0rem 1rem;
 }
 .education{
 width: 100%;
 display: flex;
 flex-direction: column;
-gap: 1rem;
-padding: 1rem 1rem;
+
+padding: 0rem 1rem;
 }
 .img_container{
 display: flex;
@@ -197,7 +195,6 @@ display: flex;
 flex-direction: column;
 gap: .5rem;
 padding: 2rem 1rem;
-height: 65.3rem;  /* 1240px / 16px = 77.5rem */
 }
 .right_section p{
 width: 95%!important;
@@ -217,7 +214,6 @@ width: 95%!important;
 .work_history{
 display: flex;
 flex-direction: column;
-gap: 1rem;
 }
 .heading{
 
@@ -240,7 +236,7 @@ gap: .5rem;
 .skills ul{
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 1rem;
+
 }
 .professional_summary{
 padding: 1rem;
@@ -265,7 +261,7 @@ align-items: center;
 .certifications ul{
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 1rem;
+
 }
 .header{
 background-color: rgb(215, 213, 213);
@@ -291,7 +287,6 @@ grid-template-columns: 1fr;
 .section_title{
 display: flex;
 align-items: center;
-gap: 2.7rem;
 
 }
 .title_{
@@ -326,7 +321,7 @@ display: flex;
 flex-direction: column;
 gap: .5rem;
 list-style: none;
-padding-top: 1rem;
+
 }
 .name_box h1,h5{
 margin:0;
@@ -343,7 +338,7 @@ margin:0rem;
 }
 .skills_list{
 margin-left:-3.6rem;
-margin-top:-1.5rem;
+margin-top:-.5rem;
 }
 .section-content{
 margin-top:-.5rem;
@@ -493,6 +488,27 @@ width:1rem;
                             <p class="date">${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </p>
                         </div>
                         <p class="company">${item?.company} </p>
+                        <p class="description">
+                        ${item?.description}
+                        </p>
+                    </div>
+                   
+                </div>
+                        `).join('')}    
+        
+                    </div>
+                    <div class="section">
+                        <h3 class="section_title">PROJECTS</h3>
+                        <div class="divider"><hr/></div>
+                        ${formData.resume.projects.map((item) => `
+      
+                    <div class="work_expe">
+                    <div class="work-info" >
+                        <div class="title_">
+                            <h3 class="position">${item?.title}</h3>
+                            <p class="date">${item?.year} </p>
+                        </div>
+                        <p class="company">${item?.link} </p>
                         <p class="description">
                         ${item?.description}
                         </p>
@@ -815,6 +831,24 @@ const handleDownloadTxt = async () => {
                   <p className={styles.date}>        {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</p>
                 </div>
                 <p className={styles.company}>{item?.company} </p>
+                <p className={styles.description}>
+                  {item?.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className={styles.section}>
+          <h3 className={styles.section_title}>PROJECTS</h3>
+          <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
+          {formData.resume.projects.map((item, index) => (
+            <div key={index} className={styles.work_expe}>
+              <div className={styles.work_info}>
+                <div className={styles.title_}>
+                  <h3 className={styles.position}>{item?.title}</h3>
+                  <p className={styles.date}> {item?.year}</p>
+                </div>
+                <p className={styles.company}>{item?.link} </p>
                 <p className={styles.description}>
                   {item?.description}
                 </p>

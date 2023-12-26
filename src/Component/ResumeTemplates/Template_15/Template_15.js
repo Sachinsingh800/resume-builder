@@ -536,7 +536,7 @@ const Template_15= () => {
                 <div class="left_section">
                     <div class="section">
                         <h2 class="section-title">ABOUT ME</h2>
-                        <Divider class="divider" />
+                        
                         <p class="section-content">
                         ${formData.resume.summary}
                         </p>
@@ -544,7 +544,7 @@ const Template_15= () => {
     
                     <div class="section">
                         <h2 class="section_title">EXPERIENCE</h2>
-                        <Divider class="divider" />
+                        
                         <ul  class="ul">
                         ${formData.resume.work.map((item) => `
                     <li>
@@ -553,6 +553,26 @@ const Template_15= () => {
                         <div class="inner_div">
                             <h3 class="position">${item?.title}</h3>
                             <p class="company">${item?.company} </p>
+                            <p class="description">
+                            ${item?.description}
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                    `).join('')}           
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2 class="section_title">PROJECTS</h2>
+                        
+                        <ul  class="ul">
+                        ${formData.resume.projects.map((item) => `
+                    <li>
+                    <div class="work_entry">
+                        <p class="date">${item?.year} </p>
+                        <div class="inner_div">
+                            <h3 class="position">${item?.title}</h3>
+                            <p class="company">${item?.link} </p>
                             <p class="description">
                             ${item?.description}
                             </p>
@@ -866,13 +886,13 @@ const handleDownloadTxt = async () => {
       <div className={styles.left_section}>
         <div className={styles.section}>
           <h2 className={styles.section_title}>ABOUT ME</h2>
-          <Divider className={styles.divider} />
+       
           <p className={styles.section_content}>{formData.resume.summary}</p>
         </div>
 
         <div className={styles.section}>
           <h2 className={styles.section_title}>EXPERIENCE</h2>
-          <Divider className={styles.divider} />
+       
           <ul>
             {formData.resume.work.map((item, index) => (
               <li key={index} className={styles.work_entry}>
@@ -880,6 +900,22 @@ const handleDownloadTxt = async () => {
                 <div className={styles.inner_div}>
                   <h3 className={styles.position}>{item?.title}</h3>
                   <p className={styles.company}>{item?.company}</p>
+                  <p className={styles.description}>{item?.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h2 className={styles.section_title}>PROJECTS</h2>
+       
+          <ul>
+            {formData.resume.projects.map((item, index) => (
+              <li key={index} className={styles.work_entry}>
+                <p className={styles.date}> {item?.year}</p>
+                <div className={styles.inner_div}>
+                  <h3 className={styles.position}>{item?.title}</h3>
+                  <p className={styles.company}>{item?.link}</p>
                   <p className={styles.description}>{item?.description}</p>
                 </div>
               </li>
