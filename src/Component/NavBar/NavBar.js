@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import style from './NavBar.module.css';
 import logo from '../Images/logo.png';
 import ServicesOption from '../ServicesOption/ServicesOption';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getUserProfile } from '../../Api/Api';
 import ServicesOptionList from '../ServicesOption/ServicesOption';
 
@@ -12,6 +12,7 @@ function NavBar() {
   const [isUserHovered, setIsUserHovered] = useState(false);
   const authToken = JSON.parse(localStorage.getItem('token'));
   const [user, setUser] = useState([]);
+  const naviagte=useNavigate()
 
   useEffect(() => {
     handleuserProfile();
@@ -34,6 +35,7 @@ function NavBar() {
 
   const handleLogOut = () => {
     localStorage.clear();
+    naviagte("/")
   };
 
   const handleResumeHover = () => {
