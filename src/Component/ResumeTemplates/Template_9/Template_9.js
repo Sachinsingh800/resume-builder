@@ -361,8 +361,31 @@ const Template_9= () => {
             <div class="work_des">
                     <h3 class="customerService">${item?.title}</h3>
                     <h5 class="company_name">
-                    <span>${item?.company} - ${item?.location}</span> 
+                    <span>${item?.company} - ${item?.location}</span> ,
                     <span>${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </span>
+                    </h5>
+           
+                <div>
+                    <p>
+                    ${item?.description}
+                    </p>
+                </div>
+            </div>
+        </li>
+    `).join('')}     
+
+            </ul>
+        </div>
+        <div class="Experience">
+            <h2>Projects</h2>
+            <ul class="ul">
+            ${formData.resume.projects.map((item) => `
+            <li>
+            <div class="work_des">
+                    <h3 class="customerService">${item?.title}</h3>
+                    <h5 class="company_name">
+                    <span>${item?.link}</span>   |   <span>${item?.year} </span>
+                   
                     </h5>
            
                 <div>
@@ -625,8 +648,27 @@ const handleDownloadTxt = async () => {
             <div className={styles.work_des}>
               <h3 className={styles.customerService}>{item?.title}</h3>
               <h5 className={styles.company_name}>
-                <span>{item?.company} - {item?.location}</span>
+                <span>{item?.company} - {item?.location}</span> ,
                 <span>{formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span>
+              </h5>
+              <div>
+                <p>{item?.description}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className={styles.Experience}>
+      <h2>Projects</h2>
+      <ul className={styles.ul}>
+        {formData.resume.projects.map((item, index) => (
+          <li key={index}>
+            <div className={styles.work_des}>
+              <h3 className={styles.customerService}>{item?.title}</h3>
+              <h5 className={styles.company_name}>
+                <span>{item?.link}</span>  |  <span>{item?.year}</span>
+            
               </h5>
               <div>
                 <p>{item?.description}</p>

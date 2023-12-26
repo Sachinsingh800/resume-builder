@@ -325,6 +325,30 @@ width: 90%;
                      
                 </ul>
             </div>
+            <div class="Experience">
+                <h2 style="background-color:${color}; color:${color3};">Projects</h2>
+                <ul>
+                ${formData.resume.projects.map((item) => `
+            <li>
+            <div class="work_des">
+                <div class="work">
+                    <h4 class="customerService">${item?.title}</h3>
+                    <h5 class="company_name">
+                        <span>${item?.link}</span>
+                        <p>${item?.year} </p>
+                    </h5>
+                </div>
+                <div>
+                <p>
+                ${item?.description}
+                </p>
+                </div>
+            </div>
+        </li>
+        `).join('')}   
+                     
+                </ul>
+            </div>
             <div class="Education">
                 <h2  style="background-color:${color}; color:${color3};">Education</h2>
                 <ul>
@@ -567,6 +591,29 @@ const handleDownloadTxt = async () => {
                 <h5 className={styles.company_name}>
                   <span>{item?.company} - {item?.location}</span>
                   <p> {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</p>
+                </h5>
+              </div>
+              <div>
+                <p>
+                  {item?.description}
+                </p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div className={styles.Experience}>
+      <h2 style={{backgroundColor:color,color:color3}}>Projects</h2>
+      <ul>
+        {formData.resume.projects.map((item, index) => (
+          <li key={index}>
+            <div className={styles.work_des}>
+              <div className={styles.work}>
+                <h4 className={styles.customerService}>{item?.title}</h4>
+                <h5 className={styles.company_name}>
+                  <span>{item?.link}</span>
+                  <p> {item?.year}</p>
                 </h5>
               </div>
               <div>

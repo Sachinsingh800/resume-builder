@@ -269,6 +269,23 @@ const Template_10= () => {
                    
                 </ul>
             </div>
+            <div >
+                <h3>Projects</h3>
+                <ul class="work-ul">
+                ${formData.resume.projects.map((item) => `
+            <li>
+            <div class="work-des">
+                <h4 class="customerService"><span>${item?.title}</span></h4>
+                <h6>${item?.link}</h6>
+                <h6 class="company_name"><span>${item?.year}</span></h6>
+                <p> ${item?.description}</p>
+            </div>
+        </li>
+        `).join('')}     
+             
+                   
+                </ul>
+            </div>
     
             <div>
                 <h3>Education</h3>
@@ -513,6 +530,21 @@ const handleDownloadTxt = async () => {
                 <h4 className={styles.customerService}><span>{item?.title}</span></h4>
                 <h6>{formatDate(item?.startDate)} - {formatDate(item?.endDate)}</h6>
                 <h6 className={styles.companyName}><span>{item?.company} - {item?.location}</span></h6>
+                <p>{item?.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3>Projects</h3>
+        <ul className={styles.work_ul}>
+          {formData.resume.projects.map((item, index) => (
+            <li key={index}>
+              <div className={styles.work_des}>
+                <h4 className={styles.customerService}><span>{item?.title}</span></h4>
+                <h6>{item?.link}</h6>
+                <h6 className={styles.companyName}><span>{item?.year}</span></h6>
                 <p>{item?.description}</p>
               </div>
             </li>
