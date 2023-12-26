@@ -336,7 +336,7 @@ width:1rem;
         <div class="right_section">
   
         <div class="contact_info">
-            <h3 class="section_title">Contact</h3>
+            <h3 class="section_title">CONTACT</h3>
             <hr class="divider">
             <div class="contact_value">
                 <span class="contact_label">
@@ -697,7 +697,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div className={styles.right_section}>
         <div className={styles.contact_Info}>
-          <h3 className={styles.section_title}>Contact</h3>
+          <h3 className={styles.section_title}>CONTACT</h3>
           <hr className={styles.divider} />
           <div className={styles.contact_value}>
             <span className={styles.contact_label}>
