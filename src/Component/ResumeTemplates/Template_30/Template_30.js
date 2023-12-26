@@ -144,7 +144,7 @@ const Template_30= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
   }
   .heading{
@@ -153,7 +153,7 @@ const Template_30= () => {
     flex-direction: column;
     justify-content: center;
     height: 5rem;
-    width: 52rem; 
+    width: 850px;
 }
 .summary h2{
     background-color:rgb(211, 211, 211)  ;
@@ -162,6 +162,7 @@ const Template_30= () => {
 }
 .para{
     width: 90%;
+     margin-top:-.5rem;
 }
 .summary {
     display: flex;
@@ -184,6 +185,7 @@ const Template_30= () => {
     display:flex;
     flex-direction:column;
     gap:.5rem;
+     margin-top:-.5rem;
 }
 .Skills h2{
     padding: 0rem .5rem;
@@ -199,6 +201,7 @@ const Template_30= () => {
     width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+     margin-top:-.5rem;
 }
 .Skills ul li{
     padding: .5rem;
@@ -207,7 +210,7 @@ const Template_30= () => {
 .work_des {
     display: grid;
     grid-template-columns: 1fr 2fr;
-
+    gap:1rem
 }
 .Eucation{
     display: flex;
@@ -224,10 +227,12 @@ const Template_30= () => {
     width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr;
+     margin-top:-.5rem;
 }
 .Eucation ul li{
     display: flex;
     flex-direction: column;
+    
 }
 .title_section{
     width: 100%;
@@ -266,11 +271,12 @@ width: 72%;
    width: max-content;
    background-color: white;
    margin-left:2rem;
+   
 }
 .heading p,h1{
   margin:0rem;
 }
-.work-info h4,h6{
+.work-info h4,h5{
   margin:0rem;
 }
 
@@ -284,10 +290,12 @@ width: 72%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-left:2rem;
+   margin-top:-.5rem;
 }
 
 .ul{
   margin-left:-2rem;
+   margin-top:-.5rem;
 }
 
     `
@@ -345,7 +353,31 @@ width: 72%;
         <div class="work_des">
             <div class="work-info">
                 <h4 class="customerService">${item?.title}</h4>
-                <h6 class="company_name"><span>${item?.company} - ${item?.location} </span> <span> ${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </span></h6>
+                <h5 class="company_name"><span>${item?.company} - ${item?.location} </span> ,<span> ${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </span></h5>
+            </div>
+            <div class="des-info">
+                <p>
+                ${item?.description}
+                </p>
+            </div>
+        </div>
+    </li>
+                `).join('')} 
+            </ul>
+        </div>
+        <div class="Experience">
+            <div class="title_section">
+                <h3>Projects</h3>
+                <hr class="line3" />
+            </div>
+            <ul class="ul">
+            ${formData.resume.projects.map((item) => `
+             
+        <li>
+        <div class="work_des">
+            <div class="work-info">
+                <h4 class="customerService">${item?.title}</h4>
+                <h5 class="company_name"><span>${item?.link} </span>,<span> ${item?.year} </span></h5>
             </div>
             <div class="des-info">
                 <p>
@@ -611,7 +643,7 @@ const handleDownloadTxt = async () => {
               <div className={styles.work_info}>
                 <h4 className={styles.customerService}>{item?.title}</h4>
                 <h6 className={styles.company_name}>
-                  <span>{item?.company} - {item?.location}</span>
+                  <span>{item?.company} - {item?.location}</span>,
                   <span> {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span>
                 </h6>
               </div>
@@ -625,12 +657,39 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+    <div className={styles.Experience}>
+      <div className={styles.title_section}>
+        <h3>Projects</h3>
+        <hr className={styles.line3} />
+      </div>
+      <ul className={styles.ul}>
+        {formData.resume.projects.map((item, index) => (
+          <li key={index}>
+            <div className={styles.work_des}>
+              <div className={styles.work_info}>
+                <h4 className={styles.customerService}>{item?.title}</h4>
+                <h6 className={styles.company_name}>
+                  <span>{item?.link}</span>,
+                  <span> {item?.year}</span>
+                </h6>
+              </div>
+              <div className={styles.des_info}>
+                <p>
+                  {item?.description}
+                </p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
     <div className={styles.Education}>
       <div className={styles.title_section_edu}>
         <h3>Education</h3>
         <hr className={styles.line4} />
       </div>
-      <ul>
+      <ul className={styles.edu_ul}>
         {formData.resume.education.map((item, index) => (
           <li key={index}>
             <span>{item.startYear} - {item.endYear}</span>

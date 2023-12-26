@@ -17,13 +17,13 @@
   height: 5rem;
   width: 52rem; 
 }
-.summary h2{
+.summary h3{
   background-color:rgb(211, 211, 211)  ;
   padding: 0rem .5rem;
   width: 90%;
 }
 .para{
-  width: 90%;
+  width: 86%;
 }
 .summary {
   display: flex;
@@ -35,7 +35,7 @@
   align-items: center;
   flex-direction: column;
 }
-.Experience h2{
+.Experience h3{
   background-color:rgb(211, 211, 211)  ;
   padding: 0rem .5rem;
   width: 90%;
@@ -47,7 +47,7 @@
   flex-direction:column;
   gap:.5rem;
 }
-.Skills h2{
+.Skills h3{
   padding: 0rem .5rem;
   background-color:rgb(211, 211, 211)  ;
   width: 90%
@@ -64,34 +64,44 @@
   grid-template-columns: 1fr 1fr;
 }
 .Skills ul li{
-  padding: .5rem;
+  padding: .5rem!important;
+  margin-left:.5rem!important;
  
 }
 .work_des {
   display: grid;
   grid-template-columns: 1fr 2fr;
-
+ gap:1rem;
+ width: 52rem;
+ flex-wrap: nowrap;
+}
+.des_info{
+width: 28rem;
 }
 .Education{
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: 97%;
 }
 
-.Eucation h2{
-  padding: 0rem .5rem;
+.Educationh3{
+  padding: 0rem .5rem!important;
   background-color:rgb(211, 211, 211)  ;
   width: 90%
 }
-.Eucation ul{
-  width: 90%;
+.Education ul{
   display: grid;
   grid-template-columns: 1fr 1fr;
+  
 }
-.Eucation ul li{
+.Education ul li{
   display: flex;
   flex-direction: column;
+ 
+}
+.edu_ul{
+  margin-right:-2rem!important;
 }
 .title_section{
   width: 100%;
@@ -108,29 +118,30 @@
 }
 .line{
  
-width: 60%;
+width: 62%;
 
   border: 1px rgb(94, 93, 93) dotted;
-  margin-top: .4rem;
+  margin-top: .4rem!important;
 }
 .line2{
  
-width: 78%;
+width: 80%;
 
   border: 1px rgb(94, 93, 93) dotted;
-  margin-top: .4rem;
+  margin-top: .4rem!important;
 }
 .line3{
  
 width: 72%;
 
-  border: 1px rgb(94, 93, 93) dotted;
-  margin-top: .4rem;
+border: 1px rgb(94, 93, 93) dotted;
+  margin-top: .4rem!important;
 }
 .line4 {
-width: 70%;
+width: 78%;
 border: 1px rgb(94, 93, 93) dotted;
-margin-top: .4rem;
+margin-top: .4rem!important;
+margin-left: .5rem!important;
 }
 .title_section h3{
  width: max-content;
@@ -157,7 +168,7 @@ margin-left: -30rem!important;
 }
 
 .ul{
-margin-left:-2rem;
+margin-left:1rem!important;
 }
 
 
