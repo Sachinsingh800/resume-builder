@@ -774,7 +774,7 @@ const handleDownloadTxt = async () => {
                 <div className={styles.work_des}>
                   <h4 className={styles.customerService}>{item?.title}</h4>
                   <h5 className={styles.company_name}>
-                    <span>{item?.company} - {item?.location}</span> <span>        {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span>
+                    <span>{item?.company} - {item?.location}</span> <span> {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span>
                   </h5>
                   <p>{item?.description}</p>
                 </div>
