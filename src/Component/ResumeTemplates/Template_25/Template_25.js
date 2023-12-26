@@ -80,6 +80,15 @@ const Template_25 = () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -260,7 +269,7 @@ width:1rem;
                       <div>
                           <div class="title_">
                               <h4 class="position">${item?.title}</h4>
-                              <p class="date">${item?.startDate} - ${item?.endDate}</p>
+                              <p class="date">${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </p>
                           </div>
 
                           <p class="company">${item?.company} - ${item?.location}</p>
@@ -629,7 +638,7 @@ const handleDownloadTxt = async () => {
                     <div className={styles.title_}>
                       <h4 className={styles.position}>{item?.title}</h4>
                       <p className={styles.date}>
-                        {item?.startDate} - {item?.endDate}
+                      {formatDate(item?.startDate)} - {formatDate(item?.endDate)}
                       </p>
                     </div>
 

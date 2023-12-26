@@ -119,6 +119,15 @@ const Template_16= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -507,7 +516,7 @@ const Template_16= () => {
                         ${formData.resume.work.map((item) => `
                     <li>
                     <div class="work_entry">
-                        <p class="date">${item?.startDate} - ${item?.endDate}</p>
+                        <p class="date">${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </p>
                         <div class="inner_div">
                             <h3 class="position">${item?.title}</h3>
                             <p class="company">${item?.company} </p>
@@ -848,7 +857,7 @@ const handleDownloadTxt = async () => {
               {formData.resume.work.map((item) => (
                 <li>
                   <div className={styles.work_entry}>
-                    <p className={styles.date}>{item?.startDate} - {item?.endDate}</p>
+                    <p className={styles.date}>        {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</p>
                     <div className={styles.inner_div}>
                       <h3 className={styles.position}>{item?.title}</h3>
                       <p className={styles.company}>{item?.company} </p>

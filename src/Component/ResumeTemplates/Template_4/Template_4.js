@@ -121,6 +121,15 @@ const Template_4= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -290,6 +299,19 @@ hr{
 .divider{
   margin-top:-1rem;
 }
+.section-1{
+  margin-top:-1rem;
+}
+.section-2{
+  margin-top:-4rem;
+}
+.section-1{
+  margin-top:-2rem;
+}
+.section-3{
+  margin-top:-4rem;
+}
+
     `
   }
 
@@ -319,15 +341,16 @@ hr{
                     ${formData.resume.summary}
                     </p>
                 </div>
-                <div class="section">
+                <div class="section-1">
                     <h2 class="section-title">WORK HISTORY</h2>
                     <hr class="divider" />
                     <ul class="ul">
+                    
                     ${formData.resume.work.map((item) => `
                 <li class="li">
                 <div class="work">
                     <h4 class="customerService">${item?.title}</h3>
-                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span></h5>
+                    <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> | <span>${formatDate(item?.startDate)} - ${formatDate(item?.endDate)}</span></h5>
                     <p>
                     ${item?.description}
                     </p>
@@ -337,7 +360,26 @@ hr{
                       
                     </ul>
                 </div>
-                <div class="section">
+                <div class="section-2">
+                    <h2 class="section-title">PROJECTS</h2>
+                    <hr class="divider" />
+                    <ul class="ul">
+                    
+                    ${formData.resume.projects.map((item) => `
+                <li class="li">
+                <div class="work">
+                    <h4 class="customerService">${item?.title}</h3>
+                    <h5 class="company_name" ><span style="color: ${color2};" >${item?.link}</span> | <span>${item?.year}</span>
+                    <p>
+                    ${item?.description}
+                    </p>
+                </div>
+            </li>
+            `).join('')}    
+                      
+                    </ul>
+                </div>
+                <div class="section-3">
                     <h2 class="section-title">EDUCATION</h2>
                     <hr class="divider" />
                     <ul class="ul">
@@ -345,7 +387,7 @@ hr{
                     <li class="li">
                     <div class="work">
                         <h4 class="customerService">${item.degree}</h3>
-                        <h5 class="company_name"><span>${item.collegeName}</span> <span>${item.startYear} - ${item.endYear}</span></h5>
+                        <h5 class="company_name"><span>${item.collegeName}</span> | <span>${item.startYear} - ${item.endYear}</span></h5>
                     </div>
                 </li>
                 `).join('')}
@@ -600,7 +642,24 @@ const handleDownloadTxt = async () => {
               <li key={index} className={styles.li}>
                 <div className={styles.work}>
                   <h4 className={styles.customerService}>{item?.title}</h4>
-                  <h5 className={styles.company_name}><span>{item?.company} - {item?.location}</span> <span>{item?.startDate} - {item?.endDate}</span></h5>
+                  <h5 className={styles.company_name}><span>{item?.company} - {item?.location}</span> | <span>{formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span></h5>
+                  <p>{item?.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={styles.section}>
+          <h2 className={styles.section_title}>PROJECTS</h2>
+          <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
+          <ul className={styles.ul}>
+          {formData?.resume?.projects.map((item, index) => (
+              <li key={index} className={styles.li}>
+                <div className={styles.work}>
+                  <h4 className={styles.customerService}>{item?.title}</h4>
+                  <h5 className={styles.company_name} style={{color:color2}}>
+                    <span>{item?.link}</span> | <span>  {item?.year}</span>
+                  </h5>
                   <p>{item?.description}</p>
                 </div>
               </li>

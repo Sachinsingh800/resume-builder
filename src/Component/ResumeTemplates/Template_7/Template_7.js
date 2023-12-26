@@ -123,6 +123,15 @@ const Template_7= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -253,7 +262,7 @@ margin:0rem;
             <li>
             <div class="work_des">
                 <h3 class="customerService">${item?.title}</h3>
-                <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${item?.startDate} - ${item?.endDate}</span></h5>
+                <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </span></h5>
                 <p>${item?.description}</p>
             </div>
         </li>
@@ -506,7 +515,7 @@ const handleDownloadTxt = async () => {
             <li key={index}>
               <div className={styles.work_des}>
                 <h3 className={styles.customerService}>{item?.title}</h3>
-                <h5 className={styles.company_name}><span>{item?.company} - {item?.location}</span> <span>{item?.startDate} - {item?.endDate}</span></h5>
+                <h5 className={styles.company_name}><span>{item?.company} - {item?.location}</span> <span>{formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span></h5>
                 <p>{item?.description}</p>
               </div>
             </li>

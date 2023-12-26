@@ -121,6 +121,15 @@ const Template_30= () => {
   
     handleImageChange();
   }, []);
+
+  function formatDate(inputDate) {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(inputDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  }
   
   const getCSS = () =>{
     return `
@@ -336,7 +345,7 @@ width: 72%;
         <div class="work_des">
             <div class="work-info">
                 <h4 class="customerService">${item?.title}</h4>
-                <h6 class="company_name"><span>${item?.company} - ${item?.location} </span> <span>${item?.startDate} - ${item?.endDate}</span></h6>
+                <h6 class="company_name"><span>${item?.company} - ${item?.location} </span> <span> ${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </span></h6>
             </div>
             <div class="des-info">
                 <p>
@@ -603,7 +612,7 @@ const handleDownloadTxt = async () => {
                 <h4 className={styles.customerService}>{item?.title}</h4>
                 <h6 className={styles.company_name}>
                   <span>{item?.company} - {item?.location}</span>
-                  <span>{item?.startDate} - {item?.endDate}</span>
+                  <span> {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span>
                 </h6>
               </div>
               <div className={styles.des_info}>
