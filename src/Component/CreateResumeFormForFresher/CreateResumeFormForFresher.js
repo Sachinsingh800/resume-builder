@@ -1326,6 +1326,7 @@ const closeModal = () => {
     {/* Social Links */}
     <div>
       <h2>Social Links</h2>
+      <br/>
       <div>
         <label htmlFor="linkedin">LinkedIn Profile:</label>
         <input
@@ -1347,6 +1348,7 @@ const closeModal = () => {
           }}
         />
       </div>
+      <br/>
       <div>
         <label htmlFor="github">GitHub Profile:</label>
         <input
@@ -1368,6 +1370,7 @@ const closeModal = () => {
           }}
         />
       </div>
+      <br/>
       <div>
         <label htmlFor="portfolio">Portfolio:</label>
         <input
@@ -1467,6 +1470,8 @@ const closeModal = () => {
       <div key={index}>
  
         <h2><div>Certification {index + 1}</div>
+        <br/>
+        <br/>
         <div className={style.dele_btn9}>
               {resume.certifications.length > 1 && (
         <button onClick={() => handleDeleteCertification(index)}><AiFillDelete/></button>
@@ -1498,6 +1503,7 @@ const closeModal = () => {
             }}
           />
         </div>
+        <br/>
         <div>
           <label htmlFor={`issuingOrganization-${index}`}>Issuing Organization:</label>
           <input
@@ -1522,6 +1528,7 @@ const closeModal = () => {
             }}
           />
         </div>
+        <br/>
         <div>
           <label htmlFor={`date-${index}`}>Date:</label>
           <input
@@ -1574,6 +1581,8 @@ const closeModal = () => {
 
         <h2>
         <div>    Award {index + 1}</div>
+        <br/>
+        <br/>
         <div className={style.dele_btn10}>
       {resume.awards.length > 1 && (
         <button onClick={() => handleDeleteAward(index)}><AiFillDelete/></button>
@@ -1605,6 +1614,7 @@ const closeModal = () => {
             }}
           />
         </div>
+        <br/>
         <div>
           <label htmlFor={`awardOrganization-${index}`}>Award Organization:</label>
           <input
@@ -1629,6 +1639,7 @@ const closeModal = () => {
             }}
           />
         </div>
+        <br/>
         <div>
           <label htmlFor={`awardDate-${index}`}>Award Date:</label>
           <input
@@ -1851,6 +1862,8 @@ const closeModal = () => {
         
         <h2 className={style.section_12_h2}>
         <div>Areas of Interest {index + 1}</div>
+        <br/>
+        <br/>
         <div className={style.dele_btn12}>
         {resume.areaOfInterest.length > 1 && (
         <button onClick={() => handleDeleteInterest(index)}><AiFillDelete/></button>
