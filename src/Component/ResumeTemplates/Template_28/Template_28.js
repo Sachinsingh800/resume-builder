@@ -146,7 +146,7 @@ const Template_28= () => {
 
   .main {
       width: 850px;
-      height: 1130px;
+      height: 1000px;
       background-color: white;
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -155,7 +155,7 @@ const Template_28= () => {
 .Left_container{
 display: flex;
 flex-direction: column;
-height: 1210px;
+height: 1100px;
 }
 
 .container {
@@ -366,15 +366,18 @@ margin-top:-1rem!important;
 margin:0rem;
 }
 .work-ul{
-margin-top:-1rem!important;
+margin-top:-1.5rem!important;
 margin-left:-.4rem!important;
 flex-direction: column;
 display: flex;
 gap:1rem;
 }
 .skillsAndLevel{
-margin-top:-1rem!important;
+margin-top:-2rem!important;
 margin-left:-.4rem!important;
+}
+.ref-ul{
+  margin-top:-2rem!important;
 }
     `
   }
@@ -388,246 +391,7 @@ margin-left:-.4rem!important;
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Resume</title>
-      <style>
-      body {
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-        box-sizing: border-box;
-        background-color: white;
-    }
-
-    .main {
-        width: 850px;
-        height: 1130px;
-        background-color: white;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-    }
-    
-.Left_container{
-  display: flex;
-  flex-direction: column;
-  height: 1210px;
-}
-
-.container {
-  /* padding: 13px 0 0 0; */
-
-}
-
-.name {
-  color: white;
-}
-
-.hr {
-  margin-left: 0.5rem ; /* 0.5rem */
-  margin-right: 4.375rem; /* 4.375rem */
-  color:white;
-}
-
-.email {
-  color: white;
-}
-
-.phoneIcon {
-  font-size: 12px;
-}
-
-
-.contactInfo {
-  display: flex;
-  gap: .8rem;
-  padding: .3rem;
-  font-size: small;
-  margin-left:-3rem ;
-}
-.skillsHeader {
-  
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-}
-
-.skillsHeader h3{
-  margin-left: 1rem;
-}
-
-.skillsHeader ul{
- list-style: none;
-padding: 0rem 2rem 0rem 1rem;
-
-}
-.skillsHeader ul li{
-display: flex;
-flex-direction: column;
-
-}
-.skillsHeader2{
-    padding: 0!important;
-}
-.skillsHeader2 p{
-  margin: 1rem;
-}
-.skillsHeader2 h2{
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .5rem 2rem;
-  font-weight: 400;
-}
-.skillsHeader2 ul{
-  margin-left: 1.5rem;
-}
-.professionalSkillsHeader ul{
-  margin-left: 1.5rem;
-}
-
-.info_box{
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  padding: 0rem 2rem;
-}
-.info_box h3{
-  margin-left: .5rem;
-}
-
-.educationHeader{
-  padding: 1.5rem;
-}
-.objectiveHeader{
-  padding: 1.5rem;
-  height: 8rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: .5rem;
- margin-bottom: 1rem;
- margin-top: 3rem;
-}
-.workHeader{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: .5rem;
-}
-.skillsHeader2{
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: .5rem;
-}
-.professionalSkillsHeader{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-}
-.professionalSkillsHeader h2{
-  display: flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .5rem 2rem;
-  font-weight: 400;
-}
-
-.img_box{
-  height: 16rem!important;
-  width: 100%!important;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 6rem;
-}
-
-
-.company_name{
-display: flex;
-justify-content: space-between;
-color: #2e89ba;
-}
-.work_des{
-display: flex;
-flex-direction: column;
-gap:.5rem ;
-padding: 0rem 1rem;
-}
-.img_container{
-display: flex;
-align-items: center;
-flex-direction: column;
-justify-content: center;
-height: max-content;
-padding: 1rem;
-background-color: rgb(72, 72, 72);
-gap: .5rem;
-
-}
-.skillsAndLevel{
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
-  gap: .5rem;
-  padding: 1rem!important;
-}
-
-
-.skillsAndLevel li span{
-margin-left: 1rem;
-}
-
-.title_box{
-display: flex;
-width: 100%;
-background-color: white;
-}
-.title_box2{
-display: flex;
-width: 95%;
-align-items:center ;
-gap: .5rem;
-margin-left: 1rem;
-}
-.name-box {
-  width:100%
-}
-.name-box h1,p{
-  margin:0rem;
-}
-.edu-ul{
-  margin-top:-1rem;
-  flex-direction: column;
-  display: flex;
-  gap:.5rem;
-}
-.ref-ul{
-  margin-top:-1rem;
-  flex-direction: column;
-  display: flex;
-  gap:.5rem;
-}
-.para{
-  margin-top:-1rem!important;
-}
-.work_des h3,h5,p{
-  margin:0rem;
-}
-.work-ul{
-  margin-top:-1rem!important;
-  margin-left:-.4rem!important;
-  flex-direction: column;
-  display: flex;
-  gap:1rem;
-}
-.skillsAndLevel{
-  margin-top:-1rem!important;
-  margin-left:-.4rem!important;
-}
-      </style>
+     
     </head>
     
     <body>
@@ -705,6 +469,23 @@ margin-left: 1rem;
         <div class="work_des">
           <h3 class="customerService">${item?.title}</h3>
           <h5 class="company_name"><span>${item?.company} - ${item?.location}</span> <span>${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </span></h5>
+          <p>${item?.description}</p>
+        </div>
+      </li>
+                `).join('')} 
+
+            </ul>
+          </div>
+          <div class="professionalSkillsHeader">
+            <div class="title_box2">
+              <h3>PROJECTS</h3>
+            </div>
+            <ul class="work-ul">
+            ${formData.resume.projects.map((item) => `
+        <li>
+        <div class="work_des">
+          <h3 class="customerService">${item?.title}</h3>
+          <h5 class="company_name"><span>${item?.link}</span> <span>${item?.year} </span></h5>
           <p>${item?.description}</p>
         </div>
       </li>
@@ -994,6 +775,25 @@ const handleDownloadTxt = async () => {
                   <h4 className={styles.customerService}>{item?.title}</h4>
                   <h5 className={styles.company_name}>
                     <span>{item?.company} - {item?.location}</span> <span>        {formatDate(item?.startDate)} - {formatDate(item?.endDate)}</span>
+                  </h5>
+                  <p>{item?.description}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <br/>
+        <div className={styles.professionalSkillsHeader}>
+          <div className={styles.title_box2}>
+            <h3>PROJECTS</h3>
+          </div>
+          <ul className={styles.work_ul}>
+            {formData.resume.projects.map((item) => (
+              <li key={item?.title}>
+                <div className={styles.work_des}>
+                  <h4 className={styles.customerService}>{item?.title}</h4>
+                  <h5 className={styles.company_name}>
+                    <span>{item?.link}</span> <span> {item?.year}</span>
                   </h5>
                   <p>{item?.description}</p>
                 </div>
