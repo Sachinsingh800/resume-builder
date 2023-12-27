@@ -1,18 +1,21 @@
-/* CustomCursor.css */
 .cursor {
     width: 3rem;
     height: 3rem;
-    border-radius: 50%;
-    background-color: aqua;
+    background: black;
     position: absolute;
+    border-radius: 50%;
     transform: translate(-50%, -50%);
     pointer-events: none;
-    transition: transform 0.2s ease-in-out, background 0.2s ease-in-out;
-    z-index: 9999;
+    transition: 0.2s ease-in-out;
+    transition-property: background, transform;
+    transform-origin: 140% 140%;
+    z-index: 99;
     opacity: 0.5;
   }
   
-  .cursor.hover {
+
+.cursor.hover {
+    transform: scale(2);
     background: black;
-  }
-  
+    opacity: 0.5;
+}
