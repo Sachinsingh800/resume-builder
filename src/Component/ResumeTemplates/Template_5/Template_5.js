@@ -384,11 +384,12 @@ margin:0rem;
 margin:0rem;
 }
 .work-ul  {
-margin-left:-.5rem!important;
+margin-left:-2rem!important;
 flex-direction: column;
 display: flex;
 gap:.8rem;
 margin-top:-1rem;
+list-style: none;
 }
 
 .contact-list  div{

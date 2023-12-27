@@ -272,7 +272,7 @@ margin:0rem;
 }
 .certi-ul {
 margin-top:-1rem;
-margin-left:-2.7rem;
+margin-left:-4rem;
 flex-direction: column;
 display: flex;
 gap:.5rem;
@@ -283,6 +283,9 @@ margin:0rem;
 .skill-ul{
 margin-top:-1rem;
 margin-left:-2.5rem;
+flex-direction: column;
+display: flex;
+gap:.5rem;
 }
 .skill-ul li{
   list-style: none;
@@ -294,7 +297,7 @@ width:98%;
 .work-ul{
 
 margin-top:-1rem;
-margin-left:-2.7rem;
+margin-left:-4rem;
 flex-direction: column;
 display: flex;
 gap:.5rem;
@@ -302,6 +305,9 @@ gap:.5rem;
 }
 .work-ul li h4,p{
 margin:0rem;  
+}
+ul{
+  list-style: none;
 }
     `;
   };
@@ -376,6 +382,20 @@ margin:0rem;
                     (item) => `
                 <ul class="skill-ul">
                 <li> ${item?.skills}</li>
+                </ul>
+        `
+                  )
+                  .join("")}
+              
+            </div>
+                <div class="skills">
+                <h3>Languages</h3>
+               
+                ${formData?.resume?.knownLanguages
+                  .map(
+                    (item) => `
+                <ul class="skill-ul">
+                <li> ${item?.lang}</li>
                 </ul>
         `
                   )
@@ -729,7 +749,17 @@ margin:0rem;
             <ul className={style.skill_ul}>
               {formData?.resume?.skillsAndLevel.map((item, index) => (
                 <li key={index}>
-                  <h5>{item?.skills}</h5>
+                  {item?.skills}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className={style.skills}>
+            <h3>Language</h3>
+            <ul className={style.skill_ul}>
+              {formData?.resume?.knownLanguages.map((item, index) => (
+                <li key={index}>
+                  {item?.lang}
                 </li>
               ))}
             </ul>

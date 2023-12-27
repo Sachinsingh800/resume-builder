@@ -311,6 +311,10 @@ hr{
 .section-3{
   margin-top:-4rem;
 }
+.skill_ul{
+  list-style: none;
+  margin-left:-.5rem;
+}
 
     `
   }
@@ -426,6 +430,13 @@ hr{
                     <hr class="divider" />
                     <ul class="skill_ul" >
                     ${formData.resume.skillsAndLevel.map((item) => `<li>${item.skills}</li>`).join('') }
+                    </ul>
+                </div>
+                <div style="color:${color2}">
+                    <h2 class="section-title">LANGUAGES</h2>
+                    <hr class="divider" />
+                    <ul class="skill_ul" >
+                    ${formData.resume.knownLanguages.map((item) => `<li>${item.lang}</li>`).join('') }
                     </ul>
                 </div>
             </div>
@@ -709,6 +720,15 @@ const handleDownloadTxt = async () => {
           <ul className={styles.skill_ul}>
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}>{item.skills}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className={styles.section_title}>LANGUAGES</h2>
+          <hr className={styles.divider} style={{borderColor: "black" ,borderWidth: "1px"}} />
+          <ul className={styles.skill_ul}>
+            {formData.resume.knownLanguages.map((item, index) => (
+              <li key={index}>{item.lang}</li>
             ))}
           </ul>
         </div>

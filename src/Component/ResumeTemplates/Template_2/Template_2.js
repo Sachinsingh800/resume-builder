@@ -311,6 +311,10 @@ height:1rem;
 width:1rem;
 
 }
+ul{
+  list-style: none;
+  margin-left: -2.3rem!important;
+}
   `
 }
 
@@ -372,6 +376,20 @@ width:1rem;
                  
                 <li>
                ${item.skills }
+    
+            </li>
+      
+        `).join('')}
+                   
+                </ul>
+            </div>
+            <div class="skillsHeader">
+                <h3>SKILLS</h3>
+                <ul>
+                ${formData.resume.knownLanguages.map((item) => `
+                 
+                <li>
+               ${item.lang }
     
             </li>
       
@@ -655,6 +673,14 @@ const handleDownloadTxt = async () => {
           <ul>
             {formData.resume.skillsAndLevel.map((item) => (
               <li key={item.skills}>{item.skills}</li>
+            ))}
+          </ul>
+        </div>
+        <div className={style.skillsHeader}>
+          <h3>LANGUAGES</h3>
+          <ul>
+            {formData.resume.knownLanguages.map((item) => (
+              <li key={item.skills}>{item.lang}</li>
             ))}
           </ul>
         </div>
