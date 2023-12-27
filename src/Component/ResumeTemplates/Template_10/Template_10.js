@@ -205,7 +205,7 @@ const Template_10= () => {
   .education h5{
     margin:0rem;
   }
-  .work-des h4,p,h6{
+  .work-des h4,p,h5{
     margin:0rem!important;
   }
   .edu-ul{
@@ -259,8 +259,8 @@ const Template_10= () => {
             <li>
             <div class="work-des">
                 <h4 class="customerService"><span>${item?.title}</span></h4>
-                <h6>${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </h6>
-                <h6 class="company_name"><span>${item?.company} - ${item?.location}</span></h6>
+                <h5>${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </h5>
+                <h5 class="company_name"><span>${item?.company} - ${item?.location}</span></h5>
                 <p> ${item?.description}</p>
             </div>
         </li>
@@ -276,8 +276,8 @@ const Template_10= () => {
             <li>
             <div class="work-des">
                 <h4 class="customerService"><span>${item?.title}</span></h4>
-                <h6>${item?.link}</h6>
-                <h6 class="company_name"><span>${item?.year}</span></h6>
+                <h5>${item?.link}</h5>
+                <h5 class="company_name"><span>${item?.year}</span></h5>
                 <p> ${item?.description}</p>
             </div>
         </li>
@@ -528,8 +528,8 @@ const handleDownloadTxt = async () => {
             <li key={index}>
               <div className={styles.work_des}>
                 <h4 className={styles.customerService}><span>{item?.title}</span></h4>
-                <h6>{formatDate(item?.startDate)} - {formatDate(item?.endDate)}</h6>
-                <h6 className={styles.companyName}><span>{item?.company} - {item?.location}</span></h6>
+                <h5>{formatDate(item?.startDate)} - {formatDate(item?.endDate)}</h5>
+                <h5 className={styles.companyName}><span>{item?.company} - {item?.location}</span></h5>
                 <p>{item?.description}</p>
               </div>
             </li>
@@ -543,8 +543,8 @@ const handleDownloadTxt = async () => {
             <li key={index}>
               <div className={styles.work_des}>
                 <h4 className={styles.customerService}><span>{item?.title}</span></h4>
-                <h6>{item?.link}</h6>
-                <h6 className={styles.companyName}><span>{item?.year}</span></h6>
+                <h5>{item?.link}</h5>
+                <h5 className={styles.companyName}><span>{item?.year}</span></h5>
                 <p>{item?.description}</p>
               </div>
             </li>

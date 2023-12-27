@@ -344,8 +344,8 @@ margin:0rem;
 display:grid;
 grid-template-columns: 1fr ;
 gap:.8rem;
-margin-top:-.5rem;
-margin-left: 1rem;
+margin-top:-2em;
+margin-left: .8rem;
 }
 
 .divider{
@@ -367,19 +367,36 @@ width:100%;
 padding:.2rem;
 list-style:none;
 }
+.skill-list{
+  margin-top:-.5rem;
+  margin-left:-.5rem;
+
+}
 .skill-divider{
 margin-top:-1rem;
 width:80%;
 margin-left: 2rem;
 }
+.lang-list{
+  margin-top:-2rem;
+  margin-left:-.5rem;
+}
 .work-ul{
 margin-top:-1rem;
-margin-left: -1rem!important;
+margin-left: -3rem!important;
 }
 .icon{
 height:1rem;
 width:1rem;
-
+}
+ul{
+  list-style: none;
+}
+.skillsHeader{
+  margin-top:-2rem!important;
+}
+.skill{
+  margin-top:-2rem!important;
 }
     `
   }
@@ -436,7 +453,7 @@ width:1rem;
                         </p>
                     </div>
                 </div>
-    
+               <br/>
                 <div class="skillsHeader">
                     <h3 >EDUCATION</h3>
                     <div class="divider"><hr ></div> 
@@ -466,7 +483,7 @@ width:1rem;
                 <div class="skillsHeader">
                     <h3 >LANGUAGES</h3>
                     <div class="divider"><hr ></div> 
-                    <ul>
+                    <ul class="lang-list">
                     ${formData.resume.knownLanguages.map((item) => `
                 <li >
                 <span>${item?.lang}</span>

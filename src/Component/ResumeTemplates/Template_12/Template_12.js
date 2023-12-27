@@ -199,7 +199,7 @@ const Template_12= () => {
       flex-direction: column;
       gap: 0.25rem; /* Reduced gap */
       padding: 0rem 1rem;
-      height: 945px;
+      height: 954px;
   }
 
   .right_section p {
@@ -283,6 +283,7 @@ const Template_12= () => {
       flex-direction: column;
       justify-content: center;
       padding: 2rem 1rem;
+      height:5rem;
   }
 
   .section {
