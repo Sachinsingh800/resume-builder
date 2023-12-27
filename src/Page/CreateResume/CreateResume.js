@@ -39,6 +39,7 @@ import { getAllAreaofInterest, getAllLanguages, getAllSkills, getAllSummary } fr
 import { useSound } from 'use-sound';
 import clickSound from "../../Sounds/Click.mp3"
 import MobileViewModal from "../../Component/MobileViewModal/MobileViewModal";
+import CustomCursor from "../../Component/CustomCursor/CustomCursor";
 
 function CreateResume() {
   
@@ -260,7 +261,7 @@ console.log(resumeType,"type ")
   return (
     <div className={style.main}>
       <NavBar />
-    
+      <CustomCursor />
       <div className={style.container}>
    
         <div className={style.left_box}>

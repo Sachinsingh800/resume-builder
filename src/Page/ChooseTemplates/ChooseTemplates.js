@@ -9,6 +9,7 @@ import clickSound from "../../Sounds/Click.mp3"
 
 import { imageresumeTemplates ,chooseTemplates} from '../../Recoil'
 import { useRecoilState } from 'recoil'
+import CustomCursor from '../../Component/CustomCursor/CustomCursor'
 
 
 
@@ -34,7 +35,7 @@ function ChooseTemplates() {
   return (
     <div className={style.main}>
         <NavBar/>
-     
+        <CustomCursor />
       <div className={style.container}>
       <h1>What do you want your resume to look like ?</h1>
       <p>View all resume template and select a specific style to customize</p>

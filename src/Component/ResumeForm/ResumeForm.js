@@ -4,6 +4,7 @@ import NavBar from '../NavBar/NavBar'
 import { Link } from 'react-router-dom'
 import { resumeType } from '../../Recoil'
 import { useRecoilState } from 'recoil'
+import CustomCursor from '../CustomCursor/CustomCursor'
 
 function ResumeForm() {
  
@@ -13,6 +14,7 @@ function ResumeForm() {
   return (
     <div className={style.main}>
         <NavBar/>
+        <CustomCursor />
         <br/>
         <br/>
         <br/>

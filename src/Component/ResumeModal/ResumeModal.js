@@ -9,6 +9,7 @@ import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import { resumeTemplates, chooseTemplates, imageresumeTemplates, modalValue, resumeTemplatesForFresher } from '../../Recoil';
 import Fonts from '../Fonts/Fonts';
+import CustomCursor from '../CustomCursor/CustomCursor';
 
 const style = {
   position: 'absolute',
