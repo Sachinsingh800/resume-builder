@@ -50,7 +50,7 @@ const CustomCursor = () => {
       style={{
         top: `${cursorPosition.y}px`,
         left: `${cursorPosition.x}px`,
-        transform: `scale(${isHovered ? 2 : 1})`,
+        transform: `scale(${isHovered ? 1.5 : 1})`,
       }}
     ></div>
   );
