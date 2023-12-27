@@ -350,7 +350,7 @@ const handleResume = async () => {
 
   try {
     const response = await axios.post(
-      "http://3.144.48.243/api/convert",
+      "https://3.144.48.243/api/convert",
       {
         html: getHTML(),
         cssStyles: getCSS(), // Include your CSS data here
