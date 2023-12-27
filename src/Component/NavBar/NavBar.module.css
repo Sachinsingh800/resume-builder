@@ -128,10 +128,21 @@ color: blue;
    color: black;
    top: 80%;
    right: 8%;
-   padding: 1rem;
+   padding: 1rem 2rem;
    animation: slideDown 1s ease forwards; 
    border-radius: 5px ;
    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+   display: flex;
+   flex-direction: column;
+   gap: .5rem;
+
+  }
+  .logout_box p{
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .logout_box p:hover{
+    color: blue;
   }
   .user{
     color: rgb(41, 41, 41);

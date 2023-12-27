@@ -5,12 +5,14 @@ import Home from './Page/Home/Home';
 import FirstSection from './Sections/FirstSection/FirstSection';
 import Footer from './Component/Footer/Footer';
 import SecondSection from './Sections/SecondSection/SecondSection';
+import CustomCursor from './Component/CustomCursor/CustomCursor';
 
 
 function App() {
 
   return (
     <div className="App">
+      <CustomCursor />
       <NavBar/>
       <Home/>
       <FirstSection/>
