@@ -2,9 +2,9 @@ import React from "react";
 import style from "./Footer.module.css";
 import logo from "../Images/logo.png";
 import { Link } from "react-router-dom";
-import { BsInstagram } from "react-icons/bs";
+import { AiFillInstagram } from "react-icons/ai";
 // import { BsFacebook } from "react-icons/bs";
-import { BsTwitter } from "react-icons/bs";
+import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
 
@@ -96,29 +96,22 @@ function Footer() {
       </div>
       <hr />
       <div className={style.bottomBox}>
-        <h5 onClick={() => handleClicked("https://www.instagram.com/easyryt/")}>
-          <BsInstagram />
-        </h5>
-        <h5
-          onClick={() =>
-            handleClicked("https://www.facebook.com/easyrytofficial/")
-          }
-        >
-          {/* <BsFacebook /> */}
-        </h5>
-        <h5 onClick={() => handleClicked("https://twitter.com/EasyRyt")}>
-          <BsTwitter />
-        </h5>
-        <h5
+        <span onClick={() => handleClicked("https://www.instagram.com/easyryt/")}>
+          <AiFillInstagram />
+        </span>
+        <span onClick={() => handleClicked("https://twitter.com/EasyRyt")}>
+          <AiOutlineTwitter  />
+        </span>
+        <span
           onClick={() =>
             handleClicked("https://www.linkedin.com/company/easyryt")
           }
         >
           <AiFillLinkedin />
-        </h5>
-        <h5 onClick={() => handleClicked("https://www.youtube.com/@easyryt")}>
+        </span>
+        <span onClick={() => handleClicked("https://www.youtube.com/@easyryt")}>
           <AiFillYoutube />
-        </h5>
+        </span>
       </div>
     </div>
   );

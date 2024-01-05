@@ -6,17 +6,14 @@
 .containermain{
  display: flex;
  flex-direction: column;
- background: rgb(0,0,0);
- background: linear-gradient(90deg, rgba(0,0,0,1) 48%, rgba(36,34,30,1) 100%, rgba(255,252,252,1) 100%);
- color: white;
+ background-color: white;
  align-items: center;
- padding: 2rem 0rem;
+ padding: 2rem 0rem!important;
 }
 .main{
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    color: white;
-    padding: 1rem 3rem;
+    padding: 1rem 3rem!important;
     width: 100vw;
     place-content: center;
 }
@@ -24,18 +21,17 @@
  text-align: left;
 }
 .main div h4{
- margin-left: 6%;
+ margin-left: 6%!important;
 }
 .ul {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px!important;
     gap: 2rem;
   }
   
   .ul li {
     display: inline-block;
-    color:white;
     text-decoration: none;
     text-align: left;
     width: max-content;
@@ -57,22 +53,21 @@
   
   .img{
     height: 4rem;
-    filter: invert(100%);
-    -webkit-filter: invert(100%);
+
 }
 
 .address{
-   margin-top: -2rem;
+   margin-top: -2rem!important;
    width: 13rem!important;
 }
 .paragraph{
-  margin-left: .8rem;
-  margin-top: 1rem;
+  margin-left: .8rem!important;
+  margin-top: 1rem!important;
 text-justify: newspaper;
   width: 23rem;
 }
 .logobox{
-  padding: 0rem 1rem;
+  padding: 0rem 1rem!important;
 }
 @media (max-width:800px){
     .main{
@@ -87,18 +82,18 @@ text-justify: newspaper;
 }
 hr{
   width: 90%;
-  margin-top: -2rem;
+  margin-top: -1rem!important;
+  color: black!important;
 }
 .bottomBox{
   display: flex;
-  gap: 2rem;
- margin-left: 50rem;
-
+  gap: 5rem;
+  padding: .5rem;
 }
-.bottomBox h5{
+.bottomBox span{
   transition: color 0.3s ease-in-out;
 }
-.bottomBox h5:hover{
+.bottomBox span:hover{
        color: orange;
        transform: scale(1.1);
 }
