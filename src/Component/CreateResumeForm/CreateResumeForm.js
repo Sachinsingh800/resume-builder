@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from 'react-router-dom';
 import { useSound } from 'use-sound';
 import clickSound from "../../Sounds/Click.mp3"
+import TextField from '@mui/material/TextField';
 
 
 const ResumeForm = () => {
@@ -830,7 +831,11 @@ const closeModal = () => {
     {/* Education */}
     {resume.education.map((education, index) => (
       <div key={index} >
-        <h2>Education {index + 1}</h2>
+        <h2>Education {index + 1}         <div className={style.dele_btn}>
+          {resume.education.length > 0 && (
+        <button  onClick={() => handleDeleteEducation(index)}><AiFillDelete/></button>
+      )}
+          </div></h2>
         <div className={style.section_2}>
           <div>
             <label htmlFor={`degree-${index}`}>Degree:</label>
@@ -948,15 +953,11 @@ const closeModal = () => {
             />
  
           </div>
-          <div className={style.dele_btn}>
-          {resume.education.length > 1 && (
-        <button  onClick={() => handleDeleteEducation(index)}><AiFillDelete/></button>
-      )}
-          </div>
+  
         </div>
         <div className={style.add_btn}>
         {index === resume.education.length - 1 && (
-        <button onClick={handleAddEducation}>Add</button>
+        <button onClick={handleAddEducation}>+</button>
       )}
         </div>
      
@@ -981,11 +982,11 @@ const closeModal = () => {
       <div key={index}>
          
     
-        <h2 className={style.section_3_h2}>
+        <h2 >
           <div>  Work Experience {index + 1}</div>
         
-          <div className={style.dele_btn3}>
-          {resume.work.length > 1 && (
+          <div className={style.dele_btn}>
+          {resume.work.length > 0 && (
         <button onClick={() => handleDeleteWork(index)}><AiFillDelete/></button>
       )}
           </div>
@@ -1134,7 +1135,7 @@ const closeModal = () => {
         </div>
         <div className={style.add_btn}>
         {index === resume.work.length - 1 && (
-        <button onClick={handleAddWork}>Add</button>
+        <button onClick={handleAddWork}>+</button>
       )}
       </div>
       </div>
@@ -1151,7 +1152,12 @@ const closeModal = () => {
     {/* Skills and Level */}
     {resume.skillsAndLevel.map((skill, index) => (
       <div key={index}>
-        <h2>Skills and Level {index + 1}</h2>
+        <h2 >Skills and Level {index + 1}
+        <div className={style.dele_btn}>
+            {resume.skillsAndLevel.length > 0 && (
+        <button onClick={() => handleDeleteSkills(index)}><AiFillDelete/></button>
+      )}
+            </div></h2>
         <div className={style.section_4}>
           <div>
             <label htmlFor={`skills-${index}`}>Skills:</label>
@@ -1198,16 +1204,12 @@ const closeModal = () => {
                 });
               }}
             />
-            <div className={style.dele_btn}>
-            {resume.skillsAndLevel.length > 1 && (
-        <button onClick={() => handleDeleteSkills(index)}><AiFillDelete/></button>
-      )}
-            </div>
+ 
           </div>
         </div>
         <div className={style.add_btn}>
         {index === resume.skillsAndLevel.length - 1 && (
-        <button onClick={handleAddSkills}>Add</button>
+        <button onClick={handleAddSkills}>+</button>
       )}
         </div>
     
@@ -1225,12 +1227,12 @@ const closeModal = () => {
     {/* Internships */}
     {resume.internShips.map((internship, index) => (
       <div key={index}>
-        <h2>Internship {index + 1}</h2>
-        <div className={style.dele_btn5}>
-            {resume.internShips.length > 1 && (
+        <h2>Internship {index + 1}         <div className={style.dele_btn}>
+            {resume.internShips.length > 0 && (
         <button onClick={() => handleDeleteInternship(index)}><AiFillDelete/></button>
       )}
-            </div>
+            </div></h2>
+
         <div className={style.section_5}>
           
           <div>
@@ -1375,7 +1377,7 @@ const closeModal = () => {
         </div>
         <div className={style.add_btn}>
         {index === resume.internShips.length - 1 && (
-        <button onClick={handleAddInternship}>Add</button>
+        <button onClick={handleAddInternship}>+</button>
       )}
         </div>
       </div>
@@ -1395,12 +1397,12 @@ const closeModal = () => {
     {/* Projects */}
     {resume.projects.map((project, index) => (
       <div key={index}>
-        <h2>Project {index + 1}</h2>
-        <div className={style.dele_btn6}>
-            {resume.projects.length > 1 && (
+        <h2>Project {index + 1}    <div className={style.dele_btn}>
+            {resume.projects.length > 0 && (
         <button onClick={() => handleDeleteProject(index)}><AiFillDelete/></button>
       )}
-            </div>
+            </div></h2>
+     
         <div>
           <label htmlFor={`title-${index}`}>Title:</label>
           <input
@@ -1500,7 +1502,7 @@ const closeModal = () => {
         </div>
         <div className={style.add_btn}>
         {index === resume.projects.length - 1 && (
-        <button onClick={handleAddProject}>Add</button>
+        <button onClick={handleAddProject}>+</button>
       )}
    
         </div>
@@ -1630,8 +1632,8 @@ const closeModal = () => {
             });
           }}
         />
-        <div className={style.dele_btn8}>
-        {resume.knownLanguages.length > 1 && (
+        <div className={style.dele_btn}>
+        {resume.knownLanguages.length > 0 && (
       <button onClick={() => handleDeleteLanguage(index)}><AiFillDelete/></button>
     )}
         </div>
@@ -1640,7 +1642,7 @@ const closeModal = () => {
     
        <div className={style.add_btn}>
       {index === resume.knownLanguages.length - 1 && (
-      <button onClick={handleAddLanguage}>Add</button>
+      <button onClick={handleAddLanguage}>+</button>
     )}
       </div>
  
@@ -1666,10 +1668,8 @@ const closeModal = () => {
       <div key={index}>
  
         <h2><div>Certification {index + 1}</div>
-        <br/>
-        <br/>
-        <div className={style.dele_btn9}>
-              {resume.certifications.length > 1 && (
+        <div className={style.dele_btn}>
+              {resume.certifications.length > 0 && (
         <button onClick={() => handleDeleteCertification(index)}><AiFillDelete/></button>
       )}
         </div>
@@ -1752,7 +1752,9 @@ const closeModal = () => {
         </div>
        <div className={style.add_btn}>
        {index === resume.certifications.length - 1 && (
-        <button onClick={handleAddCertification}>Add</button>
+        <button onClick={handleAddCertification}>
+          +
+        </button>
       )}
        </div>
    
@@ -1779,8 +1781,8 @@ const closeModal = () => {
         <div>    Award {index + 1}</div>
         <br/>
         <br/>
-        <div className={style.dele_btn10}>
-      {resume.awards.length > 1 && (
+        <div className={style.dele_btn}>
+      {resume.awards.length > 0 && (
         <button onClick={() => handleDeleteAward(index)}><AiFillDelete/></button>
       )}
       </div>
@@ -1863,7 +1865,7 @@ const closeModal = () => {
         </div>
         <div className={style.add_btn}>
         {index === resume.awards.length - 1 && (
-        <button onClick={handleAddAward}>Add</button>
+        <button onClick={handleAddAward}>+</button>
       )}
         </div>
  
@@ -1886,8 +1888,8 @@ const closeModal = () => {
         <h2 className={style.section_11_h2}>
           <div>Volunteer Experience {index + 1}</div>
       
-          <div className={style.dele_btn11}>
-          {resume.volunteerExperience.length > 1 && (
+          <div className={style.dele_btn}>
+          {resume.volunteerExperience.length > 0 && (
         <button onClick={() => handleDeleteVolunteer(index)}><AiFillDelete/></button>
       )} 
           </div>
@@ -2035,7 +2037,7 @@ const closeModal = () => {
         </div>
         <div className={style.add_btn}>
         {index === resume.volunteerExperience.length - 1 && (
-        <button onClick={handleAddVolunteer}>Add</button>
+        <button onClick={handleAddVolunteer}>+</button>
       )}
         </div>
  
@@ -2058,9 +2060,7 @@ const closeModal = () => {
         
         <h2 className={style.section_12_h2}>
         <div>Areas of Interest {index + 1}</div>
-        <br/>
-        <br/>
-        <div className={style.dele_btn12}>
+        <div className={style.dele_btn}>
         {resume.areaOfInterest.length > 1 && (
         <button onClick={() => handleDeleteInterest(index)}><AiFillDelete/></button>
       )}
@@ -2092,7 +2092,7 @@ const closeModal = () => {
    
         <div className={style.add_btn}>
         {index === resume.areaOfInterest.length - 1 && (
-        <button onClick={handleAddInterest}>Add</button>
+        <button onClick={handleAddInterest}>+</button>
       )}
         </div>
       </div>
@@ -2117,7 +2117,7 @@ const closeModal = () => {
           Reference {index + 1}
           </div>
  
-          <div className={style.dele_btn13}>
+          <div className={style.dele_btn}>
         {resume.references.length > 1 && (
         <button onClick={() => handleDeleteReference(index)}><AiFillDelete/></button>
       )}
@@ -2244,7 +2244,7 @@ const closeModal = () => {
    
         <div className={style.add_btn}>
         {index === resume.references.length - 1 && (
-        <button onClick={handleAddReference}>Add</button>
+        <button onClick={handleAddReference}>+</button>
       )}
         </div>
       </div>
