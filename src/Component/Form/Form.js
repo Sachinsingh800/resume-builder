@@ -27,7 +27,7 @@ export default function Form() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
 
-  const [showAlert, setShowAlert] = useState(false);
+
 
   const handleSignIn = async (e) => {
     setLoading(true);
@@ -61,6 +61,7 @@ export default function Form() {
 
         if (
           errorMessage === "Email is not verified. Please verify your email"
+          
         ) {
           setShowOtpModal(true);
         }
@@ -68,6 +69,7 @@ export default function Form() {
         // Network error (e.g., no internet connection)
         errorMessage = error.message;
         console.log("Network Error:", errorMessage);
+        alert("Something went Wrong")
       }
     } finally {
       setLoading(false);
@@ -76,6 +78,7 @@ export default function Form() {
   };
 
   const handleSignUp = async (e) => {
+    setLoading(true)
     e.preventDefault();
     let errorMessage;
 
@@ -90,7 +93,7 @@ export default function Form() {
 
       // Log the response data
       console.log("Sign In Response:", { status, message, data });
-
+  
       setShowOtpModal(true);
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
@@ -103,11 +106,15 @@ export default function Form() {
 
         // Log the error message as a string
         console.log("Error Message:", JSON.stringify(errorMessage));
+        alert("Something went Wrong")
       } else {
-        // Network error (e.g., no internet connection)
+        alert("Something went Wrong")
         errorMessage = error.message;
         console.log("Network Error:", errorMessage);
       }
+    }finally{
+      setLoading(false)
+      alert("SignUp successfully")
     }
   };
 
@@ -120,33 +127,37 @@ export default function Form() {
   };
 
   const handleOtpVerification = async () => {
+    setLoading(true)
     const OTP = {
       email: formData.email,
       otp: otp,
     };
 
     try {
-      // Assuming verifyOtp function takes the email and OTP as parameters
       await otpverification(OTP);
-      // Close the OTP modal on successful verification
       setShowOtpModal(false);
-      // Swal.fire("Success!", "OTP verified successfully", "success");
     } catch (error) {
-      // Swal.fire("Oops!", "Invalid OTP", "error");
+      alert("Invalid OTP")
+    }finally{
+      setLoading(false)
+      alert("OTP verified successfully")
     }
   };
 
   const handleResendOtp = async () => {
+    setLoading(true)
     const resendOtp = {
       email: formData.email,
     };
 
     try {
-      // Assuming sendOtp function takes the email as a parameter
+
       await sendOtp(resendOtp);
-      // Swal.fire("Success!", "OTP resent successfully", "success");
     } catch (error) {
-      // Swal.fire("Oops!", "Failed to resend OTP", "error");
+      alert("Failed to resend OTP")
+    }finally{
+      setLoading(false)
+      alert("OTP resent successfully")
     }
   };
 

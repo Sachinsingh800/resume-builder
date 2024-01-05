@@ -12,7 +12,7 @@ function NavBar() {
   const [isUserHovered, setIsUserHovered] = useState(false);
   const authToken = JSON.parse(localStorage.getItem('token'));
   const [user, setUser] = useState([]);
-
+console.log(user.name,"sdsadsa")
   
   const naviagte=useNavigate()
 
@@ -32,6 +32,9 @@ function NavBar() {
       }
     } catch (error) {
       console.error('Error fetching user profile:', error.message);
+    }finally{
+     const userData=JSON.parse(localStorage.getItem('user'))
+      setUser(userData);
     }
   };
 
