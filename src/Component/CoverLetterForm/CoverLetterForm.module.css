@@ -18,6 +18,12 @@
     font-family: Arial, Helvetica, sans-serif;
     
 }
+.form input:focus{
+  border: 1px rgb(0, 225, 255) solid;
+}
+.form textarea:focus{
+  border: 1px rgb(0, 225, 255) solid;
+}
 .header_bar{
     display: flex;
     flex-direction: column;

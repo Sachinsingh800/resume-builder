@@ -42,7 +42,7 @@
     display: block;
     width: 0;
     height: 3px;
-    background: rgb(255, 149, 0);
+    background: rgb(0, 255, 255);
     transition: width 0.4s ease-in;
   }
   
@@ -94,7 +94,7 @@ hr{
   transition: color 0.3s ease-in-out;
 }
 .bottomBox span:hover{
-       color: orange;
+       color: rgb(0, 217, 255);
        transform: scale(1.1);
 }
 @media (max-width:500px){

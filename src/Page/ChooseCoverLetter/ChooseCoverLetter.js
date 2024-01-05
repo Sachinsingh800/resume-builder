@@ -32,8 +32,10 @@ function ChooseCoverLetter() {
       <NavBar />
       <CustomCursor />
       <div className={style.container}>
+        <div className={style.heading_box}>
         <h1>What do you want your resume to look like ?</h1>
         <p>View all resume template and select a specific style to customize</p>
+        </div>
         <div className={style.template_box}>
           {template.map((item, id) => (
             <div className={style.template_card} key={id}>

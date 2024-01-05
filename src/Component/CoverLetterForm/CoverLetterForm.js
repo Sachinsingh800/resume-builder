@@ -433,8 +433,8 @@ const CoverLetterForm = () => {
      
       {section === 4 ? 
              <div className={style.btn_box}>
+                   <button onClick={() => handleSection('prev')}>Previous</button>
                   <button onClick={handleSubmit}>Submit</button>
-                  <button onClick={() => handleSection('prev')}>Previous</button>
              </div>
   
       :
