@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    cursor: none;
 }
 .nav_Bar{
     position:absolute;

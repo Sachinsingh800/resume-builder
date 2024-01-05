@@ -13,6 +13,7 @@ import NavBar from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CustomLoader from "../CustomLoader/CustomLoader";
+import CustomCursor from "../CustomCursor/CustomCursor";
 
 export default function Form() {
   const [loading, setLoading] = useState(false);
@@ -163,6 +164,7 @@ export default function Form() {
 
   return (
     <div className={style.main}>
+      <CustomCursor/>
       {loading && <CustomLoader />}
       <div className={style.nav_Bar}>
         <NavBar />

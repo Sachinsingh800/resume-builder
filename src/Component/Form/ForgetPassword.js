@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import styles from "./ForgetPassword.module.css";
 import NavBar from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
+import CustomLoader from "../CustomLoader/CustomLoader";
+import CustomCursor from "../CustomCursor/CustomCursor";
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("");
@@ -81,6 +83,9 @@ const navigate = useNavigate()
 
   return (
     <div className={styles.container}>
+      <CustomCursor/>
+      {loading &&   <CustomLoader/>}
+    
       <div className={styles.navBar}>
         <NavBar />
       </div>
@@ -96,10 +101,11 @@ const navigate = useNavigate()
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </label>
             <button className={styles.formButton} type="submit" disabled={loading}>
-              {loading ? "Sending..." : "Send OTP"}
+              send
             </button>
           </form>
         </div>
@@ -113,9 +119,10 @@ const navigate = useNavigate()
              <span>OTP:</span> 
               <input
                 className={styles.formInput}
-                type="text"
+                type="number"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
+                required
               />
             </label>
 
@@ -126,6 +133,7 @@ const navigate = useNavigate()
                 type="password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
+                required
               />
             </label>
             <label className={styles.formLabel}>
@@ -135,10 +143,11 @@ const navigate = useNavigate()
                 type="email"
                 value={email}
                 onChange={(e) => setNewPassword(e.target.value)}
+                required
               />
             </label>
             <button className={styles.formButton} type="submit" disabled={loading}>
-              {loading ? "Updating..." : "Reset Password"}
+             update
             </button>
           </form>
         </div>
