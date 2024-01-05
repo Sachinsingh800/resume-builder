@@ -15,14 +15,14 @@
   .cursor-dot {
     width: 8px;
     height: 8px;
-    background-color: #0794ad;
+    background-color: #077394;
     z-index: 999;
   }
   
   .cursor-dot-outline {
     width: 40px;
     height: 40px;
-    background-color: #55dff8;
+    background-color: rgba(128, 214, 229, 0.5);
   }
   
   .links-container {
