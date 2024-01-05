@@ -19,13 +19,13 @@ export const SignUpContainer = styled.div`
   left: 0 !important;
   width: 50% !important;
   opacity: 0 !important;
-  z-index: 1 !important;
+ 
   ${props =>
     props.signingIn !== true
       ? `
     transform: translateX(100%) !important;
     opacity: 1 !important;
-    z-index: 5 !important;
+
     `
       : null}
 `;
@@ -37,7 +37,6 @@ export const SignInContainer = styled.div`
   transition: all 0.6s ease-in-out !important;
   left: 0 !important;
   width: 50% !important;
-  z-index: 2 !important;
   ${props => (props.signingIn !== true ? `transform: translateX(100%) !important;` : null)}
 `;
 
@@ -104,7 +103,6 @@ export const OverlayContainer = styled.div`
   height: 100% !important;
   overflow: hidden !important;
   transition: transform 0.6s ease-in-out !important;
-  z-index: 100 !important;
   ${props =>
     props.signingIn !== true ? `transform: translateX(-100%) !important;` : null}
 `;

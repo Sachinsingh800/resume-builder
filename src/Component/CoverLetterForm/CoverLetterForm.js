@@ -93,11 +93,9 @@ const CoverLetterForm = () => {
 <div className={style.container}>
 
     <div className={style.header_bar}>
+      <br/>
     <h2>Create Your Cover Letter</h2>
-<br/>
-
     </div>
-
       <br/>
 <form className={style.form}>
 
@@ -375,7 +373,6 @@ const CoverLetterForm = () => {
     
 {section === 4 &&
     <section className={style.section_4}>  
-    {/* Additional Details */}
 <label>
  Availability:
  <textarea

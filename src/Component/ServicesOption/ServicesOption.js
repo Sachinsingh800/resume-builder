@@ -52,7 +52,6 @@ export default function ServicesOptionList() {
       <div  className={style.Loader}>
       {allCategory.length === 0 ? <Loader /> : null}
       </div>
-    
       <ul className={style.category}>
         {allCategory.map((item, index) => (
           <li

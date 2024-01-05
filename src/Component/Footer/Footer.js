@@ -94,7 +94,7 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <hr />
+      <hr  className={style.bottom_hr} style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
       <div className={style.bottomBox}>
         <span onClick={() => handleClicked("https://www.instagram.com/easyryt/")}>
           <AiFillInstagram />
