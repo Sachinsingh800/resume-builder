@@ -3,13 +3,19 @@ import ReactDOM from "react-dom";
 import * as Components from "./Components";
 import "./styles.css";
 import style from "./Form.module.css";
-import { registration, signInuser, sendOtp, otpverification,  } from "../../Api/Api"; // Assuming you have API functions for OTP
-import Swal from "sweetalert2";
+import {
+  registration,
+  signInuser,
+  sendOtp,
+  otpverification,
+} from "../../Api/Api"; // Assuming you have API functions for OTP
 import NavBar from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CustomLoader from "../CustomLoader/CustomLoader";
 
 export default function Form() {
+  const [loading, setLoading] = useState(false);
   const [signIn, toggle] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
@@ -21,37 +27,28 @@ export default function Form() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
 
- 
-
-
-
-
-
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleSignIn = async (e) => {
+    setLoading(true);
     e.preventDefault();
     let errorMessage;
-  
+
     try {
       const response = await axios.post(
         `https://lizmyresume.onrender.com/user/auth/logIn`,
         formData
       );
-  
+
       // Assuming the API returns a JSON response with status and message
       const { status, message, data } = response.data;
-  
-      Swal.fire("Success!", "Login successfully", "success");
-      
+
       // Corrected localStorage.setItem syntax
       localStorage.setItem("token", JSON.stringify(data));
-      
+
       // Assuming you are using react-router-dom for navigation
       // Corrected the navigate method
       // Make sure to import 'useHistory' from 'react-router-dom'
-    
-      navigate("/");
-  
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
       if (axios.isAxiosError(error)) {
@@ -60,59 +57,59 @@ export default function Form() {
         // Set the error message
         errorMessage = response?.data?.message;
         // Log the error message as a string
-        console.log('Error Message:', JSON.stringify(errorMessage));
-        Swal.fire("Oops!", JSON.stringify(errorMessage), "error");
-        if (errorMessage === "Email is not verified. Please verify your email") {
+        console.log("Error Message:", JSON.stringify(errorMessage));
+
+        if (
+          errorMessage === "Email is not verified. Please verify your email"
+        ) {
           setShowOtpModal(true);
         }
-  
       } else {
         // Network error (e.g., no internet connection)
         errorMessage = error.message;
-        console.log('Network Error:', errorMessage);
+        console.log("Network Error:", errorMessage);
       }
+    } finally {
+      setLoading(false);
+      navigate("/");
     }
   };
-  
-
 
   const handleSignUp = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     let errorMessage;
-  
+
     try {
-      const response = await axios.post(`https://lizmyresume.onrender.com/user/auth/register`, formData);
-  
+      const response = await axios.post(
+        `https://lizmyresume.onrender.com/user/auth/register`,
+        formData
+      );
+
       // Assuming the API returns a JSON response with status and message
       const { status, message, data } = response.data;
-  
+
       // Log the response data
-      console.log('Sign In Response:', { status, message, data });
-      Swal.fire("Success!", "Registration successfully", "success");
+      console.log("Sign In Response:", { status, message, data });
+
       setShowOtpModal(true);
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
       if (axios.isAxiosError(error)) {
         // Axios error (HTTP error)
         const { response } = error;
-  
+
         // Set the error message
         errorMessage = response?.data?.message;
-  
+
         // Log the error message as a string
-        console.log('Error Message:', JSON.stringify(errorMessage));
-        Swal.fire("Oops!", JSON.stringify(errorMessage), "error");
+        console.log("Error Message:", JSON.stringify(errorMessage));
       } else {
         // Network error (e.g., no internet connection)
         errorMessage = error.message;
-        console.log('Network Error:', errorMessage);
+        console.log("Network Error:", errorMessage);
       }
     }
-  
   };
-
-
-  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -123,40 +120,39 @@ export default function Form() {
   };
 
   const handleOtpVerification = async () => {
-    const OTP={
+    const OTP = {
       email: formData.email,
-      otp:otp
-    }
- 
-   
+      otp: otp,
+    };
+
     try {
       // Assuming verifyOtp function takes the email and OTP as parameters
       await otpverification(OTP);
       // Close the OTP modal on successful verification
       setShowOtpModal(false);
-      Swal.fire("Success!", "OTP verified successfully", "success");
+      // Swal.fire("Success!", "OTP verified successfully", "success");
     } catch (error) {
-      Swal.fire("Oops!", "Invalid OTP", "error");
+      // Swal.fire("Oops!", "Invalid OTP", "error");
     }
   };
 
   const handleResendOtp = async () => {
-    const resendOtp= 
-      {
-        email: formData.email
-      }
-    
+    const resendOtp = {
+      email: formData.email,
+    };
+
     try {
       // Assuming sendOtp function takes the email as a parameter
       await sendOtp(resendOtp);
-      Swal.fire("Success!", "OTP resent successfully", "success");
+      // Swal.fire("Success!", "OTP resent successfully", "success");
     } catch (error) {
-      Swal.fire("Oops!", "Failed to resend OTP", "error");
+      // Swal.fire("Oops!", "Failed to resend OTP", "error");
     }
   };
 
   return (
     <div className={style.main}>
+      {loading && <CustomLoader />}
       <div className={style.nav_Bar}>
         <NavBar />
       </div>
@@ -186,7 +182,9 @@ export default function Form() {
               value={formData.password}
               onChange={handleInputChange}
             />
-            <Components.Button onClick={handleSignUp}>Sign Up</Components.Button>
+            <Components.Button onClick={handleSignUp}>
+              Sign Up
+            </Components.Button>
           </Components.Form>
         </Components.SignUpContainer>
 
@@ -207,8 +205,12 @@ export default function Form() {
               value={formData.password}
               onChange={handleInputChange}
             />
-            <Components.Anchor href="/ForgetPassword">Forgot your password?</Components.Anchor>
-            <Components.Button onClick={handleSignIn}>Sign In</Components.Button>
+            <Components.Anchor href="/ForgetPassword">
+              Forgot your password?
+            </Components.Anchor>
+            <Components.Button onClick={handleSignIn}>
+              Sign In
+            </Components.Button>
           </Components.Form>
         </Components.SignInContainer>
 
@@ -219,14 +221,18 @@ export default function Form() {
               <Components.Paragraph>
                 To keep connected with us, please login with your personal info
               </Components.Paragraph>
-              <Components.GhostButton onClick={() => toggle(true)}>Sign In</Components.GhostButton>
+              <Components.GhostButton onClick={() => toggle(true)}>
+                Sign In
+              </Components.GhostButton>
             </Components.LeftOverlayPanel>
             <Components.RightOverlayPanel signingIn={signIn}>
               <Components.Title>Hello, Friend!</Components.Title>
               <Components.Paragraph>
                 Enter your personal details and start the journey with us
               </Components.Paragraph>
-              <Components.GhostButton onClick={() => toggle(false)}>Sign Up</Components.GhostButton>
+              <Components.GhostButton onClick={() => toggle(false)}>
+                Sign Up
+              </Components.GhostButton>
             </Components.RightOverlayPanel>
           </Components.Overlay>
         </Components.OverlayContainer>

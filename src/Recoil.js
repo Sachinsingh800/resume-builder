@@ -1065,6 +1065,14 @@ export const selectedValue2= atom({
   key: 'selectedValue2',
   default:""
 });
+export const modalVisible= atom({
+  key: 'modalVisible',
+  default:false,
+});
+export const modalMessage= atom({
+  key: 'modalMessage',
+  default:"",
+});
 
 
 
