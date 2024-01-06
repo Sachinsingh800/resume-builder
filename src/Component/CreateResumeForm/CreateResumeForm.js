@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSound } from 'use-sound';
 import clickSound from "../../Sounds/Click.mp3"
 import TextField from '@mui/material/TextField';
+import CustomLoader from '../CustomLoader/CustomLoader';
 
 
 const ResumeForm = () => {
@@ -21,7 +22,7 @@ const ResumeForm = () => {
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
 const [resumeImg,setResumeImg] = useState([])
 const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
-
+const [loading, setLoading] = useState(false);
 
   const [progress, setProgress] = useState(0);
   const navigate= useNavigate()
@@ -91,6 +92,7 @@ const closeModal = () => {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     e.stopPropagation();
 
@@ -132,19 +134,21 @@ const closeModal = () => {
       const { status, message } = response.data;
   
       if (status) {
-        Swal.fire("Good job!", "Resume Created", "success");
+        // Swal.fire("Good job!", "Resume Created", "success");
       } else {
-        Swal.fire("Oops!", "Something went wrong", "error");
+        // Swal.fire("Oops!", "Something went wrong", "error");
         // Handle update error
       }
     } catch (error) {
       if (authToken) {
-        Swal.fire("Good job!", "Resume Created", "success");
+        // Swal.fire("Good job!", "Resume Created", "success");
       } else {
-        Swal.fire("Oops!", "Something went wrong", "error");
+        // Swal.fire("Oops!", "Something went wrong", "error");
         navigate("/Form");
       }
       // Handle update error
+    }finally{
+      setLoading(false)
     }
   };
 
@@ -234,7 +238,8 @@ const closeModal = () => {
     }
   };
 
-  const handleAddLanguage = () => {
+  const handleAddLanguage = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.knownLanguages = [
@@ -255,7 +260,8 @@ const closeModal = () => {
     });
   };
   
-  const handleAddEducation = () => {
+  const handleAddEducation = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.education = [
@@ -283,7 +289,8 @@ const closeModal = () => {
     });
   };
   
-  const handleAddWork = () => {
+  const handleAddWork = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.work = [
@@ -312,7 +319,8 @@ const closeModal = () => {
     });
   };
   
-  const handleAddSkills = () => {
+  const handleAddSkills = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.skillsAndLevel = [
@@ -326,7 +334,8 @@ const closeModal = () => {
     });
   };
 
-  const handleDeleteSkills = (index) => {
+  const handleDeleteSkills = (index,e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.skillsAndLevel = [
@@ -338,7 +347,8 @@ const closeModal = () => {
   };
 
 
-  const handleAddInternship = () => {
+  const handleAddInternship = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.internShips = [
@@ -367,7 +377,8 @@ const closeModal = () => {
     });
   };
 
-  const handleAddProject = () => {
+  const handleAddProject = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.projects = [
@@ -394,7 +405,8 @@ const closeModal = () => {
     });
   };
 
-  const handleAddCertification = () => {
+  const handleAddCertification = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.certifications = [
@@ -421,7 +433,8 @@ const closeModal = () => {
   };
 
 
-  const handleAddAward = () => {
+  const handleAddAward = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.awards = [
@@ -448,7 +461,8 @@ const closeModal = () => {
   };
 
 
-  const handleAddVolunteer = () => {
+  const handleAddVolunteer = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.volunteerExperience = [
@@ -478,7 +492,8 @@ const closeModal = () => {
   };
 
 
-  const handleAddInterest = () => {
+  const handleAddInterest = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.areaOfInterest = [
@@ -501,7 +516,8 @@ const closeModal = () => {
   };
 
 
-  const handleAddReference = () => {
+  const handleAddReference = (e) => {
+    e.preventDefault()
     setFormData((prevFormData) => {
       const updatedResume = { ...prevFormData.resume };
       updatedResume.references = [
@@ -533,21 +549,22 @@ const closeModal = () => {
 
   return (
     <div className={style.main}>
+      {loading && <CustomLoader/>}
          <div className={style['progress-bar']}>
          <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
-          <li>11</li>
-          <li>12</li>
-          <li>13</li>
+          <li onClick={()=>setSection(1)} >1</li>
+          <li onClick={()=>setSection(2)}>2</li>
+          <li onClick={()=>setSection(3)}>3</li>
+          <li onClick={()=>setSection(4)}>4</li>
+          <li onClick={()=>setSection(5)}>5</li>
+          <li onClick={()=>setSection(6)}>6</li>
+          <li onClick={()=>setSection(7)}>7</li>
+          <li onClick={()=>setSection(8)}>8</li>
+          <li onClick={()=>setSection(9)}>9</li>
+          <li onClick={()=>setSection(10)}>10</li>
+          <li onClick={()=>setSection(11)}>11</li>
+          <li onClick={()=>setSection(12)}>12</li>
+          <li onClick={()=>setSection(13)}>13</li>
         </ul>
         <div className={style.progress} style={{ width: `${progress}%` }}></div>
    
@@ -556,7 +573,7 @@ const closeModal = () => {
       <h1>Resume Form</h1>
 
       <br />
-      <form onSubmit={handleSubmit} className={style.form}>
+      <form  className={style.form}>
         {/* Job Title */}
         {section === 1 && (
           <section>
@@ -955,15 +972,14 @@ const closeModal = () => {
           </div>
   
         </div>
-        <div className={style.add_btn}>
-        {index === resume.education.length - 1 && (
-        <button onClick={handleAddEducation}>+</button>
-      )}
-        </div>
+       
      
  
       </div>
     ))}
+     <div className={style.add_btn}>
+        <button onClick={handleAddEducation}>+</button>
+        </div>
   </section>
 )}
 
@@ -1133,13 +1149,12 @@ const closeModal = () => {
           />
       
         </div>
-        <div className={style.add_btn}>
-        {index === resume.work.length - 1 && (
-        <button onClick={handleAddWork}>+</button>
-      )}
-      </div>
+
       </div>
     ))}
+            <div className={style.add_btn}> 
+        <button onClick={handleAddWork}>+</button>
+      </div>
   </section>
 )}
 
@@ -1155,7 +1170,7 @@ const closeModal = () => {
         <h2 >Skills and Level {index + 1}
         <div className={style.dele_btn}>
             {resume.skillsAndLevel.length > 0 && (
-        <button onClick={() => handleDeleteSkills(index)}><AiFillDelete/></button>
+        <button onClick={(e) => handleDeleteSkills(index,e)}><AiFillDelete/></button>
       )}
             </div></h2>
         <div className={style.section_4}>
@@ -1207,15 +1222,14 @@ const closeModal = () => {
  
           </div>
         </div>
-        <div className={style.add_btn}>
-        {index === resume.skillsAndLevel.length - 1 && (
-        <button onClick={handleAddSkills}>+</button>
-      )}
-        </div>
+    
     
 
       </div>
     ))}
+        <div className={style.add_btn}>
+        <button onClick={handleAddSkills}>+</button>
+        </div>
   </section>
 )}
 
@@ -1375,13 +1389,12 @@ const closeModal = () => {
           />
     
         </div>
-        <div className={style.add_btn}>
-        {index === resume.internShips.length - 1 && (
-        <button onClick={handleAddInternship}>+</button>
-      )}
-        </div>
+ 
       </div>
     ))}
+           <div className={style.add_btn}>
+        <button onClick={handleAddInternship}>+</button>
+        </div>
   </section>
 )}
 
@@ -1500,15 +1513,13 @@ const closeModal = () => {
      
           </div>
         </div>
-        <div className={style.add_btn}>
-        {index === resume.projects.length - 1 && (
-        <button onClick={handleAddProject}>+</button>
-      )}
-   
-        </div>
+
     
       </div>
     ))}
+       <div className={style.add_btn}>
+        <button onClick={handleAddProject}>+</button>
+        </div>
   </section>
 )}
 
@@ -1640,16 +1651,15 @@ const closeModal = () => {
    
        </div>
     
-       <div className={style.add_btn}>
-      {index === resume.knownLanguages.length - 1 && (
-      <button onClick={handleAddLanguage}>+</button>
-    )}
-      </div>
+   
  
       </div>
        
     ))}
     </div>
+    <div className={style.add_btn}>
+      <button onClick={handleAddLanguage}>+</button>
+      </div>
   </section>
 )}
 
@@ -1750,17 +1760,16 @@ const closeModal = () => {
           />
      
         </div>
-       <div className={style.add_btn}>
-       {index === resume.certifications.length - 1 && (
-        <button onClick={handleAddCertification}>
-          +
-        </button>
-      )}
-       </div>
+
    
     
       </div>
     ))}
+           <div className={style.add_btn}>
+        <button onClick={handleAddCertification}>
+          +
+        </button>
+       </div>
   </section>
 )}
 
@@ -1863,16 +1872,15 @@ const closeModal = () => {
           />
   
         </div>
-        <div className={style.add_btn}>
-        {index === resume.awards.length - 1 && (
-        <button onClick={handleAddAward}>+</button>
-      )}
-        </div>
+
  
  
    
       </div>
     ))}
+            <div className={style.add_btn}>
+        <button onClick={handleAddAward}>+</button>
+        </div>
   </section>
 )}
 
@@ -2035,15 +2043,14 @@ const closeModal = () => {
           />
 
         </div>
-        <div className={style.add_btn}>
-        {index === resume.volunteerExperience.length - 1 && (
-        <button onClick={handleAddVolunteer}>+</button>
-      )}
-        </div>
+
  
   
       </div>
     ))}
+            <div className={style.add_btn}>
+        <button onClick={handleAddVolunteer}>+</button>
+        </div>
   </section>
 )}
 
@@ -2090,14 +2097,13 @@ const closeModal = () => {
      
     
    
-        <div className={style.add_btn}>
-        {index === resume.areaOfInterest.length - 1 && (
-        <button onClick={handleAddInterest}>+</button>
-      )}
-        </div>
+   
       </div>
 
     ))}
+         <div className={style.add_btn}>
+        <button onClick={handleAddInterest}>+</button>
+        </div>
   </section>
 )}
 
@@ -2241,18 +2247,16 @@ const closeModal = () => {
           </div>
         </div>
   
-   
-        <div className={style.add_btn}>
-        {index === resume.references.length - 1 && (
-        <button onClick={handleAddReference}>+</button>
-      )}
-        </div>
+
       </div>
     ))}
-
+   
+   <div className={style.add_btn}>
+     <button onClick={handleAddReference}>+</button>
+     </div>
    {
     updateBtn  ? <button className={style.submit_btn} onClick={handleUpdateResume}>Update</button> :
-    <button className={style.submit_btn} type="submit">Submit</button>
+    <button className={style.submit_btn} onClick={handleSubmit}>Submit</button>
    } 
    
   </section>

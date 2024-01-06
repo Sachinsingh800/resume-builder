@@ -25,6 +25,7 @@ import {
   fontState,
   fontSizeState,
   imageSizeState,
+  sectionState,
 } from "../../../Recoil";
 import downloadimg from "../../Images/download.gif";
 import downloadpdf from "../../Images/pdf-download-2617.svg";
@@ -730,6 +731,7 @@ ul{
               }}
             />
           </div>
+          {formData?.resume?.education === " " &&
           <div className={style.education}>
             <h3>Education</h3>
             <div className={style.edu}>
@@ -744,6 +746,7 @@ ul{
               ))}
             </div>
           </div>
+           }
           <div className={style.skills}>
             <h3>Skills</h3>
             <ul className={style.skill_ul}>

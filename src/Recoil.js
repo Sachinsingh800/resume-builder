@@ -1077,6 +1077,10 @@ export const userName= atom({
   key: 'userName',
   default:"",
 });
+export const sectionState= atom({
+  key: 'sectionState',
+  default:1,
+});
 
 
 
