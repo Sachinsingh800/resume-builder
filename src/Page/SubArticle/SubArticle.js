@@ -32,11 +32,14 @@ const article=JSON.parse(localStorage.getItem("article"))
         </div>
     
        <div className={style.des_box}>
-       <div className={style.img_box}>
+        <div className={style.inner_container}>
+        <div className={style.img_box}>
           <img src={article?.articleImg[0]} alt='img' />
         </div>
         <br/>
        <div dangerouslySetInnerHTML={{ __html: article?.description}} />
+        </div>
+     
        </div>
        <Footer/>
     </div>

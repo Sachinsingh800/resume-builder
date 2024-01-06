@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     padding-top: 4rem;
+      align-items: center;
+
 }
 .head{
     height: 5rem;
@@ -25,7 +27,16 @@
     background-size: cover;
 }
 .des_box{
-    padding: 4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0rem;
+}
+.inner_container{
+    width: 94%;
+    padding: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 .img_box{
     width: 30rem;
