@@ -711,8 +711,8 @@ const handleDownloadTxt = async () => {
        </ul>
      </div>
     }
-     
       </div>
+      
       <div className={`${styles.right_section} `} style={{ height: "1200px" ,backgroundColor:color ,color:color2 }}>
         <div className={styles.contact_info}>
           <div className={styles.contact_entry}>
