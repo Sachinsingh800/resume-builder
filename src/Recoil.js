@@ -1073,6 +1073,10 @@ export const modalMessage= atom({
   key: 'modalMessage',
   default:"",
 });
+export const userName= atom({
+  key: 'userName',
+  default:"",
+});
 
 
 

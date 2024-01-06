@@ -5,14 +5,16 @@ import ServicesOption from '../ServicesOption/ServicesOption';
 import { Link, useNavigate } from 'react-router-dom';
 import { getUserProfile } from '../../Api/Api';
 import ServicesOptionList from '../ServicesOption/ServicesOption';
+import { useRecoilState } from 'recoil';
+import { userName } from '../../Recoil';
 
 function NavBar() {
   const [isResumeHovered, setIsResumeHovered] = useState(false);
   const [isCoverLetterHovered, setIsCoverLetterHovered] = useState(false);
   const [isUserHovered, setIsUserHovered] = useState(false);
   const authToken = JSON.parse(localStorage.getItem('token'));
-  const [user, setUser] = useState([]);
-console.log(user.name,"sdsadsa")
+  const [user, setUser] = useRecoilState(userName);
+
   
   const naviagte=useNavigate()
 
@@ -25,7 +27,7 @@ console.log(user.name,"sdsadsa")
       const response = await getUserProfile();
 
       if (response.status === true) {
-        setUser(response.data);
+        setUser(response.data.name);
         localStorage.setItem('user', JSON.stringify(response.data)); // Move this line here
       } else {
         console.error('Error fetching user profile:', response.data.message);
