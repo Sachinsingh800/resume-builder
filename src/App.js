@@ -12,9 +12,9 @@ function App() {
 
   return (
     <div className="App">
-      <CustomCursor />
       <NavBar/>
       <Home/>
+      <CustomCursor />
       <FirstSection/>
       <SecondSection/>
       <Footer/>
