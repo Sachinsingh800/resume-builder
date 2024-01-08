@@ -12,6 +12,7 @@ import { useSound } from 'use-sound';
 import clickSound from "../../Sounds/Click.mp3"
 import TextField from '@mui/material/TextField';
 import CustomLoader from '../CustomLoader/CustomLoader';
+import Dp from "../Images/dp2.jpg"
 
 
 const CreateResumeFormForFresher = () => {
@@ -579,7 +580,7 @@ const closeModal = () => {
                 <div className={style.img_container}>
               <div className={style.img_box}>
               {croppedImage === null  ? (
-               <img src={resume?.profilePicture?.url} alt='img2'/>
+               <img src={Dp} alt='img2'/>
            
           ) : (
      
