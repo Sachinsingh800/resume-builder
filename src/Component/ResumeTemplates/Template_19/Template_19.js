@@ -403,7 +403,8 @@ ul li{
             </div>
             <div class="container">
                 <div class="right_section">
-                    <div class="section">
+                ${formData.resume.education.length > 0 ?
+                    `<div class="section">
                         <h3 class="section_title">EDUCATION</h3>
                         ${formData.resume.education.map((item) => `
                         <div class="work_entry">
@@ -415,7 +416,8 @@ ul li{
                     </div>
                         `).join('')}
                   
-                    </div>
+                    </div>`  :""
+                }
                     <div class="section">
                         <h3 class="section-title">CONTACTS</h3>
                         <div class="contact_info">
@@ -447,15 +449,18 @@ ul li{
                             </div>
                         </div>
                     </div>
-                    <div class="section">
+                    ${formData.resume.skillsAndLevel.length > 0 ?
+                    `<div class="section">
                         <h3 class="section-title">SKILLS</h3>
                         <ul class="skills_list">
                         ${formData.resume.skillsAndLevel.map((item) => `
                         <li> ${item.skills}</li>
                         `).join('')}
                         </ul>
-                    </div>
-                    <div class="section">
+                    </div>`:""
+                    }
+                    ${formData.resume.knownLanguages.length >  0 ?
+                    `<div class="section">
                         <h3 class="section-title">LANGUAGE</h3>
                         <ul class="skills_list">
                         ${formData.resume.knownLanguages.map((item) => `
@@ -464,8 +469,11 @@ ul li{
                       </li>
                    `).join('')}
                         </ul>
-                    </div>
-                    <div class="section">
+                    </div>`:""
+                    }
+
+                    ${formData.resume.awards.length > 0 ?
+                    `<div class="section">
                         <h3 class="section-title">AWARDS</h3>
                         <ul class="skills_list">
                         ${formData.resume.awards.map((item) => `
@@ -476,7 +484,8 @@ ul li{
                            </li>
                    `).join('')}   
                         </ul>
-                    </div>
+                    </div>`:""
+                    }
                 </div>
                 <div class="left_section">
                     <div class="section">
@@ -486,8 +495,8 @@ ul li{
                         </p>
                     </div>
 
-                   
-                    <div class="section">
+                    ${formData.resume.work.length > 0 ?
+                    `<div class="section">
                         <h3 class="section_title">EXPERIENCE</h3>
                         <div class="work_entry">
                         ${formData.resume.work.map((item) => `
@@ -505,12 +514,13 @@ ul li{
                         `).join('')}  
                   
                     </div>
-                  </div>
-                    <div class="section">
+                  </div>`: ""
+                    }
+                    ${formData.resume.projects.length > 0 ?
+                    `<div class="section">
                         <h3 class="section_title">PROJECTS</h3>
                         <div class="work_entry">
                         ${formData.resume.projects.map((item) => `
-                        
                         <div>
                         <div class="title_">
                                 <h4 class="position">${item?.title}</h4>
@@ -522,14 +532,10 @@ ul li{
                             </p>
                         </div>
                             `).join('')}  
-                     
-                  
                     </div>
-                  </div>
+                  </div>`:""
 
-
-                 
-                    
+                    } 
                 </div>
             </div>
         </div>
@@ -741,6 +747,7 @@ const handleDownloadTxt = async () => {
       </div>
       <div className={styles.container}>
         <div className={styles.right_section}>
+        {formData.resume.education.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>EDUCATION</h3>
             {formData.resume.education.map((item, index) => (
@@ -753,6 +760,7 @@ const handleDownloadTxt = async () => {
               </div>
             ))}
           </div>
+}
           <div className={styles.section}>
             <h3 className={styles.section_title}>CONTACTS</h3>
             <div className={styles.contact_info}>
@@ -786,6 +794,7 @@ const handleDownloadTxt = async () => {
               </div>
             </div>
           </div>
+          {formData.resume.skillsAndLevel.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>SKILLS</h3>
             <ul className={styles.skills_list}>
@@ -794,6 +803,8 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
+{formData.resume.knownLanguages.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>LANGUAGE</h3>
             <ul className={styles.skills_list}>
@@ -804,6 +815,8 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
+{formData.resume.awards.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>AWARDS</h3>
             <ul className={styles.skills_list}>
@@ -816,6 +829,7 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+   }
         </div>
         <div className={styles.left_section}>
           <div className={styles.section}>
@@ -824,6 +838,7 @@ const handleDownloadTxt = async () => {
               {formData.resume.summary}
             </p>
           </div>
+          {formData.resume.work.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>EXPERIENCE</h3>
             <div className={styles.work_entry}>
@@ -839,13 +854,15 @@ const handleDownloadTxt = async () => {
               ))}
             </div>
           </div>
+}
+{formData.resume.projects.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>PROJECTS</h3>
             <div className={styles.work_entry}>
               {formData.resume.projects.map((item, index) => (
                 <div key={index} >
                   <h4 className={styles.position}>{item?.title}</h4>
-                  <p className={styles.date}>        {item?.year}</p>
+                  <p className={styles.date}> {item?.year}</p>
                   <p className={styles.company}>{item?.link}</p>
                   <p className={styles.description}>
                     {item?.description}
@@ -854,6 +871,7 @@ const handleDownloadTxt = async () => {
               ))}
             </div>
           </div>
+}
         </div>
       </div>
     </div>

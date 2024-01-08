@@ -419,8 +419,8 @@ margin-top:.5rem;
                             <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
                         </div>
                     </div>
-    
-                    <div class="section">
+                    ${formData.resume.skillsAndLevel.length > 0 ?
+                    `<div class="section">
                         <h3 class="section-title">SKILLS</h3>
                         <div class="divider"> <hr  /></div>
                         <ul class="skills-list">
@@ -431,8 +431,8 @@ margin-top:.5rem;
                     </li>
                         `).join('')}
                         </ul>
-                    </div>
-    
+                    </div>` :""
+                    }
     
                 </div>
                 <div class="left_section">
@@ -441,16 +441,13 @@ margin-top:.5rem;
                         ${formData.resume.summary}
                         </p>
                     </div>
-                    <div class="section">
+                    ${formData.resume.work.length > 0 ?
+                    `<div class="section">
                         <h3 class="section-title">Experience</h3>
                         <div class="divider"> <hr  /></div>
-    
                         ${formData.resume.work.map((item) => `
-      
                     <div class="work_entry">
-
                     <p class="date">${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </p>
-                   
                     <div class="work-info">
                         <h4 class="position">${item?.title}</h4>
                         <p class="company">${item?.company} </p>
@@ -462,8 +459,11 @@ margin-top:.5rem;
                 </div>
                             `).join('')}  
 
-                    </div>
-                    <div class="section">
+                    </div>` :""
+                    }
+
+                    ${formData.resume.projects.length > 0 ?
+                    `<div class="section">
                         <h3 class="section-title">Projects</h3>
                         <div class="divider"> <hr  /></div>
     
@@ -484,8 +484,10 @@ margin-top:.5rem;
                 </div>
                             `).join('')}  
 
-                    </div>
-                    <div class="section">
+                    </div>`:""
+                    }
+                    ${formData.resume.education.length > 0 ?
+                    `<div class="section">
                         <h3 class="section-title">EDUCATION</h3>
                         <div class="divider"> <hr  /></div>
 
@@ -499,13 +501,13 @@ margin-top:.5rem;
                         <p class="date">${item.startYear} - ${item.endYear}</p>
                     </div>
                         `).join('')}
-
                         </div>
-                       
-                    </div>
+                    </div>`:""
+                    }
 
+                    ${formData.resume.certifications.length > 0 ?
 
-                    <div class="section">
+                    `<div class="section">
                         <h3 class="section-title">Certification</h3>
                         <div class="divider"> <hr  /></div>
                         <div class="edu-info">
@@ -515,15 +517,11 @@ margin-top:.5rem;
                         <h4 class="degree">${item.title}</h4>
                         <p class="date">${item.date}</p>
                         <p class="university">${item.issuingOrganization}</p>
-                     
-                
                         </div>
-
-                        `).join('')}
-                                
+                        `).join('')}       
                         </div>
-                       
-                    </div>
+                    </div>`:""
+                    }
                 </div>
             </div>
         </div>
@@ -760,6 +758,7 @@ const handleDownloadTxt = async () => {
             </div>
           </div>
 
+          {formData.resume.skillsAndLevel.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>SKILLS</h3>
             <div className={styles.divider}>
@@ -774,13 +773,14 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
         </div>
 
         <div className={styles.left_section}>
           <div className={styles.section}>
             <p className={styles.sectionContent}>{formData.resume.summary}</p>
           </div>
-
+          {formData.resume.work.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>Experience</h3>
             <div className={styles.divider}>
@@ -799,6 +799,8 @@ const handleDownloadTxt = async () => {
               </div>
             ))}
           </div>
+}
+{formData.resume.projects.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>Projects</h3>
             <div className={styles.divider}>
@@ -817,7 +819,8 @@ const handleDownloadTxt = async () => {
               </div>
             ))}
           </div>
-
+}
+{formData.resume.education.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>EDUCATION</h3>
             <div className={styles.divider}>
@@ -835,7 +838,8 @@ const handleDownloadTxt = async () => {
               ))}
             </div>
           </div>
-
+}
+{formData.resume.certifications.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.sectionTitle}>Certification</h3>
             <div className={styles.divider}>
@@ -851,6 +855,7 @@ const handleDownloadTxt = async () => {
               ))}
             </div>
           </div>
+}
         </div>
       </div>
     </div>

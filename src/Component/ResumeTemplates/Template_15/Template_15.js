@@ -478,8 +478,8 @@ const Template_15= () => {
                             </div>
                         </li>
                     </ul>
-    
-                    <div class="section">
+                    ${formData.resume.education.length > 0 ? 
+                    `<div class="section">
                         <h2 class="section-title">EDUCATION</h2>
                         <ul class="ul">
 
@@ -497,18 +497,22 @@ const Template_15= () => {
 
                         </ul>
                         
-                    </div>
-    
-                    <div class="section">
+                    </div>`  :""
+                    }
+
+                    ${formData.resume.skillsAndLevel.length > 0 ?
+                    `<div class="section">
                         <h2 class="section-title">SKILLS</h2>
                         <ul class="ul">
                         ${formData.resume.skillsAndLevel.map((item) => `
                         <li> ${item.skills}</li>
                         `).join('')}
                         </ul>
-                    </div>
-    
-                    <div class="section">
+                    </div>` :""
+                    }
+
+                    ${formData.resume.knownLanguages.length > 0 ?
+                    `<div class="section">
                         <h2 class="section-title">LANGUAGE</h2>
                         <ul class="ul">
                         ${formData.resume.knownLanguages.map((item) => `
@@ -517,9 +521,11 @@ const Template_15= () => {
                       </li>
                    `).join('')}
                         </ul>
-                    </div>
-    
-                    <div class="section">
+                    </div>`  :""
+                    }
+
+                    ${formData.resume.awards.length > 0 ?
+                    `<div class="section">
                         <h2 class="section-title">AWARDS</h2>
                         <ul class="ul">
                         ${formData.resume.awards.map((item) => `
@@ -530,7 +536,8 @@ const Template_15= () => {
                            </li>
                    `).join('')}   
                         </ul>
-                    </div>
+                    </div>`  :""
+                    }
                 </div>
     
                 <div class="left_section">
@@ -541,10 +548,10 @@ const Template_15= () => {
                         ${formData.resume.summary}
                         </p>
                     </div>
-    
-                    <div class="section">
+
+                    ${formData.resume.work.length > 0 ?
+                    `<div class="section">
                         <h2 class="section_title">EXPERIENCE</h2>
-                        
                         <ul  class="ul">
                         ${formData.resume.work.map((item) => `
                     <li>
@@ -561,10 +568,12 @@ const Template_15= () => {
                 </li>
                     `).join('')}           
                         </ul>
-                    </div>
-                    <div class="section">
+                    </div>` :""
+                    }
+
+                    ${formData.resume.projects.length > 0 ?
+                    `<div class="section">
                         <h2 class="section_title">PROJECTS</h2>
-                        
                         <ul  class="ul">
                         ${formData.resume.projects.map((item) => `
                     <li>
@@ -581,7 +590,8 @@ const Template_15= () => {
                 </li>
                     `).join('')}           
                         </ul>
-                    </div>
+                    </div>`  :""
+                    }
                 </div>
             </div>
         </div>
@@ -836,6 +846,7 @@ const handleDownloadTxt = async () => {
           </li>
         </ul>
 
+        {formData.resume.education.length > 0 &&
         <div className={styles.section}>
           <h2 className={styles.section_title}>EDUCATION</h2>
           <ul className={styles.ul}>
@@ -850,7 +861,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
 
+{formData.resume.skillsAndLevel.length > 0 &&
         <div className={styles.section}>
           <h2 className={styles.section_title}>SKILLS</h2>
           <ul className={styles.ul}>
@@ -859,7 +872,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
 
+{formData.resume.knownLanguages.length > 0 &&
         <div className={styles.section}>
           <h2 className={styles.section_title}>LANGUAGE</h2>
           <ul className={styles.ul}>
@@ -868,7 +883,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
 
+{formData.resume.awards.length > 0 && 
         <div className={styles.section}>
           <h2 className={styles.section_title}>AWARDS</h2>
           <ul className={styles.ul}>
@@ -881,6 +898,7 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
       </div>
 
       <div className={styles.left_section}>
@@ -889,10 +907,9 @@ const handleDownloadTxt = async () => {
        
           <p className={styles.section_content}>{formData.resume.summary}</p>
         </div>
-
+        {formData.resume.work.length > 0 &&
         <div className={styles.section}>
           <h2 className={styles.section_title}>EXPERIENCE</h2>
-       
           <ul>
             {formData.resume.work.map((item, index) => (
               <li key={index} className={styles.work_entry}>
@@ -906,9 +923,10 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
+{formData.resume.projects.length > 0 &&
         <div className={styles.section}>
           <h2 className={styles.section_title}>PROJECTS</h2>
-       
           <ul>
             {formData.resume.projects.map((item, index) => (
               <li key={index} className={styles.work_entry}>
@@ -922,6 +940,7 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
       </div>
     </div>
   </div>

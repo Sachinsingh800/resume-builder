@@ -436,11 +436,11 @@ text-align: left;
                 <br/>
                 <br/>
                 <br/>
-                <div class="skillsHeader">
+                ${formData.resume.education.length > 0 ?
+                `<div class="skillsHeader">
                     <h3>EDUCATION</h3>
                     <ul class="edu-ul">
                     ${formData.resume.education.map((item) => `
-
                 <li style="color: black;">
                 <span>
                 ${item.degree}
@@ -451,10 +451,10 @@ text-align: left;
                 <span>${item.collegeName}</span>
             </li>
                 `).join('')}
-                    
                     </ul>
-                </div>
-    
+                </div>`:""
+                }
+
                 <div class="skillsHeader">
                     <h3>CONTACT</h3>
                     <div class="contact-infor">
@@ -480,11 +480,10 @@ text-align: left;
                         </p>
                     </div>
                     </div>
-
-                   
                 </div>
-    
-                <div class="skillsHeader">
+
+     ${formData.resume.references.length > 0 ?
+                `<div class="skillsHeader">
                     <h3>REFERENCES</h3>
                     <ul class="ref-ul">
                     ${formData.resume.references.map((item) => `
@@ -494,9 +493,9 @@ text-align: left;
                        <span>${item?.phone}</span>
                    </li>
                `).join('')}  
-                    
                     </ul>
-                </div>
+                </div>`:""
+     }
             </div>
     
             <div>
@@ -515,7 +514,8 @@ text-align: left;
                     </p>
                 </div>
     
-                <div class="professionalSkillsHeader">
+                ${formData.resume.work.length > 0 ?
+                `<div class="professionalSkillsHeader">
                     <div class="title_box2">
                         <h3>WORKING EXPERIENCE</h3>
                     </div>
@@ -538,15 +538,16 @@ text-align: left;
                     `).join('')}  
 
                     </ul>
-                </div>
-                <div class="professionalSkillsHeader">
+                </div>`:""
+                }
+
+                ${formData.resume.projects.length > 0 ?
+                `<div class="professionalSkillsHeader">
                     <div class="title_box2">
                         <h3>PROJECTS</h3>
                     </div>
                     <ul class="work-ul">
-
                     ${formData.resume.projects.map((item) => `
-                  
                 <li>
                 <div class="work_des">
                     <h4 class="customerService">${item?.title}</h4>
@@ -563,24 +564,23 @@ text-align: left;
                     `).join('')}  
 
                     </ul>
-                </div>
-    
-                <div class="professionalSkillsHeader">
+                </div>`:""
+                }
+
+                ${formData.resume.skillsAndLevel.length > 0 ?
+                `<div class="professionalSkillsHeader">
                     <div class="title_box2" style="paddingLeft:2rem;" >
                         <h3>SOFTWARE SKILL</h3>
                     </div>
                     <ul class="skillsAndLevel">
                     ${formData.resume.skillsAndLevel.map((item) => `
-                 
                 <li>
                 <p>${item.skills}</p>
-      
-            </li>
-          
-            `).join('')}
-                         
+                </li>
+                `).join('')}    
                     </ul>
-                </div>
+                </div>`:""
+                }
             </div>
         </div>
     </body>
@@ -791,6 +791,7 @@ const handleDownloadTxt = async () => {
       <br />
       <br />
       <br />
+      {formData.resume.education.length > 0 &&
       <div className={styles.skillsHeader}>
         <h3>EDUCATION</h3>
         <ul className={styles.edu_ul}>
@@ -807,6 +808,7 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
      <br/>
       <div className={styles.skillsHeader}>
         <h3>CONTACT</h3>
@@ -835,6 +837,7 @@ const handleDownloadTxt = async () => {
         </div>
       </div>
      <br/>
+     {formData.resume.references.length > 0 &&
       <div className={styles.skillsHeader}>
         <h3>REFERENCES</h3>
         <ul className={styles.refUl}>
@@ -849,6 +852,7 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
     </div>
 
     <div>
@@ -865,6 +869,7 @@ const handleDownloadTxt = async () => {
         <p >{formData.resume.summary}</p>
       </div>
      <br/>
+     {formData.resume.work.length > 0 &&
       <div className={styles.professionalSkillsHeader}>
         <div className={styles.titl_box2}>
           <h3>WORKING EXPERIENCE</h3>
@@ -889,7 +894,9 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
       <br/>
+      {formData.resume.projects.length > 0 &&
       <div className={styles.professionalSkillsHeader}>
         <div className={styles.title_box2}>
           <h3>PROJECTS</h3>
@@ -915,7 +922,9 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
       <br/>
+      {formData.resume.skillsAndLevel.length > 0 &&
       <div className={styles.professionalSkillsHeader}>
         <div className={styles.titleBox2} >
           <h3>SOFTWARE SKILL</h3>
@@ -929,6 +938,7 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
     </div>
   </div>
 </>

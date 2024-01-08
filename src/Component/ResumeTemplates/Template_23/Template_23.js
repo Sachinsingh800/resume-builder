@@ -457,7 +457,8 @@ width:1rem;
                         </p>
                     </div>
                 </div>
-                <div class="section">
+                ${formData.resume.skillsAndLevel.length > 0 ?
+                `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">SKILLS</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
@@ -465,8 +466,10 @@ width:1rem;
                     <li> ${item.skills}</li>
                     `).join('')}
                     </ul>
-                </div>
-                <div class="section">
+                </div>`:""
+                }
+                ${formData.resume.knownLanguages.length > 0 ?
+                `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">LANGUAGE</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
@@ -476,8 +479,11 @@ width:1rem;
                   </li>
                `).join('')}
                     </ul>
-                </div>
-                <div class="section">
+                </div>`:""
+                }
+
+                ${formData.resume.awards.length > 0 ?
+                `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">AWARDS</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
@@ -489,7 +495,8 @@ width:1rem;
                        </li>
                `).join('')}   
                     </ul>
-                </div>
+                </div>`:""
+                }
             </div>
             <div class="left_section">
                 <div class="section">
@@ -502,7 +509,8 @@ width:1rem;
                     ${formData.resume.summary}
                     </p>
                 </div>
-                <div class="section">
+                ${formData.resume.work.length  > 0 ?
+                `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">
                         <WorkIcon />
                         EXPERIENCE
@@ -525,10 +533,12 @@ width:1rem;
                 </div>
             </li>
                 `).join('')}  
-
                     </ul>
-                </div>
-                <div class="section">
+                </div>`:""
+                }
+
+                ${formData.resume.projects.length > 0 ?
+                `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">
                         <WorkIcon />
                         PROJECTS
@@ -553,8 +563,11 @@ width:1rem;
                 `).join('')}  
 
                     </ul>
-                </div>
-                <div class="section">
+                </div>`:""
+                }
+
+                ${formData.resume.education.length > 0 ?
+                `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">
                         <SchoolIcon />
                         EDUCATION
@@ -562,7 +575,6 @@ width:1rem;
                  <div class="divider"><hr/></div>
                     <ul class="ul">
                     ${formData.resume.education.map((item) => `
-      
                 <li>
                 <div class="work_entry">
                     <div class="title_">
@@ -576,7 +588,8 @@ width:1rem;
             </li>
                 `).join('')}
                     </ul>
-                </div>
+                </div>`:""
+                }
             </div>
         </div>
     </div>
@@ -822,6 +835,7 @@ const handleDownloadTxt = async () => {
               </p>
             </div>
           </div>
+          {formData.resume.skillsAndLevel.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>SKILLS</h3>
             <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
@@ -831,6 +845,8 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
+{formData.resume.knownLanguages.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>LANGUAGE</h3>
             <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
@@ -840,6 +856,8 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
+{formData.resume.awards.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>AWARDS</h3>
             <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
@@ -853,6 +871,7 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+              }
         </div>
         <div className={styles.left_section}>
           <div className={styles.section}>
@@ -862,9 +881,9 @@ const handleDownloadTxt = async () => {
             <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
             <p className={styles.section_content}>{formData.resume.summary}</p>
           </div>
+          {formData.resume.work.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>
-      
               EXPERIENCE
             </h3>
             <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
@@ -885,6 +904,8 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
+{formData.resume.projects.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>
               PROJECTS
@@ -907,9 +928,10 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
+{formData.resume.education.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title} style={{color:color3}}>
-      
               EDUCATION
             </h3>
             <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
@@ -929,6 +951,7 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
         </div>
       </div>
     </div>

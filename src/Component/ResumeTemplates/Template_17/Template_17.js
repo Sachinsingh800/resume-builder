@@ -418,13 +418,12 @@ width:1rem;
             ${formData.resume.summary}
             </p>
           </div>
-  
-          <div class="section">
+          ${formData.resume.work.length > 0 ?
+          `<div class="section">
             <h3 class="section_title">EXPERIENCE</h3>
             <div class="divider"><hr/></div>
             <ul class="ul">
             ${formData.resume.work.map((item) => `
-          
         <li >
         <div class="work_entry">
           <div>
@@ -432,7 +431,6 @@ width:1rem;
               <h3 class="position">${item?.title}</h3>
               <p class="date">${formatDate(item?.startDate)} - ${formatDate(item?.endDate)} </p>
             </div>
-
             <p class="company">${item?.company} </p>
             <p class="description">
             ${item?.description}
@@ -441,15 +439,16 @@ width:1rem;
         </div>
       </li>
             `).join('')}   
-         
             </ul>
-          </div>
-          <div class="section">
+          </div>`:""
+          }
+
+          ${formData.resume.projects.length > 0  ?
+          `<div class="section">
             <h3 class="section_title">PROJECTS</h3>
             <div class="divider"><hr/></div>
             <ul class="ul">
             ${formData.resume.projects.map((item) => `
-          
         <li >
         <div class="work_entry">
           <div>
@@ -457,7 +456,6 @@ width:1rem;
               <h3 class="position">${item?.title}</h3>
               <p class="date">${item?.year} </p>
             </div>
-
             <p class="company">${item?.link} </p>
             <p class="description">
             ${item?.description}
@@ -468,14 +466,15 @@ width:1rem;
             `).join('')}   
          
             </ul>
-          </div>
-  
-          <div class="section">
+          </div>`  :""
+          }
+
+          ${formData.resume.education.length > 0 ?
+          `<div class="section">
             <h3 class="section_title">EDUCATION</h3>
             <div class="divider"><hr/></div>
             <ul class="ul">
             ${formData.resume.education.map((item) => `
-   
             <li>
             <div class="work_entry">
               <div class="title_">
@@ -488,13 +487,14 @@ width:1rem;
             </div>
           </li>
             `).join('')}
-      
             </ul>
-          </div>
+          </div>`:""
+          }
         </div>
   
         <div class="right_section">
-          <div class="section">
+        ${formData.resume.skillsAndLevel.length > 0 ?
+          `<div class="section">
             <h3 class="section-title">SKILLS</h3>
                <div class="divider"><hr/></div>
             <ul class="skills_list">
@@ -502,9 +502,10 @@ width:1rem;
             <li> ${item.skills}</li>
             `).join('')}
             </ul>
-          </div>
-  
-          <div class="section">
+          </div>`:""
+        }
+        ${formData.resume.knownLanguages.length > 0 ?
+          `<div class="section">
             <h3 class="section-title">LANGUAGE</h3>
                <div class="divider"><hr/></div>
             <ul class="skills_list">
@@ -514,9 +515,11 @@ width:1rem;
           </li>
        `).join('')}
             </ul>
-          </div>
+          </div>`:""
+        }
   
-          <div class="section">
+        ${formData.resume.awards.length > 0 ?
+          `<div class="section">
             <h3 class="section-title">AWARDS</h3>
                <div class="divider"><hr/></div>
             <ul class="skills_list">
@@ -528,7 +531,8 @@ width:1rem;
                </li>
        `).join('')}   
             </ul>
-          </div>
+          </div>`:""
+        }
         </div>
       </div>
     </div>
@@ -776,6 +780,7 @@ const handleDownloadTxt = async () => {
           </p>
         </div>
 
+        {formData.resume.work.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.section_title}>EXPERIENCE</h3>
           <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
@@ -798,6 +803,8 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
+{formData.resume.projects.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.section_title}>PROJECTS</h3>
           <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
@@ -820,7 +827,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
 
+{formData.resume.education.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.section_title}>EDUCATION</h3>
           <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
@@ -840,9 +849,11 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
       </div>
 
-      <div className={styles.right_section}>
+<div className={styles.right_section}>
+      {formData.resume.skillsAndLevel.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.section_title}>SKILLS</h3>
           <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
@@ -852,7 +863,8 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
-
+}
+{formData.resume.knownLanguages.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.section_title}>LANGUAGE</h3>
           <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
@@ -864,7 +876,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
 
+{formData.resume.awards.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.section_title}>AWARDS</h3>
           <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
@@ -878,6 +892,7 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
       </div>
     </div>
   </div>
