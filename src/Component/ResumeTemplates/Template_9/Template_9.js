@@ -317,7 +317,7 @@ const Template_9= () => {
     </head>
     
     <body>
-    <div onclick="setTemplateNo(8)" class="main">
+    <div  class="main">
         <div class="heading">
             <div class="name">
                 <h1  
@@ -340,7 +340,8 @@ const Template_9= () => {
             ${formData.resume.summary}
             </p>
         </div>
-        <div class="Skills">
+        ${formData.resume.skillsAndLevel.length > 0 ?
+        `<div class="Skills">
             <h2>Skills</h2>
             <ul>
             ${formData.resume.skillsAndLevel.map((item) => `
@@ -348,12 +349,12 @@ const Template_9= () => {
             <li style="background-color:${color}; color:${color3};">
             <span>${item.skills}</span>
         </li>
-  
     `).join('')}
-            
             </ul>
-        </div>
-        <div class="Experience">
+        </div>` :""
+        }
+        ${formData.resume.work.length > 0 ?
+        `<div class="Experience">
             <h2>Work History</h2>
             <ul class="ul">
             ${formData.resume.work.map((item) => `
@@ -375,8 +376,10 @@ const Template_9= () => {
     `).join('')}     
 
             </ul>
-        </div>
-        <div class="Experience">
+        </div>` :""
+        }
+        ${formData.resume.projects.length > 0 ?
+        `<div class="Experience">
             <h2>Projects</h2>
             <ul class="ul">
             ${formData.resume.projects.map((item) => `
@@ -398,8 +401,10 @@ const Template_9= () => {
     `).join('')}     
 
             </ul>
-        </div>
-        <div class="Education">
+        </div>` :""
+        }
+        ${formData.resume.education.length > 0 ? 
+        `<div class="Education">
             <h2>Education</h2>
             <ul>
             ${formData.resume.education.map((item) => `
@@ -409,9 +414,9 @@ const Template_9= () => {
             <p>${item.collegeName}</span> 
             </li>
         `).join('')}
-              
             </ul>
-        </div>
+        </div>` :""
+        }
     </div>
 </body>
     
@@ -630,6 +635,7 @@ const handleDownloadTxt = async () => {
     <div className={styles.description_box}>
       <p>{formData.resume.summary}</p>
     </div>
+    {formData.resume.skillsAndLevel.length > 0 &&
     <div className={styles.Skills}>
       <h2>Skills</h2>
       <ul>
@@ -640,6 +646,8 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
+{formData.resume.work.length > 0 &&
     <div className={styles.Experience}>
       <h2>Work History</h2>
       <ul className={styles.ul}>
@@ -659,6 +667,8 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
+{formData.resume.projects.length > 0 &&
     <div className={styles.Experience}>
       <h2>Projects</h2>
       <ul className={styles.ul}>
@@ -678,6 +688,8 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
+{formData.resume.education.length > 0 &&
     <div className={styles.Education}>
       <h2>Education</h2>
       <ul>
@@ -690,6 +702,7 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
   </div>
     </>
    

@@ -281,7 +281,8 @@ const Template_11= () => {
                         </p>
                     </div>
                 </div>
-                <div class="skillsHeader">
+                ${formData.resume.skillsAndLevel.length > 0 ?
+                `<div class="skillsHeader">
                     <h3>ADDITIONAL SKILLS</h3>
                     <ul>
                     ${formData.resume.skillsAndLevel.map((item) => `
@@ -293,8 +294,10 @@ const Template_11= () => {
                     `).join('')}
                        
                     </ul>
-                </div>
-                <div class="skillsHeader">
+                </div>`:""
+                }
+                ${formData.resume.knownLanguages.length > 0 ?
+                `<div class="skillsHeader">
                     <h3>LANGUAGES</h3>
                     <ul>
                     ${formData.resume.knownLanguages.map((item) => `
@@ -305,7 +308,8 @@ const Template_11= () => {
                 `).join('')}
                        
                     </ul>
-                </div>
+                </div>` :""
+                }
             </div>
             <div >
                 <div class="skillsHeader2">
@@ -314,7 +318,8 @@ const Template_11= () => {
                     ${formData.resume.summary}
                 </p>
                 </div>
-                <div class="professionalSkillsHeader">
+                ${formData.resume.work.length > 0 ?
+                `<div class="professionalSkillsHeader">
                     <div>
                         <h3>EXPERIENCE</h3>
                     </div>
@@ -335,8 +340,10 @@ const Template_11= () => {
             `).join('')} 
                         
                     </ul>
-                </div>
-                <div class="professionalSkillsHeader">
+                </div>`:""
+                }
+                ${formData.resume.projects.length > 0 ? 
+                `<div class="professionalSkillsHeader">
                     <div>
                         <h3>PROJECTS</h3>
                     </div>
@@ -357,8 +364,11 @@ const Template_11= () => {
             `).join('')} 
                         
                     </ul>
-                </div>
-                <div class="skillsHeader2">
+                </div>` :""
+                }
+
+                ${formData.resume.education.length > 0 ?
+                `<div class="skillsHeader2">
                     <h3>EDUCATION</h3>
                     <ul class="edu-ul">
                     ${formData.resume.education.map((item) => `
@@ -370,7 +380,8 @@ const Template_11= () => {
                 `).join('')}
             
                     </ul>
-                </div>
+                </div>` :""
+                }
             </div>
         </div>
     </body>
@@ -595,6 +606,7 @@ const handleDownloadTxt = async () => {
           </p>
         </div>
       </div>
+      {formData.resume.skillsAndLevel.length > 0 &&
       <div className={styles.skillsHeader}>
         <h3>ADDITIONAL SKILLS</h3>
         <ul>
@@ -606,6 +618,8 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
+{formData.resume.knownLanguages.length > 0 &&
       <div className={styles.skillsHeader}>
         <h3>LANGUAGES</h3>
         <ul>
@@ -617,12 +631,14 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
     </div>
     <div>
       <div className={styles.skillsHeader2}>
         <h3>SKILLS SUMMARY</h3>
         <p>{formData.resume.summary}</p>
       </div>
+      {formData.resume.work.length > 0 &&
       <div className={styles.professionalSkillsHeader}>
         <div>
           <h3>EXPERIENCE</h3>
@@ -642,6 +658,8 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
+{formData.resume.projects.length > 0 &&
       <div className={styles.professionalSkillsHeader}>
         <div>
           <h3>PROJECTS</h3>
@@ -660,6 +678,8 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
+{formData.resume.education.length > 0  &&
       <div className={styles.skillsHeader2}>
         <h3>EDUCATION</h3>
         <ul className={styles.edu_ul}>
@@ -672,6 +692,7 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
     </div>
   </div>
     

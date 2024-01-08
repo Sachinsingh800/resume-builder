@@ -252,7 +252,8 @@ const Template_10= () => {
                 </p>
             </div>
             <br/>
-            <div >
+            ${formData.resume.work.length > 0 ?
+            `<div >
                 <h3>Work Experience</h3>
                 <ul class="work-ul">
                 ${formData.resume.work.map((item) => `
@@ -268,8 +269,11 @@ const Template_10= () => {
              
                    
                 </ul>
-            </div>
-            <div >
+            </div>`:""
+          }
+
+          ${formData.resume.projects.length > 0 ?
+            `<div >
                 <h3>Projects</h3>
                 <ul class="work-ul">
                 ${formData.resume.projects.map((item) => `
@@ -281,13 +285,12 @@ const Template_10= () => {
                 <p> ${item?.description}</p>
             </div>
         </li>
-        `).join('')}     
-             
-                   
+        `).join('')}        
                 </ul>
-            </div>
-    
-            <div>
+            </div>` :""
+          }
+          ${formData.resume.education.length > 0 ?
+            `<div>
                 <h3>Education</h3>
                 <ul class="edu-ul">
                 ${formData.resume.education.map((item) => `
@@ -298,18 +301,18 @@ const Template_10= () => {
             `).join('')}
                         
                 </ul>
-            </div>
-    
-            <div >
+            </div>` :""
+          }
+          ${formData.resume.skillsAndLevel.length > 0 ?
+            `<div >
                 <h3>Skills</h3>
                 <ul class="edu-ul">
-                ${formData.resume.skillsAndLevel.map((item) => `
-                 
+                ${formData.resume.skillsAndLevel.map((item) => `  
                 <li> ${item.skills}</li>
-      
         `).join('')}
                 </ul>
-            </div>
+            </div>`:""
+          }
         </div>
     </body>
     
@@ -502,7 +505,7 @@ const handleDownloadTxt = async () => {
 
   return (
     <>
-                        <div className={styles.download_btn} >
+    <div className={styles.download_btn} >
     <button onClick={handleDownloadClick}>Download</button>
       <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
@@ -521,6 +524,7 @@ const handleDownloadTxt = async () => {
         </p>
       </div>
       <br />
+      {formData.resume.work.length > 0 &&
       <div>
         <h3>Work Experience</h3>
         <ul className={styles.work_ul}>
@@ -536,6 +540,8 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
+{formData.resume.projects.length > 0 &&
       <div>
         <h3>Projects</h3>
         <ul className={styles.work_ul}>
@@ -551,6 +557,8 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
+{formData.resume.education.length > 0 &&
       <div>
         <h3>Education</h3>
         <ul className={styles.edu_ul}>
@@ -562,6 +570,8 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
+{formData.resume.skillsAndLevel.length > 0 &&
       <div>
         <h3>Skills</h3>
         <ul className={styles.edu_ul}>
@@ -570,6 +580,7 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
     </div>
     </>
 
