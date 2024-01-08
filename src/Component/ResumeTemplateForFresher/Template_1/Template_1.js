@@ -25,6 +25,7 @@ import {
   fontState,
   fontSizeState,
   imageSizeState,
+  sectionState,
 } from "../../../Recoil";
 import downloadimg from "../../Images/download.gif";
 import downloadpdf from "../../Images/pdf-download-2617.svg";
@@ -272,7 +273,7 @@ margin:0rem;
 }
 .certi-ul {
 margin-top:-1rem;
-margin-left:-2.7rem;
+margin-left:-4rem;
 flex-direction: column;
 display: flex;
 gap:.5rem;
@@ -283,6 +284,9 @@ margin:0rem;
 .skill-ul{
 margin-top:-1rem;
 margin-left:-2.5rem;
+flex-direction: column;
+display: flex;
+gap:.5rem;
 }
 .skill-ul li{
   list-style: none;
@@ -294,7 +298,7 @@ width:98%;
 .work-ul{
 
 margin-top:-1rem;
-margin-left:-2.7rem;
+margin-left:-4rem;
 flex-direction: column;
 display: flex;
 gap:.5rem;
@@ -302,6 +306,9 @@ gap:.5rem;
 }
 .work-ul li h4,p{
 margin:0rem;  
+}
+ul{
+  list-style: none;
 }
     `;
   };
@@ -349,26 +356,30 @@ margin:0rem;
                     </div>
                 </div>
                <div><hr /></div> 
-                <div class="education">
-                    <h3>Education</h3>
-                    <div class="edu">
-
-                    ${formData?.resume?.education
-                      .map(
-                        (item) => `
-                    <div >
-                    <h4>${item?.collegeName}</h4>
-                    <p>${item?.degree}</p>
-                    <p>${item?.startYear} - ${item?.endYear}</p>
-                    </div>
-                `
-                      )
-                      .join("")}
-    
-                    </div>
-                    <!-- Add more education items as needed -->
-                </div>
-                <div class="skills">
+               ${
+                 formData?.resume?.education?.length > 0
+                   ? `<div class="education">
+                   <h3>Education</h3>
+                   <div class="edu">
+                     ${formData?.resume?.education
+                       .map(
+                         (item) => `
+                         <div>
+                           <h4>${item?.collegeName}</h4>
+                           <p>${item?.degree}</p>
+                           <p>${item?.startYear} - ${item?.endYear}</p>
+                         </div>
+                         `
+                       )
+                       .join("")}
+                   </div>
+                 </div>`
+                   : ""
+               }  
+                
+             ${
+               formData?.resume?.skillsAndLevel.length > 0
+                 ? `<div class="skills">
                 <h3>Skills</h3>
                
                 ${formData?.resume?.skillsAndLevel
@@ -381,7 +392,28 @@ margin:0rem;
                   )
                   .join("")}
               
-            </div>
+            </div>`
+                 : " "
+             }
+
+            ${
+              formData?.resume?.knownLanguages.length > 0
+                ? `<div class="skills">
+                <h3>Languages</h3>
+               
+                ${formData?.resume?.knownLanguages
+                  .map(
+                    (item) => `
+                <ul class="skill-ul">
+                <li> ${item?.lang}</li>
+                </ul>
+        `
+                  )
+                  .join("")}
+              
+            </div>`
+                : " "
+            }
             </div>
     
             <div class="right_section">
@@ -391,7 +423,9 @@ margin:0rem;
                     </h1>
                 </div>
     
-                <div class="certifications">
+                ${
+                  formData?.resume?.certifications.length > 0
+                    ? `<div class="certifications">
                     <h3>Certifications</h3>
                     <ul class="certi-ul">
 
@@ -408,8 +442,11 @@ margin:0rem;
                     
                         <!-- Add more certification items as needed -->
                     </ul>
-                </div>
-    
+                </div>`
+                    : ""
+                }
+
+
                 <div class="professional_summary">
                     <h3>Professional Summary</h3>
                     <p>
@@ -418,13 +455,13 @@ margin:0rem;
                 </div>
     
                
-    
-              
-                <div class="work">
+  
+                      ${
+                        formData?.resume?.projects.length > 0
+                          ? 
+                    `<div class="work">
                     <h3>Projects</h3>
                     <ul class="work-ul">
-
-
                     ${formData?.resume?.projects
                       .map(
                         (item) => `
@@ -433,13 +470,12 @@ margin:0rem;
                     <p>${item?.year}, ${item?.link}</p>
                     <p>${item?.description}</p>
                 </li>
-          
-            `
-                      )
+            ` )
                       .join("")}
                     </ul>
-                </div>
-
+                </div>`
+                          : ""
+                      }
             </div>
         </div>
     </body>
@@ -475,7 +511,7 @@ margin:0rem;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_01.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -693,30 +729,42 @@ margin:0rem;
               }}
             />
           </div>
-          <div className={style.education}>
-            <h3>Education</h3>
-            <div className={style.edu}>
-              {formData?.resume?.education.map((item, index) => (
-                <div key={index}>
-                  <h4>{item?.collegeName}</h4>
-                  <p>{item?.degree}</p>
-                  <p>
-                    {item?.startYear} - {item?.endYear}
-                  </p>
-                </div>
-              ))}
+          {formData?.resume?.education?.length > 0 && (
+            <div className={style.education}>
+              <h3>Education</h3>
+              <div className={style.edu}>
+                {formData?.resume?.education.map((item, index) => (
+                  <div key={index}>
+                    <h4>{item?.collegeName}</h4>
+                    <p>{item?.degree}</p>
+                    <p>
+                      {item?.startYear} - {item?.endYear}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className={style.skills}>
-            <h3>Skills</h3>
-            <ul className={style.skill_ul}>
-              {formData?.resume?.skillsAndLevel.map((item, index) => (
-                <li key={index}>
-                  <h5>{item?.skills}</h5>
-                </li>
-              ))}
-            </ul>
-          </div>
+          )}
+          {formData?.resume?.skillsAndLevel?.length > 0 && (
+            <div className={style.skills}>
+              <h3>Skills</h3>
+              <ul className={style.skill_ul}>
+                {formData?.resume?.skillsAndLevel.map((item, index) => (
+                  <li key={index}>{item?.skills}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {formData?.resume?.knownLanguages?.length > 0 && (
+            <div className={style.skills}>
+              <h3>Language</h3>
+              <ul className={style.skill_ul}>
+                {formData?.resume?.knownLanguages.map((item, index) => (
+                  <li key={index}>{item?.lang}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className={style.right_section}>
@@ -732,7 +780,8 @@ margin:0rem;
             </h1>
           </div>
 
-          <div className={style.certifications}>
+          {formData?.resume?.certifications.length > 0 && 
+            <div className={style.certifications}>
             <h3>Certifications</h3>
             <ul className={style.certi_ul}>
               {formData?.resume?.certifications.map((item, index) => (
@@ -743,8 +792,10 @@ margin:0rem;
               ))}
             </ul>
           </div>
+          }
+        
 
-          <div className={style.line}></div>
+        
 
           <div className={style.line}></div>
 
@@ -753,21 +804,24 @@ margin:0rem;
             <p>{formData?.resume?.summary}</p>
           </div>
 
-          <div className={style.line}></div>
-          <div className={style.work}>
-            <h3>Projects</h3>
-            <ul className={style.work_ul}>
-              {formData?.resume?.projects.map((item, index) => (
-                <li key={index}>
-                  <h4>{item?.title}</h4>
-                  <p>
-                    {item?.year}, {item?.link}
-                  </p>
-                  <p>{item?.description}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className={style.line}></div> 
+         {formData?.resume?.projects.length > 0 && 
+             <div className={style.work}>
+             <h3>Projects</h3>
+             <ul className={style.work_ul}>
+               {formData?.resume?.projects.map((item, index) => (
+                 <li key={index}>
+                   <h4>{item?.title}</h4>
+                   <p>
+                     {item?.year}, {item?.link}
+                   </p>
+                   <p>{item?.description}</p>
+                 </li>
+               ))}
+             </ul>
+           </div>
+         }
+      
         </div>
       </div>
     </>

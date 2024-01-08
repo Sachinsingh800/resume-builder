@@ -205,7 +205,7 @@ const Template_10= () => {
   .education h5{
     margin:0rem;
   }
-  .work-des h4,p,h6{
+  .work-des h4,p,h5{
     margin:0rem!important;
   }
   .edu-ul{
@@ -252,26 +252,27 @@ const Template_10= () => {
                 </p>
             </div>
             <br/>
-          
-            <div >
+         
+
+          ${formData.resume.projects.length > 0 ?
+            `<div >
                 <h3>Projects</h3>
                 <ul class="work-ul">
                 ${formData.resume.projects.map((item) => `
             <li>
             <div class="work-des">
                 <h4 class="customerService"><span>${item?.title}</span></h4>
-                <h6>${item?.link}</h6>
-                <h6 class="company_name"><span>${item?.year}</span></h6>
+                <h5>${item?.link}</h5>
+                <h5 class="company_name"><span>${item?.year}</span></h5>
                 <p> ${item?.description}</p>
             </div>
         </li>
-        `).join('')}     
-             
-                   
+        `).join('')}        
                 </ul>
-            </div>
-    
-            <div>
+            </div>` :""
+          }
+          ${formData.resume.education.length > 0 ?
+            `<div>
                 <h3>Education</h3>
                 <ul class="edu-ul">
                 ${formData.resume.education.map((item) => `
@@ -282,18 +283,18 @@ const Template_10= () => {
             `).join('')}
                         
                 </ul>
-            </div>
-    
-            <div >
+            </div>` :""
+          }
+          ${formData.resume.skillsAndLevel.length > 0 ?
+            `<div >
                 <h3>Skills</h3>
                 <ul class="edu-ul">
-                ${formData.resume.skillsAndLevel.map((item) => `
-                 
+                ${formData.resume.skillsAndLevel.map((item) => `  
                 <li> ${item.skills}</li>
-      
         `).join('')}
                 </ul>
-            </div>
+            </div>`:""
+          }
         </div>
     </body>
     
@@ -328,7 +329,7 @@ const Template_10= () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_10.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -486,7 +487,7 @@ const handleDownloadTxt = async () => {
 
   return (
     <>
-                        <div className={styles.download_btn} >
+    <div className={styles.download_btn} >
     <button onClick={handleDownloadClick}>Download</button>
       <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
@@ -505,7 +506,8 @@ const handleDownloadTxt = async () => {
         </p>
       </div>
       <br />
-    
+
+{formData.resume.projects.length > 0 &&
       <div>
         <h3>Projects</h3>
         <ul className={styles.work_ul}>
@@ -513,14 +515,16 @@ const handleDownloadTxt = async () => {
             <li key={index}>
               <div className={styles.work_des}>
                 <h4 className={styles.customerService}><span>{item?.title}</span></h4>
-                <h6>{item?.link}</h6>
-                <h6 className={styles.companyName}><span>{item?.year}</span></h6>
+                <h5>{item?.link}</h5>
+                <h5 className={styles.companyName}><span>{item?.year}</span></h5>
                 <p>{item?.description}</p>
               </div>
             </li>
           ))}
         </ul>
       </div>
+}
+{formData.resume.education.length > 0 &&
       <div>
         <h3>Education</h3>
         <ul className={styles.edu_ul}>
@@ -532,6 +536,8 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
+{formData.resume.skillsAndLevel.length > 0 &&
       <div>
         <h3>Skills</h3>
         <ul className={styles.edu_ul}>
@@ -540,6 +546,7 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
     </div>
     </>
 

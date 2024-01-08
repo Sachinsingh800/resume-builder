@@ -288,7 +288,8 @@ width: 90%;
                 ${formData.resume.summary}
                 </p>
             </div>
-            <div class="Skills">
+            ${formData.resume.skillsAndLevel.length > 0 ?
+            `<div class="Skills">
                 <h2 style="background-color:${color}; color:${color3};">Skills</h2>
                 <ul>
                 ${formData.resume.skillsAndLevel.map((item) => `
@@ -300,9 +301,11 @@ width: 90%;
         `).join('')}
                   
                 </ul>
-            </div>
-          
-            <div class="Experience">
+            </div>` :""
+            }
+
+            ${formData.resume.projects.length > 0 ? 
+            `<div class="Experience">
                 <h2 style="background-color:${color}; color:${color3};">Projects</h2>
                 <ul>
                 ${formData.resume.projects.map((item) => `
@@ -325,8 +328,10 @@ width: 90%;
         `).join('')}   
                      
                 </ul>
-            </div>
-            <div class="Education">
+            </div>`:""
+            }
+            ${formData.resume.education.length > 0 ? 
+            `<div class="Education">
                 <h2  style="background-color:${color}; color:${color3};">Education</h2>
                 <ul>
                 ${formData.resume.education.map((item) => `
@@ -338,7 +343,8 @@ width: 90%;
             `).join('')}
              
                 </ul>
-            </div>
+            </div>`:""
+            }
         </div>
     </body>
     
@@ -372,7 +378,7 @@ width: 90%;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_08.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -547,6 +553,7 @@ const handleDownloadTxt = async () => {
         {formData.resume.summary}
       </p>
     </div>
+    {formData.resume.skillsAndLevel.length > 0 &&
     <div className={styles.Skills}>
       <h2 style={{backgroundColor:color,color:color3}}>Skills</h2>
       <ul>
@@ -557,7 +564,9 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
 
+{formData.resume.projects.length >  0 && 
     <div className={styles.Experience}>
       <h2 style={{backgroundColor:color,color:color3}}>Projects</h2>
       <ul>
@@ -581,6 +590,8 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
+{formData.resume.education.length > 0 &&
     <div className={styles.Education}>
       <h2 style={{backgroundColor:color,color:color3}}>Education</h2>
       <ul>
@@ -593,6 +604,7 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
   </div>
     
     </>

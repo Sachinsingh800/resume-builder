@@ -328,7 +328,8 @@ width: 72%;
             ${formData.resume.summary}
             </p>
         </div>
-        <div class="Skills">
+        ${formData.resume.skillsAndLevel.length > 0 ?
+        `<div class="Skills">
             <div class="title_section">
                 <h3>Skills</h3>
                 <hr class="line2" />
@@ -340,9 +341,11 @@ width: 72%;
         </li>
             `).join('')}
             </ul>
-        </div>
-
-        <div class="Experience">
+        </div>`:""
+        }
+  
+        ${formData.resume.projects.length > 0 ?
+        `<div class="Experience">
             <div class="title_section">
                 <h3>Projects</h3>
                 <hr class="line3" />
@@ -365,9 +368,10 @@ width: 72%;
     </li>
                 `).join('')} 
             </ul>
-        </div>
-
-        <div class="Education">
+        </div>` :""
+        }
+        ${formData.resume.education.length > 0 ?
+        `<div class="Education">
             <div class="title_section">
                 <h3>Education</h3>
                 <hr class="line4" />
@@ -383,7 +387,8 @@ width: 72%;
                 `).join('')}    
        
             </ul>
-        </div>
+        </div>`:""
+        }
     </div>
 </body>
 
@@ -418,7 +423,7 @@ width: 72%;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_30.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -595,6 +600,7 @@ const handleDownloadTxt = async () => {
         {formData.resume.summary}
       </p>
     </div>
+    {formData.resume.skillsAndLevel.length > 0 &&
     <div className={styles.Skills}>
       <div className={styles.title_section}>
         <h3>Skills</h3>
@@ -608,6 +614,9 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
+
+{formData.resume.projects.length > 0 &&
     <div className={styles.Experience}>
       <div className={styles.title_section}>
         <h3>Projects</h3>
@@ -634,7 +643,8 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
-
+}
+{formData.resume.education.length > 0 &&
     <div className={styles.Education}>
       <div className={styles.title_section_edu}>
         <h3>Education</h3>
@@ -650,6 +660,7 @@ const handleDownloadTxt = async () => {
         ))}
       </ul>
     </div>
+}
   </div>
 </>
 

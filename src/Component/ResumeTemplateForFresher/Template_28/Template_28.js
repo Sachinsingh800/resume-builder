@@ -421,7 +421,8 @@ margin-left:-.4rem!important;
             </div>
           </div>
     
-          <div class="skillsHeader">
+          ${formData.resume.education.length > 0 ?
+          `<div class="skillsHeader">
             <h3 style="color: ${color3};">EDUCATION</h3>
             <ul class="edu-ul">
             ${formData.resume.education.map((item) => `
@@ -433,9 +434,10 @@ margin-left:-.4rem!important;
             `).join('')}
 
             </ul>
-          </div>
-    
-          <div class="skillsHeader">
+          </div>`:""
+          }
+          ${formData.resume.references.length > 0 ?
+          `<div class="skillsHeader">
             <h3 style="color: ${color3};">REFERENCES</h3>
             <ul class="ref-ul">
             ${formData.resume.references.map((item) => `
@@ -446,7 +448,8 @@ margin-left:-.4rem!important;
           </li>
             `).join('')}
             </ul>
-          </div>
+          </div>` :""
+          }
         </div>
     
         <div>
@@ -459,7 +462,8 @@ margin-left:-.4rem!important;
             </p>
           </div>
     
-          <div class="professionalSkillsHeader">
+          ${formData.resume.projects.length > 0 ?
+          `<div class="professionalSkillsHeader">
             <div class="title_box2">
               <h3>PROJECTS</h3>
             </div>
@@ -475,9 +479,10 @@ margin-left:-.4rem!important;
                 `).join('')} 
 
             </ul>
-          </div>
-    
-          <div class="professionalSkillsHeader">
+          </div>`:""
+          }
+          ${formData.resume.skillsAndLevel.length > 0 ?
+          `<div class="professionalSkillsHeader">
             <div class="title_box2">
               <h3>SOFTWARE SKILL</h3>
             </div>
@@ -488,7 +493,8 @@ margin-left:-.4rem!important;
           </li>
             `).join('')}
             </ul>
-          </div>
+          </div>`:""
+          }
         </div>
       </div>
     </body>
@@ -524,7 +530,7 @@ margin-left:-.4rem!important;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_28.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -711,6 +717,7 @@ const handleDownloadTxt = async () => {
           </div>
         </div>
 
+        {formData.resume.education.length > 0 &&
         <div className={styles.skillsHeader}>
           <h3>EDUCATION</h3>
           <ul className={styles.edu_ul}>
@@ -724,7 +731,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
 <br/>
+{formData.resume.references.length > 0 &&
         <div className={styles.skillsHeader}>
           <h3>REFERENCES</h3>
           <ul className={styles.ref_ul}>
@@ -737,6 +746,7 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
       </div>
 
       <div>
@@ -746,7 +756,10 @@ const handleDownloadTxt = async () => {
           </div>
           <p className={styles.para}>{formData.resume.summary}</p>
         </div>
+
+
         <br/>
+        {formData.resume.projects.length > 0 &&
         <div className={styles.professionalSkillsHeader}>
           <div className={styles.title_box2}>
             <h3>PROJECTS</h3>
@@ -765,7 +778,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
   <br/>
+  {formData.resume.skillsAndLevel.length > 0 &&
         <div className={styles.professionalSkillsHeader}>
           <div className={styles.title_box2}>
             <h3>SOFTWARE SKILL</h3>
@@ -779,6 +794,7 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
       </div>
     </div>
 

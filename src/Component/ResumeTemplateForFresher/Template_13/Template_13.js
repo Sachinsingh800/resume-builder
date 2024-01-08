@@ -447,7 +447,8 @@ p {
                         </div>
                     </div>
     
-                    <h3 class="section_title">EDUCATION</h2>
+                    ${formData.resume.education.length > 0 ?
+                    `<h3 class="section_title">EDUCATION</h2>
                     <ul class="ul-skill">
                     ${formData.resume.education.map((item) => `
         
@@ -462,9 +463,10 @@ p {
             </li>
                 `).join('')}
                     
-                    </ul>
-    
-                    <h3 class="section-title">SKILLS</h2>
+                    </ul>` :""
+                    }
+                    ${formData.resume.skillsAndLevel.length > 0 ?
+                    `<h3 class="section-title">SKILLS</h2>
                     <ul class="ul-skill">
                     ${formData.resume.skillsAndLevel.map((item) => `
                     <li> ${item.skills}</li>
@@ -478,9 +480,10 @@ p {
                     ${item?.lang}
                   </li>
                `).join('')}
-                    </ul>
-    
-                    <h3 class="section-title">AWARDS</h2>
+                    </ul>`:""
+                    }
+                    ${formData.resume.awards.length > 0 ?
+                    `<h3 class="section-title">AWARDS</h2>
                     <ul class="ul-skill">
                     ${formData.resume.awards.map((item) => `
         
@@ -490,7 +493,8 @@ p {
                             <p>${item?.issuingOrganization}</p>
                         </li>
                 `).join('')}  
-                    </ul>
+                    </ul>`:""
+                    }
                 </div>
     
                 <div class="left_section">
@@ -500,14 +504,11 @@ p {
                         ${formData.resume.summary}
                         </p>
                     </div>
-    
-                    
-    
-                    <div class="section">
+                    ${formData.resume.projects.length > 0 ?
+                    `<div class="section">
                         <h3 class="section_title">PROJECTS</h2>
                         <ul class="ul">
                         ${formData.resume.projects.map((item) => `
-                  
                         <li>
                         <div class="work_entry">
                             <h5> ${item?.year} </h5>
@@ -522,7 +523,8 @@ p {
                     </li>
                     `).join('')}  
                         </ul>
-                    </div>
+                    </div>`:""
+                    }
                 </div>
             </div>
         </div>
@@ -559,7 +561,7 @@ p {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_13.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -759,8 +761,9 @@ const handleDownloadTxt = async () => {
               <p className={styles.contact_value}>{formData.resume.contact.email}</p>
             </div>
           </div>
-
-          <h3 className={styles.section_title}>EDUCATION</h3>
+          {formData.resume.education.length > 0 && 
+          <>
+                <h3 className={styles.section_title}>EDUCATION</h3>
           <ul className={styles.ul_skill}>
             {formData.resume.education.map((item, index) => (
               <li key={index} className={styles.workEntry}>
@@ -772,22 +775,34 @@ const handleDownloadTxt = async () => {
               </li>
             ))}
           </ul>
-
-          <h3 className={styles.section_title}>SKILLS</h3>
+          </>
+          }
+    
+    {formData.resume.skillsAndLevel.length > 0 && 
+    <>
+     <h3 className={styles.section_title}>SKILLS</h3>
           <ul className={styles.ul_skill}>
             {formData.resume.skillsAndLevel.map((item, index) => (
               <li key={index}>{item.skills}</li>
             ))}
           </ul>
-
-          <h3 className={styles.section_title}>LANGUAGE</h3>
+    </>
+}
+         
+{formData.resume.knownLanguages.length > 0 && 
+<>
+<h3 className={styles.section_title}>LANGUAGE</h3>
           <ul className={styles.ul_skill}>
             {formData.resume.knownLanguages.map((item, index) => (
               <li key={index}>{item?.lang}</li>
             ))}
           </ul>
-
-          <h3 className={styles.section_title}>AWARDS</h3>
+</>
+}
+        
+{formData.resume.awards.length > 0 && 
+<>
+<h3 className={styles.section_title}>AWARDS</h3>
           <ul className={styles.ul_skill}>
             {formData.resume.awards.map((item, index) => (
               <li key={index} className={styles.award_list}>
@@ -797,6 +812,8 @@ const handleDownloadTxt = async () => {
               </li>
             ))}
           </ul>
+</>
+}
         </div>
 
         <div className={styles.left_section}>
@@ -805,23 +822,26 @@ const handleDownloadTxt = async () => {
             <p className={styles.section_content}>{formData.resume.summary}</p>
           </div>
 
- 
 
-          <div className={styles.section}>
-            <h3 className={styles.section_title}>PROJECTS</h3>
-            <ul className={styles.ul}>
-              {formData.resume.projects.map((item, index) => (
-                <li key={index} className={styles.work_entry}>
-                  <h5>{item?.year}</h5>
-                  <div className={styles.work_info}>
-                    <h4 className={styles.position}>{item?.title}</h4>
-                    <p className={styles.company}>{item?.link}</p>
-                    <p className={styles.description}>{item?.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+   
+   {formData.resume.projects.length > 0 && 
+         <div className={styles.section}>
+         <h3 className={styles.section_title}>PROJECTS</h3>
+         <ul className={styles.ul}>
+           {formData.resume.projects.map((item, index) => (
+             <li key={index} className={styles.work_entry}>
+               <h5>{item?.year}</h5>
+               <div className={styles.work_info}>
+                 <h4 className={styles.position}>{item?.title}</h4>
+                 <p className={styles.company}>{item?.link}</p>
+                 <p className={styles.description}>{item?.description}</p>
+               </div>
+             </li>
+           ))}
+         </ul>
+       </div>
+   }
+    
         </div>
       </div>
     </div>

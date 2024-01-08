@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import location from "../../Images/location-pin.png"
-import linkedin from "../../Images/linkedin.png"
-import mail from "../../Images/mail.png"
-import call from "../../Images/call.png"
-import dp from "../../Images/dp2.jpg"
+import location from "../../Images/location-pin.png";
+import linkedin from "../../Images/linkedin.png";
+import mail from "../../Images/mail.png";
+import call from "../../Images/call.png";
+import dp from "../../Images/dp2.jpg";
 import { Divider } from "@mui/material";
 import styles from "./Template_23.module.css";
 import WorkIcon from "@mui/icons-material/Work";
@@ -26,16 +26,13 @@ import {
   fontSizeState,
   imageSizeState,
 } from "../../../Recoil";
-import downloadimg from "../../Images/download.gif"
-import downloadpdf from "../../Images/pdf-download-2617.svg"
-import downloaddoc from "../../Images/google-docs-icon-2.svg"
-import downloadtext from "../../Images/icons8-text-500.svg"
-import { saveAs } from 'file-saver';
+import downloadimg from "../../Images/download.gif";
+import downloadpdf from "../../Images/pdf-download-2617.svg";
+import downloaddoc from "../../Images/google-docs-icon-2.svg";
+import downloadtext from "../../Images/icons8-text-500.svg";
+import { saveAs } from "file-saver";
 
-
-
-
-const Template_23= () => {
+const Template_23 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -47,11 +44,11 @@ const Template_23= () => {
   const [formData, setFormData] = useRecoilState(resumeData);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [base64Image1, setBase64Image1] = useState('');
-  const [base64Image2, setBase64Image2] = useState('');
-  const [base64Image3, setBase64Image3] = useState('');
-  const [base64Image4, setBase64Image4] = useState('');
-  const [base64Image5, setBase64Image5] = useState('');
+  const [base64Image1, setBase64Image1] = useState("");
+  const [base64Image2, setBase64Image2] = useState("");
+  const [base64Image3, setBase64Image3] = useState("");
+  const [base64Image4, setBase64Image4] = useState("");
+  const [base64Image5, setBase64Image5] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   console.log(formData.resume, "resume data");
@@ -64,9 +61,6 @@ const Template_23= () => {
     return startYear;
   };
 
-
-
-  
   useEffect(() => {
     const imageLocations = [
       location,
@@ -75,50 +69,48 @@ const Template_23= () => {
       mail,
       call,
     ];
-  
+
     const handleImageChange = async () => {
       try {
         const promises = imageLocations.map(async (location, index) => {
           const response = await fetch(location);
           const blob = await response.blob();
           const reader = new FileReader();
-  
+
           return new Promise((resolve) => {
             reader.onloadend = () => {
               // The result property contains the base64-encoded string
               const base64String = reader.result;
               resolve({ index, base64String });
             };
-  
+
             // Read the image file as a data URL
             reader.readAsDataURL(blob);
           });
         });
-  
+
         // Wait for all promises to resolve
         const results = await Promise.all(promises);
-  
+
         // Update state based on index
         results.forEach(({ index, base64String }) => {
           if (index === 0) {
             setBase64Image1(base64String);
           } else if (index === 1) {
             setBase64Image2(base64String);
-          }else if (index === 2) {
+          } else if (index === 2) {
             setBase64Image3(base64String);
-          }
-          else if (index === 3) {
+          } else if (index === 3) {
             setBase64Image4(base64String);
-        
-          }else if (index === 4) {
+          } else if (index === 4) {
             setBase64Image5(base64String);
           }
         });
       } catch (error) {
-        console.error('Error loading images:', error);
+        console.error("Error loading images:", error);
       }
     };
-  
+
     handleImageChange();
   }, []);
 
@@ -130,8 +122,8 @@ const Template_23= () => {
     );
     return formattedDate;
   }
-  
-  const getCSS = () =>{
+
+  const getCSS = () => {
     return `
     body {
       font-family: 'Arial', sans-serif;
@@ -397,8 +389,8 @@ width:1rem;
 .award-list h4,h5,p{
   margin:0;
 }
-    `
-  }
+    `;
+  };
 
   const getHTML = () => {
     return `
@@ -416,7 +408,9 @@ width:1rem;
     <div class="main">
         <div class="header" style="background-color: ${color}; color: ${color3};">
             <div class="name_box">
-                <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;"> ${formData.resume.name}</h1>
+                <h1 class="name" style="color: ${color3}; font-family: ${fontStyle}; font-size:${fontSize}px;"> ${
+      formData.resume.name
+    }</h1>
                 <h4  style="color: ${color3};">${formData.resume.jobTitle}</h4>
             </div>
         </div>
@@ -432,19 +426,25 @@ width:1rem;
                         <span class="contact_label">
                         <img class="icon" src=${base64Image5} alt="dp" />
                         </span>
-                        <p class="contact-value">${formData.resume.contact.phone}</p>
+                        <p class="contact-value">${
+                          formData.resume.contact.phone
+                        }</p>
                     </div>
                     <div class="contact_value">
                     <span class="contact_label">
                     <img class="icon" src=${base64Image4} alt="dp" />
                  </span>
-                        <p class="contact-value">${formData.resume.contact.email}</p>
+                        <p class="contact-value">${
+                          formData.resume.contact.email
+                        }</p>
                     </div>
                     <div class="contact_value">
                     <span class="contact_label">
                     <img class="icon" src=${base64Image2} alt="dp" />
                  </span>
-                        <p class="contact-value">${formData.resume.socialLinks.linkedin}</p>
+                        <p class="contact-value">${
+                          formData.resume.socialLinks.linkedin
+                        }</p>
                     </div>
                     <div class="contact_value">
                     <span class="contact_label">
@@ -452,44 +452,69 @@ width:1rem;
                  </span>
                         <p class="contact-value">
                         ${formData.resume.address.address},
-                        ${formData.resume.address.state },
-                        ${formData.resume.address.postalCode }
+                        ${formData.resume.address.state},
+                        ${formData.resume.address.postalCode}
                         </p>
                     </div>
                 </div>
-                <div class="section">
+                ${
+                  formData.resume.skillsAndLevel.length > 0
+                    ? `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">SKILLS</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
-                    ${formData.resume.skillsAndLevel.map((item) => `
+                    ${formData.resume.skillsAndLevel
+                      .map(
+                        (item) => `
                     <li> ${item.skills}</li>
-                    `).join('')}
+                    `
+                      )
+                      .join("")}
                     </ul>
-                </div>
-                <div class="section">
+                </div>`
+                    : ""
+                }
+                ${
+                  formData.resume.knownLanguages.length > 0
+                    ? `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">LANGUAGE</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
-                    ${formData.resume.knownLanguages.map((item) => `
+                    ${formData.resume.knownLanguages
+                      .map(
+                        (item) => `
                     <li>
                     ${item?.lang}
                   </li>
-               `).join('')}
+               `
+                      )
+                      .join("")}
                     </ul>
-                </div>
-                <div class="section">
+                </div>`
+                    : ""
+                }
+
+                ${
+                  formData.resume.awards.length > 0
+                    ? `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">AWARDS</h3>
                  <div class="divider"><hr/></div>
                     <ul class="skill-list">
-                    ${formData.resume.awards.map((item) => `
+                    ${formData.resume.awards
+                      .map(
+                        (item) => `
                     <li class="award-list">
                            <h5>${item?.date}</h5>
                            <h4>${item?.title}</h4>
                            <p>${item?.issuingOrganization}</p>
                        </li>
-               `).join('')}   
+               `
+                      )
+                      .join("")}   
                     </ul>
-                </div>
+                </div>`
+                    : ""
+                }
             </div>
             <div class="left_section">
                 <div class="section">
@@ -502,15 +527,20 @@ width:1rem;
                     ${formData.resume.summary}
                     </p>
                 </div>
-        
-                <div class="section">
+   
+
+                ${
+                  formData.resume.projects.length > 0
+                    ? `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">
                         <WorkIcon />
                         PROJECTS
                     </h3>
                  <div class="divider"><hr/></div>
                     <ul class="ul">
-                    ${formData.resume.projects.map((item) => `
+                    ${formData.resume.projects
+                      .map(
+                        (item) => `
                 <li>
                 <div class="work_entry">
                     <div>
@@ -525,19 +555,27 @@ width:1rem;
                     </div>
                 </div>
             </li>
-                `).join('')}  
+                `
+                      )
+                      .join("")}  
 
                     </ul>
-                </div>
-                <div class="section">
+                </div>`
+                    : ""
+                }
+
+                ${
+                  formData.resume.education.length > 0
+                    ? `<div class="section">
                     <h3 class="section_title" style="color: ${color3};">
                         <SchoolIcon />
                         EDUCATION
                     </h3>
                  <div class="divider"><hr/></div>
                     <ul class="ul">
-                    ${formData.resume.education.map((item) => `
-      
+                    ${formData.resume.education
+                      .map(
+                        (item) => `
                 <li>
                 <div class="work_entry">
                     <div class="title_">
@@ -549,9 +587,13 @@ width:1rem;
                     </div>
                 </div>
             </li>
-                `).join('')}
+                `
+                      )
+                      .join("")}
                     </ul>
-                </div>
+                </div>`
+                    : ""
+                }
             </div>
         </div>
     </div>
@@ -566,14 +608,14 @@ width:1rem;
   const handleResume = async () => {
     setLoading(true);
     setError("");
-  
+
     const axiosConfig = {
       responseType: "arraybuffer",
       headers: {
         Accept: "application/json",
       },
     };
-  
+
     try {
       const response = await axios.post(
         "http://3.144.48.243/api/convert",
@@ -583,13 +625,13 @@ width:1rem;
         },
         axiosConfig
       );
-  
+
       setLoading(false);
-  
+
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_23.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -598,137 +640,151 @@ width:1rem;
     }
   };
 
-
-  const handleDownloadDoc = async ( ) => {
+  const handleDownloadDoc = async () => {
     setLoading(true);
     setError("");
-  try {
-    // Step 1: Convert HTML and CSS to PDF
-    const pdfResponse = await axios.post(
-      'http://3.144.48.243/api/convert',
-      {
-        html: getHTML(),
-        cssStyles: getCSS(), // Include your CSS data here
-      },
-      {
-        responseType: 'arraybuffer',
-        headers: {
-          Accept: 'application/json',
+    try {
+      // Step 1: Convert HTML and CSS to PDF
+      const pdfResponse = await axios.post(
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
         },
-      }
-    );
+        {
+          responseType: "arraybuffer",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
 
-    // Step 2: Convert PDF to DOCX
-    const formData = new FormData();
-    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
+      // Step 2: Convert PDF to DOCX
+      const formData = new FormData();
+      formData.append(
+        "pdf",
+        new Blob([pdfResponse.data], { type: "application/pdf" })
+      );
 
-    const docxResponse = await axios.post(
-      'http://35.172.118.147/api/convert/pdftodocx',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
+      const docxResponse = await axios.post(
+        "http://35.172.118.147/api/convert/pdftodocx",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          responseType: "arraybuffer",
+        }
+      );
+      setLoading(false);
+      // Create a Blob from the response data
+      const docxBlob = new Blob([docxResponse.data], {
+        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      });
+
+      // Save the Blob as a file using FileSaver.js
+      saveAs(docxBlob, "converted.docx");
+
+      return "Conversion successful";
+    } catch (error) {
+      setLoading(false);
+      throw new Error("Error converting HTML and CSS to DOCX");
+    }
+  };
+
+  const handleDownloadTxt = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      // Step 1: Convert HTML and CSS to PDF
+      const pdfResponse = await axios.post(
+        "http://3.144.48.243/api/convert",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
         },
-        responseType: 'arraybuffer',
-      }
-    );
-    setLoading(false);
-    // Create a Blob from the response data
-    const docxBlob = new Blob([docxResponse.data], {
-      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    });
+        {
+          responseType: "arraybuffer",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
 
-    // Save the Blob as a file using FileSaver.js
-    saveAs(docxBlob, 'converted.docx');
+      // Step 2: Convert PDF to text using your PDF to text API
+      const formData = new FormData();
+      formData.append(
+        "pdf",
+        new Blob([pdfResponse.data], { type: "application/pdf" })
+      );
 
-    return 'Conversion successful';
-  } catch (error) {
-    setLoading(false);
-    throw new Error('Error converting HTML and CSS to DOCX');
-  }
-};
+      const textResponse = await axios.post(
+        "https://pdfcontentextractor.onrender.com/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          responseType: "text/plain", // Update the responseType to 'text/plain'
+        }
+      );
 
+      setLoading(false);
+      // Create a Blob from the response data
+      const textBlob = new Blob([textResponse.data], {
+        type: "text/plain",
+      });
 
-const handleDownloadTxt = async () => {
-  setLoading(true);
-  setError("");
+      // Save the Blob as a file using FileSaver.js
+      saveAs(textBlob, "converted.txt");
 
-  try {
-    // Step 1: Convert HTML and CSS to PDF
-    const pdfResponse = await axios.post(
-      'http://3.144.48.243/api/convert',
-      {
-        html: getHTML(),
-        cssStyles: getCSS(), // Include your CSS data here
-      },
-      {
-        responseType: 'arraybuffer',
-        headers: {
-          Accept: 'application/json',
-        },
-      }
-    );
-
-    // Step 2: Convert PDF to text using your PDF to text API
-    const formData = new FormData();
-    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
-
-    const textResponse = await axios.post(
-      'https://pdfcontentextractor.onrender.com/upload',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        responseType: 'text/plain', // Update the responseType to 'text/plain'
-      }
-    );
-
-    setLoading(false);
-    // Create a Blob from the response data
-    const textBlob = new Blob([textResponse.data], {
-      type: 'text/plain',
-    });
-
-    // Save the Blob as a file using FileSaver.js
-    saveAs(textBlob, 'converted.txt');
-
-    return 'Conversion successful';
-  } catch (error) {
-    setLoading(false);
-    throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
-  }
-};
+      return "Conversion successful";
+    } catch (error) {
+      setLoading(false);
+      throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
+    }
+  };
 
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
     }
-  
+
     return (
       <div className={styles.overlay}>
         <div className={styles.modal}>
-  
-
-       {loading ?   
-       <div  className={styles.down_img_box}>
-           <img src={downloadimg } alt="downloading" />
-           {error && <p style={{ color: "red" }}>{error}</p>}
-       </div>
-       :
-       <div className={styles.download_box}>
-       <button className={styles.closeButton} onClick={onClose}>Close
-       </button>
-       <div  className={styles.down_btn_box}>
-       <div  onClick={handleResume} className={styles.icon_download}><img src={downloadpdf } alt="pdf"/>PDF</div>
-        <div  onClick={handleDownloadDoc} className={styles.icon_download}><img src={downloaddoc } alt="doc"/> DOC</div>
-         <div  onClick={handleDownloadTxt} className={styles.icon_download}><img src={downloadtext } alt="text"/>TEXT</div>
-       </div>
-       </div>
-       }
-         
-        
-
+          {loading ? (
+            <div className={styles.down_img_box}>
+              <img src={downloadimg} alt="downloading" />
+              {error && <p style={{ color: "red" }}>{error}</p>}
+            </div>
+          ) : (
+            <div className={styles.download_box}>
+              <button className={styles.closeButton} onClick={onClose}>
+                Close
+              </button>
+              <div className={styles.down_btn_box}>
+                <div onClick={handleResume} className={styles.icon_download}>
+                  <img src={downloadpdf} alt="pdf" />
+                  PDF
+                </div>
+                <div
+                  onClick={handleDownloadDoc}
+                  className={styles.icon_download}
+                >
+                  <img src={downloaddoc} alt="doc" /> DOC
+                </div>
+                <div
+                  onClick={handleDownloadTxt}
+                  className={styles.icon_download}
+                >
+                  <img src={downloadtext} alt="text" />
+                  TEXT
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -744,149 +800,246 @@ const handleDownloadTxt = async () => {
     setIsModalOpen(false);
   };
 
-
-
-
   return (
     <>
-    <div className={styles.download_btn} >
-<button onClick={handleDownloadClick}>Download</button>
-<ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
-</div>
-<div className={styles.main}>
-      <div className={styles.header} style={{ backgroundColor: color, color: color3 }}>
-        <div className={styles.name_box}>
-          <h1 className={styles.name} style={{ fontWeight: 100 ,fontFamily:fontStyle ,color:color3,fontSize: fontSize }}>{formData.resume.name}</h1>
-          <h4 style={{color:color3}}>{formData.resume.jobTitle}</h4>
-        </div>
+      <div className={styles.download_btn}>
+        <button onClick={handleDownloadClick}>Download</button>
+        <ResumeModal isOpen={isModalOpen} onClose={handleCloseModal} />
       </div>
-      <div className={styles.container}>
-        <div className={styles.right_section} style={{ backgroundColor: color2, color: color3 }}>
-          <div className={styles.img_box} style={{ backgroundColor: color2 }}>
-            <img style={{ height: imgSize, width: imgSize }} src={base64Image3} alt="dp" />
+      <div className={styles.main}>
+        <div
+          className={styles.header}
+          style={{ backgroundColor: color, color: color3 }}
+        >
+          <div className={styles.name_box}>
+            <h1
+              className={styles.name}
+              style={{
+                fontWeight: 100,
+                fontFamily: fontStyle,
+                color: color3,
+                fontSize: fontSize,
+              }}
+            >
+              {formData.resume.name}
+            </h1>
+            <h4 style={{ color: color3 }}>{formData.resume.jobTitle}</h4>
           </div>
-          <div className={styles.contact_info}>
-            <h3 className={styles.section_title} style={{color:color3}}>Contact</h3>
-            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}}  /></div>
-            <div className={styles.contact_value}>
-              <span className={styles.contact_label}>
-                <img className={styles.icon} src={base64Image5} alt="dp" />
-              </span>
-              <p >{formData.resume.contact.phone}</p>
+        </div>
+        <div className={styles.container}>
+          <div
+            className={styles.right_section}
+            style={{ backgroundColor: color2, color: color3 }}
+          >
+            <div className={styles.img_box} style={{ backgroundColor: color2 }}>
+              <img
+                style={{ height: imgSize, width: imgSize }}
+                src={base64Image3}
+                alt="dp"
+              />
             </div>
-            <div className={styles.contact_value}>
-              <span className={styles.contact_label}>
-                <img className={styles.icon} src={base64Image4} alt="dp" />
-              </span>
-              <p >{formData.resume.contact.email}</p>
+            <div className={styles.contact_info}>
+              <h3 className={styles.section_title} style={{ color: color3 }}>
+                Contact
+              </h3>
+              <div className={styles.divider}>
+                <hr
+                  style={{
+                    borderColor: "black",
+                    backgroundColor: "black",
+                    borderWidth: "1px",
+                  }}
+                />
+              </div>
+              <div className={styles.contact_value}>
+                <span className={styles.contact_label}>
+                  <img className={styles.icon} src={base64Image5} alt="dp" />
+                </span>
+                <p>{formData.resume.contact.phone}</p>
+              </div>
+              <div className={styles.contact_value}>
+                <span className={styles.contact_label}>
+                  <img className={styles.icon} src={base64Image4} alt="dp" />
+                </span>
+                <p>{formData.resume.contact.email}</p>
+              </div>
+              <div className={styles.contact_value}>
+                <span className={styles.contact_label}>
+                  <img className={styles.icon} src={base64Image2} alt="dp" />
+                </span>
+                <p>{formData.resume.socialLinks.linkedin}</p>
+              </div>
+              <div className={styles.contact_value}>
+                <span className={styles.contact_label}>
+                  <img className={styles.icon} src={base64Image1} alt="dp" />
+                </span>
+                <p>
+                  {formData.resume.address.address},
+                  {formData.resume.address.state},
+                  {formData.resume.address.postalCode}
+                </p>
+              </div>
             </div>
-            <div className={styles.contact_value}>
-              <span className={styles.contact_label}>
-                <img className={styles.icon} src={base64Image2} alt="dp" />
-              </span>
-              <p >{formData.resume.socialLinks.linkedin}</p>
-            </div>
-            <div className={styles.contact_value}>
-              <span className={styles.contact_label}>
-                <img className={styles.icon} src={base64Image1} alt="dp" />
-              </span>
-              <p >
-                {formData.resume.address.address},
-                {formData.resume.address.state},
-                {formData.resume.address.postalCode}
+            {formData.resume.skillsAndLevel.length > 0 && (
+              <div className={styles.section}>
+                <h3 className={styles.section_title} style={{ color: color3 }}>
+                  SKILLS
+                </h3>
+                <div className={styles.divider}>
+                  <hr
+                    style={{
+                      borderColor: "black",
+                      backgroundColor: "black",
+                      borderWidth: "1px",
+                    }}
+                  />
+                </div>
+                <ul className={styles.skill_list}>
+                  {formData.resume.skillsAndLevel.map((item) => (
+                    <li key={item.skills}>{item.skills}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {formData.resume.knownLanguages.length > 0 && (
+              <div className={styles.section}>
+                <h3 className={styles.section_title} style={{ color: color3 }}>
+                  LANGUAGE
+                </h3>
+                <div className={styles.divider}>
+                  <hr
+                    style={{
+                      borderColor: "black",
+                      backgroundColor: "black",
+                      borderWidth: "1px",
+                    }}
+                  />
+                </div>
+                <ul className={styles.skill_list}>
+                  {formData.resume.knownLanguages.map((item) => (
+                    <li key={item?.lang}>{item?.lang}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {formData.resume.awards.length > 0 && (
+              <div className={styles.section}>
+                <h3 className={styles.section_title} style={{ color: color3 }}>
+                  AWARDS
+                </h3>
+                <div className={styles.divider}>
+                  <hr
+                    style={{
+                      borderColor: "black",
+                      backgroundColor: "black",
+                      borderWidth: "1px",
+                    }}
+                  />
+                </div>
+                <ul className={styles.skill_list}>
+                  {formData.resume.awards.map((item) => (
+                    <li key={item?.title} className={styles.award_list}>
+                      <h5>{item?.date}</h5>
+                      <h4>{item?.title}</h4>
+                      <p>{item?.issuingOrganization}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+          <div className={styles.left_section}>
+            <div className={styles.section}>
+              <h3 className={styles.section_title} style={{ color: color3 }}>
+                ABOUT
+              </h3>
+              <div className={styles.divider}>
+                <hr
+                  style={{
+                    borderColor: "black",
+                    backgroundColor: "black",
+                    borderWidth: "1px",
+                  }}
+                />
+              </div>
+              <p className={styles.section_content}>
+                {formData.resume.summary}
               </p>
             </div>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title} style={{color:color3}}>SKILLS</h3>
-            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
-            <ul className={styles.skill_list}>
-              {formData.resume.skillsAndLevel.map((item) => (
-                <li key={item.skills}>{item.skills}</li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title} style={{color:color3}}>LANGUAGE</h3>
-            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
-            <ul className={styles.skill_list}>
-              {formData.resume.knownLanguages.map((item) => (
-                <li key={item?.lang}>{item?.lang}</li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title} style={{color:color3}}>AWARDS</h3>
-            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
-            <ul className={styles.skill_list}>
-              {formData.resume.awards.map((item) => (
-                <li key={item?.title} className={styles.award_list}>
-                  <h5>{item?.date}</h5>
-                  <h4>{item?.title}</h4>
-                  <p>{item?.issuingOrganization}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className={styles.left_section}>
-          <div className={styles.section}>
-            <h3 className={styles.section_title} style={{color:color3}}>
-              ABOUT
-            </h3>
-            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
-            <p className={styles.section_content}>{formData.resume.summary}</p>
-          </div>
- 
-          <div className={styles.section}>
-            <h3 className={styles.section_title} style={{color:color3}}>
-              PROJECTS
-            </h3>
-            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
-            <ul className={styles.ul}>
-              {formData.resume.projects.map((item) => (
-                <li key={item?.title}>
-                  <div className={styles.work_entry}>
-                    <div>
-                      <div className={styles.title_}>
-                        <h4 className={styles.position}>{item?.title}</h4>
-                        <p className={styles.date}> {item?.year}</p>
+
+            {formData.resume.projects.length > 0 && (
+              <div className={styles.section}>
+                <h3 className={styles.section_title} style={{ color: color3 }}>
+                  PROJECTS
+                </h3>
+                <div className={styles.divider}>
+                  <hr
+                    style={{
+                      borderColor: "black",
+                      backgroundColor: "black",
+                      borderWidth: "1px",
+                    }}
+                  />
+                </div>
+                <ul className={styles.ul}>
+                  {formData.resume.projects.map((item) => (
+                    <li key={item?.title}>
+                      <div className={styles.work_entry}>
+                        <div>
+                          <div className={styles.title_}>
+                            <h4 className={styles.position}>{item?.title}</h4>
+                            <p className={styles.date}> {item?.year}</p>
+                          </div>
+                          <p className={styles.company}>{item?.link}</p>
+                          <p className={styles.description}>
+                            {item?.description}
+                          </p>
+                        </div>
                       </div>
-                      <p className={styles.company}>{item?.link}</p>
-                      <p className={styles.description}>{item?.description}</p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.section}>
-            <h3 className={styles.section_title} style={{color:color3}}>
-      
-              EDUCATION
-            </h3>
-            <div className={styles.divider}><hr style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} /></div>
-            <ul className={styles.ul}>
-              {formData.resume.education.map((item) => (
-                <li key={item?.degree}>
-                  <div className={styles.work_entry}>
-                    <div className={styles.title_}>
-                      <h4 className={styles.degree}>{item.degree}</h4>
-                      <p className={styles.date}>{item.startYear} - {item.endYear}</p>
-                    </div>
-                    <div>
-                      <p className={styles.university}>{item.collegeName}</p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {formData.resume.education.length > 0 && (
+              <div className={styles.section}>
+                <h3 className={styles.section_title} style={{ color: color3 }}>
+                  EDUCATION
+                </h3>
+                <div className={styles.divider}>
+                  <hr
+                    style={{
+                      borderColor: "black",
+                      backgroundColor: "black",
+                      borderWidth: "1px",
+                    }}
+                  />
+                </div>
+                <ul className={styles.ul}>
+                  {formData.resume.education.map((item) => (
+                    <li key={item?.degree}>
+                      <div className={styles.work_entry}>
+                        <div className={styles.title_}>
+                          <h4 className={styles.degree}>{item.degree}</h4>
+                          <p className={styles.date}>
+                            {item.startYear} - {item.endYear}
+                          </p>
+                        </div>
+                        <div>
+                          <p className={styles.university}>
+                            {item.collegeName}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </div>
-    </div>
-</>
-   
+    </>
   );
 };
 

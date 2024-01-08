@@ -405,12 +405,11 @@ margin:0rem;
         </div>
         <div class="container">
           <div class="right_section">
-            <div class="section">
+          ${formData.resume.education.length > 0 ?
+            `<div class="section">
               <h3 class="section_title">EDUCATION</h3>
               <div class="edu-ul"> 
-
               ${formData.resume.education.map((item) => `
-
           <div  class="edu-entry">
           <p class="date">${item.startYear} - ${item.endYear}</p>
           <div>
@@ -419,18 +418,21 @@ margin:0rem;
           </div>
         </div>
               `).join('')}
-
               </div>
-            </div>
-            <div class="section">
+            </div>`:""
+          }
+          ${formData.resume.skillsAndLevel.length > 0 ?
+            `<div class="section">
               <h3 class="section-title">SKILLS</h3>
               <ul class="skills_list">
                       ${formData.resume.skillsAndLevel.map((item) => `
                     <li> ${item.skills}</li>
                     `).join('')}
               </ul>
-            </div>
-            <div class="section">
+            </div>`:""
+          }
+            ${formData.resume.knownLanguages.length > 0 ?
+            `<div class="section">
               <h3 class="section-title">LANGUAGE</h3>
               <ul class="skills_list">
               ${formData.resume.knownLanguages.map((item) => `
@@ -439,8 +441,10 @@ margin:0rem;
             </li>
          `).join('')}
               </ul>
-            </div>
-            <div class="section">
+            </div>` : ""
+            }
+            ${formData.resume.awards.length > 0 ?
+            `<div class="section">
               <h3 class="section-title">AWARDS</h3>
               <ul class="skills_list">
               ${formData.resume.awards.map((item) => `
@@ -451,7 +455,8 @@ margin:0rem;
                  </li>
          `).join('')}  
               </ul>
-            </div>
+            </div>`:""
+            }
           </div>
           <div class="left_section">
             <div class="section">
@@ -460,14 +465,12 @@ margin:0rem;
               ${formData.resume.summary}
               </p>
             </div>
-          
-            <div class="section">
+  
+            ${formData.resume.projects.length > 0 ?
+            `<div class="section">
               <h3 class="section_title">PROJECTS</h3>
-             
               <div class="work_entry">
-
               ${formData.resume.projects.map((item) => `
-        
           <div>
           <div class="title_">
             <h4 class="position">${item?.title}</h4>
@@ -479,9 +482,9 @@ margin:0rem;
           </p>
         </div>
               `).join('')} 
-
               </div>
-            </div>
+            </div>`:""
+            }
           </div>
         </div>
       </div>
@@ -518,7 +521,7 @@ margin:0rem;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_27.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -714,6 +717,7 @@ const handleDownloadTxt = async () => {
 
       <div className={styles.container}>
         <div className={styles.right_section}>
+        {formData.resume.education.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>EDUCATION</h3>
             <ul className={styles.edu_ul}>
@@ -730,7 +734,8 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
-
+}
+{formData.resume.skillsAndLevel.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>SKILLS</h3>
             <ul className={styles.skills_list}>
@@ -739,7 +744,8 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
-
+}
+{formData.resume.knownLanguages.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>LANGUAGE</h3>
             <ul className={styles.skills_list}>
@@ -748,7 +754,8 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
-
+}
+{formData.resume.awards.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>AWARDS</h3>
             <ul className={styles.skills_list}>
@@ -761,6 +768,7 @@ const handleDownloadTxt = async () => {
               ))}
             </ul>
           </div>
+}
         </div>
 
         <div className={styles.left_section}>
@@ -768,6 +776,8 @@ const handleDownloadTxt = async () => {
             <h3 className={styles.section_title}>PROFILE</h3>
             <p className={styles.section_content}>{formData.resume.summary}</p>
           </div>
+
+{formData.resume.projects.length > 0 &&
           <div className={styles.section}>
             <h3 className={styles.section_title}>PROJECTS</h3>
             <div className={styles.work_entry}>
@@ -785,6 +795,7 @@ const handleDownloadTxt = async () => {
               ))}
             </div>
           </div>
+}
         </div>
       </div>
     </div>

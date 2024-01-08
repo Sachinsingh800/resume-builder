@@ -33,7 +33,9 @@ import downloadtext from "../../Images/icons8-text-500.svg"
 import { saveAs } from 'file-saver';
 
 
-
+const PDFRenderer = ({ htmlContent }) => {
+  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+};
 
 const Template_5= () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -382,11 +384,12 @@ margin:0rem;
 margin:0rem;
 }
 .work-ul  {
-margin-left:-.5rem!important;
+margin-left:-2rem!important;
 flex-direction: column;
 display: flex;
 gap:.8rem;
 margin-top:-1rem;
+list-style: none;
 }
 
 .contact-list  div{
@@ -425,25 +428,28 @@ margin-left:.8rem;
                         <img src=${base64Image3} alt="dp">
                     </div>
                 </div>
-                <div class="skillsHeader">
-                    <div class="title_box">
-                        <span class="design" style="background-color:${color2}"> </span>
-                        <h3 style="color: black;">EDUCATION</h3>
-                    </div>
-                    <ul >
-                    ${formData.resume.education.map((item) => `
-                    <li style="color: black;">
-                    <span>
-                    ${item.degree}
-                        <span>${item.startYear} - ${item.endYear}</span>
-                    </span>
-                    <span>${item.collegeName}</span>
-                </li>
-                `).join('')}
-                       
-                    </ul>
-                    <br/>
-                </div>
+                ${formData.resume.education.length >  0 ?
+                  `<div class="skillsHeader">
+                  <div class="title_box">
+                      <span class="design" style="background-color:${color2}"> </span>
+                      <h3 style="color: black;">EDUCATION</h3>
+                  </div>
+                  <ul >
+                  ${formData.resume.education.map((item) => `
+                  <li style="color: black;">
+                  <span>
+                  ${item.degree}
+                      <span>${item.startYear} - ${item.endYear}</span>
+                  </span>
+                  <span>${item.collegeName}</span>
+              </li>
+              `).join('')}
+                     
+                  </ul>
+                  <br/>
+              </div>`
+                   : "" }
+               
                 <div class="skillsHeader">
                     <div class="title_box">
                         <span class="design" style="background-color:${color2}"> </span>
@@ -474,7 +480,8 @@ margin-left:.8rem;
 
                 </div>
                 <br/>
-                <div class="skillsHeader">
+                ${formData.resume.knownLanguages.length > 0 ? 
+                `<div class="skillsHeader">
                     <div class="title_box">
                         <span class="design" style="background-color:${color2}"> </span>
                         <h3 style="color: black;">LANGUAGES</h3>
@@ -488,7 +495,9 @@ margin-left:.8rem;
                    
                     </ul>
                 </div>
-            </div>
+            </div>`:""
+                }
+    
             <div>
                 <div class="objectiveHeader" style="background-color: ;">
                     <span class="design3" style="background-color:${color2}"> &nbsp; </span>
@@ -508,8 +517,9 @@ margin-left:.8rem;
                     ${formData.resume.summary}
                     </p>
                 </div>
-               
-                <div class="professionalSkillsHeader">
+             
+                ${formData.resume.projects.length > 0 ?  
+                `<div class="professionalSkillsHeader">
                     <div class="title_box2" >
                         <span class="design2" style="background-color:${color2}"> &nbsp; </span>
                         <h3>PROJECTS</h3>
@@ -529,9 +539,11 @@ margin-left:.8rem;
             `).join('')}
                  
                     </ul>
-                </div>
-         
-                <div class="professionalSkillsHeader">
+                </div>`:""
+                }
+                 
+                ${formData.resume.skillsAndLevel.length > 0 ? 
+                `<div class="professionalSkillsHeader">
                     <div class="title_box2" >
                         <span class="design2" style="background-color:${color2}"> &nbsp; </span>
                         <h3>SOFTWARE SKILL</h3>
@@ -550,7 +562,9 @@ margin-left:.8rem;
                    `).join('')}
                        
                     </ul>
-                </div>
+                </div>`:""
+                }
+            </div>
             </div>
         </div>
     </body>
@@ -586,7 +600,7 @@ margin-left:.8rem;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_05.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -756,6 +770,7 @@ const handleDownloadTxt = async () => {
             <img src={base64Image3} alt="dp" />
           </div>
         </div>
+        {formData.resume.education.length > 0  &&
         <div className={styles.skillsHeader}>
           <div className={styles.title_box}>
             <span className={styles.design} style={{backgroundColor:color2}}> </span>
@@ -775,7 +790,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
         <br/>
+            
         <div className={styles.skillsHeader}>
           <div className={styles.title_box}>
             <span className={styles.design} style={{backgroundColor:color2}}> </span>
@@ -802,6 +819,7 @@ const handleDownloadTxt = async () => {
           </div>
         </div>
         <br/>
+        {formData.resume.knownLanguages.length > 0 &&
         <div className={styles.skillsHeader}>
           <div className={styles.title_box}>
             <span className={styles.design} style={{backgroundColor:color2}}> </span>
@@ -815,7 +833,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
       </div>
+            
       <div>
         <div className={`${styles.objectiveHeader} `}>
           <span className={styles.design3} style={{backgroundColor:color2}}> </span>
@@ -835,6 +855,8 @@ const handleDownloadTxt = async () => {
           <p className={styles.para}>{formData.resume.summary}</p>
         </div>
         <br/>
+      
+        {formData?.resume?.projects.length > 0 && 
         <div className={styles.professionalSkillsHeader}>
           <div className={styles.title_box2} >
             <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
@@ -859,7 +881,9 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
         <br />
+        {formData.resume.skillsAndLevel.length > 0 &&
         <div className={styles.professionalSkillsHeader}>
           <div className={styles.title_box2} >
             <span className={styles.design2} style={{backgroundColor:color2}}> &nbsp; </span>
@@ -877,6 +901,7 @@ const handleDownloadTxt = async () => {
             ))}
           </ul>
         </div>
+}
       </div>
     </div>
     </>

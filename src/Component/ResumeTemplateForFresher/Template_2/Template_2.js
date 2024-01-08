@@ -311,6 +311,10 @@ height:1rem;
 width:1rem;
 
 }
+ul{
+  list-style: none;
+  margin-left: -2.3rem!important;
+}
   `
 }
 
@@ -365,21 +369,35 @@ width:1rem;
                     </div>
                 </div>
             </div>
-            <div class="skillsHeader">
+
+            ${formData.resume.skillsAndLevel.length > 0 ? 
+            `<div class="skillsHeader">
                 <h3>SKILLS</h3>
                 <ul>
                 ${formData.resume.skillsAndLevel.map((item) => `
-                 
                 <li>
                ${item.skills }
-    
-            </li>
+                </li>
       
         `).join('')}
                    
                 </ul>
-            </div>
-            <div class="educationHeader">
+            </div>`:""
+            }
+            ${formData.resume.knownLanguages.length > 0 ?
+            `<div class="skillsHeader">
+                <h3>SKILLS</h3>
+                <ul>
+                ${formData.resume.knownLanguages.map((item) => `
+                <li>
+               ${item.lang }
+                 </li>
+        `).join('')}      
+                </ul>
+            </div>`:""
+            }
+            ${formData.resume.education.length >0 ?
+            `<div class="educationHeader">
                 <h3>EDUCATION</h3>
                 ${formData.resume.education.map((item) => `
                 <div class="edu-ul">
@@ -388,7 +406,8 @@ width:1rem;
                 <p>${item.startYear} - ${item.endYear}</p>
                 </div>
             `).join('')}
-            </div>
+            </div>`:""
+            }
         </div>
         <div>
             <div class="objectiveHeader" style="background-color: ${color}">
@@ -397,8 +416,9 @@ width:1rem;
                 ${formData.resume.summary}
                 </p>
             </div>
-         
-            <div class="workHeader">
+   
+            ${formData.resume.projects.length > 0 ? 
+            `<div class="workHeader">
                 <h3>Projects</h3>
                 <ul class="Projects-ul">
                 ${formData.resume.projects.map((item) => `
@@ -413,7 +433,8 @@ width:1rem;
         `).join('')}
                    
                 </ul>
-            </div>
+            </div>`:""
+            }
         </div>
     </div>
 </body>
@@ -451,7 +472,7 @@ width:1rem;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_02.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -637,44 +658,63 @@ const handleDownloadTxt = async () => {
             </div>
           </div>
         </div>
-        <div className={style.skillsHeader}>
-          <h3>SKILLS</h3>
-          <ul>
-            {formData.resume.skillsAndLevel.map((item) => (
-              <li key={item.skills}>{item.skills}</li>
-            ))}
-          </ul>
-        </div>
-        <div className={style.educationHeader}>
-          <h3>EDUCATION</h3>
-          {formData.resume.education.map((item) => (
-            <div key={item.collegeName} className={style.edu_ul}>
-              <h4>{item.collegeName}</h4>
-              <p>{item.degree}</p>
-              <p>{item.startYear} - {item.endYear}</p>
-            </div>
-          ))}
-        </div>
+        {formData.resume.skillsAndLevel.length > 0 &&
+               <div className={style.skillsHeader}>
+               <h3>SKILLS</h3>
+               <ul>
+                 {formData.resume.skillsAndLevel.map((item) => (
+                   <li key={item.skills}>{item.skills}</li>
+                 ))}
+               </ul>
+             </div>
+        }
+        {formData.resume.knownLanguages.length > 0 && 
+           <div className={style.skillsHeader}>
+           <h3>LANGUAGES</h3>
+           <ul>
+             {formData.resume.knownLanguages.map((item) => (
+               <li key={item.skills}>{item.lang}</li>
+             ))}
+           </ul>
+         </div>
+        }
+         {formData.resume.education.length > 0 && 
+           <div className={style.educationHeader}>
+           <h3>EDUCATION</h3>
+           {formData.resume.education.map((item) => (
+             <div key={item.collegeName} className={style.edu_ul}>
+               <h4>{item.collegeName}</h4>
+               <p>{item.degree}</p>
+               <p>{item.startYear} - {item.endYear}</p>
+             </div>
+           ))}
+         </div>
+         }
+      
       </div>
       <div>
         <div className={style.objectiveHeader} style={{ backgroundColor: color }}>
           <h3 style={{color:color3}}>CAREER OBJECTIVE</h3>
           <p className={style.objectiveText} style={{color:color3}}>{formData.resume.summary}</p>
         </div>
-        <div className={style.workHeader}>
-          <h3>Projects</h3>
-          <ul className={style.Projects_ul}>
-            {formData.resume.projects.map((item) => (
-              <li key={item.title}>
-                <h4 className={style.project_title}>
-                  <span>{item.title}</span> <span>{item.year}</span>
-                </h4>
-                <p>{item.link}</p>
-                <p>{item.description}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+       
+         {formData.resume.projects.length > 0 && 
+                 <div className={style.workHeader}>
+                 <h3>Projects</h3>
+                 <ul className={style.Projects_ul}>
+                   {formData.resume.projects.map((item) => (
+                     <li key={item.title}>
+                       <h4 className={style.project_title}>
+                         <span>{item.title}</span> <span>{item.year}</span>
+                       </h4>
+                       <p>{item.link}</p>
+                       <p>{item.description}</p>
+                     </li>
+                   ))}
+                 </ul>
+               </div>
+         }
+
       </div>
     </div>
     </>

@@ -311,6 +311,10 @@ hr{
 .section-3{
   margin-top:-4rem;
 }
+.skill_ul{
+  list-style: none;
+  margin-left:-.5rem;
+}
 
     `
   }
@@ -341,8 +345,10 @@ hr{
                     ${formData.resume.summary}
                     </p>
                 </div>
-            
-                <div class="section-2">
+         
+
+                 ${formData.resume.projects.length > 0 ? 
+                `<div class="section-2">
                     <h2 class="section-title">PROJECTS</h2>
                     <hr class="divider" />
                     <ul class="ul">
@@ -360,8 +366,11 @@ hr{
             `).join('')}    
                       
                     </ul>
-                </div>
-                <div class="section-3">
+                </div>` : ""
+                 }
+
+                 ${formData.resume.education.length > 0 ? 
+                `<div class="section-3">
                     <h2 class="section-title">EDUCATION</h2>
                     <hr class="divider" />
                     <ul class="ul">
@@ -374,7 +383,8 @@ hr{
                 </li>
                 `).join('')}
                     </ul>
-                </div>
+                </div>`: ""
+                }
             </div>
             <div class="right_section" style="background-color: ${color}; color: ${color3};  height: 1034px;" >
                 <div class="contact-info">
@@ -402,14 +412,24 @@ hr{
                        
                     </div>
                 </div>
-            
-                <div style="color:${color2}">
+                ${formData.resume.skillsAndLevel.length > 0 ?
+                `<div style="color:${color2}">
                     <h2 class="section-title">SKILLS</h2>
                     <hr class="divider" />
                     <ul class="skill_ul" >
                     ${formData.resume.skillsAndLevel.map((item) => `<li>${item.skills}</li>`).join('') }
                     </ul>
-                </div>
+                </div>`: ""
+                 }
+                 ${formData.resume.knownLanguages.length > 0 ?
+                `<div style="color:${color2}">
+                    <h2 class="section-title">LANGUAGES</h2>
+                    <hr class="divider" />
+                    <ul class="skill_ul" >
+                    ${formData.resume.knownLanguages.map((item) => `<li>${item.lang}</li>`).join('') }
+                    </ul>
+                </div>`: ""
+                 }
             </div>
         </div>
     </body>
@@ -445,7 +465,7 @@ hr{
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_04.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -616,40 +636,47 @@ const handleDownloadTxt = async () => {
         <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
           <p className={styles.para}>{formData.resume.summary}</p>
         </div>
-
+  
+    
+    {formData?.resume?.projects.length > 0 &&
         <div className={styles.section}>
-          <h2 className={styles.section_title}>PROJECTS</h2>
-          <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
-          <ul className={styles.ul}>
-          {formData?.resume?.projects.map((item, index) => (
-              <li key={index} className={styles.li}>
-                <div className={styles.work}>
-                  <h4 className={styles.customerService}>{item?.title}</h4>
-                  <h5 className={styles.company_name} style={{color:color2}}>
-                    <span>{item?.link}</span> | <span>  {item?.year}</span>
-                  </h5>
-                  <p>{item?.description}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.section}>
-          <h2 className={styles.section_title}>EDUCATION</h2>
-          <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
-
-          <ul className={styles.ul}>
-            {formData.resume.education.map((item, index) => (
-              <li key={index} className={styles.li}>
-                <div className={styles.work}>
-                  <h4 className={styles.customerService}>{item.degree}</h4>
-                  <h5 className={styles.company_name}><span>{item.collegeName}</span> <span>{item.startYear} - {item.endYear}</span></h5>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h2 className={styles.section_title}>PROJECTS</h2>
+        <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
+        <ul className={styles.ul}>
+        {formData?.resume?.projects.map((item, index) => (
+            <li key={index} className={styles.li}>
+              <div className={styles.work}>
+                <h4 className={styles.customerService}>{item?.title}</h4>
+                <h5 className={styles.company_name} style={{color:color2}}>
+                  <span>{item?.link}</span> | <span>  {item?.year}</span>
+                </h5>
+                <p>{item?.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
+    }
+    
+    {formData.resume.education.length > 0 &&
+       <div className={styles.section}>
+       <h2 className={styles.section_title}>EDUCATION</h2>
+       <hr className={styles.divider} style={{borderColor: "black", backgroundColor: "black",borderWidth: "1px"}} />
+
+       <ul className={styles.ul}>
+         {formData.resume.education.map((item, index) => (
+           <li key={index} className={styles.li}>
+             <div className={styles.work}>
+               <h4 className={styles.customerService}>{item.degree}</h4>
+               <h5 className={styles.company_name}><span>{item.collegeName}</span> <span>{item.startYear} - {item.endYear}</span></h5>
+             </div>
+           </li>
+         ))}
+       </ul>
+     </div>
+    }
+      </div>
+      
       <div className={`${styles.right_section} `} style={{ height: "1200px" ,backgroundColor:color ,color:color2 }}>
         <div className={styles.contact_info}>
           <div className={styles.contact_entry}>
@@ -671,15 +698,30 @@ const handleDownloadTxt = async () => {
             </div>
           </div>
         </div>
-        <div>
-          <h2 className={styles.section_title}>SKILLS</h2>
-          <hr className={styles.divider} style={{borderColor: "black" ,borderWidth: "1px"}} />
-          <ul className={styles.skill_ul}>
-            {formData.resume.skillsAndLevel.map((item, index) => (
-              <li key={index}>{item.skills}</li>
-            ))}
-          </ul>
-        </div>
+
+        {formData.resume.skillsAndLevel.length > 0 &&
+                <div>
+                <h2 className={styles.section_title}>SKILLS</h2>
+                <hr className={styles.divider} style={{borderColor: "black" ,borderWidth: "1px"}} />
+                <ul className={styles.skill_ul}>
+                  {formData.resume.skillsAndLevel.map((item, index) => (
+                    <li key={index}>{item.skills}</li>
+                  ))}
+                </ul>
+              </div>
+         }
+            {formData.resume.knownLanguages.length > 0 && 
+                <div>
+                <h2 className={styles.section_title}>LANGUAGES</h2>
+                <hr className={styles.divider} style={{borderColor: "black" ,borderWidth: "1px"}} />
+                <ul className={styles.skill_ul}>
+                  {formData.resume.knownLanguages.map((item, index) => (
+                    <li key={index}>{item.lang}</li>
+                  ))}
+                </ul>
+              </div>
+            }
+    
       </div>
     </div>
     </>

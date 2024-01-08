@@ -344,8 +344,8 @@ margin:0rem;
 display:grid;
 grid-template-columns: 1fr ;
 gap:.8rem;
-margin-top:-.5rem;
-margin-left: 1rem;
+margin-top:-2em;
+margin-left: .8rem;
 }
 
 .divider{
@@ -367,19 +367,36 @@ width:100%;
 padding:.2rem;
 list-style:none;
 }
+.skill-list{
+  margin-top:-.5rem;
+  margin-left:-.5rem;
+
+}
 .skill-divider{
 margin-top:-1rem;
 width:80%;
 margin-left: 2rem;
 }
+.lang-list{
+  margin-top:-2rem;
+  margin-left:-.5rem;
+}
 .work-ul{
 margin-top:-1rem;
-margin-left: -1rem!important;
+margin-left: -3rem!important;
 }
 .icon{
 height:1rem;
 width:1rem;
-
+}
+ul{
+  list-style: none;
+}
+.skillsHeader{
+  margin-top:-2rem!important;
+}
+.skill{
+  margin-top:-2rem!important;
 }
     `
   }
@@ -436,8 +453,9 @@ width:1rem;
                         </p>
                     </div>
                 </div>
-    
-                <div class="skillsHeader">
+               <br/>
+               ${formData.resume.education.length > 0 ?
+                `<div class="skillsHeader">
                     <h3 >EDUCATION</h3>
                     <div class="divider"><hr ></div> 
                     <ul class="skill-info">
@@ -450,9 +468,12 @@ width:1rem;
                 `).join('')}
                        
                     </ul>
-                </div>
-    
-                <div class="skill">
+                </div>`:""
+                }
+
+
+               ${formData.resume.skillsAndLevel.length > 0 ? 
+                `<div class="skill">
                     <h3 >PERSONAL SKILLS</h3>
                     <div class="skill-divider"><hr ></div> 
                     <ul class="skill-list">
@@ -461,12 +482,14 @@ width:1rem;
                     `).join('')}
                         
                     </ul>
-                </div>
+                </div>`:""
+                }
     
-                <div class="skillsHeader">
+           ${formData.resume.knownLanguages.length > 0 ? 
+                `<div class="skillsHeader">
                     <h3 >LANGUAGES</h3>
                     <div class="divider"><hr ></div> 
-                    <ul>
+                    <ul class="lang-list">
                     ${formData.resume.knownLanguages.map((item) => `
                 <li >
                 <span>${item?.lang}</span>
@@ -474,7 +497,8 @@ width:1rem;
             `).join('')}
                        
                     </ul>
-                </div>
+                </div>`:""
+                }
             </div>
     
             <div>
@@ -494,8 +518,8 @@ width:1rem;
                       </p>
                 </div>
     
-               
-                <div class="professionalSkillsHeader">
+                ${formData.resume.projects.length > 0 ?
+                `<div class="professionalSkillsHeader">
                     <div>
                         <h3>PROJECTS</h3>
                         <div class="work-divider"><hr ></div> 
@@ -514,7 +538,8 @@ width:1rem;
                 </li>
             `).join('')}     
                     </ul>
-                </div>
+                </div>`:""
+                }
             </div>
         </div>
     </body>
@@ -550,7 +575,7 @@ width:1rem;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_03.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -748,41 +773,48 @@ const handleDownloadTxt = async () => {
           </div>
         </div>
 
-        <div className={style.skillsHeader}>
-          <h3 className={style.heading}>EDUCATION</h3>
-          <div className={style.divider}>&ensp;</div>
-          <ul className={style.skillInfo}>
-            {formData.resume.education.map((item, index) => (
-              <div key={index} className={style.edu}>
-                <h4>{item.degree}</h4>
-                <h5>{item.startYear} - {item.endYear}</h5>
-                <p>{item.collegeName}</p>
-              </div>
-            ))}
-          </ul>
-        </div>
-
-        <div className={style.skill}>
-          <h3 className={style.heading}>PERSONAL SKILLS</h3>
-          <div className={style.divider}>&ensp;</div>
-          <ul className={style.skill_list}>
-            {formData.resume.skillsAndLevel.map((item, index) => (
-              <li key={index}>{item.skills}</li>
-            ))}
-          </ul>
-        </div>
-
-        <div className={style.skillsHeader}>
-          <h3 className={style.heading}>LANGUAGES</h3>
-          <div className={style.divider}>&ensp;</div>
-          <ul>
-            {formData.resume.knownLanguages.map((item, index) => (
-              <li key={index}>
-                <span>{item?.lang}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {formData.resume.education.length > 0 &&
+             <div className={style.skillsHeader}>
+             <h3 className={style.heading}>EDUCATION</h3>
+             <div className={style.divider}>&ensp;</div>
+             <ul className={style.skillInfo}>
+               {formData.resume.education.map((item, index) => (
+                 <div key={index} className={style.edu}>
+                   <h4>{item.degree}</h4>
+                   <h5>{item.startYear} - {item.endYear}</h5>
+                   <p>{item.collegeName}</p>
+                 </div>
+               ))}
+             </ul>
+           </div>
+        }
+   
+      {formData.resume.skillsAndLevel.length > 0 && 
+       <div className={style.skill}>
+       <h3 className={style.heading}>PERSONAL SKILLS</h3>
+       <div className={style.divider}>&ensp;</div>
+       <ul className={style.skill_list}>
+         {formData.resume.skillsAndLevel.map((item, index) => (
+           <li key={index}>{item.skills}</li>
+         ))}
+       </ul>
+     </div>
+      }
+       
+       {formData.resume.knownLanguages.length > 0 && 
+           <div className={style.skillsHeader}>
+           <h3 className={style.heading}>LANGUAGES</h3>
+           <div className={style.divider}>&ensp;</div>
+           <ul>
+             {formData.resume.knownLanguages.map((item, index) => (
+               <li key={index}>
+                 <span>{item?.lang}</span>
+               </li>
+             ))}
+           </ul>
+         </div>
+       }
+    
       </div>
 
       <div>
@@ -797,25 +829,29 @@ const handleDownloadTxt = async () => {
           <p>{formData.resume.summary}</p>
         </div>
 
+
+      {formData?.resume?.projects.length > 0 && 
         <div className={style.professionalSkillsHeader}>
-          <div>
-            <h3 className={style.heading}>PROJECTS</h3>
-            <div className={style.divider}>&ensp;</div>
-          </div>
-          <ul className={style.workUl}>
-          {formData?.resume?.projects.map((item, index) => (
-              <li key={index}>
-                <div className={style.work_des}>
-                  <h4 className={style.customerService}>{item?.title}</h4>
-                  <h5 className={style.company_name} style={{color:color2}}>
-                    <span>{item?.link}</span> <span>  {item?.year}</span>
-                  </h5>
-                  <p>{item?.description}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <div>
+          <h3 className={style.heading}>PROJECTS</h3>
+          <div className={style.divider}>&ensp;</div>
         </div>
+        <ul className={style.workUl}>
+        {formData?.resume?.projects.map((item, index) => (
+            <li key={index}>
+              <div className={style.work_des}>
+                <h4 className={style.customerService}>{item?.title}</h4>
+                <h5 className={style.company_name} style={{color:color2}}>
+                  <span>{item?.link}</span> <span>  {item?.year}</span>
+                </h5>
+                <p>{item?.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      }
+      
       </div>
     </div>
     </>

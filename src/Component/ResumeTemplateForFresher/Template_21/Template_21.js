@@ -407,6 +407,7 @@ const Template_21= () => {
                 </div>
               </div>
             </div>
+            ${formData.resume.education.length > 0 ?
             <div class="section">
               <h3 class="section_title">EDUCATION</h3>
               <div class="edu-ul"> 
@@ -422,16 +423,21 @@ const Template_21= () => {
           `).join('')}
               </div>
              
-            </div>
-            <div class="section">
+            </div>:""
+            }
+
+            ${formData.resume.skillsAndLevel.length > 0 ?
+            `<div class="section">
               <h3 class="section-title">SKILLS</h3>
               <ul class="skills_list">
               ${formData.resume.skillsAndLevel.map((item) => `
               <li> ${item.skills}</li>
               `).join('')}
               </ul>
-            </div>
-            <div class="section">
+            </div>`:""
+            }
+            ${formData.resume.knownLanguages.length > 0 ?
+            `<div class="section">
               <h3 class="section-title">LANGUAGE</h3>
               <ul class="skills_list">
               ${formData.resume.knownLanguages.map((item) => `
@@ -440,8 +446,10 @@ const Template_21= () => {
             </li>
          `).join('')}
               </ul>
-            </div>
-            <div class="section">
+            </div>` :""
+            }
+            ${formData.resume.awards.length > 0 ?
+            `<div class="section">
               <h3 class="section-title">AWARDS</h3>
               <ul class="skills_list">
               ${formData.resume.awards.map((item) => `
@@ -452,7 +460,8 @@ const Template_21= () => {
                  </li>
          `).join('')}  
               </ul>
-            </div>
+            </div>`:""
+            }
           </div>
           <div class="left_section">
     
@@ -463,9 +472,10 @@ const Template_21= () => {
               </p>
             </div>
 
-
-      
-            <div class="section">
+        
+              
+              ${formData.resume.projects.length > 0 ?
+            `<div class="section">
               <h3 class="section_title">PROJECTS</h3>
               <div class="work_entry">
               ${formData.resume.projects.map((item) => `
@@ -481,10 +491,9 @@ const Template_21= () => {
           </p>
         </div>
           `).join('')}  
-          
               </div>
-              
-            </div>
+            </div>`:""
+              }
           </div>
         </div>
       </div>
@@ -521,7 +530,7 @@ const Template_21= () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_21.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -703,9 +712,9 @@ const handleDownloadTxt = async () => {
               <img className={styles.icon} src={base64Image5} alt="dp" />
               <p className={styles.contactValue}>{formData.resume.contact.phone}</p>
             </div>
-            {/* ... Other contact values ... */}
           </div>
         </div>
+        {formData.resume.education.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>EDUCATION</h3>
           <div className={styles.edu_ul}>
@@ -720,6 +729,8 @@ const handleDownloadTxt = async () => {
             )}
           </div>
         </div>
+}
+{formData.resume.skillsAndLevel.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>SKILLS</h3>
           <ul className={styles.skills_list}>
@@ -728,6 +739,8 @@ const handleDownloadTxt = async () => {
             )}
           </ul>
         </div>
+}
+{formData.resume.knownLanguages.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>LANGUAGE</h3>
           <ul className={styles.skills_list}>
@@ -736,6 +749,8 @@ const handleDownloadTxt = async () => {
             )}
           </ul>
         </div>
+}
+{formData.resume.awards.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>AWARDS</h3>
           <ul className={styles.skills_list}>
@@ -748,12 +763,15 @@ const handleDownloadTxt = async () => {
             )}
           </ul>
         </div>
+}
       </div>
       <div className={styles.left_section}>
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>PROFILE</h3>
           <p className={styles.sectionContent}>{formData.resume.summary}</p>
         </div>
+      
+{formData.resume.projects.length > 0 &&
         <div className={styles.section}>
           <h3 className={styles.sectionTitle}>PROJECTS</h3>
           <div className={styles.work_entry}>
@@ -767,6 +785,7 @@ const handleDownloadTxt = async () => {
             )}
           </div>
         </div>
+}
       </div>
     </div>
   </div>

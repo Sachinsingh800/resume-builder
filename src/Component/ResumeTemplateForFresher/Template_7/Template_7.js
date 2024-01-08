@@ -253,13 +253,12 @@ margin:0rem;
                 ${formData.resume.summary}
                 </p>
             </div>
-           
-            <div class="Experience">
+    
+            ${formData.resume.projects.length > 0 ? 
+            `<div class="Experience">
                 <h2>Projects</h2>
-           
                 <ul class="ul">
                 ${formData.resume.projects.map((item) => `
-        
             <li>
             <div class="work_des">
                 <h3 class="customerService">${item?.title}</h3>
@@ -267,13 +266,13 @@ margin:0rem;
                 <p>${item?.description}</p>
             </div>
         </li>
-        `).join('')}     
-                
+        `).join('')}       
                 </ul>
-            </div>
-            <div class="Experience">
+            </div>`:""
+            }
+            ${formData.resume.education.length > 0 ?
+            `<div class="Experience">
                 <h2>Education</h2>
-              
                 <ul class="ul">
                 ${formData.resume.education.map((item) => `
                 <li>
@@ -281,25 +280,25 @@ margin:0rem;
                     <p>${item.startYear} - ${item.endYear}</p>
                     <p>${item.collegeName}</p>
                 </li>
-            `).join('')}
-                    
+            `).join('')}     
                 </ul>
-            </div>
-            <div class="Skills">
+            </div>`:""
+            }
+
+            ${formData.resume.skillsAndLevel.length > 0 ?
+            `<div class="Skills">
                 <h2>Skills</h2>
-              
                 <ul class="ul">
                 ${formData.resume.skillsAndLevel.map((item) => `
-             
                 <li >
                 <span>${item.skills}</span>
                 <ProgressBar bgcolor="orange" progress="40" height="5" />
             </li>
-      
         `).join('')}
-                   
+   
                 </ul>
-            </div>
+            </div>`:""
+            }
         </div>
     </body>
     
@@ -334,7 +333,7 @@ margin:0rem;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy.pdf");
+      link.setAttribute("download", "lizmy_07.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -509,7 +508,8 @@ const handleDownloadTxt = async () => {
           {formData.resume.summary}
         </p>
       </div>
-  
+
+{formData.resume.projects.length > 0 && 
       <div className={styles.Experience}>
         <h2>Projects</h2>
         <ul className={styles.ul}>
@@ -524,7 +524,9 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
-      <div className={styles.Experience}>
+}
+{formData.resume.education.length > 0 &&
+  <div className={styles.Experience}>
         <h2>Education</h2>
         <ul className={styles.ul}>
           {formData.resume.education.map((item, index) => (
@@ -536,6 +538,8 @@ const handleDownloadTxt = async () => {
           ))}
         </ul>
       </div>
+}
+{formData.resume.skillsAndLevel.length > 0 &&
       <div className={styles.Skills}>
         <h2>Skills</h2>
         <ul className={styles.ul}>
@@ -549,6 +553,7 @@ const handleDownloadTxt = async () => {
        
         </ul>
       </div>
+}
     </div>
     
     </>
