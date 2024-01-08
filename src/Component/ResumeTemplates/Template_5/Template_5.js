@@ -497,6 +497,7 @@ margin-left:.8rem;
                 </div>
             </div>`:""
                 }
+    
             <div>
                 <div class="objectiveHeader" style="background-color: ;">
                     <span class="design3" style="background-color:${color2}"> &nbsp; </span>
@@ -585,6 +586,7 @@ margin-left:.8rem;
                     </ul>
                 </div>`:""
                 }
+            </div>
             </div>
         </div>
     </body>
