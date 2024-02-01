@@ -33,9 +33,7 @@ import downloadtext from "../../Images/icons8-text-500.svg"
 import { saveAs } from 'file-saver';
 
 
-const PDFRenderer = ({ htmlContent }) => {
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-};
+
 
 const Template_2= () => {
   const [color, setColor] = useRecoilState(ChooseColor);

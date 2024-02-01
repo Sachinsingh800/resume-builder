@@ -9,17 +9,16 @@ import { useNavigate } from 'react-router-dom';
 
 
 function LastResume() {
-  const [formData, setFormData] = useRecoilState(resumeData);
   const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const templates = useRecoilValue(resumeTemplates);
+  const [count ,setCount ] = useState(0)
 
 
   useEffect(() => {
     handleLastResume();
-   
-  }, []);
+  },[]);
 
 
 
@@ -38,8 +37,11 @@ function LastResume() {
       }
     } catch (error) {
       console.error('Error fetching user profile:', error.message);
+    }finally{
+      setCount(count + 1)
     }
   };
+
 
   const handleEditResume = () => {
 
