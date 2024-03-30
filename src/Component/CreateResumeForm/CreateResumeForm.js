@@ -93,17 +93,17 @@ const closeModal = () => {
   };
 
   const handleSubmit = async (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
     e.stopPropagation();
-
+  
     const formData = new FormData();
   
     // Append personal information
-    formData.append('name', JSON.stringify(resume.name));
-    formData.append('summary', JSON.stringify(resume.summary));
+    formData.append('name', resume.name);
+    formData.append('summary', resume.summary);
     formData.append('contact', JSON.stringify(resume.contact));
-    formData.append('dob', JSON.stringify(resume.dob));
+    formData.append('dob', resume.dob);
     formData.append('gender', resume.gender);
     formData.append('address', JSON.stringify(resume.address));
     formData.append('education', JSON.stringify(resume.education));
@@ -118,16 +118,18 @@ const closeModal = () => {
     formData.append('volunteerExperience', JSON.stringify(resume.volunteerExperience));
     formData.append('areaOfInterest', JSON.stringify(resume.areaOfInterest));
     formData.append('references', JSON.stringify(resume.references));
-    formData.append('jobTitle', JSON.stringify(resume.jobTitle));
-    formData.append('interestedIn', (resume.interestedIn));
+    formData.append('jobTitle', resume.jobTitle);
+    formData.append('interestedIn', resume.interestedIn);
     formData.append('tempId', JSON.stringify(templateNo));
   
-
-    for (let i = 0; i < resumeImg.length; i++) {
-      formData.append('profilePicture', resumeImg[i]);
+ 
+    if (croppedImage) {
+      for (let i = 0; i < resumeImg.length; i++) {
+        formData.append('profilePicture', resumeImg[i]);
+      }
+    } else {
+ 
     }
-
-  
   
     try {
       // Replace 'addResume' with your actual API request function
@@ -136,9 +138,11 @@ const closeModal = () => {
   
       if (status) {
         // Swal.fire("Good job!", "Resume Created", "success");
+        alert(message);
       } else {
         // Swal.fire("Oops!", "Something went wrong", "error");
         // Handle update error
+        alert("Oops!", "Something went wrong", "error");
       }
     } catch (error) {
       if (authToken) {
@@ -148,11 +152,12 @@ const closeModal = () => {
         navigate("/Form");
       }
       // Handle update error
-    }finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
-
+  
+console.log(croppedImage,"asd")
 
 
   const handleUpdateResume = async (e) => {
@@ -162,10 +167,10 @@ const closeModal = () => {
     const formData = new FormData();
   
     // Append personal information
-    formData.append('name', JSON.stringify(resume.name));
-    formData.append('summary', JSON.stringify(resume.summary));
+    formData.append('name', resume.name);
+    formData.append('summary', resume.summary);
     formData.append('contact', JSON.stringify(resume.contact));
-    formData.append('dob', JSON.stringify(resume.dob));
+    formData.append('dob', resume.dob);
     formData.append('gender', resume.gender);
     formData.append('address', JSON.stringify(resume.address));
     formData.append('education', JSON.stringify(resume.education));
@@ -180,15 +185,18 @@ const closeModal = () => {
     formData.append('volunteerExperience', JSON.stringify(resume.volunteerExperience));
     formData.append('areaOfInterest', JSON.stringify(resume.areaOfInterest));
     formData.append('references', JSON.stringify(resume.references));
-    formData.append('jobTitle', JSON.stringify(resume.jobTitle));
+    formData.append('jobTitle', resume.jobTitle);
     formData.append('interestedIn', (resume.interestedIn));
     formData.append('tempId', JSON.stringify(templateNo));
   
 
-    for (let i = 0; i < resumeImg.length; i++) {
-      formData.append('profilePicture', resumeImg[i]);
+    if (croppedImage) {
+      for (let i = 0; i < resumeImg.length; i++) {
+        formData.append('profilePicture', resumeImg[i]);
+      }
+    } else {
+ 
     }
-
   
   
     try {
@@ -197,18 +205,14 @@ const closeModal = () => {
       const { status, message } = response.data;
   
       if (status) {
-        Swal.fire("Good job!", "update successfully", "success");
+        alert(message )
       } else {
-        Swal.fire("Oops!", "Something went wrong", "error");
+        Swal.fire();
         // Handle update error
+        alert("Oops!", "Something went wrong", "error")
       }
     } catch (error) {
-      if (authToken) {
-        Swal.fire("Good job!", "Resume Created", "success");
-      } else {
-        Swal.fire("Oops!", "Something went wrong", "error");
-    
-      }
+          console.log(error);
       // Handle update error
     }
   };
