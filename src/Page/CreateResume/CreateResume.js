@@ -24,6 +24,7 @@ import {
   volunteerExperienceSuggestion,
   referenceSuggestion,
   selectedJobCate,
+  loadingStatus,
  
   
 } from "../../Recoil";
@@ -50,6 +51,7 @@ function CreateResume() {
   const [lang, setLang] = useState([]);
   const [interest, setInterest] = useState([]);
   const [data, setData] = useRecoilState(resumeData);
+  const [loading, setLoading] = useRecoilState(loadingStatus);
   const [edu, setEdu] = useRecoilState(educationSuggestion);
   const [work, setWork] = useRecoilState(workSuggestion);
   const [internship, setInternShip] = useRecoilState(intershipSuggestion);
@@ -116,6 +118,7 @@ console.log(resumeType,"type ")
   }, []);
 
   const handleAllSummary = async () => {
+    setLoading(true)
     const selectedCategory= JSON.parse(localStorage.getItem("category"))
     try {
       const response = await getAllSummary(selectedCategory);
@@ -127,10 +130,13 @@ console.log(resumeType,"type ")
       }
     } catch (error) {
       console.error('Error fetching categories:', error.message);
+    }finally{
+      setLoading(false)
     }
   };
 
   const handleAllSkills = async () => {
+    setLoading(true)
     const selectedCategory= JSON.parse(localStorage.getItem("category"))
     try {
       const response = await getAllSkills(selectedCategory);
@@ -142,10 +148,13 @@ console.log(resumeType,"type ")
       }
     } catch (error) {
       console.error('Error fetching categories:', error.message);
+    }finally{
+      setLoading(false)
     }
   };
 
   const handleAllLanguage = async () => {
+    setLoading(true)
     try {
       const response = await getAllLanguages();
 
@@ -157,9 +166,11 @@ console.log(resumeType,"type ")
     } catch (error) {
       console.error('Error fetching categories:', error.message);
     }
+    setLoading(false)
   };
 
   const handleAllAreaofIntrest = async () => {
+    setLoading(true)
     const selectedCategory= JSON.parse(localStorage.getItem("category"))
     try {
       const response = await getAllAreaofInterest(selectedCategory);
@@ -171,6 +182,8 @@ console.log(resumeType,"type ")
       }
     } catch (error) {
       console.error('Error fetching categories:', error.message);
+    }finally{
+      setLoading(false)
     }
   };
 

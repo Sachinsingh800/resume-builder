@@ -4,12 +4,13 @@ import Carsouel from '../../Component/Carsouel/Carsouel';
 import { useNavigate } from 'react-router-dom';
 import { getAllCategoy, getResume } from '../../Api/Api';
 import { useRecoilState } from 'recoil';
-import { resumeData, resumeDataApi, selectedJobCate } from '../../Recoil';
+import { loadingStatus, resumeData, resumeDataApi, selectedJobCate } from '../../Recoil';
 import { useSound } from 'use-sound';
 import clickSound from "../../Sounds/Click.mp3"
 
 function FirstSection() {
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [loading,setLoading ] =useRecoilState(loadingStatus)
   const [allCategory, setAllCategory] = useState([]);
   const navigate = useNavigate();
   const [search, setSearch] = useState('');
@@ -25,6 +26,7 @@ function FirstSection() {
   }, []);
 
   const handleAllCategory = async () => {
+    setLoading(true)
     try {
       const response = await getAllCategoy();
 
@@ -35,10 +37,13 @@ function FirstSection() {
       }
     } catch (error) {
       console.error('Error fetching categories:', error.message);
+    }finally{
+      setLoading(false)
     }
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true)
     handleClick()
     e.preventDefault();
     localStorage.setItem('category', JSON.stringify(selectedCategory));
@@ -53,10 +58,13 @@ function FirstSection() {
       }
     } catch (error) {
       console.error('Error fetching resume:', error.message);
+    }finally{
+      setLoading(false)
     }
   };
 
   const handleDemoData = async (e) => {
+    setLoading(true)
     localStorage.setItem('category', JSON.stringify(selectedCategory));
     try {
       const response = await getResume(selectedCategory);
@@ -68,6 +76,8 @@ function FirstSection() {
       }
     } catch (error) {
       console.error('Error fetching resume:', error.message);
+    }finally{
+      setLoading(false)
     }
   };
 

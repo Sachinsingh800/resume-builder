@@ -186,6 +186,11 @@ export const ChooseColorThird= atom({
   default:"black"
 });
 
+export const loadingStatus= atom({
+  key: 'loadingStatus',
+  default:false
+});
+
 
 export const croppedImageState = atom({
   key: 'croppedImageState',

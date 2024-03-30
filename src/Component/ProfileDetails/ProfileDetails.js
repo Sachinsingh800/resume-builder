@@ -5,11 +5,13 @@ import style from "./ProfileDetails.module.css";
 import dp  from "../Images/dp_icon.gif"
 import EditNoteIcon from '@mui/icons-material/EditNote';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { loadingStatus } from "../../Recoil";
+import { useRecoilState } from "recoil";
 
 function ProfileDetails() {
   const [userProfileData, setUserProfileData] = useState([]);
   const [isEditMode, setIsEditMode] = useState(false);
-
+  const [loading, setLoading] = useRecoilState(loadingStatus);
   // Initialize editedProfileData with the current user data
   const [editedProfileData, setEditedProfileData] = useState({});
 
@@ -21,6 +23,7 @@ function ProfileDetails() {
   }, []);
 
   const handleuserProfile = async () => {
+    setLoading(true)
     try {
       const response = await getUserProfile();
 
@@ -31,13 +34,15 @@ function ProfileDetails() {
       }
     } catch (error) {
       console.error("Error fetching user profile:", error.message);
+    }finally{
+      setLoading(false)
     }
   };
 
   
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true)
     const formData = new FormData();
 
     formData.append("name", editedProfileData.name);
@@ -52,6 +57,8 @@ function ProfileDetails() {
       window.location.reload();
     } catch (error) {
       Swal.fire("Error", "Profile update failed", "error");
+    }finally{
+      setLoading(false)
     }
   };
 
