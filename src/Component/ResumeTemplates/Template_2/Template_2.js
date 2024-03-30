@@ -573,7 +573,7 @@ ul{
       );
 
       const textResponse = await axios.post(
-        "https://pdfcontentextractor.onrender.com/upload",
+        "https://pdfsummary.onrender.com/lizmyPdfToText",
         formData,
         {
           headers: {

@@ -686,7 +686,7 @@ ul{
       );
 
       const textResponse = await axios.post(
-        "https://pdfcontentextractor.onrender.com/upload",
+        "https://pdfsummary.onrender.com/lizmyPdfToText",
         formData,
         {
           headers: {
@@ -711,7 +711,6 @@ ul{
       throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
     }
   };
-
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
