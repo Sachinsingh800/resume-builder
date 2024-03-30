@@ -17,7 +17,7 @@ function Profile() {
             <ProfileDetails/>
          </div>
          <div className={style.right_box}>
-              <LastResume/>
+              {/* <LastResume/> */}
          </div>
     </div>
 

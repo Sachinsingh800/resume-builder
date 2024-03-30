@@ -3,7 +3,7 @@ import { getlastResume } from '../../Api/Api';
 import Template_1 from '../ResumeTemplates/Template_1/Template_1';
 import style from './LastResume.module.css';
 import EditNoteIcon from '@mui/icons-material/EditNote';
-import { resumeData, updateButton,resumeTemplates, loadingStatus } from '../../Recoil';
+import { resumeData, updateButton,resumeTemplates, loadingStatus, update } from '../../Recoil';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 function LastResume() {
   const [updateBtn, setUpdateBtn] = useRecoilState(updateButton);
   const [loading, setLoading] = useRecoilState(loadingStatus);
+  const [updateUi, setUpdateUi] = useRecoilState(update);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const templates = useRecoilValue(resumeTemplates);
@@ -22,7 +23,7 @@ function LastResume() {
   },[]);
 
 
-
+console.log(updateUi)
 
   const handleLastResume = async () => {
     setLoading(true)
@@ -33,15 +34,15 @@ function LastResume() {
         setData(response?.data);
         console.log(response,"response")
         localStorage.setItem('resume', JSON.stringify(response?.data));
-      
+        setUpdateUi(updateUi + 1)
       } else {
         console.error('Error fetching user profile:', response.data.message);
       }
     } catch (error) {
       console.error('Error fetching user profile:', error.message);
     }finally{
-      setCount(count + 1)
       setLoading(false)
+ 
     }
   };
 
@@ -62,7 +63,7 @@ function LastResume() {
         </button>
       </div>
       <div className={style.container}>
-      {templates[data?.tempId]}
+        {updateUi == 1 && templates[data?.tempId] }
       </div>
     </div>
   );

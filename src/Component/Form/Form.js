@@ -28,8 +28,6 @@ export default function Form() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
 
-
-
   const handleSignIn = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -43,9 +41,11 @@ export default function Form() {
 
       // Assuming the API returns a JSON response with status and message
       const { status, message, data } = response.data;
-
+      if (status) {
+        localStorage.setItem("token", JSON.stringify(data));
+        navigate("/");
+      }
       // Corrected localStorage.setItem syntax
-      localStorage.setItem("token", JSON.stringify(data));
 
       // Assuming you are using react-router-dom for navigation
       // Corrected the navigate method
@@ -57,12 +57,12 @@ export default function Form() {
         const { response } = error;
         // Set the error message
         errorMessage = response?.data?.message;
+        alert(errorMessage);
         // Log the error message as a string
         console.log("Error Message:", JSON.stringify(errorMessage));
 
         if (
           errorMessage === "Email is not verified. Please verify your email"
-          
         ) {
           setShowOtpModal(true);
         }
@@ -70,16 +70,15 @@ export default function Form() {
         // Network error (e.g., no internet connection)
         errorMessage = error.message;
         console.log("Network Error:", errorMessage);
-        alert("Something went Wrong")
+        alert("Something went Wrong");
       }
     } finally {
       setLoading(false);
-      navigate("/");
     }
   };
 
   const handleSignUp = async (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
     let errorMessage;
 
@@ -94,7 +93,7 @@ export default function Form() {
 
       // Log the response data
       console.log("Sign In Response:", { status, message, data });
-  
+
       setShowOtpModal(true);
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
@@ -107,15 +106,15 @@ export default function Form() {
 
         // Log the error message as a string
         console.log("Error Message:", JSON.stringify(errorMessage));
-        alert("Something went Wrong")
+        alert("Something went Wrong");
       } else {
-        alert("Something went Wrong")
+        alert("Something went Wrong");
         errorMessage = error.message;
         console.log("Network Error:", errorMessage);
       }
-    }finally{
-      setLoading(false)
-      alert("SignUp successfully")
+    } finally {
+      setLoading(false);
+      alert("SignUp successfully");
     }
   };
 
@@ -128,7 +127,7 @@ export default function Form() {
   };
 
   const handleOtpVerification = async () => {
-    setLoading(true)
+    setLoading(true);
     const OTP = {
       email: formData.email,
       otp: otp,
@@ -138,33 +137,32 @@ export default function Form() {
       await otpverification(OTP);
       setShowOtpModal(false);
     } catch (error) {
-      alert("Invalid OTP")
-    }finally{
-      setLoading(false)
-      alert("OTP verified successfully")
+      alert("Invalid OTP");
+    } finally {
+      setLoading(false);
+      alert("OTP verified successfully");
     }
   };
 
   const handleResendOtp = async () => {
-    setLoading(true)
+    setLoading(true);
     const resendOtp = {
       email: formData.email,
     };
 
     try {
-
       await sendOtp(resendOtp);
     } catch (error) {
-      alert("Failed to resend OTP")
-    }finally{
-      setLoading(false)
-      alert("OTP resent successfully")
+      alert("Failed to resend OTP");
+    } finally {
+      setLoading(false);
+      alert("OTP resent successfully");
     }
   };
 
   return (
     <div className={style.main}>
-      <CustomCursor/>
+      <CustomCursor />
       {loading && <CustomLoader />}
       <div className={style.nav_Bar}>
         <NavBar />

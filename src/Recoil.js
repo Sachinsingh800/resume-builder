@@ -382,6 +382,10 @@ export const chooseTemplates = atom({
   key: 'chooseTemplates',
   default:0
 });
+export const  update = atom({
+  key: 'update',
+  default:0
+});
 
 
 
