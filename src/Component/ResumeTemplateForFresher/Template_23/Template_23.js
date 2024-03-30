@@ -618,7 +618,7 @@ width:1rem;
 
     try {
       const response = await axios.post(
-        "http://3.144.48.243/api/convert",
+        "https://www.voizyy.com/convert/htmlCssToPdf",
         {
           html: getHTML(),
           cssStyles: getCSS(), // Include your CSS data here
@@ -631,7 +631,7 @@ width:1rem;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy_23.pdf");
+      link.setAttribute("download", "lizmy_01.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -646,7 +646,7 @@ width:1rem;
     try {
       // Step 1: Convert HTML and CSS to PDF
       const pdfResponse = await axios.post(
-        "http://3.144.48.243/api/convert",
+        "https://www.voizyy.com/convert/htmlCssToPdf",
         {
           html: getHTML(),
           cssStyles: getCSS(), // Include your CSS data here
@@ -667,7 +667,7 @@ width:1rem;
       );
 
       const docxResponse = await axios.post(
-        "http://35.172.118.147/api/convert/pdftodocx",
+        "https://www.voizyy.com/convert/pdftodocx",
         formData,
         {
           headers: {
@@ -699,7 +699,7 @@ width:1rem;
     try {
       // Step 1: Convert HTML and CSS to PDF
       const pdfResponse = await axios.post(
-        "http://3.144.48.243/api/convert",
+        "https://www.voizyy.com/convert/htmlCssToPdf",
         {
           html: getHTML(),
           cssStyles: getCSS(), // Include your CSS data here
@@ -712,7 +712,7 @@ width:1rem;
         }
       );
 
-      // Step 2: Convert PDF to text using your PDF to text API
+      /// Step 2: Convert PDF to text using your PDF to text API
       const formData = new FormData();
       formData.append(
         "pdf",
@@ -720,7 +720,7 @@ width:1rem;
       );
 
       const textResponse = await axios.post(
-        "https://pdfcontentextractor.onrender.com/upload",
+        "https://pdfsummary.onrender.com/lizmyPdfToText",
         formData,
         {
           headers: {

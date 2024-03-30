@@ -498,7 +498,7 @@ ul{
 
     try {
       const response = await axios.post(
-        "http://3.144.48.243/api/convert",
+        "https://www.voizyy.com/convert/htmlCssToPdf",
         {
           html: getHTML(),
           cssStyles: getCSS(), // Include your CSS data here
@@ -526,7 +526,7 @@ ul{
     try {
       // Step 1: Convert HTML and CSS to PDF
       const pdfResponse = await axios.post(
-        "http://3.144.48.243/api/convert",
+        "https://www.voizyy.com/convert/htmlCssToPdf",
         {
           html: getHTML(),
           cssStyles: getCSS(), // Include your CSS data here
@@ -547,7 +547,7 @@ ul{
       );
 
       const docxResponse = await axios.post(
-        "http://35.172.118.147/api/convert/pdftodocx",
+        "https://www.voizyy.com/convert/pdftodocx",
         formData,
         {
           headers: {
@@ -579,7 +579,7 @@ ul{
     try {
       // Step 1: Convert HTML and CSS to PDF
       const pdfResponse = await axios.post(
-        "http://3.144.48.243/api/convert",
+        "https://www.voizyy.com/convert/htmlCssToPdf",
         {
           html: getHTML(),
           cssStyles: getCSS(), // Include your CSS data here
@@ -592,7 +592,7 @@ ul{
         }
       );
 
-      // Step 2: Convert PDF to text using your PDF to text API
+      /// Step 2: Convert PDF to text using your PDF to text API
       const formData = new FormData();
       formData.append(
         "pdf",
@@ -600,7 +600,7 @@ ul{
       );
 
       const textResponse = await axios.post(
-        "https://pdfcontentextractor.onrender.com/upload",
+        "https://pdfsummary.onrender.com/lizmyPdfToText",
         formData,
         {
           headers: {

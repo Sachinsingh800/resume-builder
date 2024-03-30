@@ -287,142 +287,146 @@ const CoverLetter1 = () => {
 
 
 
-  const handleDownloadDoc = async ( ) => {
+  const handleResume = async () => {
     setLoading(true);
     setError("");
-  try {
-    // Step 1: Convert HTML and CSS to PDF
-    const pdfResponse = await axios.post(
-      'http://3.144.48.243/api/convert',
-      {
-        html: getHTML(),
-        cssStyles: getCSS(), // Include your CSS data here
+
+    const axiosConfig = {
+      responseType: "arraybuffer",
+      headers: {
+        Accept: "application/json",
       },
-      {
-        responseType: 'arraybuffer',
-        headers: {
-          Accept: 'application/json',
+    };
+
+    try {
+      const response = await axios.post(
+        "https://www.voizyy.com/convert/htmlCssToPdf",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
         },
-      }
-    );
+        axiosConfig
+      );
 
-    // Step 2: Convert PDF to DOCX
-    const formData = new FormData();
-    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
+      setLoading(false);
 
-    const docxResponse = await axios.post(
-      'http://35.172.118.147/api/convert/pdftodocx',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        responseType: 'arraybuffer',
-      }
-    );
-    setLoading(false);
-    // Create a Blob from the response data
-    const docxBlob = new Blob([docxResponse.data], {
-      type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    });
-
-    // Save the Blob as a file using FileSaver.js
-    saveAs(docxBlob, 'converted.docx');
-
-    return 'Conversion successful';
-  } catch (error) {
-    setLoading(false);
-    throw new Error('Error converting HTML and CSS to DOCX');
-  }
-};
-
-  
-const handleResume = async () => {
-  setLoading(true);
-  setError("");
-
-  const axiosConfig = {
-    responseType: "arraybuffer",
-    headers: {
-      Accept: "application/json",
-    },
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "lizmy_01.pdf");
+      document.body.appendChild(link);
+      link.click();
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
+    }
   };
 
-  try {
-    const response = await axios.post(
-      "http://3.144.48.243/api/convert",
-      {
-        html: getHTML(),
-        cssStyles: getCSS(), // Include your CSS data here
-      },
-      axiosConfig
-    );
-
-    setLoading(false);
-
-    const url = window.URL.createObjectURL(new Blob([response.data]));
-    const link = document.createElement("a");
-    link.href = url;
-    link.setAttribute("download", "lizmy.pdf");
-    document.body.appendChild(link);
-    link.click();
-  } catch (error) {
-    setLoading(false);
-    setError(error.message);
-  }
-};
-
-const handleDownloadTxt = async () => {
-  setLoading(true);
-  setError("");
-
-  try {
-    // Step 1: Convert HTML and CSS to PDF
-    const pdfResponse = await axios.post(
-      'http://3.144.48.243/api/convert',
-      {
-        html: getHTML(),
-        cssStyles: getCSS(), // Include your CSS data here
-      },
-      {
-        responseType: 'arraybuffer',
-        headers: {
-          Accept: 'application/json',
+  const handleDownloadDoc = async () => {
+    setLoading(true);
+    setError("");
+    try {
+      // Step 1: Convert HTML and CSS to PDF
+      const pdfResponse = await axios.post(
+        "https://www.voizyy.com/convert/htmlCssToPdf",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
         },
-      }
-    );
+        {
+          responseType: "arraybuffer",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
 
-    // Step 2: Convert PDF to text using your PDF to text API
-    const formData = new FormData();
-    formData.append('pdf', new Blob([pdfResponse.data], { type: 'application/pdf' }));
+      // Step 2: Convert PDF to DOCX
+      const formData = new FormData();
+      formData.append(
+        "pdf",
+        new Blob([pdfResponse.data], { type: "application/pdf" })
+      );
 
-    const textResponse = await axios.post(
-      'https://pdfcontentextractor.onrender.com/upload',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
+      const docxResponse = await axios.post(
+        "https://www.voizyy.com/convert/pdftodocx",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          responseType: "arraybuffer",
+        }
+      );
+      setLoading(false);
+      // Create a Blob from the response data
+      const docxBlob = new Blob([docxResponse.data], {
+        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      });
+
+      // Save the Blob as a file using FileSaver.js
+      saveAs(docxBlob, "converted.docx");
+
+      return "Conversion successful";
+    } catch (error) {
+      setLoading(false);
+      throw new Error("Error converting HTML and CSS to DOCX");
+    }
+  };
+
+  const handleDownloadTxt = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      // Step 1: Convert HTML and CSS to PDF
+      const pdfResponse = await axios.post(
+        "https://www.voizyy.com/convert/htmlCssToPdf",
+        {
+          html: getHTML(),
+          cssStyles: getCSS(), // Include your CSS data here
         },
-        responseType: 'text/plain', // Update the responseType to 'text/plain'
-      }
-    );
+        {
+          responseType: "arraybuffer",
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
 
-    setLoading(false);
-    // Create a Blob from the response data
-    const textBlob = new Blob([textResponse.data], {
-      type: 'text/plain',
-    });
+      /// Step 2: Convert PDF to text using your PDF to text API
+      const formData = new FormData();
+      formData.append(
+        "pdf",
+        new Blob([pdfResponse.data], { type: "application/pdf" })
+      );
 
-    // Save the Blob as a file using FileSaver.js
-    saveAs(textBlob, 'converted.txt');
+      const textResponse = await axios.post(
+        "https://pdfsummary.onrender.com/lizmyPdfToText",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          responseType: "text/plain", // Update the responseType to 'text/plain'
+        }
+      );
 
-    return 'Conversion successful';
-  } catch (error) {
-    setLoading(false);
-    throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
-  }
-};
+      setLoading(false);
+      // Create a Blob from the response data
+      const textBlob = new Blob([textResponse.data], {
+        type: "text/plain",
+      });
 
+      // Save the Blob as a file using FileSaver.js
+      saveAs(textBlob, "converted.txt");
+
+      return "Conversion successful";
+    } catch (error) {
+      setLoading(false);
+      throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
+    }
+  };
 
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
