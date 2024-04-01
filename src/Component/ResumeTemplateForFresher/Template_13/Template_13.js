@@ -25,12 +25,14 @@ import {
   fontState,
   fontSizeState,
   imageSizeState,
+  authenticateduser,
 } from "../../../Recoil";
 import downloadimg from "../../Images/download.gif"
 import downloadpdf from "../../Images/pdf-download-2617.svg"
 import downloaddoc from "../../Images/google-docs-icon-2.svg"
 import downloadtext from "../../Images/icons8-text-500.svg"
 import { saveAs } from 'file-saver';
+import { useNavigate } from "react-router-dom";
 
 
 const PDFRenderer = ({ htmlContent }) => {
@@ -56,7 +58,8 @@ const Template_13= () => {
   const [base64Image5, setBase64Image5] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(formData.resume, "resume data");
+  const [ checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
+  const navigate = useNavigate()
 
   const handleDate = (data) => {
     console.log(data, "data");
@@ -536,6 +539,13 @@ p {
   };
 
   const handleResume = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
+
     setLoading(true);
     setError("");
 
@@ -561,7 +571,7 @@ p {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy_01.pdf");
+      link.setAttribute("download", "lizmy.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -570,7 +580,14 @@ p {
     }
   };
 
+
   const handleDownloadDoc = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     setLoading(true);
     setError("");
     try {
@@ -613,7 +630,7 @@ p {
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(docxBlob, "converted.docx");
+      saveAs(docxBlob, "lizmy.docx");
 
       return "Conversion successful";
     } catch (error) {
@@ -623,6 +640,12 @@ p {
   };
 
   const handleDownloadTxt = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     setLoading(true);
     setError("");
 
@@ -667,7 +690,7 @@ p {
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(textBlob, "converted.txt");
+      saveAs(textBlob, "lizmy.txt");
 
       return "Conversion successful";
     } catch (error) {
@@ -675,6 +698,7 @@ p {
       throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
     }
   };
+  
 
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {

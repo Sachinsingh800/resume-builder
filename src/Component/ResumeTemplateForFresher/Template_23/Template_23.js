@@ -25,12 +25,14 @@ import {
   fontState,
   fontSizeState,
   imageSizeState,
+  authenticateduser,
 } from "../../../Recoil";
 import downloadimg from "../../Images/download.gif";
 import downloadpdf from "../../Images/pdf-download-2617.svg";
 import downloaddoc from "../../Images/google-docs-icon-2.svg";
 import downloadtext from "../../Images/icons8-text-500.svg";
 import { saveAs } from "file-saver";
+import { useNavigate } from "react-router-dom";
 
 const Template_23 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -51,7 +53,8 @@ const Template_23 = () => {
   const [base64Image5, setBase64Image5] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(formData.resume, "resume data");
+  const [ checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
+  const navigate = useNavigate()
 
   const handleDate = (data) => {
     console.log(data, "data");
@@ -606,6 +609,13 @@ width:1rem;
   };
 
   const handleResume = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
+
     setLoading(true);
     setError("");
 
@@ -631,7 +641,7 @@ width:1rem;
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy_01.pdf");
+      link.setAttribute("download", "lizmy.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -640,7 +650,14 @@ width:1rem;
     }
   };
 
+
   const handleDownloadDoc = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     setLoading(true);
     setError("");
     try {
@@ -683,7 +700,7 @@ width:1rem;
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(docxBlob, "converted.docx");
+      saveAs(docxBlob, "lizmy.docx");
 
       return "Conversion successful";
     } catch (error) {
@@ -693,6 +710,12 @@ width:1rem;
   };
 
   const handleDownloadTxt = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     setLoading(true);
     setError("");
 
@@ -737,7 +760,7 @@ width:1rem;
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(textBlob, "converted.txt");
+      saveAs(textBlob, "lizmy.txt");
 
       return "Conversion successful";
     } catch (error) {
@@ -745,6 +768,7 @@ width:1rem;
       throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
     }
   };
+  
 
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
