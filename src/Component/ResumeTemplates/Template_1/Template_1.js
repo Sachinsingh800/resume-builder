@@ -543,7 +543,7 @@ ul{
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy_01.pdf");
+      link.setAttribute("download", "lizmy.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -602,7 +602,7 @@ ul{
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(docxBlob, "lizmy_01.docx");
+      saveAs(docxBlob, "lizmy.docx");
 
       return "Conversion successful";
     } catch (error) {
@@ -662,7 +662,7 @@ ul{
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(textBlob, "lizmy_01.txt");
+      saveAs(textBlob, "lizmy.txt");
 
       return "Conversion successful";
     } catch (error) {
