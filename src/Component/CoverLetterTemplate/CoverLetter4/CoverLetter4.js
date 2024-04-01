@@ -13,7 +13,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import ProgressBar from "../../ProgressBar/ProgressBar";
-import { jobApplicationState } from "../../../Recoil";
+import { authenticateduser, jobApplicationState } from "../../../Recoil";
 import styles from "./CoverLetter4.module.css";
 import { useRecoilState } from "recoil";
 import {
@@ -40,6 +40,7 @@ import CoverLetterModal from "../../CoverLetterModal/CoverLetterModal";
 import GridOnIcon from '@mui/icons-material/GridOn';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
 import { saveAs } from 'file-saver';
+import { useNavigate } from "react-router-dom";
 
 const CoverLetter4 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -61,6 +62,8 @@ const CoverLetter4 = () => {
   const [base64Image6, setBase64Image6] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [ checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
+  const navigate = useNavigate()
 
   const openModal = () => {
     setShowModal(true);
@@ -70,7 +73,7 @@ const CoverLetter4 = () => {
     setShowModal(false);
   };
 
-  console.log(formData.resume, "resume data");
+
 
   function formatDate(inputDate) {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -289,6 +292,13 @@ const CoverLetter4 = () => {
   };
 
   const handleResume = async () => {
+    localStorage.setItem("submit",true)
+    // localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
+
     setLoading(true);
     setError("");
 
@@ -314,7 +324,7 @@ const CoverLetter4 = () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "lizmy_01.pdf");
+      link.setAttribute("download", "lizmy.pdf");
       document.body.appendChild(link);
       link.click();
     } catch (error) {
@@ -323,7 +333,14 @@ const CoverLetter4 = () => {
     }
   };
 
+
   const handleDownloadDoc = async () => {
+    localStorage.setItem("submit",true)
+    // localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     setLoading(true);
     setError("");
     try {
@@ -366,7 +383,7 @@ const CoverLetter4 = () => {
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(docxBlob, "converted.docx");
+      saveAs(docxBlob, "lizmy.docx");
 
       return "Conversion successful";
     } catch (error) {
@@ -376,6 +393,12 @@ const CoverLetter4 = () => {
   };
 
   const handleDownloadTxt = async () => {
+    localStorage.setItem("submit",true)
+    // localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     setLoading(true);
     setError("");
 
@@ -420,7 +443,7 @@ const CoverLetter4 = () => {
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(textBlob, "converted.txt");
+      saveAs(textBlob, "lizmy.txt");
 
       return "Conversion successful";
     } catch (error) {
@@ -428,7 +451,7 @@ const CoverLetter4 = () => {
       throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
     }
   };
-
+  
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
       return null;
