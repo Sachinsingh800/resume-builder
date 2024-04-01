@@ -13,6 +13,7 @@ import { addCoverLetter } from "../../Api/Api";
 import Swal from "sweetalert2";
 import CustomCursor from "../CustomCursor/CustomCursor";
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const CoverLetterForm = () => {
   const [formData, setFormData] = useRecoilState(jobApplicationState);
@@ -21,6 +22,7 @@ const CoverLetterForm = () => {
   const [section, setSection] = useState(1);
   const [progress, setProgress] = useState(0);
   const [ checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -65,7 +67,13 @@ const CoverLetterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+   localStorage.setItem("submit",false)
+    localStorage.setItem("coverletter",true)
+    // localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     try {
       const response = await addCoverLetter(formData); // Assuming registration function accepts an object
 
