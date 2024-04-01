@@ -32,7 +32,7 @@ export default function Form() {
 
   const handleSignIn = async (e) => {
     const data= JSON.parse(localStorage.getItem("pendingData"))
-    const subbmit=localStorage.getItem("submit")
+    const Rmsubmit=localStorage.getItem("submit")
     const Cvsubmit=localStorage.getItem("coverletter")
     setLoading(true);
     e.preventDefault();
@@ -50,10 +50,11 @@ export default function Form() {
         localStorage.setItem("token", JSON.stringify(data));
         alert("login successfull")
    
-         if(subbmit){
+         if(Rmsubmit === "true") {
+          const data= JSON.parse(localStorage.getItem("pendingData"))
            localStorage.setItem('resume', JSON.stringify(data));
           navigate("/CreateResume")
-         }else if (Cvsubmit){
+         } else if (Cvsubmit === "true"){
            navigate("/CoverLetterForm")
          }else{
           navigate("/")
