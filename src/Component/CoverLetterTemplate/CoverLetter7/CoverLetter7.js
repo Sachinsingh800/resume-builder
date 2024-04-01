@@ -267,7 +267,8 @@ ${formData.greeting}
   };
 
   const handleResume = async () => {
-    localStorage.setItem("submit",true)
+    localStorage.setItem("submit",false)
+    localStorage.setItem("coverletter",true)
     // localStorage.setItem("pendingData",JSON.stringify(formData) )
     if (!checkAuth) {
       navigate("/Form");
@@ -310,7 +311,8 @@ ${formData.greeting}
 
 
   const handleDownloadDoc = async () => {
-    localStorage.setItem("submit",true)
+    localStorage.setItem("submit",false)
+    localStorage.setItem("coverletter",true)
     // localStorage.setItem("pendingData",JSON.stringify(formData) )
     if (!checkAuth) {
       navigate("/Form");
@@ -368,7 +370,8 @@ ${formData.greeting}
   };
 
   const handleDownloadTxt = async () => {
-    localStorage.setItem("submit",true)
+    localStorage.setItem("submit",false)
+    localStorage.setItem("coverletter",true)
     // localStorage.setItem("pendingData",JSON.stringify(formData) )
     if (!checkAuth) {
       navigate("/Form");

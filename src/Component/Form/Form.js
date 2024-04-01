@@ -33,6 +33,7 @@ export default function Form() {
   const handleSignIn = async (e) => {
     const data= JSON.parse(localStorage.getItem("pendingData"))
     const subbmit=localStorage.getItem("submit")
+    const Cvsubmit=localStorage.getItem("coverletter")
     setLoading(true);
     e.preventDefault();
     let errorMessage;
@@ -52,8 +53,10 @@ export default function Form() {
          if(subbmit){
            localStorage.setItem('resume', JSON.stringify(data));
           navigate("/CreateResume")
+         }else if (Cvsubmit){
+           navigate("/CoverLetterForm")
          }else{
-           navigate("/")
+          navigate("/")
          }
       }
     } catch (error) {

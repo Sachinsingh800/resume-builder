@@ -285,7 +285,8 @@ const CoverLetter5 = () => {
   };
 
   const handleResume = async () => {
-    localStorage.setItem("submit",true)
+   localStorage.setItem("submit",false)
+    localStorage.setItem("coverletter",true)
     // localStorage.setItem("pendingData",JSON.stringify(formData) )
     if (!checkAuth) {
       navigate("/Form");
@@ -328,7 +329,8 @@ const CoverLetter5 = () => {
 
 
   const handleDownloadDoc = async () => {
-    localStorage.setItem("submit",true)
+   localStorage.setItem("submit",false)
+    localStorage.setItem("coverletter",true)
     // localStorage.setItem("pendingData",JSON.stringify(formData) )
     if (!checkAuth) {
       navigate("/Form");
@@ -386,7 +388,8 @@ const CoverLetter5 = () => {
   };
 
   const handleDownloadTxt = async () => {
-    localStorage.setItem("submit",true)
+   localStorage.setItem("submit",false)
+    localStorage.setItem("coverletter",true)
     // localStorage.setItem("pendingData",JSON.stringify(formData) )
     if (!checkAuth) {
       navigate("/Form");

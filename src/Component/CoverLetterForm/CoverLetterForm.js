@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 import {
+  authenticateduser,
   coverLetterId,
   coverLetterTemplates,
   jobApplicationState,
@@ -11,6 +12,7 @@ import CoverLetter1 from "../CoverLetterTemplate/CoverLetter1/CoverLetter1";
 import { addCoverLetter } from "../../Api/Api";
 import Swal from "sweetalert2";
 import CustomCursor from "../CustomCursor/CustomCursor";
+import axios from 'axios';
 
 const CoverLetterForm = () => {
   const [formData, setFormData] = useRecoilState(jobApplicationState);
@@ -18,6 +20,7 @@ const CoverLetterForm = () => {
   const [cl, setCl] = useRecoilState(coverLetterTemplates);
   const [section, setSection] = useState(1);
   const [progress, setProgress] = useState(0);
+  const [ checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -73,6 +76,36 @@ const CoverLetterForm = () => {
       // Handle signup error
     } finally {
       console.log("loading");
+    }
+  };
+
+useEffect(()=>{
+  handleUserAuthenticationCheck()
+},[])
+
+  const handleUserAuthenticationCheck = async () => {
+    const authToken = JSON.parse(localStorage.getItem("token"));
+    const headers = {
+      'x-auth-token': authToken,
+      'Content-Type': 'application/json', // including charset
+    };
+    
+    try {
+      const response = await axios.post(`https://lizmyresume.onrender.com/user/auth/checkAuth`, {}, { headers });
+      if(response) {
+        const { status, message, data } = response.data;
+        if(status){
+          setCheckAuth(status);
+        }
+        return { status, message, data };
+      } else {
+        console.error('Error checking authentication:', response.statusText);
+        // Optionally handle the error or re-throw it
+      }
+    } catch (error) {
+      console.error('Error checking authentication:', error.message);
+      // Optionally handle the error or re-throw it
+
     }
   };
 
