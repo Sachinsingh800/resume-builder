@@ -14,7 +14,6 @@ function ResumeForm() {
   return (
     <div className={style.main}>
         <NavBar/>
-        <CustomCursor />
         <br/>
         <br/>
         <br/>

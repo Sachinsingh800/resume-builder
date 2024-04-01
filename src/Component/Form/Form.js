@@ -28,7 +28,11 @@ export default function Form() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
 
+
+
   const handleSignIn = async (e) => {
+    const data= JSON.parse(localStorage.getItem("pendingData"))
+    const subbmit=localStorage.getItem("submit")
     setLoading(true);
     e.preventDefault();
     let errorMessage;
@@ -43,13 +47,15 @@ export default function Form() {
       const { status, message, data } = response.data;
       if (status) {
         localStorage.setItem("token", JSON.stringify(data));
-        navigate("/");
+        alert("login successfull")
+   
+         if(subbmit){
+           localStorage.setItem('resume', JSON.stringify(data));
+          navigate("/CreateResume")
+         }else{
+           navigate("/")
+         }
       }
-      // Corrected localStorage.setItem syntax
-
-      // Assuming you are using react-router-dom for navigation
-      // Corrected the navigate method
-      // Make sure to import 'useHistory' from 'react-router-dom'
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
       if (axios.isAxiosError(error)) {
@@ -68,6 +74,7 @@ export default function Form() {
         }
       } else {
         // Network error (e.g., no internet connection)
+     
         errorMessage = error.message;
         console.log("Network Error:", errorMessage);
         alert("Something went Wrong");
@@ -162,7 +169,6 @@ export default function Form() {
 
   return (
     <div className={style.main}>
-      <CustomCursor />
       {loading && <CustomLoader />}
       <div className={style.nav_Bar}>
         <NavBar />

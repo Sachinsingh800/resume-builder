@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./CreateResume.module.css";
 import NavBar from "../../Component/NavBar/NavBar";
 import CreateResumeForm from "../../Component/CreateResumeForm/CreateResumeForm";
@@ -25,25 +25,27 @@ import {
   referenceSuggestion,
   selectedJobCate,
   loadingStatus,
- 
-  
 } from "../../Recoil";
 import { useRecoilState, useRecoilValue } from "recoil";
 import bulb from "../../Component/Images/bulb.gif";
-import cat from "../../Component/Images/cat.gif"
-import panda from "../../Component/Images/panda.gif"
-import panda2 from "../../Component/Images/panda2.gif"
-import rabbit from "../../Component/Images/rabbit.gif"
-import resume_img from "../../Component/Images/resume_img.gif"
-import resume_img2 from "../../Component/Images/resume_img2.gif"
-import { getAllAreaofInterest, getAllLanguages, getAllSkills, getAllSummary } from "../../Api/Api";
-import { useSound } from 'use-sound';
-import clickSound from "../../Sounds/Click.mp3"
+import cat from "../../Component/Images/cat.gif";
+import panda from "../../Component/Images/panda.gif";
+import panda2 from "../../Component/Images/panda2.gif";
+import rabbit from "../../Component/Images/rabbit.gif";
+import resume_img from "../../Component/Images/resume_img.gif";
+import resume_img2 from "../../Component/Images/resume_img2.gif";
+import {
+  getAllAreaofInterest,
+  getAllLanguages,
+  getAllSkills,
+  getAllSummary,
+} from "../../Api/Api";
+import { useSound } from "use-sound";
+import clickSound from "../../Sounds/Click.mp3";
 import MobileViewModal from "../../Component/MobileViewModal/MobileViewModal";
 import CustomCursor from "../../Component/CustomCursor/CustomCursor";
 
 function CreateResume() {
-  
   const [play] = useSound(clickSound);
   const sectionNo = useRecoilValue(suggestionData);
   const [summary, setSummary] = useState([]);
@@ -70,134 +72,129 @@ function CreateResume() {
   const [showMore1, setShowMore1] = useState(false);
   const [showMore2, setShowMore2] = useState(false);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
-  const [selectedValueForSkill, setSelectedValueForSkill] =useRecoilState(selectedValue2);
-    const [progress, setProgress] = useState(1);
-    const [counter, setCounter] = useState(0);
- 
-    const resumeType= JSON.parse(localStorage.getItem("resumetype"))
-console.log(resumeType,"type ")
-  const animation_img=[
+  const [selectedValueForSkill, setSelectedValueForSkill] =
+    useRecoilState(selectedValue2);
+  const [progress, setProgress] = useState(1);
+  const [counter, setCounter] = useState(0);
+
+  const resumeType = JSON.parse(localStorage.getItem("resumetype"));
+  console.log(resumeType, "type ");
+  const animation_img = [
     {
-  anim:panda,
-  des:"panda",
-  bg:"grey"
+      anim: panda,
+      des: "panda",
+      bg: "grey",
     },
     {
-  anim:panda2,
-  des:"panda2",
-  bg:"white"
+      anim: panda2,
+      des: "panda2",
+      bg: "white",
     },
     {
-  anim:rabbit,
-  des:"rabbit",
-  bg:"black"
+      anim: rabbit,
+      des: "rabbit",
+      bg: "black",
     },
     {
-  anim:resume_img ,
-  des:"rabbit",
-  bg:"black"
+      anim: resume_img,
+      des: "rabbit",
+      bg: "black",
     },
     {
-  anim:resume_img2,
-  des:"rabbit",
-  bg:"black"
+      anim: resume_img2,
+      des: "rabbit",
+      bg: "black",
     },
-  
-  ]
+  ];
 
   const handleClick = () => {
     play();
   };
 
-
   useEffect(() => {
     handleAllSummary();
-    handleAllSkills()
-    handleAllLanguage()
-    handleAllAreaofIntrest()
+    handleAllSkills();
+    handleAllLanguage();
+    handleAllAreaofIntrest();
   }, []);
 
   const handleAllSummary = async () => {
-    setLoading(true)
-    const selectedCategory= JSON.parse(localStorage.getItem("category"))
+    setLoading(true);
+    const selectedCategory = JSON.parse(localStorage.getItem("category"));
     try {
       const response = await getAllSummary(selectedCategory);
 
       if (response.status === true) {
-        setSummary(response.data)
+        setSummary(response.data);
       } else {
-        console.error('Error fetching categories:', response.data.message);
+        console.error("Error fetching categories:", response.data.message);
       }
     } catch (error) {
-      console.error('Error fetching categories:', error.message);
-    }finally{
-      setLoading(false)
+      console.error("Error fetching categories:", error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleAllSkills = async () => {
-    setLoading(true)
-    const selectedCategory= JSON.parse(localStorage.getItem("category"))
+    setLoading(true);
+    const selectedCategory = JSON.parse(localStorage.getItem("category"));
     try {
       const response = await getAllSkills(selectedCategory);
 
       if (response.status === true) {
-        setSkill(response.data)
+        setSkill(response.data);
       } else {
-        console.error('Error fetching categories:', response.data.message);
+        console.error("Error fetching categories:", response.data.message);
       }
     } catch (error) {
-      console.error('Error fetching categories:', error.message);
-    }finally{
-      setLoading(false)
+      console.error("Error fetching categories:", error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleAllLanguage = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await getAllLanguages();
 
       if (response.status === true) {
-        setLang(response.data)
+        setLang(response.data);
       } else {
-        console.error('Error fetching categories:', response.data.message);
+        console.error("Error fetching categories:", response.data.message);
       }
     } catch (error) {
-      console.error('Error fetching categories:', error.message);
+      console.error("Error fetching categories:", error.message);
     }
-    setLoading(false)
+    setLoading(false);
   };
 
   const handleAllAreaofIntrest = async () => {
-    setLoading(true)
-    const selectedCategory= JSON.parse(localStorage.getItem("category"))
+    setLoading(true);
+    const selectedCategory = JSON.parse(localStorage.getItem("category"));
     try {
       const response = await getAllAreaofInterest(selectedCategory);
 
       if (response.status === true) {
-        setInterest(response.data)
+        setInterest(response.data);
       } else {
-        console.error('Error fetching categories:', response.data.message);
+        console.error("Error fetching categories:", response.data.message);
       }
     } catch (error) {
-      console.error('Error fetching categories:', error.message);
-    }finally{
-      setLoading(false)
+      console.error("Error fetching categories:", error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
-
-
   const interval = 9000; // 3 seconds
 
-
-  
   useEffect(() => {
     const timer = setInterval(() => {
       setCounter((prevCounter) => (prevCounter + 1) % animation_img.length);
     }, interval);
-  
+
     return () => {
       clearInterval(timer); // Clean up the interval on unmount
     };
@@ -208,12 +205,12 @@ console.log(resumeType,"type ")
   };
 
   const toggleShowMore1 = () => {
-    handleClick()
+    handleClick();
     setShowMore1(!showMore1);
   };
   const toggleShowMore2 = () => {
     setShowMore2(!showMore2);
-    handleClick()
+    handleClick();
   };
 
   const handleLiClick = (value) => {
@@ -274,34 +271,34 @@ console.log(resumeType,"type ")
   return (
     <div className={style.main}>
       <NavBar />
-      <CustomCursor />
       <div className={style.container}>
-   
         <div className={style.left_box}>
-     {resumeType === "Fresher"  ?
-      <CreateResumeFormForFresher/> :    <CreateResumeForm />  
-    }
-          
-           
-  
+          {resumeType === "Fresher" ? (
+            <CreateResumeFormForFresher />
+          ) : (
+            <CreateResumeForm />
+          )}
         </div>
-        
+
         <div className={style.right_box}>
           <div className={style.animation_box}>
-          <div className={style.cat}>
+            <div className={style.cat}>
               <img src={cat} alt="cat" />
             </div>
             <div className={style.preview_template}>
-         <div>
-         <ResumeModal />
-         </div>
-   
-         <div className={style.animation} style={{backgroundColor:animation_img[counter].bg}}>
-      <img src={animation_img[counter].anim} alt="img" />
-    </div>
-       </div>
+              <div>
+                <ResumeModal />
+              </div>
+
+              <div
+                className={style.animation}
+                style={{ backgroundColor: animation_img[counter].bg }}
+              >
+                <img src={animation_img[counter].anim} alt="img" />
+              </div>
+            </div>
           </div>
-         
+
           <div className={style.suggestion_box}>
             {sectionNo === 1 && (
               <section className={style.section_1}>
@@ -325,7 +322,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn}  onClick={toggleShowMore1}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore1}
+                >
                   {showMore1 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -395,7 +395,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn} onClick={toggleShowMore2}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore2}
+                >
                   {showMore2 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -412,7 +415,10 @@ console.log(resumeType,"type ")
                 <br />
                 <ul>
                   {skill.map((suggestion, index) => (
-                    <li key={index} onClick={() => addSkill(suggestion.skillName )}>
+                    <li
+                      key={index}
+                      onClick={() => addSkill(suggestion.skillName)}
+                    >
                       {suggestion.skillName}
                     </li>
                   ))}
@@ -439,7 +445,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore1}
+                >
                   {showMore1 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -464,7 +473,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore1}
+                >
                   {showMore1 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -489,7 +501,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore1}
+                >
                   {showMore1 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -536,7 +551,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore1}
+                >
                   {showMore1 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -561,7 +579,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore1}
+                >
                   {showMore1 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -586,7 +607,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore1}
+                >
                   {showMore1 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -633,7 +657,10 @@ console.log(resumeType,"type ")
                     ))}
                 </ul>
                 <br />
-                <button className={style.showmore_btn} onClick={toggleShowMore1}>
+                <button
+                  className={style.showmore_btn}
+                  onClick={toggleShowMore1}
+                >
                   {showMore1 ? "Show Less" : "Show More"}
                 </button>
               </section>
@@ -642,8 +669,8 @@ console.log(resumeType,"type ")
         </div>
       </div>
       <div className={style.preview_button}>
-      <MobileViewModal />
-    </div>
+        <MobileViewModal />
+      </div>
     </div>
   );
 }

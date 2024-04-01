@@ -130,25 +130,20 @@ const closeModal = () => {
     } else {
  
     }
+
+ 
   
     try {
       // Replace 'addResume' with your actual API request function
       const response = await addResume(formData);
       const { status, message } = response.data;
-  
-      if (status) {
-        // Swal.fire("Good job!", "Resume Created", "success");
-        alert(message);
-      } else {
-        // Swal.fire("Oops!", "Something went wrong", "error");
-        // Handle update error
-        alert("Oops!", "Something went wrong", "error");
-      }
     } catch (error) {
       if (authToken) {
-        // Swal.fire("Good job!", "Resume Created", "success");
+        alert("Good job! Resume Created success");
       } else {
-        // Swal.fire("Oops!", "Something went wrong", "error");
+        alert("Oops!  Something went wrong error");
+        localStorage.setItem("submit",true)
+        localStorage.setItem("pendingData",JSON.stringify(resume) )
         navigate("/Form");
       }
       // Handle update error

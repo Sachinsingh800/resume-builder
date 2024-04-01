@@ -9,16 +9,39 @@ import CustomCursor from './Component/CustomCursor/CustomCursor';
 import { useRecoilState } from 'recoil';
 import { loadingStatus } from './Recoil';
 import CustomLoader from './Component/CustomLoader/CustomLoader';
+import { useEffect } from 'react';
+import { checkAuthentication } from './Api/Api';
 
 
 function App() {
   const [loading, setLoading] = useRecoilState(loadingStatus);
+
+  useEffect(()=>{
+    handleUserAuthenticationCheck()
+  },[])
+
+  const handleUserAuthenticationCheck = async () => {
+    setLoading(true)
+    try {
+      const response = await checkAuthentication();
+
+      if (response.status === true) {
+          console.log(response,"check authentication")
+      } else {
+        console.error("Error fetching user profile:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching user profile:", error.message);
+    }finally{
+      setLoading(false)
+    }
+  };
+
   return (
     <div className="App">
       {loading &&  <CustomLoader />}
       <NavBar/>
       <Home/>
-      <CustomCursor />
       <FirstSection/>
       <SecondSection/>
       <Footer/>

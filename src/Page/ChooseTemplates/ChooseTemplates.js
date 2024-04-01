@@ -35,7 +35,6 @@ function ChooseTemplates() {
   return (
     <div className={style.main}>
         <NavBar/>
-        <CustomCursor />
       <div className={style.container}>
         <div className={style.heading_box}>
         <h1>What do you want your resume to look like ?</h1>
