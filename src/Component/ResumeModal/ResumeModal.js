@@ -7,9 +7,11 @@ import generatePDF from "react-to-pdf";
 import { useState } from 'react';
 import ColorPlate from '../ColorPlate/ColorPlate';
 import { useRecoilValue, useRecoilState } from 'recoil';
-import { resumeTemplates, chooseTemplates, imageresumeTemplates, modalValue, resumeTemplatesForFresher } from '../../Recoil';
+import { resumeTemplates, chooseTemplates, imageresumeTemplates, modalValue, resumeTemplatesForFresher, authenticateduser } from '../../Recoil';
 import Fonts from '../Fonts/Fonts';
 import CustomCursor from '../CustomCursor/CustomCursor';
+import { checkAuthentication } from '../../Api/Api';
+import axios from 'axios';
 
 const style = {
   position: 'absolute',
@@ -41,7 +43,8 @@ export default function ResumeModal() {
   const templates = useRecoilValue(resumeTemplates);
   const templates2 = useRecoilValue(resumeTemplatesForFresher);
   const [imgtemplate, setImgTemplateNo] = useRecoilState(imageresumeTemplates);
-  console.log(templateNo,"temp no modal")
+  const [ checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
+
   const targetRef = useRef();
 
 
@@ -50,6 +53,7 @@ export default function ResumeModal() {
     if (modal === true) {
       handleOpen() // Call your function when `modal` becomes true
     }
+    handleUserAuthenticationCheck()
   }, [modal]);
 
   useEffect(() => {
@@ -68,6 +72,35 @@ export default function ResumeModal() {
     setTemplateNo(index);
   }
 
+
+
+
+  
+  const handleUserAuthenticationCheck = async () => {
+    const authToken = JSON.parse(localStorage.getItem("token"));
+    const headers = {
+      'x-auth-token': authToken,
+      'Content-Type': 'application/json', // including charset
+    };
+    
+    try {
+      const response = await axios.post(`https://lizmyresume.onrender.com/user/auth/checkAuth`, {}, { headers });
+      if(response) {
+        const { status, message, data } = response.data;
+        if(status){
+          setCheckAuth(status);
+        }
+        return { status, message, data };
+      } else {
+        console.error('Error checking authentication:', response.statusText);
+        // Optionally handle the error or re-throw it
+      }
+    } catch (error) {
+      console.error('Error checking authentication:', error.message);
+      // Optionally handle the error or re-throw it
+
+    }
+  };
   
 
   return (

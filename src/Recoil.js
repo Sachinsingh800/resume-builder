@@ -162,6 +162,13 @@ export const updateButton = atom({
   key: 'updateButton',
   default:false
 });
+
+export const authenticateduser = atom({
+  key: 'authenticateduser',
+  default:false
+});
+
+
 export const coverLetterId = atom({
   key: 'coverLetterId ',
   default:0

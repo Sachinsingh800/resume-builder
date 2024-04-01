@@ -26,12 +26,14 @@ import {
   fontSizeState,
   imageSizeState,
   sectionState,
+  authenticateduser,
 } from "../../../Recoil";
 import downloadimg from "../../Images/download.gif";
 import downloadpdf from "../../Images/pdf-download-2617.svg";
 import downloaddoc from "../../Images/google-docs-icon-2.svg";
 import downloadtext from "../../Images/icons8-text-500.svg";
 import { saveAs } from "file-saver";
+import { useNavigate } from "react-router-dom";
 
 const Template_1 = () => {
   const [color, setColor] = useRecoilState(ChooseColor);
@@ -52,8 +54,8 @@ const Template_1 = () => {
   const [base64Image5, setBase64Image5] = useState("");
   const [base64Image6, setBase64Image6] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  console.log(formData.resume, "resume data");
+  const [ checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
+  const navigate = useNavigate()
 
   const handleDate = (data) => {
     console.log(data, "data");
@@ -509,6 +511,13 @@ ul{
   };
 
   const handleResume = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
+
     setLoading(true);
     setError("");
 
@@ -543,7 +552,14 @@ ul{
     }
   };
 
+
   const handleDownloadDoc = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     setLoading(true);
     setError("");
     try {
@@ -586,7 +602,7 @@ ul{
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(docxBlob, "converted.docx");
+      saveAs(docxBlob, "lizmy_01.docx");
 
       return "Conversion successful";
     } catch (error) {
@@ -596,6 +612,12 @@ ul{
   };
 
   const handleDownloadTxt = async () => {
+    localStorage.setItem("submit",true)
+    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    if (!checkAuth) {
+      navigate("/Form");
+      return; // Stop further execution if authentication check fails
+    }
     setLoading(true);
     setError("");
 
@@ -640,7 +662,7 @@ ul{
       });
 
       // Save the Blob as a file using FileSaver.js
-      saveAs(textBlob, "converted.txt");
+      saveAs(textBlob, "lizmy_01.txt");
 
       return "Conversion successful";
     } catch (error) {
@@ -648,6 +670,7 @@ ul{
       throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
     }
   };
+  
 
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {

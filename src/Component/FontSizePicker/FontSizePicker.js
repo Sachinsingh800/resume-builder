@@ -7,7 +7,7 @@ import Slider from '@mui/material/Slider';
 function FontSizePicker() {
   const [selectedFontSize, setSelectedFontSize] = useRecoilState(fontSizeState);
 
-  console.log(selectedFontSize);
+
 
   const fontSizeOptions = [ 18, 20, 24, 28,30,35,40,70];
 

@@ -152,7 +152,7 @@ const closeModal = () => {
     }
   };
   
-console.log(croppedImage,"asd")
+
 
 
   const handleUpdateResume = async (e) => {

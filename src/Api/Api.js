@@ -395,20 +395,9 @@ export const addResume = async (formData) => {
 };
 
 
-export const checkAuthentication = async () => {
-  const headers = {
-    'x-auth-token': authToken,
-    'Content-Type': 'multipart/form-data', // Set the content type for file uploads
-  };
-  try {
-    const response = await axios.post(`${BASE_URL}/user/auth/checkAuth`, { headers });
-    const { status, message, data } = response.data;
-    return { status, message, data };
-  } catch (error) {
-    console.error('Error creating resume:', error.message);
 
-  }
-};
+
+
 
 
 //addCoverLetter
