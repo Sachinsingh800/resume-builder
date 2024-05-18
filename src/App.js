@@ -9,12 +9,28 @@ import CustomCursor from './Component/CustomCursor/CustomCursor';
 import { useRecoilState } from 'recoil';
 import { loadingStatus } from './Recoil';
 import CustomLoader from './Component/CustomLoader/CustomLoader';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 
 
 function App() {
   const [loading, setLoading] = useRecoilState(loadingStatus);
+  useEffect(()=>{
+  testingBeckend()
+  },[])
 
+   const  testingBeckend = async () => {
+  
+    try {
+      const response = await axios.get(`https://www.backend.lizmy.com`, {
+      });
+      const { status, message, data } = response.data;
+           console.log(response,"https://www.backend.lizmy.com")
+    } catch (error) {
+      console.error('Error getting services:', error.message);
+    }
+  };
 
 
   return (
