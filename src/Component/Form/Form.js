@@ -104,7 +104,7 @@ export default function Form() {
 
       // Log the response data
       console.log("Sign In Response:", { status, message, data });
-
+      alert("SignUp successfully");
       setShowOtpModal(true);
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
@@ -117,15 +117,15 @@ export default function Form() {
 
         // Log the error message as a string
         console.log("Error Message:", JSON.stringify(errorMessage));
-        alert("Something went Wrong");
+        alert(errorMessage );
       } else {
         alert("Something went Wrong");
         errorMessage = error.message;
         console.log("Network Error:", errorMessage);
+        alert(errorMessage );
       }
     } finally {
       setLoading(false);
-      alert("SignUp successfully");
     }
   };
 
