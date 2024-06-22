@@ -84,7 +84,7 @@ export default function ResumeModal() {
     };
     
     try {
-      const response = await axios.post(`https://lizmyresume.onrender.com/user/auth/checkAuth`, {}, { headers });
+      const response = await axios.post(`https://lizmyresumebuilder.onrender.com/user/auth/checkAuth`, {}, { headers });
       if(response) {
         const { status, message, data } = response.data;
         if(status){

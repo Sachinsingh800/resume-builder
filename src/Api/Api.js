@@ -3,7 +3,7 @@ import axios from 'axios';
 
 //testing
 
-const BASE_URL = 'https://lizmyresume.onrender.com';
+const BASE_URL = 'https://lizmyresumebuilder.onrender.com';
 
 const authToken = JSON.parse(localStorage.getItem("token"))
 

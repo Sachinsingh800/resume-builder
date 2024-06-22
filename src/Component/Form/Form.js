@@ -40,7 +40,7 @@ export default function Form() {
 
     try {
       const response = await axios.post(
-        `https://lizmyresume.onrender.com/user/auth/logIn`,
+        `https://lizmyresumebuilder.onrender.com/user/auth/logIn`,
         formData
       );
 
@@ -95,7 +95,7 @@ export default function Form() {
 
     try {
       const response = await axios.post(
-        `https://lizmyresume.onrender.com/user/auth/register`,
+        `https://lizmyresumebuilder.onrender.com/user/auth/register`,
         formData
       );
 
