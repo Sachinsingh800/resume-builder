@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { getUserProfile, updateProfile } from "../../Api/Api";
 import Swal from "sweetalert2";
 import style from "./ProfileDetails.module.css";
-import dp  from "../Images/dp_icon.gif"
-import EditNoteIcon from '@mui/icons-material/EditNote';
-import CancelIcon from '@mui/icons-material/Cancel';
+import dp from "../Images/dp_icon.gif";
+import EditNoteIcon from "@mui/icons-material/EditNote";
+import CancelIcon from "@mui/icons-material/Cancel";
 import { loadingStatus } from "../../Recoil";
 import { useRecoilState } from "recoil";
+import Cookies from "js-cookie";
 
 function ProfileDetails() {
   const [userProfileData, setUserProfileData] = useState([]);
@@ -14,16 +15,19 @@ function ProfileDetails() {
   const [loading, setLoading] = useRecoilState(loadingStatus);
   // Initialize editedProfileData with the current user data
   const [editedProfileData, setEditedProfileData] = useState({});
+  const authToken = Cookies.get("user_token");
 
   // Fetch the user profile data when the component mounts
   useEffect(() => {
-    handleuserProfile();
+    if (authToken) {
+      handleuserProfile();
+    }
     // Set initial edited profile data
     setEditedProfileData(userProfileData);
   }, []);
 
   const handleuserProfile = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await getUserProfile();
 
@@ -34,15 +38,14 @@ function ProfileDetails() {
       }
     } catch (error) {
       console.error("Error fetching user profile:", error.message);
-    }finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
-  
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     const formData = new FormData();
 
     formData.append("name", editedProfileData.name);
@@ -57,8 +60,8 @@ function ProfileDetails() {
       window.location.reload();
     } catch (error) {
       Swal.fire("Error", "Profile update failed", "error");
-    }finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -68,10 +71,15 @@ function ProfileDetails() {
   return (
     <div className={style.main}>
       {isEditMode ? (
-        <form className={style.form}  onSubmit={handleEditSubmit}>
+        <form className={style.form} onSubmit={handleEditSubmit}>
           <div className={style.head}>
             <h1>Edit Profile</h1>
-            <button className={style.head_btn} onClick={() => setIsEditMode(false)}><CancelIcon/></button>
+            <button
+              className={style.head_btn}
+              onClick={() => setIsEditMode(false)}
+            >
+              <CancelIcon />
+            </button>
           </div>
 
           <div>
@@ -102,8 +110,10 @@ function ProfileDetails() {
               }
             />
           </div>
-          <br/>
-          <button type="submit" className={style.save_btn}>Save Changes</button>
+          <br />
+          <button type="submit" className={style.save_btn}>
+            Save Changes
+          </button>
         </form>
       ) : (
         <div className={style.info_box}>
@@ -116,13 +126,18 @@ function ProfileDetails() {
           <div className={style.img_box}>
             <img src={dp} alt="dp" />
           </div>
-          <br/>
-          <hr className={style.hr}/>
-            <div className={style.user_box}>
-            <p><strong>Name: </strong>{userProfileData?.name}</p>
-             <p><strong>Email: </strong>{userProfileData?.email}</p>
-            </div>
-         
+          <br />
+          <hr className={style.hr} />
+          <div className={style.user_box}>
+            <p>
+              <strong>Name: </strong>
+              {userProfileData?.name}
+            </p>
+            <p>
+              <strong>Email: </strong>
+              {userProfileData?.email}
+            </p>
+          </div>
         </div>
       )}
     </div>

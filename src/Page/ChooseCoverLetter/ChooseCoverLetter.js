@@ -6,10 +6,8 @@ import Footer from "../../Component/Footer/Footer";
 import ColorPlate from "../../Component/ColorPlate/ColorPlate";
 import { useSound } from "use-sound";
 import clickSound from "../../Sounds/Click.mp3";
-
 import { imageCoverLetter, chooseTemplates, coverLetterId } from "../../Recoil";
 import { useRecoilState } from "recoil";
-import CustomCursor from "../../Component/CustomCursor/CustomCursor";
 
 function ChooseCoverLetter() {
   const [play] = useSound(clickSound);

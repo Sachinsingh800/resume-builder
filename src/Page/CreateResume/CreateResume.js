@@ -43,7 +43,7 @@ import {
 import { useSound } from "use-sound";
 import clickSound from "../../Sounds/Click.mp3";
 import MobileViewModal from "../../Component/MobileViewModal/MobileViewModal";
-import CustomCursor from "../../Component/CustomCursor/CustomCursor";
+
 
 function CreateResume() {
   const [play] = useSound(clickSound);
@@ -76,32 +76,10 @@ function CreateResume() {
     useRecoilState(selectedValue2);
   const [progress, setProgress] = useState(1);
   const [counter, setCounter] = useState(0);
-
   const resumeType = JSON.parse(localStorage.getItem("resumetype"));
-  console.log(resumeType, "type ");
   const animation_img = [
     {
-      anim: panda,
-      des: "panda",
-      bg: "grey",
-    },
-    {
-      anim: panda2,
-      des: "panda2",
-      bg: "white",
-    },
-    {
-      anim: rabbit,
-      des: "rabbit",
-      bg: "black",
-    },
-    {
       anim: resume_img,
-      des: "rabbit",
-      bg: "black",
-    },
-    {
-      anim: resume_img2,
       des: "rabbit",
       bg: "black",
     },
@@ -120,7 +98,8 @@ function CreateResume() {
 
   const handleAllSummary = async () => {
     setLoading(true);
-    const selectedCategory = JSON.parse(localStorage.getItem("category"));
+    const selectedCat = JSON.parse(localStorage.getItem("category"));
+    const selectedCategory = selectedCat  ? selectedCat   : "CNC Machinist";
     try {
       const response = await getAllSummary(selectedCategory);
 
@@ -138,7 +117,8 @@ function CreateResume() {
 
   const handleAllSkills = async () => {
     setLoading(true);
-    const selectedCategory = JSON.parse(localStorage.getItem("category"));
+    const selectedCat = JSON.parse(localStorage.getItem("category"));
+    const selectedCategory = selectedCat  ? selectedCat   : "CNC Machinist";
     try {
       const response = await getAllSkills(selectedCategory);
 
@@ -172,7 +152,8 @@ function CreateResume() {
 
   const handleAllAreaofIntrest = async () => {
     setLoading(true);
-    const selectedCategory = JSON.parse(localStorage.getItem("category"));
+    const selectedCat = JSON.parse(localStorage.getItem("category"));
+    const selectedCategory = selectedCat  ? selectedCat   : "CNC Machinist";
     try {
       const response = await getAllAreaofInterest(selectedCategory);
 
@@ -187,18 +168,6 @@ function CreateResume() {
       setLoading(false);
     }
   };
-
-  const interval = 9000; // 3 seconds
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCounter((prevCounter) => (prevCounter + 1) % animation_img.length);
-    }, interval);
-
-    return () => {
-      clearInterval(timer); // Clean up the interval on unmount
-    };
-  }, [interval]);
 
   const toggleShowMore = () => {
     setShowMore(!showMore);
@@ -282,9 +251,6 @@ function CreateResume() {
 
         <div className={style.right_box}>
           <div className={style.animation_box}>
-            <div className={style.cat}>
-              <img src={cat} alt="cat" />
-            </div>
             <div className={style.preview_template}>
               <div>
                 <ResumeModal />

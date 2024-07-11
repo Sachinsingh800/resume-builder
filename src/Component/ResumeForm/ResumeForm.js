@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "./ResumeForm.module.css"
 import NavBar from '../NavBar/NavBar'
-import { Link } from 'react-router-dom'
-import { resumeType } from '../../Recoil'
-import { useRecoilState } from 'recoil'
-import CustomCursor from '../CustomCursor/CustomCursor'
+
 
 function ResumeForm() {
- 
+    useEffect(()=>{
+        sessionStorage.setItem("update", false);
+    },[])
+   
   const handleResumeType = (data) =>{
       localStorage.setItem("resumetype",JSON.stringify(data))
   }

@@ -1,57 +1,62 @@
-import React, { useState ,useEffect} from 'react'
-import style from "./Blog.module.css"
-import NavBar from '../../Component/NavBar/NavBar'
-import { getAllBlog } from '../../Api/Api';
-import SecondSection from '../../Sections/SecondSection/SecondSection';
-import Footer from '../../Component/Footer/Footer';
+import React, { useState, useEffect } from "react";
+import style from "./Blog.module.css";
+import NavBar from "../../Component/NavBar/NavBar";
+import Footer from "../../Component/Footer/Footer";
+import { getAllBlog } from "../../Api/Api";
 
 
 function Blog() {
-    const [blog,setBlog] = useState([])
-    useEffect(() => {
-        handleAllBlog();
+  const [blogs, setBlogs] = useState([]);
 
-      }, []);
-    
-   
-    console.log(blog[2],"blog")
-    
-      const handleAllBlog = async () => {
-        try {
-          const response = await getAllBlog();
-    
-          if (response.status === true) {
-            setBlog(response?.data);
-          } else {
-            console.error('Error fetching user profile:', response.data.message);
-          }
-        } catch (error) {
-          console.error('Error fetching user profile:', error.message);
-        }
-      };
+  useEffect(() => {
+    handleAllBlog();
+  }, []);
+
+  const handleAllBlog = async () => {
+    try {
+      const response = await getAllBlog();
+      if (response.status === true) {
+        setBlogs(response?.data);
+      } else {
+        console.error("Error fetching blogs:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching blogs:", error.message);
+    }
+  };
+
+  const formatTitleForUrl = (title) => {
+    return title.replace(/\s+/g, '-').replace(/:/g, '');
+  };
+
   return (
     <div className={style.main}>
-        <NavBar/>
-        <div className={style.container}>
-            <div className={style._box}>
-            <div className={style.bradcums}>
-                <h4>Home / Subject /<span> {blog[0]?.title}</span></h4>
+      <NavBar />
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <h1>Blogs</h1>
+      <br/>
+      <div className={style.blogContainer}>
+        {blogs.map((blog, index) => (
+          <div key={index} className={style.blogCard} onClick={()=>window.location.href=`/blog-layout/${formatTitleForUrl(blog?.blogData?.Section1?.title)}`}>
+            <div  className={style.blogImage}>
+            <img src={blog.blogData.Section2.url} alt="blog visual" />
             </div>
-            <div className={style.head}>
-                 <h1>{blog[0]?.title}</h1>
+   
+            <div className={style.blogDetails}>
+              <h3>{blog.blogData.Section1.title}</h3>
+              <p>{blog.publishDate}</p>
+              <p>Sample Read Time</p>
+              <p className={style.des} dangerouslySetInnerHTML={{ __html: blog.blogData.Section1.description }}></p>
             </div>
-            </div>
-        </div>
-
-        <div>
-            <SecondSection/>
-        </div>
-       <div className={style.des_box}>
-       <div dangerouslySetInnerHTML={{ __html: blog[2]?.description}} />
-       </div>
-       <Footer/>
+          </div>
+        ))}
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default Blog
+export default Blog;

@@ -74,7 +74,7 @@ const Template_15= () => {
     const imageLocations = [
       location,
       linkedin,
-      croppedImage ? croppedImage : dp,
+        croppedImage ? croppedImage :  formData?.resume?.profilePicture ?   formData?.resume?.profilePicture :  dp,
       mail,
       call,
     ];

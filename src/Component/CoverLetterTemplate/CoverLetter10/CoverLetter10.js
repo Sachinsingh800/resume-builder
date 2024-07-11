@@ -89,7 +89,7 @@ const CoverLetter10 = () => {
     const imageLocations = [
       location,
       linkedin,
-      croppedImage ? croppedImage : dp,
+        croppedImage ? croppedImage :  formData?.resume?.profilePicture ?   formData?.resume?.profilePicture :  dp,
       mail,
       call,
     ];

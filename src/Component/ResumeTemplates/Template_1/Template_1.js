@@ -27,6 +27,7 @@ import {
   imageSizeState,
   sectionState,
   authenticateduser,
+  loadingStatus,
 } from "../../../Recoil";
 import downloadimg from "../../Images/download.gif";
 import downloadpdf from "../../Images/pdf-download-2617.svg";
@@ -36,6 +37,7 @@ import { saveAs } from "file-saver";
 import { useNavigate } from "react-router-dom";
 
 const Template_1 = () => {
+  const [loading, setLoading] = useRecoilState(loadingStatus);
   const [color, setColor] = useRecoilState(ChooseColor);
   const [color2, setColor2] = useRecoilState(ChooseColorSecond);
   const [color3, setColor3] = useRecoilState(ChooseColorThird);
@@ -45,7 +47,6 @@ const Template_1 = () => {
   const [templateNo, setTemplateNo] = useRecoilState(chooseTemplates);
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [formData, setFormData] = useRecoilState(resumeData);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [base64Image1, setBase64Image1] = useState("");
   const [base64Image2, setBase64Image2] = useState("");
@@ -54,14 +55,11 @@ const Template_1 = () => {
   const [base64Image5, setBase64Image5] = useState("");
   const [base64Image6, setBase64Image6] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [ checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
-  const navigate = useNavigate()
+  const [checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
+  const navigate = useNavigate();
 
   const handleDate = (data) => {
-    console.log(data, "data");
-
     const startYear = new Date(data).getFullYear();
-
     return startYear;
   };
 
@@ -69,7 +67,7 @@ const Template_1 = () => {
     const imageLocations = [
       location,
       linkedin,
-      croppedImage ? croppedImage : dp,
+      croppedImage ? croppedImage :  formData?.resume?.profilePicture ?   formData?.resume?.profilePicture :  dp,
       mail,
       call,
     ];
@@ -483,8 +481,7 @@ ul{
                 }
                       ${
                         formData?.resume?.projects.length > 0
-                          ? 
-                    `<div class="work">
+                          ? `<div class="work">
                     <h3>Projects</h3>
                     <ul class="work-ul">
                     ${formData?.resume?.projects
@@ -495,7 +492,8 @@ ul{
                     <p>${item?.year}, ${item?.link}</p>
                     <p>${item?.description}</p>
                 </li>
-            ` )
+            `
+                      )
                       .join("")}
                     </ul>
                 </div>`
@@ -511,8 +509,8 @@ ul{
   };
 
   const handleResume = async () => {
-    localStorage.setItem("submit",true)
-    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    localStorage.setItem("submit", true);
+    localStorage.setItem("pendingData", JSON.stringify(formData));
     if (!checkAuth) {
       navigate("/Form");
       return; // Stop further execution if authentication check fails
@@ -552,20 +550,25 @@ ul{
     }
   };
 
-
   const handleDownloadDoc = async () => {
-    localStorage.setItem("submit",true)
-    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    // Save form submission status and data in localStorage
+    localStorage.setItem("submit", true);
+    localStorage.setItem("pendingData", JSON.stringify(formData));
+
+    // Check authentication
     if (!checkAuth) {
       navigate("/Form");
       return; // Stop further execution if authentication check fails
     }
+
+    // Set loading state and clear previous errors
     setLoading(true);
     setError("");
+
     try {
-      // Step 1: Convert HTML and CSS to PDF
-      const pdfResponse = await axios.post(
-        "https://www.voizyy.com/convert/htmlCssToPdf",
+      // Step 1: Convert HTML and CSS to DOC
+      const docResponse = await axios.post(
+        "https://htmlcsstodoc.onrender.com",
         {
           html: getHTML(),
           cssStyles: getCSS(), // Include your CSS data here
@@ -578,42 +581,28 @@ ul{
         }
       );
 
-      // Step 2: Convert PDF to DOCX
-      const formData = new FormData();
-      formData.append(
-        "pdf",
-        new Blob([pdfResponse.data], { type: "application/pdf" })
-      );
-
-      const docxResponse = await axios.post(
-        "https://www.voizyy.com/convert/pdftodocx",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          responseType: "arraybuffer",
-        }
-      );
-      setLoading(false);
-      // Create a Blob from the response data
-      const docxBlob = new Blob([docxResponse.data], {
-        type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-      });
-
-      // Save the Blob as a file using FileSaver.js
-      saveAs(docxBlob, "lizmy.docx");
-
-      return "Conversion successful";
+      // Step 2: Handle the DOC response (saving the file, for example)
+      const blob = new Blob([docResponse.data], { type: "application/msword" });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "document.doc");
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
     } catch (error) {
+      // Handle any errors that occur during the request
+      setError("Failed to download document. Please try again.");
+      console.error("Download error:", error);
+    } finally {
+      // Reset loading state
       setLoading(false);
-      throw new Error("Error converting HTML and CSS to DOCX");
     }
   };
 
   const handleDownloadTxt = async () => {
-    localStorage.setItem("submit",true)
-    localStorage.setItem("pendingData",JSON.stringify(formData) )
+    localStorage.setItem("submit", true);
+    localStorage.setItem("pendingData", JSON.stringify(formData));
     if (!checkAuth) {
       navigate("/Form");
       return; // Stop further execution if authentication check fails
@@ -670,7 +659,6 @@ ul{
       throw new Error(`Error converting HTML and CSS to TXT: ${error.message}`);
     }
   };
-  
 
   const ResumeModal = ({ isOpen, onClose }) => {
     if (!isOpen) {
@@ -826,22 +814,19 @@ ul{
             </h1>
           </div>
 
-          {formData?.resume?.certifications.length > 0 && 
+          {formData?.resume?.certifications.length > 0 && (
             <div className={style.certifications}>
-            <h3>Certifications</h3>
-            <ul className={style.certi_ul}>
-              {formData?.resume?.certifications.map((item, index) => (
-                <li key={index}>
-                  <h5>{item?.title}</h5>
-                  <p>Organization: {item?.issuingOrganization}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          }
-        
-
-        
+              <h3>Certifications</h3>
+              <ul className={style.certi_ul}>
+                {formData?.resume?.certifications.map((item, index) => (
+                  <li key={index}>
+                    <h5>{item?.title}</h5>
+                    <p>Organization: {item?.issuingOrganization}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className={style.line}></div>
 
@@ -851,42 +836,42 @@ ul{
           </div>
 
           <div className={style.line}></div>
-   
-          {formData?.resume?.work.length  > 0 &&
-           <div className={style.work}>
-           <h3>Work History</h3>
-           <ul className={style.work_ul}>
-             {formData?.resume?.work.map((item, index) => (
-               <li key={index}>
-                 <h4>{item?.title}</h4>
-                 <p>
-                   {item?.company}, {item?.location} |{" "}
-                   {formatDate(item?.startDate)} - {formatDate(item?.endDate)}
-                 </p>
-                 <p>{item?.description}</p>
-               </li>
-             ))}
-           </ul>
-         </div>
-          } 
-         
-         {formData?.resume?.projects.length > 0 && 
-             <div className={style.work}>
-             <h3>Projects</h3>
-             <ul className={style.work_ul}>
-               {formData?.resume?.projects.map((item, index) => (
-                 <li key={index}>
-                   <h4>{item?.title}</h4>
-                   <p>
-                     {item?.year}, {item?.link}
-                   </p>
-                   <p>{item?.description}</p>
-                 </li>
-               ))}
-             </ul>
-           </div>
-         }
-      
+
+          {formData?.resume?.work.length > 0 && (
+            <div className={style.work}>
+              <h3>Work History</h3>
+              <ul className={style.work_ul}>
+                {formData?.resume?.work.map((item, index) => (
+                  <li key={index}>
+                    <h4>{item?.title}</h4>
+                    <p>
+                      {item?.company}, {item?.location} |{" "}
+                      {formatDate(item?.startDate)} -{" "}
+                      {formatDate(item?.endDate)}
+                    </p>
+                    <p>{item?.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {formData?.resume?.projects.length > 0 && (
+            <div className={style.work}>
+              <h3>Projects</h3>
+              <ul className={style.work_ul}>
+                {formData?.resume?.projects.map((item, index) => (
+                  <li key={index}>
+                    <h4>{item?.title}</h4>
+                    <p>
+                      {item?.year}, {item?.link}
+                    </p>
+                    <p>{item?.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </>

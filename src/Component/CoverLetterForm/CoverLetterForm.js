@@ -11,7 +11,6 @@ import NavBar from "../NavBar/NavBar";
 import CoverLetter1 from "../CoverLetterTemplate/CoverLetter1/CoverLetter1";
 import { addCoverLetter } from "../../Api/Api";
 import Swal from "sweetalert2";
-import CustomCursor from "../CustomCursor/CustomCursor";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 

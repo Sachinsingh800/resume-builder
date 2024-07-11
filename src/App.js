@@ -5,7 +5,6 @@ import Home from './Page/Home/Home';
 import FirstSection from './Sections/FirstSection/FirstSection';
 import Footer from './Component/Footer/Footer';
 import SecondSection from './Sections/SecondSection/SecondSection';
-import CustomCursor from './Component/CustomCursor/CustomCursor';
 import { useRecoilState } from 'recoil';
 import { loadingStatus } from './Recoil';
 import CustomLoader from './Component/CustomLoader/CustomLoader';

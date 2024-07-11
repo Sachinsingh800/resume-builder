@@ -60,6 +60,8 @@ import Template_29 from './Component/ResumeTemplates/Template_29/Template_29';
 import Template_30 from './Component/ResumeTemplates/Template_30/Template_30';
 import HtmlToPdf from './Component/HtmlToPdf/HtmlToPdf';
 import ForgetPassword from './Component/Form/ForgetPassword';
+import UserResume from './Page/UserResume/UserResume';
+import BlogLayout from './Page/BlogLayout/BlogLayout';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -271,6 +273,14 @@ const router = createBrowserRouter([
   {
     path: "/HtmlToPdf",
     element: <HtmlToPdf />
+  },
+  {
+    path: "/user-resume",
+    element: <UserResume />
+  },
+  {
+    path: "/blog-layout/:title",
+    element: <BlogLayout />
   },
 ]);
 root.render(

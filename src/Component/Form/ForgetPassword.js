@@ -6,7 +6,7 @@ import styles from "./ForgetPassword.module.css";
 import NavBar from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import CustomLoader from "../CustomLoader/CustomLoader";
-import CustomCursor from "../CustomCursor/CustomCursor";
+
 
 const ForgetPassword = () => {
   const [email, setEmail] = useState("");
@@ -83,7 +83,6 @@ const navigate = useNavigate()
 
   return (
     <div className={styles.container}>
-      <CustomCursor/>
       {loading &&   <CustomLoader/>}
     
       <div className={styles.navBar}>

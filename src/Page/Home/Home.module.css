@@ -87,7 +87,6 @@ background: linear-gradient(0deg, rgba(17,7,7,1) 0%, rgba(154,8,8,1) 100%, rgba(
         .main{
             display: grid;
             grid-template-columns: 1fr ;
-            height: max-content;
         }
         .heading{
             text-align: left;

@@ -13,7 +13,7 @@ import NavBar from "../NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CustomLoader from "../CustomLoader/CustomLoader";
-import CustomCursor from "../CustomCursor/CustomCursor";
+import Cookies from "js-cookie"; // Import js-cookie
 
 export default function Form() {
   const [loading, setLoading] = useState(false);
@@ -28,12 +28,10 @@ export default function Form() {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
 
-
-
   const handleSignIn = async (e) => {
-    const data= JSON.parse(localStorage.getItem("pendingData"))
-    const Rmsubmit=localStorage.getItem("submit")
-    const Cvsubmit=localStorage.getItem("coverletter")
+    const data = JSON.parse(localStorage.getItem("pendingData"));
+    const Rmsubmit = localStorage.getItem("submit");
+    const Cvsubmit = localStorage.getItem("coverletter");
     setLoading(true);
     e.preventDefault();
     let errorMessage;
@@ -45,20 +43,20 @@ export default function Form() {
       );
 
       // Assuming the API returns a JSON response with status and message
-      const { status, message, data } = response.data;
+      const { status, message, data: token } = response.data;
       if (status) {
-        localStorage.setItem("token", JSON.stringify(data));
-        alert("login successfull")
-   
-         if(Rmsubmit === "true") {
-          const data= JSON.parse(localStorage.getItem("pendingData"))
-           localStorage.setItem('resume', JSON.stringify(data));
-          navigate("/CreateResume")
-         } else if (Cvsubmit === "true"){
-           navigate("/CoverLetterForm")
-         }else{
-          navigate("/")
-         }
+        Cookies.set("user_token", token, { expires: 7 }); // Store token in cookies for 7 days
+        alert("login successful");
+
+        if (Rmsubmit === "true") {
+          const data = JSON.parse(localStorage.getItem("pendingData"));
+          localStorage.setItem('resume', JSON.stringify(data));
+          navigate("/CreateResume");
+        } else if (Cvsubmit === "true") {
+          navigate("/CoverLetterForm");
+        } else {
+          navigate("/");
+        }
       }
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
@@ -78,10 +76,9 @@ export default function Form() {
         }
       } else {
         // Network error (e.g., no internet connection)
-     
         errorMessage = error.message;
         console.log("Network Error:", errorMessage);
-        alert("Something went Wrong");
+        alert("Something went wrong");
       }
     } finally {
       setLoading(false);
@@ -98,13 +95,10 @@ export default function Form() {
         `https://lizmyresumebuilder.onrender.com/user/auth/register`,
         formData
       );
-
       // Assuming the API returns a JSON response with status and message
-      const { status, message, data } = response.data;
-
-      // Log the response data
-      console.log("Sign In Response:", { status, message, data });
+      const { status, message, data: token  } = response.data;
       alert("SignUp successfully");
+      setLoading(false);
       setShowOtpModal(true);
     } catch (error) {
       // Check if the error is an Axios error (HTTP error) or a network error
@@ -114,19 +108,14 @@ export default function Form() {
 
         // Set the error message
         errorMessage = response?.data?.message;
-
-        // Log the error message as a string
-        console.log("Error Message:", JSON.stringify(errorMessage));
-        alert(errorMessage );
+        alert(errorMessage);
+        setLoading(false);
       } else {
-        alert("Something went Wrong");
+        alert("Something went wrong");
         errorMessage = error.message;
-        console.log("Network Error:", errorMessage);
-        alert(errorMessage );
+        setLoading(false);
       }
-    } finally {
-      setLoading(false);
-    }
+    } 
   };
 
   const handleInputChange = (e) => {
@@ -140,6 +129,8 @@ export default function Form() {
   const handleOtpVerification = async () => {
     setLoading(true);
     const OTP = {
+      name: formData.name,
+      password: formData.password,
       email: formData.email,
       otp: otp,
     };

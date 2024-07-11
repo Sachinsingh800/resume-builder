@@ -75,7 +75,8 @@ export default function Slider() {
 
  
   const handleTemNo=(no)=>{
-    localStorage.setItem("templateid",JSON.stringify(no))
+    const temID = `template${no}`;
+    localStorage.setItem("templateid", JSON.stringify(temID));
   }
     
   const responsive = {
