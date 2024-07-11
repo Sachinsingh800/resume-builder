@@ -53,3 +53,13 @@
     margin: 0.5rem 0;
   }
   
+  @media (max-width:500px) {
+      
+  .blogContainer {
+    display: grid;
+    grid-template-columns: 1fr ;
+    justify-content: center;
+    padding: 2rem;
+    gap: 1rem;
+  }
+  }

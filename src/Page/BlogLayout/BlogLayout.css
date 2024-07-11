@@ -193,3 +193,27 @@
 .blogDetails p {
   margin: 0.5rem 0;
 }
+@media (max-width:500px) {
+  .left {
+    width: 100%;
+    padding: 3rem;
+  }
+  .middle {
+    width: 100%;
+    padding: 1rem;
+    height: max-content;
+  }
+  .right {
+    width: 100%;
+    padding: 3rem;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+  }
+  .blogContainer{
+    display: grid;
+    grid-template-columns: 1fr ;
+  }
+}
