@@ -95,7 +95,7 @@ const BlogLayout = () => {
             />
       </div>
       </div>
-
+   <br/>
       <div className="container">
         <div className="left">
           <p>Content</p>
