@@ -200,7 +200,7 @@ h6 {
 
 .blogImage {
   width: 100%;
-  height: 300px;
+  height: 150px;
   object-fit: cover;
 }
 .blogImage img {
