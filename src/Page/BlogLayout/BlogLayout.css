@@ -1,14 +1,19 @@
 /* Import fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
 
-.container{
-  font-family: 'Open Sans', sans-serif;
+.container {
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
 
-.container h1, h2, h3, h4, h5, h6 {
-  font-family: 'Lora', serif;
+.container h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lora", serif;
   font-weight: 700;
 }
 
@@ -37,7 +42,7 @@
   width: 20%;
   padding: 3rem;
 }
-.left p{
+.left p {
   font-weight: bold;
 }
 
@@ -46,7 +51,7 @@
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
   text-decoration: underline;
   padding: 1rem 0rem;
 }
@@ -114,7 +119,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: .4rem;
+  gap: 0.4rem;
   width: 70%;
 }
 
@@ -124,7 +129,6 @@
   align-items: center;
   flex-direction: column;
   text-decoration: underline;
-
 }
 
 .share ul li a {
@@ -142,7 +146,7 @@
 .share ul li a:hover {
   background-color: rgb(0, 0, 0);
 }
-.bottom_box{
+.bottom_box {
   padding: 3rem;
 }
 
@@ -159,12 +163,12 @@
   border-radius: 10px;
   overflow: hidden;
   margin: 1rem;
-  max-width: 300px;
+  max-width:350px;
   transition: transform 0.3s;
   cursor: pointer;
 }
-.des{
-  height:5rem;
+.des {
+  height: 5rem;
   overflow: hidden;
 }
 
@@ -174,10 +178,10 @@
 
 .blogImage {
   width: 100%;
-  height: 200px;
+  height: 300px;
   object-fit: cover;
 }
-.blogImage img{
+.blogImage img {
   height: 100%;
   width: 100%;
 }
@@ -193,7 +197,31 @@
 .blogDetails p {
   margin: 0.5rem 0;
 }
-@media (max-width:500px) {
+.image_box{
+  width: 60%;
+  max-width: 800px;
+}
+.image_box img{
+  height: 100%;
+  width: 100%;
+}
+.header_container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+.header {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+@media (max-width: 500px) {
   .left {
     width: 100%;
     padding: 3rem;
@@ -212,8 +240,8 @@
     flex-direction: column;
     height: max-content;
   }
-  .blogContainer{
+  .blogContainer {
     display: grid;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
   }
 }
