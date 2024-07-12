@@ -138,6 +138,7 @@ const BlogLayout = () => {
                     )}
                     {filteredBlog.blogData[section].description && (
                       <div
+                      className="blog_description"
                         dangerouslySetInnerHTML={{
                           __html: filteredBlog.blogData[section].description,
                         }}

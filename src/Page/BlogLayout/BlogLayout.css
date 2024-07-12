@@ -6,6 +6,12 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'CustomFont2';
+  src: url('../../Component/AllFonts/Euclid\ Circular\ B\ Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .container {
   font-size: 16px;
@@ -47,6 +53,12 @@ h6 {
   flex-direction: row;
   min-height: 100vh;
 }
+.container  span p{
+  font-family: 'CustomFont';
+}
+.blog_description{
+  font-family: 'CustomFont2';
+}
 
 .left {
   width: 20%;
@@ -64,6 +76,7 @@ h6 {
   gap: 0.5rem;
   text-decoration: underline;
   padding: 1rem 0rem;
+  font-family: 'CustomFont2';
 }
 .left nav-::-webkit-scrollbar {
   display: none;
