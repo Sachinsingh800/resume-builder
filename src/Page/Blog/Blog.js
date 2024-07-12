@@ -42,14 +42,11 @@ function Blog() {
         {blogs.map((blog, index) => (
           <div key={index} className={style.blogCard} onClick={()=>window.location.href=`/blog-layout/${formatTitleForUrl(blog?.blogData?.blogTitle)}`}>
             <div  className={style.blogImage}>
-            <img src={blog.blogData.Section2.url} alt="blog visual" />
+            <img src={blog?.blogData?.blogImg?.url} alt="blog visual" />
             </div>
-   
             <div className={style.blogDetails}>
-              <h3>{blog.blogData.Section1.title}</h3>
-              <p>{blog.publishDate}</p>
-              <p>Sample Read Time</p>
-              <p className={style.des} dangerouslySetInnerHTML={{ __html: blog.blogData.Section1.description }}></p>
+              <h3>{blog?.blogData?.blogTitle}</h3>
+              <p>{blog?.publishDate}</p>
             </div>
           </div>
         ))}
