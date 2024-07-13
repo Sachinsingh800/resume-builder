@@ -24,6 +24,8 @@ import clickSound from "../../Sounds/Click.mp3";
 import TextField from "@mui/material/TextField";
 import CustomLoader from "../CustomLoader/CustomLoader";
 import Dp from "../Images/dp2.jpg";
+import axios from "axios";
+import Cookies from "js-cookie"; // Import js-cookie
 
 const CreateResumeFormForFresher = () => {
   const [formData, setFormData] = useRecoilState(resumeData);
@@ -33,12 +35,11 @@ const CreateResumeFormForFresher = () => {
   const [croppedImage, setCroppedImage] = useRecoilState(croppedImageState);
   const [selectedValue, setSelectedValue] = useRecoilState(selectedValue1);
   const [resumeImg, setResumeImg] = useState([]);
-  const [updateBtn, setUpdateBtn] = useState(sessionStorage.getItem("update"));
+  const updateBtn=JSON.parse(sessionStorage.getItem("update")) 
   const [loading, setLoading] = useState(false);
-
   const [progress, setProgress] = useState(0);
   const navigate = useNavigate();
-  const authToken = JSON.parse(localStorage.getItem("token"));
+  const authToken = Cookies.get("user_token")
   const templateNo = JSON.parse(localStorage.getItem("templateid"));
   const [play] = useSound(clickSound);
 
@@ -104,10 +105,10 @@ const CreateResumeFormForFresher = () => {
     const formData = new FormData();
 
     // Append personal information
-    formData.append("name", JSON.stringify(resume.name));
-    formData.append("summary", JSON.stringify(resume.summary));
+    formData.append("name", resume.name);
+    formData.append("summary", resume.summary);
     formData.append("contact", JSON.stringify(resume.contact));
-    formData.append("dob", JSON.stringify(resume.dob));
+    formData.append("dob", resume.dob);
     formData.append("gender", resume.gender);
     formData.append("address", JSON.stringify(resume.address));
     formData.append("education", JSON.stringify(resume.education));
@@ -125,30 +126,27 @@ const CreateResumeFormForFresher = () => {
     );
     formData.append("areaOfInterest", JSON.stringify(resume.areaOfInterest));
     formData.append("references", JSON.stringify(resume.references));
-    formData.append("jobTitle", JSON.stringify(resume.jobTitle));
+    formData.append("jobTitle", resume.jobTitle);
     formData.append("interestedIn", resume.interestedIn);
-    formData.append("tempId", JSON.stringify(templateNo));
-
-    for (let i = 0; i < resumeImg.length; i++) {
-      formData.append("profilePicture", resumeImg[i]);
+    formData.append("tempId", templateNo);
+    if (croppedImage) {
+      for (let i = 0; i < resumeImg.length; i++) {
+        formData.append("profilePicture", resumeImg[i]);
+      }
+    } else {
     }
 
     try {
       // Replace 'addResume' with your actual API request function
       const response = await addResume(formData);
       const { status, message } = response.data;
-
-      if (status) {
-        // Swal.fire("Good job!", "Resume Created", "success");
-      } else {
-        // Swal.fire("Oops!", "Something went wrong", "error");
-        // Handle update error
-      }
     } catch (error) {
       if (authToken) {
-        // Swal.fire("Good job!", "Resume Created", "success");
+        alert("Good job! Resume Created success");
       } else {
-        // Swal.fire("Oops!", "Something went wrong", "error");
+        alert("Oops!  Something went wrong error");
+        localStorage.setItem("submit", true);
+        localStorage.setItem("pendingData", JSON.stringify(resume));
         navigate("/Form");
       }
       // Handle update error
@@ -160,14 +158,15 @@ const CreateResumeFormForFresher = () => {
   const handleUpdateResume = async (e) => {
     e.preventDefault();
     e.stopPropagation();
+    sessionStorage.setItem("update", false);
     const id = resume._id;
     const formData = new FormData();
 
     // Append personal information
-    formData.append("name", JSON.stringify(resume.name));
-    formData.append("summary", JSON.stringify(resume.summary));
+    formData.append("name", resume.name);
+    formData.append("summary", resume.summary);
     formData.append("contact", JSON.stringify(resume.contact));
-    formData.append("dob", JSON.stringify(resume.dob));
+    formData.append("dob", resume.dob);
     formData.append("gender", resume.gender);
     formData.append("address", JSON.stringify(resume.address));
     formData.append("education", JSON.stringify(resume.education));
@@ -185,32 +184,34 @@ const CreateResumeFormForFresher = () => {
     );
     formData.append("areaOfInterest", JSON.stringify(resume.areaOfInterest));
     formData.append("references", JSON.stringify(resume.references));
-    formData.append("jobTitle", JSON.stringify(resume.jobTitle));
+    formData.append("jobTitle", resume.jobTitle);
     formData.append("interestedIn", resume.interestedIn);
-    formData.append("tempId", JSON.stringify(templateNo));
+    formData.append("tempId", templateNo);
 
-    for (let i = 0; i < resumeImg.length; i++) {
-      formData.append("profilePicture", resumeImg[i]);
+    if (croppedImage) {
+      for (let i = 0; i < resumeImg.length; i++) {
+        formData.append("profilePicture", resumeImg[i]);
+      }
+    } else {
     }
 
     try {
       // Replace 'addResume' with your actual API request function
-      const response = await updateResume(id, formData);
-      const { status, message } = response.data;
-
-      if (status) {
-        Swal.fire("Good job!", "update successfully", "success");
-      } else {
-        Swal.fire("Oops!", "Something went wrong", "error");
-        // Handle update error
-      }
+      const response = await updateResume(formData);
+      alert("update successfully");
     } catch (error) {
-      if (authToken) {
-        Swal.fire("Good job!", "Resume Created", "success");
+      if (axios.isAxiosError(error)) {
+        // Axios error (HTTP error)
+        const { response } = error;
+        // Set the error message
+        const errorMessage = response.data.message;
+        alert(errorMessage);
+        console.error("Axios Error:", errorMessage);
       } else {
-        Swal.fire("Oops!", "Something went wrong", "error");
+        // Network error (e.g., no internet connection)
+        alert("Something went wrong");
+        console.error("Network Error:", error.message);
       }
-      // Handle update error
     }
   };
 
@@ -526,7 +527,9 @@ const CreateResumeFormForFresher = () => {
       return { ...prevFormData, resume: updatedResume };
     });
   };
-
+console.log(formData.
+  resume.profilePicture
+  ,"dasdsad")
   // Function to delete a reference at the specified index
   const handleDeleteReference = (index) => {
     setFormData((prevFormData) => {
@@ -556,6 +559,7 @@ const CreateResumeFormForFresher = () => {
           <li onClick={() => setSection(10)}>10</li>
           <li onClick={() => setSection(11)}>11</li>
           <li onClick={() => setSection(12)}>12</li>
+          <li onClick={() => setSection(13)}>13</li>
         </ul>
         <div className={style.progress} style={{ width: `${progress}%` }}></div>
       </div>
@@ -570,7 +574,7 @@ const CreateResumeFormForFresher = () => {
             <div className={style.img_container}>
               <div className={style.img_box}>
                 {croppedImage === null ? (
-                  <img src={Dp} alt="img2" />
+                  formData?.resume?.profilePicture ?  <img src={formData?.resume?.profilePicture } alt="img2" /> :<img src={Dp} alt="img2" />
                 ) : (
                   <img src={URL.createObjectURL(resumeImg[0])} alt="img" />
                 )}
@@ -951,6 +955,170 @@ const CreateResumeFormForFresher = () => {
 
         {section === 3 && (
           <section>
+            {/* Work Experience */}
+            {resume.work.map((work, index) => (
+              <div key={index}>
+                <h2>
+                  <div> Work Experience {index + 1}</div>
+
+                  <div className={style.dele_btn}>
+                    {resume.work.length > 0 && (
+                      <button onClick={() => handleDeleteWork(index)}>
+                        <AiFillDelete />
+                      </button>
+                    )}
+                  </div>
+                </h2>
+                <div className={style.section_3}>
+                  <div>
+                    <label htmlFor={`title-${index}`}>Title:</label>
+                    <input
+                      type="text"
+                      id={`title-${index}`}
+                      name={`title-${index}`}
+                      value={work.title}
+                      onChange={(e) => {
+                        const updatedWork = [...resume.work];
+                        updatedWork[index] = {
+                          ...updatedWork[index],
+                          title: e.target.value,
+                        };
+                        setFormData({
+                          ...formData,
+                          resume: {
+                            ...resume,
+                            work: updatedWork,
+                          },
+                        });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor={`company-${index}`}>Company:</label>
+                    <input
+                      type="text"
+                      id={`company-${index}`}
+                      name={`company-${index}`}
+                      value={work.company}
+                      onChange={(e) => {
+                        const updatedWork = [...resume.work];
+                        updatedWork[index] = {
+                          ...updatedWork[index],
+                          company: e.target.value,
+                        };
+                        setFormData({
+                          ...formData,
+                          resume: {
+                            ...resume,
+                            work: updatedWork,
+                          },
+                        });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor={`startDate-${index}`}>Start Date:</label>
+                    <input
+                      type="date"
+                      id={`startDate-${index}`}
+                      name={`startDate-${index}`}
+                      value={work.startDate}
+                      onChange={(e) => {
+                        const updatedWork = [...resume.work];
+                        updatedWork[index] = {
+                          ...updatedWork[index],
+                          startDate: e.target.value,
+                        };
+                        setFormData({
+                          ...formData,
+                          resume: {
+                            ...resume,
+                            work: updatedWork,
+                          },
+                        });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor={`endDate-${index}`}>End Date:</label>
+                    <input
+                      type="date"
+                      id={`endDate-${index}`}
+                      name={`endDate-${index}`}
+                      value={work.endDate}
+                      onChange={(e) => {
+                        const updatedWork = [...resume.work];
+                        updatedWork[index] = {
+                          ...updatedWork[index],
+                          endDate: e.target.value,
+                        };
+                        setFormData({
+                          ...formData,
+                          resume: {
+                            ...resume,
+                            work: updatedWork,
+                          },
+                        });
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor={`location-${index}`}>Location:</label>
+                    <input
+                      type="text"
+                      id={`location-${index}`}
+                      name={`location-${index}`}
+                      value={work.location}
+                      onChange={(e) => {
+                        const updatedWork = [...resume.work];
+                        updatedWork[index] = {
+                          ...updatedWork[index],
+                          location: e.target.value,
+                        };
+                        setFormData({
+                          ...formData,
+                          resume: {
+                            ...resume,
+                            work: updatedWork,
+                          },
+                        });
+                      }}
+                    />
+                  </div>
+                </div>
+                <br />
+                <div>
+                  <label htmlFor={`description-${index}`}>Description:</label>
+                  <textarea
+                    id={`description-${index}`}
+                    name={`description-${index}`}
+                    value={work.description}
+                    onChange={(e) => {
+                      const updatedWork = [...resume.work];
+                      updatedWork[index] = {
+                        ...updatedWork[index],
+                        description: e.target.value,
+                      };
+                      setFormData({
+                        ...formData,
+                        resume: {
+                          ...resume,
+                          work: updatedWork,
+                        },
+                      });
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+            <div className={style.add_btn}>
+              <button onClick={handleAddWork}>+</button>
+            </div>
+          </section>
+        )}
+
+        {section === 4 && (
+          <section>
             {/* Skills and Level */}
             {resume.skillsAndLevel.map((skill, index) => (
               <div key={index}>
@@ -1020,7 +1188,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 4 && (
+        {section === 5 && (
           <section>
             {/* Internships */}
             {resume.internShips.map((internship, index) => (
@@ -1184,7 +1352,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 5 && (
+        {section === 6 && (
           <section>
             {/* Projects */}
             {resume.projects.map((project, index) => (
@@ -1303,7 +1471,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 6 && (
+        {section === 7 && (
           <section>
             {/* Social Links */}
             <div>
@@ -1378,7 +1546,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 7 && (
+        {section === 8 && (
           <section>
             {/* Known Languages */}
             <h2>Known Languages </h2>
@@ -1428,7 +1596,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 8 && (
+        {section === 9 && (
           <section className={style.section_9}>
             {/* Certifications */}
             {resume.certifications.map((certification, index) => (
@@ -1528,7 +1696,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 9 && (
+        {section === 10 && (
           <section className={style.section_9}>
             {/* Awards */}
             {resume.awards.map((award, index) => (
@@ -1630,7 +1798,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 10 && (
+        {section === 11 && (
           <section>
             {/* Volunteer Experience */}
             {resume.volunteerExperience.map((volunteer, index) => (
@@ -1816,7 +1984,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 11 && (
+        {section === 12 && (
           <section className={style.section_12}>
             {/* Areas of Interest */}
             {resume.areaOfInterest.map((interest, index) => (
@@ -1860,7 +2028,7 @@ const CreateResumeFormForFresher = () => {
           </section>
         )}
 
-        {section === 12 && (
+        {section === 13 && (
           <section>
             {/* References */}
             {resume.references.map((reference, index) => (
@@ -2003,6 +2171,8 @@ const CreateResumeFormForFresher = () => {
             <div className={style.add_btn}>
               <button onClick={handleAddReference}>+</button>
             </div>
+            {updateBtn && <p>True</p>}
+            {!updateBtn && <p>false</p>}
             {updateBtn ? (
               <button className={style.submit_btn} onClick={handleUpdateResume}>
                 Update
@@ -2016,7 +2186,7 @@ const CreateResumeFormForFresher = () => {
         )}
       </form>
       <br />
-      {section === 12 ? (
+      {section === 13 ? (
         <button onClick={() => handleSection("prev")}>Previous</button>
       ) : (
         <div className={style.btn_box}>

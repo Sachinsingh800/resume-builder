@@ -47,8 +47,7 @@ export default function ResumeModal() {
     setModal(false);
   };
   const resumeType = JSON.parse(localStorage.getItem("resumetype"));
-  const templates = useRecoilValue(resumeTemplates);
-  const templates2 = useRecoilValue(resumeTemplatesForFresher);
+  const templatesforFresher = useRecoilValue(resumeTemplatesForFresher);
   const [imgtemplate, setImgTemplateNo] = useRecoilState(imageresumeTemplates);
   const [checkAuth, setCheckAuth] = useRecoilState(authenticateduser);
 
@@ -102,6 +101,7 @@ export default function ResumeModal() {
   };
 
   const filterResume = imgtemplate.filter((item) => item.id === templateNo);
+  const filterResumeFresher = templatesforFresher.filter((item) => item.id === templateNo);
 
   return (
     <div>
@@ -130,7 +130,7 @@ export default function ResumeModal() {
             <div className={styles.resume}>
               <div ref={targetRef} id="content">
                 {resumeType === "Fresher"
-                  ? templates2[templateNo]
+                  ? filterResumeFresher[0]?.resume 
                   : filterResume[0]?.resume}
               </div>
             </div>

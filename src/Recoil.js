@@ -210,36 +210,157 @@ export const pdfOptionsState = atom({
 export const resumeTemplatesForFresher = atom({
   key: "resumeTemplatesForFresher", // Unique ID (with respect to other atoms/selectors)
   default: [
-    <F_Template_1 />,
-    <F_Template_2 />,
-    <F_Template_3 />,
-    <F_Template_4 />,
-    <F_Template_5 />,
-    <F_Template_6 />,
-    <F_Template_7 />,
-    <F_Template_8 />,
-    <F_Template_9 />,
-    <F_Template_10 />,
-    <F_Template_11 />,
-    <F_Template_12 />,
-    <F_Template_13 />,
-    <F_Template_14 />,
-    <F_Template_15 />,
-    <F_Template_16 />,
-    <F_Template_17 />,
-    <F_Template_18 />,
-    <F_Template_19 />,
-    <F_Template_20 />,
-    <F_Template_21 />,
-    <F_Template_22 />,
-    <F_Template_23 />,
-    <F_Template_24 />,
-    <F_Template_25 />,
-    <F_Template_26 />,
-    <F_Template_27 />,
-    <F_Template_28 />,
-    <F_Template_29 />,
-    <F_Template_30 />,
+    {
+      id: "template0",
+      resumeImg: resume_0,
+      resume:     <F_Template_1 />,
+    },
+    {
+      id: "template1",
+      resumeImg: resume_1,
+      resume:     <F_Template_2 />,
+    },
+    {
+      id: "template2",
+      resumeImg: resume_2,
+      resume:   <F_Template_3 />,
+    },
+    {
+      id: "template3",
+      resumeImg: resume_3,
+      resume:   <F_Template_4 />,
+    },
+    {
+      id: "template4",
+      resumeImg: resume_4,
+      resume:   <F_Template_5 />,
+    },
+    {
+      id: "template5",
+      resumeImg: resume_5,
+      resume:    <F_Template_6 />,
+    },
+    {
+      id: "template6",
+      resumeImg: resume_6,
+      resume:     <F_Template_7 />,
+    },
+    {
+      id: "template7",
+      resumeImg: resume_7,
+      resume:    <F_Template_8 />,
+    },
+    {
+      id: "template8",
+      resumeImg: resume_8,
+      resume:     <F_Template_9 />,
+    },
+    {
+      id: "template9",
+      resumeImg: resume_9,
+      resume:  <F_Template_10 />,
+    },
+    {
+      id: "template10",
+      resumeImg: resume_10,
+      resume:  <F_Template_11 />,
+    },
+    {
+      id: "template11",
+      resumeImg: resume_11,
+      resume:  <F_Template_12 />,
+    },
+    {
+      id: "template12",
+      resumeImg: resume_12,
+      resume:  <F_Template_13 />,
+    },
+    {
+      id: "template13",
+      resumeImg: resume_13,
+      resume:  <F_Template_14 />,
+    },
+    {
+      id: "template14",
+      resumeImg: resume_14,
+      resume: <F_Template_15 />,
+    },
+    {
+      id: "template15",
+      resumeImg: resume_15,
+      resume:     <F_Template_16 />,
+    },
+    {
+      id: "template16",
+      resumeImg: resume_16,
+      resume:     <F_Template_17 />,
+    },
+    {
+      id: "template17",
+      resumeImg: resume_17,
+      resume:     <F_Template_18 />,
+    },
+    {
+      id: "template18",
+      resumeImg: resume_18,
+      resume:   <F_Template_19 />,
+    },
+    {
+      id: "template19",
+      resumeImg: resume_19,
+      resume:     <F_Template_20 />,
+    },
+    {
+      id: "template20",
+      resumeImg: resume_20,
+      resume: <F_Template_21 />,
+    },
+    {
+      id: "template21",
+      resumeImg: resume_21,
+      resume:     <F_Template_22 />,
+    },
+    {
+      id: "template22",
+      resumeImg: resume_22,
+      resume:     <F_Template_23 />,
+    },
+    {
+      id: "template23",
+      resumeImg: resume_23,
+      resume:    <F_Template_24 />,
+    },
+    {
+      id: "template24",
+      resumeImg: resume_24,
+      resume:     <F_Template_25 />,
+    },
+    {
+      id: "template25",
+      resumeImg: resume_25,
+      resume:     <F_Template_26 />,
+    },
+    {
+      id: "template26",
+      resumeImg: resume_26,
+      resume:     <F_Template_27 />,
+    },
+    {
+      id: "template27",
+      resumeImg: resume_27,
+      resume:   <F_Template_28 />,
+    },
+    {
+      id: "template28",
+      resumeImg: resume_28,
+      resume:     <F_Template_29 />,
+    },
+    {
+      id: "template29",
+      resumeImg: resume_29,
+      resume:     <F_Template_30 />,
+    },
+
   ], // Set the default value to an empty array
 });
 export const coverLetterTemplates = atom({

@@ -108,8 +108,8 @@ const BlogLayout = () => {
                 "url": "URL_TO_YOUR_LOGO_IMAGE"
               }
             },
-            "datePublished": "${filteredBlog?.createdAt}",
-            "dateModified": "${filteredBlog?.updatedAt}",
+            "datePublished": "${filteredBlog?.publishDate}",
+            "dateModified": "${filteredBlog?.publishDate}",
             "mainEntityOfPage": {
               "@type": "WebPage",
               "@id": "https://www.lizmy.com/blog/${title}"
