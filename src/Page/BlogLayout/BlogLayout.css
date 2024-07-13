@@ -220,7 +220,7 @@ h6 {
   margin: 0.5rem 0;
 }
 .image_box{
-  width: 60%;
+  width: 100%;
   max-width: 800px;
   border-radius: 10px;
   overflow: hidden;
@@ -233,6 +233,7 @@ h6 {
   font-family: 'CustomFont';
   font-size: 2rem;
   color: #313b47;
+  width: 40rem;
 
 }
 .header_container{

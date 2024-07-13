@@ -79,22 +79,7 @@ const BlogLayout = () => {
       <br />
       <br />
       <br />
-      <div className="header_container">
-      <div className="header">
-            <h1>{filteredBlog?.blogData?.blogTitle}</h1>
-            <span>{filteredBlog?.publishDate}</span>
-          </div>
-          <div className="image_box">
-            <img
-              src={filteredBlog?.blogData?.blogImg?.url}
-              alt={filteredBlog?.blogData?.blogTitle}
-              title={filteredBlog?.blogData?.blogTitle}
-              height="auto"
-              width="auto"
-              loading="lazy"
-            />
-      </div>
-      </div>
+
    <br/>
       <div className="container">
         <div className="left">
@@ -123,6 +108,22 @@ const BlogLayout = () => {
           </nav>
         </div>
         <div className="middle" id="middle-content">
+        <div className="header_container">
+      <div className="header">
+            <h1>{filteredBlog?.blogData?.blogTitle}</h1>
+            <span>{filteredBlog?.publishDate}</span>
+          </div>
+          <div className="image_box">
+            <img
+              src={filteredBlog?.blogData?.blogImg?.url}
+              alt={filteredBlog?.blogData?.blogTitle}
+              title={filteredBlog?.blogData?.blogTitle}
+              height="auto"
+              width="auto"
+              loading="lazy"
+            />
+      </div>
+      </div>
           <div className="content">
             {filteredBlog &&
               sortedSections.map((section, index) => (
