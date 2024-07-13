@@ -63,6 +63,7 @@ h6 {
 .left {
   width: 20%;
   padding: 3rem;
+  position: sticky;
 }
 .left p {
   font-weight: bold;
@@ -124,6 +125,7 @@ h6 {
 .right {
   width: 20%;
   padding: 3rem;
+  position: sticky;
 }
 
 .share {
