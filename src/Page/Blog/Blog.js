@@ -40,7 +40,7 @@ function Blog() {
       <br/>
       <div className={style.blogContainer}>
         {blogs.map((blog, index) => (
-          <div key={index} className={style.blogCard} onClick={()=>window.location.href=`/blog-layout/${formatTitleForUrl(blog?.blogData?.blogTitle)}`}>
+          <div key={index} className={style.blogCard} onClick={()=>window.location.href=`/blog/${formatTitleForUrl(blog?.blogData?.blogTitle)}`}>
             <div  className={style.blogImage}>
             <img src={blog?.blogData?.blogImg?.url} alt="blog visual" />
             </div>

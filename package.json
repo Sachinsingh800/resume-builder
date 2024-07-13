@@ -30,6 +30,7 @@
     "react-background-animation": "^1.0.1",
     "react-dom": "^18.2.0",
     "react-easy-crop": "^5.0.2",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.11.0",
     "react-multi-carousel": "^2.8.4",
     "react-pdf": "^7.5.1",

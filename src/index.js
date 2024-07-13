@@ -279,7 +279,7 @@ const router = createBrowserRouter([
     element: <UserResume />
   },
   {
-    path: "/blog-layout/:title",
+    path: "/blog/:title",
     element: <BlogLayout />
   },
 ]);

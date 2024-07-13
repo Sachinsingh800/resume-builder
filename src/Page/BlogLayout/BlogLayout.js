@@ -13,6 +13,7 @@ import { AiFillYoutube } from "react-icons/ai";
 import FirstSection from "../../Sections/FirstSection/FirstSection";
 import { Divider } from "@mui/material";
 import { format, parse } from 'date-fns';
+import { Helmet } from "react-helmet";
 
 const BlogLayout = () => {
   const { title } = useParams();
@@ -74,6 +75,50 @@ const BlogLayout = () => {
 
   return (
     <>
+          <Helmet>
+        <html lang="en" />
+        <meta charSet="utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>{filteredBlog?.blogData?.blogTitle}</title>
+        <meta name="description" content={filteredBlog?.blogData?.blogTitle} />
+        <meta name="title" content={filteredBlog?.blogData?.blogTitle} />
+        <meta name="head title" content={filteredBlog?.blogData?.blogTitle} />
+        <meta name="keyword" content={filteredBlog?.blogData?.blogTitle} />
+        <link
+          rel="canonical"
+          href={`https://www.lizmy.com/blog/${title}`}
+        />
+        {/* Schema Markup */}
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "http://schema.org",
+            "@type": "BlogPosting",
+            "headline": "${filteredBlog?.blogData?.blogTitle}",
+            "image": "${filteredBlog?.blogData?.blogImg?.url}",
+            "author": {
+              "@type": "Person",
+              "name": "${filteredBlog?.blogData?.blogTitle}"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Luxury Bubble Basket",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "URL_TO_YOUR_LOGO_IMAGE"
+              }
+            },
+            "datePublished": "${filteredBlog?.createdAt}",
+            "dateModified": "${filteredBlog?.updatedAt}",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.lizmy.com/blog/${title}"
+            }
+          }
+          `}
+        </script>
+        {/* End Schema Markup */}
+      </Helmet>
       <NavBar />
       <br />
       <br />
